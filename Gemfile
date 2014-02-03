@@ -30,14 +30,14 @@ group :doc do
   gem 'sdoc', require: false
 end
 
-gem 'haml-rails', '0.5.3', :group => :development
+gem 'haml-rails', '0.5.3'
 
 group :production do
   gem 'pg'
   gem 'rails_12factor'
 end
 
-group :development do
+group :development, :test do
     # Use sqlite3 as the database for Active Record
     gem 'sqlite3', '1.3.8'
 end
