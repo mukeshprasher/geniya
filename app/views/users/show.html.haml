@@ -1,0 +1,57 @@
+%p#notice= notice
+
+%p
+  %b Email:
+  = @user.email
+%p
+  %b Username:
+  = @user.username
+%p
+  %b Password digest:
+  = @user.password_digest
+%p
+  %b Name:
+  = @user.name
+%p
+  %b Gender:
+  = @user.gender
+%p
+  %b Summary:
+  = @user.summary
+%p
+  %b Height:
+  = @user.height
+%p
+  %b Bust:
+  = @user.bust
+%p
+  %b Hips:
+  = @user.hips
+%p
+  %b Shoes:
+  = @user.shoes
+%p
+  %b Hair:
+  = @user.hair
+%p
+  %b Eyes:
+  = @user.eyes
+%p
+  %b Birthdate:
+  = @user.birthdate
+%p
+  %b Available:
+  = @user.available
+%p
+  %b Plan:
+  = @user.plan
+%p
+  %b Plan end:
+  = @user.plan_end
+%p
+  %b Status:
+  = @user.status
+
+= link_to 'Edit', edit_user_path(@user)
+\|
+= link_to 'Back', users_path

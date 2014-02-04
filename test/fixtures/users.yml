@@ -1,0 +1,39 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  email: MyString
+  username: MyString
+  password_digest: MyString
+  name: MyString
+  gender: MyString
+  summary: MyString
+  height: 1
+  bust: 1
+  hips: 1
+  shoes: 1
+  hair: MyString
+  eyes: MyString
+  birthdate: 2014-02-04
+  available: MyString
+  plan: MyString
+  plan_end: 2014-02-04 13:19:16
+  status: MyString
+
+two:
+  email: MyString
+  username: MyString
+  password_digest: MyString
+  name: MyString
+  gender: MyString
+  summary: MyString
+  height: 1
+  bust: 1
+  hips: 1
+  shoes: 1
+  hair: MyString
+  eyes: MyString
+  birthdate: 2014-02-04
+  available: MyString
+  plan: MyString
+  plan_end: 2014-02-04 13:19:16
+  status: MyString
