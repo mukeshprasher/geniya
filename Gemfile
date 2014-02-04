@@ -43,7 +43,9 @@ group :development, :test do
 end
 
 # Use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.1.2'
+gem 'bcrypt-ruby', '3.1.2'
+
+gem 'bootstrap-sass', '3.1.0.1'
 
 # Use unicorn as the app server
 # gem 'unicorn'
