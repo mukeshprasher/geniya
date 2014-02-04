@@ -28,7 +28,10 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
+        format.html {
+            flash[:success] = "Welcome to Geniya!" 
+            redirect_to @user
+        }
         format.json { render action: 'show', status: :created, location: @user }
       else
         format.html { render action: 'new' }
@@ -42,7 +45,7 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
+        format.html { redirect_to @user, flash[:success] = "Successfully updated!" }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
