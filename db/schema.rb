@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 20140204074916) do
     t.string   "email"
     t.string   "username"
     t.string   "password_digest"
+    t.string   "remember_token"
     t.string   "name"
     t.string   "gender"
     t.string   "summary"

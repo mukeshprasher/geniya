@@ -1,5 +1,7 @@
 %h1 Listing users
 
+= will_paginate
+
 %table
   %tr
     %th Email
@@ -47,5 +49,7 @@
       %td= link_to 'Destroy', user, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
+
+= will_paginate
 
 = link_to 'New User', new_user_path

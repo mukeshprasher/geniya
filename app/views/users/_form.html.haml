@@ -1,59 +1,61 @@
-= form_for @user do |f|
-  = render 'shared/error_messages'
+.row
+  .span6.offset3
+    = form_for @user do |f|
+      = render 'shared/error_messages'
 
-  .field
-    = f.label :email
-    = f.text_field :email
-  .field
-    = f.label :username
-    = f.text_field :username
-  .field
-    = f.label :password
-    = f.password_field :password
-  .field
-    = f.label :password_confirmation
-    = f.password_field :password_confirmation
-  .field
-    = f.label :name
-    = f.text_field :name
-  .field
-    = f.label :gender
-    = f.text_field :gender
-  .field
-    = f.label :summary
-    = f.text_field :summary
-  .field
-    = f.label :height
-    = f.number_field :height
-  .field
-    = f.label :bust
-    = f.number_field :bust
-  .field
-    = f.label :hips
-    = f.number_field :hips
-  .field
-    = f.label :shoes
-    = f.number_field :shoes
-  .field
-    = f.label :hair
-    = f.text_field :hair
-  .field
-    = f.label :eyes
-    = f.text_field :eyes
-  .field
-    = f.label :birthdate
-    = f.date_select :birthdate
-  .field
-    = f.label :available
-    = f.text_field :available
-  .field
-    = f.label :plan
-    = f.text_field :plan
-  .field
-    = f.label :plan_end
-    = f.datetime_select :plan_end
-  .field
-    = f.label :status
-    = f.text_field :status
-  .actions
-    = f.submit 'Save'
+      .field
+        = f.label :email
+        = f.text_field :email
+      .field
+        = f.label :username
+        = f.text_field :username
+      .field
+        = f.label :password
+        = f.password_field :password
+      .field
+        = f.label :password_confirmation
+        = f.password_field :password_confirmation
+      .field
+        = f.label :name
+        = f.text_field :name
+      .field
+        = f.label :gender
+        = f.text_field :gender
+      .field
+        = f.label :summary
+        = f.text_field :summary
+      .field
+        = f.label :height
+        = f.number_field :height
+      .field
+        = f.label :bust
+        = f.number_field :bust
+      .field
+        = f.label :hips
+        = f.number_field :hips
+      .field
+        = f.label :shoes
+        = f.number_field :shoes
+      .field
+        = f.label :hair
+        = f.text_field :hair
+      .field
+        = f.label :eyes
+        = f.text_field :eyes
+      .field
+        = f.label :birthdate
+        = f.date_select :birthdate
+      .field
+        = f.label :available
+        = f.text_field :available
+      .field
+        = f.label :plan
+        = f.text_field :plan
+      .field
+        = f.label :plan_end
+        = f.datetime_select :plan_end
+      .field
+        = f.label :status
+        = f.text_field :status
+      .actions
+        = f.submit 'Save'
