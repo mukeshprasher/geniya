@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+    has_many :updates, foreign_key: "sender_user_id", dependent: :destroy
+    has_many :recieved_updates, :class_name => "Update",
+:foreign_key => "receiver_user_id", dependent: :destroy
     before_save { self.email = email.downcase }
     before_create :create_remember_token
     validates :name,  presence: true, length: { maximum: 50 }
@@ -15,6 +18,10 @@ class User < ActiveRecord::Base
         Digest::SHA1.hexdigest(token.to_s)
     end
 
+    def feed
+      # This is preliminary. See "Following users" for the full implementation.
+      Update.where("sender_user_id = ?", id)
+    end
 
     private
 

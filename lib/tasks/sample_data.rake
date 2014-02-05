@@ -19,7 +19,7 @@ namespace :db do
                  plan_end: Date.today + rand(1..6).months,
                  status: "active",
                  password_confirmation: "password")
-    99.times do |n|
+    50.times do |n|
       name  = Faker::Name.name
       email = "example-#{n+1}@60degree.com"
       password  = "password"
@@ -42,6 +42,14 @@ namespace :db do
                    plan_end: Date.today + rand(1..6).months,
                    status: ['active','inactive','deleted','hold'].sample
                    )
+    end
+
+    users = User.all(limit: 10)
+    25.times do
+      text = Faker::Lorem.sentence(5)
+      receiver_user_id = rand(1..10)
+      privacy = ['public','private', 'connections'].sample
+      users.each { |user| user.updates.create!(text: text, receiver_user_id: receiver_user_id) }
     end
   end
 end

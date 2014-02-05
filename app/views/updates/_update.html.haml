@@ -1,0 +1,8 @@
+%li
+  %span.text= update.text
+  %span.timestamp
+    Posted #{time_ago_in_words(update.created_at)} ago.
+  - if current_user?(update.user)
+    = link_to "delete", update, method: :delete, |
+      data: { confirm: "You sure?" },               |
+      title: update.text                    |

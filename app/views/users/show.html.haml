@@ -3,6 +3,13 @@
 %h1
   = @user.name
 
+.span8
+  - if @user.updates.any?
+    %h3
+      Updates (#{@user.updates.count})
+    %ol.updates= render @updates
+    = will_paginate @updates
+%br
 %p
   %b Email:
   = @user.email

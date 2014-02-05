@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Text:
+  = @update.text
+%p
+  %b Privacy:
+  = @update.privacy
+%p
+  %b Sender user:
+  = @update.sender_user_id
+%p
+  %b Receiver user:
+  = @update.receiver_user_id
+
+= link_to 'Edit', edit_update_path(@update)
+\|
+= link_to 'Back', updates_path

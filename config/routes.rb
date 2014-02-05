@@ -1,4 +1,6 @@
 Geniya::Application.routes.draw do
+  resources :updates, except: [:index, :new]
+
   resources :users
   match '/signup',  to: 'users#new',            via: 'get'
 

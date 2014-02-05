@@ -11,7 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140204074916) do
+ActiveRecord::Schema.define(version: 20140205074239) do
+
+  create_table "updates", force: true do |t|
+    t.text     "text"
+    t.string   "privacy",          default: "private"
+    t.integer  "sender_user_id"
+    t.integer  "receiver_user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "updates", ["created_at"], name: "index_updates_on_created_at"
+  add_index "updates", ["receiver_user_id"], name: "index_updates_on_receiver_user_id"
+  add_index "updates", ["sender_user_id"], name: "index_updates_on_sender_user_id"
 
   create_table "users", force: true do |t|
     t.string   "email"

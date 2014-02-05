@@ -1,0 +1,6 @@
+= form_for(@update) do |f|
+  = render 'shared/error_messages', object: f.object
+  .field
+    = f.text_area :text, placeholder: "Share an update..."
+    = f.hidden_field :receiver_user_id, value: current_user.id
+  = f.submit "Post", class: "btn btn-large btn-primary"

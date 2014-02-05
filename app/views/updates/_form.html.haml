@@ -1,0 +1,22 @@
+= form_for @update do |f|
+  - if @update.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@update.errors.count, "error")} prohibited this update from being saved:"
+      %ul
+        - @update.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :text
+    = f.text_area :text
+  .field
+    = f.label :privacy
+    = f.text_field :privacy
+  .field
+    = f.label :sender_user_id
+    = f.number_field :sender_user_id
+  .field
+    = f.label :receiver_user_id
+    = f.number_field :receiver_user_id
+  .actions
+    = f.submit 'Save'
