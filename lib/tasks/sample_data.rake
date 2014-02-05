@@ -15,7 +15,7 @@ namespace :db do
                  eyes:"brown",
                  birthdate: 23.years.ago,
                  available: "yes",
-                 plan: "deluxe",
+                 plan: "admin",
                  plan_end: Date.today + rand(1..6).months,
                  status: "active",
                  password_confirmation: "password")
