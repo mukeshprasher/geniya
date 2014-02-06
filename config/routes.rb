@@ -1,7 +1,11 @@
 Geniya::Application.routes.draw do
   resources :updates, except: [:index, :new]
 
-  resources :users
+  resources :users do
+    member do
+      get :following, :followers
+    end
+  end
   match '/signup',  to: 'users#new',            via: 'get'
 
   resources :sessions, only: [:new, :create, :destroy]
