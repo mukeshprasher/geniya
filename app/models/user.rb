@@ -21,11 +21,10 @@ class User < ActiveRecord::Base
     def User.encrypt(token)
         Digest::SHA1.hexdigest(token.to_s)
     end
-
+    
     def feed
-      # This is preliminary. See "Following users" for the full implementation.
-      Update.where("sender_user_id = ?", id)
-    end
+      Update.from_users_followed_by(self)
+    end    
 
     def following?(other_user)
       relationships.find_by(followed_id: other_user.id)

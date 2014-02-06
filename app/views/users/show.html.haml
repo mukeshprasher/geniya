@@ -1,14 +1,18 @@
 %p#notice= notice
 - provide(:title, @user.name)
-%h1
-  = @user.name
-
-.span8
-  - if @user.updates.any?
-    %h3
-      Updates (#{@user.updates.count})
-    %ol.updates= render @updates
-    = will_paginate @updates
+.row
+  %aside.span4
+    %section
+      %h1
+        = @user.name
+    %section= render 'shared/stats'
+  .span8
+    = render 'follow_form' if signed_in?
+    - if @user.updates.any?
+      %h3
+        Updates (#{@user.updates.count})
+      %ol.updates= render @updates
+      = will_paginate @updates
 %br
 %p
   %b Email:
