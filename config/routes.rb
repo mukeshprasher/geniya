@@ -1,4 +1,8 @@
 Geniya::Application.routes.draw do
+  resources :sub_categories
+
+  resources :categories
+
   resources :updates, except: [:index, :new]
 
   resources :users do

@@ -11,7 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140206065949) do
+ActiveRecord::Schema.define(version: 20140207072945) do
+
+  create_table "categories", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+  
+  add_index "categories", ["name"], name: "index_categories_on_name", unique: true
 
   create_table "relationships", force: true do |t|
     t.integer  "follower_id"
@@ -23,6 +31,16 @@ ActiveRecord::Schema.define(version: 20140206065949) do
   add_index "relationships", ["followed_id"], name: "index_relationships_on_followed_id"
   add_index "relationships", ["follower_id", "followed_id"], name: "index_relationships_on_follower_id_and_followed_id", unique: true
   add_index "relationships", ["follower_id"], name: "index_relationships_on_follower_id"
+
+  create_table "sub_categories", force: true do |t|
+    t.string   "name"
+    t.integer  "category_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+  
+  add_index "sub_categories", ["name"], name: "index_sub_categories_on_name", unique: true
+  add_index "sub_categories", ["category_id"], name: "index_sub_categories_on_category_id"
 
   create_table "updates", force: true do |t|
     t.text     "text"
