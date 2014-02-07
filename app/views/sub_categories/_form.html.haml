@@ -11,6 +11,6 @@
     = f.text_field :name
   .field
     = f.label :category_id
-    = f.number_field :category_id
+    = collection_select(:sub_category, :category_id, Category.all, :id, :name)
   .actions
     = f.submit 'Save'

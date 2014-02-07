@@ -7,10 +7,10 @@ namespace :db do
   end
 
   def make_users
-    admin =     User.create!(name: "Example User",
-                 email: "mukesh.prashar@60degree.com",
+    admin =     User.create!(name: "geniya User",
+                 email: "geniya@60degree.com",
                  password: "password",
-                 username: "mukesh",
+                 username: "geniya",
                  gender: "male",
                  summary: "helo",
                  height: 175,
