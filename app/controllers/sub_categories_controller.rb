@@ -1,4 +1,5 @@
 class SubCategoriesController < ApplicationController
+  before_action :admin_user
   before_action :set_sub_category, only: [:show, :edit, :update, :destroy]
 
   # GET /sub_categories
@@ -66,7 +67,7 @@ class SubCategoriesController < ApplicationController
     def set_sub_category
       @sub_category = SubCategory.find(params[:id])
     end
-
+    
     # Never trust parameters from the scary internet, only allow the white list through.
     def sub_category_params
       params.require(:sub_category).permit(:name, :category_id)
