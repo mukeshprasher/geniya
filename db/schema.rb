@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140206065949) do
+ActiveRecord::Schema.define(version: 20140207071245) do
 
   create_table "relationships", force: true do |t|
     t.integer  "follower_id"
@@ -36,6 +36,13 @@ ActiveRecord::Schema.define(version: 20140206065949) do
   add_index "updates", ["created_at"], name: "index_updates_on_created_at"
   add_index "updates", ["receiver_user_id"], name: "index_updates_on_receiver_user_id"
   add_index "updates", ["sender_user_id"], name: "index_updates_on_sender_user_id"
+
+  create_table "user_sub_categories", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "sub_category_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "email"
