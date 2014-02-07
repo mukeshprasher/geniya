@@ -55,6 +55,13 @@ ActiveRecord::Schema.define(version: 20140207072945) do
   add_index "updates", ["receiver_user_id"], name: "index_updates_on_receiver_user_id"
   add_index "updates", ["sender_user_id"], name: "index_updates_on_sender_user_id"
 
+  create_table "user_sub_categories", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "sub_category_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "users", force: true do |t|
     t.string   "email"
     t.string   "username"
