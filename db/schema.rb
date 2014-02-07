@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 20140207072945) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-  
+
   add_index "categories", ["name"], name: "index_categories_on_name", unique: true
 
   create_table "relationships", force: true do |t|
@@ -38,9 +38,9 @@ ActiveRecord::Schema.define(version: 20140207072945) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-  
-  add_index "sub_categories", ["name"], name: "index_sub_categories_on_name", unique: true
+
   add_index "sub_categories", ["category_id"], name: "index_sub_categories_on_category_id"
+  add_index "sub_categories", ["name"], name: "index_sub_categories_on_name", unique: true
 
   create_table "updates", force: true do |t|
     t.text     "text"
