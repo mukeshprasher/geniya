@@ -68,10 +68,6 @@ class CategoriesController < ApplicationController
       @category = Category.find(params[:id])
     end
 
-    def admin_user
-      redirect_to(root_url) unless current_user.plan=='admin'  && !current_user?(@user)
-    end 
-    
     # Never trust parameters from the scary internet, only allow the white list through.
     def category_params
       params.require(:category).permit(:name)

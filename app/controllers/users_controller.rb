@@ -91,10 +91,6 @@ class UsersController < ApplicationController
       redirect_to(root_url) unless current_user?(@user)
     end
 
-    def admin_user
-      redirect_to(root_url) unless current_user.plan=='admin'  && !current_user?(@user)
-    end
-
     def redirect_if_already_signed_in
       redirect_to(root_url) if signed_in? 
     end
