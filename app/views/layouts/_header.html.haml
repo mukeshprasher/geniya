@@ -4,7 +4,7 @@
       = link_to "Geniya", root_path, id: "logo"
       %nav
         %ul.nav.pull-right
-          %li= link_to "Home", root_path
+          %li= link_to "Register", signup_path
           - if signed_in?
             %li= link_to "Users", users_path
             %li#fat-menu.dropdown
@@ -21,7 +21,7 @@
                 %li
                   = link_to "Sign out", signout_path, method: "delete"
           - else
-            %li= link_to "Sign in", signin_path
+            %li= link_to "Login", signin_path
     
   - if index
     %td= link_to "Home", root_path
