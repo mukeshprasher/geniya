@@ -1,8 +1,10 @@
 .row
   .span6.offset3
+    .field
+      %label Category
+      = collection_select("category", "category", Category.all, :id, :name, selected: 3)
     = form_for @user do |f|
       = render 'shared/error_messages', object: f.object
-
       .field
         = f.label :email
         = f.text_field :email
