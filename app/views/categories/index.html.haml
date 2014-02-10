@@ -14,7 +14,7 @@
     - alert_msg=["The Following Subcategory also deleted?"]
     - com_msg=alert_msg | sub_name
     %tr
-      %td= category.name
+      %td= link_to category.name, category
       %td= link_to 'Show', category
       %td= link_to 'Edit', edit_category_path(category)
       - if  sub_name ==[]

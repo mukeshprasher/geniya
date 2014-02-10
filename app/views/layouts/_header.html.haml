@@ -22,4 +22,9 @@
                   = link_to "Sign out", signout_path, method: "delete"
           - else
             %li= link_to "Sign in", signin_path
-  
+    
+  - if index
+    %td= link_to "Home", root_path
+    - @categories.each do |category|
+      %td= link_to category.name, category
+   

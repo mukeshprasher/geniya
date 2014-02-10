@@ -43,7 +43,11 @@ module SessionsHelper
   end
   
   def admin_user
-    redirect_to(root_url) unless current_user.plan=='admin'  && !current_user?(@user)
+    redirect_to(root_url) unless signed_in? && current_user.plan=='admin'  && !current_user?(@user)
+  end
+
+  def index
+    @categories = Category.all
   end
 
 end

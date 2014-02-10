@@ -11,15 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140207072945) do
+ActiveRecord::Schema.define(version: 20140210115838) do
 
   create_table "categories", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  add_index "categories", ["name"], name: "index_categories_on_name", unique: true
 
   create_table "relationships", force: true do |t|
     t.integer  "follower_id"
@@ -39,9 +37,6 @@ ActiveRecord::Schema.define(version: 20140207072945) do
     t.datetime "updated_at"
   end
 
-  add_index "sub_categories", ["category_id"], name: "index_sub_categories_on_category_id"
-  add_index "sub_categories", ["name"], name: "index_sub_categories_on_name", unique: true
-
   create_table "updates", force: true do |t|
     t.text     "text"
     t.string   "privacy",          default: "private"
@@ -54,6 +49,14 @@ ActiveRecord::Schema.define(version: 20140207072945) do
   add_index "updates", ["created_at"], name: "index_updates_on_created_at"
   add_index "updates", ["receiver_user_id"], name: "index_updates_on_receiver_user_id"
   add_index "updates", ["sender_user_id"], name: "index_updates_on_sender_user_id"
+
+  create_table "user_connections", force: true do |t|
+    t.integer  "sender_user_id"
+    t.integer  "user_id"
+    t.string   "status"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "user_sub_categories", force: true do |t|
     t.integer  "user_id"
