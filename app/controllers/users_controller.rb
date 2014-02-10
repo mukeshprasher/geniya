@@ -25,6 +25,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
+        set_sub_categories
         format.html {
             sign_in @user
             flash[:success] = "Welcome to Geniya!" 
@@ -41,6 +42,7 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
+        set_sub_categories
         format.html {
           flash[:success] = "Profile updated"
           redirect_to @user
@@ -79,9 +81,15 @@ class UsersController < ApplicationController
       @user = User.find(params[:id])
     end
 
+    def set_sub_categories
+      params[:user][:sub_category_ids].each do |sub_category_id|
+        UserSubCategory.create!(sub_category_id: sub_category_id, user_id: @user.id) if sub_category_id != ''
+      end      
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:email, :username, :password, :password_confirmation, :name, :gender, :summary, :height, :bust, :hips, :shoes, :hair, :eyes, :birthdate, :available, :plan, :plan_end, :status)
+      params.require(:user).permit(:sub_category_ids, :email, :username, :password, :password_confirmation, :name, :gender, :summary, :height, :bust, :hips, :shoes, :hair, :eyes, :birthdate, :available, :plan, :plan_end, :status)
     end
 
     # Before filters

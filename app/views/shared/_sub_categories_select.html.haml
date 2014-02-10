@@ -1,0 +1,3 @@
+.field
+  %label Categories
+  = form_object.select :sub_category_ids, SubCategory.joins(:category).order('categories.name').collect {|x| [x.category.name + ' - ' + x.name, x.id]}, {}, :multiple => true
