@@ -19,6 +19,8 @@ ActiveRecord::Schema.define(version: 20140210115838) do
     t.datetime "updated_at"
   end
 
+  add_index "categories", ["name"], name: "index_categories_on_name", unique: true
+
   create_table "relationships", force: true do |t|
     t.integer  "follower_id"
     t.integer  "followed_id"
@@ -37,6 +39,9 @@ ActiveRecord::Schema.define(version: 20140210115838) do
     t.datetime "updated_at"
   end
 
+  add_index "sub_categories", ["category_id"], name: "index_sub_categories_on_category_id"
+  add_index "sub_categories", ["name"], name: "index_sub_categories_on_name", unique: true
+
   create_table "updates", force: true do |t|
     t.text     "text"
     t.string   "privacy",          default: "private"
@@ -51,12 +56,17 @@ ActiveRecord::Schema.define(version: 20140210115838) do
   add_index "updates", ["sender_user_id"], name: "index_updates_on_sender_user_id"
 
   create_table "user_connections", force: true do |t|
-    t.integer  "sender_user_id"
-    t.integer  "user_id"
-    t.string   "status"
+    t.integer  "sender_user_id",                       null: false
+    t.integer  "user_id",                              null: false
+    t.string   "status",         default: "requested", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "user_connections", ["sender_user_id", "user_id"], name: "index_user_connections_on_sender_user_id_and_user_id", unique: true
+  add_index "user_connections", ["sender_user_id"], name: "index_user_connections_on_sender_user_id"
+  add_index "user_connections", ["status"], name: "index_user_connections_on_status"
+  add_index "user_connections", ["user_id"], name: "index_user_connections_on_user_id"
 
   create_table "user_sub_categories", force: true do |t|
     t.integer  "user_id"
