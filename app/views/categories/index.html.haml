@@ -8,19 +8,16 @@
     %th
 
   - @categories.each do |category|
-    - msg=category
-    - sub_msg=msg.sub_categories
-    - sub_name=sub_msg.map{|x| x.name}
-    - alert_msg=["The Following Subcategory also deleted?"]
-    - com_msg=alert_msg | sub_name
+    - subcategory_names = category.sub_categories.map{ |sub_category| sub_category.name }
+    - alert_msg = ["The following Subcategories will also get deleted?"]
+    - full_alert_msg = alert_msg | subcategory_names
     %tr
       %td= category.name
       %td= link_to 'Show', category
       %td= link_to 'Edit', edit_category_path(category)
-      - if  sub_name ==[]
+      - if  subcategory_names == []
         %td= link_to 'Destroy', category, :method => :delete,:data => { :confirm => 'Are you sure Want to Delete the Category?'}
       - else
-        %td= link_to 'Destroy', category, :method => :delete,:data => { :confirm => com_msg.join("\n")}
-
+        %td= link_to 'Destroy', category, :method => :delete,:data => { :confirm => full_alert_msg.join("\n")}
 %br
 = link_to 'New Category', new_category_path

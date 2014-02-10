@@ -43,7 +43,7 @@ module SessionsHelper
   end
   
   def admin_user
-    redirect_to(root_url) unless current_user.plan=='admin'  && !current_user?(@user)
+    redirect_to(root_url) unless !current_user.nil? && current_user.plan=='admin'  && !current_user?(@user)
   end
 
 end
