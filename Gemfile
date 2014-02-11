@@ -51,6 +51,13 @@ gem 'faker', '1.1.2'
 gem 'will_paginate', '3.0.4'
 gem 'bootstrap-will_paginate', '0.0.9'
 gem 'bootstrap-datetimepicker-rails', '0.0.11'
+
+## For uploads
+gem "paperclip", '4.1.0'
+
+## For image resizing, depends on Imagemagick which is a C program
+gem "mini_magick", '3.7.0'
+
 # Use unicorn as the app server
 # gem 'unicorn'
 

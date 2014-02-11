@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  portfolio_id: 1
+  name: MyString
+  title: MyString
+  description: MyText
+  file_attachment: 
+  file_type: MyString
+  extension: MyString
+
+two:
+  portfolio_id: 1
+  name: MyString
+  title: MyString
+  description: MyText
+  file_attachment: 
+  file_type: MyString
+  extension: MyString

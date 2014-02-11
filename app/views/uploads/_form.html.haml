@@ -1,0 +1,31 @@
+= form_for @upload, :html => { :multipart => true } do |f|
+  - if @upload.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@upload.errors.count, "error")} prohibited this upload from being saved:"
+      %ul
+        - @upload.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :portfolio_id
+    = f.number_field :portfolio_id
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :title
+    = f.text_field :title
+  .field
+    = f.label :description
+    = f.text_area :description
+  .field
+    = f.label :file_attachment
+    = f.file_field :file_attachment
+  .field
+    = f.label :file_type
+    = f.text_field :file_type
+  .field
+    = f.label :extension
+    = f.text_field :extension
+  .actions
+    = f.submit 'Save'

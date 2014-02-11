@@ -1,0 +1,29 @@
+%p#notice= notice
+
+%p
+  %b Portfolio:
+  = @upload.portfolio_id
+%p
+  %b Name:
+  = @upload.name
+%p
+  %b Title:
+  = @upload.title
+%p
+  %b Description:
+  = @upload.description
+%p
+  %b File attachment:
+  =image_tag @upload.file_attachment.url
+  =image_tag @upload.file_attachment.url(:medium)
+  =image_tag @upload.file_attachment.url(:thumb)
+%p
+  %b File type:
+  = @upload.file_type
+%p
+  %b Extension:
+  = @upload.extension
+
+= link_to 'Edit', edit_upload_path(@upload)
+\|
+= link_to 'Back', uploads_path
