@@ -49,6 +49,10 @@ class User < ActiveRecord::Base
     def unfollow!(other_user)
       relationships.find_by(followed_id: other_user.id).destroy
     end
+    
+    def connected?(other_user)
+      user_connections.find_by(sender_user_id: other_user.id) || sent_requests.find_by(user_id: other_user.id)
+    end
 
     private
 
