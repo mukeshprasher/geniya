@@ -2,7 +2,7 @@
 
 %table
   %tr
-    %th Portfolio
+    %th Album
     %th Name
     %th Title
     %th Description
@@ -15,7 +15,7 @@
 
   - @uploads.each do |upload|
     %tr
-      %td= upload.portfolio_id
+      %td= upload.album_id
       %td= upload.name
       %td= upload.title
       %td= upload.description
