@@ -1,7 +1,7 @@
 class CreateUploads < ActiveRecord::Migration
   def change
     create_table :uploads do |t|
-      t.integer :portfolio_id
+      t.integer :album_id
       t.string :name
       t.string :title
       t.text :description

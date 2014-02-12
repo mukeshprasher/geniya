@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
     has_many :followers, through: :reverse_relationships, source: :follower
     has_many :user_sub_categories     
     has_many :sub_categories, :through => :user_sub_categories, :source => :sub_category
+    has_many :albums
 
     before_save { self.email = email.downcase }
     before_create :create_remember_token
