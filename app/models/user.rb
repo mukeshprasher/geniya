@@ -16,6 +16,7 @@ class User < ActiveRecord::Base
     has_many :reverse_connections, through: :sent_requests, source: :user
     
     has_many :albums
+    has_many :uploads, through: :albums
 
     before_save { self.email = email.downcase }
     before_create :create_remember_token

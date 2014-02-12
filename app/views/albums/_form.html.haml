@@ -5,9 +5,8 @@
       %ul
         - @album.errors.full_messages.each do |msg|
           %li= msg
-  .field
-    = f.label :user_id
-    = f.text_field :user_id
+  = f.hidden_field :user_id, value: current_user.id
+  = f.hidden_field :kind, value: "portfolio"
   .field
     = f.label :name
     = f.text_field :name
@@ -17,8 +16,5 @@
   .field
     = f.label :description
     = f.text_area :description
-  .field
-    = f.label :kind
-    = f.text_field :kind
   .actions
     = f.submit 'Save'
