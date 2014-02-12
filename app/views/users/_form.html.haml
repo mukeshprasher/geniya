@@ -43,18 +43,18 @@
       .field
         = f.label :eyes
         = f.text_field :eyes
-      .field
+      .field.datepicker
         = f.label :birthdate
-        = f.date_select :birthdate
+        = f.text_field :birthdate
       .field
         = f.label :available
         = f.text_field :available
       .field
         = f.label :plan
         = f.text_field :plan
-      .field
+      .field.datetimepicker
         = f.label :plan_end
-        = f.datetime_select :plan_end
+        = f.text_field :plan_end
       .field
         = f.label :status
         = f.text_field :status
