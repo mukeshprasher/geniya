@@ -150,7 +150,7 @@ DEPENDENCIES
   bootstrap-will_paginate (= 0.0.9)
   coffee-rails (= 4.0.1)
   faker (= 1.1.2)
-  friendly_id (~> 5.0.0)
+  friendly_id (= 5.0.2)
   haml-rails (= 0.5.3)
   jbuilder (= 1.5.3)
   jquery-rails (= 3.1.0)

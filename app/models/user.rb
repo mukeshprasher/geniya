@@ -28,7 +28,7 @@ class User < ActiveRecord::Base
     validates_presence_of :slug
     
     extend FriendlyId
-    friendly_id :username, use: :slugged
+    friendly_id :username, use: [:slugged, :finders]
 
     def User.new_remember_token
         SecureRandom.urlsafe_base64
