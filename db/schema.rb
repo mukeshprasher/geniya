@@ -26,17 +26,22 @@ ActiveRecord::Schema.define(version: 20140213052755) do
     t.string   "title"
     t.text     "description"
     t.string   "kind"
+    t.string   "slug"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
+  add_index "albums", ["slug"], name: "index_albums_on_slug", unique: true
+
   create_table "categories", force: true do |t|
     t.string   "name"
+    t.string   "slug"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   add_index "categories", ["name"], name: "index_categories_on_name", unique: true
+  add_index "categories", ["slug"], name: "index_categories_on_slug", unique: true
 
   create_table "friendly_id_slugs", force: true do |t|
     t.string   "slug",                      null: false
@@ -65,12 +70,14 @@ ActiveRecord::Schema.define(version: 20140213052755) do
   create_table "sub_categories", force: true do |t|
     t.string   "name"
     t.integer  "category_id"
+    t.string   "slug"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   add_index "sub_categories", ["category_id"], name: "index_sub_categories_on_category_id"
   add_index "sub_categories", ["name"], name: "index_sub_categories_on_name", unique: true
+  add_index "sub_categories", ["slug"], name: "index_sub_categories_on_slug", unique: true
 
   create_table "updates", force: true do |t|
     t.text     "text"

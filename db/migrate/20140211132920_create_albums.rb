@@ -6,8 +6,10 @@ class CreateAlbums < ActiveRecord::Migration
       t.string :title
       t.text :description
       t.string :kind
+      t.string :slug
 
       t.timestamps
     end
+    add_index :albums, :slug, unique: true
   end
 end

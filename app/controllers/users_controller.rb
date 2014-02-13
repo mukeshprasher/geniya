@@ -66,14 +66,14 @@ class UsersController < ApplicationController
 
   def following
     @title = "Following"
-    @user = User.friendly.find(params[:id])
+    @user = User.find(params[:id])
     @users = @user.followed_users.paginate(page: params[:page])
     render 'show_follow'
   end
 
   def followers
     @title = "Followers"
-    @user = User.friendly.find(params[:id])
+    @user = User.find(params[:id])
     @users = @user.followers.paginate(page: params[:page])
     render 'show_follow'
   end
@@ -81,7 +81,7 @@ class UsersController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
-      @user = User.friendly.find(params[:id])
+      @user = User.find(params[:id])
     end
 
     def set_sub_categories
@@ -98,7 +98,7 @@ class UsersController < ApplicationController
     # Before filters
 
     def correct_user
-      @user = User.friendly.find(params[:id])
+      @user = User.find(params[:id])
       redirect_to(root_url) unless current_user?(@user)
     end
 
