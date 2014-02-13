@@ -5,14 +5,13 @@
     %section
       %h1
         = @user.name
-        = image_tag(@user, size: "16x10", alt: "Edit Entry")
     %section= render 'shared/stats'
   .profile_portfolio_section
     - @user.albums.each do |album|
       = render 'shared/album_thumb', album: album
   .span8
-    = render 'follow_form' if signed_in?
-    = render 'connect_form' if signed_in?
+    = render 'shared/follow_form' if signed_in?
+    = render 'shared/connect_form' if signed_in?
     - if @user.updates.any?
       %h3
         Updates (#{@user.updates.count})
