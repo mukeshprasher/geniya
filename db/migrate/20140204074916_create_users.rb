@@ -19,10 +19,12 @@ class CreateUsers < ActiveRecord::Migration
       t.string :plan
       t.datetime :plan_end
       t.string :status
+      t.string :slug
 
       t.timestamps
     end
     add_index :users, :email, unique: true
     add_index :users, :username, unique: true
+    add_index :users, :slug
   end
 end
