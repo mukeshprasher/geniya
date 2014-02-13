@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140211133159) do
+ActiveRecord::Schema.define(version: 20140213052755) do
 
   create_table "album_uploads", force: true do |t|
     t.integer  "album_id"
@@ -37,6 +37,19 @@ ActiveRecord::Schema.define(version: 20140211133159) do
   end
 
   add_index "categories", ["name"], name: "index_categories_on_name", unique: true
+
+  create_table "friendly_id_slugs", force: true do |t|
+    t.string   "slug",                      null: false
+    t.integer  "sluggable_id",              null: false
+    t.string   "sluggable_type", limit: 50
+    t.string   "scope"
+    t.datetime "created_at"
+  end
+
+  add_index "friendly_id_slugs", ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true
+  add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
+  add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id"
+  add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
 
   create_table "relationships", force: true do |t|
     t.integer  "follower_id"
@@ -128,11 +141,13 @@ ActiveRecord::Schema.define(version: 20140211133159) do
     t.string   "plan"
     t.datetime "plan_end"
     t.string   "status"
+    t.string   "slug"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["slug"], name: "index_users_on_slug"
   add_index "users", ["username"], name: "index_users_on_username", unique: true
 
 end
