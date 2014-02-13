@@ -1,20 +1,6 @@
 %p#notice= notice
 
-%p
-  %b User:
-  = @album.user_id
-%p
-  %b Name:
-  = @album.name
-%p
-  %b Title:
-  = @album.title
-%p
-  %b Description:
-  = @album.description
-%p
-  %b Kind:
-  = @album.kind
+= render @album
 
 = link_to 'Edit', edit_album_path(@album)
 \|
