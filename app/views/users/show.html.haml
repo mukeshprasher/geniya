@@ -7,6 +7,9 @@
         = @user.name
     %section= render 'shared/stats'
   .profile_portfolio_section
+    - if signed_in? and current_user?(@user)
+      .new_portfolio_button_cont
+        = link_to 'New Album', new_album_path, class: 'btn btn-primary'
     - @user.albums.each do |album|
       = render 'shared/album_thumb', album: album
   .span8
