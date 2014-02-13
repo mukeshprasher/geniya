@@ -83,7 +83,8 @@ class UploadsController < ApplicationController
 
     # Before filters
     def correct_user
-      @upload = current_user.uploads.find_by(id: params[:id])
-      redirect_to root_url if @upload.nil?
+      @upload = current_user.uploads.find(params[:id])
+    rescue
+      redirect_to root_url
     end
 end

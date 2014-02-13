@@ -1,6 +1,6 @@
 - unless current_user?(@user)
   #connect_form
     - if current_user.connected?(@user)
-      = render 'disconnect'
+      = render 'shared/disconnect'
     - else
-      = render 'connect'
+      = render 'shared/connect'

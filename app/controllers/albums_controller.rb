@@ -77,7 +77,8 @@ class AlbumsController < ApplicationController
 
     # Before filters
     def correct_user
-      @album = current_user.albums.find_by(id: params[:id])
-      redirect_to root_url if @album.nil?
+      @album = current_user.albums.find(params[:id])
+    rescue
+      redirect_to root_url
     end
 end
