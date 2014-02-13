@@ -1,3 +1,5 @@
 .profile_portfolio
-  = album.name
-  = image_tag album.uploads.first.file_attachment.url(:medium), title: album.name if album.uploads.any?
+  .album_cover
+    = image_tag album.uploads.first.file_attachment.url(:medium), title: album.name if album.uploads.any?
+  .album_title
+    = link_to album.name, album

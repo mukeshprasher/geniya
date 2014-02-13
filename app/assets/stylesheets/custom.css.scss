@@ -234,3 +234,27 @@ aside {
     margin-bottom: 5px;
   }
 }
+
+/*
+User profile portfolio section
+*/
+.profile_portfolio_section{
+  float: left;
+  padding: 5px;
+  width: 100%;
+
+  .profile_portfolio{
+    float: left;
+    width: auto;
+    
+    .album_cover{
+      float: left;
+      width: 100%
+    }
+    .album_title{
+      float: left;
+      width: 100%
+    }
+  }
+}
+

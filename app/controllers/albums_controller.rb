@@ -12,6 +12,7 @@ class AlbumsController < ApplicationController
   # GET /albums/1
   # GET /albums/1.json
   def show
+    @user = @album.user
   end
 
   # GET /albums/new
