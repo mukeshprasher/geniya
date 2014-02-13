@@ -258,3 +258,55 @@ User profile portfolio section
   }
 }
 
+/*
+Portfolio detail view
+*/
+.album_cont{
+  float: left;
+  width: 100%;
+
+  .album_main{
+    float: left;
+    width: 70%;
+
+    .album_header{
+      background-color: #333333;
+      color: #EEEEEE;
+      padding: 1px 5px;
+    }
+    .album_body{
+      .album_upload{
+        margin-bottom: 20px;
+
+        .album_upload_file{
+          padding: 5px;      
+        }      
+      }
+    }
+    .album_footer{
+    
+    }
+  }     
+  .album_sidebar{
+    float: left;
+    width: 28%;
+    padding: 5px;
+    .user_info{
+      float: left;
+      width: 100%;  
+    }
+    .follow_form{
+      float: left;
+      width: 50%;
+    }
+    .connect_form{
+      float: left;
+      width: 50%;    
+    }
+    .album_description{
+      float: left;
+      width: 100%;
+      margin-top: 10px;    
+    }
+  }
+}

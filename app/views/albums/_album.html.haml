@@ -1,17 +1,31 @@
-= render 'shared/follow_form' if signed_in?
-= render 'shared/connect_form' if signed_in?
-%p
-  %b User:
-  = @album.user.name
-%p
-  %b Name:
-  = @album.name
-%p
-  %b Title:
-  = @album.title
-%p
-  %b Description:
-  = @album.description
-%p
-  %b Kind:
-  = @album.kind
+.album_cont
+  .album_main
+    .album_header
+      %h4= @album.name
+      %h5= @album.title
+    .album_body
+      - album.uploads.each do |upload|
+        .album_upload
+          %h6=upload.name
+          %h7=upload.title
+          %p=upload.description
+          .album_upload_file
+            =image_tag upload.file_attachment.url  
+    .album_footer
+        
+  .album_sidebar
+    .user_info
+      = @album.kind.capitalize 
+      by
+      %br
+      = link_to @album.user.name, @album.user
+      %br
+      = time_ago_in_words(@album.created_at) 
+      ago
+    .follow_form
+      = render 'shared/follow_form' if signed_in?
+    .connect_form
+      = render 'shared/connect_form' if signed_in?
+    .album_description
+      = @album.description
+
