@@ -1,3 +1,5 @@
+= render 'shared/follow_form' if signed_in?
+= render 'shared/connect_form' if signed_in?
 %p
   %b User:
   = @album.user.name
