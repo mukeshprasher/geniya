@@ -4,6 +4,7 @@ namespace :db do
     make_users
     make_microposts
     make_relationships
+    make_categories
   end
 
   def make_users
@@ -69,5 +70,11 @@ namespace :db do
     followed_users.each { |followed| user.follow!(followed) }
     followers.each      { |follower| follower.follow!(user) }
   end
-end
+  
+  def make_categories
+      ['fashion','Photography','fitness','culinary','entertainment'].each do |name| 
+        Category.create!(name: name)
+      end
+  end
 
+end
