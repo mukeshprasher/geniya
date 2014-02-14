@@ -1,7 +1,8 @@
 class Upload < ActiveRecord::Base
-  has_many :album_uploads, dependent: :destroy
-  has_many :albums, through: :album_uploads
-  has_attached_file :file_attachment, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.jpg", :hash_secret => "geniyaAttach"
+  belongs_to :album
+  belongs_to :user
+
+  has_attached_file :file_attachment, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/assets/missing.png", :hash_secret => "geniyaAttach"
   validates_attachment :file_attachment, :presence => true,
   :content_type => { :content_type => ["image/jpg", "image/jpeg", "image/gif", "image/png", "application/pdf"] },
   :size => { :in => 0..10.megabytes },
