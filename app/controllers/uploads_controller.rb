@@ -27,10 +27,9 @@ class UploadsController < ApplicationController
   # POST /uploads.json
   def create
     @upload = Upload.new(upload_params)
-
+    @upload.user_id = current_user.id
     respond_to do |format|
       if @upload.save
-        relate_with_album
         format.html { redirect_to @upload, notice: 'Upload was successfully created.' }
         format.json { render action: 'show', status: :created, location: @upload }
       else
@@ -45,7 +44,6 @@ class UploadsController < ApplicationController
   def update
     respond_to do |format|
       if @upload.update(upload_params)
-        relate_with_album
         format.html { redirect_to @upload, notice: 'Upload was successfully updated.' }
         format.json { head :no_content }
       else
@@ -74,11 +72,6 @@ class UploadsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def upload_params
       params.require(:upload).permit(:album_id, :name, :title, :description, :file_attachment, :file_type, :extension)
-    end
-
-    def relate_with_album
-      @album_upload = @upload.album_uploads.build(album_id: @upload.album_id)
-      @album_upload.save
     end
 
     # Before filters

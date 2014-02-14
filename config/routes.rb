@@ -3,8 +3,6 @@ Geniya::Application.routes.draw do
 
   resources :uploads
   
-  resources :album_uploads, only: [:create, :destroy]
-
   resources :sub_categories
 
   resources :categories
