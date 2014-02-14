@@ -87,6 +87,7 @@ ActiveRecord::Schema.define(version: 20140213052755) do
 
   create_table "uploads", force: true do |t|
     t.integer  "album_id"
+    t.integer  "user_id"
     t.string   "name"
     t.string   "title"
     t.text     "description"
