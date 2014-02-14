@@ -11,6 +11,7 @@ class UsersController < ApplicationController
 
   def show
     @updates = @user.updates.paginate(page: params[:page], :per_page => 10)
+    @headshot = (@user.headshot) ? @user.headshot : Upload.new
   end
 
   def new
