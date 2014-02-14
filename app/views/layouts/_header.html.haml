@@ -6,7 +6,7 @@
         %ul.nav.pull-right
           %li= link_to "Home", root_path
           - @categories.each do |category|
-            %li= link_to category.name, category
+            %li= link_to category.name.capitalize, category
           - if signed_in?
             %li= link_to "Users", users_path
             %li#fat-menu.dropdown

@@ -5,6 +5,8 @@ namespace :db do
     make_microposts
     make_relationships
     make_categories
+    make_subcategories
+    make_albums
   end
 
   def make_users
@@ -72,9 +74,27 @@ namespace :db do
   end
   
   def make_categories
-      ['fashion','Photography','fitness','culinary','entertainment'].each do |name| 
+      ['fashion','photography','fitness','culinary','entertainment'].each do |name| 
         Category.create!(name: name)
       end
   end
-
+  
+  def make_subcategories
+    Category.all.each do|cat|
+      SubCategory.create!(name: "Glamour "+cat.name, category_id: cat.id)
+      SubCategory.create!(name: "Famous "+cat.name, category_id: cat.id)
+      SubCategory.create!(name: "Dynamic "+cat.name, category_id: cat.id)
+    end
+  end
+  
+  def make_albums
+    User.all.each do|user|
+      name = Faker::Lorem.words(rand(2..3)).join(' ')
+      title = Faker::Lorem.words(rand(2..5)).join(' ')
+      kind = ['album','project', 'portfolio'].sample
+      para = Faker::Lorem.paragraph()
+      Album.create!(user_id: user.id, name: name, title: title, description: para, kind: kind)
+    end
+  end
+  
 end
