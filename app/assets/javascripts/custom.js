@@ -11,8 +11,13 @@ $(function() {
       format: 'yyyy-MM-dd',
       pickTime: false
     });
+
   };
 
   $(document).ready(toDoOnload);
   $(document).on('page:load', toDoOnload);
 });
+
+
+
+

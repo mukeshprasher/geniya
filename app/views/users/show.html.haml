@@ -51,24 +51,6 @@
   %b Summary:
   = @user.summary
 %p
-  %b Height:
-  = @user.height
-%p
-  %b Bust:
-  = @user.bust
-%p
-  %b Hips:
-  = @user.hips
-%p
-  %b Shoes:
-  = @user.shoes
-%p
-  %b Hair:
-  = @user.hair
-%p
-  %b Eyes:
-  = @user.eyes
-%p
   %b Birthdate:
   = @user.birthdate
 %p
@@ -83,6 +65,25 @@
 %p
   %b Status:
   = @user.status
+-if @user.sub_categories.any?{|sub_cat| sub_cat.name == 'model'}
+  %p
+    %b Height:
+    = @user.height
+  %p
+    %b Bust:
+    = @user.bust
+  %p
+    %b Hips:
+    = @user.hips
+  %p
+    %b Shoes:
+    = @user.shoes
+  %p
+    %b Hair:
+    = @user.hair
+  %p
+    %b Eyes:
+    = @user.eyes
 
 = link_to 'Edit', edit_user_path(@user)
 \|

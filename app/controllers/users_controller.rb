@@ -23,6 +23,9 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    @user.plan = "trial"
+    @user.plan_end = Date.today + 1.month
+    @user.status = "active"
 
     respond_to do |format|
       if @user.save
@@ -32,8 +35,8 @@ class UsersController < ApplicationController
         
         format.html {
             sign_in @user
-            flash[:success] = "Welcome to Geniya!" 
-            redirect_to @user
+            flash[:success] = "Welcome to Geniya!, tell us something more about you." 
+            redirect_to edit_user_path(@user)
         }
         format.json { render action: 'show', status: :created, location: @user }
       else
@@ -93,7 +96,7 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:sub_category_ids, :email, :username, :password, :password_confirmation, :name, :gender, :summary, :height, :bust, :hips, :shoes, :hair, :eyes, :birthdate, :available, :plan, :plan_end, :status)
+      params.require(:user).permit(:sub_category_ids, :email, :username, :password, :password_confirmation, :name, :gender, :summary, :height, :bust, :hips, :shoes, :hair, :eyes, :birthdate, :available)
     end
 
     # Before filters
