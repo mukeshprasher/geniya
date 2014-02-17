@@ -1,5 +1,28 @@
-%h1 New user
+%h1 Join Geniya
 
-= render 'form'
+.row
+  .span6.offset3
+    .field
+    = form_for @user do |f|
+      = render 'shared/error_messages', object: f.object
+      .field
+        = f.label "Area of work"
+        = collection_select(:category, :id, Category.all, :id, :name.to_s)
+      = render 'shared/sub_categories_select', form_object: f, category_id: Category.first.id
+      .field
+        = f.label :email
+        = f.text_field :email
+      .field
+        = f.label :username
+        = request.host + '/'
+        = f.text_field :username, style: "width: 80%"
+      .field
+        = f.label :password
+        = f.password_field :password
+      .field
+        = f.label :password_confirmation
+        = f.password_field :password_confirmation
+      .actions
+        = f.submit 'Create my account', class: "btn btn-large btn-primary"
 
 = link_to 'Back', users_path

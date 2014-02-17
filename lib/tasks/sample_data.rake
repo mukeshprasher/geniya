@@ -81,7 +81,7 @@ namespace :db do
   
   def make_categories
       ['fashion','photography','fitness','culinary','entertainment'].each do |name| 
-        Category.create!(name: name)
+        Category.create!(name: name.capitalize)
       end
   end
   
