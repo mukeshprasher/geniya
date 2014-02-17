@@ -28,11 +28,15 @@ namespace :db do
                  plan_end: Date.today + rand(1..6).months,
                  status: "active",
                  password_confirmation: "password")
+
+    admin_default_album = admin.albums.build(name: "Default Album #{admin.username}", title: "Profile picture and timeline uploads", description: "The pictues which dont belong to any album go here", kind: "default")
+    admin_default_album.save
+
     20.times do |n|
       name  = Faker::Name.name
       email = "example-#{n+1}@60degree.com"
       password  = "password"
-      User.create!(name: name,
+      user = User.create!(name: name,
                    email: email,
                    password: password,
                    password_confirmation: password,
@@ -51,9 +55,8 @@ namespace :db do
                    plan_end: Date.today + rand(1..6).months,
                    status: ['active','inactive','deleted','hold'].sample
                    )
-      end
-    User.all.each do|user|
-     Album.create!(user_id: user.id, name: "Default Album", title: "Profile picture and timeline uploads", description: "The pictues which dont belong to any album go here", kind: "default")
+      user_default_album = user.albums.build(name: "Default Album #{user.username}", title: "Profile picture and timeline uploads", description: "The pictues which dont belong to any album go here", kind: "default")
+      user_default_album.save
     end
   end
 
