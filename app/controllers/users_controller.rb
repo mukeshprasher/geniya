@@ -26,8 +26,8 @@ class UsersController < ApplicationController
     respond_to do |format|
       if @user.save
         set_sub_categories
-        default_album = @user.albums.build(name: "Default Album", title: "Profile picture and timeline uploads", description: "The pictues which dont belong to any album go here", kind: "default")
-        default_album.save
+#        default_album = @user.albums.build(name: "Default Album", title: "Profile picture and timeline uploads", description: "The pictues which dont belong to any album go here", kind: "default")
+#        default_album.save
         
         format.html {
             sign_in @user

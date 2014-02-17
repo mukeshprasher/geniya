@@ -51,6 +51,9 @@ namespace :db do
                    plan_end: Date.today + rand(1..6).months,
                    status: ['active','inactive','deleted','hold'].sample
                    )
+      end
+    User.all.each do|user|
+     Album.create!(user_id: user.id, name: "Default Album", title: "Profile picture and timeline uploads", description: "The pictues which dont belong to any album go here", kind: "default")
     end
   end
 
