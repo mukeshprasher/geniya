@@ -3,6 +3,9 @@
     -if album.uploads.any?
       = image_tag album.uploads.first.file_attachment.url(:medium), title: album.name
     -else
-      =image_tag '/assets/file-upload.jpg', width: "150px", height: "150px" 
+      =image_tag '/assets/file-upload.jpg', width: "200px", height: "200px" 
   .album_title
     = link_to album.name, album
+  .album_author_name
+    = album.user.name  
+  
