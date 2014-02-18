@@ -1,10 +1,10 @@
 namespace :db do
   desc "Fill database with sample data"
   task populate: :environment do
+    make_categories
     make_users
     make_microposts
     make_relationships
-    make_categories
     make_subcategories
     make_albums
   end
@@ -28,7 +28,7 @@ namespace :db do
                  plan_end: Date.today + rand(1..6).months,
                  status: "active",
                  password_confirmation: "password")
-    admin_default_album = admin.albums.build(name: "Default Album #{admin.username}", title: "Profile picture and timeline uploads", description: "The pictues which dont belong to any album go here", kind: "default", category_id: 1)
+    admin_default_album = admin.albums.build(name: "Default Album #{admin.username}", title: "Profile picture and timeline uploads", description: "The pictues which dont belong to any album go here", kind: "default", category_id: Category.all.sample.id)
     admin_default_album.save
     20.times do |n|
       name  = Faker::Name.name
@@ -53,7 +53,7 @@ namespace :db do
                    plan_end: Date.today + rand(1..6).months,
                    status: ['active','inactive','deleted','hold'].sample
                    )
-    user_default_album = user.albums.build(name: "Default Album #{user.username}", title: "Profile picture and timeline uploads", description: "The pictues which dont belong to any album go here", kind: "default",category_id: rand(1..5) )
+    user_default_album = user.albums.build(name: "Default Album #{user.username}", title: "Profile picture and timeline uploads", description: "The pictues which dont belong to any album go here", kind: "default",category_id: Category.all.sample.id)
     user_default_album.save
     end
   end
@@ -93,13 +93,10 @@ namespace :db do
   
   def make_albums
     User.all.each do|user|
-      Category.all.each do|cat|
       name = Faker::Lorem.words(rand(2..3)).join(' ')
       title = Faker::Lorem.words(rand(2..5)).join(' ')
-      kind = ['album','project', 'portfolio'].sample
       para = Faker::Lorem.paragraph()
-      Album.create!(user_id: user.id, name: name, title: title, description: para, kind: kind, category_id: cat.id)
-      end    
+      Album.create!(user_id: user.id, name: name, title: title, description: para, kind: "portfolio", category_id:  Category.all.sample.id)
     end
   end
   
