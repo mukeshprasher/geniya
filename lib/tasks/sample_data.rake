@@ -28,10 +28,8 @@ namespace :db do
                  plan_end: Date.today + rand(1..6).months,
                  status: "active",
                  password_confirmation: "password")
-    Category.all.each do|cat| 
-      admin_default_album = admin.albums.build(name: "Default Album #{admin.username}", title: "Profile picture and timeline uploads", description: "The pictues which dont belong to any album go here", kind: "default", category_id: cat.id)
-      admin_default_album.save
-    end
+    admin_default_album = admin.albums.build(name: "Default Album #{admin.username}", title: "Profile picture and timeline uploads", description: "The pictues which dont belong to any album go here", kind: "default", category_id: 1)
+    admin_default_album.save
     20.times do |n|
       name  = Faker::Name.name
       email = "example-#{n+1}@60degree.com"
@@ -55,10 +53,8 @@ namespace :db do
                    plan_end: Date.today + rand(1..6).months,
                    status: ['active','inactive','deleted','hold'].sample
                    )
-      Category.all.each do|cat|
-        user_default_album = user.albums.build(name: "Default Album #{user.username}", title: "Profile picture and timeline uploads", description: "The pictues which dont belong to any album go here", kind: "default", category_id: cat.id)
-        user_default_album.save
-      end
+    user_default_album = user.albums.build(name: "Default Album #{user.username}", title: "Profile picture and timeline uploads", description: "The pictues which dont belong to any album go here", kind: "default",category_id: rand(2..20) )
+    user_default_album.save
     end
   end
 
