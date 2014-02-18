@@ -53,7 +53,7 @@ namespace :db do
                    plan_end: Date.today + rand(1..6).months,
                    status: ['active','inactive','deleted','hold'].sample
                    )
-    user_default_album = user.albums.build(name: "Default Album #{user.username}", title: "Profile picture and timeline uploads", description: "The pictues which dont belong to any album go here", kind: "default",category_id: rand(2..20) )
+    user_default_album = user.albums.build(name: "Default Album #{user.username}", title: "Profile picture and timeline uploads", description: "The pictues which dont belong to any album go here", kind: "default",category_id: rand(1..5) )
     user_default_album.save
     end
   end
