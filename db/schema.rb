@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20140213052755) do
     t.datetime "updated_at"
   end
 
+  add_index "albums", ["category_id"], name: "index_albums_on_category_id"
   add_index "albums", ["slug"], name: "index_albums_on_slug", unique: true
 
   create_table "categories", force: true do |t|
