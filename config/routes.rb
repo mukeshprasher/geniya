@@ -1,4 +1,6 @@
 Geniya::Application.routes.draw do
+  get "/portfolios", to: 'portfolios#index', via: 'get'
+  get "/portfolios/:id", to: 'portfolios#show', via: 'get'
   resources :albums
 
   resources :uploads
