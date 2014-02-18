@@ -1,5 +1,5 @@
 Geniya::Application.routes.draw do
-  resources :albums
+  resources :albums, :path => 'portfolios'
 
   resources :uploads
   

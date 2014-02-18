@@ -6,7 +6,7 @@ class AlbumsController < ApplicationController
   # GET /albums
   # GET /albums.json
   def index
-    @albums = Album.where.not(:kind => "default")
+    @albums = Album.where(:kind => "portfolio")
   end
 
   # GET /albums/1
