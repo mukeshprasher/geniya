@@ -103,19 +103,6 @@ ActiveRecord::Schema.define(version: 20140213052755) do
     t.datetime "updated_at"
   end
 
-  create_table "user_connections", force: true do |t|
-    t.integer  "sender_user_id",                       null: false
-    t.integer  "user_id",                              null: false
-    t.string   "status",         default: "requested", null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "user_connections", ["sender_user_id", "user_id"], name: "index_user_connections_on_sender_user_id_and_user_id", unique: true
-  add_index "user_connections", ["sender_user_id"], name: "index_user_connections_on_sender_user_id"
-  add_index "user_connections", ["status"], name: "index_user_connections_on_status"
-  add_index "user_connections", ["user_id"], name: "index_user_connections_on_user_id"
-
   create_table "user_sub_categories", force: true do |t|
     t.integer  "user_id"
     t.integer  "sub_category_id"
