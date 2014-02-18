@@ -1,6 +1,4 @@
 Geniya::Application.routes.draw do
-  resources :albums, :path => 'portfolios'
-
   resources :uploads
   
   resources :sub_categories
