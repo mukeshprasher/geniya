@@ -14,6 +14,10 @@ class User < ActiveRecord::Base
 
 #    has_many :sent_requests, class_name: "UserConnection", foreign_key: "sender_user_id"
 #    has_many :reverse_connections, through: :sent_requests, source: :user
+ 
+    has_many :connections
+    has_many :connected_users, through: :connections, source: :connected_user
+    #has_many :pending_recieved_connection_requests, through: :connections, source: :connection, conditions: "status = 'pending'"
     
     has_many :albums
     has_many :uploads, through: :albums
