@@ -63,7 +63,7 @@ class User < ActiveRecord::Base
     end
     
     def connected?(other_user)
-      user_connections.find_by(sender_user_id: other_user.id) || sent_requests.find_by(user_id: other_user.id)
+#      user_connections.find_by(sender_user_id: other_user.id) || sent_requests.find_by(user_id: other_user.id)
     end
 
     private
