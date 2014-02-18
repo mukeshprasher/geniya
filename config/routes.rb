@@ -9,7 +9,7 @@ Geniya::Application.routes.draw do
   
   resources :sub_categories
 
-  resources :categories, :path => "portfolios"
+  resources :categories
 
   resources :updates, except: [:index, :new]
 
