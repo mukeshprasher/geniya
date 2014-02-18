@@ -1,7 +1,4 @@
-%h1 Our Portfolio Base
-%li= link_to "All", albums_path
-- @categories.each do |category|
-  %li= link_to category.name.capitalize, category
+= render "portfolio_menu"
 .profile_portfolio_section
   - @albums.each do |album|
     = render 'shared/album_thumb', album: album
