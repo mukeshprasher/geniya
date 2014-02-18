@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(version: 20140213052755) do
 
   create_table "albums", force: true do |t|
     t.integer  "user_id"
+    t.integer  "category_id"
     t.string   "name"
     t.string   "title"
     t.text     "description"
