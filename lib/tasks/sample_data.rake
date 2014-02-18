@@ -28,10 +28,10 @@ namespace :db do
                  plan_end: Date.today + rand(1..6).months,
                  status: "active",
                  password_confirmation: "password")
-
-    admin_default_album = admin.albums.build(name: "Default Album #{admin.username}", title: "Profile picture and timeline uploads", description: "The pictues which dont belong to any album go here", kind: "default")
-    admin_default_album.save
-
+    Category.all.each do|cat| 
+      admin_default_album = admin.albums.build(name: "Default Album #{admin.username}", title: "Profile picture and timeline uploads", description: "The pictues which dont belong to any album go here", kind: "default", category_id: cat.id)
+      admin_default_album.save
+    end
     20.times do |n|
       name  = Faker::Name.name
       email = "example-#{n+1}@60degree.com"
@@ -55,8 +55,10 @@ namespace :db do
                    plan_end: Date.today + rand(1..6).months,
                    status: ['active','inactive','deleted','hold'].sample
                    )
-      user_default_album = user.albums.build(name: "Default Album #{user.username}", title: "Profile picture and timeline uploads", description: "The pictues which dont belong to any album go here", kind: "default")
-      user_default_album.save
+      Category.all.each do|cat|
+        user_default_album = user.albums.build(name: "Default Album #{user.username}", title: "Profile picture and timeline uploads", description: "The pictues which dont belong to any album go here", kind: "default", category_id: cat.id)
+        user_default_album.save
+      end
     end
   end
 
@@ -95,11 +97,13 @@ namespace :db do
   
   def make_albums
     User.all.each do|user|
+      Category.all.each do|cat|
       name = Faker::Lorem.words(rand(2..3)).join(' ')
       title = Faker::Lorem.words(rand(2..5)).join(' ')
       kind = ['album','project', 'portfolio'].sample
       para = Faker::Lorem.paragraph()
-      Album.create!(user_id: user.id, name: name, title: title, description: para, kind: kind)
+      Album.create!(user_id: user.id, name: name, title: title, description: para, kind: kind, category_id: cat.id)
+      end    
     end
   end
   

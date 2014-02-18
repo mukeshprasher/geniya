@@ -1,2 +1,7 @@
-%h1 Portfolios#index
-%p Find me in app/views/portfolios/index.html.haml
+%h1 Our Portfolio Base
+%li= link_to "All", albums_path
+- @categories.each do |category|
+  %li= link_to category.name.capitalize, category
+.profile_portfolio_section
+  - @albums.each do |album|
+    = render 'shared/album_thumb', album: album
