@@ -9,11 +9,11 @@ class User < ActiveRecord::Base
     has_many :user_sub_categories     
     has_many :sub_categories, :through => :user_sub_categories, :source => :sub_category
 
-    has_many :user_connections
-    has_many :connections, through: :user_connections, source: :sender_user
+#    has_many :user_connections
+#    has_many :connections, through: :user_connections, source: :sender_user
 
-    has_many :sent_requests, class_name: "UserConnection", foreign_key: "sender_user_id"
-    has_many :reverse_connections, through: :sent_requests, source: :user
+#    has_many :sent_requests, class_name: "UserConnection", foreign_key: "sender_user_id"
+#    has_many :reverse_connections, through: :sent_requests, source: :user
     
     has_many :albums
     has_many :uploads, through: :albums
