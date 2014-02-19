@@ -58,6 +58,8 @@ gem "paperclip", '4.1.0'
 ## For image resizing, depends on Imagemagick which is a C program
 gem "mini_magick", '3.7.0'
 
+gem "socialization"
+
 # Use unicorn as the app server
 # gem 'unicorn'
 
