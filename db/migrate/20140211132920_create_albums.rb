@@ -12,6 +12,6 @@ class CreateAlbums < ActiveRecord::Migration
       t.timestamps
     end
     add_index :albums, :slug, unique: true
-    #add_index :albums, :category_id
+    add_index :albums, :category_id
   end
 end
