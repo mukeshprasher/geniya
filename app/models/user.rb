@@ -64,7 +64,7 @@ class User < ActiveRecord::Base
     end
     
     def connected?(other_user)
-#      user_connections.find_by(sender_user_id: other_user.id) || sent_requests.find_by(user_id: other_user.id)
+      connection = Connection.find_by_user_id_and_connection_id(id, other_user.id) unless id == other_user.id
     end
     
     

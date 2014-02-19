@@ -1,2 +1,4 @@
-= form_for(@user, remote: true) do |f|
+= form_for(current_user.connections.build(connection_id: @user.id), remote: true) do |f|
+  = f.hidden_field :connection_id
+  = f.hidden_field :user_id
   = f.button "Connect", class: "btn btn-large btn-primary"
