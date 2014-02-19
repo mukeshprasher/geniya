@@ -1,6 +1,4 @@
 Geniya::Application.routes.draw do
-  get "likes/create"
-  get "likes/destroy"
   get "/portfolios", to: 'portfolios#index', via: 'get'
   get "/portfolios/:id", to: 'portfolios#category_index', via: 'get'
   resources :connections, only: [:create, :update]
