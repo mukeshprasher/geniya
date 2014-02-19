@@ -3,6 +3,8 @@ Geniya::Application.routes.draw do
   get "/portfolios/:id", to: 'portfolios#category_index', via: 'get'
   resources :connections, only: [:create, :update, :destroy]
 
+  resources :likes, only: [:create, :destroy]
+  
   resources :albums
 
   resources :uploads
