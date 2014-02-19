@@ -1,3 +1,7 @@
-- unless current_user?(@user)
-  #like_form
-    = render 'shared/like', album: album
+- if current_user
+  - unless current_user?(user)
+    %div{ :id => "like_form_#{object.class.name}_#{object.id}" }
+      -if current_user.likes?(object)
+        = render 'shared/unlike', object: object
+      -else
+        = render 'shared/like', object: object
