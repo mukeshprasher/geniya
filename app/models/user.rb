@@ -24,7 +24,6 @@ class User < ActiveRecord::Base
     
     has_one :default_album, -> { where kind: 'default' }, class_name: 'Album'
     has_one :headshot, -> { where special_attribute: 'headshot' }, class_name: 'Upload', through: :default_album, source: :uploads
-
     before_save { self.email = email.downcase }
     before_create :create_remember_token
     validates :username,  presence: true, length: { maximum: 30 }
@@ -35,6 +34,8 @@ class User < ActiveRecord::Base
     #validates_associated :sub_categories, presence: true
     validates_presence_of :slug
     
+    acts_as_liker 
+     
     extend FriendlyId
     friendly_id :username, use: [:slugged, :finders]
 
@@ -65,7 +66,9 @@ class User < ActiveRecord::Base
     def connected?(other_user)
 #      user_connections.find_by(sender_user_id: other_user.id) || sent_requests.find_by(user_id: other_user.id)
     end
-
+    
+    
+    
     private
 
         def create_remember_token

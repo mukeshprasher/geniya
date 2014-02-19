@@ -5,7 +5,8 @@ class Update < ActiveRecord::Base
   validates :sender_user_id, presence: true
   validates :receiver_user_id, presence: true
   default_scope -> { order('created_at DESC') }
-
+  acts_as_likeable
+  
   def self.from_users_followed_by(user)
     followed_user_ids = "SELECT followed_id FROM relationships
                          WHERE follower_id = :user_id"

@@ -5,7 +5,7 @@ class Album < ActiveRecord::Base
   
   extend FriendlyId
   friendly_id :slug_candidates, use: [:slugged, :finders]
-  
+  acts_as_likeable
   def slug_candidates
     [
       [:name]
