@@ -1,4 +1,6 @@
 Geniya::Application.routes.draw do
+  mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
+  mount RailsAdminImport::Engine => '/rails_admin_import', :as => 'rails_admin_import'
   get "/portfolios", to: 'portfolios#index', via: 'get'
   get "/portfolios/:id", to: 'portfolios#category_index', via: 'get'
   resources :connections, only: [:create, :update, :destroy]

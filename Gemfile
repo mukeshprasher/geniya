@@ -58,7 +58,12 @@ gem "paperclip", '4.1.0'
 ## For image resizing, depends on Imagemagick which is a C program
 gem "mini_magick", '3.7.0'
 
-gem "socialization"
+# For admin section
+gem "rails_admin", '0.6.1'
+gem "rails_admin_import", '0.1.8'
+
+gem "socialization", '1.1.0'
+
 
 # Use unicorn as the app server
 # gem 'unicorn'
