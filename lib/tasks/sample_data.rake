@@ -28,8 +28,40 @@ namespace :db do
                  plan_end: Date.today + rand(1..6).months,
                  status: "active",
                  password_confirmation: "password")
+
     admin_default_album = admin.albums.build(name: "Default Album #{admin.username}", title: "Profile picture and timeline uploads", description: "The pictues which dont belong to any album go here", kind: "default", category_id: Category.all.sample.id)
     admin_default_album.save
+
+    mg =     User.create!(name: "M G",
+                 email: "mg@geniya.com",
+                 password: "mgpass12",
+                 username: "mg",
+                 gender: "male",
+                 summary: "hello",
+                 birthdate: 23.years.ago,
+                 available: "yes",
+                 plan: "admin",
+                 plan_end: Date.today + rand(1..6).years,
+                 status: "active",
+                 password_confirmation: "mgpass12")
+    mg_default_album = mg.albums.build(name: "Default Album #{mg.username}", title: "Profile picture and timeline uploads", description: "The pictues which dont belong to any album go here", kind: "default", category_id: Category.all.sample.id)
+    mg_default_album.save
+
+    neeraj =     User.create!(name: "Neeraj Singh",
+                 email: "neeraj.singh@60degree.com",
+                 password: "neerajpass12",
+                 username: "neeraj",
+                 gender: "male",
+                 summary: "hello",
+                 birthdate: 23.years.ago,
+                 available: "yes",
+                 plan: "admin",
+                 plan_end: Date.today + rand(1..6).years,
+                 status: "active",
+                 password_confirmation: "neerajpass12")
+    neeraj_default_album = neeraj.albums.build(name: "Default Album #{neeraj.username}", title: "Profile picture and timeline uploads", description: "The pictues which dont belong to any album go here", kind: "default", category_id: Category.all.sample.id)
+    neeraj_default_album.save
+
     20.times do |n|
       name  = Faker::Name.name
       email = "example-#{n+1}@60degree.com"
