@@ -21,6 +21,8 @@ class User < ActiveRecord::Base
     
     has_many :albums
     has_many :uploads, through: :albums
+
+    has_many :development_logs
     
     has_one :default_album, -> { where kind: 'default' }, class_name: 'Album'
     has_one :headshot, -> { where special_attribute: 'headshot' }, class_name: 'Upload', through: :default_album, source: :uploads

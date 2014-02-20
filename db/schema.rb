@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140219061215) do
+ActiveRecord::Schema.define(version: 20140220120359) do
 
   create_table "albums", force: true do |t|
     t.integer  "user_id"
@@ -43,6 +43,19 @@ ActiveRecord::Schema.define(version: 20140219061215) do
     t.integer  "connection_id"
     t.string   "status"
     t.datetime "accepted_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "development_logs", force: true do |t|
+    t.integer  "user_id"
+    t.string   "kind"
+    t.string   "title"
+    t.text     "description"
+    t.string   "file_attachment_file_name"
+    t.string   "file_attachment_content_type"
+    t.integer  "file_attachment_file_size"
+    t.datetime "file_attachment_updated_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
