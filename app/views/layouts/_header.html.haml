@@ -17,8 +17,7 @@
                 %li= link_to "Profile", current_user
                 %li= link_to "Settings", edit_user_path(current_user)
                 - if signed_in? && current_user.plan == 'admin'
-                  %li= link_to "Manage Categories", categories_path
-                  %li= link_to "Manage Sub Categories", sub_categories_path
+                  %li= link_to "Admin", "/admin"
                 %li.divider
                 %li
                   = link_to "Sign out", signout_path, method: "delete"
