@@ -1,4 +1,4 @@
 = form_for(object.likes.build(likeable_id: object.id, liker_type: "User", likeable_type: object.class.name ), remote: true) do |f|
   = f.hidden_field :likeable_id
   = f.hidden_field :likeable_type
-  = f.submit "like", class: "btn btn-large btn-primary"
+  = f.submit "like", class: "btn btn-primary"
