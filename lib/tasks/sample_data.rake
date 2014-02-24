@@ -110,9 +110,11 @@ namespace :db do
   end
   
   def make_categories
-      ['fashion','photography','fitness','culinary','entertainment'].each do |name| 
-        Category.create!(name: name.capitalize)
-      end
+    order = 1
+    ['Fashion Beauty','Photography Modelling','Travel Leisure','Fitness', 'Culinary','Entertainment'].each do |name| 
+      Category.create!(name: name, order: order)
+      order += 1
+    end
   end
   
   def make_subcategories
