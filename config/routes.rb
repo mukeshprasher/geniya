@@ -6,6 +6,8 @@ Geniya::Application.routes.draw do
   resources :connections, only: [:create, :update, :destroy]
 
   resources :likes, only: [:create, :destroy]
+
+  resources :comments, :only => [:create, :destroy]
   
   resources :albums
 

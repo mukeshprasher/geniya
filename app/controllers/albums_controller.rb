@@ -12,7 +12,12 @@ class AlbumsController < ApplicationController
   # GET /albums/1
   # GET /albums/1.json
   def show
+    @album = Album.find(params[:id])
     @user = @album.user
+    @comments = @album.comment_threads.order('created_at desc')
+    if signed_in?
+      @new_comment = Comment.build_from(@album, current_user.id, "")
+    end
   end
 
   # GET /albums/new

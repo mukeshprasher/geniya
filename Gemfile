@@ -64,6 +64,10 @@ gem "rails_admin_import", '0.1.8'
 
 gem "socialization", '1.1.0'
 
+gem "acts_as_commentable_with_threading",'1.2.0'
+
+gem 'simple_form','3.0.1'
+
 
 # Use unicorn as the app server
 # gem 'unicorn'

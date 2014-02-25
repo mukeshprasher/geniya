@@ -1,5 +1,5 @@
 %li
-  %span.text= update.text
+  = link_to update.text, update
   %span.timestamp
     Posted #{time_ago_in_words(update.created_at)} ago.
   - if current_user?(update.user)
