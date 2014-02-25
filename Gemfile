@@ -40,6 +40,12 @@ end
 group :development, :test do
     # Use sqlite3 as the database for Active Record
     gem 'sqlite3', '1.3.8'
+    gem 'railroady'
+    gem "rails-erd"
+    
+    #For better error console
+    gem "better_errors"
+    gem "binding_of_caller"
 end
 
 # Use ActiveModel has_secure_password

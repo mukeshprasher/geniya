@@ -3,8 +3,14 @@
 %p
   %b Name:
   = @category.name
-  = @category.sub_categories.map{ |sub_category| sub_category.name }
+  %br
+  %b Order:
+  = @category.order
+  %br
+  %b Sub Categories:
+  - @category.sub_categories.each do |sub_category| 
+    = sub_category.name
 - if signed_in? && current_user.plan == 'admin'
   = link_to 'Edit', edit_category_path(@category)
   \|
-  = link_to 'Back', categories_path
+= link_to 'Back', categories_path
