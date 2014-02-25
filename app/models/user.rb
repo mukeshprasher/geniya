@@ -26,6 +26,7 @@ class User < ActiveRecord::Base
     
     has_one :default_album, -> { where kind: 'default' }, class_name: 'Album'
     has_one :headshot, -> { where special_attribute: 'headshot' }, class_name: 'Upload', through: :default_album, source: :uploads
+    has_many :comments
     before_save { self.email = email.downcase }
     before_create :create_remember_token
     validates :username,  presence: true, length: { maximum: 30 }

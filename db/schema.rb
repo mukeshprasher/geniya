@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140220120359) do
+ActiveRecord::Schema.define(version: 20140221052958) do
 
   create_table "albums", force: true do |t|
     t.integer  "user_id"
@@ -38,6 +38,23 @@ ActiveRecord::Schema.define(version: 20140220120359) do
 
   add_index "categories", ["name"], name: "index_categories_on_name", unique: true
   add_index "categories", ["slug"], name: "index_categories_on_slug", unique: true
+
+  create_table "comments", force: true do |t|
+    t.integer  "commentable_id",   default: 0
+    t.string   "commentable_type"
+    t.string   "title"
+    t.text     "body"
+    t.string   "subject"
+    t.integer  "user_id",          default: 0, null: false
+    t.integer  "parent_id"
+    t.integer  "lft"
+    t.integer  "rgt"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "comments", ["commentable_id", "commentable_type"], name: "index_comments_on_commentable_id_and_commentable_type"
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id"
 
   create_table "connections", force: true do |t|
     t.integer  "user_id"
