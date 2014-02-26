@@ -4,7 +4,10 @@
   .form-inputs
     = f.input :subject
     = f.input :body
-    = f.input :status
+    -if @newsletter.status
+      = f.input :status, input_html: { disabled: 'true' }
+    - else
+      = f.hidden_field :status, value: 'pending'
 
   .form-actions
     = f.button :submit
