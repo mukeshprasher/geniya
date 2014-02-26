@@ -1,0 +1,10 @@
+= simple_form_for(@subscription) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.hidden_field :name, value: 'newsletter'
+    = f.hidden_field :status, value: 'subscribed'
+    = f.input :email
+
+  .form-actions
+    = f.button :submit

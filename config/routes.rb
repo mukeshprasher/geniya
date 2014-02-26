@@ -1,8 +1,13 @@
 Geniya::Application.routes.draw do
+  resources :newsletters
+  match "/newsletters/:id/send_email", to: 'newsletters#send_email', via: 'post'
+
+  resources :subscriptions
+
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
   mount RailsAdminImport::Engine => '/rails_admin_import', :as => 'rails_admin_import'
-  get "/portfolios", to: 'portfolios#index', via: 'get'
-  get "/portfolios/:id", to: 'portfolios#category_index', via: 'get'
+  match "/portfolios", to: 'portfolios#index', via: 'get'
+  match "/portfolios/:id", to: 'portfolios#category_index', via: 'get'
   resources :connections, only: [:create, :update, :destroy]
 
   resources :likes, only: [:create, :destroy]

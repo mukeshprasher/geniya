@@ -1,0 +1,10 @@
+%p#notice= notice
+%h1
+  = @newsletter.subject
+%p
+  = raw @newsletter.body
+#send_email_section
+  = render 'send_email_section'
+= link_to 'Edit', edit_newsletter_path(@newsletter)
+\|
+= link_to 'Back', newsletters_path

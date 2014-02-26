@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140221052958) do
+ActiveRecord::Schema.define(version: 20140225114708) do
 
   create_table "albums", force: true do |t|
     t.integer  "user_id"
@@ -124,6 +124,14 @@ ActiveRecord::Schema.define(version: 20140221052958) do
   add_index "mentions", ["mentionable_id", "mentionable_type"], name: "fk_mentionables"
   add_index "mentions", ["mentioner_id", "mentioner_type"], name: "fk_mentions"
 
+  create_table "newsletters", force: true do |t|
+    t.string   "subject"
+    t.text     "body"
+    t.string   "status"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "relationships", force: true do |t|
     t.integer  "follower_id"
     t.integer  "followed_id"
@@ -146,6 +154,15 @@ ActiveRecord::Schema.define(version: 20140221052958) do
   add_index "sub_categories", ["category_id"], name: "index_sub_categories_on_category_id"
   add_index "sub_categories", ["name"], name: "index_sub_categories_on_name", unique: true
   add_index "sub_categories", ["slug"], name: "index_sub_categories_on_slug", unique: true
+
+  create_table "subscriptions", force: true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.integer  "user_id"
+    t.string   "status"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "updates", force: true do |t|
     t.text     "text"

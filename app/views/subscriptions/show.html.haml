@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @subscription.name
+%p
+  %b Email:
+  = @subscription.email
+%p
+  %b Status:
+  = @subscription.status
+
+= link_to 'Edit', edit_subscription_path(@subscription)
+\|
+= link_to 'Back', subscriptions_path
