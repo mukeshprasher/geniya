@@ -9,6 +9,7 @@ class Upload < ActiveRecord::Base
   :file_name => { :matches => [/png\Z/, /jpe?g\Z/, /gif\Z/, /pdf\Z/] }
 
   before_post_process :skip_for_audio
+  is_impressionable counter_cache: true
 
   def skip_for_audio
     ! %w(audio/ogg application/ogg).include?(file_attachment_content_type)

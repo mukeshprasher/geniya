@@ -42,6 +42,7 @@ class User < ActiveRecord::Base
     validates_presence_of :slug
     
     acts_as_liker 
+    is_impressionable counter_cache: true
      
     extend FriendlyId
     friendly_id :username, use: [:slugged, :finders]

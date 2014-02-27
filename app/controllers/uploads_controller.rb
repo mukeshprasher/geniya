@@ -12,6 +12,7 @@ class UploadsController < ApplicationController
   # GET /uploads/1
   # GET /uploads/1.json
   def show
+    impressionist @upload, '', unique: [:user_id] if current_user
   end
 
   # GET /uploads/new

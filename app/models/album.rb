@@ -9,6 +9,8 @@ class Album < ActiveRecord::Base
   friendly_id :slug_candidates, use: [:slugged, :finders]
   acts_as_likeable
   acts_as_commentable
+  is_impressionable counter_cache: true
+
   def slug_candidates
     [
       [:name]

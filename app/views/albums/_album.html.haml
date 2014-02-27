@@ -27,6 +27,13 @@
     .connect_form
       = render 'shared/connect_form' if signed_in?
     .album_description
+      .stats
+        .stat
+          = pluralize(@album.impressions_count, 'unique visior')
+        .stat
+          = pluralize(@likers.count, 'like')
+        .stat
+          = pluralize(@comments.count, 'comment')
       = @album.description
   
 .comments

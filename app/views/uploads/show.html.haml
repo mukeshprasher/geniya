@@ -1,5 +1,7 @@
 %p#notice= notice
-
+.stats
+  .stat
+    = pluralize(@upload.impressions_count, 'unique visior')
 %p
   %b Portfolio:
   = @upload.album_id

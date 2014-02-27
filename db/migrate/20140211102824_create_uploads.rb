@@ -11,6 +11,7 @@ class CreateUploads < ActiveRecord::Migration
       t.string :extension
       t.string :special_attribute
       t.string :file_attachment_fingerprint
+      t.integer :impressions_count, :default => 0
       
       t.timestamps
     end
