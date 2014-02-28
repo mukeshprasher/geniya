@@ -95,6 +95,9 @@ GEM
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    mediaelement_rails (0.5.1)
+      jquery-rails (>= 1.0)
+      railties (>= 3.1)
     mime-types (1.25.1)
     mini_magick (3.7.0)
       subexec (~> 0.2.1)
@@ -104,7 +107,7 @@ GEM
     nested_form (0.3.2)
     nokogiri (1.6.1)
       mini_portile (~> 0.5.0)
-    paperclip (4.1.0)
+    paperclip (3.5.3)
       activemodel (>= 3.0.0)
       activesupport (>= 3.0.0)
       cocaine (~> 0.5.3)
@@ -219,8 +222,9 @@ DEPENDENCIES
   impressionist
   jbuilder (= 1.5.3)
   jquery-rails (= 3.1.0)
+  mediaelement_rails
   mini_magick (= 3.7.0)
-  paperclip (= 4.1.0)
+  paperclip (= 3.5.3)
   pg
   railroady
   rails (= 4.0.2)
