@@ -43,6 +43,7 @@ class User < ActiveRecord::Base
     
     acts_as_liker 
     #is_impressionable counter_cache: true
+    acts_as_mentionable
      
     extend FriendlyId
     friendly_id :username, use: [:slugged, :finders]
