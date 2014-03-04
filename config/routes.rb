@@ -1,4 +1,5 @@
 Geniya::Application.routes.draw do
+  post '/rate' => 'rater#create', :as => 'rate'
   resources :newsletters
   match "/newsletters/:id/send_email", to: 'newsletters#send_email', via: 'post'
 

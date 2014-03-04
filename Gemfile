@@ -83,6 +83,9 @@ gem "mediaelement_rails"
 #Mention ui 
 gem "jquery-atwho-rails"
 
+# * rating
+gem 'letsrate'
+
 # Use unicorn as the app server
 # gem 'unicorn'
 
