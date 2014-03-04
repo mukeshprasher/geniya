@@ -7,7 +7,7 @@ class UsersController < ApplicationController
   
   def index
     if params[:q]
-      @users = User.where("name like ?", "%#{params[:q]}%")
+      @users = User.where("lower(name) like lower(?)", "%#{params[:q]}%")
     else  
       @users = User.paginate(page: params[:page])
     end
