@@ -6,7 +6,11 @@ class UsersController < ApplicationController
   before_action :redirect_if_already_signed_in, only: [:new, :create]
   
   def index
-    @users = User.paginate(page: params[:page])
+    if params[:q]
+      @users = User.where("name like ?", "%#{params[:q]}%")
+    else  
+      @users = User.paginate(page: params[:page])
+    end
   end
 
   def show

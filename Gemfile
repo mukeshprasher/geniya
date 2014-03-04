@@ -80,6 +80,9 @@ gem 'impressionist'
 #For cross browser video play
 gem "mediaelement_rails"
 
+#Mention ui 
+gem "jquery-atwho-rails"
+
 # Use unicorn as the app server
 # gem 'unicorn'
 

@@ -56,12 +56,34 @@ $(function() {
         keyActions: []
      
     });
+
+    $('textarea').atwho({
+      at: "@",
+      tpl: "<li data-value='${atwho-at}${username}'><img src=\"${headshot}\"  width=\"50px\" />${name}</li>",
+      callbacks: {
+        /*
+         It function is given, At.js will invoke it if local filter can not find any data
+         @param query [String] matched query
+         @param callback [Function] callback to render page.
+        */
+        remote_filter: function(query, callback) {
+          $.getJSON("/users.json", {q: query}, function(data) {
+            
+            users =new Array();
+            data.forEach(function(user) {
+                user.name = user.name.split(' ').join('_')
+                users.push(user)
+                //$('textarea').atwho({at:":", 'data':names});
+            });
+            //console.log(names)
+            callback(users)
+          });
+        }
+      }
+    });
+
   };
 
   $(document).ready(toDoOnload);
   $(document).on('page:load', toDoOnload);
 });
-
-
-
-

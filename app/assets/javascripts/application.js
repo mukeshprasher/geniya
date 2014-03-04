@@ -16,4 +16,5 @@
 //= require bootstrap-datetimepicker
 //= require turbolinks
 //= require mediaelement_rails
+//= require jquery.atwho
 //= require_tree .
