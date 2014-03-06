@@ -20,6 +20,7 @@ class CreateUsers < ActiveRecord::Migration
       t.datetime :plan_end
       t.string :status
       t.string :slug
+      t.integer :impressions_count, :default => 0
 
       t.timestamps
     end

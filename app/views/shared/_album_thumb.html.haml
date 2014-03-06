@@ -1,9 +1,9 @@
 .profile_portfolio
   .album_cover
     -if album.uploads.any?
-      = image_tag album.uploads.first.file_attachment.url(:medium), title: album.name
+      = image_tag album.uploads.first.file_attachment.url(:medium), title: album.name, width: "100%" 
     -else
-      =image_tag '/assets/file-upload.jpg', width: "200px", height: "200px" 
+      =image_tag '/assets/file-upload.jpg', width: "100%" 
   .album_title
     = link_to album.name, album
   .album_author_name

@@ -20,6 +20,9 @@
       %h1
         = @user.name
     %section= render 'shared/stats'
+    .stats
+      .stat
+        - pluralize(@user.impressions_count, 'unique visior')
   .profile_portfolio_section
     - if signed_in? and current_user?(@user)
       .new_portfolio_button_cont

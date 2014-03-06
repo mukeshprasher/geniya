@@ -1,0 +1,7 @@
+%p
+  %b Status:
+  = @newsletter.status
+
+- if @newsletter.status == 'pending'
+  = simple_form_for @newsletter, :url => {:action => "send_email"}, method: 'post', remote: true do |f|
+    = f.submit 'Send newsletter', class: 'btn btn-primary btn-large', id: 'send_newsletter_button'

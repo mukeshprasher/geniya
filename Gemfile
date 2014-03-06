@@ -59,7 +59,7 @@ gem 'bootstrap-will_paginate', '0.0.9'
 gem 'bootstrap-datetimepicker-rails', '0.0.11'
 gem 'friendly_id', '5.0.2'
 ## For uploads
-gem "paperclip", '4.1.0'
+gem "paperclip", '3.5.3'
 
 ## For image resizing, depends on Imagemagick which is a C program
 gem "mini_magick", '3.7.0'
@@ -74,6 +74,17 @@ gem "acts_as_commentable_with_threading",'1.2.0'
 
 gem 'simple_form','3.0.1'
 
+#To record views
+gem 'impressionist'
+
+#For cross browser video play
+gem "mediaelement_rails"
+
+#Mention ui 
+gem "jquery-atwho-rails"
+
+# * rating
+gem 'letsrate'
 
 # Use unicorn as the app server
 # gem 'unicorn'

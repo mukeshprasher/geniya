@@ -6,12 +6,17 @@ class UsersController < ApplicationController
   before_action :redirect_if_already_signed_in, only: [:new, :create]
   
   def index
-    @users = User.paginate(page: params[:page])
+    if params[:q]
+      @users = User.where("lower(name) like lower(?)", "%#{params[:q]}%")
+    else  
+      @users = User.paginate(page: params[:page])
+    end
   end
 
   def show
     @updates = @user.updates.paginate(page: params[:page], :per_page => 10)
     @headshot = (@user.headshot) ? @user.headshot : Upload.new
+    #impressionist @user, '', unique: [:user_id] if current_user
   end
 
   def new

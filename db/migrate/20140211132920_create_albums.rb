@@ -8,6 +8,7 @@ class CreateAlbums < ActiveRecord::Migration
       t.text :description
       t.string :kind
       t.string :slug
+      t.integer :impressions_count, :default => 0
 
       t.timestamps
     end

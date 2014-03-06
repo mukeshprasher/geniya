@@ -14,3 +14,13 @@
       This is the home page for Geniya.
     = link_to "Register now!", signup_path, |
       class: "btn btn-large btn-primary"   |
+  = simple_form_for(@subscription) do |f|
+    = f.error_notification
+
+    .form-inputs
+      = f.hidden_field :name, value: 'newsletter'
+      = f.hidden_field :status, value: 'subscribed'
+      = f.input :email
+
+    .form-actions
+      = f.submit "Subscribe", class: 'btn btn-primary'

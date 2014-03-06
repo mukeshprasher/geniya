@@ -111,6 +111,12 @@ footer {
   }
 }
 
+/* navigation */
+
+.navbar .nav > li > a {
+  padding: 10px 10px;
+}
+
 /* sidebar */
 
 aside {
@@ -163,8 +169,6 @@ aside {
 input, textarea, select, .uneditable-input {
   border: 1px solid #bbb;
   width: 100%;
-  padding: 10px;
-  margin-bottom: 15px;
   @include box_sizing;
 }
 
@@ -251,7 +255,9 @@ User profile portfolio section
 
   .profile_portfolio{
     float: left;
-    width: auto;
+    width: 30%;
+    margin: 10px;
+    border: 1px dotted;
     
     .album_cover{
       float: left;
@@ -259,11 +265,16 @@ User profile portfolio section
     }
     .album_title{
       float: left;
-      width: 100%
+      font-size: 110%;
+      font-weight: bold;
+      padding: 5px;
+      width: 100%;
     }
      .album_category{
+      color: #999999;
       float: left;
-      width: 100%
+      font-weight: bold;
+      width: 80%;
     }
   }
 }

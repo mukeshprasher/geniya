@@ -1,0 +1,13 @@
+= simple_form_for(@newsletter) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :subject
+    = f.input :body
+    -if @newsletter.status
+      = f.input :status, input_html: { disabled: 'true' }
+    - else
+      = f.hidden_field :status, value: 'pending'
+
+  .form-actions
+    = f.button :submit

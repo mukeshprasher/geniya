@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+    has_many :subscriptions
     has_many :updates, foreign_key: "sender_user_id", dependent: :destroy
     has_many :recieved_updates, :class_name => "Update",
 :foreign_key => "receiver_user_id", dependent: :destroy
@@ -27,17 +28,23 @@ class User < ActiveRecord::Base
     has_one :default_album, -> { where kind: 'default' }, class_name: 'Album'
     has_one :headshot, -> { where special_attribute: 'headshot' }, class_name: 'Upload', through: :default_album, source: :uploads
     has_many :comments
-    before_save { self.email = email.downcase }
+    
     before_create :create_remember_token
+    
+    before_save { self.email = email.downcase }
     validates :username,  presence: true, length: { maximum: 30 }
     VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
     validates :email, presence: true, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }
+
     has_secure_password
     validates :password, length: { minimum: 6 }, on: :create
     #validates_associated :sub_categories, presence: true
     validates_presence_of :slug
     
     acts_as_liker 
+    #is_impressionable counter_cache: true
+    acts_as_mentionable
+    letsrate_rater
      
     extend FriendlyId
     friendly_id :username, use: [:slugged, :finders]
