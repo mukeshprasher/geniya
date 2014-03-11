@@ -10,7 +10,7 @@ class Album < ActiveRecord::Base
   acts_as_likeable
   acts_as_commentable
   is_impressionable counter_cache: true
-  letsrate_rateable "rating"
+  #letsrate_rateable "rating"
 
   def slug_candidates
     [
