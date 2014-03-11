@@ -1,9 +1,9 @@
 %li.isotope-item
   .black_square
   -if album.uploads.any?
-    = image_tag album.uploads.first.file_attachment.url, title: album.name, width: "226px", height: "226px"
+    = image_tag album.uploads.first.file_attachment.url, title: album.name
   -else
-    =image_tag '/assets/file-upload.jpg', width: "226px", height: "226px", title: album.name
+    =image_tag '/assets/file-upload.jpg', title: album.name
   .trendingInfo.isotopeSummary
     %h6.aqua
       %a{href: ""} #{album.category.name}
