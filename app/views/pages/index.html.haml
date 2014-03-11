@@ -41,7 +41,7 @@
       .span690.inline_block
         %ul#editorsPicks
           - @categories.each do |category|
-            = render 'album_home_thumb', album: category.albums.first
+            = render 'album_home_thumb', album: category.albums.where(kind: 'portfolio').first
       .span315.offset1.inline_block
         .discover
           Discover Geniya
