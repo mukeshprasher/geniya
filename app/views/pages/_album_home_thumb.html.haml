@@ -1,0 +1,13 @@
+%li.isotope-item
+  .black_square
+  -if album.uploads.any?
+    = image_tag album.uploads.first.file_attachment.url, title: album.name, width: "226px", height: "226px"
+  -else
+    =image_tag '/assets/file-upload.jpg', width: "226px", height: "226px", title: album.name
+  .trendingInfo.isotopeSummary
+    %h6.aqua
+      %a{href: ""} #{album.category.name}
+    %h4
+      %a{href: ""} #{album.title}
+    .isotopeDetailed
+      %p.description #{album.description}

@@ -111,7 +111,7 @@ namespace :db do
   
   def make_categories
     order = 1
-    ['Fashion Beauty','Photography Modelling','Travel Leisure','Fitness', 'Culinary','Entertainment'].each do |name| 
+    ['Fashion Beauty','Photography Modelling', 'Arts', 'Travel Leisure','Fitness', 'Culinary','Entertainment'].each do |name| 
       Category.create!(name: name, order: order)
       order += 1
     end
