@@ -5,8 +5,10 @@ class UpdatesController < ApplicationController
   # GET /updates/1
   def show
     @update = Update.find(params[:id])
-    @comments = @update.comment_threads.order('created_at desc')
-    @new_comment = Comment.build_from(@update, current_user.id, "")
+    @comments = @update.comment_threads.where('parent_id IS NULL').order('created_at desc')
+    if signed_in?
+      @new_comment = Comment.build_from(@update, current_user.id, "")
+    end
   end
 
   # GET /updates/1/edit

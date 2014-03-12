@@ -1,0 +1,41 @@
+<% if @comment.parent_id.nil? %>
+  $("<%= escape_javascript(render :partial => "comments/comment", :locals => { :comment => @comment  }, :layout => false, :status => :created) %>").hide().insertAfter(".comment-form").show('slow')
+  $(".comment-reply").click(function() {
+   comment_id=this.id.split("-")[1]
+   $("#child-comment-form-"+comment_id).show();
+  });
+  $("#comment-delete-<%= @comment.id %>").click(function(){
+  var comment_id = <%= @comment.id %>
+   var delcomment = confirm("Do you want to delete this comment ?");
+   if(delcomment == true)
+   {
+     $("#comment-"+comment_id).hide('slow');
+     return true;
+   }
+   else
+     {$("#comment-"+comment_id).show();
+     return false;}
+   });
+
+<% else %>
+ $("<%= escape_javascript(render :partial => "comments/child_comment", :locals => { :child => @comment  }, :layout => false, :status => :created) %>").hide().appendTo("#child-comments-<%= @comment.parent_id %>").show('slow')
+ $(".child-comment-form").on("ajax:beforeSend", function(evt, xhr, settings) {
+  return $(this).find('textarea').addClass('uneditable-input').attr('disabled', 'disabled');
+}).on("ajax:success", function(evt, data, status, xhr) {
+  return $(this).find('textarea').removeClass('uneditable-input').removeAttr('disabled', 'disabled').val('');
+});
+    $("#child-comment-delete-<%= @comment.id %>").click(function(){
+      var child_comment_id = <%= @comment.id %>
+      var delchildcomment = confirm("Do you want to delete this comment ?");
+      if(delchildcomment == true)
+      {
+        $("#child-comment-"+child_comment_id).hide('slow');
+        return true;
+      }
+      else
+      {
+       $("#child-comment-"+child_comment_id).show(); 
+       return false;
+      }
+    });
+<% end %>
