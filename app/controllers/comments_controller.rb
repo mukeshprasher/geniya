@@ -37,10 +37,15 @@ class CommentsController < ApplicationController
           else
             word
           end
+        elsif /:.*:/.match word
+          smiley_name = word[1..-2]
+          src = (File.exist?("app/assets/images/smileys/#{smiley_name}.gif")) ? "/assets/smileys/#{smiley_name}.gif" : ((File.exist?("app/assets/images/smileys/#{smiley_name}.png")) ? "/assets/smileys/#{smiley_name}.png" : false)
+          word = (src) ? "<img src='#{src}' title='#{smiley_name}' width='20px' />" : word
         else
           word
         end
       end
+      
       mentioned_text.join(' ')
     end
 

@@ -8,19 +8,101 @@
       %h3 Updates 
       = render 'shared/feed'      
 - else
-  .center.hero-unit
-    %h1 Welcome to Geniya
-    %h2
-      This is the home page for Geniya.
-    = link_to "Register now!", signup_path, |
-      class: "btn btn-large btn-primary"   |
-  = simple_form_for(@subscription) do |f|
-    = f.error_notification
-
-    .form-inputs
-      = f.hidden_field :name, value: 'newsletter'
-      = f.hidden_field :status, value: 'subscribed'
-      = f.input :email
-
-    .form-actions
-      = f.submit "Subscribe", class: 'btn btn-primary'
+  .slider
+    %img{alt: "slider", src: "/assets/slide1.jpg"}/
+  .slogan
+    .wrapper_c
+      Get Going with Geniya -
+      %span "Be Successful"
+  .choose
+    .wrapper_c
+      .view_portfolio
+        %img{alt: "", src: "/assets/view_portfolio.png"}/
+        %a.text{href: '/portfolios'}
+          VIEW
+          %span Portfolios
+          %i Seek and Hire
+      .post_portfolio
+        %img{alt: "", src: "/assets/post_portfolio.png"}/
+        %a.text{href: '/signup'}
+          POST
+          %span Portfolios
+          %i Promote Yourself
+      .clear
+  .section_heading
+    .wrapper_c
+      .left_section
+        Hot in Trend from
+        %a All Categories
+      .right_section Be Bold Be Focused Be Seen
+      .clear
+  %section.main_container
+    .wrapper_c
+      .span690.inline_block
+        %ul#editorsPicks
+          - @categories.each do |category|
+            = render 'album_home_thumb', album: category.albums.where(kind: 'portfolio').first
+      .span315.offset1.inline_block
+        .discover
+          Discover Geniya
+          %ul.discover_nav
+            %li
+              %a{href: ""} Home
+            %li
+              %a{href: ""} Photography
+          .clear
+          .search
+            %input{placeholder: "Enter keyword", type: "search"}/
+            %input.go{type: "search", value: "Go"}/
+          .ageFilter
+            #ageRange
+              .currentRange{style: "left: 4.5px; right: 0px;"}
+              .leftGrip.grip{"data-value" => "19", style: "left: 4.5px;"}
+                %span 19
+              .rightGrip.grip{"data-value" => "51", style: "left: 260px;"}
+                %span 50+
+        .widget.video
+          .title Top Viewed
+          .block
+            %img{alt: "", src: "/assets/video.jpg"}/
+            .pull_inside1
+              %span.vid_name Lorem lpsum
+              %span.view 63 views
+        .widget.tab
+          .block
+            %ul.tab_nav
+              %li.active
+                %a{href: ""} Recent
+              %li
+                %a{href: ""} Popular
+              %li
+                %a{href: ""} Comments
+              .clear
+            %ul.tab_content
+              %li
+                .imagecol
+                  %img{alt: "", src: "/assets/tab1.jpg"}/
+                .txtcol
+                  %span.heading Vestibulum et quam ene sollicitudin augue.
+                  .time December 23, 2013
+              %li
+                .imagecol
+                  %img{alt: "", src: "/assets/tab_2.jpg"}/
+                .txtcol
+                  %span.heading Vestibulum et quam ene sollicitudin augue.
+                  .time December 23, 2013
+          .clear
+        .widget.social
+          %a
+            %img{alt: "", src: "/assets/twitter_folloe.jpg"}/
+          %a
+            %img{alt: "", src: "/assets/facebook.jpg"}/
+          %a
+            %img{alt: "", src: "/assets/utube.jpg"}/
+        .widget.newsletter
+          .title Subscribe to our newsletter
+          .block
+            .pull_inside2
+              %input{placeholder: "Your Email", type: "text"}/
+              %input.subscribe{type: "button", value: "Subscribe"}/
+              .clear

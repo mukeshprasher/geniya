@@ -12,5 +12,6 @@
  *= require mediaelement_rails
  *= require mediaelement_rails/mejs-skins
  *= require jquery.atwho
+ *= require fonts
  *= require_tree .
  */
