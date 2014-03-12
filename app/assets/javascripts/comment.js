@@ -10,7 +10,7 @@ $(function() {
      if(delcomment == true)
      {
      var delete_comment_id=this.id.split("-")[2]
-       $("#comment-"+delete_comment_id).hide();
+       $("#comment-"+delete_comment_id).hide('slow');
        return true;
      }
      else
@@ -23,7 +23,7 @@ $(function() {
       if(delchildcomment == true)
       {
         var child_comment_delete_id=this.id.split("-")[3]
-        $("#child-comment-"+child_comment_delete_id).hide();
+        $("#child-comment-"+child_comment_delete_id).hide('slow');
         return true;
       }
       else
