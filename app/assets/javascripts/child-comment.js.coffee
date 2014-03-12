@@ -1,7 +1,7 @@
 jQuery ->
   # Create a comment
   comments = ->
-    $(".comment-form")
+    $(".child-comment-form")
       .on "ajax:beforeSend", (evt, xhr, settings) ->
         $(this).find('textarea')
           .addClass('uneditable-input')
@@ -17,3 +17,5 @@ jQuery ->
   $(document)
     .ready comments
     .on "page:load", comments
+    
+

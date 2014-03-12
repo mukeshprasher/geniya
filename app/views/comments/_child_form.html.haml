@@ -1,5 +1,5 @@
 -if signed_in?
-  .comment-form
+  %div.child-comment-form{ :id => "child-comment-form-#{parent_id}" }
     = simple_form_for comment, :remote => true do |f|
       = f.input :body, :input_html => { :rows => "2" }, :label => false, class: "comment-text-area"
       = f.hidden_field :commentable_id, :value => comment.commentable_id

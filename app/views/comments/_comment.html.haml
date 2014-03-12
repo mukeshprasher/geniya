@@ -1,8 +1,15 @@
 %div.comment{ :id => "comment-#{comment.id}" }
   %hr
-  -if signed_in?
-    = link_to "×", comment_path(comment), :method => :delete, :remote => true, :confirm => "Are you sure you want to remove this comment?", :disable_with => "×", :class => 'close'
-  %h4
+    -if (current_user == comment.user) && signed_in?
+      = link_to "×", comment_path(comment), :method => :delete, :remote => true, :confirm => "Are you sure you want to remove this comment?", :disable_with => "×", :class => 'comment-delete' , :id => "comment-delete-#{comment.id}"
+    %h4
     = comment.user.username
     %small= comment.updated_at
-  %p= raw comment.body
+    %p= raw comment.body
+
+    -if signed_in? 
+      %input{type: "button", value: "Reply", class: "comment-reply" ,id: "reply-#{comment.id}"}/
+    %div.child_comments{ :id => "child-comments-#{comment.id}" }
+      - comment.children.each do|child| 
+        = render :partial => 'comments/child_comment', :locals => { child: child}
+    = render :partial => 'comments/child_form', :locals => { comment: @new_comment, parent_id: comment.id}          

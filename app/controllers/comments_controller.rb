@@ -4,8 +4,14 @@ class CommentsController < ApplicationController
     @obj = @comment_hash[:commentable_type].constantize.find(@comment_hash[:commentable_id])
     @comment = Comment.build_from(@obj, current_user.id, sanitize_and_linkify_text(@comment_hash[:body]))
     if @comment.save
+      if @comment_hash[:parent_id]
+        @parent_comment = Comment.find(@comment_hash[:parent_id])
+        @comment.move_to_child_of(@parent_comment)
+      end
       mention_users_in_text(@comment_hash[:body], @comment)
-      render :partial => "comments/comment", :locals => { :comment => @comment }, :layout => false, :status => :created
+      @new_comment = Comment.build_from(@obj, current_user.id, "")
+#      render :partial => "comments/comment", :locals => { :comment => @comment  }, :layout => false, :status => :created
+
     else
       render :js => "alert('error saving comment');"
     end

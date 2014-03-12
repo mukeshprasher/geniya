@@ -2,3 +2,23 @@
     overflow:hidden;
     width: 42%;
 }
+.comment {
+    float: left;
+    width: 100%;
+}
+.child-comment-form {
+    float: right;
+    width: 60%;
+    display:none;
+}
+.child_comments {
+    width: 90%;
+    margin-top:15px;
+    float: right;
+}
+.child-comment-wrap {
+    margin: 12px 0 10px;
+}
+.comment-delete,.child-comment-delete {
+    float: right;
+}
