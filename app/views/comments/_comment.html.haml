@@ -1,7 +1,7 @@
 %div.comment{ :id => "comment-#{comment.id}" }
   %hr
     -if (current_user == comment.user) && signed_in?
-      = link_to "×", comment_path(comment), :method => :delete, :remote => true, :confirm => "Are you sure you want to remove this comment?", :disable_with => "×", :class => 'comment-delete' , :id => "comment-delete-#{comment.id}"
+      = link_to "×", comment_path(comment), :method => :delete, :remote => true,  :disable_with => "×", :class => 'comment-delete' , :id => "comment-delete-#{comment.id}"
     %h4
     = comment.user.username
     %small= comment.updated_at
