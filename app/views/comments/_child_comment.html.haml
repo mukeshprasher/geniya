@@ -6,3 +6,5 @@
     = child.body
   #child-comment-info
     = child.updated_at
+  #child-comment-likes  
+    = render 'shared/like_form', object: child, user: child.user

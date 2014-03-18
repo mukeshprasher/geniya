@@ -6,7 +6,8 @@
     = comment.user.username
     %small= comment.updated_at
     %p= raw comment.body
-
+    #comment-like
+      = render 'shared/like_form', object: comment, user: comment.user
     -if signed_in? 
       %input{type: "button", value: "Reply", class: "comment-reply" ,id: "reply-#{comment.id}"}/
     %div.child_comments{ :id => "child-comments-#{comment.id}" }

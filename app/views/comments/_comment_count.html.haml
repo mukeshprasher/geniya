@@ -1,0 +1,25 @@
+#like-count
+  - liker = comment.likers(User)
+  - if current_user.likes?(comment)
+    - if (liker.count==1) 
+      = "You"
+    - else
+      = "You,"
+    - liker.last(3).each do |commentliker|
+      - liker_name = [commentliker.username]-[current_user.username]
+      = liker_name.join("")  
+  - else
+    - liker.last(3).each do |commentliker|
+      - if (liker.count==1) 
+        = commentliker.username
+      - else 
+        = commentliker.username+","
+  
+  - if (liker.count==0)
+  - else
+    - if (liker.count>=4)
+      = "and"
+      = liker.count-3
+      = "other like this."
+    - else
+      = "like this."

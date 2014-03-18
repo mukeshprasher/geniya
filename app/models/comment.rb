@@ -8,9 +8,9 @@ class Comment < ActiveRecord::Base
   # NOTE: install the acts_as_votable plugin if you
   # want user to vote on the quality of comments.
   #acts_as_votable
-
+  has_many :likes,foreign_key: 'likeable_id'
   belongs_to :commentable, :polymorphic => true
-
+  acts_as_likeable
   # NOTE: Comments belong to a user
   belongs_to :user
   

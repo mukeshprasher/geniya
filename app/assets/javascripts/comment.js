@@ -32,6 +32,7 @@ $(function() {
        return false;
       }
     });
+    
 
   }
   $(document).ready(toDoOnloadComment);

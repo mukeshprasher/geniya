@@ -25,7 +25,7 @@ class CommentsController < ApplicationController
       render :js => "alert('error deleting comment');"
     end
   end
-
+  
   private
     def sanitize_and_linkify_text(text)
       sanitized_text = ActionController::Base.helpers.sanitize text
@@ -54,4 +54,5 @@ class CommentsController < ApplicationController
       users = mentions.map{|tag| User.find_by_username(tag[1..-1])}
       users.each {|user| mentioner.mention!(user) unless user.nil? }
     end  
+  
 end
