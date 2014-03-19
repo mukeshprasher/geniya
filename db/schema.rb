@@ -255,6 +255,8 @@ ActiveRecord::Schema.define(version: 20140304101235) do
   end
 
   create_table "users", force: true do |t|
+    t.integer  "category_id"
+    t.integer  "sub_category_id"
     t.string   "email"
     t.string   "username"
     t.string   "password_digest"

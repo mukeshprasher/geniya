@@ -15,7 +15,7 @@
       = @user.plan_end
     .field
       %label Area of work
-      = @user.sub_categories.first.category.name
+      /= @user.sub_categories.first.category.name if @user.sub_categories
     .field
       %label Status
       = @user.status  
@@ -24,7 +24,7 @@
   .field
   = form_for @user do |f|
     = render 'shared/error_messages', object: f.object
-    = render 'shared/sub_categories_select', form_object: f, category_id: @user.sub_categories.first.category.id
+    /= render 'shared/sub_categories_select', form_object: f, category_id: @user.sub_categories.first.category.id
 
     .field
       = f.label :name

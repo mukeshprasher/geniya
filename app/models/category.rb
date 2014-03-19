@@ -1,4 +1,5 @@
 class Category < ActiveRecord::Base
+  has_many :users
   has_many :sub_categories, dependent: :destroy
   has_many :albums
   validates :name, presence: true

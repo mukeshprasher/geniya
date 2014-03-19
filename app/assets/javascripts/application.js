@@ -11,10 +11,14 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.ui.all
 //= require jquery_ujs
 //= require bootstrap
 //= require bootstrap-datetimepicker
 //= require turbolinks
 //= require mediaelement_rails
 //= require jquery.atwho
+//= require best_in_place
+//= require best_in_place.purr
 //= require_tree .
+

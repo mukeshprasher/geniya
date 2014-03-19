@@ -4,6 +4,7 @@ class UsersController < ApplicationController
   before_action :correct_user,   only: [:edit, :update]
   before_action :admin_user,     only: :destroy
   before_action :redirect_if_already_signed_in, only: [:new, :create]
+  before_action :can_edit, only: [:show]
   
   def index
     if params[:q]
@@ -35,8 +36,8 @@ class UsersController < ApplicationController
     respond_to do |format|
       if @user.save
         set_sub_categories
-#        default_album = @user.albums.build(name: "Default Album", title: "Profile picture and timeline uploads", description: "The pictues which dont belong to any album go here", kind: "default")
-#        default_album.save
+        default_album = @user.albums.build(name: "Default Album", title: "Profile picture and timeline uploads", description: "The pictues which dont belong to any album go here", kind: "default")
+        default_album.save
         
         format.html {
             sign_in @user
@@ -54,7 +55,7 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
-        set_sub_categories
+        set_sub_categories unless params[:sub_category_ids].nil?
         format.html {
           flash[:success] = "Profile updated"
           redirect_to @user
@@ -113,5 +114,9 @@ class UsersController < ApplicationController
 
     def redirect_if_already_signed_in
       redirect_to(root_url) if signed_in? 
+    end
+
+    def can_edit
+      @can_edit = (current_user and current_user?(@user))
     end
 end

@@ -18,6 +18,7 @@ gem 'coffee-rails', '4.0.1'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails', '3.1.0'
+gem 'jquery-ui-rails'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks', '2.2.1'
@@ -85,6 +86,9 @@ gem "jquery-atwho-rails"
 
 # * rating
 gem 'letsrate'
+
+# In place editing
+gem "best_in_place", github: 'bernat/best_in_place', branch: "rails-4"
 
 # Use unicorn as the app server
 # gem 'unicorn'
