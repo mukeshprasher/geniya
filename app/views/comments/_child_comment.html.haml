@@ -1,0 +1,10 @@
+%div.child-comment-wrap{ :id => "child-comment-#{child.id}" }
+  -if (current_user == child.user)
+    = link_to "×", comment_path(child), :method => :delete, :remote => true, :disable_with => "×", :class => 'child-comment-delete', :id => "child-comment-delete-#{child.id}"
+  #child-comment-body
+    = child.user.username
+    = child.body
+  #child-comment-info
+    = child.updated_at
+  #child-comment-likes  
+    = render 'shared/like_form', object: child, user: child.user

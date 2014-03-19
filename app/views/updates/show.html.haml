@@ -14,7 +14,7 @@
   = @update.receiver_user_id
 
 .comments
-  = render :partial => 'comments/form', :locals => { comment: @new_comment }
+  = render :partial => 'comments/form', :locals => { comment: @new_comment, parent_id: nil }
   = render :partial => 'comments/comment', :collection => @comments, :as => :comment
 
 = link_to 'Edit', edit_update_path(@update)

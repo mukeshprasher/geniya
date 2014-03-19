@@ -1,0 +1,5 @@
+#child-comment-count
+  - liker = child.likers(User)
+  = liker.count
+  - liker.each do |commentliker|
+    = commentliker.username
