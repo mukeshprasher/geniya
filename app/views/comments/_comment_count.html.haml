@@ -5,21 +5,26 @@
       = "You"
     - else
       = "You,"
-    - liker.last(3).each do |commentliker|
+    - liker.last(2).each do |commentliker|
       - liker_name = [commentliker.username]-[current_user.username]
       = link_to liker_name.join(""), commentliker
   - else
-    - liker.last(3).each do |commentliker|
+    - liker.last(2).each do |commentliker|
       - if (liker.count==1) 
         = link_to commentliker.username, commentliker
       - else 
         = link_to commentliker.username, commentliker
-  
   - if (liker.count==0)
   - else
-    - if (liker.count>=4)
-      = "and"
-      = liker.count-3
-      = "other like this."
+    - if (liker.count>=3)
+      - if current_user.likes?(comment)
+        = "and"
+        = link_to liker.count-2
+        = "other like this."
+      - else
+        = "and"
+        = link_to liker.count-2
+        = "other like this."
     - else
       = "like this."
+
