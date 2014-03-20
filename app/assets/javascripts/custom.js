@@ -90,8 +90,13 @@ $(function() {
         at: ":", 
         tpl: "<li data-value=':${name}:'><img src='/assets/smileys/${name}.png' height='20' width='20'/> ${name} </li>",
         data: emojis_list
-      });      
+      });
+      
+      jQuery(".best_in_place").best_in_place();      
 
+      $.datepicker.setDefaults({
+        dateFormat: 'yy-mm-dd'
+      });
   };
 
   $(document).ready(toDoOnload);

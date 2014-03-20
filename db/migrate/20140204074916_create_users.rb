@@ -1,6 +1,8 @@
 class CreateUsers < ActiveRecord::Migration
   def change
     create_table :users do |t|
+      t.integer :category_id
+      t.integer :sub_category_id
       t.string :email
       t.string :username
       t.string :password_digest

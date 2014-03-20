@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+    belongs_to :category
+    belongs_to :sub_category
     has_many :subscriptions
     has_many :updates, foreign_key: "sender_user_id", dependent: :destroy
     has_many :recieved_updates, :class_name => "Update",
@@ -31,14 +33,17 @@ class User < ActiveRecord::Base
     
     before_create :create_remember_token
     
-    before_save { self.email = email.downcase }
-    validates :username,  presence: true, length: { maximum: 30 }
+    before_save do 
+      self.email = email.downcase
+      self.username = username.downcase
+    end
+    validates :username,  presence: true, length: { maximum: 30 }, uniqueness: { case_sensitive: false }
     VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
     validates :email, presence: true, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }
 
     has_secure_password
     validates :password, length: { minimum: 6 }, on: :create
-    #validates_associated :sub_categories, presence: true
+    #validates_associated :sub_category_ids, presence: true
     validates_presence_of :slug
     
     acts_as_liker 
