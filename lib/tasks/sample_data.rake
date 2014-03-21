@@ -118,10 +118,8 @@ namespace :db do
   end
   
   def make_subcategories
-    Category.all.each do|cat|
-      SubCategory.create!(name: "Glamour "+cat.name, category_id: cat.id)
-      SubCategory.create!(name: "Famous "+cat.name, category_id: cat.id)
-      SubCategory.create!(name: "Dynamic "+cat.name, category_id: cat.id)
+    ['Costume Designer','Diamond cutter','Fashion Designer','Fashion Director','Fashion Photographer','Fashion Show Coordinator','Fashion Show Director','Fashion Writer','Jewelry Designer','Seamstress','Shoe Designer','Stylist','Tailor','Textile designer','Textile Designer','Wedding Gown Designer'].each do|sub_cat_name|
+      SubCategory.create!(name: sub_cat_name, category_id: '1')
     end
   end
   
