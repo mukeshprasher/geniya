@@ -35,7 +35,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        set_sub_categories
+#        set_sub_categories
         default_album = @user.albums.build(name: "Default Album", title: "Profile picture and timeline uploads", description: "The pictues which dont belong to any album go here", kind: "default")
         default_album.save
         
@@ -94,15 +94,15 @@ class UsersController < ApplicationController
       @user = User.find(params[:id])
     end
 
-    def set_sub_categories
-      params[:user][:sub_category_ids].each do |sub_category_id|
-        UserSubCategory.create!(sub_category_id: sub_category_id, user_id: @user.id) if sub_category_id != ''
-      end      
-    end
+#    def set_sub_categories
+#      params[:user][:sub_category_ids].each do |sub_category_id|
+#        UserSubCategory.create!(sub_category_id: sub_category_id, user_id: @user.id) if sub_category_id != ''
+#      end      
+#    end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:sub_category_ids, :email, :username, :password, :password_confirmation, :name, :gender, :summary, :height, :bust, :hips, :shoes, :hair, :eyes, :birthdate, :available)
+      params.require(:user).permit(:category_id, :sub_category_id, :email, :username, :password, :password_confirmation, :name, :gender, :summary, :height, :bust, :hips, :shoes, :hair, :eyes, :birthdate, :available)
     end
 
     # Before filters

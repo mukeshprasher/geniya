@@ -7,8 +7,12 @@
       = render 'shared/error_messages', object: f.object
       .field
         = f.label "Area of work"
-        = collection_select(:category, :id, Category.all, :id, :name.to_s)
-      = render 'shared/sub_categories_select', form_object: f, category_id: Category.first.id
+        = collection_select(:user, :category_id, Category.all, :id, :name)
+      .field
+        - Category.all.each do|cat|
+          %div.sub-category-select{ :id => "sub-category-select-#{cat.id}" }
+            = f.label "label Profession"
+            = collection_select(:user, :sub_category_id, SubCategory.where(:category_id => cat.id ), :id, :name)
       .field
         = f.label :email
         = f.text_field :email

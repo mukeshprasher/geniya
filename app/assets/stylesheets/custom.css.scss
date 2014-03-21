@@ -309,7 +309,7 @@ aside {
 
 /* forms */
 
-input, textarea, select, .uneditable-input {
+input, textarea, .uneditable-input {
   border: 1px solid #739B1F;
   width: 100%;
   border-radius: 1px;
@@ -593,3 +593,6 @@ form {margin: 0 0 5px;}
 .current-liker-name {color: #82AB05;}
 
 .reply-button {float: left;width: 100%;}
+
+.sub-category-select
+{display:none;}
