@@ -1,5 +1,5 @@
 <% if @comment.parent_id.nil? %>
-  $("<%= escape_javascript(render :partial => "comments/feed_child_comments", :locals => { :comment => @comment  }, :layout => false, :status => :created) %>").hide().insertAfter("#comment-form-<%= @obj.id %>").show('slow')
+  $("<%= escape_javascript(render :partial => "comments/feed_child_comments", :locals => { :comment => @comment  }, :layout => false, :status => :created) %>").hide().appendTo("#comment-form-<%= @obj.id %>").show('slow')
   $("<%= escape_javascript(render :partial => "comments/comment", :locals => { :comment => @comment  }, :layout => false, :status => :created) %>").hide().insertAfter(".comment-form").show('slow')
   $(".comment-reply").click(function() {
    comment_id=this.id.split("-")[1]

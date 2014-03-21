@@ -2,7 +2,8 @@
   -if (current_user == child.user)
     = link_to "×", comment_path(child), :method => :delete, :remote => true, :disable_with => "×", :class => 'child-comment-delete', :id => "child-comment-delete-#{child.id}"
   #child-comment-body
-    = child.user.username
+    %span.comment-user-name
+      = child.user.username
     = child.body
   #child-comment-info
     = child.updated_at

@@ -1,12 +1,68 @@
 - if signed_in?
-  .row
-    %aside.span4
-      %section= render 'shared/user_info'
-      %section= render 'shared/stats'
-      %section= render 'shared/update_form'
-    .span8
-      %h3 Updates 
-      = render 'shared/feed'      
+  .innerBenner
+    .wrapper
+      .news_feeds
+        %a.text{href: "#"}
+          %h2
+            News
+            %span Feeds
+          %p Be bold befocused be seen
+  .inneContainer
+    .wrapper
+      .innerLeft_section
+        .shere_with
+          .user_data
+            .user_info
+              = render 'shared/user_info'
+            .user_stats
+              = render 'shared/stats'
+          .user_updates_form
+            = render 'shared/update_form'
+        .user_description
+          = render 'shared/feed'   
+      .inner_rightSection
+        .makeup_sec
+          .makeUp
+            %img{alt: "", src: "/assets/feeds_img2.png"}/
+          .make_comtact
+            %p Need a Make up person for new Spa
+            %em Toronto / canada
+            %a{href: "#"} Contact now
+        .makeup_sec
+          .makeUp
+            %img{alt: "", src: "/assets/feeds_img3.png"}/
+          .make_comtact
+            %p Need a Make up person for new Spa
+            %em Toronto / canada
+            %a{href: "#"} Contact now
+        .makeup_sec
+          .makeUp
+            %img{alt: "", src: "/assets/feeds_img4.png"}/
+          .make_comtact
+            %p Need a Make up person for new Spa
+            %em Toronto / canada
+            %a{href: "#"} Contact now
+        .makeup_sec
+          .makeUp
+            %img{alt: "", src: "/assets/feeds_img5.png"}/
+          .make_comtact
+            %p Need a Make up person for new Spa
+            %em Toronto / canada
+            %a{href: "#"} Contact now
+        .makeup_sec
+          .makeUp
+            %img{alt: "", src: "/assets/feeds_img6.png"}/
+          .make_comtact
+            %p Need a Make up person for new Spa
+            %em Toronto / canada
+            %a{href: "#"} Contact now
+        .makeup_sec
+          .makeUp
+            %img{alt: "", src: "/assets/feeds_img7.png"}/
+          .make_comtact
+            %p Need a Make up person for new Spa
+            %em Toronto / canada
+            %a{href: "#"} Contact now                                                            
 - else
   .slider
     %img{alt: "slider", src: "/assets/slide1.jpg"}/

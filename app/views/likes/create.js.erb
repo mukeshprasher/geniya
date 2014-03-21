@@ -1,2 +1,2 @@
 $("#like_form_<%= @object.class.name %>_<%= @object.id %>").html("<%= escape_javascript(render('shared/unlike', object: @object)) %>")
-$("#like_form_<%= @object.class.name %>_<%= @object.id %>").prepend("<%= escape_javascript(render('comments/comment_count', comment: @object)) %>")
+$("#like_form_<%= @object.class.name %>_<%= @object.id %>").append("<%= escape_javascript(render('comments/comment_count', comment: @object)) %>")

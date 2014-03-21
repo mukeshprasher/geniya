@@ -1,3 +1,4 @@
-= form_for(object.likes.find_by(liker_id: current_user.id), |
-  html: { method: :delete }, remote: true) do |f|                                   |
-  = f.submit "Unlike", class: "btn", id: "like-button"
+.like-left
+  = form_for(object.likes.find_by(liker_id: current_user.id), |
+    html: { method: :delete }, remote: true) do |f|                                   |
+    = f.submit "", class: "btn likepubBtn", id: "like-button"

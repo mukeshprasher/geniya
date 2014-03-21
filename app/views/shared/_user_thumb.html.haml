@@ -3,5 +3,8 @@
     =image_tag user.headshot.file_attachment.url(:thumb)
   - else
     =image_tag '/assets/missing.png', width: "50px", height: "50px"
-.user_name
-  = link_to user.name, user
+.user
+  .userTop
+    .user_name
+      %h2
+        = link_to user.name, user
