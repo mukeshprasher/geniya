@@ -1,6 +1,5 @@
-%h6
-  = current_user.name
-%span
-  = link_to "view my profile", current_user
-%br
-  = pluralize(current_user.updates.count, "update")
+.user_headshot
+  - if current_user.headshot
+    =image_tag current_user.headshot.file_attachment.url(:thumb)
+  - else
+    =image_tag '/assets/missing.png', width: "50px", height: "50px"
