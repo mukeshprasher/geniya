@@ -9,8 +9,6 @@ class User < ActiveRecord::Base
     has_many :followed_users, through: :relationships, source: :followed
     has_many :reverse_relationships, foreign_key: "followed_id", class_name:  "Relationship",  dependent:   :destroy 
     has_many :followers, through: :reverse_relationships, source: :follower
-    has_many :user_sub_categories     
-    has_many :sub_categories, through: :user_sub_categories, source: :sub_category
 
 #    has_many :user_connections
 #    has_many :connections, through: :user_connections, source: :sender_user
@@ -43,7 +41,8 @@ class User < ActiveRecord::Base
 
     has_secure_password
     validates :password, length: { minimum: 6 }, on: :create
-    #validates_associated :sub_category_ids, presence: true
+    validates_presence_of :category_id, presence: true
+    validates_presence_of :sub_category_id, presence: true
     validates_presence_of :slug
     
     acts_as_liker 

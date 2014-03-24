@@ -68,7 +68,7 @@
 %p
   %b Status:
   = @user.status
--if @user.sub_categories.any?{|sub_cat| sub_cat.name == 'model'}
+-if @user.sub_category.name == 'model'
   %p
     %b Height:
     = best_in_place_if @can_edit, @user, :height, :nil => "Height in centimeters"

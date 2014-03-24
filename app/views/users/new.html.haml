@@ -7,12 +7,10 @@
       = render 'shared/error_messages', object: f.object
       .field
         = f.label "Area of work"
-        = collection_select(:user, :category_id, Category.all, :id, :name)
+        = f.association :category, include_blank: false
       .field
-        - Category.all.each do|cat|
-          %div.sub-category-select{ :id => "sub-category-select-#{cat.id}" }
-            = f.label "label Profession"
-            = collection_select(:user, :sub_category_id, SubCategory.where(:category_id => cat.id ), :id, :name)
+        = f.label "Area of work"
+        = f.association :sub_category, include_blank: false
       .field
         = f.label :email
         = f.text_field :email

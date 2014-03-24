@@ -2,15 +2,17 @@ namespace :db do
   desc "Fill database with sample data"
   task populate: :environment do
     make_categories
+    make_subcategories
     make_users
     make_microposts
     make_relationships
-    make_subcategories
     make_albums
   end
 
   def make_users
     admin =     User.create!(name: "geniya User",
+                 category: Category.first,
+                 sub_category: SubCategory.first,
                  email: "geniya@60degree.com",
                  password: "password",
                  username: "geniya",
@@ -33,6 +35,8 @@ namespace :db do
     admin_default_album.save
 
     mg =     User.create!(name: "M G",
+                 category: Category.first,
+                 sub_category: SubCategory.first,
                  email: "mg@geniya.com",
                  password: "mgpass12",
                  username: "mg",
@@ -48,6 +52,8 @@ namespace :db do
     mg_default_album.save
 
     neeraj =     User.create!(name: "Neeraj Singh",
+                 category: Category.first,
+                 sub_category: SubCategory.first,
                  email: "neeraj.singh@60degree.com",
                  password: "neerajpass12",
                  username: "neeraj",
@@ -67,6 +73,8 @@ namespace :db do
       email = "example-#{n+1}@60degree.com"
       password  = "password"
       user = User.create!(name: name,
+                   category: Category.first,
+                   sub_category: SubCategory.first,
                    email: email,
                    password: password,
                    password_confirmation: password,

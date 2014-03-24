@@ -1,3 +1,4 @@
 .field
   %label Profession
-  = form_object.select :sub_category_ids, SubCategory.joins(:category).where("category_id = #{category_id}").order('categories.name').collect {|x| [x.name, x.id]}, {:include_hidden => false}, :multiple => true, include_hidden: false
+  = form_object.association :sub_category
+  , {:include_hidden => false}, :multiple => false, include_hidden: false

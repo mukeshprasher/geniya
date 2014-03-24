@@ -4,18 +4,15 @@
 $ ->
   toDoOnload = undefined
   toDoOnload = ->
-    $("#category_id").change ->
+    $("#user_category_id").change ->
       $.get "/categories/" + $(this).val() + ".json", (jsonObjCategory) ->
         sub_category_options = ""
         $.each jsonObjCategory.sub_categories, (key, sub_category) ->
           sub_category_options += "<option value='" + sub_category.id + "'>" + sub_category.name + "</option>"
-          $("#user_sub_category_ids").html sub_category_options
+          $("#user_sub_category_id").html sub_category_options
           return
-
         return
-
       return
-
     return
 
   $(document).ready toDoOnload
