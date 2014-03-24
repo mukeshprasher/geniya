@@ -9,6 +9,7 @@ Geniya::Application.routes.draw do
   mount RailsAdminImport::Engine => '/rails_admin_import', :as => 'rails_admin_import'
   match "/portfolios", to: 'portfolios#index', via: 'get'
   match "/portfolios/:id", to: 'portfolios#category_index', via: 'get'
+  match "/subscribe-plans", to: 'pages#price_table', via: 'get'
   resources :connections, only: [:create, :update, :destroy]
 
   resources :likes, only: [:create, :destroy]
@@ -43,6 +44,7 @@ Geniya::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'pages#index'
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

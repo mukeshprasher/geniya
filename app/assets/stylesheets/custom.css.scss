@@ -606,3 +606,56 @@ form {margin: 0 0 5px;}
     float: right;
     margin: 15px 0 0 23px;
 }
+
+.pricing_page {padding: 70px 0 40px;}
+
+.basic_plan {background: none repeat scroll 0 0 #DFDEDE;border: 2px solid #C5C4C4;border-radius: 5px;float: left;padding: 0 20px 0 40px;width: 40%;}
+
+.free_plan {float: left;}
+
+.free_plan h2 {font-family: Calibri;font-size: 47px;font-weight: bold;margin: 34px 0;}
+
+.free_plan ul {list-style: none outside none;}
+
+.free_plan ul li {background: url("../assets/listing_star.png") no-repeat scroll 0 2px rgba(0, 0, 0, 0);display: block;font-family: 'latoregular';font-size: 20px;padding: 0 0 0 10px;}
+
+.free_plan ul li a {color: #484848;display: block;padding: 0 0 20px;}
+
+.get_started {float: right;margin: -15px 0;}
+
+.price {text-align: center;width: 100%;}
+
+.price h2 {color: #2A83C4;font-family: "Arial Black";font-size: 88px;position: relative;text-shadow: 5px 5px 5px #BBBABA;}
+
+.price h2 span {bottom: 0px;color: #6D6D6C;font-family: Calibri;font-size: 21px;position: absolute;right: 80px;}
+
+.free_plan h2 span {color: #2495E3;}
+
+.free_plan h2 em {color: #282828;display: block;font-family: 'latoregular';font-size: 26px;font-style: normal;}
+
+.Awesome_Plan {background: none repeat scroll 0 0 #DFDEDE;border: 2px solid #C5C4C4;border-radius: 5px;float: right;padding: 0 20px 0 40px;width: 40%;}
+
+.sale_plan {float: left;}
+
+.sale_plan h2 {color: #575876;font-family: Calibri;font-size: 47px;font-weight: bold;margin: 34px 0;}
+
+.sale_plan h2 span {color: #7BA400;}
+
+.sale_plan h2 em {color: #282828;display: block;font-family: 'latoregular';font-size: 26px;font-style: normal;}
+
+.sale_plan ul {list-style: none outside none;}
+
+.sale_plan ul li {background: url("/assets/listing_star.png") no-repeat scroll 0 2px rgba(0, 0, 0, 0);display: block;font-family: 'latoregular';font-size: 20px;padding: 0 0 0 10px;}
+
+.sale_plan ul li a {color: #484848;display: block;padding: 0 0 20px;}
+
+.get_started {float: right;margin: -15px 0;}
+
+.price_sale {text-align: center;width: 100%;}
+
+.price_sale h2 {color: #7BA400;font-family: "Arial Black";font-size: 88px;position: relative;text-shadow: 5px 5px 5px #BBBABA;}
+
+.clear {clear: both;}
+
+
+.price_sale h2 span {bottom: 0px;color: #6D6D6C;font-family: Calibri;font-size: 21px;position: absolute;right: 80px;}
