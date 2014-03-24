@@ -203,7 +203,7 @@ ActiveRecord::Schema.define(version: 20140304101235) do
   end
 
   add_index "sub_categories", ["category_id"], name: "index_sub_categories_on_category_id"
-  add_index "sub_categories", ["name"], name: "index_sub_categories_on_name", unique: true
+  add_index "sub_categories", ["name"], name: "index_sub_categories_on_name"
   add_index "sub_categories", ["slug"], name: "index_sub_categories_on_slug", unique: true
 
   create_table "subscriptions", force: true do |t|
