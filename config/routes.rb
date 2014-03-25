@@ -31,11 +31,12 @@ Geniya::Application.routes.draw do
       get :following, :followers
     end
   end
-  match '/signup',  to: 'users#new',            via: 'get'
+  match '/signup',  to: 'pages#price_table',            via: 'get'
 
   resources :sessions, only: [:new, :create, :destroy]
   resources :relationships, only: [:create, :destroy]
-  match '/signup',  to: 'pages#price_table',    via: 'get'
+  match "/register",  to: 'users#new',    via: 'get'
+  match "/signup",  to: 'pages#price_table',    via: 'get'
   match '/signin',  to: 'sessions#new',         via: 'get'
   match '/signout', to: 'sessions#destroy',     via: 'delete'
 
