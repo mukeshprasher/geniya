@@ -10,5 +10,4 @@ $ ->
     return
 
   $(document).ready toDoOnload
-  $(document).on "page:load", toDoOnload
   return

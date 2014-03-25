@@ -1,7 +1,6 @@
 $(function() {
   var toDoOnloadComment;
   toDoOnloadComment = function() {
-
     $(".comment-reply").click(function() {
       var comment_id=this.id.split("-")[1]
       $("#child-comment-form-"+comment_id).show();
