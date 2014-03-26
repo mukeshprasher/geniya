@@ -173,7 +173,7 @@ $(function(){
 						//and its description
 						var $preview = $('<div />',{
 							'id'		: 'pp_preview',
-							'className'	: 'pp_preview',
+							'class'	: 'pp_preview',
 							'html'     	: '<div class="pp_descr"><span>'+imgL_description+'</span></div>',
 							'style'		: 'visibility:hidden;'
 						});
