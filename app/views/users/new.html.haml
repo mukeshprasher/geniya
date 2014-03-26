@@ -7,10 +7,10 @@
       = render 'shared/error_messages', object: f.object
       .field
         = f.label "Area of work"
-        = f.association :category, include_blank: false
+        = f.association :category, collection: Category.order('name ASC'), include_blank: false
       .field
         = f.label "Profession"
-        = f.association :sub_category, include_blank: false
+        = f.association :sub_category, collection: SubCategory.order('name ASC'), include_blank: false
       .field
         = f.label :email
         = f.text_field :email
