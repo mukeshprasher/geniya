@@ -162,6 +162,8 @@ $(function(){
 					var $thumb				= $content.find('img');
 					var imgL_source 	 	= $thumb.attr('alt');
 					var imgL_description 	= $thumb.next().html();
+					
+					var imgL_id 	= $thumb.next().html();
 					//preload the large image to show
 					$('<img style=""/>').load(function(){
 						var $imgL 	= $(this);
@@ -183,7 +185,6 @@ $(function(){
 						//change the properties of the wrapping div 
 						//to fit the large image sizes
 						$preview.css({
-							'background' : 'yellow',
 							'width'			:'660px',
 							'height'		:'481px',
 							'marginTop'		:'-260.5px',
