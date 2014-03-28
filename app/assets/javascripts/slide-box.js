@@ -47,15 +47,25 @@ $(function(){
 							//also rotate each picture of an album with a random number of degrees
 							$images.each(function(){
 								var $this 	= $(this);
-								var r 		= Math.floor(Math.random()*41)-20;
+								var r 		= Math.floor(Math.random()*21)-10;
 								$this.transform({'rotate'	: r + 'deg'});
 							});
 						}
 					}).attr('src', $image.attr('src'));
 				});
 				
+        function rightArrowKeyFunction(e) {
+          if (e.keyCode == 37){
+            showImage(1);
+          }
+        }				
 				
-				
+        function leftArrowKeyFunction(e) {
+          if (e.keyCode == 39){
+            current+=2;
+            showImage(1);
+          }
+        }
 				
 				function spreadPictures(){
 					var $album 	= $(this);
@@ -137,59 +147,11 @@ $(function(){
 					$albums.not($current_album).stop().animate({'bottom':'0px'},500);
 				});
 				
-				//back to album when user clicks the back area
-				
-
-				
-
-				
-				
-				// back to albumwhen user press the esc key
-				
-				 $(document).keyup(function(e) {
-				 if (e.keyCode == 27)
-				{
-					hideNavigation();
-					//there's a picture being displayed
-					//lets slide the current one up
-					$('.album').show();
-					$(".wrapper_preview").hide();
-					if(current != -1){
-						hideCurrentPicture();
-					}
-					
-					var $current_album = $('#pp_thumbContainer div.album:nth-child('+parseInt(album+1)+')');
-					$current_album.stop()
-								  .animate({'left':$current_album.data('left')},500)
-								  .find('.descr')
-								  .stop()
-								  .animate({'bottom':'0px'},500);
-					
-					$current_album.unbind('click')
-								  .bind('click',spreadPictures);
-					
-					$current_album.find('.content')
-							  .each(function(){
-								var $content = $(this);
-								$content.unbind('mouseenter mouseleave click');
-								$content.stop().animate({'left':'0px'},500);
-								});
-								
-					$albums.not($current_album).stop().animate({'bottom':'0px'},500);
-				}
-				
-				});
-				
-				
-				
-				
-				
-				
-				
 				//displays an image (clicked thumb) in the center of the page
 				//if nav is passed, then displays the next / previous one of the 
 				//current album
 				function showImage(nav){
+				
 					if(!enableshow) return;
 					enableshow = false;
 					if(nav == 1){
@@ -217,6 +179,7 @@ $(function(){
 					//lets slide the current one up
 					if(current != -1){
 						hideCurrentPicture();
+						$(".wrapper_preview").remove();
 					}
 					
 					current 				= $content.index();
@@ -239,6 +202,7 @@ $(function(){
 							'html'  : '<div class="pp_descr"><span>'+imgL_description+'</span></div>',
 							'style'		: 'visibility:hidden;'
 						});
+						
 						var $newpreview = $('<div />',{
 							'id'		: 'wrapper_preview',
 							'class'	: 'wrapper_preview',
@@ -246,37 +210,64 @@ $(function(){
 						});
 						$preview.prepend($imgL);
 						$('#pp_gallery').prepend($newpreview);
+						
 						$('#wrapper_preview').prepend($preview);
+				    //click left arrow
+				    $(document).keyup(function(e) {
+				       leftArrowKeyFunction(e);
+				    });
+				
+				    // click right arrow
+				    $(document).keyup(function(e) {
+				      rightArrowKeyFunction(e);
+				    });
+
+				    // mouse scroll up and down events
+				    $(window).bind('mousewheel DOMMouseScroll', function(event){
+              if (event.originalEvent.wheelDelta > 0 || event.originalEvent.detail < 0) {
+                // scroll up
+                current+=2;
+                showImage(1);              
+              }
+              else {
+                // scroll down
+                showImage(1);
+              }
+            });
+
 						
 						$(".wrapper_preview").click(function() {
-				    hideNavigation();
-				    $(".wrapper_preview").hide();
-				    $(".wrapper_preview").remove();
-				    $('.album').show();
-					//there's a picture being displayed
-					//lets slide the current one up
-					if(current != -1){
-						hideCurrentPicture();
-					}
+				      hideNavigation();
+				      $(document).unbind("keyup", rightArrowKeyFunction);
+				      $(document).unbind("keyup", leftArrowKeyFunction);
+				      //$(window).unbind('mousewheel DOMMouseScroll')
+				      $(".wrapper_preview").hide();
+				      $(".wrapper_preview").remove();
+				      $('.album').show();
+					    //there's a picture being displayed
+					    //lets slide the current one up
+					    if(current != -1){
+						    hideCurrentPicture();
+					    }
 					
-					var $current_album = $('#pp_thumbContainer div.album:nth-child('+parseInt(album+1)+')');
-					$current_album.stop()
-								  .animate({'left':$current_album.data('left')},500)
-								  .find('.descr')
-								  .stop()
-								  .animate({'bottom':'0px'},500);
+					    var $current_album = $('#pp_thumbContainer div.album:nth-child('+parseInt(album+1)+')');
+					    $current_album.stop()
+								      .animate({'left':$current_album.data('left')},500)
+								      .find('.descr')
+								      .stop()
+								      .animate({'bottom':'0px'},500);
 					
-					$current_album.unbind('click')
-								  .bind('click',spreadPictures);
+					    $current_album.unbind('click')
+								      .bind('click',spreadPictures);
 					
-					$current_album.find('.content')
-							  .each(function(){
-								var $content = $(this);
-								$content.unbind('mouseenter mouseleave click');
-								$content.stop().animate({'left':'0px'},500);
-								});
+					    $current_album.find('.content')
+							      .each(function(){
+								    var $content = $(this);
+								    $content.unbind('mouseenter mouseleave click');
+								    $content.stop().animate({'left':'0px'},500);
+								    });
 								
-					$albums.not($current_album).stop().animate({'bottom':'0px'},500);
+					    $albums.not($current_album).stop().animate({'bottom':'0px'},500);
 				    });
 						
 						
@@ -331,22 +322,7 @@ $(function(){
 				}
 				
 				
-				//click left arrow
-				$(document).keyup(function(e) {
-				   if (e.keyCode == 39)
-				  {
-					  current+=2;
-					  showImage(1);
-				  }
-				});
-				
-				// click right arrow
-				$(document).keyup(function(e) {
-          if (e.keyCode == 37)
-            {
-            showImage(1);
-            }
-				});
+
 				
 				
 				
@@ -364,23 +340,41 @@ $(function(){
 					showImage(1);
 				});
 				
-
+				 $(document).keyup(function(e) {
+				 if (e.keyCode == 27)
+				{
+					hideNavigation();
+					//there's a picture being displayed
+					//lets slide the current one up
+					$('.album').show();
+					$(".wrapper_preview").hide();
+					if(current != -1){
+						hideCurrentPicture();
+					}
+					
+					var $current_album = $('#pp_thumbContainer div.album:nth-child('+parseInt(album+1)+')');
+					$current_album.stop()
+								  .animate({'left':$current_album.data('left')},500)
+								  .find('.descr')
+								  .stop()
+								  .animate({'bottom':'0px'},500);
+					
+					$current_album.unbind('click')
+								  .bind('click',spreadPictures);
+					
+					$current_album.find('.content')
+							  .each(function(){
+								var $content = $(this);
+								$content.unbind('mouseenter mouseleave click');
+								$content.stop().animate({'left':'0px'},500);
+								});
+								
+					$albums.not($current_album).stop().animate({'bottom':'0px'},500);
+					
+					$(window).unbind('mousewheel DOMMouseScroll')
+				}
 				
-
-				// mouse scroll up and down events
-				$(window).bind('mousewheel DOMMouseScroll', function(event){
-          if (event.originalEvent.wheelDelta > 0 || event.originalEvent.detail < 0) {
-              // scroll up
-              current+=2;
-              showImage(1);              
-          }
-          else {
-              // scroll down
-              showImage(1);
-          }
-        });
-				
-				
+				});				
 				
 //				$( window ).scroll(function() {
 //          current+=2;
