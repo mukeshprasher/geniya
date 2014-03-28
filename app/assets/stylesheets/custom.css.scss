@@ -63,7 +63,7 @@ button { cursor:pointer }
 
 header { margin:0px; padding:0px; width:100%; background:#f3f1f1; position:relative; }
 
-.wrapper-footer-content{  position: relative;z-index: -1;}
+
 
 .login_nav { float:right; clear:both }
 
@@ -83,9 +83,9 @@ header { margin:0px; padding:0px; width:100%; background:#f3f1f1; position:relat
 
 .login_nav li.login a { color:#fff; font-weight:normal; font-size:16px; }
 
-.logo { left: 50%; margin-left: -79px; position: absolute; top: 0; padding: 0; z-index: 9999; cursor:pointer }
+.logo { left: 50%; margin-left: -79px; position: absolute; top: 0; padding: 0; cursor:pointer }
 
- .logo > img {position: absolute;}
+
 
 nav:after, nav:before { clear: both; }
 
@@ -512,7 +512,7 @@ _user
   color: #0088CC;
   cursor: cell;
 }
-.innerBenner {background: url("/assets/inner_banner.jpg") repeat scroll 0 0 rgba(0, 0, 0, 0);height: 231px;margin: 0;padding: 0;position: relative;width: 100%;}
+.innerBenner {background: url("/assets/inner_banner.jpg") repeat scroll 0 0 rgba(0, 0, 0, 0);height: 231px;margin: 0;padding: 0;position: relative;width: 100%; z-index: -1;}
 
 .innerBenner .news_feeds {clear: both;padding-top: 75px;text-align: center;}
 
