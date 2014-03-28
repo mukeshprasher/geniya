@@ -19,6 +19,10 @@ $(function(){
 				var $images		= $('#pp_thumbContainer div.content img');
 				var $back		= $('#pp_back');
 				
+				
+				
+				
+				
 				//we wnat to spread the albums through the page equally
 				//number of spaces to divide with:number of albums plus 1
 				var nmb_albums	= $albums.length;
@@ -49,6 +53,9 @@ $(function(){
 						}
 					}).attr('src', $image.attr('src'));
 				});
+				
+				
+				
 				
 				function spreadPictures(){
 					var $album 	= $(this);
@@ -92,6 +99,10 @@ $(function(){
 					});
 				}
 				
+				
+				
+				
+				
 				//back to albums
 				//the current album gets its innitial left position
 				//all the other albums slide up
@@ -101,6 +112,7 @@ $(function(){
 					hideNavigation();
 					//there's a picture being displayed
 					//lets slide the current one up
+					$(".wrapper-profile").fadeTo(1000,1);
 					if(current != -1){
 						hideCurrentPicture();
 					}
@@ -124,6 +136,55 @@ $(function(){
 								
 					$albums.not($current_album).stop().animate({'bottom':'0px'},500);
 				});
+				
+				//back to album when user clicks the back area
+				
+
+				
+
+				
+				
+				// back to albumwhen user press the esc key
+				
+				 $(document).keyup(function(e) {
+				 if (e.keyCode == 27)
+				{
+					hideNavigation();
+					//there's a picture being displayed
+					//lets slide the current one up
+					$('.album').show();
+					$(".wrapper_preview").hide();
+					if(current != -1){
+						hideCurrentPicture();
+					}
+					
+					var $current_album = $('#pp_thumbContainer div.album:nth-child('+parseInt(album+1)+')');
+					$current_album.stop()
+								  .animate({'left':$current_album.data('left')},500)
+								  .find('.descr')
+								  .stop()
+								  .animate({'bottom':'0px'},500);
+					
+					$current_album.unbind('click')
+								  .bind('click',spreadPictures);
+					
+					$current_album.find('.content')
+							  .each(function(){
+								var $content = $(this);
+								$content.unbind('mouseenter mouseleave click');
+								$content.stop().animate({'left':'0px'},500);
+								});
+								
+					$albums.not($current_album).stop().animate({'bottom':'0px'},500);
+				}
+				
+				});
+				
+				
+				
+				
+				
+				
 				
 				//displays an image (clicked thumb) in the center of the page
 				//if nav is passed, then displays the next / previous one of the 
@@ -167,6 +228,7 @@ $(function(){
 					//preload the large image to show
 					$('<img style=""/>').load(function(){
 						var $imgL 	= $(this);
+						$('.album').hide();
 						//resize the image based on the windows size
 						resize($imgL);
 						//create an element to include the large image
@@ -174,21 +236,69 @@ $(function(){
 						var $preview = $('<div />',{
 							'id'		: 'pp_preview',
 							'class'	: 'pp_preview',
-							'html'     	: '<div class="pp_descr"><span>'+imgL_description+'</span></div>',
+							'html'  : '<div class="pp_descr"><span>'+imgL_description+'</span></div>',
+							'style'		: 'visibility:hidden;'
+						});
+						var $newpreview = $('<div />',{
+							'id'		: 'wrapper_preview',
+							'class'	: 'wrapper_preview',
 							'style'		: 'visibility:hidden;'
 						});
 						$preview.prepend($imgL);
-						$('#pp_gallery').prepend($preview);
+						$('#pp_gallery').prepend($newpreview);
+						$('#wrapper_preview').prepend($preview);
+						
+						$(".wrapper_preview").click(function() {
+				    hideNavigation();
+				    $(".wrapper_preview").hide();
+				    $(".wrapper_preview").remove();
+				    $('.album').show();
+					//there's a picture being displayed
+					//lets slide the current one up
+					if(current != -1){
+						hideCurrentPicture();
+					}
+					
+					var $current_album = $('#pp_thumbContainer div.album:nth-child('+parseInt(album+1)+')');
+					$current_album.stop()
+								  .animate({'left':$current_album.data('left')},500)
+								  .find('.descr')
+								  .stop()
+								  .animate({'bottom':'0px'},500);
+					
+					$current_album.unbind('click')
+								  .bind('click',spreadPictures);
+					
+					$current_album.find('.content')
+							  .each(function(){
+								var $content = $(this);
+								$content.unbind('mouseenter mouseleave click');
+								$content.stop().animate({'left':'0px'},500);
+								});
+								
+					$albums.not($current_album).stop().animate({'bottom':'0px'},500);
+				    });
+						
 						
 						var largeW 				= $imgL.width()+20;
 						var largeH 				= $imgL.height()+10+45;
 						//change the properties of the wrapping div 
 						//to fit the large image sizes
+						$newpreview.css({
+							'width'			:'102%',
+							'height'		:'100%',
+							'visibility'	:'visible',
+							'position' : 'fixed',
+							'background' : '#1A1A1A',
+							'top' : '0'
+						});
+						
 						$preview.css({
 							'width'			:'660px',
 							'height'		:'481px',
-							'marginTop'		:'-260.5px',
+							'margin-top': '-20%',
 							'marginLeft'	:'-330px',
+							'z-index' : '999',
 							'visibility'	:'visible'
 						});
 						Cufon.replace('.pp_descr');
@@ -215,7 +325,31 @@ $(function(){
 					}).error(function(){
 						//error loading image. Maybe show a message : 'no preview available'?
 					}).attr('src',imgL_source);	
+				
+
+				
 				}
+				
+				
+				//click left arrow
+				$(document).keyup(function(e) {
+				   if (e.keyCode == 39)
+				  {
+					  current+=2;
+					  showImage(1);
+				  }
+				});
+				
+				// click right arrow
+				$(document).keyup(function(e) {
+          if (e.keyCode == 37)
+            {
+            showImage(1);
+            }
+				});
+				
+				
+				
 				
 				//click next image
 				$next.bind('click',function(){
@@ -223,10 +357,39 @@ $(function(){
 					showImage(1);
 				});
 				
+
+				
 				//click previous image
 				$prev.bind('click',function(){
 					showImage(1);
 				});
+				
+
+				
+
+				// mouse scroll up and down events
+				$(window).bind('mousewheel DOMMouseScroll', function(event){
+          if (event.originalEvent.wheelDelta > 0 || event.originalEvent.detail < 0) {
+              // scroll up
+              current+=2;
+              showImage(1);              
+          }
+          else {
+              // scroll down
+              showImage(1);
+          }
+        });
+				
+				
+				
+//				$( window ).scroll(function() {
+//          current+=2;
+//          showImage(1);
+//				});
+////				
+//				$( window ).scroll(function() {
+//         showImage(1);
+//				});
 				
 				//slides up the current picture
 				function hideCurrentPicture(){

@@ -61,7 +61,9 @@ button { cursor:pointer }
 
 /***********************/
 
-header { margin:0px; padding:0px; width:100%; background:#f3f1f1; position:relative }
+header { margin:0px; padding:0px; width:100%; background:#f3f1f1; position:relative; }
+
+.wrapper-footer-content{  position: relative;z-index: -1;}
 
 .login_nav { float:right; clear:both }
 
@@ -82,6 +84,8 @@ header { margin:0px; padding:0px; width:100%; background:#f3f1f1; position:relat
 .login_nav li.login a { color:#fff; font-weight:normal; font-size:16px; }
 
 .logo { left: 50%; margin-left: -79px; position: absolute; top: 0; padding: 0; z-index: 9999; cursor:pointer }
+
+ .logo > img {position: absolute;}
 
 nav:after, nav:before { clear: both; }
 
@@ -690,6 +694,7 @@ form {margin: 0 0 5px;}
 	text-align:center;
 	border:1px solid #111;
 	color:#fff;
+	z-index: 99999;
 	-moz-box-shadow:0px 0px 3px #000;
 	-webkit-box-shadow:0px 0px 3px #000;
 	box-shadow:0px 0px 3px #000;
@@ -703,7 +708,6 @@ form {margin: 0 0 5px;}
 	background:#222 url(/assets/prev.png) no-repeat center center;
 }
 #pp_thumbContainer{
-	position:fixed;
 	bottom:0px;
 	left:0px;
 	height:65px;
@@ -741,9 +745,10 @@ form {margin: 0 0 5px;}
 }
 #pp_thumbContainer .content{
 	position:absolute;
-	top:-50px;
+	top:-120px;
 	height:155px;
 	cursor:pointer;
+	width:230px;
 }
 #pp_thumbContainer img{
 	border:5px solid #fff;
@@ -756,7 +761,7 @@ form {margin: 0 0 5px;}
 }
 .pp_preview{
 	position:fixed;
-	top:150%;
+	top:70%;
 	left:50%;
 }
 .pp_preview img{

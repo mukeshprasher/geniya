@@ -1,101 +1,102 @@
-%p#notice= notice
-- provide(:title, @user.name)
-.row
-  %aside.span4
-    %section
-      - if @headshot.id
-        =image_tag @headshot.file_attachment.url(:thumb)
-      - else
-        - if current_user?(@user)
-          = form_for @headshot, :html => { :multipart => true } do |f|
-            = f.hidden_field :album_id, value: current_user.default_album.id
-            = f.hidden_field :name, value: current_user.name
-            = f.hidden_field :special_attribute, value: "headshot"
-            .field
-              = f.file_field :file_attachment
-            .actions
-              = f.submit 'Save'
+.wrapper-profile
+  %p#notice= notice
+  - provide(:title, @user.name)
+  .row
+    %aside.span4
+      %section
+        - if @headshot.id
+          =image_tag @headshot.file_attachment.url(:thumb)
         - else
-          =image_tag '/assets/missing.png', width: "50px", height: "50px"  
-      %h1
-        = @user.name
-    %section= render 'shared/stats'
-    .stats
-      .stat
-        - pluralize(@user.impressions_count, 'unique visior')
-  .profile_portfolio_section
-    - if signed_in? and current_user?(@user)
-      .new_portfolio_button_cont
-        = link_to 'New Album', new_album_path, class: 'btn btn-primary'
-    #pp_gallery.pp_gallery
-      #pp_loading.pp_loading
-      #pp_next.pp_next
-      #pp_prev.pp_prev
-      #pp_thumbContainer
-        - @user.albums.each do |album|
-          = render 'shared/album_uploads', album: album
-      #pp_back.pp_back Albums
-      - @user.albums.each do |album|
-        = render 'shared/album_thumb', album: album
-  .span8
-    = render 'shared/follow_form' if signed_in?
-    = render 'shared/connect_form' if signed_in?
-    - if @user.updates.any?
-      %h3
-        Updates (#{@user.updates.count})
-      %ol.updates= render @updates
-      = will_paginate @updates
-%br
-%p
-  %b Email:
-  = @user.email
-%p
-  %b Username:
-  = @user.username
-%p
-  %b Name:
-  = best_in_place_if @can_edit, @user, :name
-%p
-  %b Gender:
-  = best_in_place_if @can_edit, @user, :gender
-%p
-  %b Summary:
-  = best_in_place_if @can_edit, @user, :summary, :nil => "Tell something about yourself"
-%p
-  %b Birthdate:
-  = best_in_place_if @can_edit, @user, :birthdate, :type => :date, :nil => "Select your birthdate"
-%p
-  %b Available:
-  = best_in_place_if @can_edit, @user, :available, :nil => "Write about your availability"
-%p
-  %b Plan:
-  = @user.plan
-%p
-  %b Plan end:
-  = @user.plan_end
-%p
-  %b Status:
-  = @user.status
--if @user.sub_category.name == 'model'
+          - if current_user?(@user)
+            = form_for @headshot, :html => { :multipart => true } do |f|
+              = f.hidden_field :album_id, value: current_user.default_album.id
+              = f.hidden_field :name, value: current_user.name
+              = f.hidden_field :special_attribute, value: "headshot"
+              .field
+                = f.file_field :file_attachment
+              .actions
+                = f.submit 'Save'
+          - else
+            =image_tag '/assets/missing.png', width: "50px", height: "50px"  
+        %h1
+          = @user.name
+      %section= render 'shared/stats'
+      .stats
+        .stat
+          - pluralize(@user.impressions_count, 'unique visior')
+    .profile_portfolio_section
+      - if signed_in? and current_user?(@user)
+        .new_portfolio_button_cont
+          = link_to 'New Album', new_album_path, class: 'btn btn-primary'
+      #pp_gallery.pp_gallery
+        #pp_loading.pp_loading
+        #pp_next.pp_next
+        #pp_prev.pp_prev
+        #pp_thumbContainer
+          - @user.albums.each do |album|
+            = render 'shared/album_uploads', album: album
+        /#pp_back.pp_back Albums
+        /- @user.albums.each do |album|
+        /  = render 'shared/album_thumb', album: album
+    .span8
+      = render 'shared/follow_form' if signed_in?
+      = render 'shared/connect_form' if signed_in?
+      - if @user.updates.any?
+        %h3
+          Updates (#{@user.updates.count})
+        %ol.updates= render @updates
+        = will_paginate @updates
+  %br
   %p
-    %b Height:
-    = best_in_place_if @can_edit, @user, :height, :nil => "Height in centimeters"
+    %b Email:
+    = @user.email
   %p
-    %b Bust:
-    = best_in_place_if @can_edit, @user, :bust
+    %b Username:
+    = @user.username
   %p
-    %b Hips:
-    = best_in_place_if @can_edit, @user, :hips
+    %b Name:
+    = best_in_place_if @can_edit, @user, :name
   %p
-    %b Shoes:
-    = best_in_place_if @can_edit, @user, :shoes
+    %b Gender:
+    = best_in_place_if @can_edit, @user, :gender
   %p
-    %b Hair:
-    = best_in_place_if @can_edit, @user, :hair
+    %b Summary:
+    = best_in_place_if @can_edit, @user, :summary, :nil => "Tell something about yourself"
   %p
-    %b Eyes:
-    = best_in_place_if @can_edit, @user, :eyes
+    %b Birthdate:
+    = best_in_place_if @can_edit, @user, :birthdate, :type => :date, :nil => "Select your birthdate"
+  %p
+    %b Available:
+    = best_in_place_if @can_edit, @user, :available, :nil => "Write about your availability"
+  %p
+    %b Plan:
+    = @user.plan
+  %p
+    %b Plan end:
+    = @user.plan_end
+  %p
+    %b Status:
+    = @user.status
+  -if @user.sub_category.name == 'model'
+    %p
+      %b Height:
+      = best_in_place_if @can_edit, @user, :height, :nil => "Height in centimeters"
+    %p
+      %b Bust:
+      = best_in_place_if @can_edit, @user, :bust
+    %p
+      %b Hips:
+      = best_in_place_if @can_edit, @user, :hips
+    %p
+      %b Shoes:
+      = best_in_place_if @can_edit, @user, :shoes
+    %p
+      %b Hair:
+      = best_in_place_if @can_edit, @user, :hair
+    %p
+      %b Eyes:
+      = best_in_place_if @can_edit, @user, :eyes
 
-= link_to 'Edit', edit_user_path(@user)
-\|
-= link_to 'Back', users_path
+  = link_to 'Edit', edit_user_path(@user)
+  \|
+  = link_to 'Back', users_path

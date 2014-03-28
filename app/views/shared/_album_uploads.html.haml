@@ -1,7 +1,7 @@
 .album
   - album.uploads.each do|upload_img_name|
     .content
-      = image_tag upload_img_name.file_attachment.url(:thumb), alt: upload_img_name.file_attachment.url(:original)
+      = image_tag upload_img_name.file_attachment.url(:medium), alt: upload_img_name.file_attachment.url(:original)
       %span
         = upload_img_name.title
   .descr
