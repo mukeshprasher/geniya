@@ -405,12 +405,48 @@ User profile portfolio section
   }
 
   .profile_portfolio{
-    
+    border: 1px dotted;
     float: left;
     height: 455px;
     margin: 10px;
-    width: 27%;
-    margin: 0 0 0 -379px;
+    width: 30%;
+    
+    
+    
+    .album_cover{
+      float: left;
+      width: 100%
+    }
+    .album_title-single-profile{
+      float: left;
+      font-size: 110%;
+      font-weight: bold;
+      padding: 5px;
+      width: 100%;
+      margin: 328px 0 0;
+    }
+    .album_title{
+      float: left;
+      font-size: 110%;
+      font-weight: bold;
+      padding: 5px;
+      width: 100%;
+     
+    }
+     .album_category{
+      color: #999999;
+      float: left;
+      font-weight: bold;
+      width: 80%;
+    }
+  }
+  
+    .profile_portfolio_delux{
+   float: left;
+    height: auto;
+    margin: -55px 0 0 -369px;
+    width: auto;
+    
     
     
     .album_cover{
@@ -524,7 +560,7 @@ _user
   color: #0088CC;
   cursor: cell;
 }
-.innerBenner {background: url("/assets/inner_banner.jpg") repeat scroll 0 0 rgba(0, 0, 0, 0);height: 231px;margin: 0;padding: 0;position: relative;width: 100%; z-index: -1;}
+.innerBenner {background: url("/assets/inner_banner.jpg") repeat scroll 0 0 rgba(0, 0, 0, 0);height: 231px;margin: 0;padding: 0;position: relative;width: 100%;}
 
 .innerBenner .news_feeds {clear: both;padding-top: 75px;text-align: center;}
 
@@ -803,3 +839,31 @@ form {margin: 0 0 5px;}
 .awesom-plan-register {background: url("/assets/register.jpeg") no-repeat scroll 0 2px rgba(0, 0, 0, 0);float: right;left: 28%;margin: 18px 188px 0 0;width: 121px;height:40px;}
 
 .basic-plan-register {background: url("/assets/reg.jpeg") no-repeat scroll 0 2px rgba(0, 0, 0, 0);float: left; margin: -100px 0 0 172px;width: 123px; height:41px;}
+
+.slider_profile {background: url("/assets/profile_banner.png") no-repeat scroll left top rgba(0, 0, 0, 0);height: 300px;position: relative;width: 100%;}
+
+.anisten {background: none repeat scroll 0 0 rgba(0, 0, 0, 0.4);float: left;padding: 0 10px;}
+
+.anisten .ani_top {border-bottom: 1px dashed #B9B5BB;}
+
+.anisten .ani_top h2 {color: #FFFFFF;font-family: 'latobold';font-size: 26px;}
+
+.anisten .ani_top h2 span {display: block;font-family: 'latobold';font-size: 14px;padding-top: 7px;}
+
+.anisten .art_gallery ul {list-style: none outside none;padding-top: 17px;}
+
+.anisten .art_gallery ul li {display: block;}
+
+.anisten .art_gallery ul h3 {   color: #ACCF5E;
+    font-family: 'latoblack';
+    font-size: 22px;
+    line-height: 1;
+    padding: 0;}
+
+.anisten .art_gallery ul li span {color: #D4D4D4;float: left;font-family: 'latoregular';font-size: 12px;padding: 0 8px 0 0;}
+
+
+.anisten .art_gallery ul li p {color: #FFFFFF;font-family: 'latoregular';font-size: 12px;margin:0;padding: 0 0 4px;}
+
+
+.anisten .art_gallery ul h3 span {color: #FFFFFF;display: block;font-family: 'latoregular';font-size: 14px;}

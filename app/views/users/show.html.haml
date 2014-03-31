@@ -1,4 +1,33 @@
-.wrapper-profile
+.wrapper
+  .slider_profile
+    .anisten
+      .ani_top
+        %h2
+          jennifer aniston
+          %span Photographer  Art Director
+      .art_gallery
+        %ul
+          %li
+            %span Current:
+            %p A&B Art Gallery
+          %li
+            %span Previous:
+            %p The Denizen Club
+          %li
+            %span Available:
+            %p Yes
+          %li
+            %span
+              %img{alt: "", src: "assets/artgallery_img1.png"}/
+            %p www.abc.com
+          %li
+            %span
+              %img{alt: "", src: "assets/artgallery_img2.png"}/
+            %p Teneriffe, Queensland, Australia
+          %h3
+            170
+            %span Connections
+    .clear
   %p#notice= notice
   - provide(:title, @user.name)
   .row
