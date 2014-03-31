@@ -405,11 +405,13 @@ User profile portfolio section
   }
 
   .profile_portfolio{
-    border: 1px dotted;
+    
     float: left;
     height: 455px;
     margin: 10px;
-    width: 30%;
+    width: 27%;
+    margin: 0 0 0 -379px;
+    
     
     .album_cover{
       float: left;

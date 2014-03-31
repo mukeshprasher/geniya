@@ -103,6 +103,7 @@ $(function(){
 					//the window, rotating them randomly. Also hide the description of the album
 					
 					//store the current left for the reverse operation
+					$('.wrapper-footer-content').css({'position':'absolute','z-index':'-1'});
 					$('.album').css({'position':'fixed','border':'none'});
 					$('.album_title-single-profile').hide();
 					$('.album_author_name').hide();
@@ -340,10 +341,11 @@ $(function(){
 					  //there's a picture being displayed
 					  //lets slide the current one up
 					  $('.album').show();
+					  $('.wrapper-footer-content').css({'position':'none','z-index':'none'});
 					  $('.album').css({'position':'none','border':'1px dotted'});
-					 $('.album_title-single-profile').show();
-					$('.album_author_name').show();
-					$('.album_category').show();
+					  $('.album_title-single-profile').show();
+					  $('.album_author_name').show();
+					  $('.album_category').show();
 					   $('.album').css({'left':'none'});
 					   $('.content').css({'margin-top:':'none','left':'none'});
 					  $(".wrapper_preview").hide();

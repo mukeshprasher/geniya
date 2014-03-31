@@ -1,11 +1,16 @@
 .album
-  - album.uploads.each do|upload_img_name|
+  -if album.uploads.any?
+    - album.uploads.each do|upload_img_name|
+      .content
+        = image_tag upload_img_name.file_attachment.url(:medium), alt: upload_img_name.file_attachment.url(:original)
+        %span
+          = upload_img_name.title
+  - else
     .content
-      = image_tag upload_img_name.file_attachment.url(:medium), alt: upload_img_name.file_attachment.url(:original)
-      %span
-        = upload_img_name.title
+      = image_tag '/assets/medium-file-upload.jpg', alt: '/assets/file-upload.jpg'   
   /.descr
   /  = album.name
+.profile_portfolio  
   .album_title-single-profile
     = link_to album.name, album
   .album_author_name
