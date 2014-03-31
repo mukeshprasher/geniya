@@ -405,14 +405,24 @@ User profile portfolio section
   }
 
   .profile_portfolio{
-    float: left;
-    width: 30%;
-    margin: 10px;
     border: 1px dotted;
+    float: left;
+    height: 455px;
+    margin: 10px;
+    width: 30%;
     
+
     .album_cover{
       float: left;
       width: 100%
+    }
+    .album_title-single-profile{
+      float: left;
+      font-size: 110%;
+      font-weight: bold;
+      padding: 5px;
+      width: 100%;
+      margin: 328px 0 0;
     }
     .album_title{
       float: left;
@@ -420,6 +430,7 @@ User profile portfolio section
       font-weight: bold;
       padding: 5px;
       width: 100%;
+     
     }
      .album_category{
       color: #999999;
@@ -714,10 +725,10 @@ form {margin: 0 0 5px;}
 	width:100%;
 }
 #pp_thumbContainer .album{
-	position:absolute;
-	width:200px;
-	height:65px;
-	bottom:-90px;
+  margin: 147px 0 0 54px;
+    position: absolute;
+    width: 200px;
+    z-index: 9999;
 }
 .album .descr,
 .pp_back{

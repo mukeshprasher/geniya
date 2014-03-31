@@ -34,10 +34,10 @@
         #pp_prev.pp_prev
         #pp_thumbContainer
           - @user.albums.each do |album|
-            = render 'shared/album_uploads', album: album
+            = render 'shared/album_thumb', album: album
         /#pp_back.pp_back Albums
         /- @user.albums.each do |album|
-        /  = render 'shared/album_thumb', album: album
+        /  = render 'shared/album_protfolio', album: album
     .span8
       = render 'shared/follow_form' if signed_in?
       = render 'shared/connect_form' if signed_in?

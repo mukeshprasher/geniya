@@ -1,10 +1,13 @@
 .profile_portfolio
-  .album_cover
-    -if album.uploads.any?
-      = image_tag album.uploads.first.file_attachment.url(:medium), title: album.name, width: "100%" 
-    -else
-      =image_tag '/assets/file-upload.jpg', width: "100%" 
-  .album_title
+  .album
+    - album.uploads.each do|upload_img_name|
+      .content
+        = image_tag upload_img_name.file_attachment.url(:medium), alt: upload_img_name.file_attachment.url(:original)
+        %span
+          = upload_img_name.title
+    /.descr
+    /  = album.name
+  .album_title-single-profile
     = link_to album.name, album
   .album_author_name
     = render 'shared/user_thumb', user: album.user

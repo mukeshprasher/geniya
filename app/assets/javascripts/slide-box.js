@@ -41,8 +41,8 @@ $(function(){
 								var $this 	= $(this);
 								++cnt;
 								var left	= spaces*cnt - $this.width()/2;
-								$this.css('left',left+'px');
-								$this.stop().animate({'bottom':'0px'},500);
+								//$this.css('left',left+'px');
+								//$this.stop().animate({'bottom':'0px'},500);
 							}).unbind('click').bind('click',spreadPictures);
 							//also rotate each picture of an album with a random number of degrees
 							$images.each(function(){
@@ -54,12 +54,15 @@ $(function(){
 					}).attr('src', $image.attr('src'));
 				});
 				
+        
+        //function for right key to slide images
         function rightArrowKeyFunction(e) {
           if (e.keyCode == 37){
             showImage(1);
           }
         }				
 				
+				//function for left arrow to slide images
         function leftArrowKeyFunction(e) {
           if (e.keyCode == 39){
             current+=2;
@@ -67,12 +70,33 @@ $(function(){
           }
         }
 				
+				
+				
+				//function for spread images
 				function spreadPictures(){
+					
+        var $newpreview = $('<div />',{
+          'id'		: 'wrapper_preview',
+          'class'	: 'wrapper_preview',
+          'style'		: 'visibility:hidden;'
+        });
+				  $('#pp_gallery').prepend($newpreview);	
+          $newpreview.css({
+            'width'			:'102%',
+            'height'		:'100%',
+            'visibility'	:'visible',
+            'position' : 'fixed',
+            'background' : '#1A1A1A',
+            'top' : '0',
+
+          });
+					
 					var $album 	= $(this);
 					//track which album is opened
 					album		= $album.index();
 					//hide all the other albums
-					$albums.not($album).stop().animate({'bottom':'-90px'},300);
+//           $albums.not($album).hide();
+					$albums.not($album).stop().animate({'z-index':'-1'});
 					$album.unbind('click');
 					//now move the current album to the left 
 					//and at the same time spread its images through 
@@ -117,41 +141,41 @@ $(function(){
 				//the current album gets its innitial left position
 				//all the other albums slide up
 				//the current image slides out
-				$back.bind('click',function(){
-					$back.stop().animate({'left':'-100px'},300);
-					hideNavigation();
-					//there's a picture being displayed
-					//lets slide the current one up
-					$(".wrapper-profile").fadeTo(1000,1);
-					if(current != -1){
-						hideCurrentPicture();
-					}
-					
-					var $current_album = $('#pp_thumbContainer div.album:nth-child('+parseInt(album+1)+')');
-					$current_album.stop()
-								  .animate({'left':$current_album.data('left')},500)
-								  .find('.descr')
-								  .stop()
-								  .animate({'bottom':'0px'},500);
-					
-					$current_album.unbind('click')
-								  .bind('click',spreadPictures);
-					
-					$current_album.find('.content')
-							  .each(function(){
-								var $content = $(this);
-								$content.unbind('mouseenter mouseleave click');
-								$content.stop().animate({'left':'0px'},500);
-								});
-								
-					$albums.not($current_album).stop().animate({'bottom':'0px'},500);
-				});
+//				$back.bind('click',function(){
+//					$back.stop().animate({'left':'-100px'},300);
+//					hideNavigation();
+//					//there's a picture being displayed
+//					//lets slide the current one up
+//					$(".wrapper-profile").fadeTo(1000,1);
+//					if(current != -1){
+//						hideCurrentPicture();
+//					}
+//					
+//					var $current_album = $('#pp_thumbContainer div.album:nth-child('+parseInt(album+1)+')');
+//					$current_album.stop()
+//								  .animate({'left':$current_album.data('left')},500)
+//								  .find('.descr')
+//								  .stop()
+//								  .animate({'bottom':'0px'},500);
+//					
+//					$current_album.unbind('click')
+//								  .bind('click',spreadPictures);
+//					
+//					$current_album.find('.content')
+//							  .each(function(){
+//								var $content = $(this);
+//								$content.unbind('mouseenter mouseleave click');
+//								$content.stop().animate({'left':'0px'},500);
+//								});
+//								
+//					$albums.not($current_album).stop().animate({'bottom':'0px'},500);
+//				});
+				
 				
 				//displays an image (clicked thumb) in the center of the page
 				//if nav is passed, then displays the next / previous one of the 
 				//current album
 				function showImage(nav){
-				
 					if(!enableshow) return;
 					enableshow = false;
 					if(nav == 1){
@@ -169,221 +193,179 @@ $(function(){
 							return;
 						}	
 					}
-					else
-						var $content 			= $(this);
+					  else
+						  var $content 			= $(this);
+					  //show ajax loading image
+					  $loader.show();
+					  //there's a picture being displayed
+					  //lets slide the current one up
+					  if(current != -1){
+						  hideCurrentPicture();
+						  $(".wrapper_preview").remove();
+					  }
 					
-					//show ajax loading image
-					$loader.show();
+					  current 				= $content.index();
+					  var $thumb				= $content.find('img');
+					  var imgL_source 	 	= $thumb.attr('alt');
+					  var imgL_description 	= $thumb.next().html();
 					
-					//there's a picture being displayed
-					//lets slide the current one up
-					if(current != -1){
-						hideCurrentPicture();
-						$(".wrapper_preview").remove();
-					}
-					
-					current 				= $content.index();
-					var $thumb				= $content.find('img');
-					var imgL_source 	 	= $thumb.attr('alt');
-					var imgL_description 	= $thumb.next().html();
-					
-					var imgL_id 	= $thumb.next().html();
-					//preload the large image to show
-					$('<img style=""/>').load(function(){
-						var $imgL 	= $(this);
-						$('.album').hide();
-						//resize the image based on the windows size
-						resize($imgL);
-						//create an element to include the large image
-						//and its description
-						var $preview = $('<div />',{
-							'id'		: 'pp_preview',
-							'class'	: 'pp_preview',
-							'html'  : '<div class="pp_descr"><span>'+imgL_description+'</span></div>',
-							'style'		: 'visibility:hidden;'
-						});
+					  var imgL_id 	= $thumb.next().html();
+					  //preload the large image to show
+					  $('<img style=""/>').load(function(){
+						  var $imgL 	= $(this);
+//						  $('.album').hide();
+						  //resize the image based on the windows size
+						  resize($imgL);
+						  //create an element to include the large image
+						  //and its description
+						  var $preview = $('<div />',{
+							  'id'		: 'pp_preview',
+							  'class'	: 'pp_preview',
+							  'html'  : '<div class="pp_descr"><span>'+imgL_description+'</span></div>',
+							  'style'		: 'visibility:hidden;'
+						  });
 						
-						var $newpreview = $('<div />',{
-							'id'		: 'wrapper_preview',
-							'class'	: 'wrapper_preview',
-							'style'		: 'visibility:hidden;'
-						});
-						$preview.prepend($imgL);
-						$('#pp_gallery').prepend($newpreview);
+						  var $newpreview = $('<div />',{
+							  'id'		: 'wrapper_preview',
+							  'class'	: 'wrapper_preview',
+							  'style'		: 'visibility:hidden;'
+						  });
+						  $preview.prepend($imgL);
+						  $('#pp_gallery').prepend($newpreview);
 						
-						$('#wrapper_preview').prepend($preview);
-				    //click left arrow
-				    $(document).keyup(function(e) {
-				       leftArrowKeyFunction(e);
-				    });
-				
-				    // click right arrow
-				    $(document).keyup(function(e) {
-				      rightArrowKeyFunction(e);
-				    });
+						  $('#wrapper_preview').prepend($preview);
+				      //click left arrow
+				      $(document).keyup(function(e) {
+				         leftArrowKeyFunction(e);
+				      });
+				      // click right arrow
+				      $(document).keyup(function(e) {
+				        rightArrowKeyFunction(e);
+				      });
 
-				    // mouse scroll up and down events
-				    $(window).bind('mousewheel DOMMouseScroll', function(event){
-              if (event.originalEvent.wheelDelta > 0 || event.originalEvent.detail < 0) {
-                // scroll up
-                current+=2;
-                showImage(1);              
-              }
-              else {
-                // scroll down
-                showImage(1);
-              }
-            });
-
-						
-						$(".wrapper_preview").click(function() {
-				      hideNavigation();
-				      $(document).unbind("keyup", rightArrowKeyFunction);
-				      $(document).unbind("keyup", leftArrowKeyFunction);
-				      //$(window).unbind('mousewheel DOMMouseScroll')
-				      $(".wrapper_preview").hide();
-				      $(".wrapper_preview").remove();
-				      $('.album').show();
-					    //there's a picture being displayed
-					    //lets slide the current one up
-					    if(current != -1){
-						    hideCurrentPicture();
-					    }
-					
-					    var $current_album = $('#pp_thumbContainer div.album:nth-child('+parseInt(album+1)+')');
-					    $current_album.stop()
-								      .animate({'left':$current_album.data('left')},500)
-								      .find('.descr')
-								      .stop()
-								      .animate({'bottom':'0px'},500);
-					
-					    $current_album.unbind('click')
-								      .bind('click',spreadPictures);
-					
-					    $current_album.find('.content')
-							      .each(function(){
-								    var $content = $(this);
-								    $content.unbind('mouseenter mouseleave click');
-								    $content.stop().animate({'left':'0px'},500);
-								    });
-								
-					    $albums.not($current_album).stop().animate({'bottom':'0px'},500);
-				    });
+				      // mouse scroll up and down events
+				      $(window).bind('mousewheel DOMMouseScroll', function(event){
+                if (event.originalEvent.wheelDelta > 0 || event.originalEvent.detail < 0) {
+                  // scroll up
+                  current+=2;
+                  showImage(1);              
+                }
+                else {
+                  // scroll down
+                  showImage(1);
+                }
+              });
+              //remove the wrapper-preview divs
+						  $(".wrapper_preview").click(function() {
+				        $(document).unbind("keyup", rightArrowKeyFunction);
+				        $(document).unbind("keyup", leftArrowKeyFunction);
+				        //$(window).unbind('mousewheel DOMMouseScroll')
+				        $(".wrapper_preview").hide();
+				        $(".wrapper_preview").remove();
+                backtoalbum();
+				      });
 						
 						
-						var largeW 				= $imgL.width()+20;
-						var largeH 				= $imgL.height()+10+45;
-						//change the properties of the wrapping div 
-						//to fit the large image sizes
-						$newpreview.css({
-							'width'			:'102%',
-							'height'		:'100%',
-							'visibility'	:'visible',
-							'position' : 'fixed',
-							'background' : '#1A1A1A',
-							'top' : '0'
-						});
+						  var largeW 				= $imgL.width()+20;
+						  var largeH 				= $imgL.height()+10+45;
+						  //change the properties of the wrapping div 
+						  //to fit the large image sizes
+						  $newpreview.css({
+							  'width'			:'102%',
+							  'height'		:'100%',
+							  'visibility'	:'visible',
+							  'position' : 'fixed',
+							  'background' : '#1A1A1A',
+							  'top' : '0'
+						  });
 						
-						$preview.css({
-							'width'			:'660px',
-							'height'		:'481px',
-							'margin-top': '-20%',
-							'marginLeft'	:'-330px',
-							'z-index' : '999',
-							'visibility'	:'visible'
-						});
-						Cufon.replace('.pp_descr');
-						//show navigation
-						showNavigation();
+						  $preview.css({
+							  'width'			:'660px',
+							  'height'		:'481px',
+							  'margin-top': '-20%',
+							  'marginLeft'	:'-330px',
+							  'z-index' : '999',
+							  'visibility'	:'visible'
+						  });
+						  Cufon.replace('.pp_descr');
+						  //show navigation
+						  showNavigation();
 						
-						//hide the ajax image loading
-						$loader.hide();
+						  //hide the ajax image loading
+						  $loader.hide();
 						
-						//slide up (also rotating) the large image
-						var r 			= Math.floor(Math.random()*41)-20;
-						if(ie)
-							var param = {
-								'top':'50%'
-							};
-						else
-							var param = {
-								'top':'50%',
-								'rotate': r+'deg'
-							};
-						$preview.stop().animate(param,500,function(){
-							enableshow = true;
-						});
-					}).error(function(){
-						//error loading image. Maybe show a message : 'no preview available'?
-					}).attr('src',imgL_source);	
-				
-
-				
+						  //slide up (also rotating) the large image
+						  var r 			= Math.floor(Math.random()*41)-20;
+						  if(ie)
+							  var param = {
+								  'top':'50%'
+							  };
+						  else
+							  var param = {
+								  'top':'50%',
+								  'rotate': r+'deg'
+							  };
+						  $preview.stop().animate(param,500,function(){
+							  enableshow = true;
+						  });
+					  }).error(function(){
+						  //error loading image. Maybe show a message : 'no preview available'?
+					  }).attr('src',imgL_source);	
 				}
-				
-				
-
-				
-				
-				
 				
 				//click next image
 				$next.bind('click',function(){
 					current+=2;
 					showImage(1);
 				});
-				
-
-				
 				//click previous image
 				$prev.bind('click',function(){
 					showImage(1);
 				});
 				
 				 $(document).keyup(function(e) {
-				 if (e.keyCode == 27)
-				{
-					hideNavigation();
-					//there's a picture being displayed
-					//lets slide the current one up
-					$('.album').show();
-					$(".wrapper_preview").hide();
-					if(current != -1){
-						hideCurrentPicture();
-					}
+				   if (e.keyCode == 27)
+				  {
+	           backtoalbum();
+				  }
+				});	
+				
+				// function back to album
+				function backtoalbum(){
+					  hideNavigation();
+					  //there's a picture being displayed
+					  //lets slide the current one up
+					  $('.album').show();
+					   $('.album').css({'z-index':'0','left':'none'});
+					   $('.content').css({'margin-top:':'none','left':'none'});
+					  $(".wrapper_preview").hide();
+					  if(current != -1){
+						  hideCurrentPicture();
+					  }
 					
-					var $current_album = $('#pp_thumbContainer div.album:nth-child('+parseInt(album+1)+')');
-					$current_album.stop()
-								  .animate({'left':$current_album.data('left')},500)
-								  .find('.descr')
-								  .stop()
-								  .animate({'bottom':'0px'},500);
+					  var $current_album = $('#pp_thumbContainer div.album:nth-child('+parseInt(album+1)+')');
+					  $current_album.stop()
+								    .animate()
+								    .find('.descr')
+								    .stop()
+								    .animate();
 					
-					$current_album.unbind('click')
-								  .bind('click',spreadPictures);
+					  $current_album.unbind('click')
+								    .bind('click',spreadPictures);
 					
-					$current_album.find('.content')
-							  .each(function(){
-								var $content = $(this);
-								$content.unbind('mouseenter mouseleave click');
-								$content.stop().animate({'left':'0px'},500);
-								});
+					  $current_album.find('.content')
+							    .each(function(){
+								  var $content = $(this);
+								  $content.unbind('mouseenter mouseleave click');
+								  $content.stop().animate();
+								  });
 								
-					$albums.not($current_album).stop().animate({'bottom':'0px'},500);
+					  //$albums.not($current_album).stop().animate({'bottom':'0px'},500);
+					  //$albums.not($current_album).stop().animate({'z-index':'9999'});
 					
-					$(window).unbind('mousewheel DOMMouseScroll')
+					  $(window).unbind('mousewheel DOMMouseScroll')
 				}
 				
-				});				
-				
-//				$( window ).scroll(function() {
-//          current+=2;
-//          showImage(1);
-//				});
-////				
-//				$( window ).scroll(function() {
-//         showImage(1);
-//				});
 				
 				//slides up the current picture
 				function hideCurrentPicture(){
@@ -483,3 +465,4 @@ $(function(){
   $(document).ready(toDoOnload);
   $(document).on('page:load', toDoOnload);
 });
+
