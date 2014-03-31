@@ -1,12 +1,11 @@
-.profile_portfolio
-  .album
-    - album.uploads.each do|upload_img_name|
-      .content
-        = image_tag upload_img_name.file_attachment.url(:medium), alt: upload_img_name.file_attachment.url(:original)
-        %span
-          = upload_img_name.title
-    /.descr
-    /  = album.name
+.album
+  - album.uploads.each do|upload_img_name|
+    .content
+      = image_tag upload_img_name.file_attachment.url(:medium), alt: upload_img_name.file_attachment.url(:original)
+      %span
+        = upload_img_name.title
+  /.descr
+  /  = album.name
   .album_title-single-profile
     = link_to album.name, album
   .album_author_name

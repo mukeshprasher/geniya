@@ -95,17 +95,21 @@ $(function(){
 					//track which album is opened
 					album		= $album.index();
 					//hide all the other albums
-//           $albums.not($album).hide();
-					$albums.not($album).stop().animate({'z-index':'-1'});
+       $albums.not($album).hide();
+				//	$albums.not($album).stop().animate({'z-index':'-1'});
 					$album.unbind('click');
 					//now move the current album to the left 
 					//and at the same time spread its images through 
 					//the window, rotating them randomly. Also hide the description of the album
 					
 					//store the current left for the reverse operation
+					$('.album').css({'position':'fixed','border':'none'});
+					$('.album_title-single-profile').hide();
+					$('.album_author_name').hide();
+					$('.album_category').hide();
 					$album.data('left',$album.css('left'))
 						  .stop()
-						  .animate({'left':'0px'},500).find('.descr').stop().animate({'bottom':'-30px'},200);
+						  .animate({'left':'0px','z-index':'9999'},500).find('.descr').stop().animate({'bottom':'-30px'},200);
 					var total_pic 	= $album.find('.content').length;
 					var cnt			= 0;
 					//each picture
@@ -221,7 +225,7 @@ $(function(){
 						  var $preview = $('<div />',{
 							  'id'		: 'pp_preview',
 							  'class'	: 'pp_preview',
-							  'html'  : '<div class="pp_descr"><span>'+imgL_description+'</span></div>',
+							  //'html'  : '<div class="pp_descr"><span>'+imgL_description+'</span></div>',
 							  'style'		: 'visibility:hidden;'
 						  });
 						
@@ -336,7 +340,11 @@ $(function(){
 					  //there's a picture being displayed
 					  //lets slide the current one up
 					  $('.album').show();
-					   $('.album').css({'z-index':'0','left':'none'});
+					  $('.album').css({'position':'none','border':'1px dotted'});
+					 $('.album_title-single-profile').show();
+					$('.album_author_name').show();
+					$('.album_category').show();
+					   $('.album').css({'left':'none'});
 					   $('.content').css({'margin-top:':'none','left':'none'});
 					  $(".wrapper_preview").hide();
 					  if(current != -1){
