@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140304101235) do
+ActiveRecord::Schema.define(version: 20140331135922) do
 
   create_table "albums", force: true do |t|
     t.integer  "user_id"
@@ -197,6 +197,7 @@ ActiveRecord::Schema.define(version: 20140304101235) do
   create_table "sub_categories", force: true do |t|
     t.string   "name"
     t.integer  "category_id"
+    t.integer  "sub_category_group_id"
     t.string   "slug"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -205,6 +206,14 @@ ActiveRecord::Schema.define(version: 20140304101235) do
   add_index "sub_categories", ["category_id"], name: "index_sub_categories_on_category_id"
   add_index "sub_categories", ["name"], name: "index_sub_categories_on_name"
   add_index "sub_categories", ["slug"], name: "index_sub_categories_on_slug", unique: true
+  add_index "sub_categories", ["sub_category_group_id"], name: "index_sub_categories_on_sub_category_group_id"
+
+  create_table "sub_category_groups", force: true do |t|
+    t.string   "name"
+    t.integer  "category_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "subscriptions", force: true do |t|
     t.string   "name"

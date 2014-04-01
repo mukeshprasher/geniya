@@ -10,7 +10,7 @@
         = f.association :category, collection: Category.order('name ASC'), include_blank: false
       .field
         = f.label "Profession"
-        = f.association :sub_category, collection: SubCategory.order('name ASC'), include_blank: false
+        = render 'shared/sub_category_select', c: Category.order('name ASC').first
       .field
         = f.label :email
         = f.text_field :email

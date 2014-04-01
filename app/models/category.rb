@@ -1,6 +1,7 @@
 class Category < ActiveRecord::Base
   has_many :users
   has_many :sub_categories, dependent: :destroy, order:('name asc')
+  has_many :sub_category_groups
   has_many :albums
   validates :name, presence: true
   
