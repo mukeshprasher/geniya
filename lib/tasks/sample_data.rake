@@ -172,25 +172,119 @@ namespace :db do
       SubCategory.create!(name: sub_cat_name, category_id: '2', sub_category_group_id: '6')
     end
     
+    ['Alternative Modelling','Body Extremity modelling','Casual/Lifestyles Modelling','Commercial Modelling','Commercial Print Modelling','Corporate Modelling','Editorial Modelling','Fitness Modelling','Glamour Modelling','Lingerie Modelling','Modelling Representation/Agency','Nude Modelling','Promotional Modelling','Runway Modelling','Special Event Modelling','Swimwear Modelling','Youth Modelling'].each do|sub_cat_name|
+      SubCategory.create!(name: sub_cat_name, category_id: '2', sub_category_group_id: '7')
+    end
+    
+    ['Modelling','Photography'].each do|sub_cat_name|
+      SubCategory.create!(name: sub_cat_name, category_id: '2', sub_category_group_id: '8')
+    end
+    
     ['Architecture','Artistic Choreography','Author','Composer','Illustrator','Painter','Sculptor'].each do|sub_cat_name|
       SubCategory.create!(name: sub_cat_name, category_id: '3', sub_category_group_id: '9')
     end
+    
+    ['Body Art/Painting','Cartoonist','Collage','Comic Book Artist','Drawing','Furniture Designer','Greeting Card Designer','Installation Art','Mixed Media','Packaging Designer','Police Sketch Artist','Printing','Scrapbooking','Sign Making','Street Art','Typography'].each do|sub_cat_name|
+      SubCategory.create!(name: sub_cat_name, category_id: '3', sub_category_group_id: '10')
+    end
+    
+    ['3D Art','Animation','App Development','Drawing & Paintings','Font Designer','Graphic Design','Mixed Media','Typography','Vector','Video Game Development','Web Designer'].each do|sub_cat_name|
+      SubCategory.create!(name: sub_cat_name, category_id: '3', sub_category_group_id: '11')
+    end
+    
+    ['Art Auctioneer','Art Critic','Art Dealer','Art Historian','Art Teacher','Arts Editor','Consultant','Curator','Festival Coordinator','Gallery Representative','Publisher','Restoration'].each do|sub_cat_name|
+      SubCategory.create!(name: sub_cat_name, category_id: '3', sub_category_group_id: '12')
+    end
+
+    ['Basketry and weaving','Cabinetry','Ceramics','Dolls and Toys','Glass Blowing','Glasswork','Jewelry','Leatherwork','Metalwork','Mosaic Artist','Paper Craft','Pottery','Stain glass Artist','Woodwork'].each do|sub_cat_name|
+      SubCategory.create!(name: sub_cat_name, category_id: '3', sub_category_group_id: '13')
+    end
+    
+    ['Art - Business','Artisan/Crafts','Digital Arts','Fine Arts','Traditional Art'].each do|sub_cat_name|
+      SubCategory.create!(name: sub_cat_name, category_id: '3', sub_category_group_id: '14')
+    end         
+    
      
     ['Auto Club Travel Manager','Bed & Breakfast Operator','Chalet Manager','Concierge','Conference Organiser','Corporate Travel Consultant','Cruise Ship Director','Cruise ship Entertainment','Cruise Ship Worker','Flight Attendant','Holiday Representative','Hotel Management','Interpreter','Pilot','Tour Guide','Tourism Specialist','Travel Agent'].each do|sub_cat_name|
       SubCategory.create!(name: sub_cat_name, category_id: '4', sub_category_group_id: '15')
     end
     
+    ['Adventure Tourism','Campground Operator','Casino Dealer','Casino Slot attendant','Fishing','Florist','Gardener','Golf Club Management','Hunting guide','Landscaping','Language Instructor','Personal driver','Ski Hill Operator'].each do|sub_cat_name|
+      SubCategory.create!(name: sub_cat_name, category_id: '4', sub_category_group_id: '16')
+    end
+    
+    ['Leisure','Travel'].each do|sub_cat_name|
+      SubCategory.create!(name: sub_cat_name, category_id: '4', sub_category_group_id: '17')
+    end        
+    
     ['Aerobics','Body Building','Boot camp','Boxing','Cross-fit','Dietician','Fitness center Management','Gym Owner','Health Club Manager','Kick-boxing','Martial Arts','Personal Training','Physical Education Teacher','Pilates','Pole Fitness','Spinning','Strength and Conditioning Coach','Wellness Coordinator','Wrestling','Yoga Instructor','Youth Fitness Specialist','Zumba'].each do|sub_cat_name|
       SubCategory.create!(name: sub_cat_name, category_id: '5', sub_category_group_id: '18') 
     end
+    
+    ['Acupuncture','Aquatic therapist','Chiropractor','Massage Therapist','Meditation','Nutritionist'].each do|sub_cat_name|
+      SubCategory.create!(name: sub_cat_name, category_id: '5', sub_category_group_id: '19') 
+    end
+    
+    ['Amateur Athlete','Amateur Scout','Athletic Trainer','Fitness Equipment','Physical Therapy','Professional Athlete','Professional scout','Sport Admin','Sport marketer','Sport Nutritionist','Sport Official','Sport Physiologist','Sporting Event Manager','Sports Coach','Sports Management','Sports Public Relations'].each do|sub_cat_name|
+      SubCategory.create!(name: sub_cat_name, category_id: '5', sub_category_group_id: '20') 
+    end        
+    
+    ['Health','Physical Fitness','Sport'].each do|sub_cat_name|
+      SubCategory.create!(name: sub_cat_name, category_id: '5', sub_category_group_id: '21') 
+    end    
     
     ['Bar Consultant','Bartender','Catering Services','Convention Facilities','Culinary Equipment Provider','Hostess','Hotel Bar','Hotel Restaurant','Kitchen Designer','Menu Design','Mixologist','Restaurant Design','Server'].each do|sub_cat_name|
       SubCategory.create!(name: sub_cat_name, category_id: '6', sub_category_group_id: '22')
     end
     
+    ['Bakery/Pastry','Banquet Chefs','Bread Baker','Butcher','Cake Design','Cheese Maker','Chocolatiers','Coffee Connoisseur','Deli Owner','Herb and Specialty Crop Specialist','Kosher','Olive Oil Appraiser','Personal Chef','Personal Chefs','Pizza Chef','Red Seal Chefs','Scotch Taster','Sommelier','Sous-Chef','Sushi Chefs','Tea Taster','Water Connoisseur'].each do|sub_cat_name|
+      SubCategory.create!(name: sub_cat_name, category_id: '6', sub_category_group_id: '23')
+    end
+    
+    ['Cookbook Author','Culinary Institute','Fine Dining Experience','Food Blogger','Food Critic','Food Stylist','Fortune Cookie Message Writer','Wine Representative'].each do|sub_cat_name|
+      SubCategory.create!(name: sub_cat_name, category_id: '6', sub_category_group_id: '24')
+    end
+    
+    ['Hospitality','Other','Specialized'].each do|sub_cat_name|
+      SubCategory.create!(name: sub_cat_name, category_id: '6', sub_category_group_id: '25')
+    end        
+        
+    
     ['Adult Entertainer','Bartenders','Beer Tub girls','Bottle Service Girl','Casino Dealer','Casino Management','Casino Owner','Casino Slot Attendant','DJ','Flair Bartenders','Go Go Dancers','Host/Hostess','Hostess','Mixologists','Nightclub Manager','Nightclub Owner','Nightclub Security','Promo Girl','Servers','Shooter Girl'].each do|sub_cat_name|
       SubCategory.create!(name: sub_cat_name, category_id: '7', sub_category_group_id: '26')
-    end 
+    end
+
+    ['Bridal Consultant','Bridal Salon Owner','Officiant','Venue Owner','Wedding Band','Wedding Cake Baker/Decorator','Wedding Florist','Wedding Planners'].each do|sub_cat_name|
+      SubCategory.create!(name: sub_cat_name, category_id: '7', sub_category_group_id: '27')
+    end
+    
+    ['Advertising','Bartending School','Commercial Production','Marketing','Promotion','Public Relations'].each do|sub_cat_name|
+      SubCategory.create!(name: sub_cat_name, category_id: '7', sub_category_group_id: '28')
+    end
+    
+    ['Acting Coach','Butler','Festivals','Radio','Singing Coach','Stunt Work'].each do|sub_cat_name|
+      SubCategory.create!(name: sub_cat_name, category_id: '7', sub_category_group_id: '29')
+    end
+   
+    ['Acrobats','Arial silk','Burlesque Dancers','Clowns','Contortionist','Fire Breathers/Fire Eaters','Fortune Telling','Juggler','Magicians','Palm Reading','Plate Spinning','Stilts','Sword Swallower','Tight rope Walker','Trapeze','Wild Animal Tamer'].each do|sub_cat_name|
+      SubCategory.create!(name: sub_cat_name, category_id: '7', sub_category_group_id: '30')
+    end
+    
+    ['Music Producer','Musician','Post Production','Singer','Songwriter','Sound Technician','Studio Owner'].each do|sub_cat_name|
+      SubCategory.create!(name: sub_cat_name, category_id: '7', sub_category_group_id: '31')
+    end
+    
+    ['Actors','Casting','Director','House Manager','Lightboard Operator','Lighting Designer','Orchestra Manager','Props Manager','Publicity Manager','Scenic Artists / Set Painter','Set Designer','Stage Manager','Soundboard Operator','Technical Director','Theater Owner'].each do|sub_cat_name|
+      SubCategory.create!(name: sub_cat_name, category_id: '7', sub_category_group_id: '32')
+    end
+    
+    ['Actors','Casting','Casualty Simulation','Creature Design','Field Reporter','News Anchor','Production and Development','Sound and Lighting','Sports newscaster','TV Network','TV Station ','Weather Reporter','Web Design/Development','Writing'].each do|sub_cat_name|
+      SubCategory.create!(name: sub_cat_name, category_id: '7', sub_category_group_id: '33')
+    end
+    
+    ['Entertainment – Business','Film/Television','Miscellaneous','Music','Nightlife','Specialized Acts','Theatre','Weddings'].each do|sub_cat_name|
+      SubCategory.create!(name: sub_cat_name, category_id: '7', sub_category_group_id: '34')
+    end                             
         
   end
   

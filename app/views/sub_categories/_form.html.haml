@@ -12,5 +12,8 @@
   .field
     = f.label :category_id
     = collection_select(:sub_category, :category_id, Category.all, :id, :name)
+  .field
+    = f.label :sub_category_group_id
+    = collection_select(:sub_category, :sub_category_group_id, SubCategoryGroup.all, :id, :name)
   .actions
     = f.submit 'Save'
