@@ -10,7 +10,6 @@ class CreateSubCategories < ActiveRecord::Migration
     end
       add_index :sub_categories, :name
       add_index :sub_categories, :category_id
-      add_index :sub_categories, :sub_category_group_id
       add_index :sub_categories, :slug, unique: true
   end
 end
