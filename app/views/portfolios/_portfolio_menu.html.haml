@@ -1,4 +1,34 @@
-%h1 Our Portfolio Base
-= link_to "All", portfolios_path
-- @categories.each do |category|
-  = link_to category.name.sub(' ', '/'), '/portfolios/'+ category.slug
+.innerBenner
+  .wrapper
+    .portfolio
+      %p
+        Your trial expires in 11 days.
+        %span Upgrade.
+      .our_base
+        %h2
+          Our
+          %span Portfolio Base
+          %strong Be Bold Be Focused Be Seen
+.service_form
+  .wrapper
+    .quality
+      %p
+        Offer and Attain Quality Services From
+        %a{href: "/"} Geniya Site
+        
+.inneContainer-links
+  .wrapper
+    .dropdown
+      %a{href: "#"}
+        %img.pad{alt: "", src: "/assets/drop_btn.png"}/
+      .key_word
+        %input.srh{type: "text"}/
+        %img{alt: "", height: "14", src: "/assets/srh_img.png", width: "14"}/
+      .dropNav
+        %ul
+          %li.active
+            = link_to "All", portfolios_path
+          - @categories.each do |category|
+            %li
+              = link_to category.name.sub(' ', '/'), '/portfolios/'+ category.slug
+      .clear

@@ -1,5 +1,10 @@
 = render "portfolio_menu"
-.profile_portfolio_section
-  - @albums.each do |album|
-    = render 'shared/album_thumb', album: album
-
+.inneContainer
+  .wrapper
+    .box_section
+      %ul
+        - @albums.each do |album|
+          = render 'shared/album_view', album: album
+      .clear
+    .page_loader
+      %img{alt: "", src: "/assets/page_loader.png"}/

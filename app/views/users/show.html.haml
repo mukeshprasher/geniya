@@ -3,129 +3,339 @@
     .anisten
       .ani_top
         %h2
-          jennifer aniston
-          %span Photographer  Art Director
+          = @user.name
+          %span
+            = @user.sub_category.name 
       .art_gallery
         %ul
           %li
             %span Current:
-            %p A&B Art Gallery
+            %p 
+              = @user.category.name
           %li
             %span Previous:
-            %p The Denizen Club
+            %p 
+              = @user.category.name
           %li
             %span Available:
-            %p Yes
+            %p 
+              =@user.available
           %li
             %span
-              %img{alt: "", src: "assets/artgallery_img1.png"}/
-            %p www.abc.com
+              %img{alt: "", src: "/assets/artgallery_img1.png"}/
+            %p 
+              = @user.email
           %li
             %span
-              %img{alt: "", src: "assets/artgallery_img2.png"}/
+              %img{alt: "", src: "/assets/artgallery_img2.png"}/
             %p Teneriffe, Queensland, Australia
           %h3
-            170
+            0
             %span Connections
+    .art_social
+      %ul
+        %li
+          = render 'shared/follow_form' if signed_in?
+        %li
+          = render 'shared/connect_form' if signed_in?
     .clear
-  %p#notice= notice
-  - provide(:title, @user.name)
-  .row
-    %aside.span4
-      %section
-        - if @headshot.id
-          =image_tag @headshot.file_attachment.url(:thumb)
-        - else
-          - if current_user?(@user)
-            = form_for @headshot, :html => { :multipart => true } do |f|
-              = f.hidden_field :album_id, value: current_user.default_album.id
-              = f.hidden_field :name, value: current_user.name
-              = f.hidden_field :special_attribute, value: "headshot"
-              .field
-                = f.file_field :file_attachment
-              .actions
-                = f.submit 'Save'
-          - else
-            =image_tag '/assets/missing.png', width: "50px", height: "50px"  
-        %h1
-          = @user.name
-      %section= render 'shared/stats'
-      .stats
-        .stat
-          - pluralize(@user.impressions_count, 'unique visior')
-    .profile_portfolio_section
-      - if signed_in? and current_user?(@user)
-        .new_portfolio_button_cont
-          = link_to 'New Album', new_album_path, class: 'btn btn-primary'
-      #pp_gallery.pp_gallery
-        #pp_loading.pp_loading
-        #pp_next.pp_next
-        #pp_prev.pp_prev
-        #pp_thumbContainer
-          - @user.albums.each do |album|
-            = render 'shared/album_thumb', album: album
-        /#pp_back.pp_back Albums
-        /- @user.albums.each do |album|
-        /  = render 'shared/album_protfolio', album: album
-    .span8
-      = render 'shared/follow_form' if signed_in?
-      = render 'shared/connect_form' if signed_in?
-      - if @user.updates.any?
-        %h3
-          Updates (#{@user.updates.count})
-        %ol.updates= render @updates
-        = will_paginate @updates
-  %br
-  %p
-    %b Email:
-    = @user.email
-  %p
-    %b Username:
-    = @user.username
-  %p
-    %b Name:
-    = best_in_place_if @can_edit, @user, :name
-  %p
-    %b Gender:
-    = best_in_place_if @can_edit, @user, :gender
-  %p
-    %b Summary:
-    = best_in_place_if @can_edit, @user, :summary, :nil => "Tell something about yourself"
-  %p
-    %b Birthdate:
-    = best_in_place_if @can_edit, @user, :birthdate, :type => :date, :nil => "Select your birthdate"
-  %p
-    %b Available:
-    = best_in_place_if @can_edit, @user, :available, :nil => "Write about your availability"
-  %p
-    %b Plan:
-    = @user.plan
-  %p
-    %b Plan end:
-    = @user.plan_end
-  %p
-    %b Status:
-    = @user.status
-  -if @user.sub_category.name == 'model'
-    %p
-      %b Height:
-      = best_in_place_if @can_edit, @user, :height, :nil => "Height in centimeters"
-    %p
-      %b Bust:
-      = best_in_place_if @can_edit, @user, :bust
-    %p
-      %b Hips:
-      = best_in_place_if @can_edit, @user, :hips
-    %p
-      %b Shoes:
-      = best_in_place_if @can_edit, @user, :shoes
-    %p
-      %b Hair:
-      = best_in_place_if @can_edit, @user, :hair
-    %p
-      %b Eyes:
-      = best_in_place_if @can_edit, @user, :eyes
+  .profile_picture
+    .pick
+      - if current_user.headshot
+        =image_tag current_user.headshot.file_attachment.url(:medium)
+      - else
+        =image_tag '/assets/missing.png', width: "50px", height: "50px"
+    .profile_nav
+      %ul
+        %li
+          %a{href: "#"} Bold
+        %li
+          %a{href: "#"}
+            %span understanding
+        %li
+          %a{href: "#"} Unique
+        %li
+          %a{href: "#"}
+            %span.diffrence Wildlife
+        %li
+          %a{href: "#"}
+            %span Loving
+        %li.adv
+          %a{href: "#"} Adventurous
+        %li
+          %a{href: "#"}
+            %span Beautiful
+        %li
+          %a{href: "#"} Complex
+        %li
+          %a{href: "#"}
+            %span Abstract
+        %li
+          %a{href: "#"}
+            %span.diffrence Nature
+        %li.adv1
+          %a{href: "#"} Socialate
+        %li.adv
+          %a{href: "#"}
+            %span Ambitious
+        %li.adv
+          %a{href: "#"}
+            %span Nerdy
+  
+%section.main_container
+  .wrapper
+    .span690.inline_block
+      .profile_background
+        .bg_buttan
+          %a{href: "#"} Background
+        .row
+          %aside.span4
+            %section
+              - if @headshot.id
+                =image_tag @headshot.file_attachment.url(:thumb)
+              - else
+                - if current_user?(@user)
+                  = form_for @headshot, :html => { :multipart => true } do |f|
+                    = f.hidden_field :album_id, value: current_user.default_album.id
+                    = f.hidden_field :name, value: current_user.name
+                    = f.hidden_field :special_attribute, value: "headshot"
+                    .field
+                      = f.file_field :file_attachment
+                    .actions
+                      = f.submit 'Save'
+                - else
+                  =image_tag '/assets/missing.png', width: "50px", height: "50px"  
+            .stats
+              .stat
+                - pluralize(@user.impressions_count, 'unique visior')
+          .profile_portfolio_section
+            - if signed_in? and current_user?(@user)
+              .new_portfolio_button_cont
+                = link_to 'New Album', new_album_path, class: 'btn btn-primary'        
+        .summery
+          %h2 Summary
+          %p
+            = best_in_place_if @can_edit, @user, :summary, :nil => "Tell something about yourself"
+        .education_photography
+          .education
+            %h2 Education
+            %p
+              Regional College of Photography
+              %span Bachelor in photography
+              %em 2009-2012
+            %p
+              SCS Jr College
+              %span Intermediate of Science, (ISc.)
+              %em 2004 – 2006
+          .key_skills
+            %h2 Key Skills  Expertise
+            %ul
+              %li
+                %a{href: "#"} Image Manipulation
+              %li
+                %a{href: "#"} Still Life
+              %li
+                %a{href: "#"} Beauty Industry
+              %li
+                %a{href: "#"} Wedding
+              %li
+                %a{href: "#"} Wildlife
+              %li
+                %a{href: "#"} Web Site Production
+              %li
+                %a{href: "#"} Fashion
+              %li
+                %a{href: "#"} Animate
+              %li
+                %a{href: "#"} Beauty Industry
+              %li
+                %a{href: "#"} Web Site Production
+          .clear
+        .clear
+        .box_sec
+          #pp_gallery.pp_gallery
+            #pp_loading.pp_loading
+            #pp_next.pp_next
+            #pp_prev.pp_prev
+            #pp_thumbContainer
+              - @user.albums.each do |album|
+                = render 'shared/album_thumb', album: album          
+            .clear
+        .clear    
+    .span315.offset1.inline_block
+      .network
+        %h2 Network
+        %ul
+          %li
+            %span
+              %img{alt: "", height: "16", src: "/assets/network_img1.png", width: "22"}/
+            %p 
+              = @user.followers.count
+              Followers
+            %a{href: followers_user_path(@user)}
+              %img{alt: "", height: "22", src: "/assets/network_img2.png", width: "22"}/
+          %li
+            %span
+              %img{alt: "", height: "16", src: "/assets/network_img1.png", width: "22"}/
+            %p
+              = @user.followed_users.count
+              Following
+            %a{href: following_user_path(@user)}
+              %img{alt: "", height: "22", src: "/assets/network_img2.png", width: "22"}/
+          %li
+            %span
+              %img{alt: "", height: "16", src: "/assets/network_img3.png", width: "22"}/
+            %p 
+              = @user.connections.count
+              Connections
+            %a{href: "#"}
+              %img{alt: "", height: "22", src: "/assets/network_img2.png", width: "22"}/
+          .clear 
+      .socail_share 
+        %img{alt: "", height: "66", src: "/assets/social_share.png", width: "296"}/
+        %a{href: "#"} See All Connections »
+      .discover
+        Discover Geniya
+        %ul.discover_nav
+          %li
+            %a{href: ""} Home
+          - @categories.each do |category|
+            %li
+              = link_to category.name.sub(' ', '/'), '/portfolios/'+ category.slug
+        .clear
+        .search
+          %input{placeholder: "Enter keyword", type: "search"}/
+          %input.go{type: "search", value: "Go"}/      
+        .ageFilter
+          #ageRange
+            .currentRange{style: "left: 4.5px; right: 0px;"}
+            .leftGrip.grip{"data-value" => "19", style: "left: 4.5px;"}
+              %span 19
+            .rightGrip.grip{"data-value" => "51", style: "left: 260px;"}
+              %span 50+
+      .add_sec
+        .makeup_sec
+          .makeUp
+            %img{alt: "", src: "/assets/feeds_img2.png"}/
+          .make_comtact
+            %p Need a Make up person for new Spa
+            %em Toronto / canada
+            %a{href: "#"} Contact now 
+        .makeup_sec
+          .makeUp
+            %img{alt: "", src: "/assets/feeds_img2.png"}/
+          .make_comtact
+            %p Need a Make up person for new Spa
+            %em Toronto / canada
+            %a{href: "#"} Contact now
+        .makeup_sec
+          .makeUp
+            %img{alt: "", src: "/assets/feeds_img2.png"}/
+          .make_comtact
+            %p Need a Make up person for new Spa
+            %em Toronto / canada
+            %a{href: "#"} Contact now                               
 
+
+/  %p#notice= notice
+/  - provide(:title, @user.name)
+/  .row
+/    %aside.span4
+/      %section
+/        - if @headshot.id
+/          =image_tag @headshot.file_attachment.url(:thumb)
+/        - else
+/          - if current_user?(@user)
+/            = form_for @headshot, :html => { :multipart => true } do |f|
+/              = f.hidden_field :album_id, value: current_user.default_album.id
+/              = f.hidden_field :name, value: current_user.name
+/              = f.hidden_field :special_attribute, value: "headshot"
+/              .field
+/                = f.file_field :file_attachment
+/              .actions
+/                = f.submit 'Save'
+/          - else
+/            =image_tag '/assets/missing.png', width: "50px", height: "50px"  
+/        %h1
+/          = @user.name
+/      %section= render 'shared/stats'
+/      .stats
+/        .stat
+/          - pluralize(@user.impressions_count, 'unique visior')
+/    .profile_portfolio_section
+/      - if signed_in? and current_user?(@user)
+/        .new_portfolio_button_cont
+/          = link_to 'New Album', new_album_path, class: 'btn btn-primary'
+/      #pp_gallery.pp_gallery
+/        #pp_loading.pp_loading
+/        #pp_next.pp_next
+/        #pp_prev.pp_prev
+/        #pp_thumbContainer
+/          - @user.albums.each do |album|
+/            = render 'shared/album_thumb', album: album
+/        /#pp_back.pp_back Albums
+/        /- @user.albums.each do |album|
+/        /  = render 'shared/album_protfolio', album: album
+/    .span8
+/      = render 'shared/follow_form' if signed_in?
+/      = render 'shared/connect_form' if signed_in?
+/      - if @user.updates.any?
+/        %h3
+/          Updates (#{@user.updates.count})
+/        %ol.updates= render @updates
+/        = will_paginate @updates
+/  %br
+/  %p
+/    %b Email:
+/    
+/    = @user.email
+/  %p
+/    %b Username:
+/    = @user.username
+/  %p
+/    %b Name:
+/    = best_in_place_if @can_edit, @user, :name
+/  %p
+/    %b Gender:
+/    = best_in_place_if @can_edit, @user, :gender
+/  %p
+/    %b Summary:
+/    = best_in_place_if @can_edit, @user, :summary, :nil => "Tell something about yourself"
+/  %p
+/    %b Birthdate:
+/    = best_in_place_if @can_edit, @user, :birthdate, :type => :date, :nil => "Select your birthdate"
+/  %p
+/    %b Available:
+/    = best_in_place_if @can_edit, @user, :available, :nil => "Write about your availability"
+/  %p
+/    %b Plan:
+/    = @user.plan
+/  %p
+/    %b Plan end:
+/    = @user.plan_end
+/  %p
+/    %b Status:
+/    = @user.status
+/  -if @user.sub_category.name == 'model'
+/    %p
+/      %b Height:
+/      = best_in_place_if @can_edit, @user, :height, :nil => "Height in centimeters"
+/    %p
+/      %b Bust:
+/      = best_in_place_if @can_edit, @user, :bust
+/    %p
+/      %b Hips:
+/      = best_in_place_if @can_edit, @user, :hips
+/    %p
+/      %b Shoes:
+/      = best_in_place_if @can_edit, @user, :shoes
+/    %p
+/      %b Hair:
+/      = best_in_place_if @can_edit, @user, :hair
+/    %p
+/      %b Eyes:
+/      = best_in_place_if @can_edit, @user, :eyes/
+/
   = link_to 'Edit', edit_user_path(@user)
   \|
   = link_to 'Back', users_path

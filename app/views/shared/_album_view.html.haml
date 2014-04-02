@@ -1,14 +1,14 @@
-.profile_portfolio
-  .album_cover
-    -if album.uploads.any?
-      = image_tag album.uploads.first.file_attachment.url(:medium), title: album.name, width: "100%" 
-    -else
-      =image_tag '/assets/file-upload.jpg', width: "100%" 
-  .album_title
+%li
+  -if album.uploads.any?
+    = image_tag album.uploads.first.file_attachment.url(:medium), title: album.name, width: "100%" 
+  -else
+    =image_tag '/assets/file-upload.jpg', width: "100%" 
+  %p.album-name
     = link_to album.name, album
-  .album_author_name
-    = render 'shared/user_thumb', user: album.user
-  /.album_category
-  /  = album.category.name
-  .album_category
-    = render 'shared/like_form', object: album, user: album.user 
+  %a.favourite{href: "#"} Add to favourite
+  %ul
+    %li
+      = render 'shared/user_img', user: album.user
+      .portf_like_cat 
+        = album.category.name
+        = render 'shared/like_form', object: album, user: album.user 

@@ -104,7 +104,7 @@ $(function(){
 					
 					//store the current left for the reverse operation
 					$('.wrapper-footer-content').css({'position':'absolute','z-index':'-1'});
-					$('.album').css({'position':'fixed','border':'none'});
+					$('.album').css({'border':'none'});
 					$('.album_title-single-profile').hide();
 					$('.album_author_name').hide();
 					$('.album_category').hide();
