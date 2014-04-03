@@ -93,15 +93,15 @@ nav:after, nav:before { clear: both; }
 
 nav { display: block; float: left; margin-top: 4px; padding-bottom: 28px; position: relative; width: 100%; }
 
-.midsection { margin-right: 190px; }
+.midsection { margin-right: 165px; }
 
 #header_wrapper ul { margin:0;  }
 
 #man_nav li:last-child, .midsection { border:none }
 
-#man_nav li { float:left; list-style:none; padding:0px 10px; border-right:1px solid #e3e3e3; line-height:12px; }
+#man_nav li { float:left; list-style:none; padding:0px 8px; border-right:1px solid #e3e3e3; line-height:12px; }
 
-#man_nav li:hover a { border-bottom:3px solid #99c43a; color:#99c43a; transition:0.3s; padding-bottom:3px; }
+#man_nav li:hover a { border-bottom:3px solid #99c43a; color:#99c43a; transition:0.3s; padding-bottom:3px; text-decoration:none; }
 
 #man_nav li a { color: #000000; font-size: 17px; text-transform: capitalize; transition:0.3s }
 

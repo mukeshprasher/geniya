@@ -15,7 +15,7 @@
       %ul
         %li= link_to 'Home', root_path
         - @categories.each_with_index do |category, i|
-          - midsection_class = (i == 1) ? 'midsection' : ''
+          - midsection_class = (i == 2) ? 'midsection' : ''
           %li= link_to category.name.sub(' ', '/'), '/portfolios/' + category.slug, class: midsection_class
       .clear
   .clear
