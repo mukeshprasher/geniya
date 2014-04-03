@@ -111,7 +111,7 @@ $(function(){
 					$('.wrapper-footer-content').css({'position':'absolute','z-index':'-1'});
 					$('.album').css({'border':'none'});
 					$('.album_title-single-profile').hide();
-					$('.album_author_name').hide();
+					$('.portfolio_author_name').hide();
 					$('.album_category').hide();
 					$album.data('left',$album.css('left'))
 						  .stop()
@@ -354,7 +354,7 @@ $(function(){
 					  $('.wrapper-footer-content').css({'position':'none','z-index':'none'});
 					  $('.album').css({'position':'none','border':'1px dotted'});
 					  $('.album_title-single-profile').show();
-					  $('.album_author_name').show();
+					  $('.portfolio_author_name').show();
 					  $('.album_category').show();
 					   $('.album').css({'left':'none'});
 					   $('.content').css({'margin-top:':'none','left':'none'});

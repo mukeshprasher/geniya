@@ -764,7 +764,7 @@ form {margin: 0 0 5px;}
 }
 #pp_thumbContainer .album{
    float: left;
-    height: 245px;
+    height: 252px;
  margin: 15px 0 0 10px;
     width: 30%;
     border: 1px solid #CCCCCC;
@@ -801,6 +801,7 @@ form {margin: 0 0 5px;}
     padding: 15px 0 0 6px;
     position: absolute;
     width: 150px;
+    text-algin:center;
 }
 #pp_thumbContainer img{
 	border:5px solid #fff;
@@ -1111,10 +1112,48 @@ form {margin: 0 0 5px;}
 .inneContainer-links {background: none repeat scroll 0 0 #F5F5F5;clear: both;display: table;padding: 50px 0 0;width: 100%;}
 
     .profile_portfolio_delux{
-  bottom: 0;
+    bottom: 16px;
     left: 5px;
     position: absolute;
     width: 186px;
+}
+  
+  
+.album_title-single-profile {
+    float: left;
+    width: 186px;
+}
+.album_title-single-profile a {
+    color: #4A4A4A;
+    font-family: latobold;
+    font-size: 16px;
+    padding: 0 0 0 10px;
+}
+
+.album_category {
+    float: left;
+    height: 18px;
+    margin: 0 0 0 11px;
+    width: 170px;
+}
+
+.user_img {
+    float: left;
+    margin: 0 0 0 15px;
+    width: 50px;
+}
+
+.portfolio-user-name a {
+    color: #777777;
+    float: left;
+    height: 25px;
+    width: 100px;
+}
+
+.portfolio-user-name {
+    float: left;
+    height: 25px;
+    width: 100px;
 }
     
 .art_social {
@@ -1131,3 +1170,9 @@ form {margin: 0 0 5px;}
     padding: 0 10px 0 0;
 }    
 
+.album_title-single-profile a {
+    color: #4A4A4A;
+    font-family: latobold;
+    font-size: 16px;
+       padding: 0 0 0 10px;
+}

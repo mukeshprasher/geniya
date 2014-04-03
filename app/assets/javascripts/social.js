@@ -14,7 +14,10 @@ $(function() {
     $(".socail_share").show("slow");
   
   });
+    $(".wrapper-footer-content").click(function(){
+      $("#plan1").hide();
   
+  });
   
   }
   $(document).ready(toDoOnloadComment);
