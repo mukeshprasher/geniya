@@ -1,66 +1,67 @@
-%h1 Editing profile
-.profile_fixed
-  .aside
-    .field
-      %label Email
-      = @user.email
-    .field
-      %label Username
-      = @user.username
-    .field
-      %label Plan
-      = @user.plan
-    .field
-      %label Plan end date
-      = @user.plan_end
-    .field
-      %label Area of work
-      /= @user.sub_categories.first.category.name if @user.sub_categories
-    .field
-      %label Status
-      = @user.status  
+.wrapper
+  %h1 Editing profile
+  .profile_fixed
+    .aside
+      .field
+        %label Email
+        = @user.email
+      .field
+        %label Username
+        = @user.username
+      .field
+        %label Plan
+        = @user.plan
+      .field
+        %label Plan end date
+        = @user.plan_end
+      .field
+        %label Area of work
+        /= @user.sub_categories.first.category.name if @user.sub_categories
+      .field
+        %label Status
+        = @user.status  
 
-.profile_editable
-  .field
-  = form_for @user do |f|
-    = render 'shared/error_messages', object: f.object
-    /= render 'shared/sub_categories_select', form_object: f, category_id: @user.sub_categories.first.category.id
+  .profile_editable
+    .field
+    = form_for @user do |f|
+      = render 'shared/error_messages', object: f.object
+      /= render 'shared/sub_categories_select', form_object: f, category_id: @user.sub_categories.first.category.id
 
-    .field
-      = f.label :name
-      = f.text_field :name
-    .field
-      = f.label :gender
-      = f.text_field :gender
-    .field
-      = f.label :summary
-      = f.text_field :summary
-    .field.datepicker
-      = f.label :birthdate
-      = f.text_field :birthdate
-    .field
-      = f.label :available
-      = f.text_field :available
-    -if @user.sub_category.name == 'model'
       .field
-        = f.label :height
-        = f.number_field :height
+        = f.label :name
+        = f.text_field :name
       .field
-        = f.label :bust
-        = f.number_field :bust
+        = f.label :gender
+        = f.text_field :gender
       .field
-        = f.label :hips
-        = f.number_field :hips
+        = f.label :summary
+        = f.text_field :summary
+      .field.datepicker
+        = f.label :birthdate
+        = f.text_field :birthdate
       .field
-        = f.label :shoes
-        = f.number_field :shoes
-      .field
-        = f.label :hair
-        = f.text_field :hair
-      .field
-        = f.label :eyes
-        = f.text_field :eyes
+        = f.label :available
+        = f.text_field :available
+      -if @user.sub_category.name == 'model'
+        .field
+          = f.label :height
+          = f.number_field :height
+        .field
+          = f.label :bust
+          = f.number_field :bust
+        .field
+          = f.label :hips
+          = f.number_field :hips
+        .field
+          = f.label :shoes
+          = f.number_field :shoes
+        .field
+          = f.label :hair
+          = f.text_field :hair
+        .field
+          = f.label :eyes
+          = f.text_field :eyes
 
 
-    .actions
-      = f.submit 'Save'
+      .actions
+        = f.submit 'Save'

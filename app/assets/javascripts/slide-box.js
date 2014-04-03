@@ -76,8 +76,8 @@ $(function(){
 				function spreadPictures(){
 					
         var $newpreview = $('<div />',{
-          'id'		: 'wrapper_preview',
-          'class'	: 'wrapper_preview',
+          'id'		: 'wrapper_preview1',
+          'class'	: 'wrapper_preview1',
           'style'		: 'visibility:hidden;'
         });
 				  $('#pp_gallery').prepend($newpreview);	
@@ -88,6 +88,9 @@ $(function(){
             'position' : 'fixed',
             'background' : '#1A1A1A',
             'top' : '0',
+            'z-index': '1',
+            'right':'23%',
+						'left':'0',
 
           });
 					
@@ -103,6 +106,8 @@ $(function(){
 					//the window, rotating them randomly. Also hide the description of the album
 					
 					//store the current left for the reverse operation
+					
+				  $('#pp_thumbContainer img').css({'position':'fixed','bottom':'0'})
 					$('.wrapper-footer-content').css({'position':'absolute','z-index':'-1'});
 					$('.album').css({'border':'none'});
 					$('.album_title-single-profile').hide();
@@ -110,7 +115,7 @@ $(function(){
 					$('.album_category').hide();
 					$album.data('left',$album.css('left'))
 						  .stop()
-						  .animate({'left':'0px','z-index':'9999'},500).find('.descr').stop().animate({'bottom':'-30px'},200);
+						  .animate({'left':'-120px','z-index':'9999'},500).find('.descr').stop().animate({'position':'fixed'});
 					var total_pic 	= $album.find('.content').length;
 					var cnt			= 0;
 					//each picture
@@ -217,6 +222,7 @@ $(function(){
 					  var imgL_id 	= $thumb.next().html();
 					  //preload the large image to show
 					  $('<img style=""/>').load(function(){
+						  $(".wrapper_preview1").remove();
 						  var $imgL 	= $(this);
 //						  $('.album').hide();
 						  //resize the image based on the windows size
@@ -281,7 +287,10 @@ $(function(){
 							  'visibility'	:'visible',
 							  'position' : 'fixed',
 							  'background' : '#1A1A1A',
-							  'top' : '0'
+							  'top' : '0',
+							  'z-index' : '1',
+							  'right':'23%',
+							  'left':'0',
 						  });
 						
 						  $preview.css({
@@ -341,6 +350,7 @@ $(function(){
 					  //there's a picture being displayed
 					  //lets slide the current one up
 					  $('.album').show();
+					  $('#pp_thumbContainer img').css({'position':'none','bottom':'none'})
 					  $('.wrapper-footer-content').css({'position':'none','z-index':'none'});
 					  $('.album').css({'position':'none','border':'1px dotted'});
 					  $('.album_title-single-profile').show();
@@ -349,6 +359,7 @@ $(function(){
 					   $('.album').css({'left':'none'});
 					   $('.content').css({'margin-top:':'none','left':'none'});
 					  $(".wrapper_preview").hide();
+					   $(".wrapper_preview1").hide();
 					  if(current != -1){
 						  hideCurrentPicture();
 					  }

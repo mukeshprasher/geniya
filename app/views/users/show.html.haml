@@ -169,18 +169,18 @@
           %li
             %span
               %img{alt: "", height: "16", src: "/assets/network_img1.png", width: "22"}/
-            %p 
+            %strong#followers.stat
               = @user.followers.count
-              Followers
-            %a{href: followers_user_path(@user)}
+            Followers
+            %a#followersuser
               %img{alt: "", height: "22", src: "/assets/network_img2.png", width: "22"}/
           %li
             %span
               %img{alt: "", height: "16", src: "/assets/network_img1.png", width: "22"}/
-            %p
+            %strong#following.stat
               = @user.followed_users.count
-              Following
-            %a{href: following_user_path(@user)}
+            Following
+            %a#followinguser
               %img{alt: "", height: "22", src: "/assets/network_img2.png", width: "22"}/
           %li
             %span
@@ -191,9 +191,14 @@
             %a{href: "#"}
               %img{alt: "", height: "22", src: "/assets/network_img2.png", width: "22"}/
           .clear 
-      .socail_share 
-        %img{alt: "", height: "66", src: "/assets/social_share.png", width: "296"}/
-        %a{href: "#"} See All Connections »
+      .social_user
+        - @users = @user.followers
+        - if @users.any?
+          %ul.users= render @users
+      .socail_share
+        - @users = @user.followed_users
+        - if @users.any?
+          %ul.users= render @users       
       .discover
         Discover Geniya
         %ul.discover_nav

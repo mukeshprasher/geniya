@@ -187,7 +187,7 @@ p.description { color: #FFFFFF; font-size: 14px; padding:5px 0px 0px; opacity:0 
 .isotope-item:hover p.description { opacity:1 }
 
 /***********/
-.discover { background: url("/assets/category.png") no-repeat scroll left top rgba(0, 0, 0, 0); color: #FFFFFF; font-family: latolight; font-size: 32px; font-weight: normal; padding: 10px 4%; width: 92%; }
+.discover { background: url("/assets/category.png") no-repeat scroll left top rgba(0, 0, 0, 0); color: #FFFFFF; font-family: latolight; font-size: 32px; font-weight: normal; padding: 10px 4%; width: 92%;float:left; }
 
 .discover_nav { display: table; margin: 0; padding: 10px 0 15px; }
 
@@ -539,7 +539,7 @@ User/edit
 }
 .profile_editable{
   float: left;
-  width:70%
+  width:30%
 }
 
 /*
@@ -547,8 +547,10 @@ _user
 */
 .user_headshot{
   float: left;
-  width: auto;
+    width: 22%;
 }
+.user_img{float:left;}
+
 .user_name{
   float: left;
   width: auto;
@@ -655,7 +657,7 @@ form {margin: 0 0 5px;}
 
 .user_headshot img {
     float: right;
-    margin: 15px 0 0 23px;
+
 }
 
 .pricing_page {padding: 70px 0 40px;}
@@ -982,7 +984,9 @@ form {margin: 0 0 5px;}
 
 .network ul li a {float: right;padding: 4px;}
 
-.socail_share {background: none repeat scroll 0 0 #F4EEEE;margin-bottom: 10px;padding: 13px 0;text-align: center;}
+.socail_share {background: none repeat scroll 0 0 #F4EEEE;margin-bottom: 10px;padding: 13px 0;text-align: center; float:left; display:none;}
+
+.social_user{display:none;}
 
 .socail_share a {color: #6E8F26;float: right;font-family: 'latoregular';font-size: 12px;}
 
@@ -1006,7 +1010,7 @@ form {margin: 0 0 5px;}
 
 #ageRange > .grip > span {display: inline-block;font-size: 15px;margin-top: 18px;}
 
-.makeup_sec {margin-bottom: 7px;position: relative;}
+.makeup_sec {margin-bottom: 7px;position: relative;clear:both;}
 
 .add_sec .makeUp {margin: 10px 0;}
 
@@ -1126,3 +1130,4 @@ form {margin: 0 0 5px;}
     float: left;
     padding: 0 10px 0 0;
 }    
+
