@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 20140331135922) do
     t.datetime "updated_at"
   end
 
+  add_index "categories", ["name"], name: "index_categories_on_name", unique: true
   add_index "categories", ["slug"], name: "index_categories_on_slug", unique: true
 
   create_table "comments", force: true do |t|
