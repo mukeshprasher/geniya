@@ -62,6 +62,11 @@ $(function() {
     var emojis_list = $.map(emojis, function(value, i) {
       return {'id':i, 'name':value};
     });
+    var tag= ["Bold","Beautiful","Awesome","Understanding","unique","Loving","Abstract","Nature","Complex","Socialate"]
+    
+    var tag_list = $.map(tag, function(value, i) {
+      return {'id':i, 'name':value};
+    });    
 
     $('textarea')
       .atwho({
@@ -85,6 +90,19 @@ $(function() {
         tpl: "<li data-value=':${name}:'><img src='/assets/smileys/${name}.png' height='20' width='20'/> ${name} </li>",
         data: emojis_list
       });
+      
+      $('#tag_tag_name')
+        .atwho({
+          at: "#", 
+          tpl: "<li data-value='${atwho-at}${name}'>${name}</li>",
+          data: tag_list
+        });
+      $("textarea")
+        .atwho({
+          at: "#", 
+          tpl: "<li data-value='${atwho-at}${name}'>${name}</li>",
+          data: tag_list
+        });       
       
       jQuery(".best_in_place").best_in_place();      
 

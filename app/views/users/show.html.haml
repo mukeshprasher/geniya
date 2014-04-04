@@ -129,7 +129,8 @@
                 %em
                   = "-"
                   = edu_detail.end_date
-            %a#edu-link{href: "/education"} Add Education Detail 
+            - if (@user.name== current_user.name)
+              %a#edu-link{href: "/education"} Add Education Detail 
           .key_skills
             %h2 Key Skills  Expertise
             %ul
