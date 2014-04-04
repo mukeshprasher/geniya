@@ -1,4 +1,8 @@
 Geniya::Application.routes.draw do
+  resources :tags
+
+  resources :educations
+
   post '/rate' => 'rater#create', :as => 'rate'
   resources :newsletters
   match "/newsletters/:id/send_email", to: 'newsletters#send_email', via: 'post'
@@ -39,7 +43,7 @@ Geniya::Application.routes.draw do
   match "/signup",  to: 'pages#price_table',    via: 'get'
   match '/signin',  to: 'sessions#new',         via: 'get'
   match '/signout', to: 'sessions#destroy',     via: 'delete'
-
+  match '/education', to: 'educations#new', via:'get'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

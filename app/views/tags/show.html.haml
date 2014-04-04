@@ -1,0 +1,10 @@
+.wrapper
+  %p#notice= notice
+
+  %p
+    %b Tag name:
+    = @tag.tag_name
+
+  = link_to 'Edit', edit_tag_path(@tag)
+  \|
+  = link_to 'Back', tags_path

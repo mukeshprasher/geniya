@@ -119,14 +119,17 @@
         .education_photography
           .education
             %h2 Education
-            %p
-              Regional College of Photography
-              %span Bachelor in photography
-              %em 2009-2012
-            %p
-              SCS Jr College
-              %span Intermediate of Science, (ISc.)
-              %em 2004 – 2006
+            - @user.educations.each do |edu_detail|
+              %p
+                = edu_detail.institute_name
+                %span
+                  = edu_detail.course_name
+                %em
+                  = edu_detail.start_date
+                %em
+                  = "-"
+                  = edu_detail.end_date
+            %a#edu-link{href: "/education"} Add Education Detail 
           .key_skills
             %h2 Key Skills  Expertise
             %ul

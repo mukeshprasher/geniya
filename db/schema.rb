@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140331135922) do
+ActiveRecord::Schema.define(version: 20140404112646) do
 
   create_table "albums", force: true do |t|
     t.integer  "user_id"
@@ -75,6 +75,16 @@ ActiveRecord::Schema.define(version: 20140331135922) do
     t.string   "file_attachment_content_type"
     t.integer  "file_attachment_file_size"
     t.datetime "file_attachment_updated_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "educations", force: true do |t|
+    t.string   "institute_name"
+    t.string   "course_name"
+    t.integer  "start_date"
+    t.integer  "end_date"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -219,6 +229,13 @@ ActiveRecord::Schema.define(version: 20140331135922) do
     t.string   "email"
     t.integer  "user_id"
     t.string   "status"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "tags", force: true do |t|
+    t.string   "tag_name"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

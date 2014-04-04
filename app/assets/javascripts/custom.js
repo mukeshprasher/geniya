@@ -75,13 +75,7 @@ $(function() {
           */
           remote_filter: function(query, callback) {
             $.getJSON("/users.json", {q: query}, function(data) {
-              
-              users =new Array();
-              data.forEach(function(user) {
-                  user.name = user.name.split(' ').join('_')
-                  users.push(user)
-              });
-              callback(users)
+              callback(data)
             });
           }
         }

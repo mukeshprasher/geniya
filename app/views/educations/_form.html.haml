@@ -1,0 +1,11 @@
+= simple_form_for(@education) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :institute_name
+    = f.input :course_name
+    = f.input :start_date 
+    = f.input :end_date
+
+  .form-actions
+    = f.button :submit , value: "Add Education"

@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
     belongs_to :category
     belongs_to :sub_category
     has_many :subscriptions
+    has_many :educations
     has_many :updates, foreign_key: "sender_user_id", dependent: :destroy
     has_many :recieved_updates, :class_name => "Update",
 :foreign_key => "receiver_user_id", dependent: :destroy

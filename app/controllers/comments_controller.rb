@@ -28,7 +28,6 @@ class CommentsController < ApplicationController
   
   private
     def sanitize_and_linkify_text(text)
-      sanitized_text = ActionController::Base.helpers.sanitize text
       mentioned_text = text.split.map do |word| 
         if /^@.+/.match word
           if user = User.find_by_username(word[1..-1])
