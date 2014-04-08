@@ -55,9 +55,11 @@ class CommentsController < ApplicationController
         if /^#.+/.match word
           if tag = Tag.find_by_tag_name(word[1..-1])
             src = tag_url(tag)
-            word = "<a href='#{src}'>#{word}</a>"
+            word = "<a href='#{src}'>#{word[1..-1]}</a>"
           else
-            word
+            tag = Tag.create!(tag_name: word[1..-1] , user_id: current_user.id)
+            src = tag_url(tag)
+            word = "<a href='#{src}'>#{word[1..-1]}</a>"
           end
         elsif /:.*:/.match word
           smiley_name = word[1..-2]
