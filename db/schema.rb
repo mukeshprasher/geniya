@@ -300,6 +300,7 @@ ActiveRecord::Schema.define(version: 20140404112646) do
     t.string   "plan"
     t.datetime "plan_end"
     t.string   "status"
+    t.string   "tag"
     t.string   "slug"
     t.integer  "impressions_count", default: 0
     t.datetime "created_at"

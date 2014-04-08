@@ -32,7 +32,6 @@ class UsersController < ApplicationController
     @user.plan = "trial"
     @user.plan_end = Date.today + 1.month
     @user.status = "active"
-
     respond_to do |format|
       if @user.save
 #        set_sub_categories
@@ -54,6 +53,7 @@ class UsersController < ApplicationController
 
   def update
     respond_to do |format|
+      params[:user][:tag] = sanitize_and_linkify_text(params[:user][:tag])
       if @user.update(user_params)
         set_sub_categories unless params[:sub_category_ids].nil?
         format.html {
@@ -102,11 +102,27 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:category_id, :sub_category_id, :email, :username, :password, :password_confirmation, :name, :gender, :summary, :height, :bust, :hips, :shoes, :hair, :eyes, :birthdate, :available)
+      params.require(:user).permit(:category_id, :sub_category_id, :email, :username, :tag, :password, :password_confirmation, :name, :gender, :summary, :height, :bust, :hips, :shoes, :hair, :eyes, :birthdate, :available)
     end
 
     # Before filters
-
+    def sanitize_and_linkify_text(text )
+      sanitized_text = ActionController::Base.helpers.sanitize text
+      mentioned_text = text.split.map do |word| 
+        if /^#.+/.match word
+          if tag = Tag.find_by_tag_name(word[1..-1])
+            src = tag_url(tag)
+            word = "<a href='#{src}'>#{word[1..-1]}</a>"
+          else
+            tag = Tag.create!(tag_name: word[1..-1] , user_id: current_user.id)
+            src = tag_url(tag)
+            word = "<a href='#{src}'>#{word[1..-1]}</a>"
+          end
+        end
+      end
+      mentioned_text.join(' ')
+    end 
+    
     def correct_user
       @user = User.find(params[:id])
       redirect_to(root_url) unless current_user?(@user)

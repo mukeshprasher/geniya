@@ -40,6 +40,9 @@
         = f.label :birthdate
         = f.text_field :birthdate
       .field
+        = f.label :tag
+        = f.text_field :tag      
+      .field
         = f.label :available
         = f.text_field :available
       -if @user.sub_category.name == 'model'
