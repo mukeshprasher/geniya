@@ -106,22 +106,6 @@ class UsersController < ApplicationController
     end
 
     # Before filters
-    def sanitize_and_linkify_text(text )
-      sanitized_text = ActionController::Base.helpers.sanitize text
-      mentioned_text = text.split.map do |word| 
-        if /^#.+/.match word
-          if tag = Tag.find_by_tag_name(word[1..-1])
-            src = tag_url(tag)
-            word = "<a href='#{src}'>#{word[1..-1]}</a>"
-          else
-            tag = Tag.create!(tag_name: word[1..-1] , user_id: current_user.id)
-            src = tag_url(tag)
-            word = "<a href='#{src}'>#{word[1..-1]}</a>"
-          end
-        end
-      end
-      mentioned_text.join(' ')
-    end 
     
     def correct_user
       @user = User.find(params[:id])

@@ -8,7 +8,7 @@
   %a.favourite{href: "#"} Add to favourite
   %ul
     %li
-      = render 'shared/user_img', user: album.user
+      = render 'shared/portfolio_users', user: album.user
       .portf_like_cat 
         = album.category.name
         = render 'shared/like_form', object: album, user: album.user 

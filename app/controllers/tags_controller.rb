@@ -4,7 +4,11 @@ class TagsController < ApplicationController
   # GET /tags
   # GET /tags.json
   def index
-    @tags = Tag.all
+    if params[:q]
+      @tags = Tag.where("lower(tag_name) like lower(?)", "%#{params[:q]}%")
+    else  
+      @tags = Tag.paginate(page: params[:page])
+    end
   end
 
   # GET /tags/1
