@@ -4,7 +4,7 @@
   #child-comment-body
     %span.comment-user-name
       = child.user.username
-    = child.body
+    %p= raw child.body
   #child-comment-info
     = child.updated_at
   #child-comment-likes  
