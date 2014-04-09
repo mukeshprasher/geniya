@@ -1045,6 +1045,57 @@ form {margin: 0 0 5px;}
 .quality a {color: #739B1F;font-family: 'latoblack_italic';font-size: 24px;}
 
 
+/**********pricing table **********/
+
+#basic .basic-plan-register {
+    background: url("/assets/reg.jpeg") no-repeat scroll 0 2px rgba(0, 0, 0, 0);
+    display: block;
+    float: left;
+    height: 41px;
+    margin: 20px 33%;
+    width: 123px;
+}
+
+.basic_plan .price {
+    clear: both;
+    float: left;
+    margin: 20px 0 0;
+    text-align: center;
+    width: 100%;
+}
+
+
+
+
+.Awesome_Plan .price_sale {
+    display: block;
+    float: left;
+    margin: 20px 0;
+    text-align: center;
+    width: 100%;
+}
+
+
+.Awesome_Plan .price_sale h2 {
+    clear: both;
+    color: #7BA400;
+    font-family: "Arial Black";
+    font-size: 88px;
+    margin: 0;
+    position: relative;
+    text-shadow: 5px 5px 5px #BBBABA;
+}
+
+
+.Awesome_Plan .awesom-plan-register {
+    background: url("/assets/register.jpeg") no-repeat scroll 0 2px rgba(0, 0, 0, 0);
+    float: left;
+    height: 40px;
+    left: 0;
+    margin: 20px 33%;
+    width: 121px;
+}
+
 .inneContainer {background: none repeat scroll 0 0 #F5F5F5;clear: both;display: table;width: 100%;}
 
 .dropdown a .pad {float: left;margin: 0 10px 0 0;}
