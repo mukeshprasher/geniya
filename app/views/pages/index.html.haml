@@ -103,8 +103,9 @@
           %ul.discover_nav
             %li
               %a{href: ""} Home
-            %li
-              %a{href: ""} Photography
+            - @categories.each do |category|
+              %li
+                = link_to category.name.sub(' ', '/'), '/portfolios/'+ category.slug
           .clear
           .search
             %input{placeholder: "Enter keyword", type: "search"}/
