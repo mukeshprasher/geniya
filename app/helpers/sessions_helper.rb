@@ -61,11 +61,11 @@ module SessionsHelper
         src = (File.exist?("app/assets/images/smileys/#{smiley_name}.gif")) ? "/assets/smileys/#{smiley_name}.gif" : ((File.exist?("app/assets/images/smileys/#{smiley_name}.png")) ? "/assets/smileys/#{smiley_name}.png" : false)
         word = (src) ? "<img src='#{src}' title='#{smiley_name}' width='20px' />" : word
       elsif /^#.+/.match word
-        if tag = Tag.find_by_tag_name(word[1..-1])
+        if tag = Tag.find_by_name(word[1..-1])
           src = tag_url(tag)
           word = "<a href='#{src}'>#{word[1..-1]}</a>"
         else
-          tag = Tag.create!(tag_name: word[1..-1] , user_id: current_user.id)
+          tag = Tag.create!(name: word[1..-1] , user_id: current_user.id)
           src = tag_url(tag)
           word = "<a href='#{src}'>#{word[1..-1]}</a>"
         end

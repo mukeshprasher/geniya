@@ -92,7 +92,7 @@ $(function() {
       })
       .atwho({
         at: "#", 
-        tpl: "<li data-value='${atwho-at}${tag_name}'>${tag_name}</li>",
+        tpl: "<li data-value='${atwho-at}${name}'>${name}</li>",
         callbacks: {
           /*
            It function is given, At.js will invoke it if local filter can not find any data
@@ -110,7 +110,7 @@ $(function() {
       $("#user_tag")
         .atwho({
           at: "#", 
-          tpl: "<li data-value='${atwho-at}${tag_name}'>${tag_name}</li>",
+          tpl: "<li data-value='${atwho-at}${name}'>${name}</li>",
           callbacks: {
             /*
              It function is given, At.js will invoke it if local filter can not find any data
