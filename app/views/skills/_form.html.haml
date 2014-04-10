@@ -1,0 +1,9 @@
+.wrapper
+  = simple_form_for(@skill) do |f|
+    = f.error_notification
+
+    .form-inputs
+      = f.input :name
+
+    .form-actions
+      = f.button :submit, value: "Add Skill"

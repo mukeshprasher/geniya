@@ -1,4 +1,6 @@
 Geniya::Application.routes.draw do
+  resources :skills
+
   resources :tags
 
   resources :educations

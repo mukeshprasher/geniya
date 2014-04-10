@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
     belongs_to :sub_category
     has_many :subscriptions
     has_many :educations
+    has_many :skills
     has_many :updates, foreign_key: "sender_user_id", dependent: :destroy
     has_many :recieved_updates, :class_name => "Update",
 :foreign_key => "receiver_user_id", dependent: :destroy
@@ -28,6 +29,7 @@ class User < ActiveRecord::Base
     
     has_one :default_album, -> { where kind: 'default' }, class_name: 'Album'
     has_one :headshot, -> { where special_attribute: 'headshot' }, class_name: 'Upload', through: :default_album, source: :uploads
+    has_one :covershot, -> { where special_attribute: 'covershot' }, class_name: 'Upload', through: :default_album, source: :uploads
     has_many :comments
     
     before_create :create_remember_token

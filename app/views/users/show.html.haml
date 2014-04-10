@@ -1,5 +1,22 @@
 .wrapper
   .slider_profile
+    .cover-photo
+      - if @covershot.id
+        =image_tag @covershot.file_attachment.url(:original)
+      - else
+        - if current_user?(@user)
+          .user-cover-photo
+            =image_tag '/assets/profile_banner.png', width: "100%", height: "auto"          
+          = form_for @covershot, :html => { :multipart => true } do |f|
+            = f.hidden_field :album_id, value: current_user.default_album.id
+            = f.hidden_field :name, value: current_user.name
+            = f.hidden_field :special_attribute, value: "covershot"
+            .field
+              = f.file_field :file_attachment
+            .actions
+              = f.submit 'Upload Cover Photo'
+        - else
+          =image_tag '/assets/profile_banner.png', width: "100%", height: "auto"   
     .anisten
       .ani_top
         %h2
@@ -102,7 +119,7 @@
                     .field
                       = f.file_field :file_attachment
                     .actions
-                      = f.submit 'Save'
+                      = f.submit 'Upload Profile Pic'
                 - else
                   =image_tag '/assets/missing.png', width: "50px", height: "50px"  
             .stats
@@ -134,26 +151,11 @@
           .key_skills
             %h2 Key Skills  Expertise
             %ul
-              %li
-                %a{href: "#"} Image Manipulation
-              %li
-                %a{href: "#"} Still Life
-              %li
-                %a{href: "#"} Beauty Industry
-              %li
-                %a{href: "#"} Wedding
-              %li
-                %a{href: "#"} Wildlife
-              %li
-                %a{href: "#"} Web Site Production
-              %li
-                %a{href: "#"} Fashion
-              %li
-                %a{href: "#"} Animate
-              %li
-                %a{href: "#"} Beauty Industry
-              %li
-                %a{href: "#"} Web Site Production
+              - @user.skills.each do |skill|
+                %li
+                  = link_to skill.name.sub(' ', '/'), '/skills/'+ skill.slug
+            - if (@user.name== current_user.name)
+              %a#skill-link{href: "/skills/new"} Add Skills 
           .clear
         .clear
         .box_sec
