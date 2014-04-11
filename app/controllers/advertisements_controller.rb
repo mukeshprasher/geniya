@@ -10,6 +10,11 @@ class AdvertisementsController < ApplicationController
   # GET /advertisements/1
   # GET /advertisements/1.json
   def show
+    @advertisement = Advertisement.find(params[:id])
+    @comments = @advertisement.comment_threads.where('parent_id IS NULL').order('created_at desc')
+    if signed_in?
+      @new_comment = Comment.build_from(@advertisement, current_user.id, "")
+    end  
   end
 
   # GET /advertisements/new

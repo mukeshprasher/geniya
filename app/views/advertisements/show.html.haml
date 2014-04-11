@@ -14,7 +14,11 @@
   %p
     %b Contact Details:
     = @advertisement.contact
+  .comments
+    = render :partial => 'comments/form', :locals => { comment: @new_comment, parent_id: nil }
+    = render :partial => 'comments/comment', :collection => @comments, :as => :comment
 
-  = link_to 'Edit', edit_advertisement_path(@advertisement)
-  \|
-  = link_to 'Back', advertisements_path
+  .add-links
+    = link_to 'Edit', edit_advertisement_path(@advertisement)
+    \|
+    = link_to 'Back', advertisements_path
