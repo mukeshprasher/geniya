@@ -1,0 +1,11 @@
+.wrapper
+  = simple_form_for(@advertisement) do |f|
+    = f.error_notification
+
+    .form-inputs
+      = f.input :name
+      = f.input :address
+      = f.input :contact
+      = f.file_field :file_attachment
+    .form-actions
+      = f.button :submit

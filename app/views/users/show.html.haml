@@ -6,7 +6,7 @@
       - else
         - if current_user?(@user)
           .user-cover-photo
-            =image_tag '/assets/profile_banner.png', width: "100%", height: "auto"          
+            =image_tag '/assets/upload.jpg', width: "100%", height: "auto"          
           = form_for @covershot, :html => { :multipart => true } do |f|
             = f.hidden_field :album_id, value: current_user.default_album.id
             = f.hidden_field :name, value: current_user.name
@@ -16,7 +16,7 @@
             .actions
               = f.submit 'Upload Cover Photo'
         - else
-          =image_tag '/assets/profile_banner.png', width: "100%", height: "auto"   
+          =image_tag '/assets/upload.jpg', width: "100%", height: "auto"   
     .anisten
       .ani_top
         %h2
@@ -225,29 +225,7 @@
             .rightGrip.grip{"data-value" => "51", style: "left: 260px;"}
               %span 50+
       .add_sec
-        .makeup_sec
-          .makeUp
-            %img{alt: "", src: "/assets/feeds_img2.png"}/
-          .make_comtact
-            %p Need a Make up person for new Spa
-            %em Toronto / canada
-            %a{href: "#"} Contact now 
-        .makeup_sec
-          .makeUp
-            %img{alt: "", src: "/assets/feeds_img2.png"}/
-          .make_comtact
-            %p Need a Make up person for new Spa
-            %em Toronto / canada
-            %a{href: "#"} Contact now
-        .makeup_sec
-          .makeUp
-            %img{alt: "", src: "/assets/feeds_img2.png"}/
-          .make_comtact
-            %p Need a Make up person for new Spa
-            %em Toronto / canada
-            %a{href: "#"} Contact now                               
-
-
+        = render 'shared/advertise_form', user: @user 
 /  %p#notice= notice
 /  - provide(:title, @user.name)
 /  .row

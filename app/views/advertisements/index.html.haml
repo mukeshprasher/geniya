@@ -1,0 +1,24 @@
+.wrapper
+  %h1 Listing advertisements
+
+  %table
+    %tr
+      %th Name
+      %th Address
+      %th Contact
+      %th
+      %th
+      %th
+
+    - @advertisements.each do |advertisement|
+      %tr
+        %td= advertisement.name
+        %td= advertisement.address
+        %td= advertisement.contact
+        %td= link_to 'Show', advertisement
+        %td= link_to 'Edit', edit_advertisement_path(advertisement)
+        %td= link_to 'Destroy', advertisement, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+  %br
+
+  = link_to 'New Advertisement', new_advertisement_path

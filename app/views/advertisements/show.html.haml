@@ -1,0 +1,20 @@
+.wrapper
+  %p#notice= notice
+
+  %p
+    %b Job Photo:
+  %p    
+    = image_tag @advertisement.file_attachment.url(:original)
+  %p
+    %b Job Title:
+    = @advertisement.name
+  %p
+    %b Job Location:
+    = @advertisement.address
+  %p
+    %b Contact Details:
+    = @advertisement.contact
+
+  = link_to 'Edit', edit_advertisement_path(@advertisement)
+  \|
+  = link_to 'Back', advertisements_path

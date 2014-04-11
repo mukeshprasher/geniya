@@ -20,48 +20,7 @@
         .user_description
           = render 'shared/feed'   
       .inner_rightSection
-        .makeup_sec
-          .makeUp
-            %img{alt: "", src: "/assets/feeds_img2.png"}/
-          .make_comtact
-            %p Need a Make up person for new Spa
-            %em Toronto / canada
-            %a{href: "#"} Contact now
-        .makeup_sec
-          .makeUp
-            %img{alt: "", src: "/assets/feeds_img3.png"}/
-          .make_comtact
-            %p Need a Make up person for new Spa
-            %em Toronto / canada
-            %a{href: "#"} Contact now
-        .makeup_sec
-          .makeUp
-            %img{alt: "", src: "/assets/feeds_img4.png"}/
-          .make_comtact
-            %p Need a Make up person for new Spa
-            %em Toronto / canada
-            %a{href: "#"} Contact now
-        .makeup_sec
-          .makeUp
-            %img{alt: "", src: "/assets/feeds_img5.png"}/
-          .make_comtact
-            %p Need a Make up person for new Spa
-            %em Toronto / canada
-            %a{href: "#"} Contact now
-        .makeup_sec
-          .makeUp
-            %img{alt: "", src: "/assets/feeds_img6.png"}/
-          .make_comtact
-            %p Need a Make up person for new Spa
-            %em Toronto / canada
-            %a{href: "#"} Contact now
-        .makeup_sec
-          .makeUp
-            %img{alt: "", src: "/assets/feeds_img7.png"}/
-          .make_comtact
-            %p Need a Make up person for new Spa
-            %em Toronto / canada
-            %a{href: "#"} Contact now                                                            
+        = render 'shared/advertise_form', user: current_user
 - else
   .slider
     %img{alt: "slider", src: "/assets/slide1.jpg"}/

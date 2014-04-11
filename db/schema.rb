@@ -11,7 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140410071255) do
+ActiveRecord::Schema.define(version: 20140410115738) do
+
+  create_table "advertisements", force: true do |t|
+    t.string   "name"
+    t.string   "address"
+    t.integer  "contact"
+    t.string   "file_attachment_file_name"
+    t.string   "file_attachment_content_type"
+    t.integer  "file_attachment_file_size"
+    t.datetime "file_attachment_updated_at"
+    t.integer  "user_id"
+    t.string   "slug"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "albums", force: true do |t|
     t.integer  "user_id"
