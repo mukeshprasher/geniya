@@ -8,6 +8,7 @@ namespace :db do
     make_microposts
     make_relationships
     make_albums
+    make_uploads
   end
 
   def make_users
@@ -295,6 +296,16 @@ namespace :db do
       para = Faker::Lorem.paragraph()
       Album.create!(user_id: user.id, name: name, title: title, description: para, kind: "portfolio", category_id:  Category.all.sample.id)
     end
+  end
+  
+  def make_uploads
+    Upload.create!(album_id: '24', user_id: '1', name: 'fashion', title: 'fashion', description: 'fashion', file_attachment_file_name: 'fashion.jpg', file_attachment_content_type: 'image/jpeg', file_attachment_file_size: '36826', file_attachment_updated_at: '2014-04-11 11:37:37.490177', file_type: '.jpg', extension: '.jpg', file_attachment_fingerprint: 'fe6a2cd5f76c5a1fbc83d229e252b96e', impressions_count: '1' )
+    Upload.create!(album_id: '38', user_id: '15', name: 'culinary', title: 'culinary', description: 'culinary', file_attachment_file_name: 'culinary_art.jpg', file_attachment_content_type: 'image/jpeg', file_attachment_file_size: '22662', file_attachment_updated_at: '2014-04-11 11:54:09.438100', file_type: '.jpg', extension: '.jpg', file_attachment_fingerprint: '227f21fb23bef225aa2c8f5f75fdb094', impressions_count: '1' )
+    Upload.create!(album_id: '28', user_id: '5', name: 'fitness', title: 'fitness', description: 'fitness', file_attachment_file_name: 'fitness.jpg', file_attachment_content_type: 'image/jpeg', file_attachment_file_size: '23570', file_attachment_updated_at: '2014-04-11 11:55:35.287225', file_type: '.jpg', extension: '.jpg', file_attachment_fingerprint: '8e22b3ed9b3f3196f14398073b7f5eb1', impressions_count: '1' )
+    Upload.create!(album_id: '25', user_id: '2', name: 'photography', title: 'photography', description: 'photography', file_attachment_file_name: 'photography.jpg', file_attachment_content_type: 'image/jpeg', file_attachment_file_size: '140131', file_attachment_updated_at: '2014-04-11 11:58:36.595881', file_type: '.jpg', extension: '.jpg', file_attachment_fingerprint: '0097150bc73fde6160f67b1aa2029bf5', impressions_count: '1' )
+    Upload.create!(album_id: '27', user_id: '4', name: 'asthentic', title: 'asthentic', description: 'asthentic', file_attachment_file_name: 'asthentic_beauty.jpg', file_attachment_content_type: 'image/jpeg', file_attachment_file_size: '35442', file_attachment_updated_at: '2014-04-11 12:00:46.698118', file_type: '.jpg', extension: '.jpg', file_attachment_fingerprint: 'b69c321f4d26e7cb1ba99e3e3980825c', impressions_count: '1' )            
+    Upload.create!(album_id: '29', user_id: '6', name: 'portfoliyo', title: 'portfoliyo', description: 'portfoliyo', file_attachment_file_name: 'portfoliyo_img1.png', file_attachment_content_type: 'image/png', file_attachment_file_size: '151403', file_attachment_updated_at: '2014-04-11 12:03:37.046870', file_type: '.png', extension: '.png', file_attachment_fingerprint: '6a75f13d16172623e927c764372ab284', impressions_count: '1' )
+    Upload.create!(album_id: '31', user_id: '8', name: 'modeling', title: 'modeling', description: 'modeling', file_attachment_file_name: 'modeling.jpg', file_attachment_content_type: 'image/jpeg', file_attachment_file_size: '40379', file_attachment_updated_at: '2014-04-11 12:05:37.831739', file_type: '.jpg', extension: '.jpg', file_attachment_fingerprint: 'f32d38dcffafab19988b4debae2a9916', impressions_count: '1' )      
   end
   
 end
