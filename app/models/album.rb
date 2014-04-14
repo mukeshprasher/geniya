@@ -1,6 +1,7 @@
 class Album < ActiveRecord::Base
   belongs_to :user
   belongs_to :advertisement
+  belongs_to :update
   belongs_to :category
   has_many :uploads
   has_many :likes,foreign_key: 'likeable_id'

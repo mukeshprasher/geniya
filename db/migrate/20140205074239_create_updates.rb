@@ -2,7 +2,7 @@ class CreateUpdates < ActiveRecord::Migration
   def change
     create_table :updates do |t|
       t.text :text
-      t.string :privacy, :default => 'private'
+      t.string :privacy, default: "public"
       t.integer :sender_user_id
       t.integer :receiver_user_id
 
