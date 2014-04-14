@@ -180,6 +180,10 @@
             Followers
             %a#followersuser
               %img{alt: "", height: "22", src: "/assets/network_img2.png", width: "22"}/
+          .social_user
+            - @users = @user.followers
+            - if @users.any?
+              %ul.users= render @users          
           %li
             %span
               %img{alt: "", height: "16", src: "/assets/network_img1.png", width: "22"}/
@@ -188,6 +192,10 @@
             Following
             %a#followinguser
               %img{alt: "", height: "22", src: "/assets/network_img2.png", width: "22"}/
+          .socail_share
+            - @users = @user.followed_users
+            - if @users.any?
+              %ul.users= render @users           
           %li
             %span
               %img{alt: "", height: "16", src: "/assets/network_img3.png", width: "22"}/
@@ -197,14 +205,8 @@
             %a{href: "#"}
               %img{alt: "", height: "22", src: "/assets/network_img2.png", width: "22"}/
           .clear 
-      .social_user
-        - @users = @user.followers
-        - if @users.any?
-          %ul.users= render @users
-      .socail_share
-        - @users = @user.followed_users
-        - if @users.any?
-          %ul.users= render @users       
+
+      
       .discover
         Discover Geniya
         %ul.discover_nav
