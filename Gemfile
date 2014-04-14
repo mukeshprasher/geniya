@@ -90,6 +90,9 @@ gem 'letsrate'
 # In place editing
 gem "best_in_place", github: 'bernat/best_in_place', branch: "rails-4"
 
+#Automatic jquery validation
+gem 'html5_validators'
+
 # Use unicorn as the app server
 # gem 'unicorn'
 

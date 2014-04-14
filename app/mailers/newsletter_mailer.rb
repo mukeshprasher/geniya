@@ -8,7 +8,7 @@ class NewsletterMailer < ActionMailer::Base
   end
 
   def newsletter_email(newsletter)
-    @req = request.original_url
+    #@req = request.original_url
     @newsletter = newsletter
     @subscriptions = Subscription.where(name: 'newsletter', status: 'subscribed')
     @subscriptions.each do |subscription|
