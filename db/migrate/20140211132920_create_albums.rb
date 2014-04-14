@@ -3,7 +3,6 @@ class CreateAlbums < ActiveRecord::Migration
     create_table :albums do |t|
       t.integer :user_id
       t.integer :category_id
-      t.integer :update_id
       t.string :name
       t.string :title
       t.text :description
