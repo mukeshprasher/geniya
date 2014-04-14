@@ -48,7 +48,7 @@ class User < ActiveRecord::Base
     validates_presence_of :category_id, presence: true
     validates_presence_of :sub_category_id, presence: true
     validates_presence_of :slug
-    
+
     acts_as_liker 
     #is_impressionable counter_cache: true
     acts_as_mentionable

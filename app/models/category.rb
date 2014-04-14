@@ -1,4 +1,5 @@
 class Category < ActiveRecord::Base
+  include ActiveModel::Validations 
   has_many :users
   has_many :sub_categories, dependent: :destroy, order:('name asc')
   has_many :sub_category_groups

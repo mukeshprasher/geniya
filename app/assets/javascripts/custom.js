@@ -130,6 +130,14 @@ $(function() {
       $.datepicker.setDefaults({
         dateFormat: 'yy-mm-dd'
       });
+
+      $('#new_subscription').on('ajax:success',function(data, status, xhr){
+        $('#response_subscription').text('Successfully subscribed');
+        $('#subscription_email').val('');
+        
+      }).on('ajax:error',function(xhr, status, error){
+        $('#response_subscription').text('Invalid entry');
+      });
   };
 
   $(document).ready(toDoOnload);

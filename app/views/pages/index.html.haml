@@ -118,6 +118,17 @@
           .title Subscribe to our newsletter
           .block
             .pull_inside2
-              %input{placeholder: "Your Email", type: "text"}/
-              %input.subscribe{type: "button", value: "Subscribe"}/
+              /%input{placeholder: "Your Email", type: "text"}/
+              /%input.subscribe{type: "button", value: "Subscribe"}/
+              = simple_form_for(@subscription, remote: true, url: '/subscriptions.json') do |f|
+                = f.error_notification
+
+                .form-inputs
+                  = f.hidden_field :name, value: 'newsletter'
+                  = f.hidden_field :status, value: 'subscribed'
+                  = f.input :email, placeholder: 'Your email'
+
+                .form-actions
+                  = f.button :submit, value: 'Subscribe'
+                  #response_subscription
               .clear

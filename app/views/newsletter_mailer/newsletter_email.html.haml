@@ -90,8 +90,6 @@
                               %tr
                                 %td{style: "border-collapse: collapse;", valign: "top"}
                                   %div{align: "left", style: "color: #505050; font-family: Arial; font-size: 14px; line-height: 150%; text-align: left;"}
-                                    = @req.inspect
-                                    = @newsletter.inspect
                                     = raw @newsletter.body
                           / node type 8
                   / node type 8
@@ -129,7 +127,7 @@
                                 %td#utility{bgcolor: "#FCFCFC", colspan: "2", style: "background: #FCFCFC; border-collapse: collapse; border: 0;", valign: "middle"}
                                   %div{align: "center", style: "color: #707070; font-family: Arial; font-size: 12px; line-height: 125%; text-align: center;"}
                                     \ 
-                                    %a{href: "#{@newsletter.status}/edit?email=#{@email}&id=#{@token}", style: "color: #336699; font-weight: normal; text-decoration: underline;", target: "_blank"}> update subscription preferences
+                                    /%a{href: "#{@newsletter.status}/edit?email=#{@email}&id=#{@token}", style: "color: #336699; font-weight: normal; text-decoration: underline;", target: "_blank"}> update subscription preferences
                                     \ 
                           / node type 8
                   / node type 8

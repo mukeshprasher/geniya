@@ -1,4 +1,5 @@
 class Subscription < ActiveRecord::Base
+  include ActiveModel::Validations 
   belongs_to :user
 
   before_save { self.email = email.downcase }
