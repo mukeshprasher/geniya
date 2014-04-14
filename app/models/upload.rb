@@ -1,6 +1,7 @@
 class Upload < ActiveRecord::Base
   belongs_to :album
   belongs_to :user
+  belongs_to :update
   
   has_attached_file :file_attachment, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/assets/missing.png", :hash_secret => "geniyaAttach"
   validates_attachment :file_attachment, :presence => true,

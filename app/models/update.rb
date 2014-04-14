@@ -6,6 +6,12 @@ class Update < ActiveRecord::Base
   validates :text, presence: true 
   validates :sender_user_id, presence: true
   validates :receiver_user_id, presence: true
+  
+  has_many :uploads
+
+
+
+    
   default_scope -> { order('created_at DESC') }
   acts_as_likeable
   acts_as_commentable

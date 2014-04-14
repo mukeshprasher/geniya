@@ -8,7 +8,7 @@ namespace :db do
     make_microposts
     make_relationships
     make_albums
-    make_uploads
+#    make_uploads
   end
 
   def make_users

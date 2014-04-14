@@ -19,12 +19,13 @@ class UpdatesController < ApplicationController
   # POST /updates.json
   def create
     @update = current_user.updates.build(update_params)
-
     respond_to do |format|
       if @update.save
         format.html { 
           flash[:success] = "Update successfully created!"
-          redirect_to @update 
+          @update_upload = current_user.uploads.build(uploads_params)
+          @update_upload.save
+          redirect_to @update
         }
         format.json { render action: 'show', status: :created, location: @update }
       else
@@ -71,6 +72,10 @@ class UpdatesController < ApplicationController
     def update_params
       params.require(:update).permit(:text, :privacy, :sender_user_id, :receiver_user_id)
     end
+    
+    def uploads_params
+      params.require(:update).permit(:name,:album_id,:file_attachment,:special_attribute, :user_id).merge(update_id: @update.id)
+    end    
     
     def correct_user
       @update = current_user.updates.find_by(id: params[:id])
