@@ -25,3 +25,4 @@ doc/
 .idea
 .secret
 /public/system/uploads/file_attachments/*
+/public/system/advertisements/file_attachments/*

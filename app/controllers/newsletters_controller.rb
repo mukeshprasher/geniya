@@ -63,6 +63,7 @@ class NewslettersController < ApplicationController
 
   def send_email
     if @newsletter.status == 'pending'
+      @newsletter.status = params[:newsletter][:url]
       NewsletterMailer.newsletter_email(@newsletter).deliver
       @newsletter.status = 'sent'
       @newsletter.save
@@ -77,6 +78,6 @@ class NewslettersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def newsletter_params
-      params.require(:newsletter).permit(:subject, :body, :status)
+      params.require(:newsletter).permit(:subject, :body, :status, :url)
     end
 end

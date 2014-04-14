@@ -25,6 +25,7 @@ class SubscriptionsController < ApplicationController
   # POST /subscriptions.json
   def create
     @subscription = Subscription.new(subscription_params)
+    @subscription.random_token = ('a'..'z').to_a.shuffle[0..19].join
 
     respond_to do |format|
       if @subscription.save

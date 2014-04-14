@@ -5,6 +5,7 @@ class CreateSubscriptions < ActiveRecord::Migration
       t.string :email
       t.integer :user_id
       t.string :status
+      t.string :random_token
 
       t.timestamps
     end

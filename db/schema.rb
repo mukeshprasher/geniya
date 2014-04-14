@@ -251,6 +251,7 @@ ActiveRecord::Schema.define(version: 20140410115738) do
     t.string   "email"
     t.integer  "user_id"
     t.string   "status"
+    t.string   "random_token"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

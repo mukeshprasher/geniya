@@ -8,8 +8,14 @@ class NewsletterMailer < ActionMailer::Base
   end
 
   def newsletter_email(newsletter)
+    @req = request.original_url
     @newsletter = newsletter
-    @email_ids = Subscription.where(name: 'newsletter', status: 'subscribed').pluck(:email)
-    mail(bcc: @email_ids, subject: @newsletter.subject)
+    @subscriptions = Subscription.where(name: 'newsletter', status: 'subscribed')
+    @subscriptions.each do |subscription|
+      @email = subscription.email
+      @token = subscription.random_token
+      mail(to: @email, subject: @newsletter.subject)
+    end
+    
   end
 end
