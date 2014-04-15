@@ -5,7 +5,7 @@ class CreateUpdates < ActiveRecord::Migration
       t.string :privacy, default: "public"
       t.integer :sender_user_id
       t.integer :receiver_user_id
-
+      t.string :file
       t.timestamps
     end
 

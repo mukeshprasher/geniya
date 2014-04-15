@@ -19,23 +19,23 @@ class UpdatesController < ApplicationController
   # POST /updates.json
   def create
     @update = current_user.updates.build(update_params)
-    respond_to do |format|
-      if @update.save
-        format.html { 
-          flash[:success] = "Update successfully created!"
-          @update_upload = current_user.uploads.build(uploads_params)
-          @update_upload.save
-          redirect_to @update
-        }
-        format.json { render action: 'show', status: :created, location: @update }
-      else
-        format.html { 
-          @feed_items = []
-          render 'pages/index'
-        }
-        format.json { render json: @update.errors, status: :unprocessable_entity }
-      end
-    end
+    @update.save
+#      @update_upload = current_user.uploads.build(uploads_params)
+#      @update_upload.save
+#    end
+#        format.html { 
+#          flash[:success] = "Update successfully created!"
+#          redirect_to @update
+#        }
+#        format.json { render action: 'show', status: :created, location: @update }
+#      else
+#        format.html { 
+#          @feed_items = []
+#          render 'pages/index'
+#        }
+#        format.json { render json: @update.errors, status: :unprocessable_entity }
+#      end
+#    end
   end
 
   # PATCH/PUT /updates/1
@@ -70,12 +70,12 @@ class UpdatesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def update_params
-      params.require(:update).permit(:text, :privacy, :sender_user_id, :receiver_user_id)
+      params.require(:update).permit(:text, :privacy, :sender_user_id, :receiver_user_id, :file)
     end
     
-    def uploads_params
-      params.require(:update).permit(:name,:album_id,:file_attachment,:special_attribute, :user_id).merge(update_id: @update.id)
-    end    
+#    def uploads_params
+#      params.require(:update).permit(:name,:album_id,:file_attachment,:special_attribute, :user_id).merge(update_id: @update.id)
+#    end    
     
     def correct_user
       @update = current_user.updates.find_by(id: params[:id])

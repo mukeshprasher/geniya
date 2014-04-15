@@ -29,6 +29,7 @@ class UploadsController < ApplicationController
   def create
     @upload = Upload.new(upload_params)
     @upload.user_id = current_user.id
+    @upload.save
     respond_to do |format|
       if @upload.save
         format.html { redirect_to @upload, notice: 'Upload was successfully created.' }
