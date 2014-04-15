@@ -305,7 +305,7 @@ ActiveRecord::Schema.define(version: 20140414131825) do
 
   create_table "updates", force: true do |t|
     t.text     "text"
-    t.string   "privacy",          default: "private"
+    t.string   "privacy",          default: "public"
     t.integer  "sender_user_id"
     t.integer  "receiver_user_id"
     t.datetime "created_at"
@@ -318,6 +318,7 @@ ActiveRecord::Schema.define(version: 20140414131825) do
 
   create_table "uploads", force: true do |t|
     t.integer  "album_id"
+    t.integer  "update_id"
     t.integer  "user_id"
     t.string   "name"
     t.string   "title"
