@@ -595,7 +595,7 @@ _user
 
 .inneContainer .innerLeft_section .shere_with .public {border: 1px solid #CCCCCC;color: #4C4C4C;float: left;font-family: 'latolight';font-size: 12px;height: 28px;margin: 10px 0;padding: 4px;width: 395px;}
 
-.inneContainer .innerLeft_section .shere_with .pubBtn {background: none repeat scroll 0 0 #81AA05;border: medium none;color: #FFFFFF;float: right;font-family: 'latobold';font-size: 16px;margin: 10px 0px;padding: 4px 20px;}
+.inneContainer .innerLeft_section .shere_with .pubBtn {background: none repeat scroll 0 0 #81AA05;border: medium none;color: #FFFFFF;float: right;font-family: 'latobold';font-size: 16px;margin: 2px 0px;padding: 4px 20px;}
 
 .user_data {float: left;width: 155px;}
 
@@ -1269,4 +1269,15 @@ form {margin: 0 0 5px;}
 .add-links {
     float: left;
      margin-top: 12px;
+}
+
+
+#updates-img {
+    left: 44%;
+    position: absolute;
+    top: 3px;
+}
+
+#update_file_attachment {
+    width: 200px;
 }
