@@ -22,8 +22,9 @@
       %a{href: "#"}
         %img.pad{alt: "", src: "/assets/drop_btn.png"}/
       .key_word
-        %input.srh{type: "text"}/
-        %img{alt: "", height: "14", src: "/assets/srh_img.png", width: "14"}/
+        = form_tag('', method: :get) do
+          %input.srh{name: 'q', placeholder: "Enter keyword", type: "text"}
+          = submit_tag 'Go', class: 'search_button'
       .dropNav
         %ul
           %li.active

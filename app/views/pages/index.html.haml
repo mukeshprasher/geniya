@@ -67,8 +67,9 @@
                 = link_to category.name.sub(' ', '/'), '/portfolios/'+ category.slug
           .clear
           .search
-            %input{placeholder: "Enter keyword", type: "search"}/
-            %input.go{type: "search", value: "Go"}/
+            = form_tag(portfolios_path, method: :get) do
+              %input{name: 'q', placeholder: "Enter keyword", type: "text"}
+              = submit_tag 'Go', class: 'go'
           .ageFilter
             #ageRange
               .currentRange{style: "left: 4.5px; right: 0px;"}
