@@ -19,6 +19,10 @@ class UsersController < ApplicationController
     @headshot = (@user.headshot) ? @user.headshot : Upload.new
     @covershot = (@user.covershot) ? @user.covershot : Upload.new
     #impressionist @user, '', unique: [:user_id] if current_user
+    @skill = current_user.skills.build
+    @education = current_user.educations.build
+    @advertisement = current_user.advertisements.build
+    @album = current_user.albums.build
   end
 
   def new

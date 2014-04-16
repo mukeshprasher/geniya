@@ -1,0 +1,9 @@
+= simple_form_for(@skill, remote: true) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :name 
+
+  .form-actions-skills
+    = f.button :submit, value: "Add Skill", id: "add"
+    = button_tag "Cancel", id: "cancel", type:"button"

@@ -125,10 +125,6 @@
             .stats
               .stat
                 - pluralize(@user.impressions_count, 'unique visior')
-          .profile_portfolio_section
-            - if signed_in? and current_user?(@user)
-              .new_portfolio_button_cont
-                = link_to 'New Album', new_album_path, class: 'btn btn-primary'        
         .summery
           %h2 Summary
           %p
@@ -136,29 +132,37 @@
         .education_photography
           .education
             %h2 Education
-            - @user.educations.each do |edu_detail|
-              %p
-                = edu_detail.institute_name
-                %span
-                  = edu_detail.course_name
-                %em
-                  = edu_detail.start_date
-                %em
-                  = "-"
-                  = edu_detail.end_date
+            .edu-box
+              - @user.educations.each do |edu_detail|
+                = render 'shared/edu_detail', edu_detail: edu_detail
             - if (@user.name== current_user.name)
-              %a#edu-link{href: "/education"} Add Education Detail 
+              #edu-link
+                %a
+                  Add Education Detail
+              .edu-form
+                = render 'shared/edu_form' 
           .key_skills
             %h2 Key Skills  Expertise
-            %ul
+            %ul#skills-field
               - @user.skills.each do |skill|
-                %li
-                  = link_to skill.name.sub(' ', '/'), '/skills/'+ skill.slug
+                = render 'shared/skills_name', skill: skill
             - if (@user.name== current_user.name)
-              %a#skill-link{href: "/skills/new"} Add Skills 
+              #skill-link
+                %a
+                  Add Skills
+              .skill-form
+                = render 'shared/skill_form' 
           .clear
         .clear
         .box_sec
+          .profile_portfolio_section
+            - if signed_in? and current_user?(@user)
+              .new_portfolio_button_cont
+                #new-album
+                  %a
+                    Add Album
+                .album-form
+                  = render 'shared/album_form'
           #pp_gallery.pp_gallery
             #pp_loading.pp_loading
             #pp_next.pp_next
@@ -219,13 +223,13 @@
         .search
           %input{placeholder: "Enter keyword", type: "search"}/
           %input.go{type: "search", value: "Go"}/      
-        .ageFilter
-          #ageRange
-            .currentRange{style: "left: 4.5px; right: 0px;"}
-            .leftGrip.grip{"data-value" => "19", style: "left: 4.5px;"}
-              %span 19
-            .rightGrip.grip{"data-value" => "51", style: "left: 260px;"}
-              %span 50+
+        /.ageFilter
+        /  #ageRange
+        /    .currentRange{style: "left: 4.5px; right: 0px;"}
+        /    .leftGrip.grip{"data-value" => "19", style: "left: 4.5px;"}
+        /      %span 19
+        /    .rightGrip.grip{"data-value" => "51", style: "left: 260px;"}
+        /      %span 50+
       .add_sec
         = render 'shared/advertise_form', user: @user 
 /  %p#notice= notice

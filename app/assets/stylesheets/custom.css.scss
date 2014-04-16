@@ -63,7 +63,16 @@ button { cursor:pointer }
 
 header { margin:0px; padding:0px; width:100%; background:#f3f1f1; position:relative; }
 
-.form-actions-subscribe .btn {background: none repeat scroll 0 0 #000000;border: 1px solid #000000;color: #FFFFFF;float: right; border-radius: 0;}
+#cancel-album, #cancel, #cancel-ads  {box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2) inset, 0 1px 2px rgba(0, 0, 0, 0.05);display: inline-block;font-size: 13px;margin-left: 14px;line-height: 20px;margin-bottom: 0;padding: 3px 14px;text-align: center;text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);vertical-align: middle;}
+
+
+#cancel-edu {box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2) inset, 0 1px 2px rgba(0, 0, 0, 0.05);display: inline-block;font-size: 13px;margin-left: 14px;line-height: 20px;margin-bottom: 0;padding: 3px 14px;text-align: center;text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);vertical-align: middle;}
+
+.form-actions-subscribe .btn{background: none repeat scroll 0 0 #000000;border: 1px solid #000000;color: #FFFFFF;float: right; border-radius: 0;}
+
+.form-actions-ads #cancel-ads, .form-actions-ads .btn, .form-actions-edu .btn, .form-actions-edu #cancel-edu, .form-actions-skills .btn, .form-actions-skills #cancel {background: none repeat scroll 0 0 #000000;border: 1px solid #000000;color: #FFFFFF;float: left; border-radius: 0;}
+
+.form-actions-album #album-btn, .form-actions-album #cancel-album{background: none repeat scroll 0 0 #000000;border: 1px solid #000000;color: #FFFFFF;float: left; border-radius: 0;}
 
 #response_subscription {background: none repeat scroll 0 0 #FFFFFF;font-size: 19px;text-align: center;width: 150px;}
 
@@ -763,12 +772,12 @@ form {margin: 0 0 5px;}
 	width:100%;
 }
 #pp_thumbContainer .album{
-   float: left;
-    height: 252px;
- margin: 15px 0 0 10px;
+   border: 1px solid #CCCCCC;
+    float: left;
+    height: 317px;
+    margin: 15px 0 0 10px;
+    position: relative;
     width: 30%;
-    border: 1px solid #CCCCCC;
-    position:relative;
 
 }
 .album .descr,
@@ -798,10 +807,9 @@ form {margin: 0 0 5px;}
 #pp_thumbContainer .content{
     cursor: pointer;
     height: 100px;
-    padding: 15px 0 0 6px;
+    padding: 37px 0 0 25px;
     position: absolute;
-    width: 150px;
-    text-algin:center;
+    width: 135px;
 }
 #pp_thumbContainer img{
 	border:5px solid #fff;
@@ -1283,3 +1291,23 @@ form {margin: 0 0 5px;}
 #update_file_attachment {
     width: 200px;
 }
+
+.pagination ul{ display:none;}
+
+.page_loader{margin-top:50px;}
+
+/************ for Skills********/
+.skill-form{display:none;}
+
+/********* for educations **********/
+.edu-form{display:none;}
+
+/********* for ads***********/
+.ads-form{display:none;}
+
+.form-actions-ads {float: left;margin: 16px 0 12px;}
+
+
+/*********** for albums************/
+
+.album-form{display:none;}

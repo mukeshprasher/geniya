@@ -33,6 +33,38 @@ $(function() {
       }
     });
     
+    $("#skill-link").click(function() {
+      $(".skill-form").show();
+    });  
+    
+    $("#cancel").click(function() {
+      $(".skill-form").hide();
+    });
+    
+    $("#cancel-edu").click(function() {
+      $(".edu-form").hide();
+    });
+
+    $("#add-link").click(function() {
+      $(".ads-form").show();
+    });
+    $("#cancel-ads").click(function() {
+      $(".ads-form").hide();
+    });
+        
+    
+    
+    $("#edu-link").click(function() {
+      $(".edu-form").show();
+    });    
+  
+      $("#new-album").click(function() {
+      $(".album-form").show();
+    });
+    
+    $("#cancel-album").click(function() {
+      $(".album-form").hide();
+    });
 
   }
   $(document).ready(toDoOnloadComment);

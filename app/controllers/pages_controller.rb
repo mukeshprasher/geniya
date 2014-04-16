@@ -3,9 +3,14 @@ class PagesController < ApplicationController
       @subscription = Subscription.new
       if signed_in?
         @update = current_user.updates.build
-        @feed_items = current_user.feed.paginate(page: params[:page])
+        @advertisement = current_user.advertisements.build
+        @feed_items = current_user.feed.paginate(page: params[:page], per_page: 5)
+        respond_to do |format|
+          format.html
+          format.js
+        end      
       else
-        @albums = Album.paginate(page: params[:page], per_page: 21).order(impressions_count: :desc)
+        @albums = Album.paginate(page: params[:page], per_page: 21).where(kind: 'portfolio').order(impressions_count: :desc)
         respond_to do |format|
           format.html
           format.js

@@ -26,15 +26,16 @@ class EducationsController < ApplicationController
   def create
     @education = Education.new(education_params)
     @education.user_id =  current_user.id
-    respond_to do |format|
-      if @education.save
-        format.html { redirect_to @education, notice: 'Education was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @education }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @education.errors, status: :unprocessable_entity }
-      end
-    end
+    @education.save
+#    respond_to do |format|
+#      if @education.save
+#        format.html { redirect_to @education, notice: 'Education was successfully created.' }
+#        format.json { render action: 'show', status: :created, location: @education }
+#      else
+#        format.html { render action: 'new' }
+#        format.json { render json: @education.errors, status: :unprocessable_entity }
+#      end
+#    end
   end
 
   # PATCH/PUT /educations/1

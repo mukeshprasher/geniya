@@ -1,7 +1,17 @@
-$('#editorsPicks').append('<% @albums.each do|album| %><%= j render 'album_home_thumb', album: album %><% end %>');
-<% if @albums.next_page %>
-  $('.pagination').replaceWith('<%= j will_paginate @albums %>');
+<% if signed_in? %>
+  $('.updates').append('<%= j render partial: 'shared/feed_item', collection: @feed_items %>');
+  <% if @feed_items.next_page %>
+    $('.pagination').replaceWith('<%= j will_paginate @feed_items %>');
+  <% else %>
+    $(window).off('scroll');
+    $('.pagination').remove();
+  <% end %>
 <% else %>
-  $(window).off('scroll');
-  $('.pagination').remove();
+  $('#editorsPicks').append('<% @albums.each do|album| %><%= j render 'album_home_thumb', album: album %><% end %>');
+  <% if @albums.next_page %>
+    $('.pagination').replaceWith('<%= j will_paginate @albums %>');
+  <% else %>
+    $(window).off('scroll');
+    $('.pagination').remove();
+  <% end %>
 <% end %>

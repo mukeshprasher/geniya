@@ -20,7 +20,8 @@
         .user_description
           = render 'shared/feed'   
       .inner_rightSection
-        = render 'shared/advertise_form', user: current_user
+        .add_sec
+          /= render 'shared/advertise_form', user: current_user
 - else
   .slider
     %img{alt: "slider", src: "/assets/slide1.jpg"}/
