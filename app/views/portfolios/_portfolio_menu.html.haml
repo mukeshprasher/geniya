@@ -20,7 +20,7 @@
   .wrapper
     .dropdown
       %a{href: "#"}
-        %img.pad{alt: "", src: "/assets/drop_btn.png"}/
+        %img#portfolio_sub_cat_button.pad{alt: "", src: "/assets/drop_btn.png"}/
       .key_word
         = form_tag('', method: :get) do
           %input.srh{name: 'q', placeholder: "Enter keyword", type: "text"}
@@ -33,3 +33,28 @@
             %li
               = link_to category.name.sub(' ', '/'), '/portfolios/'+ category.slug
       .clear
+      #portfolio_sub_cat_box
+        = form_tag('', method: :get) do
+          .sub_category_chekboxes_container
+            - if params[:action] == 'index'
+              - @categories.each do |category|
+                %br
+                %h5
+                  = category.name
+                %br
+                .group_cont
+                  - category.sub_category_groups.each do |group|
+                    .sub_category_chekbox_container
+                      %input{name: "gr[#{group.id}]", value: "#{group.id}", type: "checkbox"}
+                      = group.name
+                .clear                   
+            - elsif params[:action] == 'category_index'
+              - @search_categories.each do |category|
+                %h5 
+                  = category.name
+                %br
+                - category.sub_categories.each do |sub_category|
+                  .sub_category_chekbox_container
+                    %input{name: "sc[#{sub_category.id}]", value: "#{sub_category.id}", type: "checkbox"}
+                    = sub_category.name
+            = submit_tag 'Search', class: 'search_button'
