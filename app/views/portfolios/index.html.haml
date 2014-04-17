@@ -5,7 +5,8 @@
       %ul#portfolios
         - @albums.each do |album|
           = render 'shared/album_view', album: album
-      #infinite-scrolling
-        = will_paginate @albums      
+      - if params[:q].nil? && params[:gr].nil?
+        #infinite-scrolling
+          = will_paginate @albums      
       .clear
 

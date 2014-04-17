@@ -1330,3 +1330,30 @@ form {margin: 0 0 5px;}
 
 
 #add-link a:hover, #new-album a:hover, #new-upload a:hover, #edu-link a:hover, #skill-link a:hover{cursor:pointer;}
+.search_button {
+}
+
+#portfolio_sub_cat_box{
+  background: none repeat scroll 0 0 #FFFFFF;
+  box-shadow: 0 0 3px #CCCCCC;
+  padding: 20px;
+  background-color: #FFFFFF;
+  position: absolute;
+  z-index: 1;
+  float: left;
+}
+.sub_category_chekboxes_container{
+  float: left;
+  width: 100%;  
+}
+.sub_category_chekbox_container{
+  float: left;
+  width:30%;
+}
+.group_cont{
+   float: left;
+  width: 100%; 
+}
+#portfolio_sub_cat_box{
+  display:none;
+}

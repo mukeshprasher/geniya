@@ -1,9 +1,10 @@
 .ads-box
   - user.advertisements.each do |add_detail|
     = render 'shared/ads_details', add_detail: add_detail
-- if (user.name== current_user.name)
-  #add-link
-    %a
-      Add More Advertisements
-  .ads-form
-    = render 'shared/ads_form'
+- if signed_in?
+  - if (user.name== current_user.name)
+    #add-link
+      %a
+        Add More Advertisements
+    .ads-form
+      = render 'shared/ads_form'

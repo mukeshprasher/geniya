@@ -138,6 +138,10 @@ $(function() {
       }).on('ajax:error',function(xhr, status, error){
         $('#response_subscription').text('Invalid entry');
       });
+      
+      $('#portfolio_search_trigger').click(function(){
+        $('#portfolio_sub_cat_box').toggle()
+      })
   };
 
   $(document).ready(toDoOnload);

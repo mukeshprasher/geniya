@@ -6,7 +6,7 @@
     =image_tag '/assets/file-upload.jpg', title: album.name
   .trendingInfo.isotopeSummary
     %h6.aqua
-      = link_to album.category.name, album.category
+      = link_to album.category.name.sub(' ', '/'), '/portfolios/'+ album.category.slug
     %h4
       = link_to album.title, album
     .isotopeDetailed
