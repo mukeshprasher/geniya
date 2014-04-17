@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
     has_many :subscriptions
     has_many :educations
     has_many :skills
+    has_many :videos
     has_many :advertisements
     has_many :updates, foreign_key: "sender_user_id", dependent: :destroy
     has_many :recieved_updates, :class_name => "Update",
