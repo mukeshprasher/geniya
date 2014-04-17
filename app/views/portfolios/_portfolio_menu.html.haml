@@ -19,7 +19,7 @@
 .inneContainer-links
   .wrapper
     .dropdown
-      %a{href: "#"}
+      %a#portfolio_search_trigger{href: "javascript:void(0)"}
         %img#portfolio_sub_cat_button.pad{alt: "", src: "/assets/drop_btn.png"}/
       .key_word
         = form_tag('', method: :get) do
