@@ -1,4 +1,6 @@
 Geniya::Application.routes.draw do
+  resources :videos
+
   resources :advertisements
 
   resources :skills
