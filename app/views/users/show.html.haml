@@ -7,7 +7,7 @@
         - if current_user?(@user)
           .user-cover-photo
             =image_tag '/assets/upload.jpg', width: "100%", height: "auto"          
-          = form_for @covershot, :html => { :multipart => true } do |f|
+          = form_for @covershot, remote: true, :html => { :multipart => true } do |f|
             = f.hidden_field :album_id, value: current_user.default_album.id
             = f.hidden_field :name, value: current_user.name
             = f.hidden_field :special_attribute, value: "covershot"
@@ -163,6 +163,13 @@
                     Add Album
                 .album-form
                   = render 'shared/album_form'
+            - if signed_in? and current_user?(@user)
+              .new_portfolio_button_cont-upload
+                #new-upload
+                  %a
+                    Upload Album
+                .upload-form
+                  = render 'shared/portfoilo_upload'           
           #pp_gallery.pp_gallery
             #pp_loading.pp_loading
             #pp_next.pp_next
@@ -171,6 +178,7 @@
               - @user.albums.each do |album|
                 = render 'shared/album_thumb', album: album          
             .clear
+          
         .clear    
     .span315.offset1.inline_block
       .network

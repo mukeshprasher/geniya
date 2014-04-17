@@ -23,6 +23,7 @@ class UsersController < ApplicationController
     @education = current_user.educations.build
     @advertisement = current_user.advertisements.build
     @album = current_user.albums.build
+    @upload = current_user.uploads.build
   end
 
   def new
