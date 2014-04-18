@@ -47,6 +47,7 @@ Geniya::Application.routes.draw do
   resources :relationships, only: [:create, :destroy]
   match "/register",  to: 'users#new',    via: 'get'
   match "/signup",  to: 'pages#price_table',    via: 'get'
+  match "/signup",  to: 'pages#price_table',    via: 'get'
   match '/signin',  to: 'sessions#new',         via: 'get'
   match '/signout', to: 'sessions#destroy',     via: 'delete'
   match '/education', to: 'educations#new', via:'get'
