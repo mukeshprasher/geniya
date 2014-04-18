@@ -143,6 +143,8 @@ $(function() {
         $('#portfolio_sub_cat_box').toggle()
       })
 
+
+    //Ajax Modal
     var $modal = $('#ajax-modal');
      
     $('#ajax').on('click', function(){

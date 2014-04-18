@@ -61,7 +61,7 @@ class UsersController < ApplicationController
 
   def update
     respond_to do |format|
-      params[:user][:tag] = sanitize_and_linkify_text(params[:user][:tag])
+      params[:user][:tag] = sanitize_and_linkify_text(params[:user][:tag]) unless params[:user][:tag].nil?
       if @user.update(user_params)
         set_sub_categories unless params[:sub_category_ids].nil?
         format.html {
