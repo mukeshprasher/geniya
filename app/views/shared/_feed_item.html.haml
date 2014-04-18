@@ -18,12 +18,12 @@
         - @comments = feed_item.comment_threads.where('parent_id IS NULL').order('created_at desc')
         %li
           %img{alt: "", height: "11", src: "/assets/heart_img.png", width: "12"}/
-          %p 
-            = pluralize(@likers.count, '')
+          %p{ :id => "likes_count_#{feed_item.class.name}_#{feed_item.id}" } 
+            = @likers.count
         %li
           %img{alt: "", height: "11", src: "/assets/feed_icon1.png", width: "13"}/
           %p 
-            = pluralize(@comments.count, '')
+            = @comments.count
       %span.timestamp
         #{time_ago_in_words(feed_item.created_at)} ago.
     .userBottom

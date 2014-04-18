@@ -1,4 +1,4 @@
-%li.isotope-item
+%li.isotope-item.ajax-portfolio-detail-homepage-modal-trigger{:data => "#{album.id}"}
   .black_square
   -if album.uploads.any?
     = image_tag album.uploads.first.file_attachment.url, title: album.name

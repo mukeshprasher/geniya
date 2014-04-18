@@ -143,7 +143,7 @@ this.$element
 .addClass('modal-overflow');
 } else {
 this.$element
-.css('margin-top', 100px)
+.css('margin-top', 100)
 .removeClass('modal-overflow');
 }
 },

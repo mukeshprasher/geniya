@@ -143,6 +143,8 @@ $(function() {
         $('#portfolio_sub_cat_box').toggle()
       })
 
+
+    //Ajax Modal
     var $modal = $('#ajax-modal');
      
     $('#ajax').on('click', function(){
@@ -165,6 +167,21 @@ $(function() {
         .prepend('<div class="alert alert-info fade in">' +
         'Updated!<button type="button" class="close" data-dismiss="alert">&times;</button>' +
         '</div>');
+      }, 1000);
+    });
+
+
+    //Portfolio modal homepage
+    var $modal = $('#ajax-portfolio-detail-homepage');
+    $('.ajax-portfolio-detail-homepage-modal-trigger').on('click', function(){
+      album_id = $(this).attr('data')
+      // create the backdrop and wait for next modal to be triggered
+      $('body').modalmanager('loading');
+       
+      setTimeout(function(){
+        $modal.load('/ajax/portfolio_detail/'+ album_id, '', function(){
+          $modal.modal();
+        });
       }, 1000);
     });
   };
