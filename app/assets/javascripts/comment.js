@@ -40,12 +40,12 @@ $(function() {
         });  
         
         $("#cancel").click(function() {
-          $(".skill-form").hide('slow');
+          $("#skills").hide('slow');
         });
         
        $("#add").click(function() {
         $(".skill-form").hide('slow');
-       $("#skill_name").val('');
+      // $("#skill_name").val('');
     });
     
     //for education detail form

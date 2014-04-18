@@ -1,6 +1,17 @@
 .wrapper
   %h1 New skill
 
-  = render 'form'
+  #responsive.modal.fade{"data-width" => "760", style: "display: none;", tabindex: "-1"}
+    .modal-header
+      %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
+      %h4.modal-title Responsive
+    .modal-body-1
+      = render 'form'
+    .modal-footer
+      %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
+      %button.btn.btn-primary{type: "button"} Save changes
+  %button.demo.btn.btn-primary.btn-lg{"data-toggle" => "modal", href: "#responsive"} Responsive
+
+  
 
   = link_to 'Back', skills_path

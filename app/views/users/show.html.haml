@@ -143,10 +143,24 @@
             - if signed_in?
               - if (@user.name== current_user.name)
                 #edu-link
-                  %a
-                    Add Education Detail
-                .edu-form
-                  = render 'shared/edu_form' 
+                  /%a
+                  /  Add Education Detail
+
+                #edu.modal.fade{"data-width" => "760", style: "display: none;", tabindex: "-1"}
+                  .modal-header
+                    %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
+                    %h4.modal-title Add Educations Details
+                  .modal-body
+                    = render 'shared/edu_form' 
+                  .modal-footer
+                    %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
+                    /%button.btn.btn-primary{type: "button"} Save changes
+                %a.demo{"data-toggle" => "modal",href: "#edu"}
+                  Add Education Detail
+                /%button.demo.btn.btn-primary.btn-lg{"data-toggle" => "modal", href: "#edu"} edu
+
+                /.edu-form
+                /  = render 'shared/edu_form' 
           .key_skills
             %h2 Key Skills  Expertise
             %ul#skills-field
@@ -155,10 +169,24 @@
             - if signed_in?
               - if (@user.name== current_user.name)
                 #skill-link
-                  %a
-                    Add Skills
-                .skill-form
-                  = render 'shared/skill_form' 
+                  /%a
+                  /  Add Skills
+                
+                #skills.modal.fade{"data-width" => "760", style: "display: none;", tabindex: "-1"}
+                  .modal-header
+                    %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
+                    %h4.modal-title Add Skills
+                  .modal-body
+                    = render 'shared/skill_form'
+                  .modal-footer
+                    %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
+                    /%button.btn.btn-primary{type: "button"} Save changes
+                %a.demo{"data-toggle" => "modal",href: "#skills"}
+                  Add Skills              
+                /%button.demo.btn.btn-primary.btn-lg{"data-toggle" => "modal", href: "#skills"} Responsive
+                
+                /.skill-form
+                /  = render 'shared/skill_form' 
           .clear
         .clear
         .box_sec
