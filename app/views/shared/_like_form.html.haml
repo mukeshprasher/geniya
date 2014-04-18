@@ -4,4 +4,6 @@
       = render 'shared/unlike', object: object
     -else
       = render 'shared/like', object: object
+  %div{ :id => "likers_#{object.class.name}_#{object.id}" }
+    = render 'shared/comment_count', comment: object
 

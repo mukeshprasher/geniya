@@ -1,4 +1,5 @@
 Geniya::Application.routes.draw do
+  get "ajax/portfolio_detail/:id" => 'ajax#portfolio_detail'
   resources :videos
 
   resources :advertisements

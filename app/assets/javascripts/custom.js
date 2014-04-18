@@ -169,6 +169,21 @@ $(function() {
         '</div>');
       }, 1000);
     });
+
+
+    //Portfolio modal homepage
+    var $modal = $('#ajax-portfolio-detail-homepage');
+    $('.ajax-portfolio-detail-homepage-modal-trigger').on('click', function(){
+      album_id = $(this).attr('data')
+      // create the backdrop and wait for next modal to be triggered
+      $('body').modalmanager('loading');
+       
+      setTimeout(function(){
+        $modal.load('/ajax/portfolio_detail/'+ album_id, '', function(){
+          $modal.modal();
+        });
+      }, 1000);
+    });
   };
 
   $(document).ready(toDoOnload);
