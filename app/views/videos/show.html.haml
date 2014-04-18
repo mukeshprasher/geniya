@@ -3,7 +3,22 @@
 %p
   %b Name:
   = @video.name
+%p
+  %b video:  
 
+  - if ["video/mpeg", "video/x-msvideo", "video/3gpp"].include? @video.file_attachment.content_type
+    %object{ data: "#{@video.file_attachment.url}", width: "320", height: "240", autoplay: "false"}
+      %embed{ src: "#{@video.file_attachment.url}", width: "320", height: "240"}
+  - elsif ["video/mp4", "video/ogg", "video/webm", "video/x-flv"].include? @video.file_attachment.content_type
+    %video{ width: "320", height:"240", poster:"poster.jpg", controls:"controls", preload:"none" }
+      %source{type:"#{@video.file_attachment.content_type}", src:"#{@video.file_attachment.url}"}
+      %object{width:"320", height:"240", type:"application/x-shockwave-flash", data:"#{@video.file_attachment.url}"}
+        %embed{ src: "#{@video.file_attachment.url}", width: "320", height: "240"}
+  #playerbSdCNhMeJAuG
+  %script{ type: 'text/javascript'}
+    jwplayer('playerbSdCNhMeJAuG').setup({file: '#{@video.file_attachment.url}', image: 'https://www.longtailvideo.com/content/images/jw-player/lWMJeVvV-876.jpg', title: 'c', width: '40%', aspectratio: '16:9' });
+  
+  
 = link_to 'Edit', edit_video_path(@video)
 \|
 = link_to 'Back', videos_path

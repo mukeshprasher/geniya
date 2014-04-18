@@ -377,6 +377,12 @@ ActiveRecord::Schema.define(version: 20140417104326) do
 
   create_table "videos", force: true do |t|
     t.string   "name"
+    t.string   "file_attachment_file_name"
+    t.string   "file_attachment_content_type"
+    t.integer  "file_attachment_file_size"
+    t.datetime "file_attachment_updated_at"
+    t.integer  "user_id"
+    t.string   "slug"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
