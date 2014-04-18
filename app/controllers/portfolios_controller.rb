@@ -23,7 +23,7 @@ class PortfoliosController < ApplicationController
       end
       @albums.sort! { |a, b|  b.impressions_count <=> a.impressions_count }
     else
-      @albums = Album.where(:kind => "portfolio").order(impressions_count: :desc)
+      @albums = Album.paginate(page: params[:page], per_page: 12).where(:kind => "portfolio").order(impressions_count: :desc)
     end
   end
   def category_index
@@ -50,7 +50,7 @@ class PortfoliosController < ApplicationController
       end
       @albums.sort! { |a, b|  b.impressions_count <=> a.impressions_count }
     else
-      @albums = Album.where(:category_id => @category.id, :kind => "portfolio")
+      @albums = Album.paginate(page: params[:page], per_page: 12).where(:category_id => @category.id, :kind => "portfolio")
     end
   end
 end

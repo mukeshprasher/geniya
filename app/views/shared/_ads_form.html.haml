@@ -1,0 +1,11 @@
+= simple_form_for(@advertisement, remote: true) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :name
+    = f.input :address
+    = f.input :contact
+    = f.file_field :file_attachment
+  .form-actions-ads
+    = f.button :submit, value: "Add Advertisement", id: "ads"
+    = button_tag "Cancel", id: "cancel-ads", type:"button"

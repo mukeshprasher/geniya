@@ -1,0 +1,7 @@
+$('#portfolios').append('<% @albums.each do |album| %><%= j render 'shared/album_view', album: album %><% end %>');
+<% if @albums.next_page %>
+  $('.pagination').replaceWith('<%= j will_paginate @albums %>');
+<% else %>
+  $(window).off('scroll');
+  $('.pagination').remove();
+<% end %>

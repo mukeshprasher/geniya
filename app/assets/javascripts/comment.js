@@ -32,7 +32,87 @@ $(function() {
        return false;
       }
     });
+   
+   // for skill form
     
+        $("#skill-link").click(function() {
+          $(".skill-form").show('slow');
+        });  
+        
+        $("#cancel").click(function() {
+          $(".skill-form").hide('slow');
+        });
+        
+       $("#add").click(function() {
+        $(".skill-form").hide('slow');
+       $("#skill_name").val('');
+    });
+    
+    //for education detail form
+     
+        $("#cancel-edu").click(function() {
+          $(".edu-form").hide('slow');
+        });
+
+        
+        $("#edu-link").click(function() {
+          $(".edu-form").show('slow');
+        }); 
+        
+      $("#edu").click(function() {
+       $(".edu-form").hide('slow');
+       //      $(".skill-form").(this).val('');
+      });          
+    
+    // for advertisements
+    
+        $("#add-link").click(function() {
+          $(".ads-form").show('slow');
+        });
+        $("#cancel-ads").click(function() {
+          $(".ads-form").hide('slow');
+        });
+
+      $("#ads").click(function() {
+       $(".ads-form").hide('slow');
+       //      $(".skill-form").(this).val('');
+      });          
+        
+    // for albums forms    
+    
+  
+      $("#new-album").click(function() {
+       $(".album-form").show('slow');
+       $(".album-form").disable();
+      });
+    
+    $("#cancel-album").click(function() {
+      $(".album-form").hide('slow');
+    });
+
+      $("#album-btn").click(function() {
+       $(".album-form").hide('slow');
+       //      $(".skill-form").(this).val('');
+      });    
+    
+    // for uploads form_for
+    
+    $("#new-upload").click(function() {
+      $(".upload-form").show('slow');
+    });    
+    
+    
+    $("#cancel-upload").click(function() {
+      $(".upload-form").hide('slow');
+    });    
+
+      $("#upload-btn").click(function() {
+       $(".upload-form").hide('slow');
+       //      $(".skill-form").(this).val('');
+      });    
+        
+
+
 
   }
   $(document).ready(toDoOnloadComment);

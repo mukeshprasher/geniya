@@ -26,16 +26,16 @@ class SkillsController < ApplicationController
   def create
     @skill = Skill.new(skill_params)
     @skill.user_id = current_user.id
-
-    respond_to do |format|
-      if @skill.save
-        format.html { redirect_to @skill, notice: 'Skill was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @skill }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @skill.errors, status: :unprocessable_entity }
-      end
-    end
+    @skill.save
+#    respond_to do |format|
+#      if @skill.save
+#        format.html { redirect_to @skill, notice: 'Skill was successfully created.' }
+#        format.json { render action: 'show', status: :created, location: @skill }
+#      else
+#        format.html { render action: 'new' }
+#        format.json { render json: @skill.errors, status: :unprocessable_entity }
+#      end
+#    end
   end
 
   # PATCH/PUT /skills/1

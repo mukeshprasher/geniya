@@ -15,10 +15,17 @@ class UsersController < ApplicationController
   end
 
   def show
-    @updates = @user.updates.paginate(page: params[:page], :per_page => 10)
-    @headshot = (@user.headshot) ? @user.headshot : Upload.new
-    @covershot = (@user.covershot) ? @user.covershot : Upload.new
-    #impressionist @user, '', unique: [:user_id] if current_user
+    if signed_in?
+      @updates = @user.updates.paginate(page: params[:page], :per_page => 10)
+      @headshot = (@user.headshot) ? @user.headshot : Upload.new
+      @covershot = (@user.covershot) ? @user.covershot : Upload.new
+      #impressionist @user, '', unique: [:user_id] if current_user
+      @skill = current_user.skills.build
+      @education = current_user.educations.build
+      @advertisement = current_user.advertisements.build
+      @album = current_user.albums.build
+      @upload = current_user.uploads.build
+    end
   end
 
   def new

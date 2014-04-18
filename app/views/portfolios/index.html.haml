@@ -2,9 +2,11 @@
 .inneContainer
   .wrapper
     .box_section
-      %ul
+      %ul#portfolios
         - @albums.each do |album|
           = render 'shared/album_view', album: album
+      - if params[:q].nil? && params[:gr].nil?
+        #infinite-scrolling
+          = will_paginate @albums      
       .clear
-    .page_loader
-      %img{alt: "", src: "/assets/page_loader.png"}/
+

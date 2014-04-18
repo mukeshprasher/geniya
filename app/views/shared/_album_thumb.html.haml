@@ -1,13 +1,10 @@
 .album
   -if album.uploads.any?
     - album.uploads.each do|upload_img_name|
-      .content
-        = image_tag upload_img_name.file_attachment.url(:thumb), alt: upload_img_name.file_attachment.url(:original)
-        %span
-          = upload_img_name.title
+      = render 'shared/album_img', upload_img_name: upload_img_name
   - else
     .content
-      = image_tag '/assets/medium-file-upload.jpg', alt: '/assets/file-upload.jpg'   
+      = image_tag '/assets/medium-file-upload.jpg', alt: '/assets/file-upload.jpg'
   /.descr
   /  = album.name
   .profile_portfolio_delux  

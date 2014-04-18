@@ -1,22 +1,25 @@
 .wrapper
   .slider_profile
     .cover-photo
-      - if @covershot.id
-        =image_tag @covershot.file_attachment.url(:original)
-      - else
-        - if current_user?(@user)
-          .user-cover-photo
-            =image_tag '/assets/upload.jpg', width: "100%", height: "auto"          
-          = form_for @covershot, :html => { :multipart => true } do |f|
-            = f.hidden_field :album_id, value: current_user.default_album.id
-            = f.hidden_field :name, value: current_user.name
-            = f.hidden_field :special_attribute, value: "covershot"
-            .field
-              = f.file_field :file_attachment
-            .actions
-              = f.submit 'Upload Cover Photo'
+      - if signed_in?
+        - if @covershot.id
+          =image_tag @covershot.file_attachment.url(:original)
         - else
-          =image_tag '/assets/upload.jpg', width: "100%", height: "auto"   
+          - if current_user?(@user)
+            .user-cover-photo
+              =image_tag '/assets/upload.jpg', width: "100%", height: "auto"          
+            = form_for @covershot, remote: true, :html => { :multipart => true } do |f|
+              = f.hidden_field :album_id, value: current_user.default_album.id
+              = f.hidden_field :name, value: current_user.name
+              = f.hidden_field :special_attribute, value: "covershot"
+              .field
+                = f.file_field :file_attachment
+              .actions
+                = f.submit 'Upload Cover Photo'
+          - else
+            =image_tag '/assets/upload.jpg', width: "100%", height: "auto"
+      - else
+        =image_tag '/assets/upload.jpg', width: "100%", height: "auto"     
     .anisten
       .ani_top
         %h2
@@ -58,10 +61,11 @@
     .clear
   .profile_picture
     .pick
-      - if current_user.headshot
-        =image_tag current_user.headshot.file_attachment.url(:medium)
-      - else
-        =image_tag '/assets/missing.png', width: "50px", height: "50px"
+      - if signed_in?
+        - if current_user.headshot
+          =image_tag current_user.headshot.file_attachment.url(:medium)
+        - else
+          =image_tag '/assets/missing.png', width: "50px", height: "50px"
     .profile_nav
       %ul
         %li
@@ -108,27 +112,24 @@
         .row
           %aside.span4
             %section
-              - if @headshot.id
-                =image_tag @headshot.file_attachment.url(:thumb)
-              - else
-                - if current_user?(@user)
-                  = form_for @headshot, :html => { :multipart => true } do |f|
-                    = f.hidden_field :album_id, value: current_user.default_album.id
-                    = f.hidden_field :name, value: current_user.name
-                    = f.hidden_field :special_attribute, value: "headshot"
-                    .field
-                      = f.file_field :file_attachment
-                    .actions
-                      = f.submit 'Upload Profile Pic'
+              - if signed_in?
+                - if @headshot.id
+                  =image_tag @headshot.file_attachment.url(:thumb)
                 - else
-                  =image_tag '/assets/missing.png', width: "50px", height: "50px"  
+                  - if current_user?(@user)
+                    = form_for @headshot, :html => { :multipart => true } do |f|
+                      = f.hidden_field :album_id, value: current_user.default_album.id
+                      = f.hidden_field :name, value: current_user.name
+                      = f.hidden_field :special_attribute, value: "headshot"
+                      .field
+                        = f.file_field :file_attachment
+                      .actions
+                        = f.submit 'Upload Profile Pic'
+                  - else
+                    =image_tag '/assets/missing.png', width: "50px", height: "50px"  
             .stats
               .stat
                 - pluralize(@user.impressions_count, 'unique visior')
-          .profile_portfolio_section
-            - if signed_in? and current_user?(@user)
-              .new_portfolio_button_cont
-                = link_to 'New Album', new_album_path, class: 'btn btn-primary'        
         .summery
           %h2 Summary
           %p
@@ -136,29 +137,46 @@
         .education_photography
           .education
             %h2 Education
-            - @user.educations.each do |edu_detail|
-              %p
-                = edu_detail.institute_name
-                %span
-                  = edu_detail.course_name
-                %em
-                  = edu_detail.start_date
-                %em
-                  = "-"
-                  = edu_detail.end_date
-            - if (@user.name== current_user.name)
-              %a#edu-link{href: "/education"} Add Education Detail 
+            .edu-box
+              - @user.educations.each do |edu_detail|
+                = render 'shared/edu_detail', edu_detail: edu_detail
+            - if signed_in?
+              - if (@user.name== current_user.name)
+                #edu-link
+                  %a
+                    Add Education Detail
+                .edu-form
+                  = render 'shared/edu_form' 
           .key_skills
             %h2 Key Skills  Expertise
-            %ul
+            %ul#skills-field
               - @user.skills.each do |skill|
-                %li
-                  = link_to skill.name.sub(' ', '/'), '/skills/'+ skill.slug
-            - if (@user.name== current_user.name)
-              %a#skill-link{href: "/skills/new"} Add Skills 
+                = render 'shared/skills_name', skill: skill
+            - if signed_in?
+              - if (@user.name== current_user.name)
+                #skill-link
+                  %a
+                    Add Skills
+                .skill-form
+                  = render 'shared/skill_form' 
           .clear
         .clear
         .box_sec
+          .profile_portfolio_section
+            - if signed_in? and current_user?(@user)
+              .new_portfolio_button_cont
+                #new-album
+                  %a
+                    Add Album
+                .album-form
+                  = render 'shared/album_form'
+            - if signed_in? and current_user?(@user)
+              .new_portfolio_button_cont-upload
+                #new-upload
+                  %a
+                    Upload Album
+                .upload-form
+                  = render 'shared/portfoilo_upload'           
           #pp_gallery.pp_gallery
             #pp_loading.pp_loading
             #pp_next.pp_next
@@ -167,6 +185,7 @@
               - @user.albums.each do |album|
                 = render 'shared/album_thumb', album: album          
             .clear
+          
         .clear    
     .span315.offset1.inline_block
       .network
@@ -220,13 +239,13 @@
           = form_tag(portfolios_path, method: :get) do
             %input{name: 'q', placeholder: "Enter keyword", type: "text"}
             = submit_tag 'Go', class: 'go'      
-        .ageFilter
-          #ageRange
-            .currentRange{style: "left: 4.5px; right: 0px;"}
-            .leftGrip.grip{"data-value" => "19", style: "left: 4.5px;"}
-              %span 19
-            .rightGrip.grip{"data-value" => "51", style: "left: 260px;"}
-              %span 50+
+        /.ageFilter
+        /  #ageRange
+        /    .currentRange{style: "left: 4.5px; right: 0px;"}
+        /    .leftGrip.grip{"data-value" => "19", style: "left: 4.5px;"}
+        /      %span 19
+        /    .rightGrip.grip{"data-value" => "51", style: "left: 260px;"}
+        /      %span 50+
       .add_sec
         = render 'shared/advertise_form', user: @user 
 /  %p#notice= notice

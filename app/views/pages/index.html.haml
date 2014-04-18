@@ -20,7 +20,8 @@
         .user_description
           = render 'shared/feed'   
       .inner_rightSection
-        = render 'shared/advertise_form', user: current_user
+        .add_sec
+          /= render 'shared/advertise_form', user: current_user
 - else
   .slider
     %img{alt: "slider", src: "/assets/slide1.jpg"}/
@@ -54,8 +55,10 @@
     .wrapper_c
       .span690.inline_block
         %ul#editorsPicks
-          - @categories.each do |category|
-            = render 'album_home_thumb', album: category.albums.where(kind: 'portfolio').first
+          - @albums.each do|album|
+            = render 'album_home_thumb', album: album
+        #infinite-scrolling
+          = will_paginate @albums
       .span315.offset1.inline_block
         .discover
           Discover Geniya
@@ -70,51 +73,13 @@
             = form_tag(portfolios_path, method: :get) do
               %input{name: 'q', placeholder: "Enter keyword", type: "text"}
               = submit_tag 'Go', class: 'go'
-          .ageFilter
-            #ageRange
-              .currentRange{style: "left: 4.5px; right: 0px;"}
-              .leftGrip.grip{"data-value" => "19", style: "left: 4.5px;"}
-                %span 19
-              .rightGrip.grip{"data-value" => "51", style: "left: 260px;"}
-                %span 50+
-        .widget.video
-          .title Top Viewed
-          .block
-            %img{alt: "", src: "/assets/video.jpg"}/
-            .pull_inside1
-              %span.vid_name Lorem lpsum
-              %span.view 63 views
-        .widget.tab
-          .block
-            %ul.tab_nav
-              %li.active
-                %a{href: ""} Recent
-              %li
-                %a{href: ""} Popular
-              %li
-                %a{href: ""} Comments
-              .clear
-            %ul.tab_content
-              %li
-                .imagecol
-                  %img{alt: "", src: "/assets/tab1.jpg"}/
-                .txtcol
-                  %span.heading Vestibulum et quam ene sollicitudin augue.
-                  .time December 23, 2013
-              %li
-                .imagecol
-                  %img{alt: "", src: "/assets/tab_2.jpg"}/
-                .txtcol
-                  %span.heading Vestibulum et quam ene sollicitudin augue.
-                  .time December 23, 2013
-          .clear
-        .widget.social
-          %a
-            %img{alt: "", src: "/assets/twitter_folloe.jpg"}/
-          %a
-            %img{alt: "", src: "/assets/facebook.jpg"}/
-          %a
-            %img{alt: "", src: "/assets/utube.jpg"}/
+          /.ageFilter
+          /  #ageRange
+          /    .currentRange{style: "left: 4.5px; right: 0px;"}
+          /    .leftGrip.grip{"data-value" => "19", style: "left: 4.5px;"}
+          /      %span 19
+          /    .rightGrip.grip{"data-value" => "51", style: "left: 260px;"}
+          /      %span 50+
         .widget.newsletter
           .title Subscribe to our newsletter
           .block
@@ -129,7 +94,7 @@
                   = f.hidden_field :status, value: 'subscribed'
                   = f.input :email, placeholder: 'Your email'
 
-                .form-actions
+                .form-actions-subscribe
                   = f.button :submit, value: 'Subscribe'
                   #response_subscription
               .clear

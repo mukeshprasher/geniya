@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140414131825) do
+ActiveRecord::Schema.define(version: 20140417104326) do
 
   create_table "advertisements", force: true do |t|
     t.string   "name"
@@ -78,12 +78,6 @@ ActiveRecord::Schema.define(version: 20140414131825) do
     t.datetime "accepted_at"
     t.datetime "created_at"
     t.datetime "updated_at"
-  end
-
-  create_table "conversations", force: true do |t|
-    t.string   "subject",    default: ""
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
   end
 
   create_table "development_logs", force: true do |t|
@@ -188,26 +182,6 @@ ActiveRecord::Schema.define(version: 20140414131825) do
     t.datetime "updated_at"
   end
 
-  create_table "notifications", force: true do |t|
-    t.string   "type"
-    t.text     "body"
-    t.string   "subject",              default: ""
-    t.integer  "sender_id"
-    t.string   "sender_type"
-    t.integer  "conversation_id"
-    t.boolean  "draft",                default: false
-    t.datetime "updated_at",                           null: false
-    t.datetime "created_at",                           null: false
-    t.integer  "notified_object_id"
-    t.string   "notified_object_type"
-    t.string   "notification_code"
-    t.string   "attachment"
-    t.boolean  "global",               default: false
-    t.datetime "expires"
-  end
-
-  add_index "notifications", ["conversation_id"], name: "index_notifications_on_conversation_id"
-
   create_table "rates", force: true do |t|
     t.integer  "rater_id"
     t.integer  "rateable_id"
@@ -232,20 +206,6 @@ ActiveRecord::Schema.define(version: 20140414131825) do
   end
 
   add_index "rating_caches", ["cacheable_id", "cacheable_type"], name: "index_rating_caches_on_cacheable_id_and_cacheable_type"
-
-  create_table "receipts", force: true do |t|
-    t.integer  "receiver_id"
-    t.string   "receiver_type"
-    t.integer  "notification_id",                            null: false
-    t.boolean  "is_read",                    default: false
-    t.boolean  "trashed",                    default: false
-    t.boolean  "deleted",                    default: false
-    t.string   "mailbox_type",    limit: 25
-    t.datetime "created_at",                                 null: false
-    t.datetime "updated_at",                                 null: false
-  end
-
-  add_index "receipts", ["notification_id"], name: "index_receipts_on_notification_id"
 
   create_table "relationships", force: true do |t|
     t.integer  "follower_id"
@@ -308,6 +268,7 @@ ActiveRecord::Schema.define(version: 20140414131825) do
     t.string   "privacy",          default: "public"
     t.integer  "sender_user_id"
     t.integer  "receiver_user_id"
+    t.string   "file"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -374,5 +335,11 @@ ActiveRecord::Schema.define(version: 20140414131825) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["slug"], name: "index_users_on_slug"
   add_index "users", ["username"], name: "index_users_on_username", unique: true
+
+  create_table "videos", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end

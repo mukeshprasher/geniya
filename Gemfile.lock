@@ -249,6 +249,7 @@ DEPENDENCIES
   rails_12factor
   rails_admin (= 0.6.1)
   rails_admin_import (= 0.1.8)
+  remotipart (~> 1.0)
   sass-rails (= 4.0.1)
   sdoc
   simple_form (= 3.0.1)

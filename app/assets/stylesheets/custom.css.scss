@@ -63,7 +63,18 @@ button { cursor:pointer }
 
 header { margin:0px; padding:0px; width:100%; background:#f3f1f1; position:relative; }
 
+#cancel-upload, #cancel-album, #cancel, #cancel-ads  {box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2) inset, 0 1px 2px rgba(0, 0, 0, 0.05);display: inline-block;font-size: 13px;margin-left: 14px;line-height: 20px;margin-bottom: 0;padding: 3px 14px;text-align: center;text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);vertical-align: middle;}
 
+
+#cancel-edu {box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2) inset, 0 1px 2px rgba(0, 0, 0, 0.05);display: inline-block;font-size: 13px;margin-left: 14px;line-height: 20px;margin-bottom: 0;padding: 3px 14px;text-align: center;text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);vertical-align: middle;}
+
+.form-actions-subscribe .btn{background: none repeat scroll 0 0 #000000;border: 1px solid #000000;color: #FFFFFF;float: right; border-radius: 0;}
+
+.form-actions-ads #cancel-ads, .form-actions-ads .btn, .form-actions-edu .btn, .form-actions-edu #cancel-edu, .form-actions-skills .btn, .form-actions-skills #cancel {background: none repeat scroll 0 0 #000000;border: 1px solid #000000;color: #FFFFFF;float: left; border-radius: 0;}
+
+.form-actions-upload #cancel-upload, .form-actions-upload #upload-btn, .form-actions-album #album-btn, .form-actions-album #cancel-album{background: none repeat scroll 0 0 #000000;border: 1px solid #000000;color: #FFFFFF;float: left; border-radius: 0;}
+
+#response_subscription {background: none repeat scroll 0 0 #FFFFFF;font-size: 19px;text-align: center;width: 150px;}
 
 .login_nav { float:right; clear:both }
 
@@ -152,13 +163,13 @@ nav { display: block; float: left; margin-top: 4px; padding-bottom: 28px; positi
 
 #editorsPicks { margin:0px; padding:0px; width:100% }
 
-#editorsPicks li.isotope-item { margin:0 2px 2px 0; position:relative; display:inline-block; overflow:hidden; vertical-align:top }
+#editorsPicks li.isotope-item {     display: inline-block;margin: 6px 2px 27px 7px;overflow: hidden;position: relative;vertical-align: top;width: 30%; }
 
 .black_square { background: none repeat scroll 0 0 rgba(0, 0, 0, 0); bottom: 0; height: 99%; left: 0; pointer-events: none; position: absolute; top: 0; width: 100%; transition: all 0.7s ease 0s }
 
 #editorsPicks li.isotope-item:hover .black_square { background:rgba(0, 0, 0, 0.4); transition: all 0.7s ease 0s }
 
-.trendingInfo.isotopeSummary { -moz-box-sizing: border-box; bottom: 0; color: rgba(255, 255, 255, 0.75); height: 55%; left: 0; margin: 0 5%; overflow: visible; padding: 0; position: absolute; top: 65%; width: 90%; transition: all 0.7s ease 0s }
+.trendingInfo.isotopeSummary { -moz-box-sizing: border-box; bottom: 0; color: rgba(255, 255, 255, 0.75); height: 55%; left: 0; margin: 0 5%; overflow: visible; padding: 0; position: absolute; top: 52%; width: 90%; transition: all 0.7s ease 0s }
 
 .trendingInfo h6.aqua:after { border-right: 7px solid rgba(0, 0, 0, 0); border-top: 7px solid rgba(0, 0, 0, 0); bottom: -7px; content: ""; display: block; left: 0; position: absolute; transition: border 0.3s ease 0s; border-top-color:#2caa9f; }
 
@@ -401,7 +412,12 @@ User profile portfolio section
   .new_portfolio_button_cont{
     float: left;
     padding: 5px;
-    width: 100%;    
+    width: 42%;    
+  }
+   .new_portfolio_button_cont-upload{
+    float: right;
+    padding: 5px;
+    width: 42%;    
   }
 
   .profile_portfolio{
@@ -761,12 +777,12 @@ form {margin: 0 0 5px;}
 	width:100%;
 }
 #pp_thumbContainer .album{
-   float: left;
-    height: 252px;
- margin: 15px 0 0 10px;
+   border: 1px solid #CCCCCC;
+    float: left;
+    height: 317px;
+    margin: 15px 0 0 10px;
+    position: relative;
     width: 30%;
-    border: 1px solid #CCCCCC;
-    position:relative;
 
 }
 .album .descr,
@@ -796,10 +812,9 @@ form {margin: 0 0 5px;}
 #pp_thumbContainer .content{
     cursor: pointer;
     height: 100px;
-    padding: 15px 0 0 6px;
+    padding: 37px 0 0 25px;
     position: absolute;
-    width: 150px;
-    text-algin:center;
+    width: 135px;
 }
 #pp_thumbContainer img{
 	border:5px solid #fff;
@@ -1282,6 +1297,39 @@ form {margin: 0 0 5px;}
     width: 200px;
 }
 
+.pagination ul{ display:none;}
+
+.page_loader{margin-top:50px;}
+
+/************ for Skills********/
+.skill-form{display:none;}
+
+/********* for educations **********/
+.edu-form{display:none;}
+
+/********* for ads***********/
+.ads-form{display:none;}
+
+.form-actions-ads {float: left;margin: 16px 0 12px;}
+
+
+/*********** for albums************/
+
+.album-form{display:none;}
+
+#album-btn {padding: 5px 0 4px;width: 100px;}
+
+#new-album, #new-upload {font-weight: bold;}
+    
+#upload-btn {
+    padding: 5px 7px 4px 6px;
+}
+
+.upload-form{display:none;}
+
+
+
+#add-link a:hover, #new-album a:hover, #new-upload a:hover, #edu-link a:hover, #skill-link a:hover{cursor:pointer;}
 .search_button {
 }
 
