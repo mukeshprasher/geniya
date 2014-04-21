@@ -3,6 +3,7 @@
   .wrapper
     .box_section
       %ul#portfolios
+        #ajax-portfolio-detail-homepage.modal.fade.modal-scrollable{style: "display: none;", tabindex: "-1"}
         - @albums.each do |album|
           = render 'shared/album_view', album: album
       - if params[:q].nil? && params[:sc].nil?

@@ -507,11 +507,11 @@ Portfolio detail view
     .album_header{
       background-color: #333333;
       color: #EEEEEE;
-      padding: 1px 5px;
+      padding: 1px 5px 1px 33px;
     }
     .album_body{
       .album_upload{
-        margin-bottom: 20px;
+        text-align:center;
 
         .album_upload_file{
           padding: 5px;      
@@ -526,6 +526,7 @@ Portfolio detail view
     float: left;
     width: 28%;
     padding: 5px;
+    margin-top:2%;
     .user_info{
       float: left;
       width: 100%;  
@@ -1357,4 +1358,9 @@ form {margin: 0 0 5px;}
 #portfolio_sub_cat_box{
   display:none;
   width:auto;
+}
+
+#ajax-portfolio-detail-homepage {
+    left: 34%;
+    width: 988px;
 }

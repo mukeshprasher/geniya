@@ -186,6 +186,21 @@ $(function() {
     });
   };
 
+    //Portfolio modal portfolio
+//    var $modal = $('#ajax-portfolio-detail-portfolio');
+//    $('.ajax-portfolio-detail-portfolio-modal-trigger').on('click', function(){
+//      album_id = $(this).attr('data')
+//      // create the backdrop and wait for next modal to be triggered
+//      $('body').modalmanager('loading');
+//       
+//      setTimeout(function(){
+//        $modal.load('/ajax/portfolio_detail/'+ album_id, '', function(){
+//          $modal.modal();
+//        });
+//      }, 1000);
+//    });
+//  };
+
   $(document).ready(toDoOnload);
   $(document).on('page:load', toDoOnload);
 });

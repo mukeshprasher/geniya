@@ -1,4 +1,4 @@
-.album
+.box.ajax-portfolio-detail-homepage-modal-trigger{:data => "#{album.id}"}
   -if album.uploads.any?
     - album.uploads.each do|upload_img_name|
       = render 'shared/album_img', upload_img_name: upload_img_name
@@ -7,13 +7,25 @@
       = image_tag '/assets/medium-file-upload.jpg', alt: '/assets/file-upload.jpg'
   /.descr
   /  = album.name
-  .profile_portfolio_delux  
-    .album_title-single-profile
+  .potrate
+    %h2
       = link_to album.name, album
-    .album_category
-      = render 'shared/like_form', object: album, user: album.user     
-    .portfolio_author_name
-      = render 'shared/user_img', user: album.user
-    /.album_category
-    /  = album.category.name
+    %p
+      = render 'shared/like_form', object: album, user: album.user
+  .add_comment
+    %ul
+      %li
+        = render 'shared/user_img', user: album.user
+        
+               
+  
+  /.profile_portfolio_delux  
+  /  .album_title-single-profile
+  /    = link_to album.name, album
+  /  .album_category
+  /    = render 'shared/like_form', object: album, user: album.user     
+  /  .portfolio_author_name
+  /    = render 'shared/user_img', user: album.user
+  /  .album_category
+  /    = album.category.name
 

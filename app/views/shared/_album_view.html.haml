@@ -1,4 +1,4 @@
-%li
+%li.ajax-portfolio-detail-homepage-modal-trigger{:data => "#{album.id}"}
   -if album.uploads.any?
     = image_tag album.uploads.first.file_attachment.url(:medium), title: album.name, width: "100%" 
   -else
