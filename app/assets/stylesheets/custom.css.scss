@@ -104,13 +104,13 @@ nav:after, nav:before { clear: both; }
 
 nav { display: block; float: left; margin-top: 4px; padding-bottom: 28px; position: relative; width: 100%; }
 
-.midsection { margin-right: 165px; }
+.midsection {margin-left: 25px; margin-right: 162px; }
 
 #header_wrapper ul { margin:0;  }
 
 #man_nav li:last-child, .midsection { border:none }
 
-#man_nav li { float:left; list-style:none; padding:0px 8px; border-right:1px solid #e3e3e3; line-height:12px; }
+#man_nav li { float:left; list-style:none; padding:0px 12px; border-right:1px solid #e3e3e3; line-height:12px; }
 
 #man_nav li:hover a { border-bottom:3px solid #99c43a; color:#99c43a; transition:0.3s; padding-bottom:3px; text-decoration:none; }
 
@@ -208,9 +208,21 @@ p.description { color: #FFFFFF; font-size: 14px; padding:5px 0px 0px; opacity:0 
 
 .search { background: none repeat scroll 0 0 #FFFFFF; border-radius: 3px; padding: 1px; width: 95%; }
 
-.search input { background: none repeat scroll 0 0 #FFFFFF; border: medium none; box-shadow: none; color: #A2A2A1; font-family: latolight; font-size: 16px; padding: 8px 2%; width: 82%; }
+.search input { background: none repeat scroll 0 0 #FFFFFF;
+    border: medium none;
+    box-shadow: none;
+    color: #A2A2A1;
+    font-family: latolight;
+    font-size: 16px;
+    height: 35px !important;
+    line-height: 35px !important;
+    margin: 0 !important;
+    padding: 0 10px !important;
+    width: 82%; }
 
-.search .go { background: none repeat scroll 0 0 #567882; border-radius: 0 3px 3px 0; color: #FFFFFF; font-family: latoregular; text-align: center; width: 10%; }
+.search .go { background: none repeat scroll 0 0 #567882; border-radius: 0 3px 3px 0; color: #FFFFFF; font-family: latoregular; text-align: center; width: 10%;  float: right;
+    margin: 0;
+    width: 10%; }
 
 .ageFilter { padding: 20px 0; position: relative; width: 90%; }
 
@@ -961,7 +973,7 @@ form {margin: 0 0 5px;}
 
 .box_sec {padding: 20px 0;}
 
-.box_sec .box {border: 1px solid #CCCCCC;float: left;padding: 0;position: relative;width: 217px;}
+.box_sec .box {border: 1px solid #CCCCCC;float: left;padding: 0;position: relative;width: 217px; margin: 2px 0 0 4px;}
 
 .box_sec .box .potrate {padding: 10px;}
 
@@ -1017,10 +1029,26 @@ form {margin: 0 0 5px;}
 
 .discover_nav a {color: #FFFFFF;font-size: 16px;}
 
-.search {background: none repeat scroll 0 0 #FFFFFF;border-radius: 3px;padding: 1px;width: 95%;}
+.search {background: none repeat scroll 0 0 #FFFFFF;border-radius: 3px;padding: 1px;width: 95%; height:35px}
 
 .search input {background: none repeat scroll 0 0 #FFFFFF;border: medium none;box-shadow: none;color: #A2A2A1;font-family: latolight;font-size: 16px;padding: 8px 2%;width: 75%;}
+.srch-portf {
+    float: left;
+    width: 90% !important;}
+.login_nav img {
+    width: 25px;
+}
+.spacial span{
+    vertical-align: top;
+}
 
+.dropdown-menu > li {
+    float: none;
+    padding: 0;
+}
+
+
+.login_nav li.spacial:hover{ background:#ccc;}
 .search .go {background: none repeat scroll 0 0 #567882;border-radius: 0 3px 3px 0;color: #FFFFFF;font-family: latoregular;text-align: center;width: 10%;}
 
 .ageFilter {padding: 20px 0;position: relative;width: 90%;}
@@ -1164,7 +1192,11 @@ form {margin: 0 0 5px;}
 
 .box_section ul li ul li em {color: #AEADAD;font-family: 'latobold';font-size: 13px;font-style: normal;}
 
-.user_img {float: left;margin: 0 0 0 15px;width: 50px;}
+.user_img {float: left;margin: 0 0 6px 8px;width: 50px;}
+
+.potrate-img {    margin: 5px 0 0 7px;}
+
+.potrate-img a{color: #494949; font-size: 14px;font-weight: bold;}
 
 .box_section p {float: left;}
 
@@ -1363,4 +1395,12 @@ form {margin: 0 0 5px;}
 #ajax-portfolio-detail-homepage {
     left: 34%;
     width: 988px;
+}
+
+.dropdown-menu > li > a:hover{ background:#739B1F;}
+
+
+.content > img {
+    height: 200px;
+    width: 218px;
 }

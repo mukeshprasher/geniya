@@ -1,22 +1,21 @@
 .box.ajax-portfolio-detail-homepage-modal-trigger{:data => "#{album.id}"}
   -if album.uploads.any?
-    - album.uploads.each do|upload_img_name|
-      = render 'shared/album_img', upload_img_name: upload_img_name
+    /- album.uploads.each do|upload_img_name|
+    /  = image_tag upload_img_name.file_attachment.url(:thumb), alt: upload_img_name.file_attachment.url(:original)
+    .content
+      = image_tag album.uploads.last.file_attachment.url
   - else
     .content
       = image_tag '/assets/medium-file-upload.jpg', alt: '/assets/file-upload.jpg'
   /.descr
   /  = album.name
-  .potrate
-    %h2
-      = link_to album.name, album
+  .potrate-img
+    = link_to album.name, album
     %p
       = render 'shared/like_form', object: album, user: album.user
   .add_comment
-    %ul
-      %li
-        = render 'shared/user_img', user: album.user
-        
+    = render 'shared/user_img', user: album.user
+    
                
   
   /.profile_portfolio_delux  

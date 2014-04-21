@@ -71,7 +71,7 @@
           .clear
           .search
             = form_tag(portfolios_path, method: :get) do
-              %input{name: 'q', placeholder: "Enter keyword", type: "text"}
+              %input{name: 'q', placeholder: "Enter keyword", type: "text", class: "srch-portf"}
               = submit_tag 'Go', class: 'go'
           /.ageFilter
           /  #ageRange

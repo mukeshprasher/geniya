@@ -209,6 +209,7 @@
           #ajax-portfolio-detail-homepage.modal.fade.modal-scrollable{style: "display: none;", tabindex: "-1"}
           - @user.albums.each do |album|
             = render 'shared/album_thumb', album: album
+          .clear
           /#pp_gallery.pp_gallery
           /  #pp_loading.pp_loading
           /  #pp_next.pp_next
@@ -269,7 +270,7 @@
         .clear
         .search
           = form_tag(portfolios_path, method: :get) do
-            %input{name: 'q', placeholder: "Enter keyword", type: "text"}
+            %input{name: 'q', placeholder: "Enter keyword", type: "text", class: "srch-portf"}
             = submit_tag 'Go', class: 'go'      
         /.ageFilter
         /  #ageRange

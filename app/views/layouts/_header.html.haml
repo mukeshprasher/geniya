@@ -4,7 +4,7 @@
       - if signed_in?
         /%li= link_to "Profile", current_user
         %a{href:"/users/"+"#{current_user.slug}"}
-          %li 
+          %li.spacial 
             %span
               - if current_user.headshot
                 =image_tag current_user.headshot.file_attachment.url(:thumb)
