@@ -2,10 +2,30 @@
   #header_wrapper.wrapper_c
     %ul.login_nav
       - if signed_in?
-        %li= link_to "Profile", current_user
+        /%li= link_to "Profile", current_user
+        %a{href:"/users/"+"#{current_user.slug}"}
+          %li 
+            %span
+              - if current_user.headshot
+                =image_tag current_user.headshot.file_attachment.url(:thumb)
+              - else
+                =image_tag '/assets/missing.png', width: "50px", height: "50px"
+            %span 
+              = current_user.username
+        %li= link_to 'Home', root_path
+        %li#fat-menu.dropdown
+          %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
+            My Account
+            %b.caret
+          %ul.dropdown-menu
+            %li= link_to "Profile", current_user
+            %li= link_to "View Album", "/albums/default-album-"+"#{current_user.slug}"
+            %li= link_to "Post a Job", '/advertisements/new'
+            %li= link_to "Create an Ad", '/advertisements/new'
         %li.login
           = link_to "Logout", signout_path, method: "delete"
       - else
+        %li= link_to 'Home', root_path
         %li= link_to "Register", signup_path
         %li.login
           = link_to "Login", signin_path
@@ -13,7 +33,6 @@
       %img{alt: "Logo", src: "/assets/logo.png"}/
     %nav#man_nav
       %ul
-        %li= link_to 'Home', root_path
         - @categories.each_with_index do |category, i|
           - midsection_class = (i == 2) ? 'midsection' : ''
           %li= link_to category.name.sub(' ', '/'), '/portfolios/' + category.slug, class: midsection_class
