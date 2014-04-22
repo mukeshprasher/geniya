@@ -1,5 +1,7 @@
 - if @feed_items.any?
-  %ol.updates= render partial: 'shared/feed_item', collection: @feed_items
+  %ol.updates
+    #ajax-portfolio-detail-homepage.modal.fade.modal-scrollable{style: "display: none;", tabindex: "-1"}
+    = render partial: 'shared/feed_item', collection: @feed_items
   #infinite-scrolling
     = will_paginate @feed_items
 

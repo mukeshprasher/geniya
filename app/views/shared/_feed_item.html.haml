@@ -9,10 +9,11 @@
     .userTop
       %h3
         = feed_item.text
-      %p
-        - feed_item.uploads.each do |x|
-          %a{href: "/albums/default-album-#{x.name}"} 
-            = image_tag x.file_attachment.url(:original)
+      - feed_item.uploads.each do |x|
+        %p.isotope-item.ajax-portfolio-detail-homepage-modal-trigger{:data => "#{x.album_id}"}
+          = image_tag x.file_attachment.url(:original)
+      - feed_item.videos.each do |x|
+        = video_tag x.file_attachment.url(:original)          
       %ul
         - @likers = feed_item.likers(User)
         - @comments = feed_item.comment_threads.where('parent_id IS NULL').order('created_at desc')

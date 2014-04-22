@@ -22,6 +22,8 @@ class UpdatesController < ApplicationController
     if @update.save
       @update_upload = current_user.uploads.build(uploads_params)
       @update_upload.save
+      @update_video = current_user.videos.build(video_params)
+      @update_video.save      
     end
 #        format.html { 
 #          flash[:success] = "Update successfully created!"
@@ -75,7 +77,11 @@ class UpdatesController < ApplicationController
     
     def uploads_params
       params.require(:update).permit(:name,:album_id,:file_attachment,:special_attribute, :user_id).merge(update_id: @update.id)
-    end    
+    end
+    
+    def video_params
+      params.require(:update).permit(:file_attachment).merge(update_id: @update.id)
+    end        
     
     def correct_user
       @update = current_user.updates.find_by(id: params[:id])

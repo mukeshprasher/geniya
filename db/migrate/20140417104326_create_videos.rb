@@ -2,6 +2,7 @@ class CreateVideos < ActiveRecord::Migration
   def change
     create_table :videos do |t|
       t.string :name
+      t.integer :update_id
       t.attachment :file_attachment
       t.integer :user_id
       t.string :slug

@@ -10,7 +10,6 @@ class VideosController < ApplicationController
   # GET /videos/1
   # GET /videos/1.json
   def show
-    impressionist @video, '', unique: [:user_id] if current_user
   end
 
   # GET /videos/new
@@ -27,15 +26,19 @@ class VideosController < ApplicationController
   def create
     @video = Video.new(video_params)
     @video.user_id = current_user.id
-    respond_to do |format|
-      if @video.save
-        format.html { redirect_to @video, notice: 'Video was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @video }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @video.errors, status: :unprocessable_entity }
-      end
+    if @video.save
+      @update_upload = current_user.uploads.build(video_params1)
+      @update_upload.save
     end
+#    respond_to do |format|
+#      if @video.save
+#        format.html { redirect_to @video, notice: 'Video was successfully created.' }
+#        format.json { render action: 'show', status: :created, location: @video }
+#      else
+#        format.html { render action: 'new' }
+#        format.json { render json: @video.errors, status: :unprocessable_entity }
+#      end
+#    end
   end
 
   # PATCH/PUT /videos/1
@@ -72,4 +75,7 @@ class VideosController < ApplicationController
     def video_params
       params.require(:video).permit(:name, :file_attachment)
     end
+    def video_params1
+      params.require(:video).permit(:file_attachment)
+    end    
 end

@@ -8,6 +8,7 @@ class Update < ActiveRecord::Base
   validates :receiver_user_id, presence: true
   
   has_many :uploads
+  has_many :videos
 
 
 
