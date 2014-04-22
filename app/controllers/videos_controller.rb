@@ -10,6 +10,7 @@ class VideosController < ApplicationController
   # GET /videos/1
   # GET /videos/1.json
   def show
+    impressionist @video, '', unique: [:user_id] if current_user
   end
 
   # GET /videos/new

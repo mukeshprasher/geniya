@@ -10,6 +10,7 @@ class PagesController < ApplicationController
           format.js
         end      
       else
+        @video = Video.order('created_at asc').first
         @albums = Album.paginate(page: params[:page], per_page: 21).where(kind: 'portfolio').order(impressions_count: :desc)
         respond_to do |format|
           format.html

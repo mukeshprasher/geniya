@@ -2,7 +2,7 @@
   .innerBenner
     .wrapper
       .news_feeds
-        %a.text{href: "#"}
+        %a.text{href: "/"}
           %h2
             News
             %span Feeds
@@ -80,6 +80,25 @@
           /      %span 19
           /    .rightGrip.grip{"data-value" => "51", style: "left: 260px;"}
           /      %span 50+
+        .widget.video
+          .title Top Viewed
+          .block
+            -if Video.any?
+              - if ["video/mpeg", "video/x-msvideo", "video/3gpp"].include? @video.file_attachment.content_type
+                %object{ data: "#{@video.file_attachment.url}", width: "303", height: "230", autoplay: "false"}
+                  %embed{ src: "#{@video.file_attachment.url}", width: "303", height: "230"}
+              - elsif ["video/mp4", "video/ogg", "video/webm", "video/x-flv"].include? @video.file_attachment.content_type
+                %video{ width: "303", height:"230", poster:"poster.jpg", controls:"controls", preload:"none" }
+                  %source{type:"#{@video.file_attachment.content_type}", src:"#{@video.file_attachment.url}"}
+                  %object{width:"303", height:"230", type:"application/x-shockwave-flash", data:"#{@video.file_attachment.url}"}
+                    %embed{ src: "#{@video.file_attachment.url}", width: "303", height: "230"}              
+              .pull_inside1
+                %span.vid_name
+                  = @video.name 
+              %span.view 
+                = @video.impressions_count
+                views        
+        
         .widget.newsletter
           .title Subscribe to our newsletter
           .block
