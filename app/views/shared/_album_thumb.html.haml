@@ -1,18 +1,19 @@
-.box.ajax-portfolio-detail-homepage-modal-trigger{:data => "#{album.id}"}
-  -if album.uploads.any?
-    /- album.uploads.each do|upload_img_name|
-    /  = image_tag upload_img_name.file_attachment.url(:thumb), alt: upload_img_name.file_attachment.url(:original)
-    .content
-      = image_tag album.uploads.last.file_attachment.url
-  - else
-    .content
-      = image_tag '/assets/medium-file-upload.jpg', alt: '/assets/file-upload.jpg'
+.box.ajax-portfolio-detail-homepage-modal-trigger
+  .albm-img{:data => "#{album.id}"}  
+    -if album.uploads.any?
+      /- album.uploads.each do|upload_img_name|
+      /  = image_tag upload_img_name.file_attachment.url(:thumb), alt: upload_img_name.file_attachment.url(:original)
+      .content
+        = image_tag album.uploads.last.file_attachment.url
+    - else
+      .content
+        = image_tag '/assets/medium-file-upload.jpg', alt: '/assets/file-upload.jpg'
   /.descr
   /  = album.name
   .potrate-img
     = link_to album.name, album
     %p
-      = render 'shared/like_form', object: album, user: album.user
+      /= render 'shared/like_form', object: album, user: album.user
   .add_comment
     = render 'shared/user_img', user: album.user
     

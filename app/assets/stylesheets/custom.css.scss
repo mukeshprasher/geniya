@@ -174,7 +174,7 @@ nav { display: block; float: left; margin-top: 4px; padding-bottom: 28px; positi
 
 .trendingInfo h6.aqua:after { border-right: 7px solid rgba(0, 0, 0, 0); border-top: 7px solid rgba(0, 0, 0, 0); bottom: -7px; content: ""; display: block; left: 0; position: absolute; transition: border 0.3s ease 0s; border-top-color:#2caa9f; }
 
-.trendingInfo h6.aqua { background: none repeat scroll 0 0 #2CAA9F; color: #FFFFFF; font-size: 14px; padding: 5px; position: relative; width: 75px; }
+.trendingInfo h6.aqua { background: none repeat scroll 0 0 #2CAA9F; color: #FFFFFF; font-size: 14px; padding: 5px; position: relative; width: 148px; }
 
 .trendingInfo h6.pink:after { border-right: 7px solid rgba(0, 0, 0, 0); border-top: 7px solid rgba(0, 0, 0, 0); bottom: -7px; content: ""; display: block; left: 0; position: absolute; transition: border 0.3s ease 0s; border-top-color:#fb96b8; }
 
@@ -1208,7 +1208,7 @@ form {margin: 0 0 5px;}
 
 .box_section .album-name {  color: #4A4A4A;float: left;font-family: latobold;font-size: 17px;padding: 0 12px;width: 146px; height: 50px;}
 
-.album-likes { float: left;    width: 149px;}
+.album-likes { float: left;    width: 149px; margin: 6px 0 0;}
 
 
 .album-likes .like-left {width: 17px;}
