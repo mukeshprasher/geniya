@@ -173,7 +173,7 @@ $(function() {
 
     //Portfolio modal homepage
     var $modal = $('#ajax-portfolio-detail-homepage');
-    $('.ajax-portfolio-detail-homepage-modal-trigger').on('click', function(){
+    $('.ajax-portfolio-detail-homepage-modal-trigger .albm-img').on('click', function(){
       album_id = $(this).attr('data')
       // create the backdrop and wait for next modal to be triggered
       $('body').modalmanager('loading');
@@ -185,6 +185,13 @@ $(function() {
       }, 1000);
     });
   };
+
+//       $("pubBtn").click(function() {
+//         alert('hello');
+//         $("#feed-text").val('');
+//          $("#upld-content").val('');
+//          }
+
 
     //Portfolio modal portfolio
 //    var $modal = $('#ajax-portfolio-detail-portfolio');

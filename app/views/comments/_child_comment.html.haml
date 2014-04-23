@@ -1,11 +1,15 @@
 %div.child-comment-wrap{ :id => "child-comment-#{child.id}" }
   -if (current_user == child.user)
     = link_to "×", comment_path(child), :method => :delete, :remote => true, :disable_with => "×", :class => 'child-comment-delete', :id => "child-comment-delete-#{child.id}"
-  #child-comment-body
-    %span.comment-user-name
-      = child.user.username
-    %p= raw child.body
-  #child-comment-info
-    = child.updated_at
-  #child-comment-likes  
-    = render 'shared/like_form', object: child, user: child.user
+  %span.comment-user-pic  
+    - if child.user.headshot
+      = image_tag child.user.headshot.file_attachment.url(:thumb)
+    -else
+      =image_tag '/assets/missing.png'   
+  %span.comment-user-name
+    %a{href: "/users/"+"#{child.user.slug}"}
+      = child.user.username  
+    %small= raw child.body
+    %p= child.updated_at
+    #child-comment-likes  
+      = render 'shared/like_form', object: child, user: child.user

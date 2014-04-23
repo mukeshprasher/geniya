@@ -2,12 +2,17 @@
   %hr
     -if (current_user == comment.user) && signed_in?
       = link_to "×", comment_path(comment), :method => :delete, :remote => true,  :disable_with => "×", :class => 'comment-delete' , :id => "comment-delete-#{comment.id}"
-    %h4
+    %span.comment-user-pic  
+      - if comment.user.headshot
+        = image_tag comment.user.headshot.file_attachment.url(:thumb)
+      -else
+        =image_tag '/assets/missing.png'    
     %span.comment-user-name
-      = comment.user.username
-    %small= raw comment.body
-    %p= comment.updated_at
-    #comment-like
+      %a{href: "/users/"+"#{comment.user.slug}"}
+        = comment.user.username
+      %small= raw comment.body
+      %p= comment.updated_at
+      #comment-like
       = render 'shared/like_form', object: comment, user: comment.user
     -if signed_in?
       .reply-button 

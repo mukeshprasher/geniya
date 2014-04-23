@@ -75,7 +75,6 @@ $(function() {
 
       $("#ads").click(function() {
        $(".ads-form").hide('slow');
-       //      $(".skill-form").(this).val('');
       });          
         
     // for albums forms    
@@ -83,7 +82,6 @@ $(function() {
   
       $("#new-album").click(function() {
        $(".album-form").show('slow');
-       $(".album-form").disable();
       });
     
     $("#cancel-album").click(function() {
@@ -111,9 +109,11 @@ $(function() {
        //      $(".skill-form").(this).val('');
       });    
         
-
-
-
+       $(".pubBtn").click(function() {
+         //alert('hello');
+//         $("#feed-text").val('');
+//          $("#update_file_attachment").val('');
+          });
   }
   $(document).ready(toDoOnloadComment);
   $(document).on('page:load', toDoOnloadComment);

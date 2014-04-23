@@ -1,0 +1,11 @@
+.ads-box
+  - @advertisements.each do |add_detail|
+    .makeup_sec
+      .makeUp
+        = image_tag add_detail.file_attachment.url(:original)
+      .make_comtact
+        %p 
+          = add_detail.name
+        %em 
+          = add_detail.address
+        = link_to "Contact now", '/advertisements/'+ add_detail.slug

@@ -6,6 +6,7 @@ class PagesController < ApplicationController
         @video = current_user.videos.build
         @advertisement = current_user.advertisements.build
         @feed_items = current_user.feed.paginate(page: params[:page], per_page: 5)
+        @advertisements = Advertisement.all
         respond_to do |format|
           format.html
           format.js

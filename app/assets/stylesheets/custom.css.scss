@@ -626,11 +626,11 @@ _user
 
 .inneContainer .innerLeft_section .shere_with .pubBtn {background: none repeat scroll 0 0 #81AA05;border: medium none;color: #FFFFFF;float: right;font-family: 'latobold';font-size: 16px;margin: 2px 0px;padding: 4px 20px;}
 
-.user_data {float: left;width: 155px;}
+.user_data {float: left;width: 107px;}
 
 .user_info{margin-top:-7%;}
 
-.user_updates_form {float: left;width: 500px;}
+.user_updates_form {float: left;width: 568px;}
 
 .user_description .firstCol {background: none repeat scroll 0 0 #FFFFFF;border-bottom: 1px solid #EEEEEE;float: left;padding: 25px 0;}
 
@@ -647,7 +647,7 @@ _user
 
 .user_description .firstCol .user .userTop ul li {float: left;margin: 0 10px 0 0;border-bottom:none;}
 
-.user_description .firstCol .user .userTop ul {float: left;list-style: none outside none;}
+.user_description .firstCol .user .userTop ul {float: left;list-style: none outside none; margin:0 auto;}
 
 .user_description .firstCol .user .userTop ul li img {float: left;padding: 5px 10px 0 0;}
 
@@ -1405,3 +1405,26 @@ form {margin: 0 0 5px;}
     height: 200px;
     width: 218px;
 }
+
+/**************** feed Page Css**************/
+
+
+.feed_headshot img {float: left;height: 90px;margin: 5px 0 0;width: 95px;}
+
+
+.feed-user-name {color: #82AB05;font-family: latobold;font-size: 16px;font-weight: bold;}
+
+.feed-text {color: #4C4C4C;font-family: latoregular;font-size: 14px;font-weight: normal;padding: 20px 0;}
+
+.comment-user-pic {float: left;height: 30px;width: 30px;}
+
+.comment-user-pic img{height: 30px;width: 30px;}
+
+
+.comment-user-name {float: left;margin: 0 0 0 8px;width: 90%;}
+
+.child-comment-wrap {float: left;margin: 0;width: 100%;}
+
+#update_privacy {border: 1px solid #CCCCCC;border-radius: 0;color: #4C4C4C;font-family: latolight;padding: 4px;width: 452px;}
+
+.makeUp img {height: 300px;width: 316px;}
