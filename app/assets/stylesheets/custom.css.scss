@@ -116,6 +116,7 @@ nav { display: block; float: left; margin-top: 4px; padding-bottom: 28px; positi
 
 #man_nav li a { color: #000000; font-size: 17px; text-transform: capitalize; transition:0.3s }
 
+#man_nav li.active a{    border-bottom: 3px solid #99C43A;color: #99C43A;padding-bottom: 3px;text-decoration: none;transition: all 0.3s ease 0s;}
 /***********************/
 
 .slider { margin:0px; padding:0px; width:100%; }
@@ -668,6 +669,10 @@ _user
 
 #like-count {float: left;margin: -6px 0 0;}
 
+#like-count a:hover{color:#82AB05;} 
+
+#like-count a{color:#82AB05;} 
+ 
 form {margin: 0 0 5px;}
 
 .current-liker-name {color: #82AB05;}
@@ -1181,7 +1186,7 @@ form {margin: 0 0 5px;}
 
 .box_section ul li h2 {color: #4A4A4A;float: left;font-family: 'latobold';font-size: 16px;padding: 0 15px;}
 
-.box_section ul li a {color: #777777;float: right;font-family: 'latobold';padding: 3px 8px 0 20px;}
+.box_section ul li a {color: #777777;font-family: 'latobold';}
 
 .favourite{background: url("/assets/star_img.png") no-repeat scroll left top rgba(0, 0, 0, 0);font-size:10px;}
 
@@ -1199,11 +1204,20 @@ form {margin: 0 0 5px;}
 
 .potrate-img a{color: #494949; font-size: 14px;font-weight: bold;}
 
-.box_section p {float: left;}
+.box_section p {float: left;  padding: 0 0 0 12px;    width: 91px;}
+
+.box_section .album-name {  color: #4A4A4A;float: left;font-family: latobold;font-size: 17px;padding: 0 12px;width: 146px;}
+
+.album-likes { float: left;    width: 149px;}
+
+
+.album-likes .like-left {width: 17px;}
+
+.album-likes #like-count {float: left;width: 132px;height: 50px;}
 
 .portfolio-user-name{float: left;width: 250px;height:25px;}
 
-.portf_like_cat {float: left;padding: 0 0 0 20px;width: 150px;height:25px;color: #AEADAD;font-family: 'latobold';font-size: 13px;font-style: normal;}
+.portf_like_cat {float: left;padding: 0 0 0 10px;width: 150px;height:25px;color: #AEADAD;font-family: 'latobold';font-size: 13px;font-style: normal;}
 
 .album-name{color: #4A4A4A !important;}
 
@@ -1263,6 +1277,7 @@ form {margin: 0 0 5px;}
     float: left;
     height: 25px;
     width: 200px;
+    padding: 0 0 0 10px;
 }    
 .art_social {
     bottom: 0;
@@ -1428,3 +1443,8 @@ form {margin: 0 0 5px;}
 #update_privacy {border: 1px solid #CCCCCC;border-radius: 0;color: #4C4C4C;font-family: latolight;padding: 4px;width: 452px;}
 
 .makeUp img {height: 300px;width: 316px;}
+
+
+/*************** for Portfolio search page **********/
+
+#portfolios .albm-img img {background: none repeat scroll 0 0 #FFFF00;height: 250px;width: 400px;}

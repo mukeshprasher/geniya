@@ -1,14 +1,17 @@
 %li.ajax-portfolio-detail-homepage-modal-trigger{:data => "#{album.id}"}
-  -if album.uploads.any?
-    = image_tag album.uploads.first.file_attachment.url(:medium), title: album.name, width: "100%" 
-  -else
-    =image_tag '/assets/file-upload.jpg', width: "100%" 
+  .albm-img{:data => "#{album.id}"}  
+    -if album.uploads.any?
+      = image_tag album.uploads.first.file_attachment.url(:medium), title: album.name, width: "100%" 
+    -else
+      =image_tag '/assets/file-upload.jpg', width: "100%" 
   %p.album-name
     = link_to album.name, album
-  %a.favourite{href: "#"} Add to favourite
+  /%a.favourite{href: "#"} Add to favourite
+  .album-likes
+    = render 'shared/like_form', object: album, user: album.user
   %ul
     %li
       = render 'shared/portfolio_users', user: album.user
       .portf_like_cat 
         = album.category.name
-        = render 'shared/like_form', object: album, user: album.user 
+        /= render 'shared/like_form', object: album, user: album.user 

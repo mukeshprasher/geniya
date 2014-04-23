@@ -27,11 +27,20 @@
           = submit_tag 'Go', class: 'search_button'
       .dropNav
         %ul
-          %li.active
-            = link_to "All", portfolios_path
-          - @categories.each do |category|
+          - page_id= params[:id]
+          - if page_id.nil?
+            %li.active
+              = link_to "All", portfolios_path
+          - else 
             %li
-              = link_to category.name.sub(' ', '/'), '/portfolios/'+ category.slug
+              = link_to "All", portfolios_path          
+          - @categories.each do |category|
+            - if (page_id == category.slug)
+              %li.active
+                = link_to category.name.sub(' ', '/'), '/portfolios/'+ category.slug
+            - else
+              %li
+                = link_to category.name.sub(' ', '/'), '/portfolios/'+ category.slug            
       .clear
       #portfolio_sub_cat_box
         = form_tag('', method: :get) do

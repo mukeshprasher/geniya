@@ -32,9 +32,14 @@
     %a.logo
       %img{alt: "Logo", src: "/assets/logo.png"}/
     %nav#man_nav
+      - page_id = params[:id]
       %ul
         - @categories.each_with_index do |category, i|
-          - midsection_class = (i == 2) ? 'midsection' : ''
-          %li= link_to category.name.sub(' ', '/'), '/portfolios/' + category.slug, class: midsection_class
+          - if (page_id == category.slug)
+            - midsection_class = (i == 2) ? 'midsection' : ''
+            %li.active= link_to category.name.sub(' ', '/'), '/portfolios/' + category.slug, class: midsection_class
+          - else
+            - midsection_class = (i == 2) ? 'midsection' : ''
+            %li= link_to category.name.sub(' ', '/'), '/portfolios/' + category.slug, class: midsection_class           
       .clear
   .clear
