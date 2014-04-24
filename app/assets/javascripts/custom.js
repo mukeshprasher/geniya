@@ -124,6 +124,25 @@ $(function() {
             }
           }
         });
+        
+        $("#tag_name")
+        .atwho({
+          at: "#", 
+          tpl: "<li data-value='${atwho-at}${name}'>${name}</li>",
+          callbacks: {
+            /*
+             It function is given, At.js will invoke it if local filter can not find any data
+             @param query [String] matched query
+             @param callback [Function] callback to render page.
+            */
+            remote_filter: function(query, callback) {
+              $.getJSON("/tags.json", {q: query}, function(data) {
+                callback(data)
+              });
+            }
+          }
+        });
+        
       
       jQuery(".best_in_place").best_in_place();      
 

@@ -60,6 +60,21 @@
           = render 'shared/connect_form' if signed_in?
     .clear
   .profile_picture
+    #tags.modal.fade{"data-width" => "760", style: "display: none;", tabindex: "-1"}
+      .modal-header
+        %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
+        %h4.modal-title Add Tags
+      .modal-body
+        = render 'shared/tags_form'
+      .modal-footer
+        %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
+        /%button.btn.btn-primary{type: "button"} Save changes
+    %a.demo{"data-toggle" => "modal",href: "#tags"}
+      Add Tags              
+    /%button.demo.btn.btn-primary.btn-lg{"data-toggle" => "modal", href: "#tags"} Responsive
+    
+    /.skill-form
+    /  = render 'shared/skill_form'     
     .pick
       - if signed_in?
         - if current_user.headshot
@@ -67,7 +82,8 @@
         - else
           =image_tag '/assets/missing.png', width: "50px", height: "50px"
     .profile_nav
-      %ul
+      %ul#tags-field
+
         %li
           = raw @user.tag
 /        %li

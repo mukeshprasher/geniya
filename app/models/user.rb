@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
     belongs_to :sub_category
     has_many :subscriptions
     has_many :educations
+    has_many :tags
     has_many :skills
     has_many :videos
     has_many :advertisements
