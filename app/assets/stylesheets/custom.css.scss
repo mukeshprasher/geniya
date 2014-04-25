@@ -377,6 +377,8 @@ input {
 .users {
   list-style: none;
   margin: 0;
+  float:left;
+  width:290px;
   li {
     overflow: auto;
     padding: 10px 0;
@@ -577,9 +579,9 @@ _user
 */
 .user_headshot{
   float: left;
-    width: 22%;
+
 }
-.user_img{float:left;}
+.user_img{float:left;width: 22px;}
 
 .user_name{
   float: left;
@@ -1018,13 +1020,15 @@ form {margin: 0 0 5px;}
 
 .network ul li p {color: #3F4747;float: left;font-family: 'latoregular';font-size: 16px;}
 
-.network ul li a {float: right;padding: 4px;}
+.network ul li a {float: right;padding: 4px; cursor: pointer;}
 
-.socail_share {background: none repeat scroll 0 0 #F4EEEE;margin-bottom: 10px;padding: 13px 0;text-align: center; float:left; display:none;}
+.socail_share {background: none repeat scroll 0 0 #F4EEEE;margin-bottom: 10px;text-align: center;  display:none;}
 
 .social_user{display:none;}
 
-.socail_share a {color: #6E8F26;float: right;font-family: 'latoregular';font-size: 12px;}
+.connt_user{display:none;}
+
+.socail_share a {color: #6E8F26;font-family: 'latoregular';font-size: 12px;}
 
 .discover {background: url("/assets/category.png") no-repeat scroll left top rgba(0, 0, 0, 0);color: #FFFFFF;font-family: latolight;font-size: 32px;font-weight: normal;padding: 10px 4%;width: 92%;}
 
@@ -1200,9 +1204,9 @@ form {margin: 0 0 5px;}
 
 .user_img {float: left;margin: 0 0 6px 8px;width: 50px;}
 
-.potrate-img {    margin: 5px 0 0 7px;}
+.potrate-img {    margin: 5px 0 0 7px;   font-family: latobold;}
 
-.potrate-img a{color: #494949; font-size: 14px;font-weight: bold;}
+.potrate-img a{color: #494949; font-size: 15px;font-weight: bold;text-decoration: none;}
 
 .box_section p {float: left;  padding: 0 0 0 12px;    width: 91px;}
 
@@ -1255,8 +1259,8 @@ form {margin: 0 0 5px;}
 
 .user_img {
     float: left;
-    margin: 0 0 0 15px;
-    width: 30px;
+
+    width: 22px;
 }
 
 .portfolio-user-name a {
@@ -1450,3 +1454,11 @@ form {margin: 0 0 5px;}
 #portfolios .albm-img img {height: 250px;width: 400px;}
 
 .atwho-view{z-index: 99999 !important;}
+
+/***************** for Profile Page **********************/
+
+.empty_content_follower, .empty_content_following, .empty_content_connect {color: #808080;font-family: latobold;font-size: 19px;text-align: center;}
+
+#follower-link {    float: right;}
+
+#follower-link a{text-decoration:none;}

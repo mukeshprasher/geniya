@@ -1,20 +1,33 @@
-$(function() {
-  var toDoOnloadComment;
-  toDoOnloadComment = function() {
-  
-  $("#followersuser").click(function(){
-    $(".social_user").show("slow");
-    $(".socail_share").hide("slow");
-  
-  });
-  
-    $("#followinguser").click(function(){
-    $(".social_user").hide("slow");
-    $(".socail_share").show("slow");
-  
-  });
-  
-  }
-  $(document).ready(toDoOnloadComment);
-  $(document).on('page:load', toDoOnloadComment);
+jQuery(document).ready(function(){
+    jQuery('#followersuser').live('click', function(event) {        
+         $('img', this).attr('src', function(i, oldSrc) {
+          return oldSrc == '/assets/network_img2.png' ? '/assets/network_img3.png' : '/assets/network_img2.png';
+         });
+         jQuery('.social_user').toggle('show');
+         return false;
+    });
+    
+    jQuery('#followinguser').live('click', function(event) {        
+         $('img', this).attr('src', function(i, oldSrc) {
+          return oldSrc == '/assets/network_img2.png' ? '/assets/network_img3.png' : '/assets/network_img2.png';
+         });         
+         jQuery('.socail_share').toggle('show');
+         return false;
+    });
+    
+    jQuery('#connecteduser').live('click', function(event) {        
+         $('img', this).attr('src', function(i, oldSrc) {
+          return oldSrc == '/assets/network_img2.png' ? '/assets/network_img3.png' : '/assets/network_img2.png';
+         });         
+         jQuery('.connt_user').toggle('show');
+         return false;
+    });    
+    
 });
+
+
+
+
+
+
+

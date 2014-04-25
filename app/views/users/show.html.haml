@@ -50,8 +50,9 @@
               %img{alt: "", src: "/assets/artgallery_img2.png"}/
             %p Teneriffe, Queensland, Australia
           %h3
-            0
-            %span Connections
+            = @user.connected_users.count
+            %span
+              Connections
     .art_social
       %ul
         %li
@@ -247,11 +248,31 @@
               = @user.followers.count
             Followers
             %a#followersuser
-              %img{alt: "", height: "22", src: "/assets/network_img2.png", width: "22"}/
+              %img{alt: "", height: "22", src: "/assets/network_img2.png", width: "22", id: "follw-img"}/
           .social_user
-            - @users = @user.followers
+            - @users = @user.followers.limit(18)
             - if @users.any?
-              %ul.users= render @users          
+              %ul.users= render @users
+            - else
+              .empty_content_follower
+                %p
+                  No Follower user
+            %p
+              #all-follower.modal.fade{"data-width" => "760", style: "display: none;", tabindex: "-1"}
+                .modal-header
+                  %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
+                  %h4.modal-title
+                    = @user.username
+                    Followers
+                .modal-body
+                  - @users = @user.followers
+                  - if @users.any?
+                    %ul.users= render @users
+                .modal-footer
+                  %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
+              %a.demo{"data-toggle" => "modal",href: "#all-follower", id: "follower-link"}
+                - if @users.any?
+                  See All Followers »
           %li
             %span
               %img{alt: "", height: "16", src: "/assets/network_img1.png", width: "22"}/
@@ -261,17 +282,61 @@
             %a#followinguser
               %img{alt: "", height: "22", src: "/assets/network_img2.png", width: "22"}/
           .socail_share
-            - @users = @user.followed_users
+            - @users = @user.followed_users.limit(18)
             - if @users.any?
-              %ul.users= render @users           
+              %ul.users= render @users 
+            - else
+              .empty_content_following
+                %p
+                  No Following user                         
+            %p
+              #all-following.modal.fade{"data-width" => "760", style: "display: none;", tabindex: "-1"}
+                .modal-header
+                  %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
+                  %h4.modal-title 
+                    = @user.username
+                    Following
+                .modal-body
+                  - @users = @user.followed_users
+                  - if @users.any?
+                    %ul.users= render @users
+                .modal-footer
+                  %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
+              %a.demo{"data-toggle" => "modal",href: "#all-following", id: "follower-link"}
+                - if @users.any?
+                  See All Following »          
           %li
             %span
-              %img{alt: "", height: "16", src: "/assets/network_img3.png", width: "22"}/
+              %img{alt: "", height: "16", src: "/assets/network_img1.png", width: "22"}/
             %p 
-              = @user.connections.count
+              = @user.connected_users.count
               Connections
-            %a{href: "#"}
+            %a#connecteduser
               %img{alt: "", height: "22", src: "/assets/network_img2.png", width: "22"}/
+          .connt_user
+            - @users = @user.connected_users.limit(18)
+            - if @users.any?
+              %ul.users= render @users          
+            - else
+              .empty_content_connect
+                %p
+                  No Connections 
+            %p
+              #all-connection.modal.fade{"data-width" => "760", style: "display: none;", tabindex: "-1"}
+                .modal-header
+                  %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
+                  %h4.modal-title
+                    = @user.username
+                    Connetions
+                .modal-body
+                  - @users = @user.connected_users
+                  - if @users.any?
+                    %ul.users= render @users
+                .modal-footer
+                  %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
+              %a.demo{"data-toggle" => "modal",href: "#all-connection", id: "follower-link"}
+                - if @users.any?
+                  See All Connections »            
           .clear 
 
       
