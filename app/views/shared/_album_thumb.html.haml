@@ -16,8 +16,9 @@
       /= render 'shared/like_form', object: album, user: album.user
   .add_comment
     = render 'shared/user_img', user: album.user
-    
-               
+  %span.album_category_name
+    = album.category.name   
+                 
   
   /.profile_portfolio_delux  
   /  .album_title-single-profile
