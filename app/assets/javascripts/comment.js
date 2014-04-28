@@ -32,6 +32,169 @@ $(function() {
        return false;
       }
     });
+    
+    
+    // cover photo validation
+    
+    $("#upload_file_attachment").change(function (e) {
+     var OrgFile = (this.files[0].name),
+         FileName = OrgFile,
+         FileExtension = FileName.split('.').pop().toLowerCase();
+         
+         if(FileName.indexOf(".")==-1 || FileExtension != "jpg" && FileExtension != "jpeg" && FileExtension != "png" && FileExtension != "gif" ){ // Curstom File Extension
+          alert("This isn't a Photo !");
+          $("#upload_file_attachment").val('');
+          return false;
+         }
+         else
+         if((this.files[0].size/1024/1024) > (1)){ // Max Photo Size 1MB
+          alert("You Photo is too big !");
+          $("#upload_file_attachment").val('');
+          return false;
+         }
+         
+         else{
+          var fr = new FileReader;
+    fr.onload = function() {
+        var img = new Image;
+        img.onload = function() {
+          if ((img.width < 1024) && (img.height < 300)) {
+          alert("Please choose an image that's at least 1024 pixels wide and at least 300 pixels tall.");
+          $("#upload_file_attachment").val('');
+          return false;
+          }
+        };
+        img.src = fr.result;
+    };
+    fr.readAsDataURL(this.files[0]);
+         }    
+    
+    });
+    
+//    $("#upload_file_attachment").change(function() {
+//    
+//    
+//});
+    
+    $("#new_upload").submit(function(){
+    var OrgFile = $(this).find("[type=file]");
+     FileName = OrgFile.val();
+    if (FileName == '')
+    {
+      alert('Please select the image for your cover photo');
+      return false;
+    }
+    else
+    {
+      return true;
+    }
+    });
+    
+    
+    $("#profile_img_form").submit(function(){
+    var OrgFile = $(this).find("[type=file]");
+     FileName = OrgFile.val();
+    if (FileName == '')
+    {
+      alert('Please select the image for your Profile photo');
+      return false;
+    }
+    else
+    {
+      return true;
+    }
+    });    
+    
+    
+//      $("#new_upload").submit(function(){
+//     var OrgFile = $(this).find("[type=file]"),
+//         FileName = OrgFile.val();
+//         alert(OrgFile);
+//         FileExtension = FileName.split('.').pop().toLowerCase();
+//         
+//         if(FileName.indexOf(".")==-1 || FileExtension != "jpg" && FileExtension != "jpeg" && FileExtension != "png" && FileExtension != "gif" ){ // Curstom File Extension
+//          alert("This isn't a Photo !");
+//          return false;
+//         }else
+//         if((OrgFile[0].files[0].size/1024/1024) > (1)){ // Max Photo Size 1MB
+//          alert("You Photo is too big !");
+//          return false;
+//         }
+//         
+//         else{
+//          alert("every thing Fine :)");
+//          return true;
+//         }
+//   });
+    
+    
+//     $("#upload_file_attachment").change(function () {
+//        var that=this;
+//        // fadeOut or hide preview
+//        p.fadeOut();
+//        // prepare HTML5 FileReader
+//        var oFReader = new FileReader();
+//        oFReader.readAsDataURL(document.getElementById("#upload_file_attachment").files[0]);
+//        oFReader.onload = function (oFREvent) {
+//            var image = new Image();
+//            image.src = oFREvent.target.result;
+//            image.onload = function () {
+//                if ((this.width > 400) && (this.height)) {
+//                    that.value="";
+//                    alert("choose another file");
+//                }
+//                else {
+//                    p.attr('src', oFREvent.target.result).fadeIn();
+//                }
+//                // access image size here & do further implementation
+//            };
+//        };
+//    });
+    
+    
+    $("#profile_img").change(function (e) {
+     var OrgFile = (this.files[0].name),
+         FileName = OrgFile,
+         FileExtension = FileName.split('.').pop().toLowerCase();
+         
+         if(FileName.indexOf(".")==-1 || FileExtension != "jpg" && FileExtension != "jpeg" && FileExtension != "png" && FileExtension != "gif" ){ // Curstom File Extension
+          alert("This isn't a Photo !");
+          $("#profile_img").val('');
+          return false;
+         }
+         else
+         if((this.files[0].size/1024/1024) > (1)){ // Max Photo Size 1MB
+          alert("You Photo is too big !");
+          $("#profile_img").val('');
+          return false;
+         }
+         
+         else{
+          var fr = new FileReader;
+    fr.onload = function() {
+        var img = new Image;
+        img.onload = function() {
+          if ((img.width < 198) && (img.height < 198)) {
+          alert("Please choose an image that's at least 198 pixels wide and at least 198 pixels tall.");
+          $("#profile_img").val('');
+          return false;
+          }
+        };
+        img.src = fr.result;
+    };
+    fr.readAsDataURL(this.files[0]);
+         }    
+    
+    });    
+    
+    
+    
+    
+    
+    
+    
+    
+    
    
    // for skill form
     

@@ -23,6 +23,23 @@ jQuery(document).ready(function(){
          return false;
     });    
     
+//   jQuery('#upload_file_attachment').live('click', function(event)
+//   {
+//   alert('hello');
+//   });  
+   
+//   $("#upload_file_attachment").change(function (e) {
+//    var file, img;
+//    if ((file = this.files[0])) {
+//        img = new Image();
+//        img.onload = function () {
+//            alert("Width:" + this.width + "   Height: " + this.height);//this will give you image width and height and you can easily validate here....
+//        };
+//    }
+    
+
+    
+    
 });
 
 
