@@ -11,4 +11,4 @@
       = f.file_field :file_attachment
     %p
       = f.select(:privacy, options_for_select(["public","connections","connections and followers"],   "Share With:"))
-      = f.submit "Share", class: "pubBtn", id: "share-bttn"
+      = f.submit "Share", class: "pubBtn", id: "feed-share-bttn"

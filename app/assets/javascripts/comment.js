@@ -91,6 +91,13 @@ $(function() {
     });
     
     
+    $("#new_update").submit(function(){
+
+    });
+    
+    
+    
+    
     $("#profile_img_form").submit(function(){
     var OrgFile = $(this).find("[type=file]");
      FileName = OrgFile.val();

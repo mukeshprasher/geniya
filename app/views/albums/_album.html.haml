@@ -28,12 +28,12 @@
         #comments-header.comments-header
           %h4.block-title
             %span.bold Discuss This Project:
-            /%span.comments-stats.hide{style: "display: inline;"}
-            /  (
-            /  %span.comments-total
-            /    = @comments.count 
-            /  = succeed ")" do
-            /    %span.comments-total-text Comments
+            %span.comments-stats.hide{style: "display: inline;"}
+              (
+              %span.comments-total
+                = @comments.count 
+              = succeed ")" do
+                %span.comments-total-text Comments
         
         - if signed_in?
           .port-by
@@ -83,14 +83,18 @@
             - if signed_in? 
               = render 'shared/follow_form'
             - else
-              %a.fake-link{href: "/"}
-                jj 
+              %a.fake-link{href: "/signup"}
+                = button_tag "follow", id: "dummy-follow-buttom", type:"button"
           /.form-button.form-button-large.form-button-light-and-blue.add-to-collection.hide-phone
           /  %span.project-icon-left.project-icon-left-save
           /    %span.hide-tablet> Add to
           /    Collection
           .connect-btn
-            = render 'shared/connect_form' if signed_in?
+            - if signed_in? 
+              = render 'shared/connect_form'
+            - else
+              %a.fake-link{href: "/signup"}
+                = button_tag "connect", id: "dummy-follow-buttom", type:"button"
 
     .sidebar-block.sidebar-actions
       /%a.sidebar-action.send-message

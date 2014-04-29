@@ -22,6 +22,8 @@
             %li= link_to "View Album", "/albums/default-album-"+"#{current_user.slug}"
             %li= link_to "Post a Job", '/advertisements/new'
             %li= link_to "Create an Ad", '/advertisements/new'
+            - if (current_user.username == 'geniya')
+              %li= link_to "Dashboard", '/admin'
         %li.login
           = link_to "Logout", signout_path, method: "delete"
       - else
@@ -29,7 +31,7 @@
         %li= link_to "Register", signup_path
         %li.login
           = link_to "Login", signin_path
-    %a.logo
+    %a.logo{href: "/"}
       %img{alt: "Logo", src: "/assets/logo.png"}/
     %nav#man_nav
       - page_id = params[:id]

@@ -1464,6 +1464,25 @@ form {margin: 0 0 5px;}
 #follower-link a{text-decoration:none;}
 
 
+#updates-img {
+  background: url("/assets/share.jpg") no-repeat scroll left top rgba(0, 0, 0, 0);
+  height: 30px;
+  left: 62%;
+  position: absolute;
+  top: 3px;
+  width: 30px;
+}
+
+#updates-img a{
+cursor: pointer;
+}
+
+#update_file_attachment {
+  float: right;
+  opacity: 0;
+  width: 100%;
+  cursor: pointer;
+}
 
 
 /************* FOR Portfolio album page***************/
@@ -1474,7 +1493,7 @@ form {margin: 0 0 5px;}
 .work-header { border-radius:4px 0 0;background: linear-gradient(#2E2E2E, #1A1A1A) repeat scroll 0 0 rgba(0, 0, 0, 0);border-bottom: 1px solid rgba(187, 187, 187, 0.1);padding: 12px 20px 15px;}
 .work-header h1 {color: #FFFFFF;font-size: 20px;line-height: 23px;margin-bottom: 7px;}
 .secondary-text, .secondary-text a {color: #C9C9C9;}
-#project-main {width: 73.0313%; min-height: 570px;background: none repeat scroll 0 0 #FCFCFC;}
+#project-main {width: 73.0313%; min-height: 654px;background: none repeat scroll 0 0 #FCFCFC;}
 .right {float: right;}
 #project-sidebar {box-sizing: border-box;width: 26.8687%;    border-left: 1px solid #ECECEC; background:#fff; border-radius:0px 4px 4px 0px}
 .sidebar-block {border-bottom: 1px solid #DFDFDF;border-top: 0 none;padding: 40px 24px 20px 22px;position: relative;}
@@ -1552,4 +1571,30 @@ cursor: default;font-family: Arial,sans-serif;font-size: 10px;font-weight: bold;
 
 #primary-project-content ul {
     margin: auto;
+}
+
+
+#dummy-follow-buttom {
+    background-color: #006CCC;
+    background-image: linear-gradient(to bottom, #0088CC, #0044CC);
+    background-repeat: repeat-x;
+    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+    color: #FFFFFF;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+        height: 37px !important;
+    padding: 0;
+    width: 200px;
+        border-radius: 6px;
+    font-size: 17.5px;
+     margin: 0 0 7px;
+}
+
+#dummy-follow-buttom:hover, #dummy-follow-buttom:focus, #dummy-follow-buttom:active, #dummy-follow-buttom.active, #dummy-follow-buttom.disabled, #dummy-follow-buttom[disabled] {
+    background-color: #0044CC;
+    color: #FFFFFF;
+}
+#dummy-follow-buttom:hover, #dummy-follow-buttom:focus {
+    background-position: 0 -15px;
+    text-decoration: none;
+    transition: background-position 0.1s linear 0s;
 }
