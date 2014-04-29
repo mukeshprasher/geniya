@@ -56,6 +56,7 @@
         %ul#editorsPicks
           #ajax-portfolio-detail-homepage.modal.fade.modal-scrollable{style: "display: none;", tabindex: "-1"}
           - @albums.each do|album|
+            /- for i in 1..2 
             = render 'album_home_thumb', album: album
         #infinite-scrolling
           = will_paginate @albums

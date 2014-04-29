@@ -1,40 +1,192 @@
-.album_cont
-  .album_main
-    .album_header
-      %h4= @album.name
-      %h5= @album.title
-    .album_body
-      - album.uploads.each do |upload|
-        .album_upload
-          %h6=upload.name
-          %h7=upload.title
-          %p=upload.description
-          .album_upload_file
-            =image_tag upload.file_attachment.url  
-    .album_footer
-      /= rating_for @album, "rating"
-  .album_sidebar
-    .user_info
-      = @album.kind.capitalize 
-      by
-      %br
-      = link_to @album.user.name, @album.user
-      %br
-      = time_ago_in_words(@album.created_at) 
-      ago
-    .follow_form
-      = render 'shared/follow_form' if signed_in?
-    .connect_form
-      = render 'shared/connect_form' if signed_in?
-    .album_description
-      .stats
-        .stat
-          = pluralize(@album.impressions_count, 'unique visior')
-        .stat
-          = pluralize(@likers.count, 'like')
-        .stat
-          = pluralize(@comments.count, 'comment')
-      = @album.description
-  .comments
-    = render :partial => 'comments/form', :locals => { comment: @new_comment, parent_id: nil }
-    = render :partial => 'comments/comment', :collection => @comments, :as => :comment
+#content-container
+  #project-main.left
+    #project-header-main.work-header-main.work-header
+      %h1#project-title
+        = @album.name
+      %h1#project-title
+        = @album.title
+      #creative-fields.secondary-text
+        %a{href: "/search?field=5", title: "Art Direction"}
+          = @album.category.name
+        /%span.separator ,
+        /%a{href: "/search?field=109", title: "Branding"} Branding
+        /%span.separator ,
+        /%a{href: "/search?field=44", title: "Graphic Design"} Graphic Design
+
+    #primary-project-content.project-styles
+      %ul#project-modules
+        - album.uploads.each do |upload|
+          %li
+            =image_tag upload.file_attachment.url
+            %span
+              %h6=upload.name
+              %h7=upload.title
+              %p=upload.description           
+
+    #project-comments.big-comments
+      #comments-container{entity_id: "16086365", entity_type: "project"}
+        #comments-header.comments-header
+          %h4.block-title
+            %span.bold Discuss This Project:
+            /%span.comments-stats.hide{style: "display: inline;"}
+            /  (
+            /  %span.comments-total
+            /    = @comments.count 
+            /  = succeed ")" do
+            /    %span.comments-total-text Comments
+        
+        - if signed_in?
+          .port-by
+            Welcome
+            = link_to @album.user.name, @album.user 
+        - else 
+          - @albumcomment = @album.root_comments
+          - if @albumcomment.nil?
+            %p
+              Plese log in            
+          - else
+            .post-comment-logged-out
+              You must
+              %a.link-login.fake-link{href: "/signin"} Sign up
+              for Discuss the Projects.
+        .comments
+          = render :partial => 'comments/form', :locals => { comment: @new_comment, parent_id: nil }
+          = render :partial => 'comments/comment', :collection => @comments, :as => :comment        
+
+
+
+
+
+
+  #project-sidebar.right
+    .sidebar-block.sidebar-owner
+      .sidebar-label
+        = @album.kind.capitalize
+        by  
+      .sidebar-content.cfix
+        #owner-icon-info.cfix
+          #owner-icon.user-img-50.left
+            - if @album.user.headshot
+              = image_tag @album.user.headshot.file_attachment.url(:thumb)
+            -else
+              =image_tag '/assets/missing.png' 
+          #owner-info.left
+            #owners.cfix
+              #owner.text-ellipsis
+                = link_to @album.user.name, @album.user 
+            #owner-location-container
+              /%a.location-link.text-ellipsis.beicons-pre.beicons-pre-location Brooklyn, NY, USA
+        #owner-buttons-container.clear
+          /.follow-button-container.action-follow-user
+          /  %a.form-button.form-button-follow.form-button-large.form-button-default.form-button-left-icon.form-button-icon-follow Follow
+          .follow-btn
+            - if signed_in? 
+              = render 'shared/follow_form'
+            - else
+              %a.fake-link{href: "/"}
+                jj 
+          /.form-button.form-button-large.form-button-light-and-blue.add-to-collection.hide-phone
+          /  %span.project-icon-left.project-icon-left-save
+          /    %span.hide-tablet> Add to
+          /    Collection
+          .connect-btn
+            = render 'shared/connect_form' if signed_in?
+
+    .sidebar-block.sidebar-actions
+      /%a.sidebar-action.send-message
+      /  %span.project-icon-left.project-icon-left-mail.project-icon-right.project-icon-right-arrow Message Creative
+      /.sidebar-action.tooltipi-container
+      /  %span.project-icon-left.project-icon-left-share.project-icon-right.project-icon-right-arrow Share Project
+
+    .sidebar-block
+      .sidebar-label 
+        About 
+        = @album.kind.capitalize 
+      .sidebar-content
+        .project-description
+          .variable-text.variable-text-short
+            = @album.description
+            /%span.variable-text-link.fake-link Read More
+          .project-published.tiny-text
+            Published: 
+            = time_ago_in_words(@album.created_at)  
+        %ul#project-stats.object-stats
+          %li.project-stat.project-stat-views.beicons-pre.beicons-pre-eye
+            Views
+            %span.stat-value 
+              = @album.impressions_count
+              /= pluralize(@album.impressions_count, 'unique visior')
+          %li.project-stat.project-stat-views.beicons-pre.beicons-pre-eye
+            Likes
+            %span.stat-value 
+              = @likers.count
+              /= pluralize(@likers.count, 'like')
+          %li.project-stat.project-stat-views.beicons-pre.beicons-pre-eye
+            Comments
+            %span.stat-value
+              = @comments.count
+              /= pluralize(@comments.count, 'comment') 
+        /#short-url.margin-top-15.stat-label.pre-icon.pre-icon-link.text-ellipsis
+        /  %a{href: "", target: "_blank"} http://bit.ly/1grur7S
+
+    /.sidebar-block
+    /  .sidebar-label Project Tags
+    /  .sidebar-content
+    /    #object-tags.cfix
+    /      %a.object-tag{href: ""} identity
+    /      %a.object-tag{href: ""} Website
+    /      %a.object-tag{href: ""} san francisco
+    /      %a.object-tag{href: ""} Brooklyn
+    /  #object-tags-see-all{style: "display: block;"}
+    /    %span.viewing-less-copy
+    /      See all
+    /      %span#project-tags-count.fake-link 8 tags
+
+    .sidebar-block.sidebar-meta
+      .sidebar-content.cfix
+        #copyright-info.tooltipi-container
+          %span.copyright-info.pointer.sidebar-meta-item.pre-icon.pre-icon-copyright ©Project Copyright Info
+          %span.fake-link.sidebar-meta-item.pre-icon.pre-icon-report.flag-spam.flag-spam-project.js-report.project-report{spam_id: "16086365"} Geniya
+
+
+/.album_cont
+/  .album_main
+/    .album_header
+/      %h4= @album.name
+/      %h5= @album.title
+/      %h6= @album.category.name
+/    .album_body
+/      - album.uploads.each do |upload|
+/        .album_upload
+/          %h6=upload.name
+/          %h7=upload.title
+/          %p=upload.description
+/          .album_upload_file
+/            =image_tag upload.file_attachment.url  
+/    .album_footer
+/      = rating_for @album, "rating"
+/  .album_sidebar
+/    .user_info
+/      = @album.kind.capitalize 
+/      by
+/      %br
+/      = link_to @album.user.name, @album.user
+/      %br
+/      = time_ago_in_words(@album.created_at) 
+/      ago
+/    .follow_form
+/      = render 'shared/follow_form' if signed_in?
+/    .connect_form
+/      = render 'shared/connect_form' if signed_in?
+/    .album_description
+/      .stats
+/        .stat
+/          = pluralize(@album.impressions_count, 'unique visior')
+/        .stat
+/          = pluralize(@likers.count, 'like')
+/        .stat
+/          = pluralize(@comments.count, 'comment')
+/      = @album.description
+/  .comments
+/    = render :partial => 'comments/form', :locals => { comment: @new_comment, parent_id: nil }
+/    = render :partial => 'comments/comment', :collection => @comments, :as => :comment

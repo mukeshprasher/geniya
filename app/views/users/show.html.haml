@@ -79,9 +79,7 @@
     .pick
       - if signed_in?
         - if current_user.headshot
-          =image_tag current_user.headshot.file_attachment.url(:medium)
-        - else
-          =image_tag '/assets/missing.png', width: "50px", height: "50px"
+          = render "shared/profile_thumb"
     .profile_nav
       %ul#tags-field
 
@@ -134,7 +132,7 @@
                   =image_tag @headshot.file_attachment.url(:thumb)
                 - else
                   - if current_user?(@user)
-                    = form_for @headshot, :html => { :multipart => true, id: :profile_img_form  } do |f|
+                    = form_for @headshot, remote: true, :html => { :multipart => true, id: :profile_img_form  }  do |f|
                       = f.hidden_field :album_id, value: current_user.default_album.id
                       = f.hidden_field :name, value: current_user.name
                       = f.hidden_field :special_attribute, value: "headshot"

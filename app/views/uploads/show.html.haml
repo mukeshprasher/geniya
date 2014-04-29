@@ -18,21 +18,21 @@
   %p
     %b File attachment:
     /
-      =video_tag @upload.file_attachment.url
-      =image_tag @upload.file_attachment.url(:medium)
-      =image_tag @upload.file_attachment.url(:thumb)
-    - if ["video/mpeg", "video/x-msvideo", "video/3gpp"].include? @upload.file_attachment.content_type
-      %object{ data: "#{@upload.file_attachment.url}", width: "320", height: "240", autoplay: "false"}
-        %embed{ src: "#{@upload.file_attachment.url}", width: "320", height: "240"}
-    - elsif ["video/mp4", "video/ogg", "video/webm", "video/x-flv"].include? @upload.file_attachment.content_type
-      %video{ width: "320", height:"240", poster:"poster.jpg", controls:"controls", preload:"none" }
-        %source{type:"#{@upload.file_attachment.content_type}", src:"#{@upload.file_attachment.url}"}
-        %object{width:"320", height:"240", type:"application/x-shockwave-flash", data:"#{@upload.file_attachment.url}"}
-          %embed{ src: "#{@upload.file_attachment.url}", width: "320", height: "240"}
+      /=video_tag @upload.file_attachment.url
+      /=image_tag @upload.file_attachment.url(:medium)
+      /=image_tag @upload.file_attachment.url(:thumb)
+    /- if ["video/mpeg", "video/x-msvideo", "video/3gpp"].include? @upload.file_attachment.content_type
+    /  %object{ data: "#{@upload.file_attachment.url}", width: "320", height: "240", autoplay: "false"}
+    /    %embed{ src: "#{@upload.file_attachment.url}", width: "320", height: "240"}
+    /- elsif ["video/mp4", "video/ogg", "video/webm", "video/x-flv"].include? @upload.file_attachment.content_type
+    /  %video{ width: "320", height:"240", poster:"poster.jpg", controls:"controls", preload:"none" }
+    /    %source{type:"#{@upload.file_attachment.content_type}", src:"#{@upload.file_attachment.url}"}
+    /    %object{width:"320", height:"240", type:"application/x-shockwave-flash", data:"#{@upload.file_attachment.url}"}
+    /      %embed{ src: "#{@upload.file_attachment.url}", width: "320", height: "240"}
 
-  #playerbSdCNhMeJAuG
-  %script{ type: 'text/javascript'}
-    jwplayer('playerbSdCNhMeJAuG').setup({file: '#{@upload.file_attachment.url}', image: 'https://www.longtailvideo.com/content/images/jw-player/lWMJeVvV-876.jpg', title: 'c', width: '100%', aspectratio: '16:9' });
+  /#playerbSdCNhMeJAuG
+  /%script{ type: 'text/javascript'}
+  /  jwplayer('playerbSdCNhMeJAuG').setup({file: '#{@upload.file_attachment.url}', image: 'https://www.longtailvideo.com/content/images/jw-player/lWMJeVvV-876.jpg', title: 'c', width: '100%', aspectratio: '16:9' });
   %p
     %b File type:
     = @upload.file_attachment.content_type

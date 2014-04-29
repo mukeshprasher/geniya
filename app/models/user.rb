@@ -4,8 +4,9 @@ class User < ActiveRecord::Base
     has_many :subscriptions
     has_many :educations
     has_many :tags
-    has_many :userskills
-    has_many :skills, through: :userskills
+    has_many :skills
+#    has_many :userskills
+#    has_many :skills, through: :userskills
     has_many :videos
     has_many :advertisements
     has_many :updates, foreign_key: "sender_user_id", dependent: :destroy

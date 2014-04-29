@@ -3,8 +3,9 @@ class Skill < ActiveRecord::Base
   validates :name, presence: true 
   extend FriendlyId
   friendly_id :slug_skills, use: [:slugged, :finders]  
-  has_many :userskills
-  has_many :users, through: :userskills
+  belongs_to :user
+#  has_many :userskills
+#  has_many :users, through: :userskills
   
   
   def slug_skills
