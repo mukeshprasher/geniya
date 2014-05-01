@@ -110,7 +110,75 @@ $(function() {
     {
       return true;
     }
-    });    
+    });
+    
+    
+    $("#new_skill").submit(function(){
+    var skillfield = $("#skill_name")
+     FileName = skillfield.val();
+    if (FileName == '')
+    {
+      alert('Please Enter Your Skills');
+      return false;
+    }
+    else
+    {
+      //skillfield.val('');
+      alert('Your Skill is added to your profile');
+      return true;
+    }
+    }); 
+
+    $("#new_education").submit(function(){
+    var instnamefield = $("#education_institute_name")
+    var coursenamefield = $("#education_course_name")
+     InstName = instnamefield.val();
+     CorseName = coursenamefield.val();
+    if (InstName == '')
+    {
+      alert('Please Enter Institute Name');
+      return false;
+    }
+    else
+    if(CorseName == '')
+    {
+          alert('Please Enter Course Name');
+      return false;
+    }
+    else
+    {
+      //skillfield.val('');
+      alert('Eduction Successfully added');
+      return true;
+    }
+    });
+    
+        $("#new_album").submit(function(){
+    var albumnamefield = $("#album_name")
+    var albumtitlefield = $("#album_title")
+     albumName = albumnamefield.val();
+     albumtitle = albumtitlefield.val();
+    if (albumName == '')
+    {
+      alert('Please Enter Portfolio Name');
+      return false;
+    }
+    else
+    if(albumtitle == '')
+    {
+          alert('Please Enter Portfolio Title');
+      return false;
+    }
+    else
+    {
+      //skillfield.val('');
+      alert('Eduction Successfully added');
+      return true;
+    }
+    });      
+    
+    
+        
     
     
 //      $("#new_upload").submit(function(){

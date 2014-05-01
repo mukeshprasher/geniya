@@ -908,24 +908,20 @@ form {margin: 0 0 5px;}
 
 .anisten .art_gallery ul h3 span {color: #FFFFFF;display: block;font-family: 'latoregular';font-size: 14px;}
 
-.profile_picture {background: none repeat scroll 0 0 #FFFFFF;margin-bottom: 20px;padding: 20px 3px;}
 
-.profile_picture .pick {height: 199px; left: 50%;position: absolute;top: 50%;width: 199px;}
+.profile_picture {
+    left: 50%;
+    margin-left: -100px;
+    position: absolute;
+    top: 50%;
+}
+.profile_picture {
+    background: none repeat scroll 0 0 #FFFFFF;
+}
 
-.profile_picture .profile_nav ul {list-style: none outside none;}
-
-.profile_picture .profile_nav ul li {display: inline-block;font-family: 'latoregular';font-size: 34px;padding: 10px 40px 0 0;}
+.profile_nav {background: none repeat scroll 0 0 #FFFFFF;margin-bottom: 20px;padding: 20px 3px;}
 
 
-.profile_picture .profile_nav ul li a {color: #83A735;}
-
-
-.profile_picture .profile_nav ul li a span {font-family: 'latoregular';font-size: 20px;}
-
-
-.profile_picture .profile_nav ul li.adv {padding: 0;}
-
-.profile_picture .profile_nav ul li.adv1 {padding: 0 12px;}
 
 
 
@@ -1069,7 +1065,8 @@ form {margin: 0 0 5px;}
 
 .makeup_sec {margin-bottom: 7px;position: relative;clear:both;}
 
-.add_sec .makeUp {margin: 10px 0;}
+.add_sec .makeUp { height: auto;
+    width: 308px;}
 
 .make_comtact {background: none repeat scroll 0 0 rgba(61, 56, 66, 0.698);bottom: 2px;margin: 0 2px;padding: 0 10.5px;position: absolute;width: 92%;}
 
@@ -1204,7 +1201,7 @@ form {margin: 0 0 5px;}
 
 .user_img {float: left;margin: 0 0 6px 8px;width: 50px;}
 
-.potrate-img {    margin: 5px 0 0 7px;   font-family: latobold;}
+.potrate-img {   float: left;font-family: latobold;height: auto;margin: 5px 0 0 7px;overflow: hidden;width: 203px;}
 
 .potrate-img a{color: #494949; font-size: 15px;font-weight: bold;text-decoration: none;}
 
@@ -1266,16 +1263,28 @@ form {margin: 0 0 5px;}
 .portfolio-user-name a {
     color: #777777;
     float: left;
-    height: 25px;
+    height: auto;
     width: 100px;
 }
 
 .portfolio-user-name {
     float: left;
-    height: 25px;
-    width: 100px;
+    height:auto;
+    width: 156px;
     margin:0 0 0 15px;
 }
+
+.portfolio-user-name > p {
+    float: left;
+    margin: 0 0 4px;
+    width: 167px;
+}
+
+.album_category_name {
+    color: #777777;
+    float: left;
+}
+
 
 .portfolio-users-name {
     float: left;
@@ -1421,8 +1430,13 @@ form {margin: 0 0 5px;}
 
 
 .content > img {
-    height: 200px;
+   height: 200px;
     width: 218px;
+}
+.content-profile
+{
+   height: auto;
+    width: 100%;
 }
 
 /**************** feed Page Css**************/
@@ -1446,7 +1460,8 @@ form {margin: 0 0 5px;}
 
 #update_privacy {border: 1px solid #CCCCCC;border-radius: 0;color: #4C4C4C;font-family: latolight;padding: 4px;width: 452px;}
 
-.makeUp img {height: 300px;width: 316px;}
+.makeUp img {   height: auto;
+    width: 100%;}
 
 
 /*************** for Portfolio search page **********/
@@ -1484,6 +1499,113 @@ cursor: pointer;
   cursor: pointer;
 }
 
+
+
+.network ul {
+    margin: 0 auto;
+}
+
+
+.edu-box {
+    width: 350px;
+}
+
+
+
+.content-profile {
+    float: left;
+    height: 232px;
+    width: 216px;
+}
+
+.like-comment-box {
+    float: left;
+    margin: 0 0 0 8px;
+}
+
+
+.like-comment-box p {color: #CCCCCC;float: left;font-family: 'latoregular';font-size: 12px;padding: 0 10px 0 0;
+}
+
+
+
+
+.ProfilePicSelector {
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
+    bottom: 4px;
+    color: #FFFFFF;
+    height: 20px;
+    left: 6px;
+    padding: 9px 13px;
+    position: absolute;
+    transition: all 0.5s ease 0s;
+    width: 163px;
+}
+
+
+.ProfilePicSelector > img {
+    float: left;
+}
+
+
+.txt {
+    float: left;
+    opacity: 0;
+    padding: 5px 8px;
+    transition: all 0.5s ease 0s;
+}
+
+
+.ProfilePicSelector:hover {
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0.698);
+    transition: all 0.5s ease 0s;
+}
+
+
+.ProfilePicSelector:hover .txt {
+    opacity: 1;
+    transition: all 0.5s ease 0s;
+}
+.uiMenu {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border-color: #6E8F26;
+    border-image: none;
+    border-style: solid;
+    border-width: 1px 1px 2px;
+    bottom: auto;
+    left: 0;
+    margin: -1px 0 30px;
+    max-width: 384px;
+    min-width: 100%;
+    padding-bottom: 20px;
+    position: absolute;
+    right: auto;
+    top: 100%;
+    width: 185px;
+    z-index: 99;
+}
+
+
+.uiMenu li {
+    background: none repeat scroll 0 0 #FFFFFF;
+    padding: 3px 2px;
+    text-align: left;
+}
+
+
+.ProfilePicSelector i {
+    left: 2px;
+    position: relative;
+    top: 9px;
+}
+
+
+.uilinkText {
+    color: #4A4A4A;
+    padding: 11px;
+    position: relative;
+    top: 7px;
+}
 
 /************* FOR Portfolio album page***************/
 

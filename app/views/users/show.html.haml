@@ -61,6 +61,42 @@
           = render 'shared/connect_form' if signed_in?
     .clear
   .profile_picture
+    .pick
+      - if signed_in?
+        - if current_user.headshot
+          = render "shared/profile_thumb"
+    /%img.pick{alt: "", height: "199", src: "assets/main_pic.png", width: "199"}/          
+    .ProfilePicSelector
+      %img{alt: "", src: "/assets/cam_big.png"}/
+      .txt Update Profile Picture
+      .uiMenu
+        %ul
+          %li
+            %a{href: ""}
+              %i
+                %img{alt: "", src: "/assets/choose_photo.png"}/
+              %span.uilinkText Choose From My Photos
+          %li
+            %a{href: ""}
+              %i
+                %img{alt: "", src: "/assets/camera.png"}/
+              %span.uilinkText Take Photo...
+          %li
+            %a{href: ""}
+              %i
+                %img{alt: "", src: "/assets/upload.png"}/
+              %span.uilinkText Upload Photo...
+          %li
+            %a{href: ""}
+              %i
+                %img{alt: "", src: "/assets/edit.png"}/
+              %span.uilinkText Edit Thumbnail...
+          %li
+            %a{href: ""}
+              %i
+                %img{alt: "", src: "/assets/cross.png"}/
+              %span.uilinkText Remove...
+  .profile_nav
     #tags.modal.fade{"data-width" => "760", style: "display: none;", tabindex: "-1"}
       .modal-header
         %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
@@ -71,20 +107,10 @@
         %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
         /%button.btn.btn-primary{type: "button"} Save changes
     %a.demo{"data-toggle" => "modal",href: "#tags"}
-      Add Tags              
-    /%button.demo.btn.btn-primary.btn-lg{"data-toggle" => "modal", href: "#tags"} Responsive
-    
-    /.skill-form
-    /  = render 'shared/skill_form'     
-    .pick
-      - if signed_in?
-        - if current_user.headshot
-          = render "shared/profile_thumb"
-    .profile_nav
-      %ul#tags-field
-
-        %li
-          = raw @user.tag
+      Add Tags      
+    %ul#tags-field
+      %li
+        = raw @user.tag
 /        %li
 /          %a{href: "#"}
 /            %span understanding
@@ -251,7 +277,6 @@
           #ajax-portfolio-detail-homepage.modal.fade.modal-scrollable{style: "display: none;", tabindex: "-1"}
           - @user.albums.each do |album|
             = render 'shared/album_thumb', album: album
-          .clear
           /#pp_gallery.pp_gallery
           /  #pp_loading.pp_loading
           /  #pp_next.pp_next

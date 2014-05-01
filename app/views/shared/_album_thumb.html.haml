@@ -3,21 +3,30 @@
     -if album.uploads.any?
       /- album.uploads.each do|upload_img_name|
       /  = image_tag upload_img_name.file_attachment.url(:thumb), alt: upload_img_name.file_attachment.url(:original)
-      .content
+      .content-profile
         = image_tag album.uploads.last.file_attachment.url
     - else
-      .content
+      .content-profile
         = image_tag '/assets/medium-file-upload.jpg', alt: '/assets/file-upload.jpg'
   /.descr
   /  = album.name
   .potrate-img
     = link_to album.name, album
+  .like-comment-box  
     %p
+      - @likers = album.likers(User)
+      - @comments = album.comment_threads.where('parent_id IS NULL').order('created_at desc')
+      %img{alt: "", height: "11", src: "/assets/heart_img.png", width: "12"}/
+      %span
+        = @likers.count
       /= render 'shared/like_form', object: album, user: album.user
+    %p
+      %img{alt: "", height: "11", src: "/assets/feed_icon1.png", width: "13"}/
+      %span
+        = @comments.count
   .add_comment
-    = render 'shared/user_img', user: album.user
-  %span.album_category_name
-    = album.category.name   
+    = render 'shared/user_img', user: album.user, album: album
+  
                  
   
   /.profile_portfolio_delux  
