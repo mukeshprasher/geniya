@@ -12,6 +12,7 @@ class AlbumsController < ApplicationController
   # GET /albums/1
   # GET /albums/1.json
   def show
+    @upload = current_user.uploads.build
     @album = Album.find(params[:id])
     @user = @album.user
     impressionist @album, '', unique: [:user_id] if current_user

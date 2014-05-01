@@ -797,12 +797,12 @@ form {margin: 0 0 5px;}
 	width:100%;
 }
 #pp_thumbContainer .album{
-   border: 1px solid #CCCCCC;
     float: left;
     height: 317px;
     margin: 15px 0 0 10px;
     position: relative;
     width: 30%;
+    z-index:0;
 
 }
 .album .descr,
@@ -1498,7 +1498,7 @@ cursor: pointer;
 #project-sidebar {box-sizing: border-box;width: 26.8687%;    border-left: 1px solid #ECECEC; background:#fff; border-radius:0px 4px 4px 0px}
 .sidebar-block {border-bottom: 1px solid #DFDFDF;border-top: 0 none;padding: 40px 24px 20px 22px;position: relative;}
 #primary-project-content {background-color: #FFFFFF;padding-top: 50px;}
-#project-modules li {padding-bottom: 10px;}
+#project-modules li {padding-bottom: 10px; text-align: center;}
 #project-comments.big-comments {background: none repeat scroll 0 0 #FCFCFC;border-bottom-left-radius: 4px;padding: 58px 0; overflow:hidden;}
 #comments-container {margin: auto;width: 630px;}
 #comments-header h4 {font-size: 18px; line-height:14px;}
@@ -1598,3 +1598,8 @@ cursor: default;font-family: Arial,sans-serif;font-size: 10px;font-weight: bold;
     text-decoration: none;
     transition: background-position 0.1s linear 0s;
 }
+
+
+/****************** modal album css ************/
+
+#album-form, #portfolio-form {top: -5%;}
