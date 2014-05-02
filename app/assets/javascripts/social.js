@@ -22,7 +22,15 @@ jQuery(document).ready(function(){
          jQuery('.connt_user').toggle('show');
          return false;
     });    
+    jQuery('.txt').live('click', function(event) {        
+         jQuery('.uiMenu').toggle('show');
+         return false;
+    }); 
     
+    jQuery('.uiButtonText').live('click', function(event) {        
+         jQuery('.uiMenucover').toggle('show');
+         return false;
+    });         
 //   jQuery('#upload_file_attachment').live('click', function(event)
 //   {
 //   alert('hello');

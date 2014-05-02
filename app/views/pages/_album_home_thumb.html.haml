@@ -1,16 +1,34 @@
-%li.isotope-item.ajax-portfolio-detail-homepage-modal-trigger 
-  .black_square
-  .albm-img{:data => "#{album.id}"}
-    -if album.uploads.any?
-      = image_tag album.uploads.first.file_attachment.url, title: album.name
-    -else
-      =image_tag '/assets/file-upload.jpg', title: album.name
-  .trendingInfo.isotopeSummary
-    %h6.aqua
-      /= i
-      = link_to album.category.name.sub(' ', '/'), '/portfolios/'+ album.category.slug
-    %h4
-      = link_to album.title, album
-    .isotopeDetailed
-      %p.description #{album.description}
+- albmno = album.id
+- if (albmno%2 == 0)
+  %li.isotope-item.ajax-portfolio-detail-homepage-modal-trigger 
+    .black_square
+    .albm-img{:data => "#{album.id}"}
+      -if album.uploads.any?
+        = image_tag album.uploads.first.file_attachment.url, title: album.name
+      -else
+        =image_tag '/assets/file-upload.jpg', title: album.name
+    .trendingInfo.isotopeSummary
+      %h6.pink
+        /= i
+        = link_to album.category.name.sub(' ', '/'), '/portfolios/'+ album.category.slug
+      %h4
+        = link_to album.title, album
+      .isotopeDetailed
+        %p.description #{album.description}
+- else
+  %li.isotope-item.ajax-portfolio-detail-homepage-modal-trigger 
+    .black_square
+    .albm-img{:data => "#{album.id}"}
+      -if album.uploads.any?
+        = image_tag album.uploads.first.file_attachment.url, title: album.name
+      -else
+        =image_tag '/assets/file-upload.jpg', title: album.name
+    .trendingInfo.isotopeSummary
+      %h6.aqua
+        /= i
+        = link_to album.category.name.sub(' ', '/'), '/portfolios/'+ album.category.slug
+      %h4
+        = link_to album.title, album
+      .isotopeDetailed
+        %p.description #{album.description}
       

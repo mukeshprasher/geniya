@@ -2,24 +2,28 @@
   .slider_profile
     .cover-photo
       - if signed_in?
-        - if @covershot.id
-          =image_tag @covershot.file_attachment.url(:original)
-        - else
-          - if current_user?(@user)
-            .user-cover-photo
-              =image_tag '/assets/upload.jpg', width: "100%", height: "auto"          
-            = form_for @covershot, :html => { :multipart => true } do |f|
-              = f.hidden_field :album_id, value: current_user.default_album.id
-              = f.hidden_field :name, value: current_user.name
-              = f.hidden_field :special_attribute, value: "covershot"
-              .field
-                = f.file_field :file_attachment
-              .actions
-                = f.submit 'Upload Cover Photo'
-          - else
-            =image_tag '/assets/upload.jpg', width: "100%", height: "auto"
-      - else
-        =image_tag '/assets/upload.jpg', width: "100%", height: "auto"     
+        - if current_user.covershot
+          = render "shared/cover_thumb"
+        /- if @covershot.id
+        /  =image_tag @covershot.file_attachment.url(:original)
+        /- else
+        /  =image_tag '/assets/upload.jpg', width: "100%", height: "auto"       
+      /  - else
+      /    - if current_user?(@user)
+      /      .user-cover-photo
+      /        =image_tag '/assets/upload.jpg', width: "100%", height: "auto"          
+      /      = form_for @covershot, :html => { :multipart => true } do |f|
+      /        = f.hidden_field :album_id, value: current_user.default_album.id
+      /        = f.hidden_field :name, value: current_user.name
+      /        = f.hidden_field :special_attribute, value: "covershot"
+      /        .field
+      /          = f.file_field :file_attachment
+      /        .actions
+      /          = f.submit 'Upload Cover Photo'
+      /    - else
+      /      =image_tag '/assets/upload.jpg', width: "100%", height: "auto"
+      /- else
+      /  =image_tag '/assets/upload.jpg', width: "100%", height: "auto"     
     .anisten
       .ani_top
         %h2
@@ -53,6 +57,46 @@
             = @user.connected_users.count
             %span
               Connections
+    - if signed_in?
+      - if (@user.name== current_user.name)         
+        #ProfileCoverPhotoSelector
+          %i
+            %img{alt: "", src: "/assets/edit.png"}/
+          %span.uiButtonText Change Cover
+          .uiMenucover
+            %ul
+              /%li
+              /  %a{href: ""}
+              /    %i
+              /      %img{alt: "", src: "/assets/choose_photo.png"}/
+              /    %span.uilinkText Choose From My Photos
+              %li
+                %i
+                  %img{alt: "", src: "/assets/upload.png"}/
+                #uploadcoverphoto.modal.fade{"data-width" => "760", style: "display: none;", tabindex: "-1"}
+                  .modal-header
+                    %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
+                    %h4.modal-title Upload Cover Photo
+                  .modal-body
+                    = render 'shared/cover_img'
+                  .modal-footer
+                    %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
+                    /%button.btn.btn-primary{type: "button"} Save changes
+                %a.demo{"data-toggle" => "modal",href: "#uploadcoverphoto", id: "#uploadcoverphoto"}
+                  Upload Photo...           
+              
+              %li
+                %a{href: "/albums/default-album-"+"#{@user.slug}"}
+                  %i
+                    %img{alt: "", src: "/assets/reposition.png"}/
+                  %span.uilinkText View Album...
+              /%li
+              /  %a{href: ""}
+              /    %i
+              /      %img{alt: "", src: "/assets/cross.png"}/
+              /    %span.uilinkText Remove...    
+        
+    
     .art_social
       %ul
         %li
@@ -66,36 +110,47 @@
         - if current_user.headshot
           = render "shared/profile_thumb"
     /%img.pick{alt: "", height: "199", src: "assets/main_pic.png", width: "199"}/          
-    .ProfilePicSelector
-      %img{alt: "", src: "/assets/cam_big.png"}/
-      .txt Update Profile Picture
-      .uiMenu
-        %ul
-          %li
-            %a{href: ""}
-              %i
-                %img{alt: "", src: "/assets/choose_photo.png"}/
-              %span.uilinkText Choose From My Photos
-          %li
-            %a{href: ""}
-              %i
-                %img{alt: "", src: "/assets/camera.png"}/
-              %span.uilinkText Take Photo...
-          %li
-            %a{href: ""}
-              %i
-                %img{alt: "", src: "/assets/upload.png"}/
-              %span.uilinkText Upload Photo...
-          %li
-            %a{href: ""}
-              %i
-                %img{alt: "", src: "/assets/edit.png"}/
-              %span.uilinkText Edit Thumbnail...
-          %li
-            %a{href: ""}
-              %i
-                %img{alt: "", src: "/assets/cross.png"}/
-              %span.uilinkText Remove...
+    - if signed_in?
+      - if (@user.name== current_user.name)     
+        .ProfilePicSelector
+          %img{alt: "", src: "/assets/cam_big.png"}/
+          .txt Update Profile Picture
+          .uiMenu
+            %ul
+              /%li
+              /  %a{href: ""}
+              /    %i
+              /      %img{alt: "", src: "/assets/choose_photo.png"}/
+              /    %span.uilinkText Choose From My Photos
+              /%li
+              /  %a{href: ""}
+              /    %i
+              /      %img{alt: "", src: "/assets/camera.png"}/
+              /    %span.uilinkText Take Photo...
+              %li
+                %i
+                  %img{alt: "", src: "/assets/upload.png"}/
+                #uploadphoto.modal.fade{"data-width" => "760", style: "display: none;", tabindex: "-1"}
+                  .modal-header
+                    %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
+                    %h4.modal-title Upload Profile Photo
+                  .modal-body
+                    = render 'shared/profile_img'
+                  .modal-footer
+                    %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
+                    /%button.btn.btn-primary{type: "button"} Save changes
+                %a.demo{"data-toggle" => "modal",href: "#uploadphoto", id: "#uploadphoto"}
+                  Upload Photo...  
+              %li
+                %a{href: "/albums/default-album-"+"#{@user.slug}"}
+                  %i
+                    %img{alt: "", src: "/assets/edit.png"}/
+                  %span.uilinkText View Album...
+          /%li
+          /  %a{href: ""}
+          /    %i
+          /      %img{alt: "", src: "/assets/cross.png"}/
+          /    %span.uilinkText Remove...
   .profile_nav
     #tags.modal.fade{"data-width" => "760", style: "display: none;", tabindex: "-1"}
       .modal-header
@@ -106,11 +161,13 @@
       .modal-footer
         %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
         /%button.btn.btn-primary{type: "button"} Save changes
-    %a.demo{"data-toggle" => "modal",href: "#tags"}
-      Add Tags      
+    - if signed_in?
+      - if (@user.name== current_user.name)    
+        %a.demo{"data-toggle" => "modal",href: "#tags"}
+          Add Tags      
     %ul#tags-field
-      %li
-        = raw @user.tag
+      - @user.usertags.each do |usertag|
+        = render 'shared/tag_detail', usertag: usertag
 /        %li
 /          %a{href: "#"}
 /            %span understanding
@@ -152,22 +209,6 @@
           %a{href: "#"} Background
         .row
           %aside.span4
-            %section
-              - if signed_in?
-                - if @headshot.id
-                  =image_tag @headshot.file_attachment.url(:thumb)
-                - else
-                  - if current_user?(@user)
-                    = form_for @headshot, remote: true, :html => { :multipart => true, id: :profile_img_form  }  do |f|
-                      = f.hidden_field :album_id, value: current_user.default_album.id
-                      = f.hidden_field :name, value: current_user.name
-                      = f.hidden_field :special_attribute, value: "headshot"
-                      .field
-                        = f.file_field :file_attachment, id: "profile_img"
-                      .actions
-                        = f.submit 'Upload Profile Pic'
-                  - else
-                    =image_tag '/assets/missing.png', width: "50px", height: "50px"  
             .stats
               .stat
                 - pluralize(@user.impressions_count, 'unique visior')

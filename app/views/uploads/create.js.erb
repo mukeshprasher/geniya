@@ -1,3 +1,5 @@
 $("#project-modules").append("<%= escape_javascript(render('shared/portfolio_album', upload: @upload)) %>")
 $(".pick").append("<%= escape_javascript(render('shared/profile_thumb', headshot: @upload)) %>")
-$('#profile_img-1').hide();
+$(".cover-photo").append("<%= escape_javascript(render('shared/cover_thumb', covershot: @upload)) %>")
+$('#profile_img').val('');
+$('#cover_img').val('');

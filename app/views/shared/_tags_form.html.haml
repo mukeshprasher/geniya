@@ -1,0 +1,8 @@
+= simple_form_for(@usertag, remote: true) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :name
+
+  .form-actions-tags
+    = f.button :submit, value: "Add Tags", id: "add_tag"

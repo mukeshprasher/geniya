@@ -1,0 +1,9 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @usertag.name
+
+= link_to 'Edit', edit_usertag_path(@usertag)
+\|
+= link_to 'Back', usertags_path

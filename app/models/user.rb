@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
     has_many :subscriptions
     has_many :educations
     has_many :tags
+    has_many :usertags
     has_many :skills
 #    has_many :userskills
 #    has_many :skills, through: :userskills

@@ -36,20 +36,20 @@ $(function() {
     
     // cover photo validation
     
-    $("#upload_file_attachment").change(function (e) {
+    $("#cover_img").change(function (e) {
      var OrgFile = (this.files[0].name),
          FileName = OrgFile,
          FileExtension = FileName.split('.').pop().toLowerCase();
          
          if(FileName.indexOf(".")==-1 || FileExtension != "jpg" && FileExtension != "jpeg" && FileExtension != "png" && FileExtension != "gif" ){ // Curstom File Extension
           alert("This isn't a Photo !");
-          $("#upload_file_attachment").val('');
+          $("#cover_img").val('');
           return false;
          }
          else
          if((this.files[0].size/1024/1024) > (1)){ // Max Photo Size 1MB
           alert("You Photo is too big !");
-          $("#upload_file_attachment").val('');
+          $("#cover_img").val('');
           return false;
          }
          
@@ -58,9 +58,9 @@ $(function() {
     fr.onload = function() {
         var img = new Image;
         img.onload = function() {
-          if ((img.width < 1024) && (img.height < 300)) {
-          alert("Please choose an image that's at least 1024 pixels wide and at least 300 pixels tall.");
-          $("#upload_file_attachment").val('');
+          if (img.width<="1200" && img.height){
+          alert("Please choose an image that's at least 1200 pixels wide and at least 300 pixels tall.");
+          $("#cover_img").val('');
           return false;
           }
         };
@@ -108,10 +108,26 @@ $(function() {
     }
     else
     {
+      alert('You have Successfully added your Profile Photo');
       return true;
     }
     });
     
+    $("#cover_img_form").submit(function(){
+    var OrgFile = $(this).find("[type=file]");
+     FileName = OrgFile.val();
+    if (FileName == '')
+    {
+      alert('Please select the image for your Cover photo');
+      return false;
+    }
+    else
+    {
+      alert('You have Successfully added your Cover Photo');
+      return true;
+    }
+    });
+
     
     $("#new_skill").submit(function(){
     var skillfield = $("#skill_name")
@@ -249,8 +265,9 @@ $(function() {
     fr.onload = function() {
         var img = new Image;
         img.onload = function() {
-          if ((img.width < 198) && (img.height < 198)) {
-          alert("Please choose an image that's at least 198 pixels wide and at least 198 pixels tall.");
+          if (img.width<="400" && img.height)
+           {
+          alert("Please choose an image that's at least 300 pixels wide and at least 300 pixels tall.");
           $("#profile_img").val('');
           return false;
           }
@@ -262,11 +279,15 @@ $(function() {
     
     });    
     
+  $('#uploadcoverphoto').click(function() {
+          $(".uiMenucover").hide('slow');
+        });  
     
+
     
-    
-    
-    
+      $('#uploadphoto').click(function() {
+          $(".uiMenu").hide('slow');
+        });  
     
     
     

@@ -3,7 +3,7 @@ class Upload < ActiveRecord::Base
   belongs_to :user
   belongs_to :update
   
-  has_attached_file :file_attachment, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/assets/missing.png", :hash_secret => "geniyaAttach"
+  has_attached_file :file_attachment, :styles => { :medium => "300x300>", :thumb => "400x400>" }, :default_url => "/assets/missing.png", :hash_secret => "geniyaAttach"
   validates_attachment :file_attachment, :presence => true,
   :content_type => { :content_type => ["image/jpg", "image/jpeg", "image/gif", "image/png", "application/pdf", "video/mpeg", "video/ogg", "video/mp4", "video/webm", "video/x-flv", "video/x-msvideo", "video/3gpp"] },
   :size => { :in => 0..10.megabytes },

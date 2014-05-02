@@ -1,0 +1,19 @@
+%h1 Listing usertags
+
+%table
+  %tr
+    %th Name
+    %th
+    %th
+    %th
+
+  - @usertags.each do |usertag|
+    %tr
+      %td= usertag.name
+      %td= link_to 'Show', usertag
+      %td= link_to 'Edit', edit_usertag_path(usertag)
+      %td= link_to 'Destroy', usertag, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Usertag', new_usertag_path

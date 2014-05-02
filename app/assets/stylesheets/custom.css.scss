@@ -70,7 +70,7 @@ header { margin:0px; padding:0px; width:100%; background:#f3f1f1; position:relat
 
 .form-actions-subscribe .btn{background: none repeat scroll 0 0 #000000;border: 1px solid #000000;color: #FFFFFF;float: right; border-radius: 0;}
 
-.form-actions-ads #cancel-ads, .form-actions-ads .btn, .form-actions-edu .btn, .form-actions-edu #cancel-edu, .form-actions-skills .btn, .form-actions-skills #cancel {background: none repeat scroll 0 0 #000000;border: 1px solid #000000;color: #FFFFFF;float: left; border-radius: 0;}
+.form-actions-ads #cancel-ads, .form-actions-tags .btn, .form-actions-ads .btn, .form-actions-edu .btn, .form-actions-edu #cancel-edu, .form-actions-skills .btn, .form-actions-skills #cancel {background: none repeat scroll 0 0 #000000;border: 1px solid #000000;color: #FFFFFF;float: left; border-radius: 0;}
 
 .form-actions-upload #cancel-upload, .form-actions-upload #upload-btn, .form-actions-album #album-btn, .form-actions-album #cancel-album{background: none repeat scroll 0 0 #000000;border: 1px solid #000000;color: #FFFFFF;float: left; border-radius: 0;}
 
@@ -876,7 +876,9 @@ form {margin: 0 0 5px;}
 
 .basic-plan-register {background: url("/assets/reg.jpeg") no-repeat scroll 0 2px rgba(0, 0, 0, 0);float: left; margin: -100px 0 0 172px;width: 123px; height:41px;}
 
-.slider_profile { height: 300px;position: relative;width: 100%;}
+.slider_profile { height: 300px;position: relative;width: 100%;
+  background: url("/assets/cover.jpg") repeat scroll 0 0 rgba(0, 0, 0, 0);
+}
 
 .anisten {    background: none repeat scroll 0 0 rgba(0, 0, 0, 0.4);
     left: 0;
@@ -914,14 +916,34 @@ form {margin: 0 0 5px;}
     margin-left: -100px;
     position: absolute;
     top: 50%;
+    width:190px;
+    height:190px;
+    border: 5px solid #FFFFFF;
+
 }
 .profile_picture {
-    background: none repeat scroll 0 0 #FFFFFF;
+    background: url("/assets/missing.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
 }
 
-.profile_nav {background: none repeat scroll 0 0 #FFFFFF;margin-bottom: 20px;padding: 20px 3px;}
 
+.profile_nav {
+    background: none repeat scroll 0 0 #FFFFFF;
+    margin-bottom: 20px;
+    padding: 8px 3px;
+    min-height:70px;
+}
 
+.profile_nav ul {
+    list-style: none outside none;
+      margin: 0;
+}
+
+.profile_nav ul li {
+    display: inline-block;
+    font-family: 'latoregular';
+    font-size: 34px;
+     padding: 5px 15px 0 7px;
+}
 
 
 
@@ -942,7 +964,8 @@ form {margin: 0 0 5px;}
 .summery {border-bottom: 1px solid #CCCCCC;}
 
 
-.summery h2 {background: url("/assets/summery_butten.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);color: #6E8F26;font-family: 'latoregular';font-size: 16px;padding: 0 25px;}
+.summery h2 {background: url("/assets/summery_butten.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);color: #6E8F26;font-family: 'latoregular';font-size: 16px;padding: 0 25px; line-height: normal;
+    margin: 0 auto;}
 
 
 .summery p {color: #4A4A4A;font-family: 'latoregular';font-size: 14px;padding: 10px 0;}
@@ -954,10 +977,11 @@ form {margin: 0 0 5px;}
 .education_photography .education {background: url("/assets/devison.png") no-repeat scroll right top rgba(0, 0, 0, 0);float: left;padding: 0 40px 0 0; width:38%}
 
 
-.education_photography .education h2 {background: url("/assets/education.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);color: #6E8F26;font-family: 'latoregular';font-size: 16px;padding: 0 25px;}
+.education_photography .education h2 {background: url("/assets/education.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);color: #6E8F26;font-family: 'latoregular';font-size: 16px;padding: 0 25px;   margin: 0 auto;
+   line-height: normal; }
 
 
-.education_photography .education p {color: #5B5B5B;font-family: 'latobold';font-size: 18px;padding: 20px 0 0 25px;}
+.education_photography .education p {color: #5B5B5B;font-family: 'latobold';font-size: 18px;padding: 8px 0 0 25px;}
 
 
 .education_photography .education p span {color: #5B5B5B;display: block;font-size: 14px;}
@@ -966,15 +990,16 @@ form {margin: 0 0 5px;}
 
 .education_photography .key_skills {float: right;padding: 0;width: 50%;}
 
-.education_photography .key_skills h2 {background: url("/assets/key_skill.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);color: #6E8F26;font-family: 'latoregular';font-size: 16px;padding: 0 25px;}
+.education_photography .key_skills h2 {background: url("/assets/key_skill.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);color: #6E8F26;font-family: 'latoregular';font-size: 16px;padding: 0 25px; line-height: normal; margin: 0 auto;}
 
-.education_photography .key_skills ul {float: left; width:88%;}
+.education_photography .key_skills ul {float: left; width:88%; padding: 8px 0 0;}
 
 .education_photography .key_skills ul li {background: none repeat scroll 0 0 #F2F2F2;border: 1px solid #E0E0E0;border-radius: 4px;float: left;font-family: 'latoregular';font-size: 14px;line-height: 14px;margin: 0 5px 5px 0;padding: 5px 10px;}
 
 .education_photography .key_skills ul li a {color: #A6A6A6;}
 
-.box_sec {padding: 20px 0;}
+.box_sec {   float: left;
+    padding: 0 0 10px;}
 
 .box_sec .box {border: 1px solid #CCCCCC;float: left;padding: 0;position: relative;width: 217px; margin: 2px 0 0 4px;}
 
@@ -1008,7 +1033,8 @@ form {margin: 0 0 5px;}
 
 .inline_block {display: inline-block;vertical-align: top;}
 
-.network h2 {color: #99C43A;font-family: 'latoregular';font-size: 20px;}
+.network h2 {color: #99C43A;font-family: 'latoregular';font-size: 20px;   line-height: normal;
+    margin: 0 auto;}
 
 .network ul li {background: none repeat scroll 0 0 #E1E1E1;clear: both;display: block;height: 30px;margin: 0 0 1px;width: 100%;}
 
@@ -1203,7 +1229,7 @@ form {margin: 0 0 5px;}
 
 .potrate-img {   float: left;font-family: latobold;height: auto;margin: 5px 0 0 7px;overflow: hidden;width: 203px;}
 
-.potrate-img a{color: #494949; font-size: 15px;font-weight: bold;text-decoration: none;}
+.potrate-img a{color: #494949; font-size: 13px;font-weight: bold;text-decoration: none;}
 
 .box_section p {float: left;  padding: 0 0 0 12px;    width: 91px;}
 
@@ -1264,7 +1290,7 @@ form {margin: 0 0 5px;}
     color: #777777;
     float: left;
     height: auto;
-    width: 100px;
+
 }
 
 .portfolio-user-name {
@@ -1308,6 +1334,8 @@ form {margin: 0 0 5px;}
     padding: 0 10px 0 0;
 }
 .cover-photo {
+  height: 300px;
+    overflow: hidden;
     position: relative;
 }    
 
@@ -1439,6 +1467,117 @@ form {margin: 0 0 5px;}
     width: 100%;
 }
 
+.uiMenu
+{
+display:none;
+}
+
+.uiMenucover
+{
+display:none;
+}
+.txt
+{cursor:pointer;}
+
+.uiButtonText{cursor:pointer;}
+
+
+.uiMenu ul {
+    margin: 0 auto;
+    padding: 0;
+}
+
+
+.uiMenucover ul {
+    margin: 0 auto;
+    padding: 0;
+}
+
+
+.uiMenucover ul li {
+    margin: 0;
+    padding: 4px 0 0;
+}
+#ProfileCoverPhotoSelector {
+    background: none repeat scroll 0 0 #86B031;
+    border-radius: 4px;
+    bottom: 4px;
+    display: block;
+    height: 30px;
+    position: absolute;
+    right: 75px;
+    text-align: center;
+    width: 115px;
+}
+
+#ProfileCoverPhotoSelector {
+    text-align: center;
+}
+#ProfileCoverPhotoSelector i {
+    left: 2px;
+    position: relative;
+    top: 9px;
+}
+
+.uiButtonText {
+    color: #FFFFFF;
+    padding-left: 6px;
+    position: relative;
+    top: 8px;
+}
+
+
+.uiMenucover {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border-color: #6E8F26;
+    border-image: none;
+    border-style: solid;
+    border-width: 1px 1px 2px;
+    bottom: auto;
+    left: 0;
+    margin: -1px 0 30px;
+    max-width: 384px;
+    min-width: 100%;
+    padding-bottom: 20px;
+    position: absolute;
+    right: auto;
+    top: 100%;
+    width: 185px;
+    z-index: 99;
+}
+
+
+.uiMenucover li {
+    background: none repeat scroll 0 0 #FFFFFF;
+    padding: 3px 2px;
+    text-align: left;
+}
+
+
+#ProfileCoverPhotoSelector i {
+    left: 2px;
+    position: relative;
+    top: 9px;
+}
+
+
+.uilinkText {
+    color: #4A4A4A;
+    position: relative;
+    top: 7px;
+}
+
+.uiMenu a{
+    color: #4A4A4A;
+    position: relative;
+    top: 7px;
+}
+
+.uiMenucover a{
+    color: #4A4A4A;
+    position: relative;
+    top: 7px;
+}
 /**************** feed Page Css**************/
 
 
@@ -1514,8 +1653,8 @@ cursor: pointer;
 
 .content-profile {
     float: left;
-    height: 232px;
-    width: 216px;
+    height: 235px;
+    width: 215px;
 }
 
 .like-comment-box {
@@ -1606,6 +1745,14 @@ cursor: pointer;
     position: relative;
     top: 7px;
 }
+
+
+
+.profile_nav ul li span a{
+    font-family: 'latoregular';
+    font-size: 20px;
+}
+
 
 /************* FOR Portfolio album page***************/
 
