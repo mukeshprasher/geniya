@@ -124,7 +124,6 @@ $(function() {
             }
           }
         });
-  usertag_name      
         $("#tag_name")
         .atwho({
           at: "#", 

@@ -157,7 +157,8 @@
         %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
         %h4.modal-title Add Tags
       .modal-body
-        = render 'shared/tags_form'
+        - if signed_in?
+          = render 'shared/tags_form'
       .modal-footer
         %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
         /%button.btn.btn-primary{type: "button"} Save changes
