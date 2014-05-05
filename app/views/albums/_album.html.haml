@@ -6,7 +6,7 @@
       %h1#project-title
         = @album.title
       #creative-fields.secondary-text
-        %a{href: "/search?field=5", title: "Art Direction"}
+        %a{href: "/portfolios/"+"#{@album.category.slug}", title: "Art Direction"}
           = @album.category.name
         /%span.separator ,
         /%a{href: "/search?field=109", title: "Branding"} Branding

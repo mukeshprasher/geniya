@@ -1,6 +1,8 @@
 class AjaxController < ApplicationController
   def portfolio_detail
-    @upload = current_user.uploads.build
+    if signed_in?
+      @upload = current_user.uploads.build
+    end
     @album = Album.find(params[:id])
     @user = @album.user
     impressionist @album, '', unique: [:user_id] if current_user
