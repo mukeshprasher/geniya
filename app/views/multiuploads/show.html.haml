@@ -1,0 +1,9 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @multiupload.name
+
+= link_to 'Edit', edit_multiupload_path(@multiupload)
+\|
+= link_to 'Back', multiuploads_path

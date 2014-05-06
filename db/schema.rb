@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140502081547) do
+ActiveRecord::Schema.define(version: 20140506080507) do
 
   create_table "advertisements", force: true do |t|
     t.string   "name"
@@ -173,6 +173,15 @@ ActiveRecord::Schema.define(version: 20140502081547) do
 
   add_index "mentions", ["mentionable_id", "mentionable_type"], name: "fk_mentionables"
   add_index "mentions", ["mentioner_id", "mentioner_type"], name: "fk_mentions"
+
+  create_table "multiuploads", force: true do |t|
+    t.string   "multiupload_file_name"
+    t.string   "multiupload_content_type"
+    t.integer  "multiupload_file_size"
+    t.datetime "multiupload_updated_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "newsletters", force: true do |t|
     t.string   "subject"

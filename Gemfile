@@ -96,6 +96,7 @@ gem 'html5_validators'
 
 gem "remotipart", "~> 1.0"
 
+gem "jquery-fileupload-rails"
 
 # Use unicorn as the app server
 # gem 'unicorn'

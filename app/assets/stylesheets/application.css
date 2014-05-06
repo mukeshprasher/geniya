@@ -11,6 +11,7 @@
  *= require_self
  *= require jquery.ui.all
  *= require mediaelement_rails
+ *= require jquery.fileupload-ui
  *= require mediaelement_rails/mejs-skins
  *= require jquery.atwho
  *= require fonts
