@@ -798,10 +798,10 @@ form {margin: 0 0 5px;}
 }
 #pp_thumbContainer .album{
     float: left;
-    height: 317px;
+    height: auto;
     margin: 15px 0 0 10px;
     position: relative;
-    width: 30%;
+    width: 100%;
     z-index:0;
 
 }
@@ -831,10 +831,11 @@ form {margin: 0 0 5px;}
 }
 #pp_thumbContainer .content{
     cursor: pointer;
-    height: 100px;
-    padding: 37px 0 0 25px;
+    height: auto;
+    padding: 37px 0 0 0;
     position: absolute;
-    width: 135px;
+    width: 100%;
+     text-align: center;
 }
 #pp_thumbContainer img{
 	border:5px solid #fff;

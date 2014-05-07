@@ -98,6 +98,10 @@ gem "remotipart", "~> 1.0"
 
 gem "jquery-fileupload-rails"
 
+gem 'mailboxer'
+
+gem 'devise'
+
 # Use unicorn as the app server
 # gem 'unicorn'
 

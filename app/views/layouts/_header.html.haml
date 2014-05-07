@@ -24,6 +24,8 @@
             %li= link_to "Create an Ad", '/advertisements/new'
             - if (current_user.username == 'geniya')
               %li= link_to "Dashboard", '/admin'
+        %li
+          = link_to 'My Conversations', :conversations
         %li.login
           = link_to "Logout", signout_path, method: "delete"
       - else

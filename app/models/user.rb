@@ -1,4 +1,8 @@
 class User < ActiveRecord::Base
+#    attr_accessible :email, :name
+#    include Mailboxer::Models::Messageable
+    extend Mailboxer::Models::Messageable::ActiveRecord
+    acts_as_messageable
     belongs_to :category
     belongs_to :sub_category
     has_many :subscriptions
@@ -54,6 +58,8 @@ class User < ActiveRecord::Base
     validates_presence_of :sub_category_id, presence: true
     validates_presence_of :slug
 
+
+    
     acts_as_liker 
     #is_impressionable counter_cache: true
     acts_as_mentionable
@@ -90,7 +96,9 @@ class User < ActiveRecord::Base
       connection = Connection.find_by_user_id_and_connection_id(id, other_user.id) unless id == other_user.id
     end
     
-    
+    def name(email)
+      email
+    end 
     
     private
 

@@ -13,6 +13,15 @@ Geniya::Application.routes.draw do
   resources :tags
 
   resources :educations
+  
+  resources :conversations do
+    member do
+      post :reply
+      post :trash
+      post :untrash
+    end
+  end
+
 
   post '/rate' => 'rater#create', :as => 'rate'
   resources :newsletters
