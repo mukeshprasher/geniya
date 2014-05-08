@@ -24,7 +24,7 @@
       .key_word
         = form_tag('', method: :get) do
           %input.srh{name: 'q', placeholder: "Enter keyword", type: "text"}
-          %p#alb-srch-btn 
+          %p#alb-srch-btn
             = submit_tag 'Go', class: 'search_button'
       .dropNav
         %ul
@@ -67,4 +67,4 @@
                   .sub_category_chekbox_container
                     %input{name: "sc[#{sub_category.id}]", value: "#{sub_category.id}", type: "checkbox"}
                     = sub_category.name
-            = submit_tag 'Search', class: 'search_button'
+            = submit_tag 'Search', class: 'all_search_button', id: 'all_search_button'

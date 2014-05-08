@@ -7,8 +7,7 @@
           %li= msg
 
   .field
-    = f.label :album_id
-    = collection_select(:upload, :album_id, current_user.albums, :id, :name)
+    = f.hidden_field :album_id, value: album_id
   .field
     = f.label :name
     = f.text_field :name
