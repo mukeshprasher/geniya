@@ -1,11 +1,23 @@
-.ads-box
-  - @advertisements.each do |add_detail|
+- if Advertisement.any?
+  .ads-box
+    - @advertisements.each do |add_detail|
+      .makeup_sec
+        .makeUp
+          = image_tag add_detail.file_attachment.url(:original)
+        .make_comtact
+          %p 
+            = add_detail.name
+          %em 
+            = add_detail.address
+          = link_to "Contact now", '/advertisements/'+ add_detail.slug
+- else
+  .ads-box
     .makeup_sec
       .makeUp
-        = image_tag add_detail.file_attachment.url(:original)
-      .make_comtact
-        %p 
-          = add_detail.name
-        %em 
-          = add_detail.address
-        = link_to "Contact now", '/advertisements/'+ add_detail.slug
+        = image_tag '/assets/photography.jpg'
+        .make_comtact
+          %p 
+            Create Job Post here:
+          %em 
+            Add Job Location
+          = link_to "Click to Post Job", '/advertisements/new'        

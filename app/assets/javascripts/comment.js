@@ -188,7 +188,7 @@ $(function() {
     else
     {
       //skillfield.val('');
-      alert('Eduction Successfully added');
+      alert('Successfully added');
       return true;
     }
     });      

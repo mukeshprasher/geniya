@@ -24,7 +24,8 @@
       .key_word
         = form_tag('', method: :get) do
           %input.srh{name: 'q', placeholder: "Enter keyword", type: "text"}
-          = submit_tag 'Go', class: 'search_button'
+          %p#alb-srch-btn 
+            = submit_tag 'Go', class: 'search_button'
       .dropNav
         %ul
           - page_id= params[:id]

@@ -47,7 +47,8 @@
     .wrapper_c
       .left_section
         Hot in Trend from
-        %a All Categories
+        %a{href:"/portfolios"}
+          All Categories
       .right_section Be Bold Be Focused Be Seen
       .clear
   %section.main_container
@@ -99,7 +100,13 @@
               %span.view 
                 = @video.impressions_count
                 views        
-        
+            - else
+              = video_tag("/assets/big_buck_bunny.webm", height: '230', width: '303')
+              .pull_inside1
+                %span.vid_name
+                  Geniya Video 
+              %span.view 
+                0 views  
         .widget.newsletter
           .title Subscribe to our newsletter
           .block

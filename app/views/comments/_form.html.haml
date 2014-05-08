@@ -5,4 +5,4 @@
       = f.hidden_field :commentable_id, :value => comment.commentable_id
       = f.hidden_field :commentable_type, :value => comment.commentable_type
       = f.hidden_field :parent_id, :value => parent_id unless parent_id.nil?
-      = f.button :submit, :class => "btn btn-primary comment-submit-button", :disable_with => "Submitting…"
+      = f.button :submit, :class => "btn btn-primary comment-submit-button", :disable_with => "Submitting…", id: "comment-box-btn"

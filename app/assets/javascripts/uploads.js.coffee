@@ -338,7 +338,9 @@ jQuery ->
       $(".album_title-single-profile").show()
       $(".portfolio_author_name").show()
       $(".album_category").show()
-      $(".album").css left: "none"
+      $(".album").css
+        left: "none"
+        'z-index': 'none'
       $(".content").css
         "margin-top:": "none"
         left: "none"

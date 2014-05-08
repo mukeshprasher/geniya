@@ -30,7 +30,7 @@
             %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
             /%button.btn.btn-primary{type: "button"} Save changes
         %a.demo{"data-toggle" => "modal",href: "#album-form"}
-          Upload Albums      
+          Add Images to album      
 
 
       %ul#project-modules
@@ -142,17 +142,26 @@
             = time_ago_in_words(@album.created_at)  
         %ul#project-stats.object-stats
           %li.project-stat.project-stat-views.beicons-pre.beicons-pre-eye
-            Views
+            %span
+              %img{alt: "", height: "11", src: "/assets/heart_img.png", width: "12"}/
+            %span 
+              Views
             %span.stat-value 
               = @album.impressions_count
               /= pluralize(@album.impressions_count, 'unique visior')
           %li.project-stat.project-stat-views.beicons-pre.beicons-pre-eye
-            Likes
+            %span
+              %img{alt: "", height: "11", src: "/assets/heart_img.png", width: "12"}/
+            %span
+              Likes
             %span.stat-value 
               = @likers.count
               /= pluralize(@likers.count, 'like')
           %li.project-stat.project-stat-views.beicons-pre.beicons-pre-eye
-            Comments
+            %span
+              %img{alt: "", height: "11", src: "/assets/feed_icon1.png", width: "13"}/
+            %span
+              Comments
             %span.stat-value
               = @comments.count
               /= pluralize(@comments.count, 'comment') 
