@@ -95,11 +95,11 @@ class User < ActiveRecord::Base
     def connected?(other_user)
       connection = Connection.find_by_user_id_and_connection_id(id, other_user.id) unless id == other_user.id
     end
-    
-    def name
-      email
-    end 
-    
+#    
+#    def name
+#      return "#{username}"
+#    end    
+#    
     private
 
         def create_remember_token

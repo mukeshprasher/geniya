@@ -98,7 +98,6 @@
         
     
     .art_social
-      = current_user.mailbox.conversations
       %ul
         %li
           = render 'shared/follow_form' if signed_in?

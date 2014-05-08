@@ -1,2 +1,7 @@
-- current_user.mailbox.inbox.each do |x|
-  = x.subject
+- if (current_user.mailbox.inbox.nil?)
+  %p
+    nomessages
+- else 
+  - current_user.mailbox.inbox.each do |x|
+    = x.subject
+
