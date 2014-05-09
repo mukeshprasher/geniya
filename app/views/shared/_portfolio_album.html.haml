@@ -1,3 +1,9 @@
 .content
   =image_tag upload.file_attachment.url, alt: upload.file_attachment.url(:original)
-
+  .album-content
+    %p
+      = upload.name
+    %p
+      = upload.title
+    %p 
+      = upload.description

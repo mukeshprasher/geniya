@@ -1,31 +1,36 @@
-= form_for @upload, remote: true, :html => { :multipart => true } do |f|
+= form_for @upload, remote: true, :html => { :multipart => true, id: :album_img_form } do |f|
   - if @upload.errors.any?
     #error_explanation
       %h2= "#{pluralize(@upload.errors.count, "error")} prohibited this upload from being saved:"
       %ul
         - @upload.errors.full_messages.each do |msg|
           %li= msg
-
+  .album_name
+    %span.albm-name
+      Album Name:
+    %span.albm-name
+      = album_name
+  %hr
   .field
     = f.hidden_field :album_id, value: album_id
   .field
     = f.label :name
-    = f.text_field :name
+    = f.text_field :name, id: "album_upload_name"
   .field
     = f.label :title
-    = f.text_field :title
+    = f.text_field :title, id: "album_upload_title"
   .field
     = f.label :description
-    = f.text_area :description
+    = f.text_area :description, id: "album_upload_des"
   .field
     = f.label :file_attachment
-    = f.file_field :file_attachment
+    = f.file_field :file_attachment, id: "album_upload_img"
   .field
     = f.label :file_type
-    = f.text_field :file_type
+    = f.text_field :file_type, id: "album_upload_type"
   .field
     = f.label :extension
-    = f.text_field :extension
+    = f.text_field :extension, id: "album_upload_ext"
   .form-actions-upload
-    = f.submit 'Add Images', id: "upload-btn"
+    = f.submit 'Add Image', id: "upload-btn"
     /= button_tag "Cancel", id: "cancel-upload", type:"button"

@@ -89,10 +89,38 @@ $(function() {
       return true;
     }
     });
-    
-    
-    $("#new_update").submit(function(){
 
+
+
+    $("#new_upload").submit(function(){
+    var OrgFile = $(this).find("[type=file]");
+     FileName = OrgFile.val();
+    if (FileName == '')
+    {
+      alert('Please select the image for your cover photo');
+      return false;
+    }
+    else
+    {
+      return true;
+    }
+    });
+
+    
+    
+    $("#album_img_form").submit(function(){
+    var OrgFile = $(this).find("[type=file]");
+     FileName = OrgFile.val();
+    if (FileName == '')
+    {
+      alert('Please select the image for your album');
+      return false;
+    }
+    else
+    {
+      alert('You have successfully added image to your album');
+      return true;
+    }
     });
     
     

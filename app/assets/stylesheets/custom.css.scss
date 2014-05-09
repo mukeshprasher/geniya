@@ -172,17 +172,62 @@ nav { display: block; float: left; margin-top: 4px; padding-bottom: 28px; positi
 
 .trendingInfo.isotopeSummary { -moz-box-sizing: border-box; bottom: 0; color: rgba(255, 255, 255, 0.75); height: 55%; left: 0; margin: 0 5%; overflow: visible; padding: 0; position: absolute; top: 52%; width: 90%; transition: all 0.7s ease 0s }
 
+/************ dafult category tag color**********/
+
 .trendingInfo h6.aqua:after { border-right: 7px solid rgba(0, 0, 0, 0); border-top: 7px solid rgba(0, 0, 0, 0); bottom: -7px; content: ""; display: block; left: 0; position: absolute; transition: border 0.3s ease 0s; border-top-color:#2caa9f; }
 
 .trendingInfo h6.aqua { background: none repeat scroll 0 0 #2CAA9F; color: #FFFFFF; font-size: 14px; padding: 5px; position: relative; width: -moz-min-content; }
 
-.trendingInfo h6.pink:after { border-right: 7px solid rgba(0, 0, 0, 0); border-top: 7px solid rgba(0, 0, 0, 0); bottom: -7px; content: ""; display: block; left: 0; position: absolute; transition: border 0.3s ease 0s; border-top-color:#fb96b8; }
+/************ culinary category tag color**********/
 
-.trendingInfo h6.pink { background: none repeat scroll 0 0 #fb96b8; color: #FFFFFF; font-size: 14px; padding: 5px; position: relative; width: -moz-min-content; }
+.trendingInfo h6#culinary:after { border-right: 7px solid rgba(0, 0, 0, 0); border-top: 7px solid rgba(0, 0, 0, 0); bottom: -7px; content: ""; display: block; left: 0; position: absolute; transition: border 0.3s ease 0s; border-top-color:#2caa9f; }
 
-.trendingInfo h6.violet:after { border-right: 7px solid rgba(0, 0, 0, 0); border-top: 7px solid rgba(0, 0, 0, 0); bottom: -7px; content: ""; display: block; left: 0; position: absolute; transition: border 0.3s ease 0s; border-top-color:#5037cc; }
+.trendingInfo h6#culinary { background: none repeat scroll 0 0 #2caa9f; color: #FFFFFF; font-size: 14px; padding: 5px; position: relative; width: -moz-min-content; }
 
-.trendingInfo h6.violet { background: none repeat scroll 0 0 #5037cc; color: #FFFFFF; font-size: 14px; padding: 5px; position: relative; width: -moz-min-content; }
+
+/************ Arts category tag color**********/
+
+.trendingInfo h6#arts:after { border-right: 7px solid rgba(0, 0, 0, 0); border-top: 7px solid rgba(0, 0, 0, 0); bottom: -7px; content: ""; display: block; left: 0; position: absolute; transition: border 0.3s ease 0s; border-top-color:#0B2A6A; }
+
+.trendingInfo h6#arts { background: none repeat scroll 0 0 #0B2A6A; color: #FFFFFF; font-size: 14px; padding: 5px; position: relative; width: -moz-min-content; }
+
+
+
+/************ fashion-beauty category tag color**********/
+
+.trendingInfo h6#fashion-beauty:after { border-right: 7px solid rgba(0, 0, 0, 0); border-top: 7px solid rgba(0, 0, 0, 0); bottom: -7px; content: ""; display: block; left: 0; position: absolute; transition: border 0.3s ease 0s; border-top-color:#5037cc; }
+
+.trendingInfo h6#fashion-beauty { background: none repeat scroll 0 0 #5037cc; color: #FFFFFF; font-size: 14px; padding: 5px; position: relative; width: -moz-min-content; }
+
+
+
+/************ travel-leisure category tag color**********/
+
+.trendingInfo h6#travel-leisure:after { border-right: 7px solid rgba(0, 0, 0, 0); border-top: 7px solid rgba(0, 0, 0, 0); bottom: -7px; content: ""; display: block; left: 0; position: absolute; transition: border 0.3s ease 0s; border-top-color:#dc2b0f; }
+
+.trendingInfo h6#travel-leisure { background: none repeat scroll 0 0 #dc2b0f; color: #FFFFFF; font-size: 14px; padding: 5px; position: relative; width: -moz-min-content; }
+
+
+/************ fitness category tag color**********/
+
+.trendingInfo h6#fitness:after { border-right: 7px solid rgba(0, 0, 0, 0); border-top: 7px solid rgba(0, 0, 0, 0); bottom: -7px; content: ""; display: block; left: 0; position: absolute; transition: border 0.3s ease 0s; border-top-color:#1da8e2; }
+
+.trendingInfo h6#fitness { background: none repeat scroll 0 0 #1da8e2; color: #FFFFFF; font-size: 14px; padding: 5px; position: relative; width: -moz-min-content; }
+
+
+
+/************ photography-modelling category tag color**********/
+
+.trendingInfo h6#photography-modelling:after { border-right: 7px solid rgba(0, 0, 0, 0); border-top: 7px solid rgba(0, 0, 0, 0); bottom: -7px; content: ""; display: block; left: 0; position: absolute; transition: border 0.3s ease 0s; border-top-color:#82ab29; }
+
+.trendingInfo h6#photography-modelling { background: none repeat scroll 0 0 #82ab29; color: #FFFFFF; font-size: 14px; padding: 5px; position: relative; width: -moz-min-content; }
+
+
+/************ entertainment category tag color**********/
+
+.trendingInfo h6#entertainment:after { border-right: 7px solid rgba(0, 0, 0, 0); border-top: 7px solid rgba(0, 0, 0, 0); bottom: -7px; content: ""; display: block; left: 0; position: absolute; transition: border 0.3s ease 0s; border-top-color:#c251ca; }
+
+.trendingInfo h6#entertainment { background: none repeat scroll 0 0 #c251ca; color: #FFFFFF; font-size: 14px; padding: 5px; position: relative; width: -moz-min-content; }
 
 .trendingInfo h6 a { color:#fff; font-weight:normal }
 
@@ -1998,4 +2043,22 @@ border:#698941;
 
 .portfolio-user-name a {
     text-decoration: none;
+}
+
+
+.album_name > span {
+    font-family: latobold;
+    font-size: 19px;
+    text-transform: capitalize;
+}
+
+
+.album-content p {
+    font-family: latoregular;
+    font-size: 18px;
+    text-transform: capitalize;
+}
+
+.album-content {
+    margin-top: 10px;
 }

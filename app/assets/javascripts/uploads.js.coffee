@@ -45,7 +45,7 @@ jQuery ->
           ).unbind("click").bind "click", spreadPictures
           $images.each ->
             $this = $(this)
-            r = Math.floor(Math.random() * 21) - 10
+            r = Math.floor(Math.random() * 21) -5
             $this.transform rotate: r + "deg"
 
       ).attr "src", $image.attr("src")
@@ -66,6 +66,8 @@ jQuery ->
         class: "wrapper_preview1"
         style: "visibility:hidden;"
       )
+      $('.album-content').hide();
+      $('.content img').css({'width':'300px','height':'200px'})
       $("#pp_gallery").prepend $newpreview
       $newpreview.css
         width: "102%"
@@ -124,13 +126,13 @@ jQuery ->
         left = (spaces * cnt) - (140 / 2)
         r = Math.floor(Math.random() * 41) - 20
         
-        #var r = Math.floor(Math.random()*81)-40;
+        #var r = Math.floor(Math.random()*81)-80;
         $content.stop().animate(
           left: left + "px"
         , 500, ->
           $(this).unbind("click").bind("click", showImage).unbind("mouseenter").bind("mouseenter", upImage).unbind("mouseleave").bind "mouseleave", downImage
         ).find("img").stop().animate
-          rotate: r + "deg"
+          rotate: "0deg"
         , 300
         $back.stop().animate
           left: "0px"
@@ -244,6 +246,8 @@ jQuery ->
       $("<img style=\"\"/>").load(->
         $(".wrapper_preview1").remove()
         $imgL = $(this)
+        $('.content').hide();
+        $('.album-content').hide();
         resize $imgL
         $preview = $("<div />",
           id: "pp_preview"
@@ -302,13 +306,13 @@ jQuery ->
         Cufon.replace ".pp_descr"
         showNavigation()
         $loader.hide()
-        r = Math.floor(Math.random() * 41) - 20
+        r = Math.floor(Math.random() * 41) - 30
         if ie
           param = top: "50%"
         else
           param =
-            top: "50%"
-            rotate: r + "deg"
+            top: "58%"
+            rotate: "0deg"
         $preview.stop().animate param, 500, ->
           enableshow = true
 
@@ -326,6 +330,9 @@ jQuery ->
       #there's a picture being displayed
       #lets slide the current one up
       $(".album").show()
+      $('.content').show()
+      $('.content img').css({'width':'auto','height':'auto'})
+      $('.album-content').show()
       $("#pp_thumbContainer img").css
         position: "none"
         bottom: "none"
@@ -364,13 +371,13 @@ jQuery ->
     #slides up the current picture
     hideCurrentPicture = ->
       current = -1
-      r = Math.floor(Math.random() * 41) - 20
+      r = Math.floor(Math.random() * 41) - 40
       if ie
         param = top: "-150%"
       else
         param =
           top: "-150%"
-          rotate: r + "deg"
+          rotate:"0deg"
       $("#pp_preview").stop().animate param, 500, ->
         $(this).remove()
 
@@ -405,11 +412,11 @@ jQuery ->
     #mouseleave event on each thumb
     downImage = ->
       $content = $(this)
-      r = Math.floor(Math.random() * 41) - 20
+      r = Math.floor(Math.random() * 41) - 40
       $content.stop().animate(
         marginTop: "0px"
       , 400).find("img").stop().animate
-        rotate: r + "deg"
+        rotate:"0deg"
       , 400
 
     #resize function based on windows size

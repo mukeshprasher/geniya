@@ -21,12 +21,13 @@
           /  Add Skills
         
         - album_id = @album.id
+        - album_name = @album.name
         #album-form.modal.fade{"data-width" => "760", style: "display: none;", tabindex: "-1"}
           .modal-header
             %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
             %h4.modal-title Add Images to Portfolio, Album and Project
           .modal-body
-            = render 'shared/portfoilo_upload', album_id: album_id
+            = render 'shared/portfoilo_upload', album_id: album_id, album_name: album_name
           .modal-footer
             %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
             /%button.btn.btn-primary{type: "button"} Save changes
