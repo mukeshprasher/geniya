@@ -1516,6 +1516,7 @@ form {margin: 0 0 5px;}
 .sub_category_chekbox_container{
   float: left;
   width:30%;
+   margin: 0 0 8px;
 }
 .group_cont{
    float: left;
@@ -2034,11 +2035,12 @@ border:#698941;
 
 #all_search_button {
     border: 2px solid #87AE48;
-    border-radius: 7px;
+    border-radius: 3px;
+    float: right;
     height: auto;
     margin: 10px 0 0;
     padding: 4px 0;
-    width: 88px;
+    width: 72px;
 }
 
 .portfolio-user-name a {
@@ -2061,4 +2063,46 @@ border:#698941;
 
 .album-content {
     margin-top: 10px;
+}
+
+.srh-field-name{    color: #AEAEAE;
+    float: left;
+    font-size: 15px;
+    margin: -2px 0 0 7px;
+    padding: 0;
+    width: 80%;
+}
+
+
+#srh-checkbox {
+    margin: -4px 0 0 2px;
+    padding: 0;
+}
+
+#sub_srh-checkbox {
+    margin: -4px 0 0 2px;
+    padding: 0;
+    opacity:0;
+}
+
+
+
+#port_sub_check_box, #port_check_box {
+    opacity: 0;
+}
+
+ 
+
+
+.img-checkbox {
+    float: left;
+    height: 20px;
+    width: 8%;
+}
+
+
+.port_sub_check_box_img {
+    position: absolute;
+       width: 15px;
+    
 }

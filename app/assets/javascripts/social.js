@@ -30,7 +30,37 @@ jQuery(document).ready(function(){
     jQuery('.uiButtonText').live('click', function(event) {        
          jQuery('.uiMenucover').toggle('show');
          return false;
-    });         
+    });  
+    
+    jQuery('#srh-checkbox').live('click', function(event) {
+        if($(this).is(':checked')){
+            $("#port_sub_check_box2-"+this.value).attr('src','/assets/checked.png');
+            $("#srch-field-name-"+this.value).css("color","#69893F")
+        }
+        else
+        {
+            $("#port_sub_check_box2-"+this.value).attr('src',"/assets/uncheck.png");
+            $("#srch-field-name-"+this.value).css("color","#AEAEAE")
+   }
+   
+    });
+    
+    
+    jQuery('#sub_srh-checkbox').live('click', function(event) {
+        if($(this).is(':checked')){
+            $("#port_sub_check_box2-"+this.value).attr('src','/assets/checked.png');
+            $("#srch-field-name-"+this.value).css("color","#69893F")
+        }
+        else
+        {
+            $("#port_sub_check_box2-"+this.value).attr('src',"/assets/uncheck.png");
+            $("#srch-field-name-"+this.value).css("color","#AEAEAE")
+   }
+   
+    });
+        
+  
+           
 //   jQuery('#upload_file_attachment').live('click', function(event)
 //   {
 //   alert('hello');
