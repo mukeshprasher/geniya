@@ -1,5 +1,5 @@
 class UploadsController < ApplicationController
-  before_action :set_upload, only: [:show]
+  before_action :set_upload, only: [:show, :edit, :update, :destroy]
   before_action :signed_in_user, except: [ :index, :show]
   before_action :correct_user,   only: [:edit, :update, :destroy]
 
@@ -44,9 +44,11 @@ class UploadsController < ApplicationController
   # PATCH/PUT /uploads/1
   # PATCH/PUT /uploads/1.json
   def update
+#    @upload = Upload.find(params[:id])
+#    @upload.update!(upload_params)
     respond_to do |format|
-      if @upload.update(upload_params)
-        format.html { redirect_to @upload, notice: 'Upload was successfully updated.' }
+      if @upload.update!(upload_params)
+        format.html { redirect_to @upload.album, notice: 'Upload was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -58,10 +60,11 @@ class UploadsController < ApplicationController
   # DELETE /uploads/1
   # DELETE /uploads/1.json
   def destroy
-    @upload.destroy
-    respond_to do |format|
-      format.html { redirect_to uploads_url }
-      format.json { head :no_content }
+#    @upload = Upload.find(params[:id])
+    if @upload.destroy
+      render :json => @upload, :status => :ok
+    else
+      render :js => "alert('error deleting Image');"
     end
   end
 

@@ -1,8 +1,7 @@
-.content-1{:id => "alb-upload-#{upload.id}"}
+.content1{:id => "#{upload.id}"}
   =image_tag upload.file_attachment.url, alt: upload.file_attachment.url(:original)
-  
-  = link_to "×", upload_path(upload), :method => :delete, :remote => true,  :disable_with => "×", :class => 'upload-delete' , :id => "upload-delete-#{upload.id}"
-  
+  = link_to "×", comment_path(comment), :method => :delete, :remote => true,  :disable_with => "×", :class => 'comment-delete' , :id => "comment-delete-#{update.id}"
+
   .album-content
     %p
       = upload.name
