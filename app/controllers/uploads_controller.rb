@@ -1,5 +1,5 @@
 class UploadsController < ApplicationController
-  before_action :set_upload, only: [:show]
+  before_action :set_upload, only: [:show, :edit, :update, :destroy]
   before_action :signed_in_user, except: [ :index, :show]
   before_action :correct_user,   only: [:edit, :update, :destroy]
 
@@ -45,7 +45,7 @@ class UploadsController < ApplicationController
   # PATCH/PUT /uploads/1.json
   def update
     respond_to do |format|
-      if @upload.update(upload_params)
+      if @upload.update_attributes(upload_params)
         format.html { redirect_to @upload, notice: 'Upload was successfully updated.' }
         format.json { head :no_content }
       else
@@ -73,7 +73,7 @@ class UploadsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def upload_params
-      params.require(:upload).permit(:album_id, :name, :title, :description, :file_attachment, :file_type, :extension, :special_attribute)
+      params.require(:upload).permit(:album_id, :name, :title, :description, :file_attachment, :special_attribute)
     end
 
     # Before filters
