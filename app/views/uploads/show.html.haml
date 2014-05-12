@@ -17,7 +17,7 @@
     = @upload.description
   %p
     %b File attachment:
-    =image_tag @upload.file_attachment.url, alt: @upload.file_attachment.url(:original)
+    = image_tag @upload.file_attachment.url(:original)
     /
       /=video_tag @upload.file_attachment.url
       /=image_tag @upload.file_attachment.url(:medium)

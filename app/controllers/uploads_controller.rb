@@ -47,8 +47,8 @@ class UploadsController < ApplicationController
 #    @upload = Upload.find(params[:id])
 #    @upload.update!(upload_params)
     respond_to do |format|
-      if @upload.update!(upload_params)
-        format.html { redirect_to @upload.album, notice: 'Upload was successfully updated.' }
+      if @upload.update_attributes(upload_params)
+        format.html { redirect_to @upload, notice: 'Upload was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -76,7 +76,7 @@ class UploadsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def upload_params
-      params.require(:upload).permit(:album_id, :name, :title, :description, :file_attachment, :file_type, :extension, :special_attribute)
+      params.require(:upload).permit(:album_id, :name, :title, :description, :file_attachment, :special_attribute)
     end
 
     # Before filters
