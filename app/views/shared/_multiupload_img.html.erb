@@ -1,6 +1,7 @@
 <div class="container">
+  <div class="upload_content">
   <h2>Upload file</h2>
-  <%= form_for Multiupload.new, :html => {:multipart => true, :id => "fileupload" } do |f| %>
+  <%= form_for Multiupload.new, :remote => true, :html => {:multipart => true, :id => "fileupload" } do |f| %>
     <!-- The fileupload-buttonbar contains buttons to add/delete files and start/cancel the upload -->
     <div class="row fileupload-buttonbar">
       <div class="span7">
@@ -38,7 +39,7 @@
     <table class="table table-striped"><tbody class="files" data-toggle="modal-gallery" data-target="#modal-gallery"></tbody>
     </table>
   <% end %>
-
+</div>
 </div>
 <script>
   var fileUploadErrors = {
@@ -56,9 +57,9 @@
   {% for (var i=0, file; file=o.files[i]; i++) { %}
   <tr class="template-upload fade">
     <td class="preview"><span class="fade"></span></td>
-    <td class="name"><span>{%=file.name%}</span></td>
-    <td class="title"><span><%= text_field_tag "multiupload[multiupload_file_title]"%></span></td>    
-    <td class="description"><span><%= text_area_tag "multiupload[multiupload_file_desc]"%></span></td>
+    <td class="name"><span>{%=file.name%}</span> <span><%= text_field_tag "multiupload[multiupload_file_title]",  nil, :placeholder => 'Enter title for upload...'%></span><span><%= text_area_tag "multiupload[multiupload_file_desc]", nil, :placeholder => 'Enter description for upload...'%></td>
+    <%= hidden_field_tag "multiupload[user_id]", "#{current_user.id}" %>
+    <%= hidden_field_tag "multiupload[album_id]", "#{album_id}" %>
     <td class="size"><span>{%=o.formatFileSize(file.size)%}</span></td>
     {% if (file.error) { %}
     <td class="error" colspan="2"><span class="label label-important">{%=locale.fileupload.error%}</span> {%=locale.fileupload.errors[file.error] || file.error%}</td>
@@ -92,6 +93,7 @@
         <td></td>
         <td class="name"><span>{%=file.name%}</span></td>
         <td class="size"><span>{%=o.formatFileSize(file.size)%}</span></td>
+        <td class="title"><span>{%=file.multiupload_file_title%}</span></td>
         <td class="error" colspan="2"><span class="label label-important">{%=locale.fileupload.error%}</span> {%=locale.fileupload.errors[file.error] || file.error%}</td>
         {% } else { %}
         <td class="preview">{% if (file.url) { %}
@@ -101,7 +103,8 @@
           <a href="{%=file.url%}" title="{%=file.name%}" rel="{%=file.thumbnail_url&&'gallery'%}" download="{%=file.name%}">{%=file.name%}</a>
         </td>
         <td class="size"><span>{%=o.formatFileSize(file.size)%}</span></td>
-        <td colspan="2"></td>
+        <td class="title"><span>{%=file.multiupload_file_title%}</span></td>
+        <td colspan="2" ></td>
         {% } %}
       <td class="delete">
         <button class="btn btn-danger" data-type="{%=file.delete_type%}" data-url="{%=file.delete_url%}">

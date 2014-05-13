@@ -1950,8 +1950,13 @@ cursor: default;font-family: Arial,sans-serif;font-size: 10px;font-weight: bold;
 
 /****************** modal album css ************/
 
-#album-form, #portfolio-form {top: -5%;}
+ #portfolio-form {top: -5%;}
 
+#album-form {
+    left: 48%;
+    top: -5%;
+    width: 77% !important;
+}
 
 /************ login page css*************/
 

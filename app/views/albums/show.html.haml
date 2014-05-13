@@ -2,11 +2,17 @@
   .wrapper
     %p#notice= notice
 
-    = render @album
+    #album_wrapper
+      = render @album
 
     - if signed_in?
       = link_to 'Edit', edit_album_path(@album)
       \|
       = link_to 'Back', albums_path
 
-
+%script{language: "javascript", type: "text/javascript"}
+  :cdata
+    jQuery('#close').live('click', function(event) {
+    $("#album_wrapper").html('\#{escape_javascript(render :partial => "album")}');
+    
+    });

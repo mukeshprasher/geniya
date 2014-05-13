@@ -181,6 +181,10 @@ ActiveRecord::Schema.define(version: 20140507065036) do
   add_index "mentions", ["mentioner_id", "mentioner_type"], name: "fk_mentions"
 
   create_table "multiuploads", force: true do |t|
+    t.string   "multiupload_file_title"
+    t.string   "multiupload_file_desc"
+    t.integer  "album_id"
+    t.integer  "user_id"
     t.string   "multiupload_file_name"
     t.string   "multiupload_content_type"
     t.integer  "multiupload_file_size"

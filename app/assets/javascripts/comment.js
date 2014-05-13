@@ -20,7 +20,18 @@ $(function() {
 
 // delete images from uploads 
  
- 
+// $("#close").click(function() {
+//  alert('hello')
+//});
+    
+//    
+//				 $(document).keyup(function(e) {
+//				   if (e.keyCode == 27)
+//				  {
+//	           alert('hello')
+//			  }
+//				});	   
+    
      
     $(".upload-delete").click(function(){
      var delupload = confirm("Do you want to delete?");

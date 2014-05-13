@@ -76,7 +76,6 @@ class MultiuploadsController < ApplicationController
 
  def create
     @multiupload = Multiupload.new(multiupload_params)
-
     respond_to do |format|
       if @multiupload.save
         format.html {
@@ -164,6 +163,6 @@ class MultiuploadsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def multiupload_params
-      params.require(:multiupload).permit(:multiupload)
+      params.require(:multiupload).permit(:multiupload, :user_id, :multiupload_file_title, :multiupload_file_desc, :album_id)
     end
 end

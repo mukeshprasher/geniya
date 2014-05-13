@@ -27,9 +27,9 @@
             %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
             %h4.modal-title Add Images to Portfolio, Album and Project
           .modal-body
-            = render 'shared/portfoilo_upload', album_id: album_id, album_name: album_name
+            = render 'shared/multiupload_img', album_id: album_id, album_name: album_name
           .modal-footer
-            %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
+            %button.btn.btn-default{"data-dismiss" => "modal", type: "button", id: "close"} Close
             /%button.btn.btn-primary{type: "button"} Save changes
         %a.demo{"data-toggle" => "modal",href: "#album-form"}
           Add Images to album      
@@ -43,7 +43,7 @@
         #pp_next.pp_next
         #pp_thumbContainer
           .album
-            - album.uploads.each do |upload|
+            - album.multiuploads.each do |upload|
               = render "shared/portfolio_album", upload: upload
         .clear
 

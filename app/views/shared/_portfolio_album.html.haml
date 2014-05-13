@@ -1,13 +1,11 @@
 .content-1{:id => "alb-upload-#{upload.id}"}
-  =image_tag upload.file_attachment.url, alt: upload.file_attachment.url(:original)
+  =image_tag upload.multiupload.url(:original), alt: upload.multiupload_file_name
   
-  = link_to "×", upload_path(upload), :method => :delete, :remote => true,  :disable_with => "×", :class => 'upload-delete' , :id => "upload-delete-#{upload.id}"
+  /= link_to "×", upload_path(upload), :method => :delete, :remote => true,  :disable_with => "×", :class => 'upload-delete' , :id => "upload-delete-#{upload.id}"
   
   .album-content
     %p
-      = upload.name
+      = upload.multiupload_file_title
     %p
-      = upload.title
-    %p 
-      = upload.description
-    = link_to 'Edit', edit_upload_path(upload)
+      = upload.multiupload_file_desc
+    /= link_to 'Edit', edit_upload_path(upload)

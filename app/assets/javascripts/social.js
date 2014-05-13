@@ -58,8 +58,7 @@ jQuery(document).ready(function(){
    }
    
     });
-        
-  
+
            
 //   jQuery('#upload_file_attachment').live('click', function(event)
 //   {
