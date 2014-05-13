@@ -17,6 +17,25 @@ $(function() {
        {$("#comment-"+delete_comment_id).show();
        return false;}
      });
+
+// delete images from uploads 
+ 
+ 
+     
+    $(".upload-delete").click(function(){
+     var delupload = confirm("Do you want to delete?");
+     if(delupload == true)
+     {
+     var delete_upload_id=this.id.split("-")[2]
+       $("#alb-upload-"+delete_upload_id).hide('slow');
+       return true;
+     }
+     else
+       {$("#alb-upload-"+delete_upload_id).show();
+       return false;}
+     });     
+     
+     
     
     $(".child-comment-delete").click(function(){
       var delchildcomment = confirm("Do you want to delete this comment ?");

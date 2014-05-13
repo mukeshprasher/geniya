@@ -10,3 +10,16 @@ $('#album_upload_des').val('');
 $('#album_upload_ext').val('');
 $('#album_upload_type').val('');
 
+$("#upload-delete-<%= @upload.id %>").click(function(){
+var upload_id = <%= @upload.id %>
+ var delupload = confirm("Do you want to delete ?");
+ if(delupload == true)
+ {
+   $("#alb-upload-"+upload_id).hide('slow');
+   return true;
+ }
+ else
+   {
+   $("#alb-upload-"+upload_id).show();
+   return false;}
+ });

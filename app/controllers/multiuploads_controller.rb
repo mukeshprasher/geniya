@@ -11,7 +11,7 @@ class MultiuploadsController < ApplicationController
     @multiuploads = Multiupload.all
 
     respond_to do |format|
-      format.html # index.html.erb
+      format.html # index.html.haml
       format.json { render json: @multiuploads.map{|multiupload| multiupload.to_jq_upload } }
     end
   end
