@@ -1,9 +1,8 @@
 .inneContaineralbum
-  .wrapper
+  #album-cont.wrapper
     %p#notice= notice
 
-    #album_wrapper
-      = render @album
+    = render @album
 
     - if signed_in?
       = link_to 'Edit', edit_album_path(@album)

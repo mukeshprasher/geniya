@@ -9,7 +9,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :remember_token
       t.string :name
       t.string :gender
-      t.string :summary
+      t.text :summary
       t.integer :height
       t.integer :bust
       t.integer :hips

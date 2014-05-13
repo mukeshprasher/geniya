@@ -164,7 +164,7 @@
           %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
           /%button.btn.btn-primary{type: "button"} Save changes
       - if signed_in?
-        - if (@user.name== current_user.name)    
+        - if (@user.id== current_user.id)    
           %a.demo{"data-toggle" => "modal",href: "#tags"}
             Add Tags      
       %ul#tags-field

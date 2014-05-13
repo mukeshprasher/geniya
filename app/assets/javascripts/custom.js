@@ -144,7 +144,7 @@ $(function() {
         
         $("#usertag_name")
         .atwho({
-          at: "#", 
+          at: "", 
           tpl: "<li data-value='${atwho-at}${name}'>${name}</li>",
           callbacks: {
             /*
@@ -222,12 +222,12 @@ $(function() {
     });
   };
 
- $("#close").click(function() {
-  album_id = $(this).attr('data')
-  $.get("/ajax/portfolio_detail/"+album_id, {}, function(data) {
-    $('#album_wrapper').html(data)
+  $('#close').on('click', function(){
+    $.get("/ajax/portfolio_detail/"+ $(this).attr('data'), {}, function(data) {
+      $('#album-cont').html(data)
+    });
   });
-});
+
 
   $(document).ready(toDoOnload);
   $(document).on('page:load', toDoOnload);
