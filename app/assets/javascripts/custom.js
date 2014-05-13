@@ -222,7 +222,12 @@ $(function() {
     });
   };
 
-
+ $("#close").click(function() {
+  album_id = $(this).attr('data')
+  $.get("/ajax/portfolio_detail/"+album_id, {}, function(data) {
+    $('#album_wrapper').html(data)
+  });
+});
 
   $(document).ready(toDoOnload);
   $(document).on('page:load', toDoOnload);

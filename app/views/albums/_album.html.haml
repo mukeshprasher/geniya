@@ -29,7 +29,7 @@
           .modal-body
             = render 'shared/multiupload_img', album_id: album_id, album_name: album_name
           .modal-footer
-            %button.btn.btn-default{"data-dismiss" => "modal", type: "button", id: "close"} Close
+            %button.btn.btn-default{"data-dismiss" => "modal", type: "button", id: "close", :data => "#{album_id}"} Close
             /%button.btn.btn-primary{type: "button"} Save changes
         %a.demo{"data-toggle" => "modal",href: "#album-form"}
           Add Images to album      

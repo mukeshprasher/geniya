@@ -58,7 +58,11 @@ jQuery(document).ready(function(){
    }
    
     });
-
+//    jQuery('#close').live('click', function(event) {
+//     $("#album_wrapper").html('#{escape_javascript(render :partial => "album")}');
+//   
+//    });        
+  
            
 //   jQuery('#upload_file_attachment').live('click', function(event)
 //   {

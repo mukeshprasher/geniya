@@ -10,9 +10,4 @@
       \|
       = link_to 'Back', albums_path
 
-%script{language: "javascript", type: "text/javascript"}
-  :cdata
-    jQuery('#close').live('click', function(event) {
-    $("#album_wrapper").html('\#{escape_javascript(render :partial => "album")}');
-    
-    });
+
