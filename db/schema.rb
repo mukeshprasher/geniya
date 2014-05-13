@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140507065036) do
+ActiveRecord::Schema.define(version: 20140513094156) do
 
   create_table "advertisements", force: true do |t|
     t.string   "name"
@@ -349,6 +349,13 @@ ActiveRecord::Schema.define(version: 20140507065036) do
   create_table "user_sub_categories", force: true do |t|
     t.integer  "user_id"
     t.integer  "sub_category_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "user_tags", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "tag_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

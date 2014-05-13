@@ -144,7 +144,7 @@ $(function() {
         
         $("#usertag_name")
         .atwho({
-          at: "#", 
+          at: "", 
           tpl: "<li data-value='${atwho-at}${name}'>${name}</li>",
           callbacks: {
             /*
@@ -222,7 +222,11 @@ $(function() {
     });
   };
 
-
+  $('#ccc').on('click', function(){
+    $.get("/ajax/portfolio_detail/"+ $(this).attr('data'), {}, function(data) {
+      $('#album-cont').html(data)
+    });
+  });
 
   $(document).ready(toDoOnload);
   $(document).on('page:load', toDoOnload);
