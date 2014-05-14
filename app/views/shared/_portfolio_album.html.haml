@@ -1,11 +1,23 @@
-.content-1{:id => "alb-upload-#{upload.id}"}
-  =image_tag upload.multiupload.url(:original), alt: upload.multiupload_file_name
-  
-  /= link_to "×", upload_path(upload), :method => :delete, :remote => true,  :disable_with => "×", :class => 'upload-delete' , :id => "upload-delete-#{upload.id}"
-  
-  .album-content
-    %p#upload-title
-      = upload.multiupload_file_title
-    %p#upload-desc
-      = upload.multiupload_file_desc
-    /= link_to 'Edit', edit_upload_path(upload)
+/.content-1{:id => "alb-upload-#{upload.id}"}
+/  =image_tag upload.multiupload.url(:original), alt: upload.multiupload_file_name
+/  = link_to "×", upload_path(upload), :method => :delete, :remote => true,  :disable_with => "×", :class => 'upload-delete' , :id => "upload-delete-#{upload.id}"
+/  .album-content
+/    %p#upload-title
+/      = upload.multiupload_file_title
+/    %p#upload-desc
+/      = upload.multiupload_file_desc
+/    = link_to 'Edit', edit_upload_path(upload)
+
+.fleft
+  %ul.gallery.clearfix
+
+
+%ul.gallery.clearfix
+  %li
+    %a{href: "#{upload.multiupload.url(:original)}", rel: "prettyPhoto[mixed]", title: "#{upload.multiupload_file_title}"}
+      =image_tag upload.multiupload.url(:original), alt: upload.multiupload_file_name
+%ul#album-upload-content
+  %li#album-upload-title 
+    = upload.multiupload_file_title
+  %li#album-upload-desc
+    = upload.multiupload_file_desc
