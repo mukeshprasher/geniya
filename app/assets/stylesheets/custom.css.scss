@@ -1684,7 +1684,7 @@ display:none;
 
 /*************** for Portfolio search page **********/
 
-#portfolios .albm-img img {height: 300px;width: 400px;}
+#portfolios .albm-img img {height: 300px;width: 400px; cursor: pointer;}
 
 .atwho-view{z-index: 99999 !important;}
 
@@ -2129,4 +2129,13 @@ border:#698941;
 
 .alb_content{
     margin: 0 0 40px;
+}
+
+
+.content-profile img {
+    cursor: pointer;
+}
+
+.albm-img img {
+    cursor: pointer;
 }
