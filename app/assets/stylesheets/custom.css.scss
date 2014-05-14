@@ -193,12 +193,12 @@ nav { display: block; float: left; margin-top: 4px; padding-bottom: 28px; positi
 
 
 
-/************ fashion-beauty category tag color**********/
+/************ entertainment category tag color**********/
 
-.trendingInfo h6#fashion-beauty:after { border-right: 7px solid rgba(0, 0, 0, 0); border-top: 7px solid rgba(0, 0, 0, 0); bottom: -7px; content: ""; display: block; left: 0; position: absolute; transition: border 0.3s ease 0s; border-top-color:#5037cc; }
+.trendingInfo h6#entertainment:after { border-right: 7px solid rgba(0, 0, 0, 0); border-top: 7px solid rgba(0, 0, 0, 0); bottom: -7px; content: ""; display: block; left: 0; position: absolute; transition: border 0.3s ease 0s; border-top-color:#5037cc; }
 
-.trendingInfo h6#fashion-beauty { background: none repeat scroll 0 0 #5037cc; color: #FFFFFF; font-size: 14px; padding: 5px; position: relative; width: -moz-min-content; }
-
+.trendingInfo h6#entertainment { background: none repeat scroll 0 0 #5037cc; color: #FFFFFF; font-size: 14px; padding: 5px; position: relative; width: -moz-min-content; }
+#entertainment
 
 
 /************ travel-leisure category tag color**********/
@@ -223,11 +223,11 @@ nav { display: block; float: left; margin-top: 4px; padding-bottom: 28px; positi
 .trendingInfo h6#photography-modelling { background: none repeat scroll 0 0 #82ab29; color: #FFFFFF; font-size: 14px; padding: 5px; position: relative; width: -moz-min-content; }
 
 
-/************ entertainment category tag color**********/
+/************ fashion-beauty category tag color**********/
 
-.trendingInfo h6#entertainment:after { border-right: 7px solid rgba(0, 0, 0, 0); border-top: 7px solid rgba(0, 0, 0, 0); bottom: -7px; content: ""; display: block; left: 0; position: absolute; transition: border 0.3s ease 0s; border-top-color:#c251ca; }
+.trendingInfo h6#fashion-beauty:after { border-right: 7px solid rgba(0, 0, 0, 0); border-top: 7px solid rgba(0, 0, 0, 0); bottom: -7px; content: ""; display: block; left: 0; position: absolute; transition: border 0.3s ease 0s; border-top-color:#c251ca; }
 
-.trendingInfo h6#entertainment { background: none repeat scroll 0 0 #c251ca; color: #FFFFFF; font-size: 14px; padding: 5px; position: relative; width: -moz-min-content; }
+.trendingInfo h6#fashion-beauty { background: none repeat scroll 0 0 #c251ca; color: #FFFFFF; font-size: 14px; padding: 5px; position: relative; width: -moz-min-content; }
 
 .trendingInfo h6 a { color:#fff; font-weight:normal }
 
@@ -2151,6 +2151,3 @@ font-family: latobold;
 }
 
 
-.gallery.clearfix img {
-    max-width: 85%;
-}
