@@ -373,7 +373,7 @@ ActiveRecord::Schema.define(version: 20140513094156) do
     t.string   "remember_token"
     t.string   "name"
     t.string   "gender"
-    t.text     "summary"
+    t.string   "summary"
     t.integer  "height"
     t.integer  "bust"
     t.integer  "hips"
