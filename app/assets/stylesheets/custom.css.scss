@@ -193,12 +193,12 @@ nav { display: block; float: left; margin-top: 4px; padding-bottom: 28px; positi
 
 
 
-/************ fashion-beauty category tag color**********/
+/************ entertainment category tag color**********/
 
-.trendingInfo h6#fashion-beauty:after { border-right: 7px solid rgba(0, 0, 0, 0); border-top: 7px solid rgba(0, 0, 0, 0); bottom: -7px; content: ""; display: block; left: 0; position: absolute; transition: border 0.3s ease 0s; border-top-color:#5037cc; }
+.trendingInfo h6#entertainment:after { border-right: 7px solid rgba(0, 0, 0, 0); border-top: 7px solid rgba(0, 0, 0, 0); bottom: -7px; content: ""; display: block; left: 0; position: absolute; transition: border 0.3s ease 0s; border-top-color:#5037cc; }
 
-.trendingInfo h6#fashion-beauty { background: none repeat scroll 0 0 #5037cc; color: #FFFFFF; font-size: 14px; padding: 5px; position: relative; width: -moz-min-content; }
-
+.trendingInfo h6#entertainment { background: none repeat scroll 0 0 #5037cc; color: #FFFFFF; font-size: 14px; padding: 5px; position: relative; width: -moz-min-content; }
+#entertainment
 
 
 /************ travel-leisure category tag color**********/
@@ -223,11 +223,11 @@ nav { display: block; float: left; margin-top: 4px; padding-bottom: 28px; positi
 .trendingInfo h6#photography-modelling { background: none repeat scroll 0 0 #82ab29; color: #FFFFFF; font-size: 14px; padding: 5px; position: relative; width: -moz-min-content; }
 
 
-/************ entertainment category tag color**********/
+/************ fashion-beauty category tag color**********/
 
-.trendingInfo h6#entertainment:after { border-right: 7px solid rgba(0, 0, 0, 0); border-top: 7px solid rgba(0, 0, 0, 0); bottom: -7px; content: ""; display: block; left: 0; position: absolute; transition: border 0.3s ease 0s; border-top-color:#c251ca; }
+.trendingInfo h6#fashion-beauty:after { border-right: 7px solid rgba(0, 0, 0, 0); border-top: 7px solid rgba(0, 0, 0, 0); bottom: -7px; content: ""; display: block; left: 0; position: absolute; transition: border 0.3s ease 0s; border-top-color:#c251ca; }
 
-.trendingInfo h6#entertainment { background: none repeat scroll 0 0 #c251ca; color: #FFFFFF; font-size: 14px; padding: 5px; position: relative; width: -moz-min-content; }
+.trendingInfo h6#fashion-beauty { background: none repeat scroll 0 0 #c251ca; color: #FFFFFF; font-size: 14px; padding: 5px; position: relative; width: -moz-min-content; }
 
 .trendingInfo h6 a { color:#fff; font-weight:normal }
 
@@ -840,29 +840,7 @@ form {margin: 0 0 5px;}
 	-webkit-border-radius:10px;
 	border-radius:10px;
 }
-.pp_next, .pp_prev{
-	cursor:pointer;
-	top:50%;
-	margin-top:-16px;
-	width:32px;
-	height:32px;
-	position:fixed;
-	text-align:center;
-	border:1px solid #111;
-	color:#fff;
-	z-index: 99999;
-	-moz-box-shadow:0px 0px 3px #000;
-	-webkit-box-shadow:0px 0px 3px #000;
-	box-shadow:0px 0px 3px #000;
-}
-.pp_next{
-	right:-40px;
-	background:#222 url(/assets/next.png) no-repeat center center;
-}
-.pp_prev{
-	left:-40px;
-	background:#222 url(/assets/prev.png) no-repeat center center;
-}
+
 #pp_thumbContainer{
 	bottom:0px;
 	left:0px;
@@ -1684,7 +1662,7 @@ display:none;
 
 /*************** for Portfolio search page **********/
 
-#portfolios .albm-img img {height: 300px;width: 400px;}
+#portfolios .albm-img img {height: 300px;width: 400px; cursor: pointer;}
 
 .atwho-view{z-index: 99999 !important;}
 
@@ -2130,3 +2108,46 @@ border:#698941;
 .alb_content{
     margin: 0 0 40px;
 }
+
+
+.content-profile img {
+    cursor: pointer;
+}
+
+.albm-img img {
+    cursor: pointer;
+}
+
+
+.content-1 {
+    margin: 0 0 50px;
+}
+
+
+#album-upload-title  {
+    color: #82A748;
+font-family: latobold;
+ font-size: 20px;
+  text-transform: capitalize;
+}
+
+
+#album-upload-desc {
+    color: #2B2F35;
+    font-family: latobold;
+      font-size: 15px;
+         text-transform: capitalize;
+}
+
+#album-upload-content {
+    margin: 0 0 25px;
+}
+
+#add-img {
+    float: left;
+    font-family: latobold;
+    font-size: 14px;
+    margin: 0 3px 0 46px;
+}
+
+

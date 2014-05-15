@@ -1,10 +1,9 @@
 .box.ajax-portfolio-detail-homepage-modal-trigger
   .albm-img{:data => "#{album.id}"}  
-    -if album.uploads.any?
-      /- album.uploads.each do|upload_img_name|
-      /  = image_tag upload_img_name.file_attachment.url(:thumb), alt: upload_img_name.file_attachment.url(:original)
+    -if album.multiuploads.any?
       .content-profile
-        = image_tag album.uploads.last.file_attachment.url
+        - album.multiuploads.last(1).each do|upload_img_name|
+          = image_tag upload_img_name.multiupload.url(:original), alt: upload_img_name.multiupload_file_name
     - else
       .content-profile
         = image_tag '/assets/medium-file-upload.jpg', alt: '/assets/file-upload.jpg'

@@ -1,10 +1,14 @@
 %li.isotope-item.ajax-portfolio-detail-homepage-modal-trigger 
   .black_square
   .albm-img{:data => "#{album.id}"}
-    -if album.uploads.any?
-      = image_tag album.uploads.first.file_attachment.url, title: album.name
+    -if album.multiuploads.any?
+      - album.multiuploads.last(1).each do|upload_img_name|
+        = image_tag upload_img_name.multiupload.url(:original), alt: upload_img_name.multiupload_file_name
     -else
-      =image_tag '/assets/file-upload.jpg', title: album.name
+      =image_tag '/assets/file-upload.jpg', title: album.name    
+    /-if album.uploads.any?
+    /  = image_tag album.uploads.first.file_attachment.url, title: album.name
+
   .trendingInfo.isotopeSummary
     - a = album.name
     %h6.aqua{:id => "#{album.category.slug}"}
