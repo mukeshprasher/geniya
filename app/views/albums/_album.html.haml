@@ -25,7 +25,6 @@
             %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
             %h4.modal-title Add Images to Portfolio, Album and Project
           .modal-body
-            = @album.id
             = render 'shared/multiupload_img', album_id: @album.id, album_name: @album.name
           .modal-footer
             %button#close.btn.btn-default{:data => "#{@album.id}", "data-dismiss" => "modal", type: "button"} Close
