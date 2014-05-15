@@ -10,20 +10,22 @@
   %p.album-name
     = link_to album.name, album
   /%a.favourite{href: "#"} Add to favourite
-  .album-likes
-    = render 'shared/like_form', object: album, user: album.user
-  .album-like-box  
-    %p
-      - @likers = album.likers(User)
-      - @comments = album.comment_threads.where('parent_id IS NULL').order('created_at desc')
-      %img{alt: "", height: "11", src: "/assets/heart_img.png", width: "12"}/
-      %span
-        = @likers.count
-      /= render 'shared/like_form', object: album, user: album.user
-    %p
-      %img{alt: "", height: "11", src: "/assets/feed_icon1.png", width: "13"}/
-      %span
-        = @comments.count  
+  -if signed_in?
+    .likes-album
+      = render 'shared/like_form', object: album, user: album.user
+  -else
+    .album-like-box  
+      %p
+        - @likers = album.likers(User)
+        - @comments = album.comment_threads.where('parent_id IS NULL').order('created_at desc')
+        %img{alt: "", height: "11", src: "/assets/heart_img.png", width: "12"}/
+        %span
+          = @likers.count
+        /= render 'shared/like_form', object: album, user: album.user
+      %p
+        %img{alt: "", height: "11", src: "/assets/feed_icon1.png", width: "13"}/
+        %span
+          = @comments.count  
   
   %ul
     %li

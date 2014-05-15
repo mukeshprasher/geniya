@@ -411,7 +411,7 @@ aside {
 /* forms */
 
 input, textarea, .uneditable-input {
-  border: 1px solid #739B1F;
+  border: 1px solid #C1C1C1;
   width: 100%;
   border-radius: 1px;
   height: 78px;
@@ -740,13 +740,53 @@ _user
 
 .text.required {height: 30px;}
 
-.like-left{float:left;}
+.like-left{float:left;  width: auto;}
 
-#like-count {float: left;margin: -6px 0 0;}
+
+.new_like {
+    float: left;
+    width: auto;
+}
+
+
+.edit_like {
+    float: left;
+}
+
+.btn.likelikepubBtn, .btn.unlikepubBtn {
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
+    border: medium none;
+    color: #82AB05;
+    float: left;
+    font-family: latoregular;
+    text-transform: capitalize;
+    width:50px;
+    padding:4px 0 0 0;
+    outline: medium none;
+}
+
+.btn.likelikepubBtn.active, .btn.likelikepubBtn:active, .btn.unlikepubBtn.active, .btn.unlikepubBtn:active{
+box-shadow:none;
+
+}
+
+
+.form-submit-button:active {
+-moz-box-shadow: 0 1px #000 inset;
+-webkit-box-shadow: 0 1px #000 inset;
+box-shadow: 0 1px #000 inset;
+}
+
+#like-count {    float: left;
+    margin: 2px 0 0 14px;}
 
 #like-count a:hover{color:#82AB05;} 
 
 #like-count a{color:#82AB05;} 
+
+.like-img > img {
+    margin: 3px 0 0;
+}
  
 form {margin: 0 0 5px;}
 
@@ -1289,12 +1329,21 @@ form {margin: 0 0 5px;}
 
 .box_section p {float: left;  padding: 0 0 0 12px;    width: 91px;}
 
-.box_section .album-name {  color: #4A4A4A;float: left;font-family: latobold;font-size: 17px;padding: 0 12px;width: 146px; height: 40px;}
+.box_section .album-name {    color: #4A4A4A;
+    float: left;
+    font-family: latobold;
+    font-size: 17px;
+    height: 35px;
+    margin: 4px 0 0;
+    width: 93%;}
 
 .album-likes { float: left;    width: 149px; margin: 6px 0 0;}
 
 
-.album-likes .like-left {width: 17px;}
+.likes-album {
+    margin: 0 0 0 4px;
+}
+
 
 .album-likes #like-count {float: left;width: 132px;height: 50px;}
 
@@ -2049,7 +2098,7 @@ border:#698941;
     margin-top: 10px;
 }
 
-.srh-field-name{    color: #AEAEAE;
+.srh-field-name{    color: #808080;
     float: left;
     font-size: 15px;
     margin: -2px 0 0 7px;
@@ -2150,4 +2199,31 @@ font-family: latobold;
     margin: 0 3px 0 46px;
 }
 
+/*********** protfolio srh page ********/
 
+
+.portfolio_srh_content {
+    float: left;
+}
+
+
+
+.portfolio_srh_btn {
+    float: right;
+}
+
+
+input:focus:invalid:focus, textarea:focus:invalid:focus, select:focus:invalid:focus {
+    border-color: #81AA05;
+    box-shadow: 0 0 6px #81AA05;
+}
+
+input:focus:invalid, textarea:focus:invalid, select:focus:invalid {
+    
+    color: #81AA05;
+}
+textarea:focus, input[type="text"]:focus, input[type="password"]:focus, input[type="datetime"]:focus, input[type="datetime-local"]:focus, input[type="date"]:focus, input[type="month"]:focus, input[type="time"]:focus, input[type="week"]:focus, input[type="number"]:focus, input[type="email"]:focus, input[type="url"]:focus, input[type="search"]:focus, input[type="tel"]:focus, input[type="color"]:focus, .uneditable-input:focus {
+    border-color: #81AA05;
+    box-shadow: #81AA05;
+    outline: 0 none;
+}

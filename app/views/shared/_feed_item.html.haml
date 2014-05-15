@@ -36,7 +36,7 @@
       %span.timestamp
         #{time_ago_in_words(feed_item.created_at)} ago.
     .userBottom
-      .like_this
+      .like_this-1
         = render 'shared/like_form', object: feed_item, user: feed_item.user
       .show_users
         - comments = feed_item.comment_threads.where('parent_id IS NULL').order('created_at desc')

@@ -96,7 +96,8 @@
                     %embed{ src: "#{@video.file_attachment.url}", width: "303", height: "230"}              
               .pull_inside1
                 %span.vid_name
-                  = @video.name 
+                  %a{href: "/videos/"+"#{@video.slug}"}
+                    = @video.name 
               %span.view 
                 = @video.impressions_count
                 views        

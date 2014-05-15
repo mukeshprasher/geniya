@@ -1,8 +1,8 @@
 -if signed_in?
   .comment-form
     = simple_form_for comment, :remote => true do |f|
-      = f.input :body, :input_html => { :rows => "2" }, :label => false, class: "comment-text-area",style: "width: 70%"
+      = f.input :body, :input_html => { :rows => "2" }, :label => false, class: "comment-text-area",style: "width: 70%", placeholder: "Add a comment"
       = f.hidden_field :commentable_id, :value => comment.commentable_id
       = f.hidden_field :commentable_type, :value => comment.commentable_type
       = f.hidden_field :parent_id, :value => parent_id unless parent_id.nil?
-      = f.button :submit, :class => "btn btn-primary comment-submit-button", :disable_with => "Submitting…", id: "comment-box-btn"
+      /= f.button :submit, :class => "btn btn-primary comment-submit-button", :disable_with => "Submitting…", id: "comment-box-btn"

@@ -73,9 +73,9 @@
               Plese log in            
           - else
             .post-comment-logged-out
-              You must
-              %a.link-login.fake-link{href: "/signin"} Sign up
-              for Discuss the Projects.
+              Please
+              %a.link-login.fake-link{href: "/signup"} Sign up
+              for Discuss.
         .comments
           = render :partial => 'comments/form', :locals => { comment: @new_comment, parent_id: nil }
           = render :partial => 'comments/comment', :collection => @comments, :as => :comment        
@@ -185,8 +185,8 @@
     .sidebar-block.sidebar-meta
       .sidebar-content.cfix
         #copyright-info.tooltipi-container
-          %span.copyright-info.pointer.sidebar-meta-item.pre-icon.pre-icon-copyright ©Project Copyright Info
-          %span.fake-link.sidebar-meta-item.pre-icon.pre-icon-report.flag-spam.flag-spam-project.js-report.project-report{spam_id: "16086365"} Geniya
+          /%span.copyright-info.pointer.sidebar-meta-item.pre-icon.pre-icon-copyright ©Project Copyright Info
+          /%span.fake-link.sidebar-meta-item.pre-icon.pre-icon-report.flag-spam.flag-spam-project.js-report.project-report{spam_id: "16086365"} Geniya
 
 
 /.album_cont

@@ -64,6 +64,20 @@ $(function() {
     });
     
  
+/// for submit comment through enter press
+
+  $('#comment_body').live("keypress", function(e) {
+     var code = (e.keyCode ? e.keyCode : e.which);
+     if (code == 13) {
+        e.preventDefault();
+        e.stopPropagation();
+        $(this).closest('form').submit();
+     }
+  });
+ 
+ 
+ 
+ 
 ////// for album Page slider 
  
 				$("area[rel^='prettyPhoto']").prettyPhoto();
@@ -107,8 +121,8 @@ $(function() {
     fr.onload = function() {
         var img = new Image;
         img.onload = function() {
-          if (img.width<="1200" && img.height){
-          alert("Please choose an image that's at least 1200 pixels wide and at least 300 pixels tall.");
+          if (img.width<="500" || img.height<="150"){
+          alert("Please choose an image that's at least 500 pixels wide and at least 150 pixels tall.");
           $("#cover_img").val('');
           return false;
           }

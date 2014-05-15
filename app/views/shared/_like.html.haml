@@ -2,4 +2,6 @@
   = form_for(object.likes.build(likeable_id: object.id, liker_type: "User", likeable_type: object.class.name ), remote: true) do |f|
     = f.hidden_field :likeable_id
     = f.hidden_field :likeable_type
-    = f.submit "", class: "btn likepubBtn", id: "like-button"
+    = f.submit "like", class: "btn likelikepubBtn", id: "like-button"
+  %span.like-img
+    %img{alt: "", height: "22", src: "/assets/heart_img.png", id: "follw-img"}/
