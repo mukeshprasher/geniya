@@ -31,7 +31,7 @@
             = @likers.count
         %li
           %img{alt: "", height: "11", src: "/assets/feed_icon1.png", width: "13"}/
-          %p 
+          %p{ :id => "comment_count_#{feed_item.class.name}_#{feed_item.id}" }  
             = @comments.count
       %span.timestamp
         #{time_ago_in_words(feed_item.created_at)} ago.

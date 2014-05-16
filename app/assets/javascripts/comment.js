@@ -5,6 +5,7 @@ $(function() {
       var comment_id=this.id.split("-")[1]
       $("#child-comment-form-"+comment_id).show();
     });
+    
     $(".comment-delete").click(function(){
      var delcomment = confirm("Do you want to delete this comment ?");
      if(delcomment == true)
@@ -276,6 +277,30 @@ $(function() {
       return true;
     }
     }); 
+
+
+    $("#new_update").submit(function(){
+    var textarea = $("#feed-text")
+    var attachment = $("#update_file_attachment")
+     text = textarea.val();
+     attch = attachment.val();
+    if (text == '' && attch == '')
+    {
+      alert('Status cannot empty');
+      return false;
+    }
+    else
+    {
+      alert('Status successfully created');
+      return true;
+    }
+    }); 
+
+
+
+
+
+
 
     $("#new_education").submit(function(){
     var instnamefield = $("#education_institute_name")

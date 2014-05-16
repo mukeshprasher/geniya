@@ -19,11 +19,13 @@ class CommentsController < ApplicationController
   
   def destroy
     @comment = Comment.find(params[:id])
-    if @comment.destroy
-      render :json => @comment, :status => :ok
-    else
-      render :js => "alert('error deleting comment');"
-    end
+    @obj = @comment.commentable_type.constantize.find(@comment.commentable_id)
+    @comment.destroy
+#    if @comment.destroy
+#      render :json => @comment, :status => :ok
+#    else
+#      render :js => "alert('error deleting comment');"
+#    end
   end
   
   private

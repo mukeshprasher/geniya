@@ -17,7 +17,8 @@
      {$("#comment-"+comment_id).show();
      return false;}
    });
-
+  $('#comment_body').val('');
+  $("#comment_count_<%= @obj.class.name %>_<%= @obj.id %>").html("<%= @obj.root_comments.count %>")
 <% else %>
  $("<%= escape_javascript(render :partial => "comments/child_comment", :locals => { :child => @comment  }, :layout => false, :status => :created) %>").hide().appendTo("#child-comments-<%= @comment.parent_id %>").show('slow')
  $(".child-comment-form").on("ajax:beforeSend", function(evt, xhr, settings) {
