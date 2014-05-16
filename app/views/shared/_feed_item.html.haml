@@ -9,6 +9,7 @@
     .userTop
       %p.feed-text
         = raw feed_item.text
+        //= simple_format(feed_item.text)
       - feed_item.uploads.each do |x|
         %p.isotope-item.ajax-portfolio-detail-homepage-modal-trigger{:data => "#{x.album_id}"}
           = image_tag x.file_attachment.url(:original)
