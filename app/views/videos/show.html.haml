@@ -51,6 +51,8 @@
                   %embed{ src: "#{@video.file_attachment.url}", width: "550", height: "330"}
             #comments-header.comments-header
           %h4.block-title
+            .like_this-1
+              = render 'shared/like_form', object: @video, user: @video.user
             %span.bold Discuss this video:
             %span.comments-stats.hide{style: "display: inline;"}
               /(
@@ -76,7 +78,7 @@
         .comments
           = render :partial => 'comments/form', :locals => { comment: @new_comment, parent_id: nil }
           = render :partial => 'comments/comment', :collection => @comments, :as => :comment    
-  
+
 
 
 
