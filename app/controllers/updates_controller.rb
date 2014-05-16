@@ -18,6 +18,7 @@ class UpdatesController < ApplicationController
   # POST /updates
   # POST /updates.json
   def create
+    params[:update][:text] = sanitize_and_linkify_text(params[:update][:text])
     @update = current_user.updates.build(update_params)
     if @update.save
       @update_upload = current_user.uploads.build(uploads_params)
