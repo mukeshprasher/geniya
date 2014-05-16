@@ -71,7 +71,7 @@ $(function() {
      if (code == 13 && e.shiftKey) {
         var content = this.value;
         var caret = getCaret(this);
-        this.value = content.substring(0,caret)+"\n"+content.substring(carent,content.length-1);
+        this.value = content.substring(0,caret)+"\n"+content.substring(caret,content.length-1);
         e.stopPropagation();
      }
      else if (code == 13) {
