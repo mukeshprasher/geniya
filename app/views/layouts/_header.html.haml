@@ -13,19 +13,19 @@
             %span 
               = current_user.username
         %li= link_to 'Home', root_path
-        %li
-          = link_to 'My Conversations', :conversations       
-        %li#fat-menu.dropdown
-          %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
-            My Account
-            %b.caret
-          %ul.dropdown-menu
-            %li= link_to "Profile", current_user
-            %li= link_to "View Album", "/albums/default-album-"+"#{current_user.slug}"
-            %li= link_to "Post a Job", '/advertisements/new'
-            //%li= link_to "Create an Ad", '/advertisements/new'
-            - if (current_user.username == 'geniya')
-              %li= link_to "Dashboard", '/admin'
+        /%li
+        /  = link_to 'My Conversations', :conversations       
+        /%li#fat-menu.dropdown
+        /  %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
+        /    My Account
+        /    %b.caret
+        /  %ul.dropdown-menu
+        /    %li= link_to "Profile", current_user
+        /    %li= link_to "View Album", "/albums/default-album-"+"#{current_user.slug}"
+        /    %li= link_to "Post a Job", '/advertisements/new'
+        /    %li= link_to "Create an Ad", '/advertisements/new'
+        /    - if (current_user.username == 'geniya')
+        /      %li= link_to "Dashboard", '/admin'
 
         %li.login
           = link_to "Logout", signout_path, method: "delete"

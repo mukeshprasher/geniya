@@ -10,6 +10,14 @@ class VideosController < ApplicationController
   # GET /videos/1
   # GET /videos/1.json
   def show
+    @video = Video.find(params[:id])
+    @user = @video.user
+    impressionist @video, '', unique: [:user_id] if current_user
+    @likers = @video.likers(User)
+    @comments = @video.comment_threads.where('parent_id IS NULL').order('created_at desc')
+    if signed_in?
+      @new_comment = Comment.build_from(@video, current_user.id, "")
+    end
   end
 
   # GET /videos/new
@@ -19,6 +27,10 @@ class VideosController < ApplicationController
 
   # GET /videos/1/edit
   def edit
+  end
+
+  def geniya_videos
+    @user = User.find(1)
   end
 
   # POST /videos

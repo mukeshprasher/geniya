@@ -23,6 +23,7 @@ class UpdatesController < ApplicationController
     if @update.save
       @update_upload = current_user.uploads.build(uploads_params)
       @update_upload.save
+      params[:update][:name] = sanitize_and_linkify_text(params[:update][:text])
       @update_video = current_user.videos.build(video_params)
       @update_video.save      
     end
@@ -81,7 +82,7 @@ class UpdatesController < ApplicationController
     end
     
     def video_params
-      params.require(:update).permit(:file_attachment).merge(update_id: @update.id)
+      params.require(:update).permit(:file_attachment, :name).merge(update_id: @update.id)
     end        
     
     def correct_user

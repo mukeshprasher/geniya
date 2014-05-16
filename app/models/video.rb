@@ -1,6 +1,7 @@
 class Video < ActiveRecord::Base
   belongs_to :user
-
+  has_many :likes,foreign_key: 'likeable_id'
+  has_many :comments, foreign_key: 'commentable_id'
   has_attached_file :file_attachment, :hash_secret => "geniyaAttach"
   validates_attachment :file_attachment, :presence => true,
   :content_type => { :content_type => ["video/mpeg", "video/ogg", "video/mp4", "video/webm", "video/x-flv", "video/x-msvideo", "video/3gpp"] },

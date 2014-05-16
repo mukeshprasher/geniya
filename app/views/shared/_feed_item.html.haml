@@ -13,16 +13,18 @@
       - feed_item.uploads.each do |x|
         %p.isotope-item.ajax-portfolio-detail-homepage-modal-trigger{:data => "#{x.album_id}"}
           = image_tag x.file_attachment.url(:original)
-      - feed_item.videos.each do |video|
-        %p
-          - if ["video/mpeg", "video/x-msvideo", "video/3gpp"].include? video.file_attachment.content_type
-            %object{ data: "#{video.file_attachment.url}", width: "303", height: "230", autoplay: "false"}
-              %embed{ src: "#{video.file_attachment.url}", width: "303", height: "230"}
-          - elsif ["video/mp4", "video/ogg", "video/webm", "video/x-flv"].include? video.file_attachment.content_type
-            %video{ width: "303", height:"230", poster:"poster.jpg", controls:"controls", preload:"none" }
-              %source{type:"#{video.file_attachment.content_type}", src:"#{video.file_attachment.url}"}
-              %object{width:"303", height:"230", type:"application/x-shockwave-flash", data:"#{video.file_attachment.url}"}
-                %embed{ src: "#{video.file_attachment.url}", width: "303", height: "230"}         
+      - if feed_item.videos.any?
+        - feed_item.videos.each do |video|
+          %a{href:"/videos/"+"#{video.slug}"}
+            %p
+              - if ["video/mpeg", "video/x-msvideo", "video/3gpp"].include? video.file_attachment.content_type
+                %object{ data: "#{video.file_attachment.url}", width: "303", height: "230", autoplay: "false"}
+                  %embed{ src: "#{video.file_attachment.url}", width: "303", height: "230"}
+              - elsif ["video/mp4", "video/ogg", "video/webm", "video/x-flv"].include? video.file_attachment.content_type
+                %video{ width: "303", height:"230", poster:"poster.jpg", controls:"controls", preload:"none" }
+                  %source{type:"#{video.file_attachment.content_type}", src:"#{video.file_attachment.url}"}
+                  %object{width:"303", height:"230", type:"application/x-shockwave-flash", data:"#{video.file_attachment.url}"}
+                    %embed{ src: "#{video.file_attachment.url}", width: "303", height: "230"}         
       %ul
         - @likers = feed_item.likers(User)
         - @comments = feed_item.comment_threads.where('parent_id IS NULL').order('created_at desc')

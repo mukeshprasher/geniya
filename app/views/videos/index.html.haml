@@ -1,19 +1,21 @@
-%h1 Listing videos
+.inneContaineralbum
+  #album-cont.wrapper
+    %h1 Listing videos
 
-%table
-  %tr
-    %th Name
-    %th
-    %th
-    %th
+    %table
+      %tr
+        %th Name
+        %th
+        %th
+        %th
 
-  - @videos.each do |video|
-    %tr
-      %td= video.name
-      %td= link_to 'Show', video
-      %td= link_to 'Edit', edit_video_path(video)
-      %td= link_to 'Destroy', video, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      - @videos.each do |video|
+        %tr
+          %td= video.name
+          %td= link_to 'Show', video
+          %td= link_to 'Edit', edit_video_path(video)
+          %td= link_to 'Destroy', video, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
-%br
+    %br
 
-= link_to 'New Video', new_video_path
+    = link_to 'New Video', new_video_path

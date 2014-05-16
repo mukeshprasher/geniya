@@ -34,6 +34,7 @@ Geniya::Application.routes.draw do
   match "/portfolios", to: 'portfolios#index', via: 'get'
   match "/portfolios/:id", to: 'portfolios#category_index', via: 'get'
   match "/subscribe-plans", to: 'pages#price_table', via: 'get'
+  match "/geniyavideo", to: 'videos#geniya_videos', via: 'get'
   resources :connections, only: [:create, :update, :destroy]
 
   resources :likes, only: [:create, :destroy]
