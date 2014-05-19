@@ -1,5 +1,5 @@
 %li.ajax-portfolio-detail-homepage-modal-trigger{:data => "#{album.id}"}
-  .albm-img{:data => "#{album.id}"}  
+  .albm-img{:data => "#{album.id}", id:"portfolio_album_img"}  
     -if album.multiuploads.any?
       - album.multiuploads.last(1).each do|upload_img_name|
         = image_tag upload_img_name.multiupload.url(:original), alt: upload_img_name.multiupload_file_name    
