@@ -170,6 +170,9 @@ nav { display: block; float: left; margin-top: 4px; padding-bottom: 28px; positi
 
 #editorsPicks li.isotope-item:hover .black_square { background:rgba(0, 0, 0, 0.55); transition: all 0.7s ease 0s }
 
+
+
+
 .trendingInfo.isotopeSummary { -moz-box-sizing: border-box; bottom: 0; color: rgba(255, 255, 255, 0.75); height: 55%; left: 0; margin: 0 5%; overflow: visible; padding: 0; position: absolute; top: 52%; width: 90%; transition: all 0.7s ease 0s }
 
 /************ dafult category tag color**********/
@@ -2226,4 +2229,10 @@ textarea:focus, input[type="text"]:focus, input[type="password"]:focus, input[ty
     border-color: #81AA05;
     box-shadow: #81AA05;
     outline: 0 none;
+}
+
+
+.albm-img {
+    min-height: 300px;
+    min-width: 300px;
 }
