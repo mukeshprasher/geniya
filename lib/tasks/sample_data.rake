@@ -8,7 +8,6 @@ namespace :db do
     make_microposts
     make_relationships
     make_albums
-    make_videos
 #    make_uploads
   end
 
@@ -299,10 +298,6 @@ namespace :db do
     end
   end
   
-  def make_videos
-    Video.create!(name: 'big bunny', name: name, title: title, description: para, kind: "portfolio", category_id:  Category.all.sample.id)
-    end
-  end  
   
 #  def make_uploads
 #    Upload.create!(album_id: '24', user_id: '1', name: 'fashion', title: 'fashion', description: 'fashion', file_attachment_file_name: 'fashion.jpg', file_attachment_content_type: 'image/jpeg', file_attachment_file_size: '36826', file_attachment_updated_at: '2014-04-11 11:37:37.490177', file_type: '.jpg', extension: '.jpg', file_attachment_fingerprint: 'fe6a2cd5f76c5a1fbc83d229e252b96e', impressions_count: '1' )
