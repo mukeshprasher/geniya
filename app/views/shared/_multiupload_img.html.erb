@@ -42,6 +42,11 @@
 </div>
 </div>
 <script>
+  var data = {
+    user_id: <%= current_user.id %>,
+    album_id: '<%= album_id %>'
+  };
+
   var fileUploadErrors = {
   maxFileSize: 'File is too big',
   minFileSize: 'File is too small',
@@ -57,10 +62,13 @@
   {% for (var i=0, file; file=o.files[i]; i++) { %}
   <tr class="template-upload fade">
     <td class="preview"><span class="fade"></span></td>
-    <td class="name"><span>{%=file.name%}</span> <span><%= text_field_tag "multiupload[multiupload_file_title]",  nil, :placeholder => 'Enter title for upload...'%></span><span><%= text_area_tag "multiupload[multiupload_file_desc]", nil, :placeholder => 'Enter description for upload...'%></td>
-    <%= hidden_field_tag "multiupload[user_id]", "#{current_user.id}" %>
-    <%= hidden_field_tag "multiupload[album_id]", album_id %>
-    <td class="size"><span>{%=o.formatFileSize(file.size)%}</span></td>
+    <td class="name">
+      <span>{%=file.name%}</span> 
+      <span><%= text_field_tag "multiupload[multiupload_file_title]",  nil, :placeholder => 'Enter title for upload...'%></span>
+      <span><%= text_area_tag "multiupload[multiupload_file_desc]", nil, :placeholder => 'Enter  for upload...'%>
+      <%= hidden_field_tag "multiupload[user_id]", "{%=data.user_id%}" %>
+      <%= hidden_field_tag "multiupload[album_id]", "{%=data.album_id%}" %>
+    </td><td class="size"><span>{%=o.formatFileSize(file.size)%}</span></td>
     {% if (file.error) { %}
     <td class="error" colspan="2"><span class="label label-important">{%=locale.fileupload.error%}</span> {%=locale.fileupload.errors[file.error] || file.error%}</td>
     {% } else if (o.files.valid && !i) { %}
@@ -127,7 +135,7 @@
         var fu = $('#fileupload').data('blueimpFileupload'),
           template;
         fu._adjustMaxNumberOfFiles(-files.length);
-        console.log(files);
+        //console.log(files);
         template = fu._renderDownload(files)
           .appendTo($('#fileupload .files'));
         // Force reflow:
