@@ -44,8 +44,6 @@
             = image_tag @advertisement.file_attachment.url(:original)
             #comments-header.comments-header
           %h4.block-title
-            .like_this-1
-              = render 'shared/like_form', object: @advertisement, user: @advertisement.user
             %span.bold Discuss about this Job:
             %span.comments-stats.hide{style: "display: inline;"}
               /(
@@ -53,6 +51,11 @@
               /  = @comments.count 
               /= succeed ")" do
               /  %span.comments-total-text Comments
+        
+        
+        #ads-like
+          .like_this-1
+            = render 'shared/like_form', object: @advertisement, user: @advertisement.user
         
         - if signed_in?
           .port-by
