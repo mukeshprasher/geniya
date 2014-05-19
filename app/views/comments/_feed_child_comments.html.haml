@@ -10,9 +10,12 @@
     %span.comment-user-name
       %a{href: "/users/"+"#{comment.user.slug}"}
         = comment.user.username
-      %small= raw comment.body
+      %span#feed_text
+        = raw comment.body
       //%small= simple_format(comment.body)
-      %p= comment.updated_at
+      %p
+        %small 
+          = comment.updated_at
       #comment-like
         = render 'shared/like_form', object: comment, user: comment.user
     -if signed_in?
