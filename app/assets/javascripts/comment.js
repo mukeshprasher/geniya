@@ -422,7 +422,7 @@ $(function() {
     fr.onload = function() {
         var img = new Image;
         img.onload = function() {
-          if (img.width<="400" && img.height)
+          if (img.width<="50")
            {
           alert("Please choose an image that's at least 300 pixels wide and at least 300 pixels tall.");
           $("#profile_img").val('');

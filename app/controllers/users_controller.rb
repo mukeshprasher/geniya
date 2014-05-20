@@ -17,8 +17,8 @@ class UsersController < ApplicationController
   def show
     if signed_in?
       @updates = @user.updates.paginate(page: params[:page], :per_page => 10)
-      @headshot = (@user.headshot) ? @user.headshot : Upload.new
-      @covershot = (@user.covershot) ? @user.covershot : Upload.new
+      @headshot = Upload.new
+      @covershot = Upload.new
       #impressionist @user, '', unique: [:user_id] if current_user
       @skill = current_user.skills.build
       @education = current_user.educations.build
@@ -47,6 +47,15 @@ class UsersController < ApplicationController
         default_album = @user.albums.build(name: "Default Album", title: "Profile picture and timeline uploads", description: "The pictues which dont belong to any album go here", kind: "default")
         default_album.save
         
+#        status_pic_album = @user.albums.build(name: "Status Pictures Album", title: "Status and timeline uploads", description: "Status and timelines pictures go here", kind: "status")
+#        status_pic_album.save
+        
+#        cover_pic_album = @user.albums.build(name: "Cover Pictures Album", title: "Cover Pictures uploads", description: "Cover pictures go here", kind: "status")
+#        cover_pic_album.save
+        
+#        profile_pic_album = @user.albums.build(name: "Profile Pictures Album", title: "Profile Pictures uploads", description: " pictures go here", kind: "status")
+#        status_pic_album.save                
+#                
         format.html {
             sign_in @user
             flash[:success] = "Welcome to Geniya!, tell us something more about you." 

@@ -27,9 +27,29 @@ class UploadsController < ApplicationController
   # POST /uploads
   # POST /uploads.json
   def create
+#    @upload = Upload.new(upload_params)
+#    @upload.user_id = current_user.id
+#    @upload.save
+    if params[:upload][:special_attribute] == 'headshot'
+      @current_user_profile_pics = current_user.uploads.where(upload_type: 'profile')
+      @current_user_profile_pics.each do |s|
+        if s.special_attribute == 'headshot'
+          s.update_attribute(:special_attribute, '')
+          s.save
+        end
+      end
+    elsif params[:upload][:special_attribute] == 'covershot'
+      @current_user_profile_pics = current_user.uploads.where(upload_type: 'cover')
+      @current_user_profile_pics.each do |s|
+        if s.special_attribute == 'covershot'
+          s.update_attribute(:special_attribute, '')
+          s.save
+        end
+      end    
+    end
     @upload = Upload.new(upload_params)
     @upload.user_id = current_user.id
-    @upload.save
+    @upload.save        
 #    respond_to do |format|
 #      if @upload.save
 #        format.html { redirect_to @upload, notice: 'Upload was successfully created.' }
@@ -76,7 +96,7 @@ class UploadsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def upload_params
-      params.require(:upload).permit(:album_id, :name, :title, :description, :file_attachment, :special_attribute)
+      params.require(:upload).permit(:upload_type, :album_id, :name, :title, :description, :file_attachment, :special_attribute)
     end
 
     # Before filters
