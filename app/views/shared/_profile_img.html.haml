@@ -1,4 +1,5 @@
 = form_for @headshot, remote: true, :html => { :multipart => true, id: :profile_img_form  }  do |f|
+  = f.hidden_field :user, data: current_user.username
   = f.hidden_field :album_id, value: current_user.profile_pic_album.id
   = f.hidden_field :upload_type, value: current_user.profile_pic_album.kind
   = f.hidden_field :name, value: current_user.name

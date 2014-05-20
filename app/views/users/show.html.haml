@@ -320,6 +320,7 @@
             #ajax-portfolio-detail-homepage.modal.fade.modal-scrollable{style: "display: none;", tabindex: "-1"}
             - @user.albums.each do |album|
               = render 'shared/album_thumb', album: album
+            
             /#pp_gallery.pp_gallery
             /  #pp_loading.pp_loading
             /  #pp_next.pp_next
