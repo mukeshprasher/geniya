@@ -8,7 +8,12 @@ class MultiuploadsController < ApplicationController
 #  end
 
   def index
-    @multiuploads = Multiupload.all
+    if params.has_key?(:album_id)
+      album = Album.find(params[:album_id])
+      @multiuploads = album.multiuploads
+    else
+      @multiuploads = Multiupload.all
+    end
 
     respond_to do |format|
       format.html # index.html.haml
