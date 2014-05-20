@@ -17,6 +17,7 @@ class AlbumsController < ApplicationController
     end
     @album = Album.find(params[:id])
     @user = @album.user
+    @user_profile_pics = @user.uploads.where(upload_type: 'profile')
     impressionist @album, '', unique: [:user_id] if current_user
     @likers = @album.likers(User)
     @comments = @album.comment_threads.where('parent_id IS NULL').order('created_at desc')

@@ -38,6 +38,10 @@
       .album
         - album.multiuploads.each do |upload|
           = render "shared/portfolio_album", upload: upload
+        /- if @user_profile_pics.any?
+        /  - @user_profile_pics.each do |s|
+        /    = render "shared/profliepic_album", s: s
+
     .clear
 
       /#pp_gallery.pp_gallery

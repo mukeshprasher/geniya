@@ -32,7 +32,9 @@ $(function() {
 //	           alert('hello')
 //			  }
 //				});	   
-    
+
+
+
      
     $(".upload-delete").click(function(){
      var delupload = confirm("Do you want to delete?");
@@ -168,6 +170,7 @@ $(function() {
           $("#cover_img").val('');
           return false;
           }
+        $('#cover_img_form').submit(); //better ways to do it ^^
         };
         img.src = fr.result;
     };
@@ -231,35 +234,22 @@ $(function() {
     
     
     
-    $("#profile_img_form").submit(function(){
-    var OrgFile = $(this).find("[type=file]");
-     FileName = OrgFile.val();
-    if (FileName == '')
-    {
-      alert('Please select the image for your Profile photo');
-      return false;
-    }
-    else
-    {
-      alert('You have Successfully added your Profile Photo');
-      return true;
-    }
-    });
+
     
-    $("#cover_img_form").submit(function(){
-    var OrgFile = $(this).find("[type=file]");
-     FileName = OrgFile.val();
-    if (FileName == '')
-    {
-      alert('Please select the image for your Cover photo');
-      return false;
-    }
-    else
-    {
-      alert('You have Successfully added your Cover Photo');
-      return true;
-    }
-    });
+//    $("#cover_img_form").submit(function(){
+//    var OrgFile = $(this).find("[type=file]");
+//     FileName = OrgFile.val();
+//    if (FileName == '')
+//    {
+//      alert('Please select the image for your Cover photo');
+//      return false;
+//    }
+//    else
+//    {
+//      alert('You have Successfully added your Cover Photo');
+//      return true;
+//    }
+//    });
 
     
     $("#new_skill").submit(function(){
@@ -401,6 +391,7 @@ $(function() {
     
     
     $("#profile_img").change(function (e) {
+     var target = $(e.target);
      var OrgFile = (this.files[0].name),
          FileName = OrgFile,
          FileExtension = FileName.split('.').pop().toLowerCase();
@@ -428,14 +419,46 @@ $(function() {
           $("#profile_img").val('');
           return false;
           }
+        $('#profile_img_form').submit(); //better ways to do it ^^
         };
-        img.src = fr.result;
-    };
-    fr.readAsDataURL(this.files[0]);
+            img.src = fr.result;
+        
+        };
+        fr.readAsDataURL(this.files[0]);
+          
+        
          }    
     
     });    
-    
+ 
+//       $('#profile_img').change(function(event){
+//        var target = $(event.target);
+
+//        if(target.val() != ''){
+//          $(target.parents('form').get(0)).submit(); //better ways to do it ^^
+//          event.stopPropagation();
+//          return false;
+//        }
+//      });
+ 
+//     $("#profile_img_form").submit(function(){
+//    var OrgFile = $(this).find("[type=file]");
+//     FileName = OrgFile.val();
+//    if (FileName == '')
+//    {
+//      alert('Please select the image for your Profile photo');
+//      return false;
+//    }
+//    else
+//    {
+//      alert('You have Successfully added your Profile Photo');
+//      return true;
+//    }
+//    });   
+
+
+
+
   $('#uploadcoverphoto').click(function() {
           $(".uiMenucover").hide('slow');
         });  
