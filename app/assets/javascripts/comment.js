@@ -434,7 +434,9 @@ $(function() {
         
          }    
     
-    });    
+    });  
+    
+      
  
 //       $('#profile_img').change(function(event){
 //        var target = $(event.target);
