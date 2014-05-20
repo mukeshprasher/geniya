@@ -9,7 +9,7 @@
   %span.comment-user-name
     %a{href: "/users/"+"#{child.user.slug}"}
       = child.user.username  
-    %small= raw child.body
+    %small= simple_format raw child.body
     %p= child.updated_at
     #child-comment-likes  
       = render 'shared/like_form', object: child, user: child.user

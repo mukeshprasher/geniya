@@ -11,7 +11,7 @@
       %a{href: "/users/"+"#{comment.user.slug}"}
         = comment.user.username
       %span#feed_text
-        = raw comment.body
+        = simple_format raw comment.body
       //%small= simple_format(comment.body)
       %p
         %small 
