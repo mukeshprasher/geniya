@@ -171,8 +171,9 @@ $(function() {
           return false;
           }
         $('#cover_img_form').submit(); //better ways to do it ^^
-        $('.modal-scrollable').hide('slow');
-        $('.modal-backdrop.fade.in').hide();
+//        $('.modal-scrollable').hide('slow');
+//        $('.modal-backdrop.fade.in').hide();
+//        $('.modal-backdrop.fade.in').disable();
         };
         img.src = fr.result;
     };
@@ -422,8 +423,8 @@ $(function() {
           return false;
           }
         $('#profile_img_form').submit(); //better ways to do it ^^
-        $('.modal-scrollable').hide('slow');
-        $('.modal-backdrop.fade.in').hide();
+//        $('.modal-scrollable').hide('slow');
+//        $('.modal-backdrop.fade.in').hide();
         };
             img.src = fr.result;
         
