@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 20140513094156) do
   create_table "advertisements", force: true do |t|
     t.string   "name"
     t.string   "address"
-    t.integer  "contact"
+    t.string   "contact"
     t.string   "file_attachment_file_name"
     t.string   "file_attachment_content_type"
     t.integer  "file_attachment_file_size"
