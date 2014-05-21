@@ -100,6 +100,8 @@ gem "jquery-fileupload-rails"
 
 gem 'mailboxer'
 
+gem 'papercrop'
+
 #gem 'devise'
 
 # Use unicorn as the app server
