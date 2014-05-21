@@ -335,9 +335,8 @@
         .network
           %h2 Network
           %ul
-            %li
-              %span
-                %img{alt: "", height: "16", src: "/assets/network_img1.png", width: "22"}/
+            %li#network_tab_follower
+              %span#tab_logo
               %strong#followers.stat
                 = @user.followers.count
               Followers
@@ -367,9 +366,8 @@
                 %a.demo{"data-toggle" => "modal",href: "#all-follower", id: "follower-link"}
                   - if @users.any?
                     See All Followers »
-            %li
-              %span
-                %img{alt: "", height: "16", src: "/assets/network_img1.png", width: "22"}/
+            %li#network_tab_following
+              %span#tab_logo
               %strong#following.stat
                 = @user.followed_users.count
               Following
@@ -399,9 +397,8 @@
                 %a.demo{"data-toggle" => "modal",href: "#all-following", id: "follower-link"}
                   - if @users.any?
                     See All Following »          
-            %li
-              %span
-                %img{alt: "", height: "16", src: "/assets/network_img1.png", width: "22"}/
+            %li#network_tab_connected
+              %span#tab_logo
               %p 
                 = @user.connected_users.count
                 Connections

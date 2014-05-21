@@ -1,5 +1,5 @@
 jQuery(document).ready(function(){
-    jQuery('#followersuser').live('click', function(event) {        
+    jQuery('#network_tab_follower').live('click', function(event) {        
          $('img', this).attr('src', function(i, oldSrc) {
           return oldSrc == '/assets/network_img2.png' ? '/assets/network_img3.png' : '/assets/network_img2.png';
          });
@@ -7,7 +7,7 @@ jQuery(document).ready(function(){
          return false;
     });
     
-    jQuery('#followinguser').live('click', function(event) {        
+    jQuery('#network_tab_following').live('click', function(event) {        
          $('img', this).attr('src', function(i, oldSrc) {
           return oldSrc == '/assets/network_img2.png' ? '/assets/network_img3.png' : '/assets/network_img2.png';
          });         
@@ -15,7 +15,7 @@ jQuery(document).ready(function(){
          return false;
     });
     
-    jQuery('#connecteduser').live('click', function(event) {        
+    jQuery('#network_tab_connected').live('click', function(event) {        
          $('img', this).attr('src', function(i, oldSrc) {
           return oldSrc == '/assets/network_img2.png' ? '/assets/network_img3.png' : '/assets/network_img2.png';
          });         

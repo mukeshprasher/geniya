@@ -2064,7 +2064,7 @@ cursor: default;font-family: Arial,sans-serif;font-size: 10px;font-weight: bold;
 .search_button {
     opacity: 0;
 }
-#follow-form-button, #connect-form-button, #comment-box-btn, #dummy-follow-buttom, #all_search_button {
+#follow-form-button, #connect-form-button, #comment-box-btn, #dummy-follow-buttom, #all_search_button, #crop_btn {
     background-color: #6A8741;
     background-image: linear-gradient(to bottom, #94BE4C, #698941);
     background-repeat: repeat-x;
@@ -2285,3 +2285,34 @@ textarea:focus, input[type="text"]:focus, input[type="password"]:focus, input[ty
 /*********** profile photo*************/
 
 .proflie img {    width: 300px;}
+
+/********** profile Page**********/
+
+
+#tab_logo {background: url("/assets/network_img1.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);    height: 17px;    width: 23px;}
+
+#network_tab_follower, #network_tab_following, #network_tab_connected{cursor:pointer;}
+
+
+#crop-project-main {
+    background: none repeat scroll 0 0 #FCFCFC;
+    min-height: 500px;
+    width: 100%;
+}
+
+
+#crop_img_area {
+    float: left;
+    margin: 60px 20px 0;
+    width: 100%;
+}
+
+
+
+#crop_btn {
+    border-radius: 8px;
+    font-size: 17px;
+    height: 51px;
+    margin: 12px 0 0;
+    width: 99px;
+}
