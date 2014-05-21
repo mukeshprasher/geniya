@@ -47,9 +47,11 @@ class UploadsController < ApplicationController
         end
       end    
     end
+    
     @upload = Upload.new(upload_params)
     @upload.user_id = current_user.id
     @upload.save
+
     render 'crop' 
 #    respond_to do |format|
 #      if @upload.save
