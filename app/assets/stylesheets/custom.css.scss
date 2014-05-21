@@ -70,9 +70,9 @@ header { margin:0px; padding:0px; width:100%; background:#f3f1f1; position:relat
 
 .form-actions-subscribe .btn{background: none repeat scroll 0 0 #000000;border: 1px solid #000000;color: #FFFFFF;float: right; border-radius: 0;}
 
-.form-actions-ads #cancel-ads, .form-actions-tags .btn, .form-actions-ads .btn, .form-actions-edu .btn, .form-actions-edu #cancel-edu, .form-actions-skills .btn, .form-actions-skills #cancel {background: none repeat scroll 0 0 #000000;border: 1px solid #000000;color: #FFFFFF;float: left; border-radius: 0;}
+.form-actions-ads #cancel-ads, .form-actions-tags .btn, .form-actions-ads .btn, .form-actions-edu .btn, .form-actions-edu #cancel-edu, .form-actions-skills .btn, .form-actions-skills #cancel, #album-btn {background: none repeat scroll 0 0 #81AA05;border: 1px solid #81AA05;color: #FFFFFF;float: left; border-radius: 5px;}
 
-.form-actions-upload #cancel-upload, .form-actions-upload #upload-btn, .form-actions-album #album-btn, .form-actions-album #cancel-album{background: none repeat scroll 0 0 #000000;border: 1px solid #000000;color: #FFFFFF;float: left; border-radius: 0;}
+
 
 #response_subscription {background: none repeat scroll 0 0 #FFFFFF;font-size: 19px;text-align: center;width: 150px;}
 
@@ -2064,7 +2064,7 @@ cursor: default;font-family: Arial,sans-serif;font-size: 10px;font-weight: bold;
 .search_button {
     opacity: 0;
 }
-#follow-form-button, #connect-form-button, #comment-box-btn, #dummy-follow-buttom, #all_search_button {
+#follow-form-button, #connect-form-button, #comment-box-btn, #dummy-follow-buttom, #all_search_button, #crop_btn {
     background-color: #6A8741;
     background-image: linear-gradient(to bottom, #94BE4C, #698941);
     background-repeat: repeat-x;
@@ -2285,3 +2285,39 @@ textarea:focus, input[type="text"]:focus, input[type="password"]:focus, input[ty
 /*********** profile photo*************/
 
 .proflie img {    width: 300px;}
+
+/********** profile Page**********/
+
+
+#tab_logo {background: url("/assets/network_img1.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);    height: 17px;    width: 23px;}
+
+#network_tab_follower, #network_tab_following, #network_tab_connected{cursor:pointer;}
+
+
+#crop-project-main {
+    background: none repeat scroll 0 0 #FCFCFC;
+    min-height: 500px;
+    width: 100%;
+}
+
+
+#crop_img_area {
+    float: left;
+    margin: 60px 20px 0;
+    width: 100%;
+}
+
+
+
+#crop_btn {
+    border-radius: 8px;
+    font-size: 17px;
+    height: 51px;
+    margin: 12px 0 0;
+    width: 99px;
+}
+
+/**************** Job Post Css*************/
+
+
+#ads_post-link {background: none repeat scroll 0 0 #81AA05;border-radius: 5px;color: #FFFFFF;font-family: latobold;left: 58%;position: absolute;text-align: center;top: 40px;width: 62px;}

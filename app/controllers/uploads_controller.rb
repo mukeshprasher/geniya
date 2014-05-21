@@ -13,6 +13,7 @@ class UploadsController < ApplicationController
   # GET /uploads/1.json
   def show
     impressionist @upload, '', unique: [:user_id] if current_user
+    redirect_to current_user
   end
 
   # GET /uploads/new
@@ -71,7 +72,7 @@ class UploadsController < ApplicationController
 #    @upload.update!(upload_params)
     respond_to do |format|
       if @upload.update_attributes(upload_params)
-        format.html { redirect_to @upload, notice: 'Upload was successfully updated.' }
+        format.html { redirect_to @upload}
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

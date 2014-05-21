@@ -34,17 +34,18 @@ class AdvertisementsController < ApplicationController
   def create
     @advertisement = Advertisement.new(advertisement_params)
     @advertisement.user_id = current_user.id
-    respond_to do |format|
-      if @advertisement.save
-        default_update = Update.create!(text: :name, privacy: "public", sender_user_id: current_user.id, receiver_user_id: current_user.id)
-        default_update.save
-        format.html { redirect_to @advertisement, notice: 'Advertisement was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @advertisement }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @advertisement.errors, status: :unprocessable_entity }
-      end
-    end
+    @advertisement.save
+#    respond_to do |format|
+#      if @advertisement.save
+#        default_update = Update.create!(text: :name, privacy: "public", sender_user_id: current_user.id, receiver_user_id: current_user.id)
+#        default_update.save
+#        format.html { redirect_to @advertisement, notice: 'Advertisement was successfully created.' }
+#        format.json { render action: 'show', status: :created, location: @advertisement }
+#      else
+#        format.html { render action: 'new' }
+#        format.json { render json: @advertisement.errors, status: :unprocessable_entity }
+#      end
+#    end
   end
 
   # PATCH/PUT /advertisements/1
