@@ -342,8 +342,84 @@ $(function() {
       return true;
     }
     });      
+
+
+
+///////// for Jobs form
+
+    $("#new_advertisement").submit(function(){
+    var adnamefield = $("#advertisement_name")
+    var adaddressfield = $("#advertisement_address")
+    var adcontactfield = $("#advertisement_contact")
+    var adimagefield = $("#advertisement_file_attachment")
+     name = adnamefield.val();
+     address = adaddressfield.val();
+     contact = adcontactfield.val();
+     image = adimagefield.val();     
+    if (name == '')
+    {
+      alert('Please Enter Job Name:');
+      return false;
+    }
+    else
+    if(address == '')
+    {
+          alert('Please Enter Job Location:');
+      return false;
+    }
+    else
+    if(contact == '')
+    {
+      alert('Please Enter contact detail:');
+      return false;
+    }
+    else
+    if(image == '')
+    {
+      alert('Please Select any cover pic for Job:');
+      return false;
+    }
+    else
+    {
+      return true;
+    }
+    }); 
+
     
+    $("#advertisement_file_attachment").change(function (e) {
+     var OrgFile = (this.files[0].name),
+         FileName = OrgFile,
+         FileExtension = FileName.split('.').pop().toLowerCase();
+         
+         if(FileName.indexOf(".")==-1 || FileExtension != "jpg" && FileExtension != "jpeg" && FileExtension != "png" && FileExtension != "gif" ){ // Curstom File Extension
+          alert("This isn't a Photo !");
+          $("#advertisement_file_attachment").val('');
+          return false;
+         }
+         else
+         if((this.files[0].size/1024/1024) > (1)){ // Max Photo Size 1MB
+          alert("You Photo is too big !");
+          $("#advertisement_file_attachment").val('');
+          return false;
+         }
+         
+         else{
+          var fr = new FileReader;
+    fr.onload = function() {
+        var img = new Image;
+        img.onload = function() {
+          if (img.width<="200" || img.height<="150"){
+          alert("Please choose an image that's at least 200 pixels wide and at least 150 pixels tall.");
+          $("#advertisement_file_attachment").val('');
+          return false;
+          }
+        };
+        img.src = fr.result;
+    };
+    fr.readAsDataURL(this.files[0]);
+         }    
     
+    });    
         
     
     
