@@ -1,8 +1,9 @@
 = form_for @covershot, remote: true,  :html => { :multipart => true, id: :cover_img_form} do |f|
-  = f.hidden_field :album_id, value: current_user.default_album.id
+  = f.hidden_field :album_id, value: current_user.cover_pic_album.id
+  = f.hidden_field :upload_type, value: current_user.cover_pic_album.kind  
   = f.hidden_field :name, value: current_user.name
   = f.hidden_field :special_attribute, value: "covershot"
   .field
     = f.file_field :file_attachment, id: "cover_img"
   .actions
-    = f.submit 'Upload Cover Photo'
+    = f.submit 'Upload Cover Photo', id: "upload_cover_pic"

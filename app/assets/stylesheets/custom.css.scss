@@ -1952,7 +1952,7 @@ cursor: default;font-family: Arial,sans-serif;font-size: 10px;font-weight: bold;
 #follow-form-button, #unfollow-form-button, #disconnect-form-button, #connect-form-button {
     height: 37px !important;
     padding: 0;
-    width: 200px;
+    width: 80px;
 }
 
 .port-by{display:none;}
@@ -2268,3 +2268,14 @@ textarea:focus, input[type="text"]:focus, input[type="password"]:focus, input[ty
 #job_form {
     width: 550px;
 }
+
+
+/***********profile-pic-form**************/
+
+
+#upload_profile_pic {    display: none;}
+
+/***********cover-pic-form**************/
+
+
+#upload_cover_pic {    display: none;}

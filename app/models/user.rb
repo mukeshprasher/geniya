@@ -38,8 +38,13 @@ class User < ActiveRecord::Base
     has_many :development_logs
     
     has_one :default_album, -> { where kind: 'default' }, class_name: 'Album'
-    has_one :headshot, -> { where special_attribute: 'headshot' }, class_name: 'Upload', through: :default_album, source: :uploads
-    has_one :covershot, -> { where special_attribute: 'covershot' }, class_name: 'Upload', through: :default_album, source: :uploads
+    has_one :status_pic_album, -> { where kind: 'status' }, class_name: 'Album'
+    has_one :profile_pic_album, -> { where kind: 'profile' }, class_name: 'Album'
+    has_one :cover_pic_album, -> { where kind: 'cover' }, class_name: 'Album'
+    
+    has_one :headshot, -> { where special_attribute: 'headshot' }, class_name: 'Upload', through: :profile_pic_album, source: :uploads
+    has_one :covershot, -> { where special_attribute: 'covershot' }, class_name: 'Upload', through: :cover_pic_album, source: :uploads
+    
     has_many :comments
     
     before_create :create_remember_token

@@ -78,7 +78,7 @@ class UpdatesController < ApplicationController
     end
     
     def uploads_params
-      params.require(:update).permit(:name,:album_id,:file_attachment,:special_attribute, :user_id).merge(update_id: @update.id)
+      params.require(:update).permit(:name, :upload_type ,:album_id,:file_attachment,:special_attribute, :user_id).merge(update_id: @update.id)
     end
     
     def video_params

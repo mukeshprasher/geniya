@@ -35,6 +35,15 @@ namespace :db do
                     
     admin_default_album = admin.albums.build(name: "Default Album #{admin.username}", title: "Profile picture and timeline uploads", description: "The pictues which dont belong to any album go here", kind: "default", category_id: Category.all.sample.id)
     admin_default_album.save
+    
+    admin_status_pics_album = admin.albums.build(name: "Status Pics Album #{admin.username}", title: "Status and Timeline uploads", description: "#{admin.username} status and timeline pictures", kind: "status", category_id: Category.all.sample.id)
+    admin_status_pics_album.save
+    
+    admin_cover_pics_album = admin.albums.build(name: "Cover Pics #{admin.username}", title: "Cover Picture uploads", description: "#{admin.username} Cover pictures", kind: "cover", category_id: Category.all.sample.id)
+    admin_cover_pics_album.save        
+
+    admin_profile_pics_album = admin.albums.build(name: "Profile Pics #{admin.username}", title: "Profile Picture uploads", description: "#{admin.username} Profile pictures", kind: "profile", category_id: Category.all.sample.id)
+    admin_profile_pics_album.save
 
     mg =     User.create!(name: "M G",
                  category: Category.first,
@@ -53,6 +62,18 @@ namespace :db do
     mg_default_album = mg.albums.build(name: "Default Album #{mg.username}", title: "Profile picture and timeline uploads", description: "The pictues which dont belong to any album go here", kind: "default", category_id: Category.all.sample.id)
     mg_default_album.save
 
+    mg_status_pics_album = mg.albums.build(name: "Status Pics Album #{mg.username}", title: "Status and Timeline uploads", description: "#{mg.username} status and timeline Pictures", kind: "status", category_id: Category.all.sample.id)
+    mg_status_pics_album.save
+    
+    mg_cover_pics_album = mg.albums.build(name: "Cover Pics #{mg.username}", title: "Cover Picture uploads", description: "#{mg.username} Cover pictures", kind: "cover", category_id: Category.all.sample.id)
+    mg_cover_pics_album.save        
+
+    mg_profile_pics_album = mg.albums.build(name: "Profile Pics #{mg.username}", title: "Profile Picture uploads", description: "#{mg.username} Profile pictures", kind: "profile", category_id: Category.all.sample.id)
+    mg_profile_pics_album.save
+
+
+
+
     neeraj =     User.create!(name: "Neeraj Singh",
                  category: Category.first,
                  sub_category: SubCategory.first,
@@ -69,6 +90,19 @@ namespace :db do
                  password_confirmation: "neerajpass12")
     neeraj_default_album = neeraj.albums.build(name: "Default Album #{neeraj.username}", title: "Profile picture and timeline uploads", description: "The pictues which dont belong to any album go here", kind: "default", category_id: Category.all.sample.id)
     neeraj_default_album.save
+
+
+    neeraj_status_pics_album = neeraj.albums.build(name: "Status Pics Album #{neeraj.username}", title: "Status and Timeline uploads", description: "#{neeraj.username} status and timeline pictures", kind: "status", category_id: Category.all.sample.id)
+    neeraj_status_pics_album.save
+    
+    neeraj_cover_pics_album = neeraj.albums.build(name: "Cover Pics #{neeraj.username}", title: "Cover Picture uploads", description: "#{neeraj.username} Cover pictures", kind: "cover", category_id: Category.all.sample.id)
+    neeraj_cover_pics_album.save        
+
+    neeraj_profile_pics_album = neeraj.albums.build(name: "Profile Pics #{neeraj.username}", title: "Profile Picture uploads", description: "#{neeraj.username} Profile pictures", kind: "profile", category_id: Category.all.sample.id)
+    neeraj_profile_pics_album.save
+
+
+
 
     20.times do |n|
       name  = Faker::Name.name
@@ -97,6 +131,17 @@ namespace :db do
                    )
     user_default_album = user.albums.build(name: "Default Album #{user.username}", title: "Profile picture and timeline uploads", description: "The pictues which dont belong to any album go here", kind: "default",category_id: Category.all.sample.id)
     user_default_album.save
+    
+    
+    user_status_pics_album = user.albums.build(name: "Status Pics Album #{user.username}", title: "Status and Timeline uploads", description: "#{user.username} status and timeline go here", kind: "status", category_id: Category.all.sample.id)
+    user_status_pics_album.save
+    
+    user_cover_pics_album = user.albums.build(name: "Cover Pics #{user.username}", title: "Cover Picture uploads", description: "#{user.username} Cover pictures go here", kind: "cover", category_id: Category.all.sample.id)
+    user_cover_pics_album.save        
+
+    user_profile_pics_album = user.albums.build(name: "Profile Pics #{user.username}", title: "Profile Picture uploads", description: "#{user.username} Profile pictures go here", kind: "profile", category_id: Category.all.sample.id)
+    user_profile_pics_album.save
+
     end
   end
 
@@ -299,14 +344,6 @@ namespace :db do
   end
   
   
-#  def make_uploads
-#    Upload.create!(album_id: '24', user_id: '1', name: 'fashion', title: 'fashion', description: 'fashion', file_attachment_file_name: 'fashion.jpg', file_attachment_content_type: 'image/jpeg', file_attachment_file_size: '36826', file_attachment_updated_at: '2014-04-11 11:37:37.490177', file_type: '.jpg', extension: '.jpg', file_attachment_fingerprint: 'fe6a2cd5f76c5a1fbc83d229e252b96e', impressions_count: '1' )
-#    Upload.create!(album_id: '38', user_id: '15', name: 'culinary', title: 'culinary', description: 'culinary', file_attachment_file_name: 'culinary_art.jpg', file_attachment_content_type: 'image/jpeg', file_attachment_file_size: '22662', file_attachment_updated_at: '2014-04-11 11:54:09.438100', file_type: '.jpg', extension: '.jpg', file_attachment_fingerprint: '227f21fb23bef225aa2c8f5f75fdb094', impressions_count: '1' )
-#    Upload.create!(album_id: '28', user_id: '5', name: 'fitness', title: 'fitness', description: 'fitness', file_attachment_file_name: 'fitness.jpg', file_attachment_content_type: 'image/jpeg', file_attachment_file_size: '23570', file_attachment_updated_at: '2014-04-11 11:55:35.287225', file_type: '.jpg', extension: '.jpg', file_attachment_fingerprint: '8e22b3ed9b3f3196f14398073b7f5eb1', impressions_count: '1' )
-#    Upload.create!(album_id: '25', user_id: '2', name: 'photography', title: 'photography', description: 'photography', file_attachment_file_name: 'photography.jpg', file_attachment_content_type: 'image/jpeg', file_attachment_file_size: '140131', file_attachment_updated_at: '2014-04-11 11:58:36.595881', file_type: '.jpg', extension: '.jpg', file_attachment_fingerprint: '0097150bc73fde6160f67b1aa2029bf5', impressions_count: '1' )
-#    Upload.create!(album_id: '27', user_id: '4', name: 'asthentic', title: 'asthentic', description: 'asthentic', file_attachment_file_name: 'asthentic_beauty.jpg', file_attachment_content_type: 'image/jpeg', file_attachment_file_size: '35442', file_attachment_updated_at: '2014-04-11 12:00:46.698118', file_type: '.jpg', extension: '.jpg', file_attachment_fingerprint: 'b69c321f4d26e7cb1ba99e3e3980825c', impressions_count: '1' )            
-#    Upload.create!(album_id: '29', user_id: '6', name: 'portfoliyo', title: 'portfoliyo', description: 'portfoliyo', file_attachment_file_name: 'portfoliyo_img1.png', file_attachment_content_type: 'image/png', file_attachment_file_size: '151403', file_attachment_updated_at: '2014-04-11 12:03:37.046870', file_type: '.png', extension: '.png', file_attachment_fingerprint: '6a75f13d16172623e927c764372ab284', impressions_count: '1' )
-#    Upload.create!(album_id: '31', user_id: '8', name: 'modeling', title: 'modeling', description: 'modeling', file_attachment_file_name: 'modeling.jpg', file_attachment_content_type: 'image/jpeg', file_attachment_file_size: '40379', file_attachment_updated_at: '2014-04-11 12:05:37.831739', file_type: '.jpg', extension: '.jpg', file_attachment_fingerprint: 'f32d38dcffafab19988b4debae2a9916', impressions_count: '1' )      
-#  end
+
   
 end

@@ -1,0 +1,13 @@
+.fleft
+  %ul.gallery.clearfix
+
+
+%ul.gallery.clearfix
+  %li
+    %a{href: "#{s.file_attachment.url(:original)}", rel: "prettyPhoto[mixed]", title: "#{s.title}"}
+      =image_tag  s.file_attachment.url(:original), alt: s.title
+%ul#album-upload-content
+  %li#album-upload-title 
+    = s.title
+  %li#album-upload-desc
+    = s.description

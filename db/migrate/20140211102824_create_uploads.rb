@@ -1,6 +1,7 @@
 class CreateUploads < ActiveRecord::Migration
   def change
     create_table :uploads do |t|
+      t.string :upload_type
       t.integer :album_id
       t.integer :update_id
       t.integer :user_id

@@ -4,6 +4,11 @@
       .content-profile
         - album.multiuploads.last(1).each do|upload_img_name|
           = image_tag upload_img_name.multiupload.url(:original), alt: upload_img_name.multiupload_file_name
+    -  elsif album.uploads.any?
+      .content-profile
+        - album.uploads.last(1).each do|upload_img_name|
+          = image_tag upload_img_name.file_attachment.url(:original)
+
     - else
       .content-profile
         = image_tag '/assets/medium-file-upload.jpg', alt: '/assets/file-upload.jpg'
