@@ -1,0 +1,18 @@
+<div class="wrapper">
+<%= form_for(@upload) do |f| %>
+  
+  <!--<div class="landscape-crop-preview">
+    <% # Will show a preview box with width=100, height is calculated by the aspect ratio. see model Landscape %>
+    <%= f.crop_preview :file_attachment, :width => 600 %>
+  </div>--->
+  <div class="landscape-crop-area">
+    <% # Crop area. Mantains original image proportions. Crop area takes the aspect ratio %>
+    <%= f.cropbox :file_attachment, :width => 600 %>
+  </div>
+  <div class="clear"></div>
+
+  <div class="actions">
+    <%= f.submit 'Crop image' %>
+  </div>
+<% end %>
+</div>

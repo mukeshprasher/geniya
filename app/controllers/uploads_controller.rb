@@ -49,7 +49,8 @@ class UploadsController < ApplicationController
     end
     @upload = Upload.new(upload_params)
     @upload.user_id = current_user.id
-    @upload.save        
+    @upload.save
+    render 'crop' 
 #    respond_to do |format|
 #      if @upload.save
 #        format.html { redirect_to @upload, notice: 'Upload was successfully created.' }
@@ -77,6 +78,12 @@ class UploadsController < ApplicationController
     end
   end
 
+  def crop
+    @upload = Upload.find(params[:id])
+  end
+
+
+
   # DELETE /uploads/1
   # DELETE /uploads/1.json
   def destroy
@@ -88,6 +95,7 @@ class UploadsController < ApplicationController
     end
   end
 
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_upload
@@ -96,7 +104,8 @@ class UploadsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def upload_params
-      params.require(:upload).permit(:upload_type, :album_id, :name, :title, :description, :file_attachment, :special_attribute)
+      params.fetch(:upload, {}).permit!
+#      params.require(:upload).permit(:upload_type, :album_id, :name, :title, :description, :file_attachment, :special_attribute)
     end
 
     # Before filters

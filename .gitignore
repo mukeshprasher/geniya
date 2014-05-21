@@ -28,3 +28,4 @@ doc/
 /public/system/advertisements/file_attachments/*
 /public/system/videos/file_attachments/*
 /public/system/multiuploads/multiuploads/*
+/public/system/uploads/*

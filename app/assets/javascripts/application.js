@@ -12,6 +12,8 @@
 //
 //= require jquery
 //= require jquery.ui.all
+//= require jquery.jcrop
+//= require papercrop
 //= require jquery_ujs
 //= require jquery.remotipart
 //= require bootstrap
