@@ -298,8 +298,14 @@ $(function() {
     $("#new_education").submit(function(){
     var instnamefield = $("#education_institute_name")
     var coursenamefield = $("#education_course_name")
+    var startdate = $("#education_start_date")
+    var enddate = $("#education_end_date")
      InstName = instnamefield.val();
      CorseName = coursenamefield.val();
+     start = startdate.val();
+     end = enddate.val();
+     
+     education_start_date
     if (InstName == '')
     {
       alert('Please Enter Institute Name');
@@ -311,6 +317,13 @@ $(function() {
           alert('Please Enter Course Name');
       return false;
     }
+    else
+    if(start>=end)
+    {
+      alert('Start Year is not smaller than End Year');
+      return false;
+    }    
+    
     else
     {
       //skillfield.val('');
