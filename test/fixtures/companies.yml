@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  title: MyString
+  startmonth: MyString
+  startyear: 1
+  endmonth: MyString
+  endyear: 1
+  status: MyString
+  description: MyString
+  companylink: MyString
+
+two:
+  name: MyString
+  title: MyString
+  startmonth: MyString
+  startyear: 1
+  endmonth: MyString
+  endyear: 1
+  status: MyString
+  description: MyString
+  companylink: MyString
