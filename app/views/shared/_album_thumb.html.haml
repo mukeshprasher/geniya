@@ -9,6 +9,11 @@
         - album.uploads.last(1).each do|upload_img_name|
           = image_tag upload_img_name.file_attachment.url(:original)
 
+    -  elsif album.covers.any?
+      .content-profile
+        - album.covers.last(1).each do|upload_img_name|
+          = image_tag upload_img_name.file_attachment.url(:original)
+
     - else
       .content-profile
         = image_tag '/assets/medium-file-upload.jpg', alt: '/assets/file-upload.jpg'

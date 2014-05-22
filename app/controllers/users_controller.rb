@@ -18,7 +18,7 @@ class UsersController < ApplicationController
     if signed_in?
       @updates = @user.updates.paginate(page: params[:page], :per_page => 10)
       @headshot = Upload.new
-      @covershot = Upload.new
+      @covershot = Cover.new
       #impressionist @user, '', unique: [:user_id] if current_user
       @skill = current_user.skills.build
       @education = current_user.educations.build

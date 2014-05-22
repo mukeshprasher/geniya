@@ -34,6 +34,7 @@ class User < ActiveRecord::Base
     
     has_many :albums
     has_many :uploads, through: :albums
+    has_many :covers, through: :albums
 
     has_many :development_logs
     
@@ -43,7 +44,7 @@ class User < ActiveRecord::Base
     has_one :cover_pic_album, -> { where kind: 'cover' }, class_name: 'Album'
     
     has_one :headshot, -> { where special_attribute: 'headshot' }, class_name: 'Upload', through: :profile_pic_album, source: :uploads
-    has_one :covershot, -> { where special_attribute: 'covershot' }, class_name: 'Upload', through: :cover_pic_album, source: :uploads
+    has_one :covershot, -> { where special_attribute: 'covershot' }, class_name: 'Cover', through: :cover_pic_album, source: :covers
     
     has_many :comments
     

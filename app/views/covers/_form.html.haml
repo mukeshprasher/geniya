@@ -1,0 +1,9 @@
+= simple_form_for(@cover) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.text_field :title
+    = f.input :name
+    = f.file_field :file_attachment
+  .form-actions
+    = f.button :submit

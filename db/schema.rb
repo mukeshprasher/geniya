@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140513094156) do
+ActiveRecord::Schema.define(version: 20140521125721) do
 
   create_table "advertisements", force: true do |t|
     t.string   "name"
@@ -84,6 +84,27 @@ ActiveRecord::Schema.define(version: 20140513094156) do
     t.string   "subject",    default: ""
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
+  end
+
+  create_table "covers", force: true do |t|
+    t.string   "upload_type"
+    t.integer  "album_id"
+    t.integer  "update_id"
+    t.integer  "user_id"
+    t.string   "name"
+    t.string   "title"
+    t.text     "description"
+    t.string   "file_attachment_file_name"
+    t.string   "file_attachment_content_type"
+    t.integer  "file_attachment_file_size"
+    t.datetime "file_attachment_updated_at"
+    t.string   "file_type"
+    t.string   "extension"
+    t.string   "special_attribute"
+    t.string   "file_attachment_fingerprint"
+    t.integer  "impressions_count",            default: 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "development_logs", force: true do |t|
