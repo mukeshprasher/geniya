@@ -11,14 +11,14 @@ class Upload < ActiveRecord::Base
   :file_name => { :matches => [/png\Z/, /jpe?g\Z/, /gif\Z/, /pdf\Z/] }
   # , /mpg\Z/, /ogv\Z/, /mp4\Z/, /webm\Z/, /flv\Z/, /avi\Z/, /3gp\Z/
 
-  #crop_attached_file :file_attachment #, :aspect => "1:1" #, -> { where special_attribute: 'headshot' }
+  crop_attached_file :file_attachment #, :aspect => "1:1" #, -> { where special_attribute: 'headshot' }
 
-  before_save do 
-    if self.special_attribute == 'headshot' or self.special_attribute == 'covershot'
-      ratio = (self.special_attribute == 'headshot') ? '1:1' : '10:3'
-      Upload.crop_attached_file :file_attachment, aspect: ratio
-    end
-  end
+#  before_save do 
+#    if self.special_attribute == 'headshot' or self.special_attribute == 'covershot'
+#      ratio = (self.special_attribute == 'headshot') ? '1:1' : '10:3'
+#      Upload.crop_attached_file :file_attachment, aspect: ratio
+#    end
+#  end
 
 #  crop_attached_file :file_attachment, :aspect => "500:150", -> { where special_attribute: 'covershot' }
 #  before_post_process :skip_for_audio

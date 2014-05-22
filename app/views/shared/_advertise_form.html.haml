@@ -2,16 +2,16 @@
   - if Advertisement.any?
     - user.advertisements.each do |add_detail|
       = render 'shared/ads_details', add_detail: add_detail
-  - else
-    .makeup_sec
-      .makeUp
-        = image_tag '/assets/photography.jpg'
-      .make_comtact
-        %p 
-          Create Job Post here:
-        %em 
-          Add Job Location
-        = link_to "Click to Post Job", '/advertisements/new'   
+  /- else
+  /  .makeup_sec
+  /    .makeUp
+  /      = image_tag '/assets/photography.jpg'
+  /    .make_comtact
+  /      %p 
+  /        Create Job Post here:
+  /      %em 
+  /        Add Job Location
+  /      = link_to "Click to Post Job", '/advertisements/new'   
 /- if signed_in?
 /  - if (user.name== current_user.name)
 /    #add-link

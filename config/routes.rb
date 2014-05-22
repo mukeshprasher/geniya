@@ -1,4 +1,6 @@
 Geniya::Application.routes.draw do
+  resources :covers
+
   resources :multiuploads
 
   resources :user_tags, only: [:create, :destroy]

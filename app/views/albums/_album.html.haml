@@ -40,6 +40,8 @@
           = render "shared/portfolio_album", upload: upload
         - album.uploads.each do |s|
           = render "shared/profliepic_album", s: s
+        - album.covers.each do |s|
+          = render "shared/coverpic_album", s: s          
         /- if @user_profile_pics.any?
         /  - @user_profile_pics.each do |s|
         /    = render "shared/profliepic_album", s: s

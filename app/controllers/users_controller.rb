@@ -18,7 +18,7 @@ class UsersController < ApplicationController
     if signed_in?
       @updates = @user.updates.paginate(page: params[:page], :per_page => 10)
       @headshot = Upload.new
-      @covershot = Upload.new
+      @covershot = Cover.new
       #impressionist @user, '', unique: [:user_id] if current_user
       @skill = current_user.skills.build
       @education = current_user.educations.build
@@ -44,16 +44,16 @@ class UsersController < ApplicationController
     respond_to do |format|
       if @user.save
 #        set_sub_categories
-        default_album = @user.albums.build(name: "Default Album", title: "Profile picture and timeline uploads", description: "The pictues which dont belong to any album go here", kind: "default")
+        default_album = @user.albums.build(name: "Default Album", category_id: params[:user][:category_id], title: "Profile picture and timeline uploads", description: "The pictues which dont belong to any album go here", kind: "default")
         default_album.save
         
-        status_pic_album = @user.albums.build(name: "Status Pictures Album", title: "Status and timeline uploads", description: "Status and timelines pictures go here", kind: "status")
+        status_pic_album = @user.albums.build(name: "Status Pictures Album", category_id: params[:user][:category_id], title: "Status and timeline uploads", description: "Status and timelines pictures go here", kind: "status")
         status_pic_album.save
         
-        cover_pic_album = @user.albums.build(name: "Cover Pictures Album", title: "Cover Pictures uploads", description: "Cover pictures go here", kind: "status")
+        cover_pic_album = @user.albums.build(name: "Cover Pictures Album", category_id: params[:user][:category_id], title: "Cover Pictures uploads", description: "Cover pictures go here", kind: "cover")
         cover_pic_album.save
         
-        profile_pic_album = @user.albums.build(name: "Profile Pictures Album", title: "Profile Pictures uploads", description: " pictures go here", kind: "status")
+        profile_pic_album = @user.albums.build(name: "Profile Pictures Album",category_id: params[:user][:category_id], title: "Profile Pictures uploads", description: " pictures go here", kind: "profile")
         status_pic_album.save                
                 
         format.html {

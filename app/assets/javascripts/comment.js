@@ -165,8 +165,8 @@ $(function() {
     fr.onload = function() {
         var img = new Image;
         img.onload = function() {
-          if (img.width<="500" || img.height<="150"){
-          alert("Please choose an image that's at least 500 pixels wide and at least 150 pixels tall.");
+          if (img.width<="400" || img.height<="100"){
+          alert("Please choose an image that's at least 400 pixels wide and at least 150 pixels tall.");
           $("#cover_img").val('');
           return false;
           }
