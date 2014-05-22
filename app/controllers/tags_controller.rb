@@ -14,6 +14,7 @@ class TagsController < ApplicationController
   # GET /tags/1
   # GET /tags/1.json
   def show
+    @users = @tag.users.paginate(page: params[:page])
   end
 
   # GET /tags/new
@@ -28,16 +29,12 @@ class TagsController < ApplicationController
   # POST /tags
   # POST /tags.json
   def create
-    @tag = Tag.new(tag_params)
-    @tag.user_id  = current_user.id
-    respond_to do |format|
-      if @tag.save
-        format.html { redirect_to @tag, notice: 'Tag was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @tag }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @tag.errors, status: :unprocessable_entity }
-      end
+    tags = process_tags(params[:tag][:name])
+    tags.each do |tag_name|
+      searched_tag = Tag.find_by(name: tag_name)
+      tag = (searched_tag) ? searched_tag : Tag.new(name: tag_name)
+      tag.users << current_user unless tag.users.include? current_user
+      tag.save
     end
   end
 
@@ -74,5 +71,19 @@ class TagsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def tag_params
       params.require(:tag).permit(:name)
+    end
+
+    def process_tags(text)
+      sanitized_text = ActionController::Base.helpers.sanitize text
+      
+      tags = Array.new
+      sanitized_text.split(/,/).each do |text|
+        tag = text.strip.gsub(' ','_')
+        if tag.length > 0 and !tag.nil?
+          tags << tag
+        end
+      end
+      
+      tags
     end
 end

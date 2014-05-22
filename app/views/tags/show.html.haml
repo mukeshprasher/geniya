@@ -1,10 +1,4 @@
-.wrapper
-  %p#notice= notice
-
-  %p
-    %b Tag name:
-    = raw @tag.name
-
-  = link_to 'Edit', edit_tag_path(@tag)
-  \|
-  = link_to 'Back', tags_path
+%h2 Users with #{@tag.name} tag
+- @users.each do |user|
+  = render user
+= will_paginate @users

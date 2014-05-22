@@ -1,7 +1,7 @@
 Geniya::Application.routes.draw do
   resources :multiuploads
 
-  resources :usertags
+  resources :user_tags, only: [:create, :destroy]
 
   get "ajax/portfolio_detail/:id" => 'ajax#portfolio_detail'
   resources :videos

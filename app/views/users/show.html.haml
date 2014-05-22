@@ -4,27 +4,7 @@
       .cover-photo
         - if signed_in?
           - if current_user.covershot
-            = render "shared/cover_thumb"
-          /- if @covershot.id
-          /  =image_tag @covershot.file_attachment.url(:original)
-          /- else
-          /  =image_tag '/assets/upload.jpg', width: "100%", height: "auto"       
-        /  - else
-        /    - if current_user?(@user)
-        /      .user-cover-photo
-        /        =image_tag '/assets/upload.jpg', width: "100%", height: "auto"          
-        /      = form_for @covershot, :html => { :multipart => true } do |f|
-        /        = f.hidden_field :album_id, value: current_user.default_album.id
-        /        = f.hidden_field :name, value: current_user.name
-        /        = f.hidden_field :special_attribute, value: "covershot"
-        /        .field
-        /          = f.file_field :file_attachment
-        /        .actions
-        /          = f.submit 'Upload Cover Photo'
-        /    - else
-        /      =image_tag '/assets/upload.jpg', width: "100%", height: "auto"
-        /- else
-        /  =image_tag '/assets/upload.jpg', width: "100%", height: "auto"     
+            = render "shared/cover_thumb"     
       .anisten
         .ani_top
           %h2
@@ -66,11 +46,6 @@
             %span.uiButtonText Change Cover
             .uiMenucover
               %ul
-                /%li
-                /  %a{href: ""}
-                /    %i
-                /      %img{alt: "", src: "/assets/choose_photo.png"}/
-                /    %span.uilinkText Choose From My Photos
                 %li
                   %i
                     %img{alt: "", src: "/assets/upload.png"}/
@@ -91,13 +66,6 @@
                     %i
                       %img{alt: "", src: "/assets/reposition.png"}/
                     %span.uilinkText View Cover Photos...
-                /%li
-                /  %a{href: ""}
-                /    %i
-                /      %img{alt: "", src: "/assets/cross.png"}/
-                /    %span.uilinkText Remove...    
-          
-      
       .art_social
         %ul
           %li
@@ -110,7 +78,6 @@
         - if signed_in?
           - if current_user.headshot
             = render "shared/profile_thumb"
-      /%img.pick{alt: "", height: "199", src: "assets/main_pic.png", width: "199"}/          
       - if signed_in?
         - if (@user.name== current_user.name)     
           .ProfilePicSelector
@@ -118,16 +85,6 @@
             .txt Update Profile Picture
             .uiMenu
               %ul
-                /%li
-                /  %a{href: ""}
-                /    %i
-                /      %img{alt: "", src: "/assets/choose_photo.png"}/
-                /    %span.uilinkText Choose From My Photos
-                /%li
-                /  %a{href: ""}
-                /    %i
-                /      %img{alt: "", src: "/assets/camera.png"}/
-                /    %span.uilinkText Take Photo...
                 %li
                   %i
                     %img{alt: "", src: "/assets/upload.png"}/
@@ -139,7 +96,6 @@
                       = render 'shared/profile_img'
                     .modal-footer
                       %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
-                      /%button.btn.btn-primary{type: "button"} Save changes
                   %a.demo{"data-toggle" => "modal",href: "#uploadphoto", id: "#uploadphoto"}
                     Upload Profile Photo...  
                 %li
@@ -147,11 +103,6 @@
                     %i
                       %img{alt: "", src: "/assets/edit.png"}/
                     %span.uilinkText View Profile Photos...
-            /%li
-            /  %a{href: ""}
-            /    %i
-            /      %img{alt: "", src: "/assets/cross.png"}/
-            /    %span.uilinkText Remove...
     .profile_nav
       #tags.modal.fade{"data-width" => "760", style: "display: none;", tabindex: "-1"}
         .modal-header
@@ -159,50 +110,24 @@
           %h4.modal-title Add Tags
         .modal-body
           - if signed_in?
-            = render 'shared/tags_form'
+            = simple_form_for(@tag, remote: true) do |f|
+              = f.error_notification
+
+              .form-inputs
+                %label
+                  Enter Tags separated by comma 
+                = f.text_field :name, :autocomplete => :off
+
+              .form-actions-tags
+                = f.button :submit, value: "Add Tags", id: "add_tag"
         .modal-footer
-          %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
-          /%button.btn.btn-primary{type: "button"} Save changes
+          %button#add_tag_modal_close.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
       - if signed_in?
         - if (@user.id== current_user.id)    
           %a.demo{"data-toggle" => "modal",href: "#tags"}
             Add Tags      
       %ul#tags-field
-        - @user.usertags.each do |usertag|
-          = render 'shared/tag_detail', usertag: usertag
-  /        %li
-  /          %a{href: "#"}
-  /            %span understanding
-  /        %li
-  /          %a{href: "#"} Unique
-  /        %li
-  /          %a{href: "#"}
-  /            %span.diffrence Wildlife
-  /        %li
-  /          %a{href: "#"}
-  /            %span Loving
-  /        %li.adv
-  /          %a{href: "#"} Adventurous
-  /        %li
-  /          %a{href: "#"}
-  /            %span Beautiful
-  /        %li
-  /          %a{href: "#"} Complex
-  /        %li
-  /          %a{href: "#"}
-  /            %span Abstract
-  /        %li
-  /          %a{href: "#"}
-  /            %span.diffrence Nature
-  /        %li.adv1
-  /          %a{href: "#"} Socialate
-  /        %li.adv
-  /          %a{href: "#"}
-  /            %span Ambitious
-  /        %li.adv
-  /          %a{href: "#"}
-  /            %span Nerdy
-    
+        = render 'tags', user: @user
   %section.main_container
     .wrapper
       .span690.inline_block

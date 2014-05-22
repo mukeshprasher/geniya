@@ -24,10 +24,10 @@ class UsertagsController < ApplicationController
   # POST /usertags
   # POST /usertags.json
   def create
-    params[:usertag][:name] = sanitize_and_linkify_text(params[:usertag][:name])
-    @usertag = Usertag.new(usertag_params)
-    @usertag.user_id = current_user.id
-    @usertag.save
+    tags = process_tags(params[:usertag][:name])
+    tags.each do |tag|
+      usertag = Usertag.create!(name: tag, user_id: current_user.id)
+    end
 #    respond_to do |format|
 #      if @usertag.save
 #        format.html { redirect_to @usertag, notice: 'Usertag was successfully created.' }
@@ -72,5 +72,19 @@ class UsertagsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def usertag_params
       params.require(:usertag).permit(:name)
+    end
+
+    def process_tags(text)
+      sanitized_text = ActionController::Base.helpers.sanitize text
+      
+      tags = Array.new
+      sanitized_text.split(/,/).each do |text|
+        tag = text.strip.gsub(' ','_')
+        if tag.length > 0 and !tag.nil?
+          tags << tag
+        end
+      end
+      
+      tags
     end
 end
