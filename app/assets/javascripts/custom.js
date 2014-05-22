@@ -116,6 +116,7 @@ $(function() {
             $.getJSON("/tags.json", {q: query}, function(data) {
               callback(data)
             });
+            }
           }
         });
 
