@@ -81,6 +81,7 @@ ActiveRecord::Schema.define(version: 20140522100351) do
     t.string   "status"
     t.string   "description"
     t.string   "companylink"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

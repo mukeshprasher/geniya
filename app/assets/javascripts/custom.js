@@ -142,7 +142,7 @@ $(function() {
         $("#company_title")
         .atwho({
           at: "", 
-          tpl: "<li data-value='${atwho-at}${name}'>${name}</li>",
+          tpl: "<li data-value='${atwho-at}${name}'>${name}${id}</li>",
           callbacks: {
             /*
              It function is given, At.js will invoke it if local filter can not find any data

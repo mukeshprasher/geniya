@@ -25,6 +25,7 @@ class UsersController < ApplicationController
       @advertisement = current_user.advertisements.build
       @album = current_user.albums.build
       @upload = current_user.uploads.build
+      @company = current_user.companies.build
       @tag = current_user.tags.build
     end
   end

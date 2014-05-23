@@ -1,10 +1,4 @@
 Geniya::Application.routes.draw do
-  resources :designations
-
-  resources :organisations
-
-  resources :companies
-
   resources :covers
 
   resources :multiuploads

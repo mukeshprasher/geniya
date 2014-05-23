@@ -2361,3 +2361,14 @@ textarea:focus, input[type="text"]:focus, input[type="password"]:focus, input[ty
     margin: 27px 0 0;
     width: 20px;
 }
+
+/************* companies model***************/
+
+#company_detail{color:white; font-weight:bold;}
+
+
+#companies .string.optional.control-label {
+    display: none;
+}
+
+#companies {    top: 0%;}
