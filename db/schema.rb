@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140522100351) do
+ActiveRecord::Schema.define(version: 20140521125721) do
 
   create_table "advertisements", force: true do |t|
     t.string   "name"
@@ -71,21 +71,6 @@ ActiveRecord::Schema.define(version: 20140522100351) do
   add_index "comments", ["commentable_id", "commentable_type"], name: "index_comments_on_commentable_id_and_commentable_type"
   add_index "comments", ["user_id"], name: "index_comments_on_user_id"
 
-  create_table "companies", force: true do |t|
-    t.string   "name"
-    t.string   "title"
-    t.string   "startmonth"
-    t.integer  "startyear"
-    t.string   "endmonth"
-    t.integer  "endyear"
-    t.string   "status"
-    t.string   "description"
-    t.string   "companylink"
-    t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "connections", force: true do |t|
     t.integer  "user_id"
     t.integer  "connection_id"
@@ -118,12 +103,6 @@ ActiveRecord::Schema.define(version: 20140522100351) do
     t.string   "special_attribute"
     t.string   "file_attachment_fingerprint"
     t.integer  "impressions_count",            default: 0
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "designations", force: true do |t|
-    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -262,12 +241,6 @@ ActiveRecord::Schema.define(version: 20140522100351) do
   end
 
   add_index "notifications", ["conversation_id"], name: "index_notifications_on_conversation_id"
-
-  create_table "organisations", force: true do |t|
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
 
   create_table "rates", force: true do |t|
     t.integer  "rater_id"
