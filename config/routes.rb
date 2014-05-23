@@ -1,4 +1,8 @@
 Geniya::Application.routes.draw do
+  resources :organizations
+
+  resources :affiliations
+
   resources :covers
 
   resources :multiuploads

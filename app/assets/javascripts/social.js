@@ -45,23 +45,17 @@ jQuery(document).ready(function(){
    
     });
     
-    jQuery('#company_status').live('click', function(event) {
+    jQuery('#affiliation_status').live('click', function(event) {
         if($(this).is(':checked')){
             
-            $(".end_period").hide();
-            $("#company_endmonth").val('');
-            $("#company_endyear").val('');
-            $("#current_status").show();
+            $(".aff_end_period").hide();
+            $("#affiliation_end_date").val('');
+            $("#aff_work_status").show();
         }
         else
         {
-            var Year = (new Date).getFullYear();
-            var currentTime = new Date()
-            var month = currentTime.getMonth() + 1
-            $(".end_period").show();
-            $("#company_endmonth").val(month);
-            $("#company_endyear").val(Year);            
-            $("#current_status").hide();
+            $(".aff_end_period").show();
+            $("#aff_work_status").hide();
    }
    
     });    

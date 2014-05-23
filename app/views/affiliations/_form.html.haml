@@ -1,0 +1,43 @@
+= simple_form_for(@affiliation) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.hidden_field :user_id
+    #org_name
+      %label
+        %b
+          Organization Name
+    = f.input :organization_id
+    #profession_name
+      %label
+        %b
+          Profession
+    = f.input :sub_category_id
+    .aff_time_period
+      .aff_start_period
+        #aff_start_date
+          %label
+            %b
+              Start Date    
+        .datepicker
+          = text_field(:affiliation, :start_date)
+      .aff_divider
+        _
+      .aff_end_period
+        #aff_end_date
+          %label
+            %b
+              End Date    
+        .datepicker
+          = text_field(:affiliation, :end_date)
+      %span#aff_work_status
+        %b
+          Present
+    .aff_status
+      %label
+        %b
+          Currently Work here:
+      = check_box("affiliation", "status", {}, "yes", "no")
+
+  .aff_btn
+    = f.button :submit, value:"Save", id:"aff_add_btn"

@@ -70,7 +70,7 @@ header { margin:0px; padding:0px; width:100%; background:#f3f1f1; position:relat
 
 .form-actions-subscribe .btn{background: none repeat scroll 0 0 #000000;border: 1px solid #000000;color: #FFFFFF;float: right; border-radius: 0;}
 
-.form-actions-ads #cancel-ads, .form-actions-tags .btn, .form-actions-ads .btn, .form-actions-edu .btn, .form-actions-edu #cancel-edu, .form-actions-skills .btn, .form-actions-skills #cancel, #album-btn {background: none repeat scroll 0 0 #81AA05;border: 1px solid #81AA05;color: #FFFFFF;float: left; border-radius: 5px;}
+.form-actions-ads #cancel-ads, .form-actions-tags .btn, .form-actions-ads .btn, .form-actions-edu .btn, .form-actions-edu #cancel-edu, .form-actions-skills .btn, .form-actions-skills #cancel, #album-btn, #aff_add_btn {background: none repeat scroll 0 0 #81AA05;border: 1px solid #81AA05;color: #FFFFFF;float: left; border-radius: 5px;}
 
 
 
@@ -2362,13 +2362,62 @@ textarea:focus, input[type="text"]:focus, input[type="password"]:focus, input[ty
     width: 20px;
 }
 
-/************* companies model***************/
-
-#company_detail{color:white; font-weight:bold;}
+/************* #affiliations model***************/
 
 
-#companies .string.optional.control-label {
+
+#affiliations .string.optional.control-label {
     display: none;
 }
 
-#companies {    top: 0%;}
+#affiliations {    top: 0%;}
+
+
+#affiliations .integer.optional.control-label {
+    display: none;
+}
+
+
+#affiliations .date.optional.control-label {
+    font-weight: bold;
+}
+
+
+.aff_time_period {
+    float: left;
+    width: 100%;
+}
+
+
+.aff_start_period, .aff_end_period {
+    float: left;
+    width: 30%;
+}
+
+
+.aff_divider {
+    float: left;
+    margin: 25px 0 3px 28px;
+    width: 33px;
+}
+
+
+.aff_status {
+    float: left;
+    margin: 12px 0 0;
+      width: 100%;
+}
+
+
+.aff_btn {
+    float: left;
+    margin: 15px 0 0;
+}
+
+
+#aff_work_status {
+    float: left;
+    margin: 30px 0 0;
+    width: 50px;
+    display:none;
+}

@@ -1,0 +1,29 @@
+%h1 Listing affiliations
+
+%table
+  %tr
+    %th User
+    %th Organization
+    %th Sub category
+    %th Start date
+    %th End date
+    %th Status
+    %th
+    %th
+    %th
+
+  - @affiliations.each do |affiliation|
+    %tr
+      %td= affiliation.user_id
+      %td= affiliation.organization_id
+      %td= affiliation.sub_category_id
+      %td= affiliation.start_date
+      %td= affiliation.end_date
+      %td= affiliation.status
+      %td= link_to 'Show', affiliation
+      %td= link_to 'Edit', edit_affiliation_path(affiliation)
+      %td= link_to 'Destroy', affiliation, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Affiliation', new_affiliation_path

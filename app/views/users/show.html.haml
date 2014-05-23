@@ -13,17 +13,18 @@
               = @user.sub_category.name 
         .art_gallery
           %ul
-            #companies.modal.fade{"data-width" => "760", style: "display: none;", tabindex: "-1"}
+            #affiliations.modal.fade{"data-width" => "760", style: "display: none;", tabindex: "-1"}
               .modal-header
                 %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
-                %h4.modal-title Add Companies Details:
+                %h4.modal-title Add Affiliations Details:
               .modal-body
+                = render 'affiliations/form'
               .modal-footer
                 %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
                 /%button.btn.btn-primary{type: "button"} Save changes
-            %a.demo{"data-toggle" => "modal",href: "#companies"}
+            %a.demo{"data-toggle" => "modal",href: "#affiliations"}
               %b
-                Company Detail:            
+                Add Affiliations            
             %li
               %span Current:
               %p 

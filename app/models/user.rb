@@ -11,6 +11,8 @@ class User < ActiveRecord::Base
     has_many :user_tags
     has_many :tags, through: :user_tags
     has_many :skills
+    has_many :affiliations
+    has_many :organizations, through: :affiliations
 #    has_many :userskills
 #    has_many :skills, through: :userskills
     has_many :videos

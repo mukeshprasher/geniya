@@ -1,0 +1,24 @@
+%p#notice= notice
+
+%p
+  %b User:
+  = @affiliation.user_id
+%p
+  %b Organization:
+  = @affiliation.organization_id
+%p
+  %b Sub category:
+  = @affiliation.sub_category_id
+%p
+  %b Start date:
+  = @affiliation.start_date
+%p
+  %b End date:
+  = @affiliation.end_date
+%p
+  %b Status:
+  = @affiliation.status
+
+= link_to 'Edit', edit_affiliation_path(@affiliation)
+\|
+= link_to 'Back', affiliations_path

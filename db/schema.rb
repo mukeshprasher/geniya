@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140521125721) do
+ActiveRecord::Schema.define(version: 20140523102130) do
 
   create_table "advertisements", force: true do |t|
     t.string   "name"
@@ -23,6 +23,17 @@ ActiveRecord::Schema.define(version: 20140521125721) do
     t.datetime "file_attachment_updated_at"
     t.integer  "user_id"
     t.string   "slug"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "affiliations", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "organization_id"
+    t.integer  "sub_category_id"
+    t.date     "start_date"
+    t.date     "end_date"
+    t.string   "status"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -241,6 +252,16 @@ ActiveRecord::Schema.define(version: 20140521125721) do
   end
 
   add_index "notifications", ["conversation_id"], name: "index_notifications_on_conversation_id"
+
+  create_table "organizations", force: true do |t|
+    t.string   "name"
+    t.integer  "cateogry_id"
+    t.date     "start_date"
+    t.integer  "address_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "rates", force: true do |t|
     t.integer  "rater_id"
