@@ -75,5 +75,32 @@ module SessionsHelper
     end
     
     mentioned_text.join(' ')
+  end
+  
+  def sanitize_and_linkify_text_company(text)
+    sanitized_text = ActionController::Base.helpers.sanitize text
+    if /^.+/.match text
+      if org = Organisation.find_by_name(text)
+        word = "#{text}"
+      else
+        tag = Organisation.create!(name: text)
+        word = "#{text}"
+      end
+    else
+      text
+    end
   end  
+  def sanitize_and_linkify_text_designation(text)
+    sanitized_text = ActionController::Base.helpers.sanitize text
+    if /^.+/.match text
+      if des = Designation.find_by_name(text)
+        word = "#{text}"
+      else
+        des = Designation.create!(name: text)
+        word = "#{text}"
+      end
+    else
+      text
+    end
+  end    
 end

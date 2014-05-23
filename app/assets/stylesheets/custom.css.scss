@@ -1913,7 +1913,7 @@ cursor: pointer;
 .sidebar-label {border-radius: 0 0 3px 3px;border-right: 1px solid #E5E5E5;border-style: none solid solid;border-width: medium 1px 1px;box-shadow: 0 1px 0 #FFFFFF;color: #797979;
 cursor: default;font-family: Arial,sans-serif;font-size: 10px;font-weight: bold;left: 21px;line-height: 16px;padding: 0 7px 1px;position: absolute;text-transform: uppercase;top: 0; border:none}
 .sidebar-label {border: 0 none;box-shadow: none;padding: 15px 7px 1px 0;}
-#owner-buttons-container {border-top: 1px dotted #CCCCCC;padding: 10px 0 5px;}
+#owner-buttons-container {border-top: 1px dotted #CCCCCC;padding: 10px 0 5px;  width: 100%;}
 .form-button-default {background: linear-gradient(#0096FF, #005DFF) repeat scroll 0 0;border-color: #0071E0;color: #FFFFFF;text-shadow: 0 1px 0 rgba(0, 0, 0, 0.3);}
 #owner-buttons-container .form-button {font-size: 14px;margin-bottom: 8px;max-width: 220px;}
 .form-button-massive, .form-button-large {height: 34px;line-height: 32px;max-width: 200px;padding: 0 !important;text-align: center;width: 100%;}
@@ -1947,6 +1947,8 @@ cursor: default;font-family: Arial,sans-serif;font-size: 10px;font-weight: bold;
 
 .follow-btn, .connect-btn {
     text-align: center;
+     width: 50%;
+      float: left;
 }
 
 #follow-form-button, #unfollow-form-button, #disconnect-form-button, #connect-form-button {
@@ -2071,6 +2073,7 @@ cursor: default;font-family: Arial,sans-serif;font-size: 10px;font-weight: bold;
     border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
     color: #FFFFFF;
     text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+    width:80px;
 }
 #dummy-follow-buttom:hover, #dummy-follow-buttom:focus, #dummy-follow-buttom:active, #dummy-follow-buttom.active, #dummy-follow-buttom.disabled, #dummy-follow-buttom[disabled] {
     background-color: #698941;
@@ -2324,4 +2327,48 @@ textarea:focus, input[type="text"]:focus, input[type="password"]:focus, input[ty
 
 /************ Cover Pics************/
 
-.cover-pic img {height: auto;width: 1200px;}
+.cover-pic img {height: auto;width: 1024px;}
+
+
+/******** company model css*********/
+
+
+#company_require {    color: #FF0000;}
+
+
+.work_period {
+    float: left;
+    width: 100%;
+}
+
+
+.start_period, .end_period {
+    float: left;
+    width: 45%;
+}
+
+#current_status{display:none;}
+
+#current_status {
+    float: left;
+    margin: 30px 0 0;
+    width: 50px;
+}
+
+
+#time_period_divider {
+    float: left;
+    margin: 27px 0 0;
+    width: 20px;
+}
+
+/************* companies model***************/
+
+#company_detail{color:white; font-weight:bold;}
+
+
+#companies .string.optional.control-label {
+    display: none;
+}
+
+#companies {    top: 0%;}

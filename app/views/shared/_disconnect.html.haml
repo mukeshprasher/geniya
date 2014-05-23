@@ -3,7 +3,7 @@
   = form_for(connection, html: { method: :delete }, remote: true) do |f|
     = f.hidden_field :connection_id
     = f.hidden_field :user_id  
-    = f.submit "Withdaraw request", class: "btn btn-large", id: "disconnect-form-button"
+    = f.submit "Request", class: "btn btn-large", id: "disconnect-form-button"
 -elsif connection.status == 'accepted' or connection.status == 'confirmed'
   = form_for(connection, html: { method: :delete }, remote: true) do |f|
     = f.hidden_field :connection_id

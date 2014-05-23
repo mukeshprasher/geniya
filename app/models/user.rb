@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
     belongs_to :sub_category
     has_many :subscriptions
     has_many :educations
+    has_many :companies
     has_many :user_tags
     has_many :tags, through: :user_tags
     has_many :skills
