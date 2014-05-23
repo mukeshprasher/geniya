@@ -1,5 +1,3 @@
 .cover-pic
   - if current_user.covershot
-    = image_tag current_user.covershot.file_attachment.url(:medium)
-  /- else
-  /  =image_tag '/assets/upload.jpg', width: "100%", height: "auto"
+    = image_tag current_user.covershot.file_attachment.url(:large)
