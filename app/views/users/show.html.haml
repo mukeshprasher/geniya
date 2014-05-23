@@ -364,7 +364,24 @@
                     %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
                 %a.demo{"data-toggle" => "modal",href: "#all-connection", id: "follower-link"}
                   - if @users.any?
-                    See All Connections »            
+                    See All Connections »
+                    
+            - if signed_in?
+              - if (@user.name== current_user.name)
+                #orgn_form.modal.fade{"data-width" => "760", style: "display: none;", tabindex: "-1"}
+                  .modal-header
+                    %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
+                    %h4.modal-title Add Organization Details:
+                  .modal-body
+                    = render 'organizations/form'
+                  .modal-footer
+                    %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
+                    /%button.btn.btn-primary{type: "button"} Save changes
+                %a.demo{"data-toggle" => "modal",href: "#orgn_form"}
+                  %li#org_form
+                    %span#tab_logo
+                    %p 
+                      Add Organization                                
             .clear 
 
         

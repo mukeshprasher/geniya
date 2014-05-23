@@ -3,7 +3,7 @@
 
   .form-inputs
     = f.input :name
-    = f.input :cateogry_id
+    = collection_select(:organization, :cateogry_id, Category.all, :id, :name)
     = f.input :start_date
     = f.input :address_id
     = f.input :user_id
