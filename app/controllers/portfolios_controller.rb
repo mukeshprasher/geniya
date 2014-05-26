@@ -4,11 +4,7 @@ class PortfoliosController < ApplicationController
     if !params[:q].nil?
       q = "%#{params[:q]}%"
       
-      @albums_by_name = Album.where("name   like ? and kind=?", q, 'portfolio').order(impressions_count: :desc)
-      @albums_by_title = Album.where("title like ? and kind=?", q, 'portfolio').order(impressions_count: :desc)
-      @albums_by_description = Album.where("description like ? and kind=?", q, 'portfolio').order(impressions_count: :desc)
-      
-      @albums = @albums_by_name + @albums_by_title + @albums_by_description
+      @albums = (Album.where("name   like ? and kind=?", q, 'portfolio').order(impressions_count: :desc) | @albums_by_title = Album.where("title like ? and kind=?", q, 'portfolio').order(impressions_count: :desc) | Album.where("description like ? and kind=?", q, 'portfolio').order(impressions_count: :desc)).uniq
     elsif !params[:gr].nil?
       @albums = Array.new
       params[:gr].each do |group_id|
@@ -33,11 +29,7 @@ class PortfoliosController < ApplicationController
     if !params[:q].nil?
       q = "%#{params[:q]}%"
       
-      @albums_by_name = Album.where("category_id = ? and name   like ? and kind=?", @category.id, q, 'portfolio').order(impressions_count: :desc)
-      @albums_by_title = Album.where("category_id = ? and title like ? and kind=?", @category.id, q, 'portfolio').order(impressions_count: :desc)
-      @albums_by_description = Album.where("category_id = ? and description like ? and kind=?", @category.id, q, 'portfolio').order(impressions_count: :desc)
-      
-      @albums = @albums_by_name + @albums_by_title + @albums_by_description
+      @albums = (Album.where("category_id = ? and name   like ? and kind=?", @category.id, q, 'portfolio').order(impressions_count: :desc) | Album.where("category_id = ? and title like ? and kind=?", @category.id, q, 'portfolio').order(impressions_count: :desc) | Album.where("category_id = ? and description like ? and kind=?", @category.id, q, 'portfolio').order(impressions_count: :desc) ).uniq
     elsif !params[:sc].nil?
       @albums = Array.new
       params[:sc].each do |sc_id|

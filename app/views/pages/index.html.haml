@@ -70,9 +70,16 @@
       .span690.inline_block
         %ul#editorsPicks
           #ajax-portfolio-detail-homepage.modal.fade.modal-scrollable{style: "display: none;", tabindex: "-1"}
-          - @albums.each do|album|
-            /- for i in 1..2 
-            = render 'album_home_thumb', album: album
+          - rendered_albums = Array.new
+          = rendered_albums.count
+          = @albums.count
+          - until rendered_albums.count >= @per_page or rendered_albums.count >= @albums.count  do
+            - @categories.each do |cat|
+              - @albums.each do |album|
+                - if album.category_id == cat.id and !rendered_albums.include? album
+                  = render 'album_home_thumb', album: album
+                  - rendered_albums << album
+                  - break
         #infinite-scrolling
           = will_paginate @albums
       .span315.offset1.inline_block
