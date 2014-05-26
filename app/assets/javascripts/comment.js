@@ -35,7 +35,7 @@ $(function() {
 
 
 
-     
+    
     $(".upload-delete").click(function(){
      var delupload = confirm("Do you want to delete?");
      if(delupload == true)

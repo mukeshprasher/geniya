@@ -80,10 +80,10 @@ module SessionsHelper
   def sanitize_and_linkify_text_company(text)
     sanitized_text = ActionController::Base.helpers.sanitize text
     if /^.+/.match text
-      if org = Organisation.find_by_name(text)
+      if org = Organization.find_by_name(text)
         word = "#{text}"
       else
-        tag = Organisation.create!(name: text)
+        org = Organization.create!(name: text)
         word = "#{text}"
       end
     else

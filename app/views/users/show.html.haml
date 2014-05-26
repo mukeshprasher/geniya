@@ -18,16 +18,17 @@
                 %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
                 %h4.modal-title Add Affiliations Details:
               .modal-body
-                = render 'affiliations/form'
+                = render 'shared/exp_form'
               .modal-footer
                 %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
                 /%button.btn.btn-primary{type: "button"} Save changes
             %a.demo{"data-toggle" => "modal",href: "#affiliations"}
               %b
-                Add Affiliations            
+                - if signed_in?
+                  Add Affiliations            
             %li
               %span Current:
-              %p 
+              %p#current_company 
                 = @user.category.name
             %li
               %span Previous:
@@ -378,10 +379,8 @@
                     %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
                     /%button.btn.btn-primary{type: "button"} Save changes
                 %a.demo{"data-toggle" => "modal",href: "#orgn_form"}
-                  %li#org_form
-                    %span#tab_logo
-                    %p 
-                      Add Organization                                
+                  %span#orgn_container
+                    Add Organization                                
             .clear 
 
         

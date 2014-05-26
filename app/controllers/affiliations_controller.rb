@@ -25,16 +25,16 @@ class AffiliationsController < ApplicationController
   # POST /affiliations.json
   def create
     @affiliation = Affiliation.new(affiliation_params)
-
-    respond_to do |format|
-      if @affiliation.save
-        format.html { redirect_to @affiliation, notice: 'Affiliation was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @affiliation }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @affiliation.errors, status: :unprocessable_entity }
-      end
-    end
+    @affiliation.save
+#    respond_to do |format|
+#      if @affiliation.save
+#        format.html { redirect_to @affiliation, notice: 'Affiliation was successfully created.' }
+#        format.json { render action: 'show', status: :created, location: @affiliation }
+#      else
+#        format.html { render action: 'new' }
+#        format.json { render json: @affiliation.errors, status: :unprocessable_entity }
+#      end
+#    end
   end
 
   # PATCH/PUT /affiliations/1

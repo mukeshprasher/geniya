@@ -1,18 +1,18 @@
-= simple_form_for(@affiliation) do |f|
+= simple_form_for(@affiliation, remote:true) do |f|
   = f.error_notification
 
   .form-inputs
     = f.hidden_field :user_id
-    #org_name
-      %label
-        %b
-          Organization Name
-    = f.input :organization_id
+    /#org_name
+    /  %label
+    /    %b
+    /      Organization Name
+    = f.hidden_field :organization_id, value: @organization.id
     #profession_name
       %label
         %b
           Profession
-    = f.input :sub_category_id
+    = render 'affiliations/select_profession', c: @organization.category
     .aff_time_period
       .aff_start_period
         #aff_start_date
@@ -20,7 +20,8 @@
             %b
               Start Date    
         .datepicker
-          = text_field(:affiliation, :start_date)
+          /= text_field(:affiliation, :start_date)
+          = f.select :start_date, (Time.zone.now.year - 70)..(Time.zone.now.year + 1)
       .aff_divider
         _
       .aff_end_period
@@ -29,7 +30,8 @@
             %b
               End Date    
         .datepicker
-          = text_field(:affiliation, :end_date)
+          /= text_field(:affiliation, :end_date)
+          = f.select :end_date, (Time.zone.now.year - 40)..(Time.zone.now.year + 10)
       %span#aff_work_status
         %b
           Present

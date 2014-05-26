@@ -5,11 +5,17 @@ class OrganizationsController < ApplicationController
   # GET /organizations.json
   def index
     @organizations = Organization.all
+    if params[:q]
+      @organizations = Organization.where("lower(name) like lower(?)", "%#{params[:q]}%")
+    else  
+      @organizations = Organization.paginate(page: params[:page])
+    end
   end
 
   # GET /organizations/1
   # GET /organizations/1.json
   def show
+    @affiliation = current_user.affiliations.build
   end
 
   # GET /organizations/new
@@ -69,6 +75,6 @@ class OrganizationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def organization_params
-      params.require(:organization).permit(:name, :cateogry_id, :start_date, :address_id, :user_id)
+      params.require(:organization).permit(:name, :category_id, :start_date, :address_id, :user_id)
     end
 end
