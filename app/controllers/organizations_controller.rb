@@ -7,6 +7,7 @@ class OrganizationsController < ApplicationController
     @organizations = Organization.all
     if params[:q]
       @organizations = Organization.where("lower(name) like lower(?)", "%#{params[:q]}%")
+      @organizations << Organization.new(name: "other", id: "0")
     else  
       @organizations = Organization.paginate(page: params[:page])
     end
