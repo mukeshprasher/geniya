@@ -120,10 +120,10 @@ $(function() {
           }
         });
 
-        $("#company_name")
+        $("#srch_org")
         .atwho({
           at: "", 
-          tpl: "<li data-value='${atwho-at}${name}'>${name}</li>",
+          tpl: "<li data-value='${atwho-at}${name}' class='orgn-data' data='${id}'>${name}</li>",
           callbacks: {
             /*
              It function is given, At.js will invoke it if local filter can not find any data
@@ -131,12 +131,20 @@ $(function() {
              @param callback [Function] callback to render page.
             */
             remote_filter: function(query, callback) {
-              $.getJSON("/organisations.json", {q: query}, function(data) {
+              $.getJSON("/organizations.json", {q: query}, function(data) {
                 callback(data)
+              $('.orgn-data').click(function(){
+              
+              var org_data = $(this).attr( "data" )
+              $.get("/organizations/"+ org_data+ ".js", {}, function(data) {
+                callback(data)
+              });              
+              });                
               });
             }
           }
         });         
+        
 
 
         $("#company_title")

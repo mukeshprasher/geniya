@@ -25,16 +25,16 @@ class AffiliationsController < ApplicationController
   # POST /affiliations.json
   def create
     @affiliation = Affiliation.new(affiliation_params)
-
-    respond_to do |format|
-      if @affiliation.save
-        format.html { redirect_to @affiliation, notice: 'Affiliation was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @affiliation }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @affiliation.errors, status: :unprocessable_entity }
-      end
-    end
+    @affiliation.save
+#    respond_to do |format|
+#      if @affiliation.save
+#        format.html { redirect_to @affiliation, notice: 'Affiliation was successfully created.' }
+#        format.json { render action: 'show', status: :created, location: @affiliation }
+#      else
+#        format.html { render action: 'new' }
+#        format.json { render json: @affiliation.errors, status: :unprocessable_entity }
+#      end
+#    end
   end
 
   # PATCH/PUT /affiliations/1
@@ -55,10 +55,10 @@ class AffiliationsController < ApplicationController
   # DELETE /affiliations/1.json
   def destroy
     @affiliation.destroy
-    respond_to do |format|
-      format.html { redirect_to affiliations_url }
-      format.json { head :no_content }
-    end
+#    respond_to do |format|
+#      format.html { redirect_to affiliations_url }
+#      format.json { head :no_content }
+#    end
   end
 
   private

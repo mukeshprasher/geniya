@@ -18,21 +18,35 @@
                 %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
                 %h4.modal-title Add Affiliations Details:
               .modal-body
-                = render 'affiliations/form'
+                = render 'shared/exp_form'
               .modal-footer
-                %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
+                %button.btn.btn-default#affiliation_form_area_close{"data-dismiss" => "modal", type: "button"} Close
                 /%button.btn.btn-primary{type: "button"} Save changes
             %a.demo{"data-toggle" => "modal",href: "#affiliations"}
               %b
-                Add Affiliations            
-            %li
+                - if signed_in?
+                  Add Affiliations            
+            %li#affiliation_content
               %span Current:
-              %p 
-                = @user.category.name
-            %li
+              
+              -if (current_user == @user) && signed_in?
+                - if @user.affiliations.any?
+                  #orgnz_detail
+                    = render 'shared/current_company', user: @user  
+                - else
+                  %span
+            %li#affiliation_content
               %span Previous:
-              %p 
-                = @user.category.name
+              
+              -if (current_user == @user) && signed_in?
+                - if @user.affiliations.any?
+                  #orgnz_detail
+                    %p.aff_org_name{ :id => "current_company-#{@user.affiliations.last.id}" }
+                      %a{href:"/organizations/"+"#{@user.affiliations.last.organization.id}"}
+                        = @user.affiliations.last.organization.name
+                      = link_to "×", affiliation_path(@user.affiliations.last.id), :method => :delete, :remote => true,  :disable_with => "×", :class => 'affiliation-delete' , :id => "affiliation-delete-#{@user.affiliations.last.id}" 
+                - else
+                  %span
             %li
               %span Available:
               %p 
@@ -47,8 +61,9 @@
                 %img{alt: "", src: "/assets/artgallery_img2.png"}/
               %p Teneriffe, Queensland, Australia
             %h3
-              = @user.connected_users.count
               %span
+                %span#connct-counts
+                  = @user.connected_users.count
                 Connections
       - if signed_in?
         - if (@user.name== current_user.name)         
@@ -378,10 +393,8 @@
                     %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
                     /%button.btn.btn-primary{type: "button"} Save changes
                 %a.demo{"data-toggle" => "modal",href: "#orgn_form"}
-                  %li#org_form
-                    %span#tab_logo
-                    %p 
-                      Add Organization                                
+                  %span#orgn_container
+                    Add Organization                                
             .clear 
 
         

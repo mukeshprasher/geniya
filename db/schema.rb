@@ -255,7 +255,7 @@ ActiveRecord::Schema.define(version: 20140523102130) do
 
   create_table "organizations", force: true do |t|
     t.string   "name"
-    t.integer  "cateogry_id"
+    t.integer  "category_id"
     t.date     "start_date"
     t.integer  "address_id"
     t.integer  "user_id"

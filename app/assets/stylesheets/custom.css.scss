@@ -70,7 +70,7 @@ header { margin:0px; padding:0px; width:100%; background:#f3f1f1; position:relat
 
 .form-actions-subscribe .btn{background: none repeat scroll 0 0 #000000;border: 1px solid #000000;color: #FFFFFF;float: right; border-radius: 0;}
 
-.form-actions-ads #cancel-ads, .form-actions-tags .btn, .form-actions-ads .btn, .form-actions-edu .btn, .form-actions-edu #cancel-edu, .form-actions-skills .btn, .form-actions-skills #cancel, #album-btn, #aff_add_btn {background: none repeat scroll 0 0 #81AA05;border: 1px solid #81AA05;color: #FFFFFF;float: left; border-radius: 5px;}
+.form-actions-ads #cancel-ads, .form-actions-tags .btn, .form-actions-ads .btn, .form-actions-edu .btn, .form-actions-edu #cancel-edu, .form-actions-skills .btn, .form-actions-skills #cancel, #album-btn, #aff_add_btn, #orgn_btn {background: none repeat scroll 0 0 #81AA05;border: 1px solid #81AA05;color: #FFFFFF;float: left; border-radius: 5px;}
 
 
 
@@ -976,7 +976,7 @@ form {margin: 0 0 5px;}
     left: 0;
     padding: 0 10px;
     position: absolute;
-    top: 0;}
+    top: 0;width: 220px;}
 
 .anisten .ani_top {border-bottom: 1px dashed #B9B5BB;}
 
@@ -2422,8 +2422,6 @@ textarea:focus, input[type="text"]:focus, input[type="password"]:focus, input[ty
     display:none;
 }
 
-/**********************organiztion form*************/
-#orgn_form {    top: 0%;}
 .index_user_slider{
   float:left;
   width: 100%;
@@ -2431,4 +2429,82 @@ textarea:focus, input[type="text"]:focus, input[type="password"]:focus, input[ty
 .index_user_slide_item{
   float:left;
   width: 16%;
+}
+
+
+/**********************organiztion form*************/
+#orgn_form {    top: 0%;}
+
+#new_organization .string.optional.control-label {
+    display: none;
+}
+
+
+.datepicker > input {
+    width: 200px;
+}
+
+
+#orgn_container {
+    background: none repeat scroll 0 0 #86B031;
+    border-radius: 5px;
+    color: #FFFFFF;
+    float: right;
+    height: 23px;
+    margin: 10px 0 0;
+    padding: 8px 0 0 14px;
+    width: 114px;
+}
+
+
+#orgn_btn_container
+{
+    background: none repeat scroll 0 0 #86B031;
+    border-radius: 5px;
+    color: #FFFFFF;
+    float: right;
+    height: 23px;
+    margin: 10px 0 0;
+    padding: 8px 0 0 14px;
+    width: 114px;
+}
+#divider_for_org {
+    font-family: latobold;
+    font-size: 23px;
+    text-align: center;
+    color:#8BB534;
+    float: left;
+    width:100%;
+}
+
+#current_company {
+    float: left;
+    width: 109px;
+}
+
+
+#affiliation_content {
+  
+}
+
+#orgnz_detail {
+    overflow: hidden;
+}
+
+#connct-counts {
+    color: #86B031;
+    float: left;
+    font-size: 30px;
+    margin: -7px 0 0;
+    width: 26px;
+}
+
+
+.aff_org_name a {
+    color: #FFFFFF;
+    font-size: 17px;
+}
+
+#affiliation_content a:hover {
+    color: #86B031;
 }

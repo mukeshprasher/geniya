@@ -1,0 +1,4 @@
+%p.aff_org_name{ :id => "current_company-#{@affiliation.id}" }
+  %a{href:"/organizations/"+"#{@affiliation.organization.id}"}
+    = @affiliation.organization.name
+  = link_to "×", affiliation_path(@affiliation.id), :method => :delete, :remote => true,  :disable_with => "×", :class => 'affiliation-delete' , :id => "affiliation-delete-#{@affiliation.id}"

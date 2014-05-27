@@ -1,0 +1,7 @@
+$("#srch_org").val('');
+$("#orgn_detail").html("<%= escape_javascript(render('organizations/orgn_detail')) %>")
+$("#affilates_form_container").html("<%= escape_javascript(render('affiliations/form', {:organization => @organization})) %>");
+
+
+
+
