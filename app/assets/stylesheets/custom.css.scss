@@ -2422,9 +2422,18 @@ textarea:focus, input[type="text"]:focus, input[type="password"]:focus, input[ty
     display:none;
 }
 
+.index_user_slider{
+  float:left;
+  width: 100%;
+}
+.index_user_slide_item{
+  float:left;
+  width: 16%;
+}
+
+
 /**********************organiztion form*************/
 #orgn_form {    top: 0%;}
-
 
 #new_organization .string.optional.control-label {
     display: none;

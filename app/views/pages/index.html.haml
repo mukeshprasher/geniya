@@ -36,8 +36,16 @@
         .add_sec
           = render 'shared/jobs_detail'
 - else
-  .slider
-    %img{alt: "slider", src: "/assets/slide1.jpg"}/
+  .index_user_slider
+    
+    - @top_users.each do |user|
+      .index_user_slide_item
+        %a{href:"/users/"+"#{user.slug}"}
+          - if user.headshot
+            =image_tag user.headshot.file_attachment.url(:thumb), width: "300px", height: "300px"
+          - else
+            =image_tag '/assets/missing.png', width: "300px", height: "300px"
+    /%img{alt: "slider", src: "/assets/slide1.jpg"}/
   .slogan
     .wrapper_c
       Get Going with Geniya -
@@ -71,8 +79,6 @@
         %ul#editorsPicks
           #ajax-portfolio-detail-homepage.modal.fade.modal-scrollable{style: "display: none;", tabindex: "-1"}
           - rendered_albums = Array.new
-          = rendered_albums.count
-          = @albums.count
           - until rendered_albums.count >= @per_page or rendered_albums.count >= @albums.count  do
             - @categories.each do |cat|
               - @albums.each do |album|
