@@ -976,7 +976,7 @@ form {margin: 0 0 5px;}
     left: 0;
     padding: 0 10px;
     position: absolute;
-    top: 0;}
+    top: 0;width: 220px;}
 
 .anisten .ani_top {border-bottom: 1px dashed #B9B5BB;}
 
@@ -2464,6 +2464,8 @@ textarea:focus, input[type="text"]:focus, input[type="password"]:focus, input[ty
     font-size: 23px;
     text-align: center;
     color:#8BB534;
+    float: left;
+    width:100%;
 }
 
 #current_company {
@@ -2473,12 +2475,11 @@ textarea:focus, input[type="text"]:focus, input[type="password"]:focus, input[ty
 
 
 #affiliation_content {
-    float: left;
-    width: 100%;
+  
 }
 
 #orgnz_detail {
-    width: 75%;
+    overflow: hidden;
 }
 
 #connct-counts {
@@ -2493,4 +2494,8 @@ textarea:focus, input[type="text"]:focus, input[type="password"]:focus, input[ty
 .aff_org_name a {
     color: #FFFFFF;
     font-size: 17px;
+}
+
+#affiliation_content a:hover {
+    color: #86B031;
 }
