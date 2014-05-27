@@ -1,4 +1,5 @@
 %p.aff_org_name{ :id => "current_company-#{@user.affiliations.first.id}" }
   %a{href:"/organizations/"+"#{@user.affiliations.first.organization.id}"}
     = @user.affiliations.first.organization.name
-  = link_to "×", affiliation_path(@user.affiliations.first.id), :method => :delete, :remote => true,  :disable_with => "×", :class => 'affiliation-delete' , :id => "affiliation-delete-#{@user.affiliations.first.id}"
+  -if (current_user == @user) && signed_in?
+    = link_to "×", affiliation_path(@user.affiliations.first.id), :method => :delete, :remote => true,  :disable_with => "×", :class => 'affiliation-delete' , :id => "affiliation-delete-#{@user.affiliations.first.id}"

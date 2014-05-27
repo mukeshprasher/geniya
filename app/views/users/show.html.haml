@@ -29,21 +29,21 @@
             %li#affiliation_content
               %span Current:
               
-              -if (current_user == @user) && signed_in?
+              
+              #orgnz_detail
                 - if @user.affiliations.any?
-                  #orgnz_detail
-                    = render 'shared/current_company', user: @user  
+                  = render 'shared/current_company', user: @user  
                 - else
                   %span
             %li#affiliation_content
               %span Previous:
               
-              -if (current_user == @user) && signed_in?
+              #orgnz_detail
                 - if @user.affiliations.any?
-                  #orgnz_detail
-                    %p.aff_org_name{ :id => "current_company-#{@user.affiliations.last.id}" }
-                      %a{href:"/organizations/"+"#{@user.affiliations.last.organization.id}"}
-                        = @user.affiliations.last.organization.name
+                  %p.aff_org_name{ :id => "current_company-#{@user.affiliations.last.id}" }
+                    %a{href:"/organizations/"+"#{@user.affiliations.last.organization.id}"}
+                      = @user.affiliations.last.organization.name
+                    -if (current_user == @user) && signed_in?
                       = link_to "×", affiliation_path(@user.affiliations.last.id), :method => :delete, :remote => true,  :disable_with => "×", :class => 'affiliation-delete' , :id => "affiliation-delete-#{@user.affiliations.last.id}" 
                 - else
                   %span

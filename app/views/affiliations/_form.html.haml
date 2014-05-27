@@ -20,8 +20,7 @@
             %b
               Start Date    
         .datepicker
-          = text_field(:affiliation, :start_date)
-          /= f.select :start_date, (Time.zone.now.year - 70)..(Time.zone.now.year + 1)
+          = text_field(:affiliation, :start_date, placeholder: 'Click on Calender')
       .aff_divider
         _
       .aff_end_period
@@ -30,8 +29,7 @@
             %b
               End Date    
         .datepicker
-          = text_field(:affiliation, :end_date)
-          /= f.select :end_date, (Time.zone.now.year - 40)..(Time.zone.now.year + 10)
+          = text_field(:affiliation, :end_date, placeholder: 'Click on Calender')
       %span#aff_work_status
         %b
           Present
@@ -45,7 +43,13 @@
     = f.button :submit, value:"Save", id:"aff_add_btn"
 
 :javascript
-  $('#affiliation_start_date').datetimepicker({
-    format: 'yyyy-MM-dd',
-    pickTime: false
-  });    
+    $('.datepicker, .datetimepicker').append('<span class="add-on"><i data-time-icon="icon-time" data-date-icon="icon-calendar"></i></span>')
+
+    $('.datetimepicker').datetimepicker({
+      format: 'yyyy-MM-dd HH:mm:ss'
+    });
+
+    $('.datepicker').datetimepicker({
+      format: 'yyyy-MM-dd',
+      pickTime: false
+    });    

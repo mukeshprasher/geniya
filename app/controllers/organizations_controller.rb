@@ -16,7 +16,9 @@ class OrganizationsController < ApplicationController
   # GET /organizations/1
   # GET /organizations/1.json
   def show
-    @affiliation = current_user.affiliations.build
+    if signed_in?
+      @affiliation = current_user.affiliations.build
+    end
   end
 
   # GET /organizations/new

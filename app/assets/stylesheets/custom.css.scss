@@ -976,7 +976,7 @@ form {margin: 0 0 5px;}
     left: 0;
     padding: 0 10px;
     position: absolute;
-    top: 0;width: 220px;}
+    top: 0;width: 220px;min-height: 300px;}
 
 .anisten .ani_top {border-bottom: 1px dashed #B9B5BB;}
 
@@ -2391,7 +2391,7 @@ textarea:focus, input[type="text"]:focus, input[type="password"]:focus, input[ty
 
 .aff_start_period, .aff_end_period {
     float: left;
-    width: 30%;
+    width: 32%;
 }
 
 
@@ -2475,7 +2475,7 @@ textarea:focus, input[type="text"]:focus, input[type="password"]:focus, input[ty
 
 
 #affiliation_content {
-  
+  overflow: hidden;
 }
 
 #orgnz_detail {
@@ -2498,4 +2498,29 @@ textarea:focus, input[type="text"]:focus, input[type="password"]:focus, input[ty
 
 #affiliation_content a:hover {
     color: #86B031;
+}
+
+
+#org_detail_box span {
+    float: left;
+    font-size: 18px;
+    padding: 6px 0 0;
+    text-transform: capitalize;
+    width: 100%;
+}
+
+
+#org_detail_box {
+    float: left;
+    margin: 6px 0 23px;
+    width: 100%;
+}
+
+#orgn_detail {
+    float: left;
+}
+
+
+#affilates_form_container {
+    float: left;
 }
