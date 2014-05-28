@@ -1,14 +1,14 @@
 %p.user_address{ :id => "current_address-#{@user.locations.last.id}" }
   %span
     = @user.locations.last.street_address
-  %span
     ,
+  %span
     = @user.locations.last.city.name
-  %span
     ,
+  %span
     = @user.locations.last.city.state.name
-  %span
     ,
+  %span
     = @user.locations.last.city.state.country.name 
   -if (current_user == @user) && signed_in?
     = link_to "×", location_path(@user.locations.last.id), :method => :delete, :remote => true,  :disable_with => "×", :class => 'address-delete' , :id => "address-delete-#{@user.locations.last.id}"                    

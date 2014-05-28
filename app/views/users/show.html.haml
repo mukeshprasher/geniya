@@ -73,7 +73,7 @@
                   Add Addresses           
             %li
               %span
-              %p#user_addrss_detail
+              #user_addrss_detail
                 - if @user.locations.any?
                   = render 'shared/current_address', user: @user
                 - else

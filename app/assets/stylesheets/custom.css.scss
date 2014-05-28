@@ -2578,3 +2578,13 @@ textarea:focus, input[type="text"]:focus, input[type="password"]:focus, input[ty
 }
 
 #city_name, #pincode{display:none;}
+
+
+#user_addrss_detail {
+    overflow: hidden;
+}
+
+.address-delete {
+    color: #FF0000;
+    font-size: 22px;
+}

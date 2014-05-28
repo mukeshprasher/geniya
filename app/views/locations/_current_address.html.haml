@@ -1,3 +1,13 @@
 %p.user_address{ :id => "current_address-#{@location.id}" }
-  = @location.street_address
+  %span  
+    = @location.street_address
+    ,
+  %span
+    = @location.city.name
+    ,
+  %span
+    = @location.city.state.name
+    ,
+  %span
+    = @location.city.state.country.name   
   = link_to "×", location_path(@location.id), :method => :delete, :remote => true,  :disable_with => "×", :class => 'address-delete' , :id => "address-delete-#{@location.id}"      
