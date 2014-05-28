@@ -1,0 +1,4 @@
+%select#location_city_id.select.required{name: "location[city_id]"}
+  - c.each do|s|
+    %option{value: "#{s.id}"}   #{s.name}
+        

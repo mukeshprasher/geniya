@@ -1,0 +1,2 @@
+$("#srch_country").val('');
+$("#states_form_container").html("<%= escape_javascript(render('shared/user_location', {:country => @country})) %>");

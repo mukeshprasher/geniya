@@ -24,7 +24,7 @@
                 /%button.btn.btn-primary{type: "button"} Save changes
             %a.demo{"data-toggle" => "modal",href: "#affiliations"}
               %b
-                - if signed_in?
+                - if (current_user == @user) && signed_in?
                   Add Affiliations            
             %li#affiliation_content
               %span Current:
@@ -35,6 +35,7 @@
                   = render 'shared/current_company', user: @user  
                 - else
                   %span
+                    Add Detail
             %li#affiliation_content
               %span Previous:
               
@@ -47,6 +48,7 @@
                       = link_to "×", affiliation_path(@user.affiliations.last.id), :method => :delete, :remote => true,  :disable_with => "×", :class => 'affiliation-delete' , :id => "affiliation-delete-#{@user.affiliations.last.id}" 
                 - else
                   %span
+                    Add Detail
             %li
               %span Available:
               %p 
@@ -56,6 +58,19 @@
                 %img{alt: "", src: "/assets/artgallery_img1.png"}/
               %p 
                 = @user.email
+            #address.modal.fade{"data-width" => "760", style: "display: none;", tabindex: "-1"}
+              .modal-header
+                %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
+                %h4.modal-title Add Address details:
+              .modal-body
+                = render 'users/address_detail'
+              .modal-footer
+                %button.btn.btn-default#affiliation_form_area_close{"data-dismiss" => "modal", type: "button"} Close
+                /%button.btn.btn-primary{type: "button"} Save changes
+            %a.demo{"data-toggle" => "modal",href: "#address"}
+              %b
+                - if (current_user == @user) && signed_in?
+                  Add Addresses           
             %li
               %span
                 %img{alt: "", src: "/assets/artgallery_img2.png"}/
@@ -102,9 +117,8 @@
       .clear
     .profile_picture
       .pick
-        - if signed_in?
-          - if current_user.headshot
-            = render "shared/profile_thumb"
+        - if @user.headshot
+          = render "shared/profile_thumb", current_user: @user
       - if signed_in?
         - if (@user.name== current_user.name)     
           .ProfilePicSelector

@@ -1,0 +1,21 @@
+%h1 Listing pins
+
+%table
+  %tr
+    %th Code
+    %th City
+    %th
+    %th
+    %th
+
+  - @pins.each do |pin|
+    %tr
+      %td= pin.code
+      %td= pin.city_id
+      %td= link_to 'Show', pin
+      %td= link_to 'Edit', edit_pin_path(pin)
+      %td= link_to 'Destroy', pin, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Pin', new_pin_path

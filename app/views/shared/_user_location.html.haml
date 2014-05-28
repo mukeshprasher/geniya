@@ -1,0 +1,11 @@
+= simple_form_for(@location, remote:true) do |f|
+  = f.error_notification
+  = @country.name
+  .form-inputs
+    = render 'states/select_state', c: @country.states
+
+
+  .aff_btn
+    = f.button :submit, value:"Save", id:"aff_add_btn"
+
+ 

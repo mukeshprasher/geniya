@@ -4,4 +4,5 @@ class Organization < ActiveRecord::Base
   has_many :addresses
   belongs_to :category
   belongs_to :sub_category 
+  has_many :locations
 end
