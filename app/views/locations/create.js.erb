@@ -1,0 +1,4 @@
+$('#address_form_area_close').click();
+$('.address_box_container').hide();
+$("#user_addrss_detail").html("<%= escape_javascript(render('locations/current_address', {:location => @location})) %>");
+

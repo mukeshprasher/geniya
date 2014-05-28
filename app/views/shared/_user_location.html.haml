@@ -1,11 +1,66 @@
 = simple_form_for(@location, remote:true) do |f|
   = f.error_notification
-  = @country.name
+  
+  #dd
   .form-inputs
-    = render 'states/select_state', c: @country.states
+    .address_box_container
+      #country_name
+        %label
+        = @country.name
+      #state_name
+        %span#state_label
+          Select State:  
+        %p
+          = render 'states/select_state', c: @country.states
+      #city_name
+        %span#city_label
+          City:
+        %p
+          %span#city_content_area
+      #pincode
+        %span#pin_label
+          Pin/Zip Code:
+        %p
+          %span#pin_content_area
+                    
+      #street_address
+        %span#state_label
+          Enter Street Address:  
+        %p
+      = text_field(:location, :street_address, placeholder: 'Please Enter Your Street address here')
+      #longitude_address
+        %span#state_label
+          Longitude:  
+        %p
+      = text_field(:location, :longitude, placeholder: 'Please Enter longitude Information')    
+      #latitude_address
+        %span#state_label
+          Latitude:  
+        %p
+      = text_field(:location, :latitude, placeholder: 'Please Enter latitude Information') 
+      #address_status
+        #add_status
+          %span#state_label
+            Set as Current Address:  
+        #current_address
+          %span
+            Yes
+          = f.radio_button :status, "yes", :checked => true         
+        #not_current
+          %span
+            No          
+          = f.radio_button :status, "no"
+      = f.hidden_field :user_id, value: current_user.id          
+      
+    .aff_btn
+      = f.button :submit, value:"Save", id:"aff_add_btn"
+:javascript
+
+  $('#location_state_id').change(function(){
+    var cunt_data = $(this).val()
+    $.get("/states/"+ cunt_data+ ".js", {}, function(data) {
+      callback(data)
+    });    
+  });
 
 
-  .aff_btn
-    = f.button :submit, value:"Save", id:"aff_add_btn"
-
- 

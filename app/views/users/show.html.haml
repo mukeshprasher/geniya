@@ -65,7 +65,7 @@
               .modal-body
                 = render 'users/address_detail'
               .modal-footer
-                %button.btn.btn-default#affiliation_form_area_close{"data-dismiss" => "modal", type: "button"} Close
+                %button.btn.btn-default#address_form_area_close{"data-dismiss" => "modal", type: "button"} Close
                 /%button.btn.btn-primary{type: "button"} Save changes
             %a.demo{"data-toggle" => "modal",href: "#address"}
               %b
@@ -73,8 +73,12 @@
                   Add Addresses           
             %li
               %span
-                %img{alt: "", src: "/assets/artgallery_img2.png"}/
-              %p Teneriffe, Queensland, Australia
+              %p#user_addrss_detail
+                - if @user.locations.any?
+                  = render 'shared/current_address', user: @user
+                - else
+                  %span
+                    Set Address   
             %h3
               %span
                 %span#connct-counts

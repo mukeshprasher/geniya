@@ -10,6 +10,7 @@ class StatesController < ApplicationController
   # GET /states/1
   # GET /states/1.json
   def show
+    @cities = City.find_all_by_state_id(@state.id)
   end
 
   # GET /states/new

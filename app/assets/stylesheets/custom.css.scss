@@ -2412,6 +2412,7 @@ textarea:focus, input[type="text"]:focus, input[type="password"]:focus, input[ty
 .aff_btn {
     float: left;
     margin: 15px 0 0;
+      width: 100%;
 }
 
 
@@ -2533,3 +2534,47 @@ textarea:focus, input[type="text"]:focus, input[type="password"]:focus, input[ty
 #affilates_form_container {
     float: left;
 }
+
+
+/****************** Country modal*************/
+
+#country_name {
+    font-family: latobold;
+    font-size: 30px;
+    margin: 0 0 20px;
+    text-transform: capitalize;
+}
+
+
+#location_city_id {
+    text-transform: capitalize;
+}
+
+
+#state_label, #city_label, #pin_label {
+    font-family: latobold;
+    font-size: 18px;
+}
+
+#address {
+    top: 0;
+}
+
+
+#add_status {
+    float: left;
+    width: 30%;
+}
+
+
+#current_address {
+    float: left;
+    width: 10%;
+}
+
+
+#not_current {
+    float: left;
+}
+
+#city_name, #pincode{display:none;}

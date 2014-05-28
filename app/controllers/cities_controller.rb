@@ -10,6 +10,7 @@ class CitiesController < ApplicationController
   # GET /cities/1
   # GET /cities/1.json
   def show
+    @pins = Pin.find_all_by_city_id(@city.id)
   end
 
   # GET /cities/new

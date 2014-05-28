@@ -6,6 +6,7 @@ class CreateLocations < ActiveRecord::Migration
       t.string :street_address
       t.decimal :longitude
       t.decimal :latitude
+      t.string :status
       t.integer :user_id
       t.integer :organization_id
       

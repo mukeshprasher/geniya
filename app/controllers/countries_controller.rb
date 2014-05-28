@@ -20,6 +20,7 @@ class CountriesController < ApplicationController
     end
   end
 
+
   # GET /countries/new
   def new
     @country = Country.new
