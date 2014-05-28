@@ -3,11 +3,14 @@
     = @location.street_address
     ,
   %span
-    = @location.city.name
+    %a{href:"/cities/"+"#{@location.city.id}"}
+      = @location.city.name
     ,
   %span
-    = @location.city.state.name
+    %a{href:"/cities/"+"#{@location.city.state.id}"}
+      = @location.city.state.name
     ,
   %span
-    = @location.city.state.country.name   
+    %a{href:"/cities/"+"#{@location.city.state.country.id}"}
+      = @location.city.state.country.name   
   = link_to "×", location_path(@location.id), :method => :delete, :remote => true,  :disable_with => "×", :class => 'address-delete' , :id => "address-delete-#{@location.id}"      

@@ -3,12 +3,15 @@
     = @user.locations.last.street_address
     ,
   %span
-    = @user.locations.last.city.name
+    %a{href:"/cities/"+"#{@user.locations.last.city.id}"}
+      = @user.locations.last.city.name
     ,
   %span
-    = @user.locations.last.city.state.name
+    %a{href:"/cities/"+"#{@user.locations.last.city.state.id}"}
+      = @user.locations.last.city.state.name
     ,
   %span
-    = @user.locations.last.city.state.country.name 
+    %a{href:"/cities/"+"#{@user.locations.last.city.state.country.id}"}
+      = @user.locations.last.city.state.country.name 
   -if (current_user == @user) && signed_in?
     = link_to "×", location_path(@user.locations.last.id), :method => :delete, :remote => true,  :disable_with => "×", :class => 'address-delete' , :id => "address-delete-#{@user.locations.last.id}"                    
