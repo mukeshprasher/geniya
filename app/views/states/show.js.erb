@@ -1,0 +1,2 @@
+$('#city_name').show();
+$("#city_content_area").html("<%= escape_javascript(render('cities/select_city', {:c => @cities})) %>");

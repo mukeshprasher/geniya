@@ -1,0 +1,4 @@
+%select#location_pin_id.select.required{name: "location[pin_id]"}
+  %option{value: "0"}   Select Pin/zip code
+  - c.each do|s|
+    %option{value: "#{s.id}"}   #{s.code}

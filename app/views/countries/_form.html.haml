@@ -1,0 +1,10 @@
+= simple_form_for(@country) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :name
+    = f.input :region
+    = f.input :timezone
+
+  .form-actions
+    = f.button :submit

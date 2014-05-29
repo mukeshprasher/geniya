@@ -75,6 +75,13 @@ ActiveRecord::Schema.define(version: 20140527100907) do
   add_index "categories", ["name"], name: "index_categories_on_name", unique: true
   add_index "categories", ["slug"], name: "index_categories_on_slug", unique: true
 
+  create_table "cities", force: true do |t|
+    t.integer  "state_id"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "comments", force: true do |t|
     t.integer  "commentable_id",   default: 0
     t.string   "commentable_type"
@@ -105,6 +112,14 @@ ActiveRecord::Schema.define(version: 20140527100907) do
     t.string   "subject",    default: ""
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
+  end
+
+  create_table "countries", force: true do |t|
+    t.string   "name"
+    t.string   "region"
+    t.integer  "timezone"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "covers", force: true do |t|
@@ -211,6 +226,19 @@ ActiveRecord::Schema.define(version: 20140527100907) do
   add_index "likes", ["likeable_id", "likeable_type"], name: "fk_likeables"
   add_index "likes", ["liker_id", "liker_type"], name: "fk_likes"
 
+  create_table "locations", force: true do |t|
+    t.integer  "city_id"
+    t.integer  "pin_id"
+    t.string   "street_address"
+    t.decimal  "longitude"
+    t.decimal  "latitude"
+    t.string   "status"
+    t.integer  "user_id"
+    t.integer  "organization_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "mentions", force: true do |t|
     t.string   "mentioner_type"
     t.integer  "mentioner_id"
@@ -273,6 +301,13 @@ ActiveRecord::Schema.define(version: 20140527100907) do
     t.datetime "updated_at"
   end
 
+  create_table "pins", force: true do |t|
+    t.string   "code"
+    t.integer  "city_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "rates", force: true do |t|
     t.integer  "rater_id"
     t.integer  "rateable_id"
@@ -327,6 +362,13 @@ ActiveRecord::Schema.define(version: 20140527100907) do
     t.string   "name"
     t.integer  "user_id"
     t.string   "slug"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "states", force: true do |t|
+    t.integer  "country_id"
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

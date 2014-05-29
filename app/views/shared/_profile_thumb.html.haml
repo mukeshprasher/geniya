@@ -1,5 +1,5 @@
 .proflie
   - if current_user.headshot
-    =image_tag current_user.headshot.file_attachment.url(:medium)
+    = image_tag current_user.headshot.file_attachment.url(:medium)
   - else
-    =image_tag '/assets/missing.png', width: "198px", height: "198px"
+    = image_tag '/assets/missing.png', width: "198px", height: "198px"

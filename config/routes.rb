@@ -1,5 +1,14 @@
 Geniya::Application.routes.draw do
   resources :activities
+  resources :locations
+
+  resources :pins
+
+  resources :cities
+
+  resources :states
+
+  resources :countries
 
   resources :organizations
 

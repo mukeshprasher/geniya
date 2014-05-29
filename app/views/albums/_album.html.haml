@@ -62,7 +62,7 @@
       #comments-container{entity_id: "16086365", entity_type: "project"}
         #comments-header.comments-header
           %h4.block-title
-            %span.bold Discuss This Project:
+            %span.bold Discuss this #{@album.kind}:
             %span.comments-stats.hide{style: "display: inline;"}
               (
               %span.comments-total
@@ -82,8 +82,10 @@
           - else
             .post-comment-logged-out
               Please
-              %a.link-login.fake-link{href: "/signup"} Sign up
-              for Discuss.
+              %a.link-login.fake-link{href: "/signup"} sign up 
+              or 
+              = link_to 'login', signin_path
+              to discuss this #{@album.kind}.
         .comments
           = render :partial => 'comments/form', :locals => { comment: @new_comment, parent_id: nil }
           = render :partial => 'comments/comment', :collection => @comments, :as => :comment        

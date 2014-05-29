@@ -31,6 +31,22 @@ $(function() {
        {$("#current_company-"+delete_comment_id).show();
        return false;}
      });
+     
+    $(".address-delete").click(function(){
+     var delcomment = confirm("Do you want to delete Address ?");
+     if(delcomment == true)
+     {
+     var delete_comment_id=this.id.split("-")[2]
+       $("#current_address-"+delete_comment_id).hide('slow');
+       return true;
+     }
+     else
+       {$("#current_address-"+delete_comment_id).show();
+       return false;}
+     });     
+     
+     
+     
 // delete images from uploads 
  
 // $("#close").click(function() {

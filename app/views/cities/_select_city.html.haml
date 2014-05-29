@@ -1,0 +1,12 @@
+%select#location_city_id.select.required{name: "location[city_id]"}
+  %option{value: "0"}   Select City
+  - c.each do|s|
+    %option{value: "#{s.id}"}   #{s.name}
+    
+:javascript
+  $('#location_city_id').change(function(){
+    var cunt_data = $(this).val()
+    $.get("/cities/"+ cunt_data+ ".js", {}, function(data) {
+      callback(data)
+    }); 
+  }); 

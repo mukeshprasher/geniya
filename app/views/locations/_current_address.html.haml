@@ -1,0 +1,16 @@
+%p.user_address{ :id => "current_address-#{@location.id}" }
+  %span  
+    = @location.street_address
+    ,
+  %span
+    %a{href:"/cities/"+"#{@location.city.id}"}
+      = @location.city.name
+    ,
+  %span
+    %a{href:"/cities/"+"#{@location.city.state.id}"}
+      = @location.city.state.name
+    ,
+  %span
+    %a{href:"/cities/"+"#{@location.city.state.country.id}"}
+      = @location.city.state.country.name   
+  = link_to "×", location_path(@location.id), :method => :delete, :remote => true,  :disable_with => "×", :class => 'address-delete' , :id => "address-delete-#{@location.id}"      

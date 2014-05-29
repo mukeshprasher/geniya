@@ -1,0 +1,9 @@
+= simple_form_for(@pin) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :code
+    = f.input :city_id
+
+  .form-actions
+    = f.button :submit

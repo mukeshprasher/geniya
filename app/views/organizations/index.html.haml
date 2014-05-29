@@ -3,7 +3,7 @@
 %table
   %tr
     %th Name
-    %th Cateogry
+    %th Category
     %th Start date
     %th Address
     %th User
@@ -14,7 +14,7 @@
   - @organizations.each do |organization|
     %tr
       %td= organization.name
-      %td= organization.cateogry_id
+      %td= organization.category_id
       %td= organization.start_date
       %td= organization.address_id
       %td= organization.user_id
