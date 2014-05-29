@@ -11,14 +11,14 @@
     #profession_name
       %label
         %b
-          Profession
+          Role in organization
     = render 'affiliations/select_profession', c: @organization.category
     .aff_time_period
       .aff_start_period
         #aff_start_date
           %label
             %b
-              Start Date    
+              Affiliation start date    
         .datepicker
           = text_field(:affiliation, :start_date, placeholder: 'Click on Calender')
       .aff_divider
@@ -27,7 +27,7 @@
         #aff_end_date
           %label
             %b
-              End Date    
+              Affiliation end date    
         .datepicker
           = text_field(:affiliation, :end_date, placeholder: 'Click on Calender')
       %span#aff_work_status
@@ -37,10 +37,11 @@
       %label
         %b
           Currently Work here:
-      = check_box("affiliation", "status", {}, "yes", "no")
+      = check_box("affiliation", "status", {}, "yes", "no") 
+      yes
 
   .aff_btn
-    = f.button :submit, value:"Save", id:"aff_add_btn"
+    = f.button :submit, value:"Add affiliation to profile", id:"aff_add_btn"
 
 :javascript
     $('.datepicker, .datetimepicker').append('<span class="add-on"><i data-time-icon="icon-time" data-date-icon="icon-calendar"></i></span>')

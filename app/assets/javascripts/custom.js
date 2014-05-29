@@ -133,13 +133,12 @@ $(function() {
             remote_filter: function(query, callback) {
               $.getJSON("/organizations.json", {q: query}, function(data) {
                 callback(data)
-              $('.orgn-data').click(function(){
-              
-              var org_data = $(this).attr( "data" )
-              $.get("/organizations/"+ org_data+ ".js", {}, function(data) {
-                callback(data)
-              });              
-              });                
+                $('.orgn-data').click(function(){
+                  var org_data = $(this).attr( "data" )
+                  $.get("/organizations/"+ org_data+ ".js", {}, function(data) {
+                    callback(data)
+                  });              
+                });                
               });
             }
           }

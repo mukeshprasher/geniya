@@ -657,7 +657,7 @@ _user
   float: left;
 
 }
-.user_img{float:left;width: 22px;}
+.user_img{float:left; margin: 3px}
 
 .user_name{
   float: left;
@@ -1014,7 +1014,7 @@ form {margin: 0 0 5px;}
 
 }
 .profile_picture {
-    background: url("/assets/missing.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    
 }
 
 
@@ -1322,8 +1322,6 @@ form {margin: 0 0 5px;}
 
 .box_section ul li ul li em {color: #AEADAD;font-family: 'latobold';font-size: 13px;font-style: normal;}
 
-.user_img {float: left;margin: 0 0 6px 8px;width: 50px;}
-
 .potrate-img {   float: left;font-family: latobold;height: auto;margin: 5px 0 0 7px;overflow: hidden;width: 203px;}
 
 .potrate-img a{color: #494949; font-size: 13px;font-weight: bold;text-decoration: none;}
@@ -1386,11 +1384,6 @@ form {margin: 0 0 5px;}
     width: 170px;
 }
 
-.user_img {
-    float: left;
-
-    width: 22px;
-}
 
 .portfolio-user-name a {
     color: #777777;
@@ -2458,16 +2451,14 @@ textarea:focus, input[type="text"]:focus, input[type="password"]:focus, input[ty
 }
 
 
-#orgn_btn_container
-{
-    background: none repeat scroll 0 0 #86B031;
-    border-radius: 5px;
-    color: #FFFFFF;
-    float: right;
-    height: 23px;
-    margin: 10px 0 0;
-    padding: 8px 0 0 14px;
-    width: 114px;
+#orgn_btn_container {
+  background: none repeat scroll 0 0 #86B031;
+  border-radius: 5px;
+  color: #FFFFFF;
+  padding: 6px;
+}
+#srch_org{
+  margin-bottom: 0px;
 }
 #divider_for_org {
     font-family: latobold;
