@@ -1,4 +1,6 @@
 Geniya::Application.routes.draw do
+  resources :activities
+
   resources :organizations
 
   resources :affiliations

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  acted_upon_type: MyString
+  acted_upon_id: 1
+  action: MyString
+  description: MyText
+
+two:
+  user_id: 1
+  acted_upon_type: MyString
+  acted_upon_id: 1
+  action: MyString
+  description: MyText

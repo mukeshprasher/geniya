@@ -26,6 +26,8 @@ class UpdatesController < ApplicationController
       params[:update][:name] = sanitize_and_linkify_text(params[:update][:text])
       @update_video = current_user.videos.build(video_params)
       @update_video.save      
+
+      create_activity(@update.class.name, @update.id, 'create')
     end
 #        format.html { 
 #          flash[:success] = "Update successfully created!"
@@ -60,6 +62,8 @@ class UpdatesController < ApplicationController
   # DELETE /updates/1.json
   def destroy
     @update.destroy
+    destroy_activity(@update.class.name, @update.id, 'create')
+
     respond_to do |format|
       format.html { redirect_to root_url }
       format.json { head :no_content }

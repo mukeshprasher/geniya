@@ -1,0 +1,69 @@
+- acted_upon_obj = activity.acted_upon_type.constantize.find(activity.acted_upon_id)
+%li{id: "activity_#{activity.id}", class: "firstCol"}
+  .delete-update
+    - if current_user?(activity.user)
+      = link_to "x", activity, method: :delete, data: { confirm: "Are you sure you want to delete this activity?" }, remote: true
+  .feed_headshot
+    - if activity.user.headshot
+      =image_tag activity.user.headshot.file_attachment.url(:thumb)
+    - else
+      =image_tag '/assets/missing.png', width: "50px", height: "50px"
+  .user
+    .userTop
+      .user_name
+        .feed-user-name
+          = link_to activity.user.name, activity.user
+
+          - if activity.acted_upon_type == 'Update'
+            shared an
+            = activity.acted_upon_type
+            %br
+          - else
+            = activity.action
+            = activity.acted_upon_type
+            = link_to acted_upon_obj.name, acted_upon_obj
+            by
+            = link_to acted_upon_obj.user.name, activity.user
+  .user
+    .userTop
+      %p.feed-text
+        - if activity.acted_upon_type == 'Update'
+          = simple_format raw acted_upon_obj.text
+      - if activity.acted_upon_type == 'Update'
+        - acted_upon_obj.uploads.each do |x|
+          %p.isotope-item.ajax-portfolio-detail-homepage-modal-trigger{:data => "#{x.album_id}"}
+            = image_tag x.file_attachment.url(:original)
+        - if acted_upon_obj.videos.any?
+          - acted_upon_obj.videos.each do |video|
+            %a{href:"/videos/"+"#{video.slug}"}
+              %p
+                - if ["video/mpeg", "video/x-msvideo", "video/3gpp"].include? video.file_attachment.content_type
+                  %object{ data: "#{video.file_attachment.url}", width: "303", height: "230", autoplay: "false"}
+                    %embed{ src: "#{video.file_attachment.url}", width: "303", height: "230"}
+                - elsif ["video/mp4", "video/ogg", "video/webm", "video/x-flv"].include? video.file_attachment.content_type
+                  %video{ width: "303", height:"230", poster:"poster.jpg", controls:"controls", preload:"none" }
+                    %source{type:"#{video.file_attachment.content_type}", src:"#{video.file_attachment.url}"}
+                    %object{width:"303", height:"230", type:"application/x-shockwave-flash", data:"#{video.file_attachment.url}"}
+                      %embed{ src: "#{video.file_attachment.url}", width: "303", height: "230"}
+      %ul
+        - @likers = acted_upon_obj.likers(User)
+        - @comments = acted_upon_obj.comment_threads.where('parent_id IS NULL').order('created_at desc')
+        %li
+          %img{alt: "", height: "11", src: "/assets/heart_img.png", width: "12"}/
+          %p{ :id => "likes_count_#{acted_upon_obj.class.name}_#{acted_upon_obj.id}" } 
+            = @likers.count
+        %li
+          %img{alt: "", height: "11", src: "/assets/feed_icon1.png", width: "13"}/
+          %p{ :id => "comment_count_#{acted_upon_obj.class.name}_#{acted_upon_obj.id}" }  
+            = @comments.count
+      %span.timestamp
+        #{time_ago_in_words(activity.created_at)} ago.
+    .userBottom
+      .like_this-1
+        = render 'shared/like_form', object: acted_upon_obj, user: acted_upon_obj.user
+      .show_users
+        - comments = acted_upon_obj.comment_threads.where('parent_id IS NULL').order('created_at desc')
+        - @new_comment = Comment.build_from(acted_upon_obj, current_user.id, "")
+        .comments
+          = render :partial => 'comments/feed_comment', :locals => { comment: @new_comment, parent_id: nil , feed_id: acted_upon_obj.id}
+          = render :partial => 'comments/feed_child_comments', :collection => comments, :as => :comment
