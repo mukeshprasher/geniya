@@ -63,6 +63,9 @@ gem 'friendly_id', '5.0.2'
 ## For uploads
 gem "paperclip", '3.5.3'
 
+# For Amazon image hosting
+gem 'aws-sdk'
+
 ## For image resizing, depends on Imagemagick which is a C program
 gem "mini_magick", '3.7.0'
 
