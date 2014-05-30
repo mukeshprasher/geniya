@@ -73,26 +73,42 @@ jQuery(document).ready(function(){
    }
    
     });
-//    jQuery('#close').live('click', function(event) {
-//     $("#album_wrapper").html('#{escape_javascript(render :partial => "album")}');
-//   
-//    });        
-  
+
+
+      jQuery('#location_old_country_id').live('change', function(event) {
+        var cunt_data = $(this).val()
+        if(cunt_data == 0)
+        {
+         $('#new_country_name').show();
+         $('#new_state_name').show();
+         $('#new_city_name').show();
+         $('#new_pin_code').show();
+         $('#street_address').show();
+         $('#longitude_address').show();
+         $('#latitude_address').show();
+         $('#address_status').show();
+         $('#country_save_btn').show();
+         $('#state_name').hide();
+        }
+        else 
+        {
+          $.get("/countries/"+ cunt_data+ ".js", {}, function(data) {
+        }); 
+          $('#new_country_name').hide();
+          $('#new_state_name').hide();
+         $('#new_city_name').hide();
+         $('#new_pin_code').hide();
+         $('#street_address').hide();
+         $('#longitude_address').hide();
+         $('#latitude_address').hide();
+         $('#address_status').hide();
+         $('#country_save_btn').show();          
+          $('#state_name').show();
+          $('#location_country_id').val('');
+        
+        }
            
-//   jQuery('#upload_file_attachment').live('click', function(event)
-//   {
-//   alert('hello');
-//   });  
-   
-//   $("#upload_file_attachment").change(function (e) {
-//    var file, img;
-//    if ((file = this.files[0])) {
-//        img = new Image();
-//        img.onload = function () {
-//            alert("Width:" + this.width + "   Height: " + this.height);//this will give you image width and height and you can easily validate here....
-//        };
-//    }
-    
+      });
 
     
     

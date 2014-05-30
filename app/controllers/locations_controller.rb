@@ -24,8 +24,21 @@ class LocationsController < ApplicationController
   # POST /locations
   # POST /locations.json
   def create
-    @location = Location.new(location_params)
-    @location.save
+    if params[:location][:country_id] == '0'
+      @country = Country.create!(name: params[:location][:new_country])
+      @state = State.create!(country_id: @country.id, name: params[:location][:new_state])
+      @city = City.create!(state_id: @state.id, name: params[:location][:new_city])
+      @pin = Pin.create!(city_id: @city.id, code: params[:location][:new_pin])
+      @location = Location.new(location_params)
+      @location.country_id = @country.id
+      @location.state_id = @state.id
+      @location.city_id = @city.id
+      @location.pin_id = @pin.id
+      @location.save
+    else
+      @location = Location.new(location_params)
+      @location.save
+    end
 #    respond_to do |format|
 #      if @location.save
 #        format.html { redirect_to @location, notice: 'Location was successfully created.' }
@@ -55,10 +68,10 @@ class LocationsController < ApplicationController
   # DELETE /locations/1.json
   def destroy
     @location.destroy
-#    respond_to do |format|
-#      format.html { redirect_to locations_url }
-#      format.json { head :no_content }
-#    end
+    respond_to do |format|
+      format.html { redirect_to locations_url }
+      format.json { head :no_content }
+    end
   end
 
   private
@@ -69,6 +82,6 @@ class LocationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def location_params
-      params.require(:location).permit(:city_id, :pin_id, :street_address, :longitude, :latitude, :user_id, :organization_id, :status)
+      params.require(:location).permit(:country_id, :state_id,:city_id, :pin_id, :street_address, :longitude, :latitude, :user_id, :organization_id, :status)
     end
 end

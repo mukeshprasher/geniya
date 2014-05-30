@@ -133,40 +133,56 @@ $(function() {
             remote_filter: function(query, callback) {
               $.getJSON("/organizations.json", {q: query}, function(data) {
                 callback(data)
-                $('.orgn-data').click(function(){
-                  var org_data = $(this).attr( "data" )
-                  $.get("/organizations/"+ org_data+ ".js", {}, function(data) {
-                    callback(data)
-                  });              
-                });                
+              $('.orgn-data').click(function(){
+              
+              var org_data = $(this).attr( "data" )
+              $.get("/organizations/"+ org_data+ ".js", {}, function(data) {
+//                callback(data)
+              });              
+              });                
               });
             }
           }
         });         
 
 
-      $("#srch_country")
-      .atwho({
-        at: "", 
-        tpl: "<li data-value='${atwho-at}${name}' class='country-data' data='${id}'>${name}</li>",
-        callbacks: {
-          remote_filter: function(query, callback) {
-            $.getJSON("/countries.json", {q: query}, function(data) {
-              callback(data)
-              $('.country-data').click(function(){
-//              alert($(this).attr( "data" ));
-              var cunt_data = $(this).attr( "data" )
-              $.get("/countries/"+ cunt_data+ ".js", {}, function(data) {
-                callback(data)
-              });              
-              });             
-            
-            });
-            }
-          }
-        });         
+//      $("#srch_country")
+//      .atwho({
+//        at: "", 
+//        tpl: "<li data-value='${atwho-at}${name}' class='country-data' data='${id}'>${name}</li>",
+//        callbacks: {
+//          remote_filter: function(query, callback) {
+//            $.getJSON("/countries.json", {q: query}, function(data) {
+//              callback(data)
+//              $('.country-data').click(function(){
+////              alert($(this).attr( "data" ));
+//              var cunt_data = $(this).attr( "data" )
+//              $.get("/countries/"+ cunt_data+ ".js", {}, function(data) {
+//                callback(data)
+//              });              
+//              });             
+//            
+//            });
+//            }
+//          }
+//        });         
 
-
+//      $('#location_country_id').change(function(){
+//        var cunt_data = $(this).val()
+//        if(cunt_data == 0)
+//        {
+//        $.get("/countries/"+ cunt_data+ ".js", {}, function(data) {
+//          callback(data)
+//        $('#new_country_name').show();
+//        }); 
+//        }
+//        else 
+//        {
+//        $.get("/countries/"+ cunt_data+ ".js", {}, function(data) {
+//          callback(data)
+//        });    
+//        }   
+//      });
 
 
 

@@ -1,2 +1,12 @@
-= text_field_tag 'country', nil, placeholder: 'Search Countries here...', id:"srch_country"
+/= text_field_tag 'country', nil, placeholder: 'Search Countries here...', id:"srch_country"
+%span#city_label
+  Select Country:
+%p  
+  %select#location_country_id.select.required{name: "location[country_id]"}
+    %option{value: "0"}   Select Country
+    -c = Country.all
+    - c.each do|c|
+      %option{value: "#{c.id}"}   #{c.name}
+    %option{value: "0"}   Add New Country  
+
 #states_form_container
