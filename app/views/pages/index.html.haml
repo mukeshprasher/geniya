@@ -43,17 +43,16 @@
           = render 'shared/jobs_detail'
 - else
   .index_user_slider
-    
     - @top_users.each do |user|
-      .index_user_slide_item
-        %a{href:"/users/"+"#{user.slug}"}
+      %a{href:"/users/"+"#{user.slug}"}
+        .index_user_slide_item
           - if user.headshot
-            =image_tag user.headshot.file_attachment.url(:thumb), width: "300px", height: "300px"
+            =image_tag user.headshot.file_attachment.url(:thumb), width: "215px", height: "215px"
           - else
-            =image_tag '/assets/missing.png', width: "300px", height: "300px"
+            =image_tag '/assets/missing.png', width: "215px", height: "215px"
     /%img{alt: "slider", src: "/assets/slide1.jpg"}/
   .slogan
-    .wrapper_c
+    .wrapper_c_not_required
       Get Going with Geniya -
       %span "Be Successful"
   .choose

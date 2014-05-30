@@ -2,7 +2,14 @@ class Advertisement < ActiveRecord::Base
   belongs_to :user
   has_many :likes,foreign_key: 'likeable_id'
   has_many :comments, foreign_key: 'commentable_id'
-  has_attached_file :file_attachment, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/assets/missing.png", :hash_secret => "geniyaAttach"
+  has_attached_file :file_attachment, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/assets/missing.png", :hash_secret => "geniyaAttach",
+                        :storage        => :s3                                                 ,
+                      :s3_credentials => {:bucket            => 'geniya',
+                                          :access_key_id     => 'AKIAIDTQALVDJOTAFN5A',
+                                          :secret_access_key => '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'},
+                      :s3_protocol    => "https"                                             ,
+                      :s3_host_name   => "s3-us-west-1.amazonaws.com",
+                      :bucket => "geniya"
   validates_attachment :file_attachment, :presence => true,
   :content_type => { :content_type => ["image/jpg", "image/jpeg", "image/gif", "image/png", "application/pdf", "video/mpeg", "video/ogg", "video/mp4", "video/webm", "video/x-flv", "video/x-msvideo", "video/3gpp"] },
   :size => { :in => 0..10.megabytes },
