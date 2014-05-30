@@ -35,6 +35,27 @@ class LocationsController < ApplicationController
       @location.city_id = @city.id
       @location.pin_id = @pin.id
       @location.save
+    elsif params[:location][:state_id] == '0'
+      @state = State.create!(country_id: params[:location][:country_id], name: params[:location][:new_state])
+      @city = City.create!(state_id: @state.id, name: params[:location][:new_city])
+      @pin = Pin.create!(city_id: @city.id, code: params[:location][:new_pin])
+      @location = Location.new(location_params)
+      @location.state_id = @state.id
+      @location.city_id = @city.id
+      @location.pin_id = @pin.id
+      @location.save
+    elsif params[:location][:city_id] == '0'
+      @city = City.create!(state_id: params[:location][:state_id], name: params[:location][:new_city])
+      @pin = Pin.create!(city_id: @city.id, code: params[:location][:new_pin])
+      @location = Location.new(location_params)
+      @location.city_id = @city.id
+      @location.pin_id = @pin.id
+      @location.save       
+    elsif params[:location][:pin_id] == '0'
+      @pin = Pin.create!(city_id: params[:location][:city_id], code: params[:location][:new_pin])
+      @location = Location.new(location_params)
+      @location.pin_id = @pin.id
+      @location.save          
     else
       @location = Location.new(location_params)
       @location.save
@@ -68,10 +89,10 @@ class LocationsController < ApplicationController
   # DELETE /locations/1.json
   def destroy
     @location.destroy
-    respond_to do |format|
-      format.html { redirect_to locations_url }
-      format.json { head :no_content }
-    end
+#    respond_to do |format|
+#      format.html { redirect_to locations_url }
+#      format.json { head :no_content }
+#    end
   end
 
   private

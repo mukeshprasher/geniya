@@ -1,5 +1,5 @@
 - c = @country.states
-%select#location_state_id.select.required{name: "location[state_id]"}
+%select#location_old_state_id.select.required{name: "location[state_id]"}
   %option{value: ""}   Select State
   - c.each do|s|
     %option{value: "#{s.id}"}   #{s.name}
