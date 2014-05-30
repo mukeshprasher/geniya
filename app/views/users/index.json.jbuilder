@@ -4,6 +4,6 @@ json.array!(@users) do |user|
   if user.headshot
     json.headshot user.headshot.file_attachment.url(:thumb)
   else
-    json.headshot "/assets/file-upload.jpg"
+    json.headshot "/assets/missing-image-geniya.png"
   end
 end

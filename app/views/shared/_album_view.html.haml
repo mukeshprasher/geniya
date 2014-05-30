@@ -4,7 +4,7 @@
       - album.multiuploads.last(1).each do|upload_img_name|
         = image_tag upload_img_name.multiupload.url(:original), alt: upload_img_name.multiupload_file_name    
     -else
-      =image_tag '/assets/file-upload.jpg', width: "100%" 
+      =image_tag '/assets/missing-image-geniya.png', width: "100%" 
     /-if album.uploads.any?
     /  = image_tag album.uploads.first.file_attachment.url(:medium), title: album.name, width: "100%" 
   %p.album-name
