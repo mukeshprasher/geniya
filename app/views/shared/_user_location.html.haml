@@ -3,9 +3,12 @@
   
   #dd
   .form-inputs
+    #Country_name
+      %span#state_label
+        Please Select Country:
     %p  
       %select#location_old_country_id.select.required{name: "location[country_id]"}
-        %option{value: ""}   Select Country
+        %option{value: "null"}   Select Country
         -c = Country.all
         - c.each do|c|
           %option{value: "#{c.id}"}   #{c.name}
@@ -21,6 +24,15 @@
           Select State:  
         %p#state_slect_box
 
+      #user_city_name
+        %span#state_label
+          Select City:  
+        %p#city_slect_box
+
+      #user_pin_code
+        %span#state_label
+          Select Pin/Zipcode:  
+        %p#pin_slect_box
 
       #new_state_name
         %span#state_label

@@ -1,0 +1,10 @@
+$('#address_form_area_close').click();
+$('.address_box_container').hide();
+$("#user_addrss_detail").html("<%= escape_javascript(render('locations/current_address', {:location => @location})) %>");
+$('#location_new_pin').val('');
+$('#location_street_address').val('');
+$('#location_longitude').val('');
+$('#location_latitude').val('');
+$('#form_country_container').hide();
+
+$('#form_country_container').hide();

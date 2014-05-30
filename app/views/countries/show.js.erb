@@ -1,3 +1,4 @@
+$('#form_country_container').show();
 $("#srch_country").val('');
 $('.address_box_container').show();
 $("#state_slect_box").html("<%= escape_javascript(render('states/select_state', {:country => @country})) %>");
