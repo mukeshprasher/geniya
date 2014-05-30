@@ -1,4 +1,5 @@
 Geniya::Application.routes.draw do
+  resources :activities
   resources :locations
 
   resources :pins

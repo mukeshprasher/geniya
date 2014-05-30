@@ -2,7 +2,6 @@
   #header_wrapper.wrapper_c
     %ul.login_nav
       - if signed_in?
-        /%li= link_to "Profile", current_user
         %a{href:"/users/"+"#{current_user.slug}"}
           %li.spacial 
             %span
@@ -15,10 +14,7 @@
         %li
           |
         %li= link_to 'Home', root_path
-        /%li
-        /  = link_to 'My Conversations', :conversations       
-        %li
-          |        
+        
         /%li#fat-menu.dropdown
         /  %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
         /    My Account
@@ -35,6 +31,8 @@
           = link_to "Logout", signout_path, method: "delete"
       - else
         %li= link_to 'Home', root_path
+        %li 
+          |
         %li= link_to "Register", signup_path
         %li.login
           = link_to "Login", signin_path

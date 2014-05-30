@@ -51,6 +51,7 @@ class User < ActiveRecord::Base
     has_one :covershot, -> { where special_attribute: 'covershot' }, class_name: 'Cover', through: :cover_pic_album, source: :covers
     
     has_many :comments
+    has_many :activities
     
     before_create :create_remember_token
     

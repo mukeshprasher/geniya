@@ -1,0 +1,21 @@
+%p#notice= notice
+
+%p
+  %b User:
+  = @activity.user_id
+%p
+  %b Acted upon type:
+  = @activity.acted_upon_type
+%p
+  %b Acted upon:
+  = @activity.acted_upon_id
+%p
+  %b Action:
+  = @activity.action
+%p
+  %b Description:
+  = @activity.description
+
+= link_to 'Edit', edit_activity_path(@activity)
+\|
+= link_to 'Back', activities_path

@@ -2,9 +2,9 @@
   .wrapper
     .slider_profile
       .cover-photo
-        - if signed_in?
-          - if current_user.covershot
-            = render "shared/cover_thumb"     
+        .cover-pic
+          - if @user.covershot
+            = image_tag @user.covershot.file_attachment.url(:large)     
       .anisten
         .ani_top
           %h2
@@ -99,8 +99,17 @@
                     .modal-header
                       %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
                       %h4.modal-title Upload Cover Photo
-                    .modal-body
-                      = render 'shared/cover_img'
+                    .modal-body#profile_cover_upload_modal_body
+                      = form_for @covershot,  :html => { :multipart => true, id: :cover_img_form} do |f|
+                        = f.hidden_field :album_id, value: current_user.cover_pic_album.id
+                        = f.hidden_field :upload_type, value: current_user.cover_pic_album.kind  
+                        = f.hidden_field :name, value: current_user.name
+                        = f.hidden_field :special_attribute, value: "covershot"
+                        .field
+                          = f.file_field :file_attachment, id: "cover_img"
+                        .actions
+                          = f.submit 'Upload Cover Photo', id: "upload_cover_pic"
+                        %img{alt: "loading", src: "/assets/loader.gif", style: "visibility: hidden"}/
                     .modal-footer
                       %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
                       /%button.btn.btn-primary{type: "button"} Save changes
@@ -121,8 +130,11 @@
       .clear
     .profile_picture
       .pick
-        - if @user.headshot
-          = render "shared/profile_thumb", current_user: @user
+        .proflie
+          - if @user.headshot
+            = image_tag @user.headshot.file_attachment.url(:medium)
+          - else
+            = image_tag '/assets/missing.png', width: "198px", height: "198px"
       - if signed_in?
         - if (@user.name== current_user.name)     
           .ProfilePicSelector
@@ -137,8 +149,17 @@
                     .modal-header
                       %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
                       %h4.modal-title Upload Profile Photo
-                    .modal-body
-                      = render 'shared/profile_img'
+                    .modal-body#profile_pic_upload_modal_body
+                      %img{alt: "loading", src: "/assets/loader.gif", style: "visibility: hidden"}/
+                      = form_for @headshot, remote: true, :html => {  id: :profile_img_form  }  do |f|
+                        = f.hidden_field :album_id, value: current_user.profile_pic_album.id
+                        = f.hidden_field :upload_type, value: current_user.profile_pic_album.kind
+                        = f.hidden_field :name, value: current_user.name
+                        = f.hidden_field :special_attribute, value: "headshot"
+                        .field
+                          = f.file_field :file_attachment, id: "profile_img"
+                        .actions
+                          = f.submit 'Upload Profile Pic', id: "upload_profile_pic"
                     .modal-footer
                       %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
                   %a.demo{"data-toggle" => "modal",href: "#uploadphoto", id: "#uploadphoto"}
@@ -168,11 +189,41 @@
         .modal-footer
           %button#add_tag_modal_close.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
       - if signed_in?
-        - if (@user.id== current_user.id)    
-          %a.demo{"data-toggle" => "modal",href: "#tags"}
-            Add Tags      
-      %ul#tags-field
-        = render 'tags', user: @user
+        #add_tag_link
+          - if (@user.id== current_user.id)    
+            %a.demo{"data-toggle" => "modal",href: "#tags"}
+              Add Tags      
+
+      #a
+        %ul#tags-field
+          - @user.tags.each_with_index do |tag, index|
+            - if index%2 == 0
+              %li[tag]
+                - if(tag.id%2 == 0) 
+                  %span
+                    = link_to tag.name, tag
+                    - if current_user and @user.id == current_user.id
+                      = link_to "x", '/user_tags/' + tag.user_tags.where(user_id: current_user.id).first.id.to_s, method: :delete, :data => { :confirm => 'Are you sure?' }, class: 'tag_delete', remote: true
+                - else
+                  = link_to tag.name, tag
+                  - if current_user and @user.id == current_user.id
+                    = link_to "x", '/user_tags/' + tag.user_tags.where(user_id: current_user.id).first.id.to_s, method: :delete, :data => { :confirm => 'Are you sure?' }, class: 'tag_delete', remote: true
+      #b
+        _
+      #c
+        %ul#tags-field
+          - @user.tags.each_with_index do |tag, index|
+            - unless index%2 == 0
+              %li[tag]
+                - if(tag.id%2 == 0) 
+                  %span
+                    = link_to tag.name, tag
+                    - if current_user and @user.id == current_user.id
+                      = link_to "x", '/user_tags/' + tag.user_tags.where(user_id: current_user.id).first.id.to_s, method: :delete, :data => { :confirm => 'Are you sure?' }, class: 'tag_delete', remote: true
+                - else
+                  = link_to tag.name, tag
+                  - if current_user and @user.id == current_user.id
+                    = link_to "x", '/user_tags/' + tag.user_tags.where(user_id: current_user.id).first.id.to_s, method: :delete, :data => { :confirm => 'Are you sure?' }, class: 'tag_delete', remote: true
   %section.main_container
     .wrapper
       .span690.inline_block
@@ -288,7 +339,7 @@
                                
             
             #ajax-portfolio-detail-homepage.modal.fade.modal-scrollable{style: "display: none;", tabindex: "-1"}
-            - @user.albums.each do |album|
+            - @user.albums.where(kind: 'portfolio').each do |album|
               = render 'shared/album_thumb', album: album
             
             /#pp_gallery.pp_gallery

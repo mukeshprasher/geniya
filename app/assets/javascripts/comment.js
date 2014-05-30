@@ -198,6 +198,7 @@ $(function() {
           $("#cover_img").val('');
           return false;
           }
+        $('#profile_cover_upload_modal_body').append('<img src="/assets/loader.gif" alt="loading" />')
         $('#cover_img_form').submit(); //better ways to do it ^^
 //        $('.modal-scrollable').hide('slow');
 //        $('.modal-backdrop.fade.in').hide();
@@ -539,6 +540,7 @@ $(function() {
           $("#profile_img").val('');
           return false;
           }
+        $('#profile_pic_upload_modal_body').append('<img src="/assets/loader.gif" alt="loading" />')
         $('#profile_img_form').submit(); //better ways to do it ^^
 //        $('.modal-scrollable').hide('slow');
 //        $('.modal-backdrop.fade.in').hide();
