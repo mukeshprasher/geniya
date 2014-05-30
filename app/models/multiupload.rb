@@ -1,6 +1,13 @@
 class Multiupload < ActiveRecord::Base
   belongs_to :album
-  has_attached_file :multiupload
+  has_attached_file :multiupload,
+                        :storage        => :s3                                                 ,
+                      :s3_credentials => {:bucket            => 'geniya',
+                                          :access_key_id     => 'AKIAIDTQALVDJOTAFN5A',
+                                          :secret_access_key => '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'},
+                      :s3_protocol    => "https"                                             ,
+                      :s3_host_name   => "s3-us-west-1.amazonaws.com",
+                      :bucket => "geniya"
 
   include Rails.application.routes.url_helpers
 

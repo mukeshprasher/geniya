@@ -40,4 +40,15 @@ Geniya::Application.configure do
         :authentication => :plain,
         :enable_starttls_auto => true
   }
+
+  Paperclip.options[:command_path] = "/usr/local/bin/"
+
+  config.paperclip_defaults = {
+    :storage => :s3,
+    :s3_credentials => {
+      :bucket => ENV['geniya'],
+      :access_key_id => ENV['AKIAIDTQALVDJOTAFN5A'],
+      :secret_access_key => ENV['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']
+    }
+  }
 end
