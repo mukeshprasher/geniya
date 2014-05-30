@@ -1,5 +1,5 @@
 %select#location_old_city_id.select.required{name: "location[city_id]"}
-  %option{value: "0"}   Select City
+  %option{value: "null"}   Select City
   - c.each do|s|
     %option{value: "#{s.id}"}   #{s.name}
   %option{value: "0"}   Add New City  
