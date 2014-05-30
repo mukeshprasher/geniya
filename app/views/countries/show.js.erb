@@ -1,4 +1,4 @@
 $("#srch_country").val('');
 $('.address_box_container').show();
-$("#states_form_container").html("<%= escape_javascript(render('shared/user_location', {:country => @country})) %>");
+$("#state_slect_box").html("<%= escape_javascript(render('states/select_state', {:country => @country})) %>");
 

@@ -2577,7 +2577,7 @@ textarea:focus, input[type="text"]:focus, input[type="password"]:focus, input[ty
     float: left;
 }
 
-#city_name, #pincode{display:none;}
+
 
 
 #user_addrss_detail {
@@ -2605,3 +2605,9 @@ color:#85AB48;
 .address-delete {
     float: right;
 }
+
+#new_country_name{display:none;}
+
+#new_state_name, #state_name, #new_city_name, #new_pin_code, #street_address, #longitude_address, #latitude_address, #address_status, #country_save_btn{display:none;}
+
+

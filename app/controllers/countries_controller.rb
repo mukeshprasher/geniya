@@ -20,6 +20,8 @@ class CountriesController < ApplicationController
     end
   end
 
+  def other_locations
+  end
 
   # GET /countries/new
   def new

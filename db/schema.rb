@@ -217,11 +217,17 @@ ActiveRecord::Schema.define(version: 20140527100011) do
   add_index "likes", ["liker_id", "liker_type"], name: "fk_likes"
 
   create_table "locations", force: true do |t|
+    t.integer  "country_id"
+    t.integer  "state_id"
     t.integer  "city_id"
     t.integer  "pin_id"
     t.string   "street_address"
     t.decimal  "longitude"
     t.decimal  "latitude"
+    t.string   "new_country"
+    t.string   "new_state"
+    t.string   "new_city"
+    t.string   "new_pin"
     t.string   "status"
     t.integer  "user_id"
     t.integer  "organization_id"

@@ -2,42 +2,63 @@
   = f.error_notification
   
   #dd
+  = @country.id
   .form-inputs
-    .address_box_container
-      #country_name
-        %label
-        = @country.name
+    %p  
+      %select#location_old_country_id.select.required{name: "location[country_id]"}
+        %option{value: ""}   Select Country
+        -c = Country.all
+        - c.each do|c|
+          %option{value: "#{c.id}"}   #{c.name}
+        %option{value: "0"}   Add New Country      
+    #form_country_container
+      #new_country_name
+        %span#state_label
+          Enter Country Name:
+        = text_field(:location, :new_country, placeholder: 'Enter Country Name here:')    
+
       #state_name
         %span#state_label
           Select State:  
-        %p
-          = render 'states/select_state', c: @country.states
-      #city_name
-        %span#city_label
-          City:
-        %p
-          %span#city_content_area
-      #pincode
-        %span#pin_label
-          Pin/Zip Code:
-        %p
-          %span#pin_content_area
-                    
+        %p#state_slect_box
+
+
+      #new_state_name
+        %span#state_label
+          Enter state Name:
+        = text_field(:location, :new_state, placeholder: 'Enter state Name here:')
+        
+        
+      #new_city_name
+        %span#state_label
+          Enter City Name:
+        = text_field(:location, :new_city, placeholder: 'Enter city Name here:')       
+
+      #new_pin_code
+        %span#state_label
+          Enter Pin/Zipcode:
+        = text_field(:location, :new_pin, placeholder: 'Enter Pin/zip code here:')
+         
       #street_address
         %span#state_label
           Enter Street Address:  
         %p
-      = text_field(:location, :street_address, placeholder: 'Please Enter Your Street address here')
+        = text_field(:location, :street_address, placeholder: 'Please Enter Your Street address here')
+
       #longitude_address
         %span#state_label
           Longitude:  
         %p
-      = text_field(:location, :longitude, placeholder: 'Please Enter longitude Information')    
+        = text_field(:location, :longitude, placeholder: 'Please Enter longitude Information')  
+
+
       #latitude_address
         %span#state_label
           Latitude:  
         %p
-      = text_field(:location, :latitude, placeholder: 'Please Enter latitude Information') 
+        = text_field(:location, :latitude, placeholder: 'Please Enter latitude Information') 
+
+
       #address_status
         #add_status
           %span#state_label
@@ -50,10 +71,11 @@
           %span
             No          
           = f.radio_button :status, "no"
-      = f.hidden_field :user_id, value: current_user.id          
-      
-    .aff_btn
-      = f.button :submit, value:"Save", id:"aff_add_btn"
+
+        = f.hidden_field :user_id, value: current_user.id          
+        
+      #country_save_btn
+        = f.button :submit, value:"Save", id:"aff_add_btn"
 :javascript
 
   $('#location_state_id').change(function(){

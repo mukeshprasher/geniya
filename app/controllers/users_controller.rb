@@ -28,6 +28,8 @@ class UsersController < ApplicationController
       @affiliation = current_user.affiliations.build
       @organization = current_user.organizations.build
       @tag = current_user.tags.build
+      @location = current_user.locations.build
+      @country = Country.new
     end
   end
 
