@@ -27,9 +27,13 @@ class LocationsController < ApplicationController
     if params[:location][:country_id] == '0'
       @country = Country.create!(name: params[:location][:new_country])
       @state = State.create!(country_id: @country.id, name: params[:location][:new_state])
+      @city = City.create!(state_id: @state.id, name: params[:location][:new_city])
+      @pin = Pin.create!(city_id: @city.id, code: params[:location][:new_pin])
       @location = Location.new(location_params)
       @location.country_id = @country.id
       @location.state_id = @state.id
+      @location.city_id = @city.id
+      @location.pin_id = @pin.id
       @location.save
     else
       @location = Location.new(location_params)

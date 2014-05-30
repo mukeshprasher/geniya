@@ -29,7 +29,6 @@ class UsersController < ApplicationController
       @organization = current_user.organizations.build
       @tag = current_user.tags.build
       @location = current_user.locations.build
-      @country = Country.new
     end
   end
 
