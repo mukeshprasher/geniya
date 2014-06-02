@@ -1,11 +1,34 @@
-- user.tags.each do |tag|
-  %li[tag]
-    - if(tag.id%2 == 0) 
-      %span
-        = link_to tag.name, tag
-        - if current_user and user.id == current_user.id
-          = link_to "x", '/user_tags/' + tag.user_tags.where(user_id: current_user.id).first.id.to_s, method: :delete, :data => { :confirm => 'Are you sure?' }, class: 'tag_delete', remote: true
-    - else
-      = link_to tag.name, tag
-      - if current_user and user.id == current_user.id
-        = link_to "x", '/user_tags/' + tag.user_tags.where(user_id: current_user.id).first.id.to_s, method: :delete, :data => { :confirm => 'Are you sure?' }, class: 'tag_delete', remote: true
+#profile_tags_left
+  %ul#tags-field
+    - @i = 0
+    - @user.tags.each_with_index do |tag, index|
+      - if index%2 == 0
+        %li[tag]
+          - if(@i%2 == 0) 
+            %span
+              = link_to tag.name, tag
+              - if !tag.id.nil? and current_user and @user.id == current_user.id
+                = link_to "x", '/user_tags/' + UserTag.find_by(user_id: current_user.id, tag_id: tag.id).id.to_s, method: :delete, :data => { :confirm => 'Are you sure?' }, class: 'tag_delete', remote: true
+          - else
+            = link_to tag.name, tag
+            - if !tag.id.nil? and current_user and @user.id == current_user.id
+              = link_to "x", '/user_tags/' + UserTag.find_by(user_id: current_user.id, tag_id: tag.id).id.to_s, method: :delete, :data => { :confirm => 'Are you sure?' }, class: 'tag_delete', remote: true
+          - @i += 1
+#profile_tags_middle
+  _
+#profile_tags_right
+  %ul#tags-field
+    - @j = 0
+    - @user.tags.each_with_index do |tag, index|
+      - unless index%2 == 0
+        %li[tag]
+          - unless(@j%2 == 0) 
+            %span
+              = link_to tag.name, tag
+              - if  !tag.id.nil? and current_user and @user.id == current_user.id
+                = link_to "x", '/user_tags/' + UserTag.find_by(user_id: current_user.id, tag_id: tag.id).id.to_s, method: :delete, :data => { :confirm => 'Are you sure?' }, class: 'tag_delete', remote: true
+          - else
+            = link_to tag.name, tag
+            - if !tag.id.nil? and current_user and @user.id == current_user.id
+              = link_to "x", '/user_tags/' + UserTag.find_by(user_id: current_user.id, tag_id: tag.id).id.to_s, method: :delete, :data => { :confirm => 'Are you sure?' }, class: 'tag_delete', remote: true
+          - @j += 1

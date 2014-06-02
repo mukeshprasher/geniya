@@ -268,12 +268,6 @@ $(function() {
     });
   };
 
-  $('#close').on('click', function(){
-    $.get("/ajax/portfolio_detail/"+ $(this).attr('data'), {}, function(data) {
-      $('#album-cont').html(data)
-    });
-  });
-
 
   $(document).ready(toDoOnload);
   $(document).on('page:load', toDoOnload);

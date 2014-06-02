@@ -128,7 +128,32 @@
 <script type="text/javascript" charset="utf-8">
   $(function () {
       // Initialize the jQuery File Upload widget:
-      $('#fileupload').fileupload();
+      $('#fileupload').fileupload({
+          done: function (e, data) {
+            $.getJSON($('#fileupload').prop('action') + '?album_id=<%= album_id %>', function (files) {
+              var fu = $('#fileupload').data('blueimpFileupload'),
+                template;
+              fu._adjustMaxNumberOfFiles(-files.length);
+              template = fu._renderDownload(files)
+              $('#fileupload .files').html(template)
+              // Force reflow:
+              fu._reflow = fu._transition && template.length &&
+                template[0].offsetWidth;
+              template.addClass('in');
+              $('#loading').remove();
+              
+            //  $.get('/albums/' + <%= album_id %> + '.js', {}, function(data){
+                
+             // });
+
+              $.each(data.result.files, function (index, file) {
+$('.album').append('<div class="fleft"><ul class="gallery clearfix"></ul></div><ul class="gallery clearfix"><li><a title="" rel="prettyPhoto[mixed]" href="'+ file.url +'"><img src="'+ file.url +'" alt="'+ file.name +'"></a></li></ul><ul id="album-upload-content"><li id="album-upload-title">'+ file.title +'</li><li id="album-upload-desc">'+ file.description +'</li></ul>')
+              });
+              
+            });
+
+          }
+      });
       //
       // Load existing files:
       $.getJSON($('#fileupload').prop('action') + '?album_id=<%= album_id %>', function (files) {

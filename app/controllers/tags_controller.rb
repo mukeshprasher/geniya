@@ -29,6 +29,9 @@ class TagsController < ApplicationController
   # POST /tags
   # POST /tags.json
   def create
+    @user = current_user
+    #@tag = current_user.tags.build
+
     tags = process_tags(params[:tag][:name])
     tags.each do |tag_name|
       searched_tag = Tag.find_by(name: tag_name)
@@ -36,6 +39,8 @@ class TagsController < ApplicationController
       tag.users << current_user unless tag.users.include? current_user
       tag.save
     end
+
+
   end
 
   # PATCH/PUT /tags/1
