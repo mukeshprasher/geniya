@@ -148,6 +148,7 @@ jQuery(document).ready(function(){
          $('#country_save_btn').show();
          $('#user_city_name').hide();
          $('#user_pin_code').hide();
+         
         }
         else if(cunt_data == 'null')
         {
@@ -267,7 +268,130 @@ jQuery(document).ready(function(){
            
       }); 
  
-  
+      jQuery("#new_location").submit(function(event){
+          var new_country_name = $("#location_new_country")
+          var new_state_name = $("#location_new_state")
+          var new_city_name = $("#location_new_city")
+          var new_pin_name = $("#location_new_pin")
+          var new_street_name = $("#location_street_address")
+            country = new_country_name.val();
+            state = new_state_name.val();
+            city = new_city_name.val();
+            pin = new_pin_name.val();
+            street = new_street_name.val();        
+        var country_id = $("#location_old_country_id").val();
+        if(country_id == 0)
+        { 
+            if( country == "")
+            {
+              alert("Please Enter the Country Name")
+              return false;
+            }
+            else if( state == "")
+            {
+              alert("Please Enter the State Name")
+              return false;
+            }
+            else if( city == "")
+            {
+              alert("Please Enter the City Name")
+              return false;
+            }
+            else if( pin == "")
+            {
+              alert("Please Enter the Pin/zipcode")
+              return false;
+            }                                    
+            else if( street == "")
+            {
+              alert("Please Enter the Street Address")
+              return false;
+            }
+          else
+          {
+              return true;  
+          }
+       
+        }
+        var state_id = $("#location_old_state_id").val();
+        if(state_id == 0)
+        { 
+
+            if( state == "")
+            {
+              alert("Please Enter the State Name")
+              return false;
+            }
+            else if( city == "")
+            {
+              alert("Please Enter the City Name")
+              return false;
+            }
+            else if( pin == "")
+            {
+              alert("Please Enter the Pin/zipcode")
+              return false;
+            }                                    
+            else if( street == "")
+            {
+              alert("Please Enter the Street Address")
+              return false;
+            }
+          else
+          {
+              return true;  
+          }
+       
+        }
+        
+        var city_id = $("#location_old_city_id").val();
+        if(city_id == 0)
+        { 
+           if( city == "")
+            {
+              alert("Please Enter the City Name")
+              return false;
+            }
+            else if( pin == "")
+            {
+              alert("Please Enter the Pin/zipcode")
+              return false;
+            }                                    
+            else if( street == "")
+            {
+              alert("Please Enter the Street Address")
+              return false;
+            }
+          else
+          {
+              return true;  
+          }
+       
+        }        
+        
+        var pin_id = $("#location_old_pin_id").val();
+        if(pin_id == 0)
+        { 
+           if( pin == "")
+            {
+              alert("Please Enter the Pin/zipcode")
+              return false;
+            }                                    
+            else if( street == "")
+            {
+              alert("Please Enter the Street Address")
+              return false;
+            }
+          else
+          {
+              return true;  
+          }
+       
+        }        
+        
+         });  
+
+
     
     
 });

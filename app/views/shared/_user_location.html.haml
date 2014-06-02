@@ -56,34 +56,34 @@
         %p
         = text_field(:location, :street_address, placeholder: 'Please Enter Your Street address here')
 
-      #longitude_address
-        %span#state_label
-          Longitude:  
-        %p
-        = text_field(:location, :longitude, placeholder: 'Please Enter longitude Information')  
+      /#longitude_address
+      /  %span#state_label
+      /    Longitude:  
+      /  %p
+      /  = text_field(:location, :longitude, placeholder: 'Please Enter longitude Information')  
 
 
-      #latitude_address
-        %span#state_label
-          Latitude:  
-        %p
-        = text_field(:location, :latitude, placeholder: 'Please Enter latitude Information') 
+      /#latitude_address
+      /  %span#state_label
+      /    Latitude:  
+      /  %p
+      /  = text_field(:location, :latitude, placeholder: 'Please Enter latitude Information') 
 
 
-      #address_status
-        #add_status
-          %span#state_label
-            Set as Current Address:  
-        #current_address
-          %span
-            Yes
-          = f.radio_button :status, "yes", :checked => true         
-        #not_current
-          %span
-            No          
-          = f.radio_button :status, "no"
+      /#address_status
+      /  #add_status
+      /    %span#state_label
+      /      Set as Current Address:  
+      /  #current_address
+      /    %span
+      /      Yes
+      /    = f.radio_button :status, "current", :checked => true         
+      /  #not_current
+      /    %span
+      /      No          
+      /    = f.radio_button :status, "old"
 
-        = f.hidden_field :user_id, value: current_user.id          
+      = f.hidden_field :user_id, value: current_user.id          
         
       #country_save_btn
         = f.button :submit, value:"Save", id:"aff_add_btn"
