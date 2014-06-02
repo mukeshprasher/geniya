@@ -976,7 +976,7 @@ form {margin: 0 0 5px;}
     left: 0;
     padding: 0 10px;
     position: absolute;
-    top: 0;width: 220px;min-height: 300px;}
+    top: 0;width: 250px;min-height: 300px;}
 
 .anisten .ani_top {border-bottom: 1px dashed #B9B5BB;}
 
@@ -984,7 +984,7 @@ form {margin: 0 0 5px;}
 
 .anisten .ani_top h2 span {display: block;font-family: 'latobold';font-size: 14px;padding-top: 7px;}
 
-.anisten .art_gallery ul {list-style: none outside none;padding-top: 17px;}
+.anisten .art_gallery ul {list-style: none outside none;padding-top: 0px;}
 
 .anisten .art_gallery ul li {display: block;}
 
@@ -2584,6 +2584,7 @@ textarea:focus, input[type="text"]:focus, input[type="password"]:focus, input[ty
 #user_addrss_detail a {
     color: #FFFFFF;
     font-size: 15px;
+    text-transform: capitalize;
 }
 #user_addrss_detail {
     color: #FFFFFF;
@@ -2617,3 +2618,9 @@ color:#85AB48;
   width: 408px;
 }
 
+
+.user_address span {
+    color: #FFFFFF !important;
+    font-size: 12px !important;
+    text-transform: capitalize;
+}
