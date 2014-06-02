@@ -322,6 +322,15 @@ $(function() {
 
 
 
+   
+
+
+
+
+
+
+
+
 
 
     $("#new_education").submit(function(){

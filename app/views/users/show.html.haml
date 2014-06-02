@@ -61,7 +61,7 @@
             #address.modal.fade{"data-width" => "760", style: "display: none;", tabindex: "-1"}
               .modal-header
                 %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
-                %h4.modal-title Add Address details:
+                %h4.modal-title Location details:
               .modal-body
                 - if signed_in?
                   = render 'shared/user_location'
@@ -69,9 +69,12 @@
                 %button.btn.btn-default#address_form_area_close{"data-dismiss" => "modal", type: "button"} Close
                 /%button.btn.btn-primary{type: "button"} Save changes
             %a.demo{"data-toggle" => "modal",href: "#address"}
-              %b
+              %b#user_address_title_container
                 - if (current_user == @user) && signed_in?
-                  Add Addresses           
+                  -if @user.locations.any?
+                    Change Location
+                  - else
+                    Add Location       
             %li
               %span
               #user_addrss_detail
