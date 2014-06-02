@@ -384,7 +384,7 @@
                       = @user.username
                       Followers
                   .modal-body
-                    - @users = @user.followers
+                    - @users = @user.followers.limit(18)
                     - if @users.any?
                       %ul.users= render @users
                   .modal-footer
