@@ -2,7 +2,7 @@
   .user_img
     %a{href:"/users/"+"#{user.slug}"}
       - if user.headshot
-        =image_tag user.headshot.file_attachment.url(:thumb)
+        =image_tag user.headshot.file_attachment.url(:thumb), title: "#{user.name}"
       - else
         =image_tag '/assets/missing.png', width: "65px", height: "65px", title: "#{user.name}"
   /.user_name
