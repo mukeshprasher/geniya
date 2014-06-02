@@ -1,5 +1,9 @@
 $('#affiliation_organization_id').val('');
-$("#orgnz_detail").html("<%= escape_javascript(render('affiliations/current_company', {:affiliation => @affiliation})) %>");
+<% if @affiliation.status == 'yes' %>
+  $("#orgnz_detail").html("<%= escape_javascript(render('affiliations/current_company', {:affiliation => @affiliation})) %>");
+<% else %>
+  $("#prev_orgnz_detail").html("<%= escape_javascript(render('affiliations/previous_company', {:affiliation => @affiliation})) %>");
+<% end %>
 $('#affiliation_form_area_close').click()
 $('#orgn_detail').hide();
 $('#affilates_form_container').hide();
