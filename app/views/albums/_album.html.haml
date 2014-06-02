@@ -23,14 +23,14 @@
         #album-form.modal.fade{"data-width" => "760", style: "display: none;", tabindex: "-1"}
           .modal-header
             %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
-            %h4.modal-title Add Images to Portfolio, Album and Project
+            %h4.modal-title Add Images to #{@album.kind}
           .modal-body
             = render 'shared/multiupload_img', album_id: @album.id, album_name: @album.name
           .modal-footer
             %button#close.btn.btn-default{:data => "#{@album.id}", "data-dismiss" => "modal", type: "button"} Close
             /%button.btn.btn-primary{type: "button"} Save changes
         %a.demo{"data-toggle" => "modal",href: "#album-form", id: "add-img"}
-          Add Images to album      
+          Add Images to #{@album.kind}      
 
 
 
