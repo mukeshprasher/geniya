@@ -4,7 +4,7 @@ class LikesController < ApplicationController
   def create
     @object = params[:like][:likeable_type].constantize.find(params[:like][:likeable_id])
     current_user.like!(@object)
-    create_activity(@object.class.name, @object.id, 'like')
+    create_activity(@object.class.name, @object.id, 'like') unless params[:like][:likeable_type] == 'Comment'
   end
 
   def destroy

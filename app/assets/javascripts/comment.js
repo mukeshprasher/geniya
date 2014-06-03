@@ -4,6 +4,27 @@ $(function() {
     $(".comment-reply").click(function() {
       var comment_id=this.id.split("-")[1]
       $("#child-comment-form-"+comment_id).show();
+      $('#child_comment_reply_textarea_'+comment_id).focus();
+
+      $(this).attr('disabled','disabled');
+//      $('#child_comment_reply_textarea_'+comment_id).live("keypress", function(e) {
+//         var code = (e.keyCode ? e.keyCode : e.which);
+//         if (code == 13 && e.shiftKey) {
+//            var content = this.value;
+//            //var caret = getCaret(this);
+//            this.value = content + "\n"
+//            //this.value = content.substring(0,caret)+"\n"+content.substring(caret,content.length-1);
+//            $(this).attr('rows', parseInt($(this).attr('rows')) + 1)
+//            e.preventDefault();
+//            e.stopPropagation();
+//         }
+//         else if (code == 13) {
+//            e.preventDefault();
+//            e.stopPropagation();
+//            $(this).closest('form').submit();
+//            $(this).attr('rows', 1)
+//         }
+//      });
     });
     
     $(".comment-delete").click(function(){
@@ -97,18 +118,22 @@ $(function() {
  
 /// for submit comment through enter press
 
-  $('#comment_body').live("keypress", function(e) {
+  $('.comment_text_area').live("keypress", function(e) {
      var code = (e.keyCode ? e.keyCode : e.which);
      if (code == 13 && e.shiftKey) {
         var content = this.value;
-        var caret = getCaret(this);
-        this.value = content.substring(0,caret)+"\n"+content.substring(caret,content.length-1);
+        //var caret = getCaret(this);
+        this.value = content + "\n"
+        //this.value = content.substring(0,caret)+"\n"+content.substring(caret,content.length-1);
+        $(this).attr('rows', parseInt($(this).attr('rows')) + 1)
+        e.preventDefault();
         e.stopPropagation();
      }
      else if (code == 13) {
         e.preventDefault();
         e.stopPropagation();
         $(this).closest('form').submit();
+        $(this).attr('rows', 1)
      }
   });
  
