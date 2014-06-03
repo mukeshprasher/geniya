@@ -1,8 +1,11 @@
 %p.user_address{ :id => "current_address-#{@user.locations.last.id}" }
-  %span
-    %a{href:"/locations/"+"#{@user.locations.last.id}"}
-      = @user.locations.last.street_address
-    ,
+  - if @user.locations.last.street_address == ''
+    %span
+  - else
+    %span
+      %a{href:"/locations/"+"#{@user.locations.last.id}"}
+        = @user.locations.last.street_address
+      ,
   %span
     %a{href:"/cities/"+"#{@user.locations.last.city.id}"}
       = @user.locations.last.city.name

@@ -25,37 +25,69 @@ class LocationsController < ApplicationController
   # POST /locations.json
   def create
     if params[:location][:country_id] == '0'
-      @country = Country.create!(name: params[:location][:new_country])
-      @state = State.create!(country_id: @country.id, name: params[:location][:new_state])
-      @city = City.create!(state_id: @state.id, name: params[:location][:new_city])
-      @pin = Pin.create!(city_id: @city.id, code: params[:location][:new_pin])
-      @location = Location.new(location_params)
-      @location.country_id = @country.id
-      @location.state_id = @state.id
-      @location.city_id = @city.id
-      @location.pin_id = @pin.id
-      @location.save
+      if params[:location][:new_pin] == ''
+        @country = Country.create!(name: params[:location][:new_country])
+        @state = State.create!(country_id: @country.id, name: params[:location][:new_state])
+        @city = City.create!(state_id: @state.id, name: params[:location][:new_city])
+        @location = Location.new(location_params)
+        @location.country_id = @country.id
+        @location.state_id = @state.id
+        @location.city_id = @city.id
+        @location.save
+      else
+        @country = Country.create!(name: params[:location][:new_country])
+        @state = State.create!(country_id: @country.id, name: params[:location][:new_state])
+        @city = City.create!(state_id: @state.id, name: params[:location][:new_city])
+        @pin = Pin.create!(city_id: @city.id, code: params[:location][:new_pin])
+        @location = Location.new(location_params)
+        @location.country_id = @country.id
+        @location.state_id = @state.id
+        @location.city_id = @city.id
+        @location.pin_id = @pin.id
+        @location.save      
+      end
     elsif params[:location][:state_id] == '0'
-      @state = State.create!(country_id: params[:location][:country_id], name: params[:location][:new_state])
-      @city = City.create!(state_id: @state.id, name: params[:location][:new_city])
-      @pin = Pin.create!(city_id: @city.id, code: params[:location][:new_pin])
-      @location = Location.new(location_params)
-      @location.state_id = @state.id
-      @location.city_id = @city.id
-      @location.pin_id = @pin.id
-      @location.save
+      if params[:location][:new_pin] == ''
+        @state = State.create!(country_id: params[:location][:country_id], name: params[:location][:new_state])
+        @city = City.create!(state_id: @state.id, name: params[:location][:new_city])
+        @location = Location.new(location_params)
+        @location.state_id = @state.id
+        @location.city_id = @city.id
+        @location.save
+      else
+        @state = State.create!(country_id: params[:location][:country_id], name: params[:location][:new_state])
+        @city = City.create!(state_id: @state.id, name: params[:location][:new_city])
+        @pin = Pin.create!(city_id: @city.id, code: params[:location][:new_pin])
+        @location = Location.new(location_params)
+        @location.state_id = @state.id
+        @location.city_id = @city.id
+        @location.pin_id = @pin.id
+        @location.save      
+      end
     elsif params[:location][:city_id] == '0'
-      @city = City.create!(state_id: params[:location][:state_id], name: params[:location][:new_city])
-      @pin = Pin.create!(city_id: @city.id, code: params[:location][:new_pin])
-      @location = Location.new(location_params)
-      @location.city_id = @city.id
-      @location.pin_id = @pin.id
-      @location.save       
+      if params[:location][:new_pin] == ''
+        @city = City.create!(state_id: params[:location][:state_id], name: params[:location][:new_city])
+        @location = Location.new(location_params)
+        @location.city_id = @city.id
+        @location.save
+      else
+        @city = City.create!(state_id: params[:location][:state_id], name: params[:location][:new_city])
+        @pin = Pin.create!(city_id: @city.id, code: params[:location][:new_pin])
+        @location = Location.new(location_params)
+        @location.city_id = @city.id
+        @location.pin_id = @pin.id
+        @location.save      
+      end       
     elsif params[:location][:pin_id] == '0'
-      @pin = Pin.create!(city_id: params[:location][:city_id], code: params[:location][:new_pin])
-      @location = Location.new(location_params)
-      @location.pin_id = @pin.id
-      @location.save          
+      if params[:location][:new_pin] == ''
+        @location = Location.new(location_params)
+        @location.save
+      else
+        @pin = Pin.create!(city_id: params[:location][:city_id], code: params[:location][:new_pin])
+        @location = Location.new(location_params)
+        @location.pin_id = @pin.id
+        @location.save
+      end          
     else
       @location = Location.new(location_params)
       @location.save

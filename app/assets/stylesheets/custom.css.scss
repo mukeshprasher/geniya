@@ -2601,7 +2601,9 @@ color:#85AB48;
 }
 
 
-#new_country_name, #user_city_name, #user_pin_code{display:none;}
+#new_country_name, #user_city_name, #user_pin_code, {display:none;}
+
+.address_status{display:none;}
 
 #new_state_name, #state_name, #new_city_name, #new_pin_code, #street_address, #longitude_address, #latitude_address, #address_status, #country_save_btn{display:none;}
 

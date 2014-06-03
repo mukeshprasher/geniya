@@ -1,0 +1,12 @@
+-u = current_user.affiliations.where(status: 'no').order(end_date: :desc).first.end_date
+-w =  @affiliation.end_date 
+-if( w < u)
+  %p.aff_org_name{ :id => "current_company-#{current_user.affiliations.where(status: 'no').order(end_date: :desc).first.id}" }
+    %a{href:"/organizations/"+"#{current_user.affiliations.where(status: 'no').order(end_date: :desc).first.organization.id}"}
+      = current_user.affiliations.where(status: 'no').order(end_date: :desc).first.organization.name
+    = link_to "×", affiliation_path(current_user.affiliations.where(status: 'no').order(end_date: :desc).first.id), :method => :delete, :remote => true,  :disable_with => "×", :class => 'affiliation-delete' , :id => "affiliation-delete-#{current_user.affiliations.where(status: 'no').order(end_date: :desc).first.id}"
+- else
+  %p.aff_org_name{ :id => "current_company-#{@affiliation.id}" }
+    %a{href:"/organizations/"+"#{@affiliation.organization.id}"}
+      = @affiliation.organization.name
+    = link_to "×", affiliation_path(@affiliation.id), :method => :delete, :remote => true,  :disable_with => "×", :class => 'affiliation-delete' , :id => "affiliation-delete-#{@affiliation.id}"

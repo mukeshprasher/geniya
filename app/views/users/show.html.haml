@@ -31,7 +31,7 @@
               
               
               #orgnz_detail
-                - if @user.affiliations.any?
+                - if @user.affiliations.where(status: 'yes').any?
                   = render 'shared/current_company', user: @user  
                 - else
                   %span
@@ -39,13 +39,13 @@
             %li#affiliation_content
               %span Previous:
               
-              #orgnz_detail
-                - if @user.affiliations.any?
-                  %p.aff_org_name{ :id => "current_company-#{@user.affiliations.last.id}" }
-                    %a{href:"/organizations/"+"#{@user.affiliations.last.organization.id}"}
-                      = @user.affiliations.last.organization.name
+              #prev_orgnz_detail
+                - if @user.affiliations.where(status: 'no').any?
+                  %p.aff_org_name{ :id => "current_company-#{@user.affiliations.where(status: 'no').order(end_date: :desc).first.id}" }
+                    %a{href:"/organizations/"+"#{@user.affiliations.where(status: 'no').order(end_date: :desc).first.organization.id}"}
+                      = @user.affiliations.where(status: 'no').order(end_date: :desc).first.organization.name
                     -if (current_user == @user) && signed_in?
-                      = link_to "×", affiliation_path(@user.affiliations.last.id), :method => :delete, :remote => true,  :disable_with => "×", :class => 'affiliation-delete' , :id => "affiliation-delete-#{@user.affiliations.last.id}" 
+                      = link_to "×", affiliation_path(@user.affiliations.where(status: 'no').order(end_date: :desc).first.id), :method => :delete, :remote => true,  :disable_with => "×", :class => 'affiliation-delete' , :id => "affiliation-delete-#{@user.affiliations.where(status: 'no').order(end_date: :desc).first.id}" 
                 - else
                   %span
                     Add Detail
@@ -82,7 +82,7 @@
                   = render 'shared/current_address', user: @user
                 - else
                   %span
-                    Set Address   
+                    Set Location   
             %h3
               %span
                 %span#connct-counts

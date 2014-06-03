@@ -1,0 +1,23 @@
+<% @u = current_user.locations.last %>
+<% if @u.nil? %>
+  $("#user_address_title_container").html("Add Location");
+  $("#user_addrss_detail").html("<span> Set Location </span>");
+<% else %>
+  $("#user_addrss_detail").html("<%= escape_javascript(render('locations/remain_address', {:u => @u})) %>"); 
+<% end %>
+
+$("#user_address_title_container").html(" Change Location")
+
+
+$(".address-delete").click(function(){
+ var delcomment = confirm("Do you want to delete Address ?");
+ if(delcomment == true)
+ {
+ var delete_comment_id=this.id.split("-")[2]
+   $("#current_address-"+delete_comment_id).hide('slow');
+   return true;
+ }
+ else
+   {$("#current_address-"+delete_comment_id).show();
+   return false;}
+ });
