@@ -6,8 +6,6 @@
   $("#user_addrss_detail").html("<%= escape_javascript(render('locations/remain_address', {:u => @u})) %>"); 
 <% end %>
 
-$("#user_address_title_container").html(" Change Location")
-
 
 $(".address-delete").click(function(){
  var delcomment = confirm("Do you want to delete Address ?");

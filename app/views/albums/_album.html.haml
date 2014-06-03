@@ -30,7 +30,9 @@
             %button#close.btn.btn-default{:data => "#{@album.id}", "data-dismiss" => "modal", type: "button"} Close
             /%button.btn.btn-primary{type: "button"} Save changes
         %a.demo{"data-toggle" => "modal",href: "#album-form", id: "add-img"}
-          Add Images to #{@album.kind}      
+          /Add Images to #{@album.kind}
+          %span#add_img_btn
+            Add Images      
 
 
 

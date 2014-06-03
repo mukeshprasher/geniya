@@ -23,9 +23,12 @@
                 %button.btn.btn-default#affiliation_form_area_close{"data-dismiss" => "modal", type: "button"} Close
                 /%button.btn.btn-primary{type: "button"} Save changes
             %a.demo{"data-toggle" => "modal",href: "#affiliations"}
-              %b
+              %b#aff_title_container
                 - if (current_user == @user) && signed_in?
-                  Add Affiliations            
+                  -if @user.affiliations.any?
+                    Change Affiliations
+                  - else
+                    Add Affiliations                        
             %li#affiliation_content
               %span Current:
               
