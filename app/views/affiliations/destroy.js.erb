@@ -4,11 +4,7 @@
 <% else %>
   <% if @u.status == 'yes' %>
     <% @a = current_user.affiliations.where(status: 'yes').order(created_at: :desc).first %>
-    <% if @a.any? %>
-      $("#orgnz_detail").html("<%= escape_javascript(render('affiliations/remain_company', {:a => @a})) %>");
-    <% else %>
-      $("#orgnz_detail").html(" Add details");
-    <% end %>
+    $("#orgnz_detail").html("<%= escape_javascript(render('affiliations/remain_company', {:a => @a})) %>");
   <% else %>
     <% @b = current_user.affiliations.where(status: 'no').order(created_at: :desc).first %>
     $("#prev_orgnz_detail").html("<%= escape_javascript(render('affiliations/prev_remain', {:b => @b})) %>");

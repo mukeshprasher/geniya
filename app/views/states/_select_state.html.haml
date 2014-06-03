@@ -1,9 +1,9 @@
 - c = @country.states
 %select#location_old_state_id.select.required{name: "location[state_id]"}
-  %option{value: "null"}   Select State
+  %option{value: "null"}   Select State/Province
   - c.each do|s|
     %option{value: "#{s.id}"}   #{s.name}
-  %option{value: "0"}   Add New State
+  %option#default_select_option{value: "0"}   Add New State/Province
 
 
 

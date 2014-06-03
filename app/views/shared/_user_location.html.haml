@@ -12,7 +12,7 @@
         -c = Country.all
         - c.each do|c|
           %option{value: "#{c.id}"}   #{c.name}
-        %option{value: "0"}   Add New Country      
+        %option#default_select_option{value: "0"}   Add New Country      
     #form_country_container
       #new_country_name
         %span#state_label
