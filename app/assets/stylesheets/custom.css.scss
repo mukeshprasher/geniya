@@ -86,7 +86,9 @@ header { margin:0px; padding:0px; width:100%; background:#f3f1f1; position:relat
 
 .login_nav li a { color:#8fba37 }
 
-.login_nav li { border-right: 1px solid #E5E5E5; line-height: 12px; padding: 4px 7px; }
+.login_nav li { 
+//border-right: 1px solid #E5E5E5; 
+line-height: 12px; padding: 4px 7px; }
 
 .login_nav li:last-child { border:none }
 
@@ -417,7 +419,7 @@ input, textarea, .uneditable-input {
   border: 1px solid #C1C1C1;
   width: 100%;
   border-radius: 1px;
-  height: 78px;
+  #height: 78px;
   @include box_sizing;
 }
 
@@ -741,7 +743,7 @@ _user
 
 .btn.pubBtn, .comment-reply {background: none repeat scroll 0 0 #81AA05;border: 1px solid #81AA05;border-radius: 1px;color: #FFFFFF;}
 
-.text.required {height: 30px;}
+//.text.required {height: 30px;}
 
 .like-left{float:left;  width: auto;}
 
@@ -2636,3 +2638,9 @@ color:#85AB48;
     font-size: 12px !important;
     text-transform: capitalize;
 }
+
+.comment-reply[disabled] {
+  background-color: #81AA05;
+  cursor: not-allowed;
+}
+

@@ -18,7 +18,6 @@
 //= require jquery.remotipart
 //= require bootstrap
 //= require bootstrap-datetimepicker
-//= require turbolinks
 //= require jquery-fileupload
 //= require mediaelement_rails
 //= require jquery.atwho

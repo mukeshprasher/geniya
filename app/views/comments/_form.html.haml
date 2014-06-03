@@ -1,7 +1,7 @@
 -if signed_in?
   .comment-form
     = simple_form_for comment, :remote => true do |f|
-      = f.input :body, :input_html => { :rows => "2" }, :label => false, class: "comment-text-area",style: "width: 70%", placeholder: "Add a comment"
+      = f.input :body, :label => false, class: "comment-text-area comment_body",style: "width: 70%", placeholder: "Add a comment", :input_html => { :class => 'comment_text_area', :rows => '1' }
       = f.hidden_field :commentable_id, :value => comment.commentable_id
       = f.hidden_field :commentable_type, :value => comment.commentable_type
       = f.hidden_field :parent_id, :value => parent_id unless parent_id.nil?
