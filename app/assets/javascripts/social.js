@@ -289,7 +289,7 @@ jQuery(document).ready(function(){
             }
             else if( state == "")
             {
-              alert("Please Enter the State Name")
+              alert("Please Enter the State/Province Name")
               return false;
             }
             else if( city == "")
@@ -297,16 +297,16 @@ jQuery(document).ready(function(){
               alert("Please Enter the City Name")
               return false;
             }
-            else if( pin == "")
-            {
-              alert("Please Enter the Pin/zipcode")
-              return false;
-            }                                    
-            else if( street == "")
-            {
-              alert("Please Enter the Street Address")
-              return false;
-            }
+//            else if( pin == "")
+//            {
+//              alert("Please Enter the Pin/zipcode")
+//              return false;
+//            }                                    
+//            else if( street == "")
+//            {
+//              alert("Please Enter the Street Address")
+//              return false;
+//            }
           else
           {
               return true;  
@@ -319,7 +319,7 @@ jQuery(document).ready(function(){
 
             if( state == "")
             {
-              alert("Please Enter the State Name")
+              alert("Please Enter the State/Province Name")
               return false;
             }
             else if( city == "")
@@ -327,16 +327,16 @@ jQuery(document).ready(function(){
               alert("Please Enter the City Name")
               return false;
             }
-            else if( pin == "")
-            {
-              alert("Please Enter the Pin/zipcode")
-              return false;
-            }                                    
-            else if( street == "")
-            {
-              alert("Please Enter the Street Address")
-              return false;
-            }
+//            else if( pin == "")
+//            {
+//              alert("Please Enter the Pin/zipcode")
+//              return false;
+//            }                                    
+//            else if( street == "")
+//            {
+//              alert("Please Enter the Street Address")
+//              return false;
+//            }
           else
           {
               return true;  
@@ -352,16 +352,16 @@ jQuery(document).ready(function(){
               alert("Please Enter the City Name")
               return false;
             }
-            else if( pin == "")
-            {
-              alert("Please Enter the Pin/zipcode")
-              return false;
-            }                                    
-            else if( street == "")
-            {
-              alert("Please Enter the Street Address")
-              return false;
-            }
+//            else if( pin == "")
+//            {
+//              alert("Please Enter the Pin/zipcode")
+//              return false;
+//            }                                    
+//            else if( street == "")
+//            {
+//              alert("Please Enter the Street Address")
+//              return false;
+//            }
           else
           {
               return true;  
@@ -370,24 +370,24 @@ jQuery(document).ready(function(){
         }        
         
         var pin_id = $("#location_old_pin_id").val();
-        if(pin_id == 0)
-        { 
-           if( pin == "")
-            {
-              alert("Please Enter the Pin/zipcode")
-              return false;
-            }                                    
-            else if( street == "")
-            {
-              alert("Please Enter the Street Address")
-              return false;
-            }
-          else
-          {
-              return true;  
-          }
-       
-        }        
+//        if(pin_id == 0)
+//        { 
+//           if( pin == "")
+//            {
+//              alert("Please Enter the Pin/zipcode")
+//              return false;
+//            }                                    
+//            else if( street == "")
+//            {
+//              alert("Please Enter the Street Address")
+//              return false;
+//            }
+//          else
+//          {
+//              return true;  
+//          }
+//       
+//        }        
         
          });  
 

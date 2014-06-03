@@ -1,0 +1,7 @@
+<% @u = current_user.locations.last %>
+<% if @u.nil? %>
+  $("#user_address_title_container").html("Add Location");
+  $("#user_addrss_detail").html("<span> Set Location </span>");
+<% else %>
+  $("#user_addrss_detail").html("<%= escape_javascript(render('locations/remain_address', {:u => @u})) %>"); 
+<% end %>

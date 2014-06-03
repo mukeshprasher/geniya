@@ -1,17 +1,20 @@
-%p.user_address{ :id => "current_address-#{@locations.last.id}" }
-  %span  
-    %a{href:"/locations/"+"#{@locations.last.id}"}
-      = @location.street_address
+%p.user_address{ :id => "current_address-#{@u.id}" }
+  - if @u.street_address == ''
+    %span
+  - else
+    %span  
+      %a{href:"/locations/"+"#{@u.id}"}
+        = @u.street_address
+      ,
+  %span
+    %a{href:"/cities/"+"#{@u.city.id}"}
+      = @u.city.name
     ,
   %span
-    %a{href:"/cities/"+"#{@locations.last.city.id}"}
-      = @location.city.name
+    %a{href:"/states/"+"#{@u.city.state.id}"}
+      = @u.city.state.name
     ,
   %span
-    %a{href:"/states/"+"#{@locations.last.city.state.id}"}
-      = @location.city.state.name
-    ,
-  %span
-    %a{href:"/countries/"+"#{@locations.last.city.state.country.id}"}
-      = @location.city.state.country.name   
-  = link_to "×", location_path(@locations.last.id), :method => :delete, :remote => true,  :disable_with => "×", :class => 'address-delete' , :id => "address-delete-#{@locations.last.id}"  
+    %a{href:"/countries/"+"#{@u.city.state.country.id}"}
+      = @u.city.state.country.name   
+  = link_to "×", location_path(@u.id), :method => :delete, :remote => true,  :disable_with => "×", :class => 'address-delete' , :id => "address-delete-#{@u.id}"

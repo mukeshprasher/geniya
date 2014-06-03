@@ -21,7 +21,7 @@
 
       #state_name
         %span#state_label
-          Select State:  
+          Select State/Province:  
         %p#state_slect_box
 
       #user_city_name
@@ -36,7 +36,7 @@
 
       #new_state_name
         %span#state_label
-          Enter state Name:
+          Enter State/Province Name:
         = text_field(:location, :new_state, placeholder: 'Enter state Name here:')
         
         
@@ -70,18 +70,18 @@
       /  = text_field(:location, :latitude, placeholder: 'Please Enter latitude Information') 
 
 
-      /#address_status
-      /  #add_status
-      /    %span#state_label
-      /      Set as Current Address:  
-      /  #current_address
-      /    %span
-      /      Yes
-      /    = f.radio_button :status, "current", :checked => true         
-      /  #not_current
-      /    %span
-      /      No          
-      /    = f.radio_button :status, "old"
+      #address_status
+        #add_status
+          %span#state_label
+            Set as Current Address:  
+        #current_address
+          %span
+            Yes
+          = f.radio_button :status, "current", :checked => true         
+        #not_current
+          %span
+            No          
+          = f.radio_button :status, "old"
 
       = f.hidden_field :user_id, value: current_user.id          
         
