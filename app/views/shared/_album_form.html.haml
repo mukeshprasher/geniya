@@ -9,20 +9,27 @@
     = f.hidden_field :user_id, value: current_user.id
     = f.hidden_field :kind, value: "portfolio"
     .field
-      = f.label :name
-      = f.text_field :name
+      %span#state_label
+        Portfolio Name:  
+      /= f.label :name
+      = f.text_field :name, placeholder: 'Enter Portfolio Name here:'
     .field
-      = f.label :title
-      = f.text_field :title
+      %span#state_label
+        Portfolio Title:        
+      /= f.label :title
+      = f.text_field :title, placeholder: 'Enter Portfolio Title here:'
     .field
-      = f.label :description
-      = f.text_area :description
-      .field
-      = f.label :type
-      = f.select :description, options_for_select(["Portfolio", "Album", "Project"])
+      %span#state_label
+        Portfolio Description:        
+      /= f.label :description
+      = f.text_area :description, placeholder: 'Enter Portfolio Description here:'
     .field
-      = f.label :category_id
-      = collection_select(:album, :category_id, Category.all, :id, :name)
+      = f.hidden_field :kind, value: "Portfolio"
+      /= f.select :description, options_for_select(["Portfolio", "Album", "Project"])
+    .field
+      = f.hidden_field :category_id, value: current_user.category_id
+      /= f.label :category_id
+      /= collection_select(:album, :category_id, Category.all, :id, :name)
     .form-actions-album
       = f.submit 'Add Portfolio', id: "album-btn"
       /= button_tag "Cancel", id: "cancel-album", type:"button"

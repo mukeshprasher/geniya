@@ -391,8 +391,6 @@ jQuery(document).ready(function(){
         
          });  
 
-
-    
     
 });
 
