@@ -32,7 +32,7 @@
         %a.demo{"data-toggle" => "modal",href: "#album-form", id: "add-img"}
           /Add Images to #{@album.kind}
           %span#add_img_btn
-            Add Images      
+            Add/Remove Pictures     
 
 
 
@@ -93,7 +93,12 @@
           = render :partial => 'comments/comment', :collection => @comments, :as => :comment        
 
 
+    
 
+    %a.demo{"data-toggle" => "modal",href: "#album-form", id: "add-img"}
+      /Add Images to #{@album.kind}
+      %span#add_img_btn
+        Add/Remove Pictures        
 
 
 
