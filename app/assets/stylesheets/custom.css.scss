@@ -2678,3 +2678,39 @@ color:#85AB48;
 
 #location_old_country_id option, #location_old_state_id option, #location_old_city_id option, #location_old_pin_id option {font-family: latobold;font-size: 15px;padding: 0 0 0 5px;}
 
+
+#advanced_search{ width: 100%;}
+
+#feature_search {
+    width: 30%;
+}
+
+
+#advance_src_tilte {
+    font-size: 30px;
+}
+
+#fat-menu a{
+    text-decoration:none;
+}
+
+
+.dropdown-menu {
+    background-clip: padding-box;
+    background-color: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 6px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    float: left;
+    font-family: latobold;
+    font-size: 16px;
+    font-style: italic;
+    left: 0;
+    list-style: none outside none;
+    margin: 2px 0 0;
+    min-width: 243px;
+    padding: 5px 0;
+    position: absolute;
+    top: 100%;
+    z-index: 1000;
+}

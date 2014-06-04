@@ -2,13 +2,11 @@
 <% if @u.nil? %>
   $("#aff_title_container").html(" Add Affiliations");
 <% else %>
-  <% if @u.status == 'yes' %>
-    <% @a = current_user.affiliations.where(status: 'yes').order(created_at: :desc).first %>
-    $("#orgnz_detail").html("<%= escape_javascript(render('affiliations/remain_company', {:a => @a})) %>");
-  <% else %>
-    <% @b = current_user.affiliations.where(status: 'no').order(created_at: :desc).first %>
-    $("#prev_orgnz_detail").html("<%= escape_javascript(render('affiliations/prev_remain', {:b => @b})) %>");
-  <% end %>
+  <% @a = current_user.affiliations.where(status: 'yes').order(created_at: :desc).first %>
+  $("#orgnz_detail").html("<%= escape_javascript(render('affiliations/remain_company', {:a => @a})) %>");
+  <% @b = current_user.affiliations.where(status: 'no').order(created_at: :desc).first %>
+  $("#prev_orgnz_detail").html("<%= escape_javascript(render('affiliations/prev_remain', {:b => @b})) %>");
+
 <% end %>
 
 
