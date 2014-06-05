@@ -301,13 +301,13 @@
                     - if signed_in?
                       - if (@user.name== current_user.name)
                         - if (@user.plan== "admin" || @user.plan == "deluxe")
-                          %a.demo{href: "#album-form", id: ""}
+                          %a.demo{href: "", id: ""}
                             %span#orgn_container
                               Create Bussiness Profile    
                   #organization_controll_container    
                     - if signed_in?
                       - if (@user.name== current_user.name)
-                        %a.demo{href: "#album-form", id: ""}
+                        %a.demo{href: "", id: ""}
                           %span#orgn_container
                             Add Job 
        
@@ -323,9 +323,9 @@
                   #organization_controll_container  
                     - if signed_in?
                       - if (@user.name== current_user.name)
-                        %a.demo{href: "#album-form", id: ""}
+                        %a.demo{href: "", id: ""}
                           %span#orgn_container
-                            Add Post    
+                            Post Advertisements    
 
                 .clear
               .clear
