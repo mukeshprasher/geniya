@@ -4,3 +4,42 @@
 .sub_category_select_optgroup{
   
 }
+
+.job_cont{
+  width: 100%;
+  float: left;
+  background-color: #333;
+  margin: 5px 0px;
+  
+}
+.job_cover{
+  width: 100%;
+  float: left;
+}
+.job_exerpt{
+  width: 100%;
+  float: left;
+  padding: 3px;
+}
+.job_title_cont{
+  color: #DDD;
+  font-size: 18px;
+}
+.job_organization_name_cont{
+  color: #DDD;
+  font-size: 14px;
+  font-style: italic;
+}
+.job_contact_link_cont{
+  text-align: right;
+  padding: 6px;
+}
+.job_contact_link_cont a {
+  background: url("/assets/text_arrow.png") no-repeat scroll right 10px rgba(0, 0, 0, 0);
+  color: #A2C654;
+  float: right;
+  font-family: 'latoregular';
+  font-size: 14px;
+  margin: 0 10px;
+  padding: 8px 16px;
+}
