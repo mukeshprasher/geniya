@@ -59,8 +59,10 @@
             %li
               %span
                 %img{alt: "", src: "/assets/artgallery_img1.png"}/
-              %p 
-                = @user.email
+              -if signed_in?
+                - if(@user.name==current_user.name)
+                  %p 
+                    = @user.email
             #address.modal.fade{"data-width" => "760", style: "display: none;", tabindex: "-1"}
               .modal-header
                 %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
@@ -207,7 +209,7 @@
       .span690.inline_block
         .profile_background
           .bg_buttan
-            %a{href: "#"} Background
+            Background
           .row
             %aside.span4
               .stats
@@ -216,7 +218,8 @@
           .summery
             %h2 Summary
             %p
-              = best_in_place_if @can_edit, @user, :summary, :nil => "Tell something about yourself"
+              = best_in_place_if @can_edit, @user, :summary, :nil => "Tell something about yourself"              
+        .profile_background
           .education_photography
             .education
               %h2 Education
@@ -270,6 +273,65 @@
                     Add Skills              
             .clear
           .clear
+        - if signed_in?
+          - if(@user.name == current_user.name)
+            .profile_background{id:"controlls"}
+              .bg_buttan
+                Controlls
+              #controll_container
+                #controll_left_container
+                  
+                  #organization_controll_container
+                    - if signed_in?
+                      - if (@user.name== current_user.name)
+                        #orgn_form.modal.fade{"data-width" => "760", style: "display: none;", tabindex: "-1"}
+                          .modal-header
+                            %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
+                            %h4.modal-title Add Organization Details:
+                          .modal-body
+                            = render 'organizations/form'
+                          .modal-footer
+                            %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
+                            /%button.btn.btn-primary{type: "button"} Save changes
+                        %a.demo{"data-toggle" => "modal",href: "#orgn_form"}
+                          %span#orgn_container
+                            Add Organization     
+
+                  #organization_controll_container  
+                    - if signed_in?
+                      - if (@user.name== current_user.name)
+                        - if (@user.plan== "admin" || @user.plan == "deluxe")
+                          %a.demo{href: "#album-form", id: ""}
+                            %span#orgn_container
+                              Create Bussiness Profile    
+                  #organization_controll_container    
+                    - if signed_in?
+                      - if (@user.name== current_user.name)
+                        %a.demo{href: "#album-form", id: ""}
+                          %span#orgn_container
+                            Add Job 
+       
+
+
+                #controll_right_container
+                  #organization_controll_container  
+                    - if signed_in?
+                      - if (@user.name== current_user.name)
+                        %a.demo{href: "/users/"+@user.username+"/profile_edit"}
+                          %span#orgn_container
+                            Edit Profile          
+                  #organization_controll_container  
+                    - if signed_in?
+                      - if (@user.name== current_user.name)
+                        %a.demo{href: "#album-form", id: ""}
+                          %span#orgn_container
+                            Add Post    
+
+                .clear
+              .clear
+        .profile_background
+          .bg_buttan
+            Portfolio's          
           .box_sec
             .profile_portfolio_section
               /- if signed_in? and current_user?(@user)
@@ -427,20 +489,20 @@
                   - if @users.any?
                     See All Connections »
                     
-            - if signed_in?
-              - if (@user.name== current_user.name)
-                #orgn_form.modal.fade{"data-width" => "760", style: "display: none;", tabindex: "-1"}
-                  .modal-header
-                    %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
-                    %h4.modal-title Add Organization Details:
-                  .modal-body
-                    = render 'organizations/form'
-                  .modal-footer
-                    %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
-                    /%button.btn.btn-primary{type: "button"} Save changes
-                %a.demo{"data-toggle" => "modal",href: "#orgn_form"}
-                  %span#orgn_container
-                    Add Organization                                
+            /- if signed_in?
+            /  - if (@user.name== current_user.name)
+            /    #orgn_form.modal.fade{"data-width" => "760", style: "display: none;", tabindex: "-1"}
+            /      .modal-header
+            /        %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
+            /        %h4.modal-title Add Organization Details:
+            /      .modal-body
+            /        = render 'organizations/form'
+            /      .modal-footer
+            /        %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
+            /        /%button.btn.btn-primary{type: "button"} Save changes
+            /    %a.demo{"data-toggle" => "modal",href: "#orgn_form"}
+            /      %span#orgn_container
+            /        Add Organization                                
             .clear 
 
         

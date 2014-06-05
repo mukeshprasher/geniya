@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
-  before_action :signed_in_user, only: [ :edit, :update, :destroy, :following, :followers]
-  before_action :correct_user,   only: [:edit, :update]
+  before_action :set_user, only: [:show, :edit, :update, :destroy, :profile_edit]
+  before_action :signed_in_user, only: [ :edit, :update, :destroy, :following, :followers, :profile_edit]
+  before_action :correct_user,   only: [:edit, :update, :profile_edit]
   before_action :admin_user,     only: :destroy
   before_action :redirect_if_already_signed_in, only: [:new, :create]
   before_action :can_edit, only: [:show]
@@ -36,6 +36,10 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
+  def profile_edit
+  end  
+  
+  
   def edit
   end
 
@@ -78,7 +82,6 @@ class UsersController < ApplicationController
 
   def update
     respond_to do |format|
-      params[:user][:tag] = sanitize_and_linkify_text(params[:user][:tag]) unless params[:user][:tag].nil?
       if @user.update(user_params)
         set_sub_categories unless params[:sub_category_ids].nil?
         format.html {
