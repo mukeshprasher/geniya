@@ -41,7 +41,11 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    @user.plan = "trial"
+    if (['trial', 'deluxe'].include?(params[:user][:plan]))
+      @user.plan = params[:user][:plan]
+    else
+      @user.plan = 'trial'
+    end
     @user.plan_end = Date.today + 1.month
     @user.status = "active"
     respond_to do |format|
