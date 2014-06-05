@@ -40,7 +40,9 @@
 
       .inner_rightSection
         .add_sec
-          = render 'shared/jobs_detail'
+          .ads-box
+            - @jobs.each do |job|
+              = render job
 - else
   .index_user_slider
     - @top_users.each do |user|

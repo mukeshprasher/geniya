@@ -1,0 +1,11 @@
+.job_cont
+  - if !job.cover_file_name.nil?
+    .job_cover
+      = image_tag job.cover.url(:medium), width: "100%"
+  .job_exerpt
+    .job_title_cont
+      = job.title
+    .job_organization_name_cont
+      = job.organization.name
+    .job_contact_link_cont
+      = link_to "Contact now", job
