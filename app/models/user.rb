@@ -10,11 +10,10 @@ class User < ActiveRecord::Base
     has_many :companies
     has_many :user_tags
     has_many :tags, through: :user_tags
-    has_many :skills
+    has_many :user_skills
+    has_many :skills, through: :user_skills
     has_many :affiliations
     has_many :organizations, through: :affiliations
-#    has_many :userskills
-#    has_many :skills, through: :userskills
     has_many :videos
     has_many :advertisements
     has_many :updates, foreign_key: "sender_user_id", dependent: :destroy
@@ -52,6 +51,7 @@ class User < ActiveRecord::Base
     
     has_many :comments
     has_many :activities
+    has_many :jobs
     
     before_create :create_remember_token
     

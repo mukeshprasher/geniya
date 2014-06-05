@@ -319,7 +319,6 @@ $(function() {
     }
     else
     {
-      //skillfield.val('');
       return true;
     }
     }); 

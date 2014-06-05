@@ -1,0 +1,52 @@
+%p#notice= notice
+
+%p
+  %b User:
+  = @job.user_id
+%p
+  %b Organization:
+  = @job.organization_id
+%p
+  %b Category:
+  = @job.category_id
+%p
+  %b Sub category:
+  = @job.sub_category_id
+%p
+  %b Reference code:
+  = @job.reference_code
+%p
+  %b Title:
+  = @job.title
+%p
+  %b Description:
+  = @job.description
+%p
+  %b Skills:
+  - @job.skills.each do |skill|
+    = link_to skill.name, skill 
+%p
+  %b Minimum experience:
+  = @job.minimum_experience
+%p
+  %b Maximum experience:
+  = @job.maximum_experience
+%p
+  %b Minimum salary:
+  = @job.minimum_salary
+%p
+  %b Maximum salary:
+  = @job.maximum_salary
+%p
+  %b Employment type:
+  = @job.employment_type
+%p
+  %b Employment status:
+  = @job.employment_status
+%p
+  %b Cover:
+  = @job.cover
+
+= link_to 'Edit', edit_job_path(@job)
+\|
+= link_to 'Back', jobs_path

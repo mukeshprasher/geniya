@@ -120,6 +120,20 @@ $(function() {
           }
         });
 
+      $("#job_skills_text, #skill_name")
+      .atwho({
+        at: "", 
+        tpl: "<li data-value='${name},'>${name}</li>",
+        callbacks: {
+          remote_filter: function(query, callback) {
+            $.getJSON("/skills.json", {q: query}, function(data) {
+              callback(data)
+            });
+            }
+          }
+        })
+
+
         $("#srch_org")
         .atwho({
           at: "", 

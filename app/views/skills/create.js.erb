@@ -1,5 +1,3 @@
-$("#skills-field").append("<%= escape_javascript(render('shared/skills_name', skill: @skill)) %>").fadeIn('slow')
+$("#add_skill_modal_close_button").click()
 $("#skill_name").val('')
-$('#close_skill_modal').click();
-
-
+$("#skills-field").html('<%= escape_javascript render 'users/skills' %>')

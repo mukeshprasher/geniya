@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140527100907) do
+ActiveRecord::Schema.define(version: 20140605073610) do
 
   create_table "activities", force: true do |t|
     t.integer  "user_id"
@@ -214,6 +214,37 @@ ActiveRecord::Schema.define(version: 20140527100907) do
   add_index "impressions", ["impressionable_type", "impressionable_id", "session_hash"], name: "poly_session_index"
   add_index "impressions", ["impressionable_type", "message", "impressionable_id"], name: "impressionable_type_message_index"
   add_index "impressions", ["user_id"], name: "index_impressions_on_user_id"
+
+  create_table "job_skills", force: true do |t|
+    t.integer  "job_id"
+    t.integer  "skill_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "jobs", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "organization_id"
+    t.integer  "category_id"
+    t.integer  "sub_category_id"
+    t.string   "reference_code"
+    t.string   "title"
+    t.text     "description"
+    t.decimal  "minimum_experience"
+    t.decimal  "maximum_experience"
+    t.integer  "minimum_salary"
+    t.integer  "maximum_salary"
+    t.string   "employment_type"
+    t.string   "employment_status"
+    t.string   "currency"
+    t.text     "skills_text"
+    t.string   "cover_file_name"
+    t.string   "cover_content_type"
+    t.integer  "cover_file_size"
+    t.datetime "cover_updated_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "likes", force: true do |t|
     t.string   "liker_type"
@@ -448,6 +479,13 @@ ActiveRecord::Schema.define(version: 20140527100907) do
     t.string   "special_attribute"
     t.string   "file_attachment_fingerprint"
     t.integer  "impressions_count",            default: 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "user_skills", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "skill_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

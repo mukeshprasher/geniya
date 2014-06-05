@@ -5,6 +5,7 @@ class Organization < ActiveRecord::Base
   belongs_to :category
   belongs_to :sub_category 
   has_many :locations
+  has_many :jobs
 
   include ActiveModel::Validations  
   validates :name,  presence: true, length: { minimum: 4 }

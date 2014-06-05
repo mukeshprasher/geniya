@@ -105,6 +105,8 @@ gem 'mailboxer'
 
 gem 'papercrop'
 
+gem "cocoon"
+
 #gem 'devise'
 
 # Use unicorn as the app server

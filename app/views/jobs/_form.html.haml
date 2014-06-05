@@ -1,0 +1,53 @@
+.wrapper
+  .row
+    .span6.offset3
+      .field
+      = simple_form_for(@job) do |f|
+        = f.error_notification
+
+        .form-inputs
+          .field
+            = f.association :organization, include_hidden: false, include_blank: false, collection: current_user.organizations.order('name ASC')
+          .field
+            = f.label "Area of work"
+            = f.association :category, include_blank: false, collection: Category.order('name ASC'), label: false
+          .field
+            = f.label "Profession"
+            = f.association :sub_category, include_hidden: false, include_blank: false, collection: Category.order('name ASC').first.sub_categories, label: false
+          .field
+            = f.label "Your reference code"
+            = f.input :reference_code, label: false
+          .field
+            = f.label "Job title"
+            = f.input :title, label: false
+          .field
+            = f.label "Job description"
+            = f.input :description, label: false
+          .field
+            = f.label "Skills required"
+            = f.input :skills_text, label: false, placeholder: 'Enter skills separated by commas', as: :text
+          .field
+            = f.label "Minimum experience"
+            = f.select(:minimum_experience, options_for_select([["none", 0],["3 months", 0.25],["6 months", 0.5],["1 year", 1],["1.5 years", 1.5],["2 years", 2],["2.5 years", 2.5],["3 years", 3],["4 years", 4],["5 years", 5],["6 years", 6],["8 years", 8],["10 years", 10],["10+ years", 11]]))
+          .field
+            = f.label "Maximum experience"
+            = f.select(:maximum_experience, options_for_select([["N/A", 0],["3 months", 0.25],["6 months", 0.5],["1 year", 1],["1.5 years", 1.5],["2 years", 2],["2.5 years", 2.5],["3 years", 3],["4 years", 4],["5 years", 5],["6 years", 6],["8 years", 8],["10 years", 10],["12 years", 12],["15 years", 15],["18 years", 18],["20 years", 20]]))
+          .field
+            = f.label "Salary currency"
+            = f.select(:currency, options_for_select(["US dollar","Canadian dollar","European euro"]))
+          .field
+            = f.label "Minimum salary (per year)"
+            = f.select(:minimum_salary, options_for_select([["< 50,000", 0],["50,000 to 60,000", 60000],["60,000 to 70,000", 70000],["70,000 to 80,000", 80000],["80,000 to 90,000", 90000],["90,000 to 100,000", 100000],["100,000 to 125,000", 125000],["125,000 to 150,000", 150000],["150,000 to 200,000", 200000],["200,000 to 225,000", 225000],["225,000 to 250,000", 250000],["250,000 to 275,000", 275000],["275,000 to 300,000", 300000],["300,000 to 325,000", 325000],["325,000 to 350,000", 350000],["350,000 to 375,000", 375000],["375,000 to 400,000", 400000]]))
+          .field
+            = f.label "Maximum salary (per year)"
+            = f.select(:maximum_salary, options_for_select([["< 50,000", 0],["50,000 to 60,000", 60000],["60,000 to 70,000", 70000],["70,000 to 80,000", 80000],["80,000 to 90,000", 90000],["90,000 to 100,000", 100000],["100,000 to 125,000", 125000],["125,000 to 150,000", 150000],["150,000 to 200,000", 200000],["200,000 to 225,000", 225000],["225,000 to 250,000", 250000],["250,000 to 275,000", 275000],["275,000 to 300,000", 300000],["300,000 to 325,000", 325000],["325,000 to 350,000", 350000],["350,000 to 375,000", 375000],["375,000 to 400,000", 400000]]))
+          .field
+            = f.label "Employment type"
+            = f.select(:employment_type, options_for_select(["permanent","temporary/contractual","freelancer"].map!(&:capitalize)))
+          .field
+            = f.label "Employment status"
+            = f.select(:employment_status, options_for_select(["full time","part time"].map!(&:capitalize)))
+          = f.input :cover
+
+        .form-actions
+          = f.button :submit

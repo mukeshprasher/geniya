@@ -1,0 +1,45 @@
+%h1 Listing jobs
+
+%table
+  %tr
+    %th User
+    %th Organization
+    %th Category
+    %th Sub category
+    %th Reference code
+    %th Title
+    %th Description
+    %th Minimum experience
+    %th Maximum experience
+    %th Minimum salary
+    %th Maximum salary
+    %th Employment type
+    %th Employment status
+    %th Cover
+    %th
+    %th
+    %th
+
+  - @jobs.each do |job|
+    %tr
+      %td= job.user_id
+      %td= job.organization_id
+      %td= job.category_id
+      %td= job.sub_category_id
+      %td= job.reference_code
+      %td= job.title
+      %td= job.description
+      %td= job.minimum_experience
+      %td= job.maximum_experience
+      %td= job.minimum_salary
+      %td= job.maximum_salary
+      %td= job.employment_type
+      %td= job.employment_status
+      %td= job.cover
+      %td= link_to 'Show', job
+      %td= link_to 'Edit', edit_job_path(job)
+      %td= link_to 'Destroy', job, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Job', new_job_path
