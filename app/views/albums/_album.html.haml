@@ -95,10 +95,12 @@
 
     
 
-    %a.demo{"data-toggle" => "modal",href: "#album-form", id: "add-img"}
-      /Add Images to #{@album.kind}
-      %span#add_img_btn
-        Add/Remove Pictures        
+    - if signed_in?
+      - if (@user.name== current_user.name)
+        %a.demo{"data-toggle" => "modal",href: "#album-form", id: "add-img"}
+          /Add Images to #{@album.kind}
+          %span#add_img_btn
+            Add/Remove Pictures        
 
 
 
