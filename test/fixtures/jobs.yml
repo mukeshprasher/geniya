@@ -1,0 +1,35 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  organization_id: 1
+  category_id: 1
+  sub_category_id: 1
+  address_id: 1
+  reference_code: MyString
+  title: MyString
+  description: MyString
+  minimum_experience: 9.99
+  maximum_experience: 9.99
+  minimum_salary: 1
+  maximum_salary: 1
+  employment_type: MyString
+  employment_status: MyString
+  cover: 
+
+two:
+  user_id: 1
+  organization_id: 1
+  category_id: 1
+  sub_category_id: 1
+  address_id: 1
+  reference_code: MyString
+  title: MyString
+  description: MyString
+  minimum_experience: 9.99
+  maximum_experience: 9.99
+  minimum_salary: 1
+  maximum_salary: 1
+  employment_type: MyString
+  employment_status: MyString
+  cover: 

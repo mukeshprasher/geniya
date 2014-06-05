@@ -1,5 +1,6 @@
 class SkillsController < ApplicationController
   before_action :set_skill, only: [:show, :edit, :update, :destroy]
+  before_action :signed_in_user, only: [ :new, :create, :edit, :update, :destroy]
 
   # GET /skills
   # GET /skills.json
@@ -24,18 +25,15 @@ class SkillsController < ApplicationController
   # POST /skills
   # POST /skills.json
   def create
-    @skill = Skill.new(skill_params)
-    @skill.user_id = current_user.id
-    @skill.save
-#    respond_to do |format|
-#      if @skill.save
-#        format.html { redirect_to @skill, notice: 'Skill was successfully created.' }
-#        format.json { render action: 'show', status: :created, location: @skill }
-#      else
-#        format.html { render action: 'new' }
-#        format.json { render json: @skill.errors, status: :unprocessable_entity }
-#      end
-#    end
+    @user = current_user
+    
+    skills = process_skills(params[:skill][:name])
+    skills.each do |skill_name|
+      searched_skill = Skill.find_by(name: skill_name)
+      skill = (searched_skill) ? searched_skill : Skill.new(name: skill_name)
+      skill.users << current_user unless skill.users.include? current_user
+      skill.save
+    end
   end
 
   # PATCH/PUT /skills/1
@@ -66,6 +64,20 @@ class SkillsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_skill
       @skill = Skill.find(params[:id])
+    end
+
+    def process_skills(text)
+      sanitized_text = ActionController::Base.helpers.sanitize text
+      
+      skills = Array.new
+      sanitized_text.split(/,/).each do |text|
+        skill = text.strip.gsub(/[^0-9A-Za-z]/, ' ').downcase
+        if skill.length > 0 and !skill.nil?
+          skills << skill
+        end
+      end
+      
+      skills
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

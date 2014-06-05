@@ -244,29 +244,27 @@
             .key_skills
               %h2 Key Skills  Expertise
               %ul#skills-field
-                - @user.skills.each do |skill|
-                  = render 'shared/skills_name', skill: skill
+                = render 'skills'
+
               - if signed_in?
                 - if (@user.name== current_user.name)
-                  #skill-link
-                    /%a
-                    /  Add Skills
-                  
                   #skills.modal.fade{"data-width" => "760", style: "display: none;", tabindex: "-1"}
                     .modal-header
                       %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
                       %h4.modal-title Add Skills
                     .modal-body
-                      = render 'shared/skill_form'
+                      = simple_form_for(@skill, remote: true) do |f|
+                        = f.error_notification
+
+                        .form-inputs
+                          = f.text_field :name, placeholder: 'Enter skills separated by commas', autocomplete: 'off'
+
+                        .form-actions-skills
+                          = f.button :submit, value: "Add Skills", id: "add"
                     .modal-footer
-                      %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
-                      /%button.btn.btn-primary{type: "button"} Save changes
+                      %button#add_skill_modal_close_button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
                   %a.demo{"data-toggle" => "modal",href: "#skills"}
                     Add Skills              
-                  /%button.demo.btn.btn-primary.btn-lg{"data-toggle" => "modal", href: "#skills"} Responsive
-                  
-                  /.skill-form
-                  /  = render 'shared/skill_form' 
             .clear
           .clear
           .box_sec

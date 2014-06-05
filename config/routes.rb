@@ -1,4 +1,6 @@
 Geniya::Application.routes.draw do
+  resources :jobs
+
   resources :activities
   resources :locations
 
@@ -19,6 +21,7 @@ Geniya::Application.routes.draw do
   resources :multiuploads
 
   resources :user_tags, only: [:create, :destroy]
+  resources :user_skills, only: [:create, :destroy]
 
   get "ajax/portfolio_detail/:id" => 'ajax#portfolio_detail'
   resources :videos

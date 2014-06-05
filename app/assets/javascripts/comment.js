@@ -320,7 +320,7 @@ $(function() {
     else
     {
       //skillfield.val('');
-      alert('Your Skill is added to your profile');
+      //alert('Your Skill is added to your profile');
       return true;
     }
     }); 

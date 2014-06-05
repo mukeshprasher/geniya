@@ -55,9 +55,9 @@ class CoversController < ApplicationController
     end
   end
 
-  def crop
-    @upload = Upload.find(params[:id])
-  end
+#  def crop
+#    @upload = Upload.find(params[:id])
+#  end
 
   # DELETE /covers/1
   # DELETE /covers/1.json
