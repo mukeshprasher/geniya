@@ -41,8 +41,7 @@
         = text_area_tag 'user[summary]', nil, size: "5x5", placeholder: "Tell Something about yourself.."
       .field.datepicker
         = f.label :birthdate
-        .datepicker
-          = f.text_field :birthdate, placeholder: "Select Your Birthday"
+        = f.text_field :birthdate, placeholder: "Select Your Birthday"
       .field
         = f.label :available
         = f.select(:available, options_for_select([['Yes', 'yes'], ['No', 'no'], ['Probably', 'probably'], ['Busy', 'busy']]))         
