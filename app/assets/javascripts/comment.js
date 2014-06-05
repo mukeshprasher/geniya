@@ -319,8 +319,6 @@ $(function() {
     }
     else
     {
-      //skillfield.val('');
-      //alert('Your Skill is added to your profile');
       return true;
     }
     }); 
@@ -390,10 +388,14 @@ $(function() {
     else
     {
       //skillfield.val('');
-      alert('Eduction Successfully added');
+      //alert('Eduction Successfully added');
       return true;
     }
     });
+  
+  
+  
+  
     
         $("#new_album").submit(function(){
     var albumnamefield = $("#album_name")
@@ -414,7 +416,7 @@ $(function() {
     else
     {
       //skillfield.val('');
-      alert('Successfully added');
+      //alert('Successfully added');
       return true;
     }
     });      

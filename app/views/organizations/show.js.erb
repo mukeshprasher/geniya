@@ -4,5 +4,51 @@ $("#affilates_form_container").html("<%= escape_javascript(render('affiliations/
 $('#orgn_detail').show();
 $('#affilates_form_container').show();
 
+$("#new_affiliation").submit(function(){
+  var start_date = $("#affiliation_start_date")
+  var end_date = $("#affiliation_end_date")
+  var status = $("#affiliation_status")
+  
+   start = start_date.val();
+   end = end_date.val();
+   new_status = status.val();
+  if (start == '')
+  {
+    alert('Please Select the Affiliation start date ');
+    return false;
+  }
+  else
+  if (end == '' && !status.attr('checked'))
+  {
+    alert('Please Select the Affiliation End date or You may Set as Current Company');
+    return false;
+  }
+  else
+  if (!status.attr('checked'))
+  {
+    if (start >=end)
+    {
+      alert('Affiliation Start Date is not greater than End date');
+      return false;
+    }
+  }
+  else
+  if (status.attr('checked'))
+  {
+    if (start >=end)
+    {
+      return true;
+    }
+  }    
+
+  
+else
+{
+  //skillfield.val('');
+  //alert('Eduction Successfully added');
+  return true;
+}
+});
+    
 
 

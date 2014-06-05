@@ -2,4 +2,4 @@
   %option{value: "null"}   Select Pin/zip code
   - c.each do|s|
     %option{value: "#{s.id}"}   #{s.code}
-  %option{value: "0"}   Add New Pin/Zipcode  
+  %option#default_select_option{value: "0"}   Add New Pin/Zipcode  

@@ -160,66 +160,7 @@ $(function() {
         });         
 
 
-//      $("#srch_country")
-//      .atwho({
-//        at: "", 
-//        tpl: "<li data-value='${atwho-at}${name}' class='country-data' data='${id}'>${name}</li>",
-//        callbacks: {
-//          remote_filter: function(query, callback) {
-//            $.getJSON("/countries.json", {q: query}, function(data) {
-//              callback(data)
-//              $('.country-data').click(function(){
-////              alert($(this).attr( "data" ));
-//              var cunt_data = $(this).attr( "data" )
-//              $.get("/countries/"+ cunt_data+ ".js", {}, function(data) {
-//                callback(data)
-//              });              
-//              });             
-//            
-//            });
-//            }
-//          }
-//        });         
 
-//      $('#location_country_id').change(function(){
-//        var cunt_data = $(this).val()
-//        if(cunt_data == 0)
-//        {
-//        $.get("/countries/"+ cunt_data+ ".js", {}, function(data) {
-//          callback(data)
-//        $('#new_country_name').show();
-//        }); 
-//        }
-//        else 
-//        {
-//        $.get("/countries/"+ cunt_data+ ".js", {}, function(data) {
-//          callback(data)
-//        });    
-//        }   
-//      });
-
-
-
-
-
-
-//        $("#company_title")
-//        .atwho({
-//          at: "", 
-//          tpl: "<li data-value='${atwho-at}${name}'>${name}${id}</li>",
-//          callbacks: {
-//            /*
-//             It function is given, At.js will invoke it if local filter can not find any data
-//             @param query [String] matched query
-//             @param callback [Function] callback to render page.
-//            */
-//            remote_filter: function(query, callback) {
-//              $.getJSON("/designations.json", {q: query}, function(data) {
-//                callback(data)
-//              });
-//            }
-//          }
-//        });
       
       jQuery(".best_in_place").best_in_place();      
 
@@ -281,6 +222,7 @@ $(function() {
       }, 1000);
     });
   };
+
 
 
   $(document).ready(toDoOnload);

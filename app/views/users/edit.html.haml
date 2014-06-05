@@ -29,22 +29,23 @@
 
       .field
         = f.label :name
-        = f.text_field :name
+        = f.text_field :name, placeholder: "Name"
       .field
         = f.label :gender
-        = f.text_field :gender
+        = radio_button_tag 'user[gender]', 'male'
+        Male
+        = radio_button_tag 'user[gender]', 'female'
+        Female
       .field
         = f.label :summary
-        = f.text_field :summary
+        = text_area_tag 'user[summary]', nil, size: "5x5", placeholder: "Tell Something about yourself.."
       .field.datepicker
         = f.label :birthdate
-        = f.text_field :birthdate
-      .field
-        = f.label :tag
-        = f.text_field :tag      
+        .datepicker
+          = f.text_field :birthdate, placeholder: "Select Your Birthday"
       .field
         = f.label :available
-        = f.text_field :available
+        = f.select(:available, options_for_select([['Yes', 'yes'], ['No', 'no'], ['Probably', 'probably'], ['Busy', 'busy']]))         
       -if @user.sub_category.name == 'model'
         .field
           = f.label :height

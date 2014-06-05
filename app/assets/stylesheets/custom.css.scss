@@ -1886,7 +1886,7 @@ cursor: pointer;
     width: 100%;
 }
 
-#comments-container {margin: auto;width: 630px;}
+#comments-container { margin: 0 0 0 28px;width: 630px;  float: left;}
 #comments-header h4 {font-size: 18px; line-height:14px;}
 .post-comment-logged-out {border-bottom: 1px dotted #CACACA;border-top: 1px solid #CACACA;font-weight: bold;margin: 10px 0 25px;padding: 20px 0 10px;}
 .comment-container {border-bottom: 1px solid #CACACA;margin-bottom: 27px;padding-bottom: 25px;position: relative;}
@@ -2211,6 +2211,7 @@ font-family: latobold;
     font-family: latobold;
     font-size: 14px;
     margin: 0 3px 0 46px;
+    outline: 0 none;
 }
 
 /*********** protfolio srh page ********/
@@ -2453,6 +2454,31 @@ textarea:focus, input[type="text"]:focus, input[type="password"]:focus, input[ty
 }
 
 
+#add_img_btn{
+    background: none repeat scroll 0 0 #86B031;
+    border-radius: 4px;
+    color: #FFFFFF;
+    float: left;
+    height: 23px;
+    padding: 4px 0 0 6px;
+    width: 140px;
+    margin-bottom: 20px;
+}
+
+
+#add_portfolio_btn{
+   background: none repeat scroll 0 0 #86B031;
+    border-radius: 4px;
+    color: #FFFFFF;
+    float: left;
+    font-style: italic;
+    font-weight: bold;
+    height: 23px;
+    padding: 8px 0 0 6px;
+    width: 100px;
+}
+
+
 #orgn_btn_container {
   background: none repeat scroll 0 0 #86B031;
   border-radius: 5px;
@@ -2634,3 +2660,73 @@ color:#85AB48;
   cursor: not-allowed;
 }
 
+#default_select_option {
+    background: none repeat scroll 0 0 #383B41;
+    color: #FFFFFF;
+    font-family: latobold;
+    font-style: italic;
+    font-weight: bold;
+    height: 21px;
+    padding: 3px 0 0;
+    text-align: center;
+    width: auto;
+}
+
+
+#location_old_country_id.select.required, #location_old_state_id.select.required, #location_old_city_id.select.required, #location_old_pin_id.select.required {font-family: latobold;font-size: 15px;font-style: italic;text-transform: capitalize;}
+
+
+#location_old_country_id option, #location_old_state_id option, #location_old_city_id option, #location_old_pin_id option {font-family: latobold;font-size: 15px;padding: 0 0 0 5px;}
+
+
+#advanced_search{ width: 100%;}
+
+#feature_search {
+    width: 30%;
+}
+
+
+#advance_src_tilte {
+    font-size: 30px;
+}
+
+#fat-menu a{
+    text-decoration:none;
+}
+
+
+.dropdown-menu {
+    background-clip: padding-box;
+    background-color: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 6px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    float: left;
+    font-family: latobold;
+    font-size: 16px;
+    font-style: italic;
+    left: 0;
+    list-style: none outside none;
+    margin: 2px 0 0;
+    min-width: 243px;
+    padding: 5px 0;
+    position: absolute;
+    top: 100%;
+    z-index: 1000;
+}
+
+
+#feature_search, #global_search {
+    float: left;
+    margin: 12px 0 9px;
+    width: 30%;
+}
+
+
+#filter_album {
+    float: left;
+    font-family: latobold;
+    font-size: 29px;
+    padding: 6px 0 0;
+    width: 25%;
+}

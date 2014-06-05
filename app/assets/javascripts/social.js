@@ -109,7 +109,7 @@ jQuery(document).ready(function(){
           $('#location_country_id').val('');
           $('#user_city_name').hide();
           $('#user_pin_code').hide();
-          $('#form_country_container').show();
+          
         }
         else 
         {
@@ -391,8 +391,6 @@ jQuery(document).ready(function(){
         
          });  
 
-
-    
     
 });
 

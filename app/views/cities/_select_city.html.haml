@@ -2,7 +2,7 @@
   %option{value: "null"}   Select City
   - c.each do|s|
     %option{value: "#{s.id}"}   #{s.name}
-  %option{value: "0"}   Add New City  
+  %option#default_select_option{value: "0"}   Add New City  
     
 :javascript
   $('#location_city_id').change(function(){

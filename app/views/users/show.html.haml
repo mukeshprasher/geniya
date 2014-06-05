@@ -23,9 +23,12 @@
                 %button.btn.btn-default#affiliation_form_area_close{"data-dismiss" => "modal", type: "button"} Close
                 /%button.btn.btn-primary{type: "button"} Save changes
             %a.demo{"data-toggle" => "modal",href: "#affiliations"}
-              %b
+              %b#aff_title_container
                 - if (current_user == @user) && signed_in?
-                  Add Affiliations            
+                  -if @user.affiliations.any?
+                    Change Affiliations
+                  - else
+                    Add Affiliations                        
             %li#affiliation_content
               %span Current:
               
@@ -233,7 +236,7 @@
                     .modal-body
                       = render 'shared/edu_form' 
                     .modal-footer
-                      %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
+                      %button.btn.btn-default#close_education_modal{"data-dismiss" => "modal", type: "button"} Close
                       /%button.btn.btn-primary{type: "button"} Save changes
                   %a.demo{"data-toggle" => "modal",href: "#edu"}
                     Add Education Detail
@@ -283,14 +286,15 @@
                   #portfolio-form.modal.fade{"data-width" => "760", style: "display: none;", tabindex: "-1"}
                     .modal-header
                       %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
-                      %h4.modal-title Add Portfolio's, Albums's and Project's
+                      %h4.modal-title Add Portfolio's Details:
                     .modal-body
                       = render 'shared/album_form'
                     .modal-footer
-                      %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
+                      %button.btn.btn-default#close_portfolio_modal{"data-dismiss" => "modal", type: "button"} Close
                       /%button.btn.btn-primary{type: "button"} Save changes
                   %a.demo{"data-toggle" => "modal",href: "#portfolio-form"}
-                    Add Portfolio's 
+                    %span#add_portfolio_btn
+                      Add Portfolio's 
 
 
 

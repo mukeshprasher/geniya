@@ -1,3 +1,4 @@
 $(".edu-box").append("<%= escape_javascript(render('shared/edu_detail', edu_detail: @education)) %>")
 $("#education_institute_name").val('')
 $("#education_course_name").val('')
+$('#close_education_modal').click();
