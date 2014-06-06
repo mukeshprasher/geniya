@@ -18,10 +18,10 @@
           |
         %li#fat-menu.dropdown
           %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
-            = @user.responses.count
+            = current_user.responses.count
             %b.caret
           %ul.dropdown-menu
-            - @user.responses.where(status: 0).each do |response|
+            - current_user.responses.where(status: 0).each do |response|
               - actor = User.find(response.actor_id)
               - action_text = (response.act == 'like') ? ' likes' : ' commented on'
               - obj = response.acted_upon_type.constantize.find(response.acted_upon_id)
