@@ -1,17 +1,31 @@
 .wrapper
-  %h1 Editing profile
-  .profile_editable
+
+  .profile_form_editable
+    %h1 Edit Profile
     .field
-    = form_for @user do |f|
+    = simple_form_for @user do |f|
       = render 'shared/error_messages', object: f.object
       /= render 'shared/sub_categories_select', form_object: f, category_id: @user.sub_categories.first.category.id
-
+      .field
+        = f.label "Area of work"
+        = f.association :category, collection: Category.order('name ASC'), include_blank: false
+      .field
+        = f.label "Profession"
+        = render 'shared/sub_category_select', c: Category.order('name ASC').first
       .field
         %label Email
         = f.text_field :email
       .field
         = f.label :name
         = f.text_field :name, placeholder: "Name"
+
+
+      .field
+        = f.label :password
+        = f.password_field :password
+      .field
+        = f.label :password_confirmation
+        = f.password_field :password_confirmation
       .field
         = f.label :gender
         = radio_button_tag 'user[gender]', 'male'

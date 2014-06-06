@@ -83,14 +83,13 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
-        set_sub_categories unless params[:sub_category_ids].nil?
         format.html {
           flash[:success] = "Profile updated"
           redirect_to @user
         }
         format.json { head :no_content }
       else
-        format.html { render action: 'edit' }
+        format.html { render action: 'profile_edit' }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
