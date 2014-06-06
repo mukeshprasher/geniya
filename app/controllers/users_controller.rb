@@ -83,6 +83,7 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
+        set_sub_categories unless params[:sub_category_ids].nil?
         format.html {
           flash[:success] = "Profile updated"
           redirect_to @user

@@ -16,18 +16,18 @@
               = render 'shared/feed_img'
           .user_updates_form
             = render 'shared/update_form'
-            #portfolio-form.modal.fade{"data-width" => "760", style: "display: none;", tabindex: "-1"}
-              .modal-header
-                %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
-                %h4.modal-title Post Job Here:
-              .modal-body
-                = render 'shared/ads_form'
-              .modal-footer
-                %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
-                /%button.btn.btn-primary{type: "button"} Save changes
-            %a.demo{"data-toggle" => "modal",href: "#portfolio-form"}
-              %span#ads_post-link 
-                Add Job        
+            /#portfolio-form.modal.fade{"data-width" => "760", style: "display: none;", tabindex: "-1"}
+            /  .modal-header
+            /    %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
+            /    %h4.modal-title Post Job Here:
+            /  .modal-body
+            /    = render 'shared/ads_form'
+            /  .modal-footer
+            /    %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
+            /    %button.btn.btn-primary{type: "button"} Save changes
+            /%a.demo{"data-toggle" => "modal",href: "#portfolio-form"}
+            /  %span#ads_post-link 
+            /    Add Job        
         
         
         .user_description

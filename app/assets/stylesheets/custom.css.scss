@@ -2758,6 +2758,30 @@ color:#85AB48;
 }
 
 
-#user_sub_category_id, #user_category_id, #user_available {
+#user_sub_category_id, #user_category_id, #user_available, #user_gender {
     width: 500px;
+}
+
+
+legend {
+    display: block;
+    font-size: 21px;
+    line-height: 40px;
+    margin: 0 0 0 -2px;
+    padding: 0 12px 0 6px;
+    width: auto;
+    border-bottom: medium none;
+}
+
+
+fieldset {
+    border: 2px solid #CCCCCC;
+    margin-bottom: 16px;
+    padding: 0;
+}
+
+
+fieldset .field {
+    margin: 6px 0 12px 17px;
+    width: 459px;
 }
