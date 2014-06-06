@@ -52,6 +52,7 @@ class User < ActiveRecord::Base
     has_many :comments
     has_many :activities
     has_many :jobs
+    has_many :responses
     
     before_create :create_remember_token
     

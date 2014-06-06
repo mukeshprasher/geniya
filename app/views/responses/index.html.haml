@@ -1,0 +1,35 @@
+%h1 Listing responses
+
+%table
+  %tr
+    %th User
+    %th Acted upon type
+    %th Acted upon
+    %th Action
+    %th Actor
+    %th Description
+    %th Status
+    %th Controller
+    %th Action
+    %th
+    %th
+    %th
+
+  - @responses.each do |response|
+    %tr
+      %td= response.user_id
+      %td= response.acted_upon_type
+      %td= response.acted_upon_id
+      %td= response.action
+      %td= response.actor_id
+      %td= response.description
+      %td= response.status
+      %td= response.controller
+      %td= response.action
+      %td= link_to 'Show', response
+      %td= link_to 'Edit', edit_response_path(response)
+      %td= link_to 'Destroy', response, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Response', new_response_path

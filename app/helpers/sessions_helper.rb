@@ -105,10 +105,20 @@ module SessionsHelper
   end    
 
   def create_activity(acted_upon_type, acted_upon_id, action, description = '')
-    @activity = Activity.create!(acted_upon_type: acted_upon_type, acted_upon_id: acted_upon_id, action: action, user_id: current_user.id, description: description)  
+    @activity = Activity.create!(acted_upon_type: acted_upon_type, acted_upon_id: acted_upon_id, action: action, user_id: current_user.id, description: description)
   end
 
   def destroy_activity(acted_upon_type, acted_upon_id, action)
     Activity.find_by(acted_upon_type: acted_upon_type, acted_upon_id: acted_upon_id, action: action, user_id: current_user.id).destroy  
+  end
+
+  def create_response(obj, act, description = '')
+    acted_upon_created_by_user_id = (obj.class.name == 'Update') ? obj.sender_user_id : obj.user_id
+    @response = Response.create!(user_id: acted_upon_created_by_user_id, acted_upon_type: obj.class.name, acted_upon_id: obj.id, act: act, actor_id: current_user.id, description: description, action: params[:action], controller: params[:controller])  
+  end
+
+  def destroy_response(obj, act)
+    acted_upon_created_by_user_id = (obj.class.name == 'Update') ? obj.sender_user_id : obj.user_id
+    Response.find_by(user_id: acted_upon_created_by_user_id, acted_upon_type: obj.class.name, acted_upon_id: obj.id, act: act, actor_id: current_user.id, action: params[:action], controller: params[:controller]).destroy  
   end
 end

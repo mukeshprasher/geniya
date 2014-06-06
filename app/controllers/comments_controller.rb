@@ -12,6 +12,8 @@ class CommentsController < ApplicationController
       @new_comment = Comment.build_from(@obj, current_user.id, "")
 #      render :partial => "comments/comment", :locals => { :comment => @comment  }, :layout => false, :status => :created
 
+      # Picture, Album, Status update, Video, Organization or Comment
+      create_response(@obj, 'comment')
     else
       render :js => "alert('error saving comment');"
     end
@@ -20,6 +22,7 @@ class CommentsController < ApplicationController
   def destroy
     @comment = Comment.find(params[:id])
     @obj = @comment.commentable_type.constantize.find(@comment.commentable_id)
+    destroy_response(@obj, 'comment')
     @comment.destroy
 #    if @comment.destroy
 #      render :json => @comment, :status => :ok

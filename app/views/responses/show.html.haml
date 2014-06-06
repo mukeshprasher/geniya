@@ -1,0 +1,33 @@
+%p#notice= notice
+
+%p
+  %b User:
+  = @response.user_id
+%p
+  %b Acted upon type:
+  = @response.acted_upon_type
+%p
+  %b Acted upon:
+  = @response.acted_upon_id
+%p
+  %b Action:
+  = @response.action
+%p
+  %b Actor:
+  = @response.actor_id
+%p
+  %b Description:
+  = @response.description
+%p
+  %b Status:
+  = @response.status
+%p
+  %b Controller:
+  = @response.controller
+%p
+  %b Action:
+  = @response.action
+
+= link_to 'Edit', edit_response_path(@response)
+\|
+= link_to 'Back', responses_path

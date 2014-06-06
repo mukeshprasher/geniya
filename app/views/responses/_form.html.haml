@@ -1,0 +1,16 @@
+= simple_form_for(@response) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :user_id
+    = f.input :acted_upon_type
+    = f.input :acted_upon_id
+    = f.input :action
+    = f.input :actor_id
+    = f.input :description
+    = f.input :status
+    = f.input :controller
+    = f.input :action
+
+  .form-actions
+    = f.button :submit
