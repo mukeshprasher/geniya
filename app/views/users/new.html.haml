@@ -2,7 +2,6 @@
   %h1 Join Geniya
 
   .row
-    = params[:q]
     .span6.offset3
       .field
       = simple_form_for @user do |f|
@@ -27,7 +26,7 @@
           = f.label :password_confirmation
           = f.password_field :password_confirmation
         .field
-          = f.hidden_field :plan, value: params[:q]  
+          = f.hidden_field :plan, value: params[:plan]  
         .actions
           = f.submit 'Create my account', class: "btn btn-large btn-primary"
 

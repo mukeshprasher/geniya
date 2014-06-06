@@ -1,32 +1,14 @@
 .wrapper
   %h1 Editing profile
-  .profile_fixed
-    .aside
-      .field
-        %label Email
-        = @user.email
-      .field
-        %label Username
-        = @user.username
-      .field
-        %label Plan
-        = @user.plan
-      .field
-        %label Plan end date
-        = @user.plan_end
-      .field
-        %label Area of work
-        /= @user.sub_categories.first.category.name if @user.sub_categories
-      .field
-        %label Status
-        = @user.status  
-
   .profile_editable
     .field
     = form_for @user do |f|
       = render 'shared/error_messages', object: f.object
       /= render 'shared/sub_categories_select', form_object: f, category_id: @user.sub_categories.first.category.id
 
+      .field
+        %label Email
+        = f.text_field :email
       .field
         = f.label :name
         = f.text_field :name, placeholder: "Name"
