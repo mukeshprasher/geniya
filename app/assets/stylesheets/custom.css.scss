@@ -70,7 +70,7 @@ header { margin:0px; padding:0px; width:100%; background:#f3f1f1; position:relat
 
 .form-actions-subscribe .btn{background: none repeat scroll 0 0 #000000;border: 1px solid #000000;color: #FFFFFF;float: right; border-radius: 0;}
 
-.form-actions-ads #cancel-ads, .form-actions-tags .btn, .form-actions-ads .btn, .form-actions-edu .btn, .form-actions-edu #cancel-edu, .form-actions-skills .btn, .form-actions-skills #cancel, #album-btn, #aff_add_btn, #orgn_btn {background: none repeat scroll 0 0 #81AA05;border: 1px solid #81AA05;color: #FFFFFF;float: left; border-radius: 5px;}
+.form-actions-ads #cancel-ads, .form-actions-tags .btn, .form-actions-ads .btn, .form-actions-edu .btn, .form-actions-edu #cancel-edu, .form-actions-skills .btn, .form-actions-skills #cancel, #album-btn, #aff_add_btn, #orgn_btn, #edit_user_profile {background: none repeat scroll 0 0 #81AA05;border: 1px solid #81AA05;color: #FFFFFF;float: left; border-radius: 5px;}
 
 
 
@@ -2755,6 +2755,7 @@ color:#85AB48;
     margin-left: 20%;
     margin-top: 50px;
     width: 500px;
+     margin-bottom: 20px;
 }
 
 
@@ -2787,3 +2788,23 @@ fieldset .field {
 }
 
 .bootstrap-datetimepicker-widget.dropdown-menu{ z-index: 1070;}
+
+
+#new_organization, #org_back {
+    float: left;
+    width: 51%;
+}
+
+
+#organization_category_id {
+    width: 100%;
+}
+
+
+
+#edit_user_profile {
+    font-size: 18px;
+    font-weight: bold;
+    padding: 2px 0 5px;
+    width: 82px;
+}
