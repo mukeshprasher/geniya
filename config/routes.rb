@@ -26,6 +26,7 @@ Geniya::Application.routes.draw do
   resources :user_skills, only: [:create, :destroy]
 
   get "ajax/portfolio_detail/:id" => 'ajax#portfolio_detail'
+  get "ajax/mark_notifications_as_seen" => 'ajax#mark_notifications_as_seen'
   resources :videos
 
   resources :advertisements
@@ -62,7 +63,7 @@ Geniya::Application.routes.draw do
 
   resources :likes, only: [:create, :destroy]
 
-  resources :comments, :only => [:create, :destroy]
+  resources :comments, :only => [:create, :destroy, :show]
   
   resources :albums
 

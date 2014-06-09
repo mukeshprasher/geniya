@@ -223,6 +223,12 @@ $(function() {
     });
   };
 
+  $('#header_response_notifications_trigger').click(function(){
+    $('#header_response_notifications').html('<img src="/assets/loader.gif" alt="loading" />');
+    $.get('/ajax/mark_notifications_as_seen', {}, function(data){
+      $('#header_response_notifications').html(data);
+    });
+  });
 
 
   $(document).ready(toDoOnload);

@@ -34,7 +34,7 @@
         Female
       .field
         = f.label :summary
-        = text_area_tag 'user[summary]', nil, size: "5x5", placeholder: "Tell Something about yourself.."
+        = f.input :summary
       .field.datepicker
         = f.label :birthdate
         = f.text_field :birthdate, placeholder: "Select Your Birthday"

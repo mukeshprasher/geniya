@@ -17,16 +17,11 @@
         %li
           |
         %li#fat-menu.dropdown
-          %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
-            = current_user.responses.count
+          %a#header_response_notifications_trigger.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
+            = current_user.responses.where(status: 0).count
             %b.caret
-          %ul.dropdown-menu
-            - current_user.responses.where(status: 0).each do |response|
-              - actor = User.find(response.actor_id)
-              - action_text = (response.act == 'like') ? ' likes' : ' commented on'
-              - obj = response.acted_upon_type.constantize.find(response.acted_upon_id)
-              %li
-                = link_to "#{actor.name} #{action_text} your #{response.acted_upon_type}", obj
+          %ul.dropdown-menu#header_response_notifications
+
         /%li#fat-menu.dropdown
         /  %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
         /    My Account

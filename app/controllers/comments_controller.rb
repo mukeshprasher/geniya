@@ -30,6 +30,12 @@ class CommentsController < ApplicationController
 #      render :js => "alert('error deleting comment');"
 #    end
   end
+
+  def show
+    comment = Comment.find(params[:id])
+    obj = comment.commentable_type.constantize.find(comment.commentable_id)
+    redirect_to obj
+  end
   
   private
 
