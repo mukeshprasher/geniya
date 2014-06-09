@@ -4,6 +4,8 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   include SessionsHelper
   include CategoriesHelper
+  include ResponsesHelper
   
   before_action :set_categories
+  before_action :clear_notifications, only: [:show]
 end
