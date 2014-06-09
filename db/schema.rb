@@ -560,6 +560,7 @@ ActiveRecord::Schema.define(version: 20140609112100) do
     t.integer  "impressions_count", default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "feature_img"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
