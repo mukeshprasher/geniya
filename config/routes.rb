@@ -1,4 +1,6 @@
 Geniya::Application.routes.draw do
+  resources :featureimgs
+
   resources :responses
 
   resources :jobs

@@ -1,0 +1,9 @@
+= simple_form_for(@featureimg) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :name
+    = f.file_field :feature_img
+    = f.hidden_field :user_id, value: current_user.id    
+  .form-actions
+    = f.button :submit

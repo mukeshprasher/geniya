@@ -1,0 +1,19 @@
+%h1 Listing featureimgs
+
+%table
+  %tr
+    %th Name
+    %th
+    %th
+    %th
+
+  - @featureimgs.each do |featureimg|
+    %tr
+      %td= featureimg.name
+      %td= link_to 'Show', featureimg
+      %td= link_to 'Edit', edit_featureimg_path(featureimg)
+      %td= link_to 'Destroy', featureimg, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Featureimg', new_featureimg_path

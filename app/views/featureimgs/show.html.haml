@@ -1,0 +1,9 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @featureimg.name
+
+= link_to 'Edit', edit_featureimg_path(@featureimg)
+\|
+= link_to 'Back', featureimgs_path
