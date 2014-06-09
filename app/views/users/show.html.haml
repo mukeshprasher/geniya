@@ -251,7 +251,7 @@
                   #organization_controll_container  
                     - if signed_in?
                       - if (@user.name== current_user.name)
-                        %a.demo{href: "/users/"+@user.username+"/profile_edit"}
+                        %a.demo{href: "/users/"+@user.slug+"/profile_edit"}
                           %span#orgn_container
                             Edit Profile          
                   #organization_controll_container  
