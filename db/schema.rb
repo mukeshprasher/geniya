@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140606122714) do
+ActiveRecord::Schema.define(version: 20140609063654) do
 
   create_table "activities", force: true do |t|
     t.integer  "user_id"
@@ -166,6 +166,17 @@ ActiveRecord::Schema.define(version: 20140606122714) do
     t.integer  "start_date"
     t.integer  "end_date"
     t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "featureimgs", force: true do |t|
+    t.string   "name"
+    t.integer  "user_id"
+    t.string   "feature_img_file_name"
+    t.string   "feature_img_content_type"
+    t.integer  "feature_img_file_size"
+    t.datetime "feature_img_updated_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

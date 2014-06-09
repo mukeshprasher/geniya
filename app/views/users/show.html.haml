@@ -244,7 +244,26 @@
                         %a.demo{href: "/jobs/new", id: ""}
                           %span#orgn_container
                             Post Job 
-       
+
+                  #organization_controll_container    
+                    #addfeatureimg.modal.fade{"data-width" => "760", style: "display: none;", tabindex: "-1"}
+                      .modal-header
+                        %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
+                        %h4.modal-title Add Feature Image
+                      .modal-body#profile_cover_upload_modal_body
+                        = form_for @featureimg,  :html => { :multipart => true, id: :feature_img_form} do |f|
+                          = f.hidden_field :user_id, value: current_user.id    
+                          .field
+                            = f.file_field :feature_img, id: "user_feature_img"  
+                          .actions
+                            = f.submit 'Add Feature Image', id: "user_featureimg_btn"
+                          %img{alt: "loading", src: "/assets/loader.gif", style: "visibility: hidden"}/
+                      .modal-footer
+                        %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
+                        /%button.btn.btn-primary{type: "button"} Save changes
+                    %a.demo{"data-toggle" => "modal",href: "#addfeatureimg", id: "#addfeatureimg"}
+                      %span#orgn_container
+                        Add Feature Image       
 
 
                 #controll_right_container

@@ -38,7 +38,7 @@ class User < ActiveRecord::Base
     has_many :albums
     has_many :uploads, through: :albums
     has_many :covers, through: :albums
-
+    has_one :featureimg
     has_many :development_logs
     
     has_one :default_album, -> { where kind: 'default' }, class_name: 'Album'

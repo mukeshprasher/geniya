@@ -2272,7 +2272,7 @@ textarea:focus, input[type="text"]:focus, input[type="password"]:focus, input[ty
 /***********profile-pic-form**************/
 
 
-#upload_profile_pic {    display: none;}
+#upload_profile_pic, #user_featureimg_btn {    display: none;}
 
 /***********cover-pic-form**************/
 
@@ -2816,4 +2816,9 @@ fieldset .field {
 
 .content-profile img {
     width: 217px;
+}
+
+
+.index_user_slide_item img {
+    width: 214px;
 }
