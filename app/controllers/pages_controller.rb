@@ -21,8 +21,14 @@ class PagesController < ApplicationController
       else
         @top_users = User.all.limit(6).order('id asc')
         @video = Video.order(impressions_count: :desc).first
-        @per_page = 48
-        @albums = Album.paginate(page: params[:page], per_page: @per_page).where(kind: 'portfolio').order(impressions_count: :desc)
+        @per_page = 15
+        
+        @albums = Array.new
+        @categories.each do |category|
+          category_albums = Album.where(kind: 'portfolio', category_id: category.id).order(impressions_count: :desc).limit(4)
+          category_albums.each {|album| @albums << album}
+        end
+        #@albums = Album.paginate(page: params[:page], per_page: @per_page).where(kind: 'portfolio').order(impressions_count: :desc)
         respond_to do |format|
           format.html
           format.js
