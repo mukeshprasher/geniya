@@ -230,6 +230,13 @@ $(function() {
     });
   });
 
+  $('#network_response_notifications_trigger').click(function(){
+    $('#network_response_notifications').html('<img src="/assets/loader.gif" alt="loading" />');
+    $.get('/ajax/mark_network_notifications_as_seen', {}, function(data){
+      $('#network_response_notifications').html(data);
+    });
+  });
+
 
   $(document).ready(toDoOnload);
   $(document).on('page:load', toDoOnload);

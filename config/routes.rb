@@ -29,6 +29,7 @@ Geniya::Application.routes.draw do
 
   get "ajax/portfolio_detail/:id" => 'ajax#portfolio_detail'
   get "ajax/mark_notifications_as_seen" => 'ajax#mark_notifications_as_seen'
+  get "ajax/mark_network_notifications_as_seen" => 'ajax#mark_network_notifications_as_seen'
   resources :videos
 
   resources :advertisements

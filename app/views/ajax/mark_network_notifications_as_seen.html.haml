@@ -1,0 +1,9 @@
+- @connection_requests.each do |user|
+  %li
+    = link_to "#{user.name}", user
+- @new_connections.each do |user|
+  %li
+    = link_to "#{user.name}", user
+- @new_relationships.each do |user|
+  %li
+    = link_to "#{user.name}", user

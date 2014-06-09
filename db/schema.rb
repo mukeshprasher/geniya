@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140609104914) do
+ActiveRecord::Schema.define(version: 20140609112100) do
 
   create_table "activities", force: true do |t|
     t.integer  "user_id"
@@ -110,6 +110,7 @@ ActiveRecord::Schema.define(version: 20140609104914) do
     t.datetime "accepted_at"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "notification_status", default: 0
   end
 
   create_table "conversations", force: true do |t|
