@@ -88,13 +88,12 @@
           - rendered_albums = Array.new
           - until rendered_albums.count >= @per_page or rendered_albums.count >= @albums.count  do
             - @categories.each do |cat|
+              - break if rendered_albums.count >= @per_page
               - @albums.each do |album|
                 - if album.category_id == cat.id and !rendered_albums.include? album
                   = render 'album_home_thumb', album: album
                   - rendered_albums << album
                   - break
-        #infinite-scrolling
-          = will_paginate @albums
       .span315.offset1.inline_block
         .discover
           Discover Geniya
