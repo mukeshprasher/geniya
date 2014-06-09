@@ -6,41 +6,48 @@
     = simple_form_for @user do |f|
       = render 'shared/error_messages', object: f.object
       /= render 'shared/sub_categories_select', form_object: f, category_id: @user.sub_categories.first.category.id
+      = field_set_tag 'Change Passsword' do
+        .field
+          = f.label :password
+          = f.password_field :password
+        .field
+          = f.label :password_confirmation
+          = f.password_field :password_confirmation      
       .field
         = f.label "Area of work"
         = f.association :category, collection: Category.order('name ASC'), include_blank: false
       .field
         = f.label "Profession"
-        = render 'shared/sub_category_select', c: Category.order('name ASC').first
+        -c = @user.category
+        %select#user_sub_category_id.select.required{name: "user[sub_category_id]"}
+          - c.sub_category_groups.each do|group|
+            %optgroup{label: "#{group.name}"}
+              - group.sub_categories.each do|sub_cat|
+                - if @user.sub_category.id == sub_cat.id 
+                  %option{selected: "selected",value: "#{sub_cat.id}"}  #{sub_cat.name} 
+                - else  
+                  %option{value: "#{sub_cat.id}"}  #{sub_cat.name}           
       .field
         %label Email
         = f.text_field :email
       .field
         = f.label :name
         = f.text_field :name, placeholder: "Name"
-
-
-      .field
-        = f.label :password
-        = f.password_field :password
-      .field
-        = f.label :password_confirmation
-        = f.password_field :password_confirmation
       .field
         = f.label :gender
-        = radio_button_tag 'user[gender]', 'male'
-        Male
-        = radio_button_tag 'user[gender]', 'female'
-        Female
+        = f.select(:gender, options_for_select([['Male', 'male'], ['Female', 'female']], :selected=> @user.gender))         
+        /= radio_button_tag 'user[gender]', 'male'
+        /Male
+        /= radio_button_tag 'user[gender]', 'female'
+        /Female
       .field
-        = f.label :summary
-        = f.input :summary
+        = f.input :summary, placeholder: "Tell Something about yourself.."
       .field.datepicker
         = f.label :birthdate
         = f.text_field :birthdate, placeholder: "Select Your Birthday"
       .field
         = f.label :available
-        = f.select(:available, options_for_select([['Yes', 'yes'], ['No', 'no'], ['Probably', 'probably'], ['Busy', 'busy']]))         
+        = f.select(:available, options_for_select([['Yes', 'yes'], ['No', 'no'], ['Probably', 'probably'], ['Busy', 'busy']], :selected=> @user.available))         
       -if @user.sub_category.name == 'model'
         .field
           = f.label :height
@@ -63,4 +70,4 @@
 
 
       .actions
-        = f.submit 'Save'
+        = f.submit 'Update', id: "edit_user_profile"

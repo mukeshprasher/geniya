@@ -235,6 +235,51 @@ $(function() {
          }    
     
     });
+
+
+    $("#album_cover").change(function (e) {
+     var OrgFile = (this.files[0].name),
+         FileName = OrgFile,
+         FileExtension = FileName.split('.').pop().toLowerCase();
+         
+         if(FileName.indexOf(".")==-1 || FileExtension != "jpg" && FileExtension != "jpeg" && FileExtension != "png" && FileExtension != "gif" ){ // Curstom File Extension
+          alert("This isn't a Photo !");
+          $("#album_cover").val('');
+          return false;
+         }
+         else
+         if((this.files[0].size/1024/1024) > (1)){ // Max Photo Size 1MB
+          alert("You Photo is too big !");
+          $("#album_cover").val('');
+          return false;
+         }
+         
+         else{
+          var fr = new FileReader;
+    fr.onload = function() {
+        var img = new Image;
+        img.onload = function() {
+          if (img.width<="150" || img.height<="150"){
+          alert("Please choose an image that's at least 150 pixels wide and at least 150 pixels tall.");
+          $("#album_cover").val('');
+          return false;
+          }
+        $('#profile_cover_upload_modal_body').append('<img src="/assets/loader.gif" alt="loading" />')
+//        $('.modal-scrollable').hide('slow');
+//        $('.modal-backdrop.fade.in').hide();
+//        $('.modal-backdrop.fade.in').disable();
+        };
+        img.src = fr.result;
+    };
+    fr.readAsDataURL(this.files[0]);
+         }    
+    
+    });
+
+
+
+
+
     
 //    $("#upload_file_attachment").change(function() {
 //    
@@ -400,8 +445,10 @@ $(function() {
         $("#new_album").submit(function(){
     var albumnamefield = $("#album_name")
     var albumtitlefield = $("#album_title")
+    var albumcover = $("#album_cover")
      albumName = albumnamefield.val();
      albumtitle = albumtitlefield.val();
+     album_cover_img = albumcover.val(); 
     if (albumName == '')
     {
       alert('Please Enter Portfolio Name');
@@ -412,6 +459,13 @@ $(function() {
     {
           alert('Please Enter Portfolio Title');
       return false;
+    }
+    else 
+    if(album_cover_img == '')
+    {
+      alert("Please Select the Picture for Album Cover")
+      return false;
+    
     }
     else
     {

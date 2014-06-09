@@ -70,7 +70,7 @@ header { margin:0px; padding:0px; width:100%; background:#f3f1f1; position:relat
 
 .form-actions-subscribe .btn{background: none repeat scroll 0 0 #000000;border: 1px solid #000000;color: #FFFFFF;float: right; border-radius: 0;}
 
-.form-actions-ads #cancel-ads, .form-actions-tags .btn, .form-actions-ads .btn, .form-actions-edu .btn, .form-actions-edu #cancel-edu, .form-actions-skills .btn, .form-actions-skills #cancel, #album-btn, #aff_add_btn, #orgn_btn {background: none repeat scroll 0 0 #81AA05;border: 1px solid #81AA05;color: #FFFFFF;float: left; border-radius: 5px;}
+.form-actions-ads #cancel-ads, .form-actions-tags .btn, .form-actions-ads .btn, .form-actions-edu .btn, .form-actions-edu #cancel-edu, .form-actions-skills .btn, .form-actions-skills #cancel, #album-btn, #aff_add_btn, #orgn_btn, #edit_user_profile {background: none repeat scroll 0 0 #81AA05;border: 1px solid #81AA05;color: #FFFFFF;float: left; border-radius: 5px;}
 
 
 
@@ -1756,7 +1756,7 @@ cursor: pointer;
 .content-profile {
     float: left;
     height: 235px;
-    width: 215px;
+    width: 220px;
 }
 
 .like-comment-box {
@@ -2473,7 +2473,6 @@ textarea:focus, input[type="text"]:focus, input[type="password"]:focus, input[ty
     border-radius: 4px;
     color: #FFFFFF;
     float: left;
-    font-style: italic;
     font-weight: bold;
     height: 23px;
     padding: 8px 0 0 6px;
@@ -2755,12 +2754,66 @@ color:#85AB48;
     margin-left: 20%;
     margin-top: 50px;
     width: 500px;
+     margin-bottom: 20px;
 }
 
 
-#user_sub_category_id, #user_category_id, #user_available {
+#user_sub_category_id, #user_category_id, #user_available, #user_gender {
     width: 500px;
 }
 .gray{
   background-color: gray;
+}
+
+legend {
+    display: block;
+    font-size: 21px;
+    line-height: 40px;
+    margin: 0 0 0 -2px;
+    padding: 0 12px 0 6px;
+    width: auto;
+    border-bottom: medium none;
+}
+
+
+fieldset {
+    border: 2px solid #CCCCCC;
+    margin-bottom: 16px;
+    padding: 0;
+}
+
+
+fieldset .field {
+    margin: 6px 0 12px 17px;
+    width: 459px;
+}
+
+.bootstrap-datetimepicker-widget.dropdown-menu{ z-index: 1070;}
+
+
+#new_organization, #org_back {
+    float: left;
+    width: 51%;
+}
+
+
+#organization_category_id {
+    width: 100%;
+}
+
+
+
+#edit_user_profile {
+    font-size: 18px;
+    font-weight: bold;
+    padding: 2px 0 5px;
+    width: 82px;
+}
+
+#upload_cover_mandatory {
+    color: #FF0000;
+}
+
+.content-profile img {
+    width: 217px;
 }

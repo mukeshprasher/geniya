@@ -12,7 +12,7 @@ $(function() {
       pickTime: false
     });
 
-
+    
     $('video').mediaelementplayer({
         // if the <video width> is not specified, this is the default
         defaultVideoWidth: 480,

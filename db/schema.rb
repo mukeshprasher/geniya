@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140605122909) do
+ActiveRecord::Schema.define(version: 20140606122714) do
 
   create_table "activities", force: true do |t|
     t.integer  "user_id"
@@ -56,9 +56,13 @@ ActiveRecord::Schema.define(version: 20140605122909) do
     t.text     "description"
     t.string   "kind"
     t.string   "slug"
-    t.integer  "impressions_count", default: 0
+    t.integer  "impressions_count",  default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "cover_file_name"
+    t.string   "cover_content_type"
+    t.integer  "cover_file_size"
+    t.datetime "cover_updated_at"
   end
 
   add_index "albums", ["category_id"], name: "index_albums_on_category_id"

@@ -39,23 +39,21 @@ class AlbumsController < ApplicationController
   # POST /albums.json
   def create
     @album = Album.new(album_params)
-    @album.save
-#    respond_to do |format|
-#      if @album.save
-#        format.html { redirect_to @album, notice: 'Album was successfully created.' }
-#        format.json { render action: 'show', status: :created, location: @album }
-#      else
-#        format.html { render action: 'new' }
-#        format.json { render json: @album.errors, status: :unprocessable_entity }
-#      end
-#    end
+    respond_to do |format|
+      if @album.save
+        format.html { render action: 'crop' }
+      else
+        format.html { render action: 'new' }
+        format.json { render json: @album.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   # PATCH/PUT /albums/1
   # PATCH/PUT /albums/1.json
   def update
     respond_to do |format|
-      if @album.update(album_params)
+      if @album.update_attributes(album_params)
         format.html { redirect_to @album, notice: 'Album was successfully updated.' }
         format.json { head :no_content }
       else
@@ -83,7 +81,8 @@ class AlbumsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def album_params
-      params.require(:album).permit(:user_id, :name, :title, :description, :kind, :category_id)
+      params.fetch(:album, {}).permit!
+#      params.require(:album).permit(:user_id, :name, :title, :description, :kind, :category_id)
     end
 
     # Before filters

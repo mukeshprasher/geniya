@@ -1,5 +1,5 @@
 .wrapper
-  = form_for @album, remote: true do |f|
+  = form_for @album do |f|
     - if @album.errors.any?
       #error_explanation
         %h2= "#{pluralize(@album.errors.count, "error")} prohibited this album from being saved:"
@@ -10,24 +10,32 @@
     = f.hidden_field :kind, value: "portfolio"
     .field
       %span#state_label
-        Portfolio Name:  
+        Portfolio Name  
+        %span#upload_cover_mandatory
+          *      
       /= f.label :name
       = f.text_field :name, placeholder: 'Enter Portfolio Name here:'
     .field
       %span#state_label
-        Portfolio Title:        
+        Portfolio Title       
       /= f.label :title
       = f.text_field :title, placeholder: 'Enter Portfolio Title here:'
     .field
       %span#state_label
-        Portfolio Description:        
+        Portfolio Description        
       /= f.label :description
       = f.text_area :description, placeholder: 'Enter Portfolio Description here:'
     .field
-      = f.hidden_field :kind, value: "Portfolio"
+      = f.hidden_field :kind, value: "portfolio"
       /= f.select :description, options_for_select(["Portfolio", "Album", "Project"])
     .field
       = f.hidden_field :category_id, value: current_user.category_id
+      %span#state_label
+        Upload Portfolio Cover Image       
+        %span#upload_cover_mandatory
+          *      
+      %p
+        = f.file_field :cover
       /= f.label :category_id
       /= collection_select(:album, :category_id, Category.all, :id, :name)
     .form-actions-album
