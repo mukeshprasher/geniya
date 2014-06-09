@@ -20,4 +20,11 @@ class AjaxController < ApplicationController
     render 'mark_notifications_as_seen', layout: false
     current_user.responses.where(status: 0).each {|response| response.update_attribute(:status, 1)}
   end
+
+  def mark_network_notifications_as_seen
+    @responses = current_user.responses.order('created_at DESC').limit(100)
+    #current_user.responses.where(status: 0).each {|response| response.update_attribute(:status, 1)}
+    render 'mark_notifications_as_seen', layout: false
+    current_user.responses.where(status: 0).each {|response| response.update_attribute(:status, 1)}
+  end
 end

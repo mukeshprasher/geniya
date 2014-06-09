@@ -21,6 +21,11 @@
             = current_user.responses.where(status: 0).count
             %b.caret
           %ul.dropdown-menu#header_response_notifications
+        %li#network-notice-menu.dropdown
+          %a#network_response_notifications_trigger.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
+            = current_user.connected_users.first.status
+            %b.caret
+          %ul.dropdown-menu#network_response_notifications
 
         /%li#fat-menu.dropdown
         /  %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
