@@ -49,9 +49,15 @@
       %a{href:"/users/"+"#{user.slug}"}
         .index_user_slide_item
           - if !user.featureimg.nil?
-            =image_tag user.featureimg.feature_img.url(:large)
+            = image_tag user.featureimg.feature_img.url(:large)
           - else
             =image_tag '/assets/missing.png', width: "215px", height: "215px"
+
+
+
+
+
+
     /%img{alt: "slider", src: "/assets/slide1.jpg"}/
   .slogan
     .wrapper_c_not_required

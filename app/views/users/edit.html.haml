@@ -23,13 +23,16 @@
 
   .profile_editable
     .field
-    = form_for @user do |f|
+    = simple_form_for @user do |f|
       = render 'shared/error_messages', object: f.object
       /= render 'shared/sub_categories_select', form_object: f, category_id: @user.sub_categories.first.category.id
 
       .field
         = f.label :name
         = f.text_field :name, placeholder: "Name"
+      - if current_user.plan == "admin"
+        .field
+          = f.input :feature_img,     as: :radio_buttons
       .field
         = f.label :gender
         = radio_button_tag 'user[gender]', 'male'

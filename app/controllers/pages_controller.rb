@@ -19,7 +19,8 @@ class PagesController < ApplicationController
           format.js
         end      
       else
-        @top_users = User.all.limit(6).order('id asc')
+#        @top_users = User.all.limit(6).order('id asc')
+        @top_users = User.where(feature_img: 'true').order(impressions_count: :desc)
         @video = Video.order(impressions_count: :desc).first
         @per_page = 15
         
