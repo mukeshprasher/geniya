@@ -1,24 +1,25 @@
 .box.ajax-portfolio-detail-homepage-modal-trigger
   .albm-img{:data => "#{album.id}"}  
-    -if album.multiuploads.any?
+    - if !album.cover.nil?
       .content-profile
-        - album.multiuploads.last(1).each do|upload_img_name|
-          = image_tag upload_img_name.multiupload.url(:original), alt: upload_img_name.multiupload_file_name
-    -  elsif album.uploads.any?
-      .content-profile
-        - album.uploads.last(1).each do|upload_img_name|
-          = image_tag upload_img_name.file_attachment.url(:original)
-
-    -  elsif album.covers.any?
-      .content-profile
-        - album.covers.last(1).each do|upload_img_name|
-          = image_tag upload_img_name.file_attachment.url(:original)
-
+        = image_tag album.cover.url(:large)
     - else
       .content-profile
         = image_tag '/assets/missing-image-geniya.png', alt: '/assets/missing-image-geniya.png'
-  /.descr
-  /  = album.name
+    /-if album.multiuploads.any?
+    /  .content-profile
+    /    - album.multiuploads.last(1).each do|upload_img_name|
+    /      = image_tag upload_img_name.multiupload.url(:original), alt: upload_img_name.multiupload_file_name
+    /-  elsif album.uploads.any?
+    /  .content-profile
+    /    - album.uploads.last(1).each do|upload_img_name|
+    /      = image_tag upload_img_name.file_attachment.url(:original)
+    /-  elsif album.covers.any?
+    /  .content-profile
+    /    - album.covers.last(1).each do|upload_img_name|
+    /      = image_tag upload_img_name.file_attachment.url(:original)
+    /.descr
+    /  = album.name
   .potrate-img
     = link_to album.name, album
   .like-comment-box  

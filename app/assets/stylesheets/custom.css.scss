@@ -1756,7 +1756,7 @@ cursor: pointer;
 .content-profile {
     float: left;
     height: 235px;
-    width: 215px;
+    width: 220px;
 }
 
 .like-comment-box {
@@ -2473,7 +2473,6 @@ textarea:focus, input[type="text"]:focus, input[type="password"]:focus, input[ty
     border-radius: 4px;
     color: #FFFFFF;
     float: left;
-    font-style: italic;
     font-weight: bold;
     height: 23px;
     padding: 8px 0 0 6px;
@@ -2807,4 +2806,12 @@ fieldset .field {
     font-weight: bold;
     padding: 2px 0 5px;
     width: 82px;
+}
+
+#upload_cover_mandatory {
+    color: #FF0000;
+}
+
+.content-profile img {
+    width: 217px;
 }
