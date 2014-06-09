@@ -47,11 +47,13 @@
   .index_user_slider
     - i = 0
     - @top_users.each do |user|
-      %a{href:"/users/"+"#{user.slug}"}
-        .index_user_slide_item
-          - if !user.featureimg.nil?
+      - if !user.featureimg.nil?
+        - i +=1
+        %a{href:"/users/"+"#{user.slug}"}
+          .index_user_slide_item
             = image_tag user.featureimg.feature_img.url(:large)
-
+      - break if i>=6
+          
 
 
 
