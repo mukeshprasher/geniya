@@ -1,12 +1,13 @@
 - if Advertisement.any?
   .makeup_sec{ :id => "ads_box-#{add_detail.id}" }
-    - if current_user.username == add_detail.user.username
-      .edit_cross_makeup_box
-        %span#edit_adds
-          %a{href: "/advertisements/"+"#{add_detail.slug}"+"/edit"}
-            %img{alt: "", src: "/assets/edit.png"}/
-        %span#edit_adds_cross
-          = link_to "×", advertisement_path(add_detail), :method => :delete, :remote => true,  :disable_with => "×", :class => 'ads_box-delete' , :id => "ads_box-delete-#{add_detail.id}"            
+    - if signed_in?
+      - if (current_user.username == add_detail.user.username)
+        .edit_cross_makeup_box
+          %span#edit_adds
+            %a{href: "/advertisements/"+"#{add_detail.slug}"+"/edit"}
+              %img{alt: "", src: "/assets/edit.png"}/
+          %span#edit_adds_cross
+            = link_to "×", advertisement_path(add_detail), :method => :delete, :remote => true,  :disable_with => "×", :class => 'ads_box-delete' , :id => "ads_box-delete-#{add_detail.id}"            
     .makeUp
       = image_tag add_detail.file_attachment.url(:medium)
     .make_comtact
@@ -17,7 +18,7 @@
           %em
             please add Contact Details
       - else
-        %a{href: "http://"+"#{add_detail.link}", target: "_blank"}
+        %a{href: "https://"+"#{add_detail.link}", target: "_blank"}
           Contact Now
       = link_to "View Details", '/advertisements/'+ add_detail.slug
 /- else
