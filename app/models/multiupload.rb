@@ -1,4 +1,5 @@
 class Multiupload < ActiveRecord::Base
+  has_many :shares
   belongs_to :album
   has_attached_file :multiupload,
                         :storage        => :s3                                                 ,

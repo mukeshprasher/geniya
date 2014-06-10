@@ -9,7 +9,7 @@ class Update < ActiveRecord::Base
   
   has_many :uploads
   has_many :videos
-
+  has_many :shares
 
 
     

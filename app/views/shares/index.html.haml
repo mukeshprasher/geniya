@@ -1,0 +1,25 @@
+%h1 Listing shares
+
+%table
+  %tr
+    %th User
+    %th Shared type
+    %th Shared
+    %th Comment
+    %th
+    %th
+    %th
+
+  - @shares.each do |share|
+    %tr
+      %td= share.user_id
+      %td= share.shared_type
+      %td= share.shared_id
+      %td= share.comment
+      %td= link_to 'Show', share
+      %td= link_to 'Edit', edit_share_path(share)
+      %td= link_to 'Destroy', share, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Share', new_share_path

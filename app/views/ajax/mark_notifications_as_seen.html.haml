@@ -1,6 +1,13 @@
 - @responses.each do |response|
   - actor = User.find(response.actor_id)
-  - action_text = (response.act == 'like') ? ' likes' : ' commented on'
+  - case response.act
+  - when 'like'
+    - action_text = 'likes'
+  - when 'comment'
+    - action_text = 'commented on'
+  - when 'share'
+    - action_text = 'shared'
+
   - obj = response.acted_upon_type.constantize.find(response.acted_upon_id)
   %li{:class => ("gray" unless response.status == 0)}
     = link_to "#{actor.name} #{action_text} your #{response.acted_upon_type}", obj

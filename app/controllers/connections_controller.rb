@@ -1,4 +1,5 @@
 class ConnectionsController < ApplicationController
+  before_action :signed_in_user, only: [:update, :destroy, :create]
   def create
     @user = User.find(params[:connection][:connection_id])
     Connection.connection_request(params[:connection][:user_id], params[:connection][:connection_id])

@@ -54,6 +54,7 @@ class User < ActiveRecord::Base
     has_many :activities
     has_many :jobs
     has_many :responses
+    has_many :shares
     
     before_create :create_remember_token
     

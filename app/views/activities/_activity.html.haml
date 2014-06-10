@@ -56,11 +56,37 @@
           %img{alt: "", height: "11", src: "/assets/feed_icon1.png", width: "13"}/
           %p{ :id => "comment_count_#{acted_upon_obj.class.name}_#{acted_upon_obj.id}" }  
             = @comments.count
+        %li
+          %img{alt: "Share", height: "11", src: "/assets/feed_icon3.png", width: "13"}/
+          %p{ :id => "share_count_#{acted_upon_obj.class.name}_#{acted_upon_obj.id}" }
       %span.timestamp
         #{time_ago_in_words(activity.created_at)} ago.
     .userBottom
       .like_this-1
         = render 'shared/like_form', object: acted_upon_obj, user: acted_upon_obj.user
+      - if current_user
+        .like_this-1
+          &nbsp 
+          |
+          %a.demo{"data-toggle" => "modal",href: "#share_#{activity.id}"}
+            Share
+          .modal.fade{"data-width" => "760", style: "display: none;", tabindex: "-1", id: "share_#{activity.id}"}
+            .modal-header
+              %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
+              %h4.modal-title Share this #{activity.acted_upon_type} with your network
+            .modal-body
+              = simple_form_for(Share.new, remote: true) do |f|
+                = f.error_notification
+
+                .form-inputs
+                  = f.hidden_field :shared_type, value: "#{activity.acted_upon_type}"
+                  = f.hidden_field :shared_id, value: "#{activity.acted_upon_id}"
+                  = f.input :comment, placeholder: "Write something.."
+
+                .form-actions
+                  = f.button :submit, value: 'Share', class: 'btn-large btn-primary'
+            .modal-footer
+              %button.btn.btn-default#share_form_area_close{"data-dismiss" => "modal", type: "button"} Close
       .show_users
         - comments = acted_upon_obj.comment_threads.where('parent_id IS NULL').order('created_at desc')
         - @new_comment = Comment.build_from(acted_upon_obj, current_user.id, "")

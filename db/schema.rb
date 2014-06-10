@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140609112100) do
+ActiveRecord::Schema.define(version: 20140610072126) do
 
   create_table "activities", force: true do |t|
     t.integer  "user_id"
@@ -421,6 +421,15 @@ ActiveRecord::Schema.define(version: 20140609112100) do
     t.integer  "status",          default: 0
     t.string   "controller"
     t.string   "action"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "shares", force: true do |t|
+    t.integer  "user_id"
+    t.string   "shared_type"
+    t.integer  "shared_id"
+    t.text     "comment"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
