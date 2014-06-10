@@ -70,7 +70,7 @@ header { margin:0px; padding:0px; width:100%; background:#f3f1f1; position:relat
 
 .form-actions-subscribe .btn{background: none repeat scroll 0 0 #000000;border: 1px solid #000000;color: #FFFFFF;float: right; border-radius: 0;}
 
-.form-actions-ads #cancel-ads, .form-actions-tags .btn, .form-actions-ads .btn, .form-actions-edu .btn, .form-actions-edu #cancel-edu, .form-actions-skills .btn, .form-actions-skills #cancel, #album-btn, #aff_add_btn, #orgn_btn, #edit_user_profile {background: none repeat scroll 0 0 #81AA05;border: 1px solid #81AA05;color: #FFFFFF;float: left; border-radius: 5px;}
+.form-actions-ads #cancel-ads, .form-actions-tags .btn, .form-actions-ads .btn, .form-actions-edu .btn, .form-actions-edu #cancel-edu, .form-actions-skills .btn, .form-actions-skills #cancel, #album-btn, #aff_add_btn, #orgn_btn, #edit_user_profile, #advertisement_btn {background: none repeat scroll 0 0 #81AA05;border: 1px solid #81AA05;color: #FFFFFF;float: left; border-radius: 5px;}
 
 
 
@@ -2873,4 +2873,10 @@ fieldset .field {
   padding: 4px;
   width: auto;
 
+}
+
+
+
+#user_controll_container a {
+    text-decoration: none;
 }
