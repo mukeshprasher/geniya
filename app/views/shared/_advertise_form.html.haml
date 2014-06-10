@@ -1,7 +1,7 @@
 .ads-box
   - if Advertisement.any?
     - user.advertisements.each do |add_detail|
-      = render 'shared/ads_details', add_detail: add_detail
+      = render 'shared/ads_details', add_detail: add_detail, user: user
   /- else
   /  .makeup_sec
   /    .makeUp

@@ -37,8 +37,7 @@ class AdvertisementsController < ApplicationController
 #    @advertisement.save
     respond_to do |format|
       if @advertisement.save
-        format.html { redirect_to @advertisement, notice: 'Advertisement was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @advertisement }
+        format.html { render action: 'crop' }
       else
         format.html { render action: 'new' }
         format.json { render json: @advertisement.errors, status: :unprocessable_entity }
@@ -64,10 +63,10 @@ class AdvertisementsController < ApplicationController
   # DELETE /advertisements/1.json
   def destroy
     @advertisement.destroy
-    respond_to do |format|
-      format.html { redirect_to advertisements_url }
-      format.json { head :no_content }
-    end
+#    respond_to do |format|
+#      format.html { redirect_to advertisements_url }
+#      format.json { head :no_content }
+#    end
   end
 
   private
@@ -78,6 +77,7 @@ class AdvertisementsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def advertisement_params
-      params.require(:advertisement).permit(:name, :address, :contact, :file_attachment)
+      params.fetch(:advertisement, {}).permit!
+#      params.require(:advertisement).permit(:name, :address, :contact, :file_attachment, :title, :slogan, :description, :link)
     end
 end
