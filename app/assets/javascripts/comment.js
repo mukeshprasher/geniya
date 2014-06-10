@@ -39,6 +39,22 @@ $(function() {
        {$("#comment-"+delete_comment_id).show();
        return false;}
      });
+ 
+    $(".ads_box-delete").click(function(){
+     var delcomment = confirm("Do you want to delete this Advertisement ?");
+     if(delcomment == true)
+     {
+     var delete_comment_id=this.id.split("-")[2]
+       $("#ads_box-"+delete_comment_id).hide('slow');
+       return true;
+     }
+     else
+       {$("#ads_box-"+delete_comment_id).show();
+       return false;}
+     }); 
+ 
+ 
+ 
     
     $(".affiliation-delete").click(function(){
      var delcomment = confirm("Do you want to delete this Affiliation ?");

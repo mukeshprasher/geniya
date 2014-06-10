@@ -3,9 +3,22 @@
     = f.error_notification
 
     .form-inputs
-      = f.input :name
-      = f.input :address
-      = f.input :contact
+      .field
+        %label Advertisement Category
+        -c = Category.all
+        %select#user_advertisement_categroy.select.required{name: "advertisement[category_id]"}
+          - c.each do|cat|
+            - if current_user.category.id == cat.id 
+              %option{selected: "selected",value: "#{cat.id}"}  #{cat.name} 
+            - else  
+              %option{value: "#{cat.id}"}  #{cat.name}        
+      /= f.input :name
+      = f.input :title
+      = f.input :slogan
+      = f.input :description, as: :text, :input_html => { :cols => 5, :rows => 10 }
+      = f.input :link
+      /= f.input :address
+      /= f.input :contact
       = f.file_field :file_attachment
     .form-actions
-      = f.button :submit
+      = f.button :submit, value: "Post"
