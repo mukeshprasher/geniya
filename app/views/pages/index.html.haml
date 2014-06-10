@@ -43,6 +43,35 @@
           .ads-box
             - @jobs.each do |job|
               = render job
+        .home_control_section
+          #controll_left_container
+            #user_controll_container
+              - if signed_in?
+                #orgn_form.modal.fade{"data-width" => "760", style: "display: none;", tabindex: "-1"}
+                  .modal-header
+                    %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
+                    %h4.modal-title Add Organization Details:
+                  .modal-body
+                    = render 'organizations/form'
+                  .modal-footer
+                    %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
+                    /%button.btn.btn-primary{type: "button"} Save changes
+                %a.demo{"data-toggle" => "modal",href: "#orgn_form"}
+                  %span#orgn_container
+                    Add Organization          
+
+            #user_controll_container    
+              - if signed_in?
+                %a.demo{href: "/jobs/new", id: ""}
+                  %span#orgn_container
+                    Post Job        
+
+            #user_controll_container
+              - if signed_in?
+                %a.demo{href: "/advertisements/new", id: ""}
+                  %span#orgn_container
+                    Post Advertisements
+        
 - else
   .index_user_slider
     - i = 0

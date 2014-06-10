@@ -540,35 +540,42 @@ $(function() {
 ///////// for Jobs form
 
     $("#new_advertisement").submit(function(){
-    var adnamefield = $("#advertisement_name")
-    var adaddressfield = $("#advertisement_address")
-    var adcontactfield = $("#advertisement_contact")
+    var adtitlefield = $("#advertisement_title")
+    var adsloganfield = $("#advertisement_slogan")
+    var adlinkfield = $("#advertisement_link")
     var adimagefield = $("#advertisement_file_attachment")
-     name = adnamefield.val();
-     address = adaddressfield.val();
-     contact = adcontactfield.val();
+    var re = /(http(s)?:\\)?([\w-]+\.)+[\w-]+[.com|.in|.org]+(\[\?%&=]*)?/
+     title = adtitlefield.val();
+     slogan = adsloganfield.val();
+     link = adlinkfield.val();
      image = adimagefield.val();     
-    if (name == '')
+    if (title == '')
     {
-      alert('Please Enter Job Name:');
+      alert('Please Enter Advertisement Title:');
       return false;
     }
     else
-    if(address == '')
+    if(slogan == '')
     {
-          alert('Please Enter Job Location:');
+          alert('Please Enter Advertisement slogan:');
       return false;
     }
     else
-    if(contact == '')
+    if(link == '')
     {
-      alert('Please Enter contact detail:');
+      alert('Please Enter advertisement contact link:');
       return false;
+    }
+    else
+    if(!re.test(link))
+    {
+      alert('Please Enter Valid advertisement contact link:');
+      return false;    
     }
     else
     if(image == '')
     {
-      alert('Please Select any cover pic for Job:');
+      alert('Please Select picture for advertisement cover:');
       return false;
     }
     else

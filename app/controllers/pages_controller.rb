@@ -8,7 +8,7 @@ class PagesController < ApplicationController
         @advertisement = current_user.advertisements.build
         @feed_items = current_user.feed.paginate(page: params[:page], per_page: 5)
         @advertisements = Advertisement.all
-        
+        @organization = current_user.organizations.build
         @jobs = Array.new
         current_user.skills.each {|skill| skill.jobs.each{|job| @jobs << job } }
         @jobs = @jobs.uniq
