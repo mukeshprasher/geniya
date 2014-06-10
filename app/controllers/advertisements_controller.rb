@@ -50,7 +50,7 @@ class AdvertisementsController < ApplicationController
   def update
     respond_to do |format|
       if @advertisement.update(advertisement_params)
-        format.html { redirect_to @advertisement, notice: 'Advertisement was successfully updated.' }
+        format.html { redirect_to @advertisement, notice: 'Advertisement was successfully posted.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
