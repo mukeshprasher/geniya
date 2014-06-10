@@ -1,9 +1,13 @@
 - @connection_requests.each do |user|
   %li
-    = link_to "#{user.name}", user
+    - @user = user
+    = link_to "#{user.name} wants to connect with you", user 
+    = render 'shared/connect_form'
 - @new_connections.each do |user|
   %li
-    = link_to "#{user.name}", user
+    - @user = user
+    = link_to "#{user.name} is now connected with you", user
+    = render 'shared/connect_form'
 - @new_relationships.each do |user|
   %li
-    = link_to "#{user.name}", user
+    = link_to "#{user.name} is now following you", user
