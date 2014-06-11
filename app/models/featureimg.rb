@@ -8,7 +8,7 @@ class Featureimg < ActiveRecord::Base
                       :s3_protocol    => "https"                                             ,
                       :s3_host_name   => "s3-us-west-1.amazonaws.com",
                       :bucket => "geniya"
-  crop_attached_file :feature_img , :aspect => "2:5"
+  crop_attached_file :feature_img , :aspect => "215:400"
   validates_attachment :feature_img, 
   :content_type => { :content_type => ["image/jpg", "image/jpeg", "image/gif", "image/png"] },
   :size => { :in => 0..1000.kilobytes },

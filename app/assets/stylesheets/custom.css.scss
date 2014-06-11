@@ -92,7 +92,7 @@ line-height: 12px; padding: 4px 7px; }
 
 .login_nav li:last-child { border:none }
 
-.login_nav li.login { background: url("/assets/login.png") no-repeat scroll left top rgba(0, 0, 0, 0); color: #FFFFFF; display: block; font-family: 'latobold'; margin-left: 8px; padding: 3px 12px 25px 20px; position: relative; text-align: center; text-transform: none; top: 0; width: 54px; }
+.login_nav li.login { background: url("/assets/login.png") no-repeat scroll left top rgba(0, 0, 0, 0); color: #FFFFFF; display: block; font-family: 'latobold'; margin-left: 8px; padding: 3px 12px 20px 20px; position: relative; text-align: center; text-transform: none; top: 0; width: 54px; }
 
 .login_nav li.login a { color:#fff; font-weight:normal; font-size:16px; }
 
@@ -123,7 +123,7 @@ nav { display: block; float: left; margin-top: 4px; padding-bottom: 28px; positi
 
 .slider { margin:0px; padding:0px; width:100%; }
 
-.slogan { background: url("/assets/green_brush.png") no-repeat scroll center center #4B6515; color: #FFFFFF; font-size: 38px; font-weight: normal; margin: 0; padding: 10px 0; text-align: center; width: 100%;  }
+.slogan { background: url("/assets/green_brush.png") no-repeat scroll center center #4B6515; color: #FFFFFF; font-size: 38px; font-weight: normal; margin: 0; padding: 5px 0; text-align: center; width: 100%;  }
 
 .slogan span { font-family: 'latoblack'; font-weight:normal }
 
@@ -138,7 +138,7 @@ nav { display: block; float: left; margin-top: 4px; padding-bottom: 28px; positi
 
 .choose .post_portfolio:hover img, .choose .view_portfolio:hover img { opacity: 0.7; -webkit-transform: scale(1.05, 1.07); -webkit-transition-timing-function: ease-out; -webkit-transition-duration: 250ms; -moz-transform: scale(1.05, 1.07); -moz-transition-timing-function: ease-out; -moz-transition-duration: 250ms; ; z-index: 99; }
 
-.choose .text { color: #4B6515; cursor: pointer; font-family: latoblack; font-size:70px; left: 0; position: absolute; top: 25%; z-index: 101; width:100% }
+.choose .text { color: #4B6515; cursor: pointer; font-family: latoblack; font-size:70px; left: 0; position: absolute; top: 17%; z-index: 101; width:100% }
 
 .choose .text { text-decoration: none; opacity: 1; -webkit-transform: scale(1, 1); -webkit-transition-timing-function: ease-out; -webkit-transition-duration: 250ms; -moz-transform: scale(1, 1); -moz-transition-timing-function: ease-out; -moz-transition-duration: 250ms; }
 
@@ -146,7 +146,13 @@ nav { display: block; float: left; margin-top: 4px; padding-bottom: 28px; positi
 
 .choose .text span { color: #000000; display: block; font-family: latolight; font-size: 32px; text-transform: uppercase; }
 
-.choose .text i { font-size:14px; font-family: 'latoregular'; color:#8e8e8e; font-style:normal }
+.choose .text i { font-size:14px; font-family: 'latoregular'; color:#8e8e8e; font-style:normal; }
+
+
+.post_portfolio .text {
+    margin: -13px 0 0;
+}
+
 
 /***********************/
 
@@ -2425,7 +2431,7 @@ textarea:focus, input[type="text"]:focus, input[type="password"]:focus, input[ty
 }
 .index_user_slide_item{
   float:left;
-  width: 214px;
+    width: 215px;
 }
 
 
@@ -2822,7 +2828,7 @@ fieldset .field {
 
 
 .index_user_slide_item img {
-    width: 214px;
+    width: 215px;
 }
 
 
