@@ -2,7 +2,6 @@ class Video < ActiveRecord::Base
   belongs_to :user
   has_many :likes,foreign_key: 'likeable_id'
   has_many :comments, foreign_key: 'commentable_id'
-  has_many :shares
   has_attached_file :file_attachment, :hash_secret => "geniyaAttach",
                         :storage        => :s3                                                 ,
                       :s3_credentials => {:bucket            => 'geniya',

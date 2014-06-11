@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
     has_many :user_skills
     has_many :skills, through: :user_skills
     has_many :affiliations
-    has_many :organizations, through: :affiliations
+    has_many :organizations
     has_many :videos
     has_many :advertisements
     has_many :updates, foreign_key: "sender_user_id", dependent: :destroy

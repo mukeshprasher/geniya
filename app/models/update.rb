@@ -9,9 +9,6 @@ class Update < ActiveRecord::Base
   
   has_many :uploads
   has_many :videos
-  has_many :shares
-
-
     
   default_scope -> { order('created_at DESC') }
   acts_as_likeable

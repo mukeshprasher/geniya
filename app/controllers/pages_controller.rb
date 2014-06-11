@@ -2,7 +2,7 @@ class PagesController < ApplicationController
     def index
       @subscription = Subscription.new
       if signed_in?
-        @activities = Activity.paginate(page: params[:page], per_page: 15)
+        @activities = Activity.paginate(page: params[:page], per_page: 15).order(created_at: :desc)
         @update = current_user.updates.build
         @video = current_user.videos.build
         @advertisement = current_user.advertisements.build
