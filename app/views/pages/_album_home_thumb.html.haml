@@ -6,13 +6,9 @@
         = image_tag upload_img_name.multiupload.url(:original), alt: upload_img_name.multiupload_file_name
     -else
       =image_tag '/assets/missing-image-geniya.png', title: album.name    
-    /-if album.uploads.any?
-    /  = image_tag album.uploads.first.file_attachment.url, title: album.name
-
   .trendingInfo.isotopeSummary
     - a = album.name
     %h6.aqua{:id => "#{album.category.slug}"}
-      /= i
       = link_to album.category.name.sub(' ', '/'), '/portfolios/'+ album.category.slug
     %h4
       = link_to album.title, album

@@ -124,7 +124,6 @@
     .wrapper_c
       .span690.inline_block
         %ul#editorsPicks
-          #ajax-portfolio-detail-homepage.modal.fade.modal-scrollable{style: "display: none;", tabindex: "-1"}
           - rendered_albums = Array.new
           - until rendered_albums.count >= @per_page or rendered_albums.count >= @albums.count  do
             - @categories.each do |cat|
@@ -200,3 +199,4 @@
                   = f.button :submit, value: 'Subscribe'
                   #response_subscription
               .clear
+#ajax-portfolio-detail-homepage.modal.fade.modal-scrollable{style: "display: none;", tabindex: "-1"}

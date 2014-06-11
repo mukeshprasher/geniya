@@ -16,10 +16,6 @@
     #primary-project-content.project-styles
     - if signed_in?
       - if (@user.name== current_user.name)
-        #skill-link
-          /%a
-          /  Add Skills
-        
         #album-form.modal.fade{"data-width" => "760", style: "display: none;", tabindex: "-1"}
           .modal-header
             %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
@@ -30,10 +26,9 @@
             %button#close.btn.btn-default{:data => "#{@album.id}", "data-dismiss" => "modal", type: "button"} Close
             /%button.btn.btn-primary{type: "button"} Save changes
         %a.demo{"data-toggle" => "modal",href: "#album-form", id: "add-img"}
-          /Add Images to #{@album.kind}
-          %span#add_img_btn
-            Add/Remove Pictures     
-
+          Add/Remove Pictures
+        |     
+        = link_to "Edit #{@album.kind}", edit_album_path(@album)
 
 
     %ul#project-modules

@@ -17,7 +17,15 @@
           - if activity.acted_upon_type == 'Update'
             shared an
             = activity.acted_upon_type
-            - if activity.user != current_user
+            - if activity.user != acted_upon_obj.user
+              by
+              = link_to acted_upon_obj.user.name, activity.user
+            %br
+          - elsif activity.acted_upon_type == 'Album'
+            shared
+            = acted_upon_obj.kind
+            = link_to acted_upon_obj.name, acted_upon_obj
+            - if activity.user != acted_upon_obj.user
               by
               = link_to acted_upon_obj.user.name, activity.user
             %br
@@ -48,6 +56,8 @@
                     %source{type:"#{video.file_attachment.content_type}", src:"#{video.file_attachment.url}"}
                     %object{width:"303", height:"230", type:"application/x-shockwave-flash", data:"#{video.file_attachment.url}"}
                       %embed{ src: "#{video.file_attachment.url}", width: "303", height: "230"}
+      - elsif activity.acted_upon_type == 'Album'
+        = render 'shared/album_feed_thumb', album: acted_upon_obj
       %ul
         - @likers = acted_upon_obj.likers(User)
         - @comments = acted_upon_obj.comment_threads.where('parent_id IS NULL').order('created_at desc')
