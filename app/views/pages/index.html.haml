@@ -32,7 +32,7 @@
         
         .user_description
           - if @activities.any?
-            %ol.updates
+            %ol.updates#feed_cont
               - @activities.each do |activity|
                 = render activity
             #infinite-scrolling

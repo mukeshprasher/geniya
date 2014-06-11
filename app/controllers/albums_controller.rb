@@ -41,6 +41,7 @@ class AlbumsController < ApplicationController
     @album = Album.new(album_params)
     respond_to do |format|
       if @album.save
+        create_activity(@album.class.name, @album.id, 'create')
         format.html { render action: 'crop' }
       else
         format.html { render action: 'new' }
@@ -67,6 +68,7 @@ class AlbumsController < ApplicationController
   # DELETE /albums/1.json
   def destroy
     @album.destroy
+    destroy_activity(@album.class.name, @album.id, 'create')
     respond_to do |format|
       format.html { redirect_to albums_url }
       format.json { head :no_content }

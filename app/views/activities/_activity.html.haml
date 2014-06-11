@@ -17,6 +17,9 @@
           - if activity.acted_upon_type == 'Update'
             shared an
             = activity.acted_upon_type
+            - if activity.user != current_user
+              by
+              = link_to acted_upon_obj.user.name, activity.user
             %br
           - else
             = activity.action
@@ -59,6 +62,7 @@
         %li
           %img{alt: "Share", height: "11", src: "/assets/feed_icon3.png", width: "13"}/
           %p{ :id => "share_count_#{acted_upon_obj.class.name}_#{acted_upon_obj.id}" }
+            = Share.where(shared_type:  acted_upon_obj.class.name, shared_id: acted_upon_obj.id).count
       %span.timestamp
         #{time_ago_in_words(activity.created_at)} ago.
     .userBottom
@@ -88,7 +92,7 @@
             .modal-footer
               %button.btn.btn-default#share_form_area_close{"data-dismiss" => "modal", type: "button"} Close
       .show_users
-        - comments = acted_upon_obj.comment_threads.where('parent_id IS NULL').order('created_at desc')
+        - comments = acted_upon_obj.comment_threads.where('parent_id IS NULL').order('created_at desc').limit(2)
         - @new_comment = Comment.build_from(acted_upon_obj, current_user.id, "")
         .comments
           = render :partial => 'comments/feed_comment', :locals => { comment: @new_comment, parent_id: nil , feed_id: acted_upon_obj.id}

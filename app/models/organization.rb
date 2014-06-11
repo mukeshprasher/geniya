@@ -1,6 +1,7 @@
 class Organization < ActiveRecord::Base
   has_many :affiliations
   has_many :users, through: :affiliations
+  belongs_to :user
   has_many :addresses
   belongs_to :category
   belongs_to :sub_category 

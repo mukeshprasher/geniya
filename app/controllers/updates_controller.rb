@@ -27,7 +27,7 @@ class UpdatesController < ApplicationController
       @update_video = current_user.videos.build(video_params)
       @update_video.save      
 
-      create_activity(@update.class.name, @update.id, 'create')
+      @activity = create_activity(@update.class.name, @update.id, 'create')
     end
 #        format.html { 
 #          flash[:success] = "Update successfully created!"

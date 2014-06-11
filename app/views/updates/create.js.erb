@@ -1,4 +1,4 @@
-$(".updates").prepend("<%= escape_javascript(render('shared/feed_item', feed_item: @update)) %>")
+$(".updates").prepend("<%= escape_javascript render @activity %>")
 $('#feed-text').val('');
 $('#update_file_attachment').val('');
 
