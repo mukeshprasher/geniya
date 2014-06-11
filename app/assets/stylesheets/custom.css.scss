@@ -45,6 +45,10 @@ img { max-width:100% }
 
 .wrapper_c:after, .wrapper_c:before { clear:both; display:table }
 
+.wrapper_banner { margin:0 auto; width:1284px; max-width:100%; position: relative; }
+
+.wrapper_banner:after, .wrapper_banner:before { clear:both; display:table }
+
 .wrapper {margin: 0 auto;max-width: 100%;position: relative;width: 1024px;}
 
 button { cursor:pointer }

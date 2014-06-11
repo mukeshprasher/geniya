@@ -74,20 +74,17 @@
         
 - else
   .index_user_slider
-    - i = 0
-    - @top_users.each do |user|
-      - if !user.featureimg.nil?
-        - i +=1
-        %a{href:"/users/"+"#{user.slug}"}
-          .index_user_slide_item
-            = image_tag user.featureimg.feature_img.url(:large)
-      - break if i>=6
-          
-
-
-
-
-    /%img{alt: "slider", src: "/assets/slide1.jpg"}/
+    .wrapper_banner
+      - i = 0
+      - @top_users.each do |user|
+        - if !user.featureimg.nil?
+          - i +=1
+          %a{href:"/users/"+"#{user.slug}"}
+            .index_user_slide_item
+              = image_tag user.featureimg.feature_img.url(:large)
+        - break if i>=6
+      /%img{alt: "slider", src: "/assets/slide1.jpg"}/
+      .clear
   .slogan
     .wrapper_c_not_required
       Get Going with Geniya -
