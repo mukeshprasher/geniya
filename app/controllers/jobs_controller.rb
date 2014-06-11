@@ -17,7 +17,7 @@ class JobsController < ApplicationController
   # GET /jobs/new
   def new
     if current_user.plan == "trial"
-      redirect_to current_user, :alert => "Please Upgrade your Plan to deluxe for Post Jobs." 
+      redirect_to current_user, :alert => "Please Upgrade your Plan to Deluxe for Post Jobs." 
     else
       redirect_to new_organization_path, notice: 'Please create an organization to create a job.' unless current_user.organizations.any?
       @job = Job.new
