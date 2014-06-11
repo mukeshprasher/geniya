@@ -39,11 +39,9 @@
               = will_paginate @activities
 
       .inner_rightSection
-        .add_sec
-          .ads-box
-            - @jobs.each do |job|
-              = render job
         .home_control_section
+          .bg_buttan_feed
+            Controls
           #controll_left_container
             #user_controll_container
               - if signed_in?
@@ -71,6 +69,16 @@
                 %a.demo{href: "/advertisements/new", id: ""}
                   %span#orgn_container
                     Post Advertisements
+
+
+        .add_sec
+          - if @jobs.any?
+            .bg_buttan
+              Job Deatils
+          .ads-box
+            - @jobs.each do |job|
+              = render job
+
         
 - else
   .index_user_slider
