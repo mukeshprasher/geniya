@@ -8,6 +8,12 @@ class CommentsController < ApplicationController
         @parent_comment = Comment.find(@comment_hash[:parent_id])
         @comment.move_to_child_of(@parent_comment)
       end
+      if @obj.class.name == "Album"
+        @comments = @obj.comment_threads
+        @obj.comment_count = @comments.count
+        @obj.save
+      end      
+      
       mention_users_in_text(@comment_hash[:body], @comment)
       @new_comment = Comment.build_from(@obj, current_user.id, "")
 #      render :partial => "comments/comment", :locals => { :comment => @comment  }, :layout => false, :status => :created

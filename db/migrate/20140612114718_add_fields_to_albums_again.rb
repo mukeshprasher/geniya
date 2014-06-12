@@ -1,4 +1,4 @@
-class AddFieldsToAlbums < ActiveRecord::Migration
+class AddFieldsToAlbumsAgain < ActiveRecord::Migration
   def change
     add_column :albums, :country_id, :integer
     add_column :albums, :state_id, :integer

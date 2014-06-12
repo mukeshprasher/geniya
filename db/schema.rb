@@ -68,6 +68,8 @@ ActiveRecord::Schema.define(version: 20140612114718) do
     t.string   "cover_content_type"
     t.integer  "cover_file_size"
     t.datetime "cover_updated_at"
+    t.string   "comment_count",      default: "0"
+    t.string   "like_count",         default: "0"
     t.integer  "country_id"
     t.integer  "state_id"
     t.integer  "city_id"

@@ -22,5 +22,13 @@
   .field
     = f.label :category_id
     = collection_select(:album, :category_id, Category.all, :id, :name)
+  .field
+    %span#state_label
+      Upload Portfolio Cover Image       
+      %span#upload_cover_mandatory
+        *      
+    %p
+      = f.file_field :cover    
+    
   .actions
     = f.submit 'Save' 
