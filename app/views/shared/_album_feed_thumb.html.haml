@@ -1,0 +1,6 @@
+.isotope-item.ajax-portfolio-detail-homepage-modal-trigger 
+  .albm-img{:data => "#{album.id}"}
+    -if ! album.cover.nil?
+      = image_tag album.cover.url(:medium)
+    -else
+      =image_tag '/assets/missing-image-geniya.png', title: album.name    
