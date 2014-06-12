@@ -1,4 +1,5 @@
 - acted_upon_obj = activity.acted_upon_type.constantize.find(activity.acted_upon_id)
+- action_texts = {'like'=> 'likes', 'share'=> 'shared', 'create'=> 'shared'}
 %li{id: "activity_#{activity.id}", class: "firstCol"}
   .delete-update
     - if current_user?(activity.user)
@@ -13,26 +14,14 @@
       .user_name
         .feed-user-name
           = link_to activity.user.name, activity.user
-
-          - if activity.acted_upon_type == 'Update'
-            shared an
-            = activity.acted_upon_type
-            - if activity.user != acted_upon_obj.user
-              by
-              = link_to acted_upon_obj.user.name, activity.user
-            %br
-          - elsif activity.acted_upon_type == 'Album'
-            shared
+          = action_texts[activity.action]
+          - if activity.acted_upon_type == 'Album'
             = acted_upon_obj.kind
-            = link_to acted_upon_obj.name, acted_upon_obj
-            - if activity.user != acted_upon_obj.user
-              by
-              = link_to acted_upon_obj.user.name, activity.user
-            %br
           - else
-            = activity.action
             = activity.acted_upon_type
+          - if activity.acted_upon_type != 'Update'
             = link_to acted_upon_obj.name, acted_upon_obj
+          - if activity.user != acted_upon_obj.user
             by
             = link_to acted_upon_obj.user.name, activity.user
   .user
