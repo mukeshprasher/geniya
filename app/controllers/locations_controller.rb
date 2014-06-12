@@ -92,6 +92,17 @@ class LocationsController < ApplicationController
       @location = Location.new(location_params)
       @location.save
     end
+
+    if current_user.albums.any?
+      current_user.albums.each do |album|
+        album.country_id = @location.country_id if !@location.country_id.nil?
+        album.state_id = @location.state_id if !@location.state_id.nil?
+        album.city_id = @location.city_id if !@location.city_id.nil?
+        album.pin_id = @location.pin_id if !@location.pin_id.nil?
+        
+        album.save
+      end
+    end
 #    respond_to do |format|
 #      if @location.save
 #        format.html { redirect_to @location, notice: 'Location was successfully created.' }

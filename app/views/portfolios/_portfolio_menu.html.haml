@@ -1,9 +1,9 @@
 .innerBenner
   .wrapper
     .portfolio
-      %p
-        Your trial expires in 11 days.
-        %span Upgrade.
+      /%p
+      /  Your trial expires in 11 days.
+      /  %span Upgrade.
       .our_base
         %h2
           Our
@@ -17,91 +17,108 @@
         %a{href: "/"} Geniya Site
         
 
-
-/#advanced_search
-/  .wrapper
-/    #filter_album
-/      %span
-/        Filter Portfolio's
-/    %ul#feature_search
-/      %li#fat-menu.dropdown
-/        %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
-/          %span#advance_src_tilte
-/            Most Featured
-/          %b.caret
-/        %ul.dropdown-menu{id: "feature_dropdown"}
-/          %li= link_to "Most Featured"
-/          %li= link_to "Most Appreciated"
-/          %li= link_to "Most Viewed"
-/          %li= link_to "Most Disscussed"
-/          %li= link_to "Most Recent"
-/    %ul#global_search
-/      %li#fat-menu.dropdown
-/        %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
-/          %span#advance_src_tilte
-/            Globally
-/          %b.caret
-         
-.inneContainer-links
-  .wrapper
-    .dropdown
-      %a#portfolio_search_trigger{href: "javascript:void(0)"}
-        %img#portfolio_sub_cat_button.pad{alt: "", src: "/assets/drop_btn.png"}/
-      .key_word
-        = form_tag('', method: :get) do
-          %input.srh{name: 'q', placeholder: "Enter keyword", type: "text"}
+= form_tag('', method: :get) do
+  #advanced_search
+    .wrapper
+      #filter_album
+        %span
+          Filter Portfolio's
+      %ul#feature_search
+        %li#fat-menu.dropdown
+          %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
+            %span#advance_src_tilte
+              Location
+            %b.caret
+          %ul.dropdown-menu{id: "location_dropdown"}
+            %li
+              %label Country
+              %select{name: 'country', id: "country_search_select"}
+                %option{value: ''}- Select -
+                - Country.all.order(name: :asc).each do |country|
+                  %option{value: "#{country.id}", selected: params[:country] == "#{country.id}"}
+                    = country.name
+              /%label City
+              /%input{name: 'city', placeholder: "Search city", type: "text", autocomplete: 'off', id: '#search_city'}
+              = submit_tag 'Go', class: 'btn'
+             
+  /    %ul#feature_search
+  /      %li#fat-menu.dropdown
+  /        %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
+  /          %span#advance_src_tilte
+  /            Most Featured
+  /          %b.caret
+  /        %ul.dropdown-menu{id: "feature_dropdown"}
+  /          %li= link_to "Most Featured"
+  /          %li= link_to "Most Appreciated"
+  /          %li= link_to "Most Viewed"
+  /          %li= link_to "Most Disscussed"
+  /          %li= link_to "Most Recent"
+  /    %ul#global_search
+  /      %li#fat-menu.dropdown
+  /        %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
+  /          %span#advance_src_tilte
+  /            Globally
+  /          %b.caret
+           
+  .inneContainer-links
+    .wrapper
+      .dropdown
+        %a#portfolio_search_trigger{href: "javascript:void(0)"}
+          %img#portfolio_sub_cat_button.pad{alt: "", src: "/assets/drop_btn.png"}/
+        .key_word
+          %input.srh{name: 'q', placeholder: "Enter keyword", type: "text", value: "#{params[:q]}"}
           %p#alb-srch-btn
             = submit_tag 'Go', class: 'search_button'
-      .dropNav
-        %ul
-          - page_id= params[:id]
-          - if page_id.nil?
-            %li.active
-              = link_to "All", portfolios_path
-          - else 
-            %li
-              = link_to "All", portfolios_path          
-          - @categories.each do |category|
-            - if (page_id == category.slug)
+        .dropNav
+          %ul
+            - page_id= params[:id]
+            - if page_id.nil?
               %li.active
-                = link_to category.name.sub(' ', '/'), '/portfolios/'+ category.slug
-            - else
+                = link_to "All", portfolios_path
+            - else 
               %li
-                = link_to category.name.sub(' ', '/'), '/portfolios/'+ category.slug            
-      .clear
-      #portfolio_sub_cat_box
-        = form_tag('', method: :get) do
-          .sub_category_chekboxes_container
-            - if params[:action] == 'index'
-              .portfolio_srh_content
-                - @categories.each do |category|
-                  %br
-                  %h5
-                    = category.name
-                  %br
-                  .group_cont
-                    - category.sub_category_groups.each do |group|
+                = link_to "All", portfolios_path          
+            - @categories.each do |category|
+              - if (page_id == category.slug)
+                %li.active
+                  = link_to category.name.sub(' ', '/'), '/portfolios/'+ category.slug
+              - else
+                %li
+                  = link_to category.name.sub(' ', '/'), '/portfolios/'+ category.slug            
+        .clear
+        #portfolio_sub_cat_box
+          = form_tag('', method: :get) do
+            .sub_category_chekboxes_container
+              - if params[:action] == 'index'
+                .portfolio_srh_content
+                  - @categories.each do |category|
+                    %br
+                    %h5
+                      = category.name
+                    %br
+                    .group_cont
+                      - category.sub_category_groups.each do |group|
+                        .sub_category_chekbox_container
+                          %span.img-checkbox
+                            %img{alt: "", height: "16", src: "/assets/uncheck.png", width: "22", id:"port_sub_check_box2-#{group.id}", class:"port_sub_check_box_img"}/                      
+                            %span#port_check_box 
+                              %input{name: "gr[#{group.id}]", value: "#{group.id}", type: "checkbox", id: "srh-checkbox"}
+                          %span.srh-field-name{:id => "srch-field-name-#{group.id}"}
+                            = group.name
+                  .clear                   
+              - elsif params[:action] == 'category_index'
+                - @search_categories.each do |category|
+                  .portfolio_srh_content
+                    %h5 
+                      = category.name
+                    %br
+                    - category.sub_categories.each do |sub_category|
                       .sub_category_chekbox_container
                         %span.img-checkbox
-                          %img{alt: "", height: "16", src: "/assets/uncheck.png", width: "22", id:"port_sub_check_box2-#{group.id}", class:"port_sub_check_box_img"}/                      
-                          %span#port_check_box 
-                            %input{name: "gr[#{group.id}]", value: "#{group.id}", type: "checkbox", id: "srh-checkbox"}
-                        %span.srh-field-name{:id => "srch-field-name-#{group.id}"}
-                          = group.name
-                .clear                   
-            - elsif params[:action] == 'category_index'
-              - @search_categories.each do |category|
-                .portfolio_srh_content
-                  %h5 
-                    = category.name
-                  %br
-                  - category.sub_categories.each do |sub_category|
-                    .sub_category_chekbox_container
-                      %span.img-checkbox
-                        %img{alt: "", height: "16", src: "/assets/uncheck.png", width: "22", id:"port_sub_check_box2-#{sub_category.id}", class:"port_sub_check_box_img"}/
-                        %span#port_sub_check_box
-                          %input{name: "sc[#{sub_category.id}]", value: "#{sub_category.id}", type: "checkbox", id: "sub_srh-checkbox" }
-                      %span.srh-field-name{:id => "srch-field-name-#{sub_category.id}"}
-                        = sub_category.name
-            .portfolio_srh_btn
-              = submit_tag 'Search', class: 'all_search_button', id: 'all_search_button'
+                          %img{alt: "", height: "16", src: "/assets/uncheck.png", width: "22", id:"port_sub_check_box2-#{sub_category.id}", class:"port_sub_check_box_img"}/
+                          %span#port_sub_check_box
+                            %input{name: "sc[#{sub_category.id}]", value: "#{sub_category.id}", type: "checkbox", id: "sub_srh-checkbox" }
+                        %span.srh-field-name{:id => "srch-field-name-#{sub_category.id}"}
+                          = sub_category.name
+              .portfolio_srh_btn
+                = submit_tag 'Search', class: 'all_search_button', id: 'all_search_button'
