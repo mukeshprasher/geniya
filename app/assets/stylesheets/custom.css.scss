@@ -176,7 +176,7 @@ nav { display: block; float: left; margin-top: 4px; padding-bottom: 28px; positi
 
 #editorsPicks { margin:0px; padding:0px; width:100% }
 
-#editorsPicks li.isotope-item {     display: inline-block;margin: 6px 2px 27px 7px;overflow: hidden;position: relative;vertical-align: top;width: 30%;  min-height: 210px; min-width: 206px;}
+#editorsPicks li.isotope-item {     display: inline-block;margin: 0px;overflow: hidden;position: relative;vertical-align: top;width: 33%;  min-height: 210px; min-width: 206px;}
 
 .black_square { background: none repeat scroll 0 0 rgba(0, 0, 0, 0); bottom: 0; height: 99%; left: 0; pointer-events: none; position: absolute; top: 0; width: 100%; transition: all 0.7s ease 0s }
 
@@ -2441,8 +2441,10 @@ textarea:focus, input[type="text"]:focus, input[type="password"]:focus, input[ty
   background: none repeat scroll 0 0 #FFFFFF;
 }
 .index_user_slide_item{
-  float:left;
-    width: 214px;
+ float: left;
+  max-width: 16.66%;
+  width: 214px;
+
 }
 
 

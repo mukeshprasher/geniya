@@ -25,7 +25,7 @@
           .modal-footer
             %button#close.btn.btn-default{:data => "#{@album.id}", "data-dismiss" => "modal", type: "button"} Close
             /%button.btn.btn-primary{type: "button"} Save changes
-        %a.demo{"data-toggle" => "modal",href: "#album-form", id: "add-img"}
+        %a.demo{"data-toggle" => "modal",href: "#album-form", id: "add-img_renamed"}
           Add/Remove Pictures
         |     
         = link_to "Edit #{@album.kind}", edit_album_path(@album)
