@@ -2442,7 +2442,7 @@ textarea:focus, input[type="text"]:focus, input[type="password"]:focus, input[ty
 }
 .index_user_slide_item{
   float:left;
-    width: 215px;
+    width: 214px;
 }
 
 
@@ -2967,4 +2967,15 @@ body {
     text-align: center;
     top: 0;
     width: 110px;
+}
+
+#ads_makeup_box {
+    float: left;
+    margin: 7px;
+    width: 31%;
+}
+
+#view_detail_link {
+    float: left;
+    margin: 0 0 0 -25px;
 }

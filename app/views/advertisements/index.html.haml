@@ -1,22 +1,47 @@
 .wrapper
   %h1 Listing advertisements
 
-  %table
-    %tr
-      %th Title
-      %th Slogan
-      %th
-      %th
-      %th
+  .advertisement_container_box
+    #advertise_container
+      - current_user.advertisements.each do |add_detail| 
+        #ads_makeup_box
+          .makeup_sec{ :id => "ads_box-#{add_detail.id}" }
+            - if signed_in?
+              - if (current_user.username == add_detail.user.username)
+                .edit_cross_makeup_box
+                  %span#edit_adds
+                    %a{href: "/advertisements/"+"#{add_detail.slug}"+"/edit"}
+                      %img{alt: "", src: "/assets/edit.png"}/
+                  %span#edit_adds_cross
+                    = link_to "×", advertisement_path(add_detail), :method => :delete, :remote => true,  :disable_with => "×", :class => 'ads_box-delete' , :id => "ads_box-delete-#{add_detail.id}"            
+            .makeUp
+              = image_tag add_detail.file_attachment.url(:medium)
+            .make_comtact
+              %p 
+                = add_detail.title
+              - if (add_detail.link == '')
+                %span
+                  %em
+                    please add Contact Details
+              - else
+                %a{href: "//"+"#{add_detail.link}", target: "_blank"}
+                  Contact Now
+              = link_to "View Details", '/advertisements/'+ add_detail.slug        
+            
+            
+            
 
-    - @advertisements.each do |advertisement|
-      %tr
-        %td= advertisement.title
-        %td= advertisement.slogan
-        %td= link_to 'Show', advertisement
-        %td= link_to 'Edit', edit_advertisement_path(advertisement)
-        %td= link_to 'Destroy', advertisement, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
-  %br
-
-  = link_to 'New Advertisement', new_advertisement_path
+  /%table
+  /  %tr
+  /    %th Title
+  /    %th Slogan
+  /    %th
+  /    %th
+  /    %th
+  /  - @advertisements.each do |advertisement|
+  /    %tr
+  /      %td= advertisement.title
+  /      %td= advertisement.slogan
+  /      %td= link_to 'Show', advertisement
+  /      %td= link_to 'Edit', edit_advertisement_path(advertisement)
+  /      %td= link_to 'Destroy', advertisement, :method => :delete, :data => { :confirm => 'Are you sure?' }

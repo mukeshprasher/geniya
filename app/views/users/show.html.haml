@@ -280,6 +280,14 @@
                           %span#orgn_container
                             Post Advertisements    
 
+                  - if @user.advertisements.any?
+                    #organization_controll_container  
+                      - if signed_in?
+                        - if (@user.name== current_user.name)
+                          %a.demo{href: "/advertisements/", id: ""}
+                            %span#orgn_container
+                              My Advertisements   
+
                 .clear
               .clear
 
