@@ -1543,11 +1543,13 @@ form {margin: 0 0 5px;}
 #portfolio_sub_cat_box{
   background: none repeat scroll 0 0 #FFFFFF;
   box-shadow: 0 0 3px #CCCCCC;
-  padding: 20px;
+  padding: 0 0 20px 20px;
   background-color: #FFFFFF;
   position: absolute;
   z-index: 1;
   float: left;
+  width: 80%;
+  display:none;
 }
 .sub_category_chekboxes_container{
   float: left;
@@ -1555,16 +1557,12 @@ form {margin: 0 0 5px;}
 }
 .sub_category_chekbox_container{
   float: left;
-  width:30%;
+  width:33%;
    margin: 0 0 8px;
 }
 .group_cont{
    float: left;
   width: 100%; 
-}
-#portfolio_sub_cat_box{
-  display:none;
-  width:auto;
 }
 
 #ajax-portfolio-detail-homepage {
@@ -2236,11 +2234,16 @@ font-family: latobold;
 .portfolio_srh_content {
     float: left;
 }
+.portfolio_srh_content h5{
+    margin: 10px 0px 0px 0px;
+}
 
 
 
 .portfolio_srh_btn {
-    float: right;
+  float: right;
+  margin-right: 50px;
+  width: 100%;
 }
 
 
