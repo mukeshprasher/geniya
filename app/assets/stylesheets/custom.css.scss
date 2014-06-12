@@ -345,7 +345,7 @@ p.description { color: #FFFFFF; font-size: 14px; padding:5px 0px 0px; opacity:0 
 
 .pull_inside2 > input[type="button"]:hover { background: none repeat scroll 0 0 #42454d; transition:0.5s }
 
-.tab_nav > li { background: none repeat scroll 0 0 #2B2E36; float: left; padding: 0; width: 33.3%; }
+.tab_nav > li { background: none repeat scroll 0 0 #2B2E36; float: left; padding: 0; width: 33.3%; cursor: pointer; }
 
 .tab_nav > li:hover, .tab_nav > li:hover a, .tab_nav > li.active, .tab_nav > li.active a { background:#fff; color:#97b850 }
 
@@ -2987,4 +2987,21 @@ body {
 
 #view_detail_link a{
     margin:0;
+}
+
+.tab_content a {
+    text-decoration: none;
+}
+
+#popular_portfolio, #commented_portfolio{display:none;}
+
+
+#popular_portfolio_link, #recent_portfolio_link, #comment_portfolio_link {
+    text-decoration: none;
+}
+
+
+
+.widget.tab ul {
+    margin: 0 auto;
 }
