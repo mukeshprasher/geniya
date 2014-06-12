@@ -3,6 +3,7 @@
 
   .advertisement_container_box
     #advertise_container
+      /- advertise = current_user.advertisements.order(impressions_count: :desc) 
       - current_user.advertisements.each do |add_detail| 
         #ads_makeup_box
           .makeup_sec{ :id => "ads_box-#{add_detail.id}" }
@@ -24,9 +25,10 @@
                   %em
                     please add Contact Details
               - else
-                %a{href: "//"+"#{add_detail.link}", target: "_blank"}
+                %a{href: "#{add_detail.link}", target: "_blank"}
                   Contact Now
-              = link_to "View Details", '/advertisements/'+ add_detail.slug        
+              %span#view_detail_link
+                = link_to "View Details", '/advertisements/'+ add_detail.slug        
             
             
             

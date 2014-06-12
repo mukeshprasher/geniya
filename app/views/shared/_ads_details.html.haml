@@ -1,18 +1,17 @@
-- if user.category_id == add_detail.category_id
-  - if Advertisement.any?
-    .makeup_sec{ :id => "ads_box-#{add_detail.id}" }
-      .makeUp
-        = image_tag add_detail.file_attachment.url(:medium)
-      .make_comtact
-        %p 
-          = add_detail.title
-        - if (add_detail.link == '')
-          %span
-            %em
-              please add Contact Details
-        - else
-          %a{href: "//"+"#{add_detail.link}", target: "_blank"}
-            Contact Now
-        %span#view_detail_link
-          = link_to "View Details", '/advertisements/'+ add_detail.slug
+- if ads.any?
+  .makeup_sec{ :id => "ads_box-#{add_detail.id}" }
+    .makeUp
+      = image_tag add_detail.file_attachment.url(:medium)
+    .make_comtact
+      %p 
+        = add_detail.title
+      - if (add_detail.link == '')
+        %span
+          %em
+            please add Contact Details
+      - else
+        %a{href: "//"+"#{add_detail.link}", target: "_blank"}
+          Contact Now
+      %span#view_detail_link
+        = link_to "View Details", '/advertisements/'+ add_detail.slug
         
