@@ -1,9 +1,8 @@
 %li.isotope-item.ajax-portfolio-detail-homepage-modal-trigger 
   .black_square
   .albm-img{:data => "#{album.id}"}
-    -if album.multiuploads.any?
-      - album.multiuploads.last(1).each do|upload_img_name|
-        = image_tag upload_img_name.multiupload.url(:original), alt: upload_img_name.multiupload_file_name
+    -if !album.cover.nil?
+      = image_tag album.cover.url(:large), alt: album.title
     -else
       =image_tag '/assets/missing-image-geniya.png', title: album.name    
   .trendingInfo.isotopeSummary

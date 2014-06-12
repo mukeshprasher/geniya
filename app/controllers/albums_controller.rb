@@ -55,7 +55,13 @@ class AlbumsController < ApplicationController
   def update
     respond_to do |format|
       if @album.update_attributes(album_params)
-        format.html { redirect_to @album, notice: 'Album was successfully updated.' }
+        format.html {           
+          if album_params.has_key?(:cover)
+            render 'crop'  
+          else        
+            redirect_to @album, notice: 'Album was successfully posted.' 
+          end 
+        }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
