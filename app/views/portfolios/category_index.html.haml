@@ -4,10 +4,14 @@
     .box_section
       %ul#portfolios
         #ajax-portfolio-detail-homepage.modal.fade.modal-scrollable{style: "display: none;", tabindex: "-1"}
-        - @albums.each do |album|
-          = render 'shared/album_view', album: album
-      - if params[:q].nil? && params[:sc].nil?
-        #infinite-scrolling
-          = will_paginate @albums           
+        - if @albums.any?
+          - @albums.each do |album|
+            = render 'shared/album_view', album: album
+        - else
+          .no_results
+            No results found
+      
+      #infinite-scrolling
+        = will_paginate @albums           
       .clear
 
