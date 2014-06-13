@@ -175,21 +175,18 @@ $(function() {
       $.getJSON("https://graph.facebook.com/GeniyaNetwork?callback=?", function(data) { 
         $('#facbook_count').html(data.likes) 
       });
-//      var data;
-//      data = $.get("http://gdata.youtube.com/feeds/api/users/UCaAogg8feczTPSpvcd-T6dg?alt=json");
-//      var obj = JSON.parse(data);
-//      alert(obj);
+
       $.getJSON("http://gdata.youtube.com/feeds/api/users/UCaAogg8feczTPSpvcd-T6dg?alt=json", function(data) { 
         $('#subscribe_youtube').html(data['entry']['yt$statistics']['subscriberCount'])
       });      
-//      var parsed_json;
-//      var stats_data;
-//      parsed_json = JSON(data)
-//      stats_data = data['entry']['yt$statistics'];
-//      alert(stats_data['subscriberCount']);
-//      var youtube_data;
-//      youtube_data = json_decode(data, true);
 
+
+      $.getJSON("http://query.yahooapis.com/v1/public/yql?q=SELECT%20*%20from%20html%20where%20url=%22http://twitter.com/GeniyaNetwork%22%20AND%20xpath=%22//span[@class=%27ProfileNav-value%27]%22&format=json", function(data) { 
+        var count = data['query']['results']['span']
+        var new_count = count[1]
+        var followers_count = new_count['content']
+        $('#twitter_follower').html(followers_count);
+      }); 
       
       
       jQuery(".best_in_place").best_in_place();      
