@@ -172,21 +172,26 @@ $(function() {
           }
         });         
 
-
       $.getJSON("https://graph.facebook.com/GeniyaNetwork?callback=?", function(data) { 
         $('#facbook_count').html(data.likes) 
       });
- 
-      $.getJSON('http://twitter.com/users/show.xml?screen_name=Geniya?callback=?', function(data){
-        alert(data); 
-      });
+//      var data;
+//      data = $.get("http://gdata.youtube.com/feeds/api/users/UCaAogg8feczTPSpvcd-T6dg?alt=json");
+//      var obj = JSON.parse(data);
+//      alert(obj);
+      $.getJSON("http://gdata.youtube.com/feeds/api/users/UCaAogg8feczTPSpvcd-T6dg?alt=json", function(data) { 
+        $('#subscribe_youtube').html(data['entry']['yt$statistics']['subscriberCount'])
+      });      
+//      var parsed_json;
+//      var stats_data;
+//      parsed_json = JSON(data)
+//      stats_data = data['entry']['yt$statistics'];
+//      alert(stats_data['subscriberCount']);
+//      var youtube_data;
+//      youtube_data = json_decode(data, true);
 
-
-//      $.getJSON("http://gdata.youtube.com/feeds/api/users/UCaAogg8feczTPSpvcd-T6dg?callback=?", function(data) { 
-//      alert(data); 
-//      });
       
-
+      
       jQuery(".best_in_place").best_in_place();      
 
       $.datepicker.setDefaults({
