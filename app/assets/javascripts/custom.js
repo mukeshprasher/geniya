@@ -177,9 +177,9 @@ $(function() {
         $('#facbook_count').html(data.likes) 
       });
  
-//      $.getJSON('https://api.twitter.com/1/users/show.json?callback=?&amp;screen_name=GeniyaNetwork', function(data){
-//        alert(data.followers_count); 
-//      });
+      $.getJSON('http://twitter.com/users/show.xml?screen_name=Geniya?callback=?', function(data){
+        alert(data); 
+      });
 
 
 //      $.getJSON("http://gdata.youtube.com/feeds/api/users/UCaAogg8feczTPSpvcd-T6dg?callback=?", function(data) { 
