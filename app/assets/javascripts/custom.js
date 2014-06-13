@@ -173,8 +173,20 @@ $(function() {
         });         
 
 
+      $.getJSON("https://graph.facebook.com/GeniyaNetwork?callback=?", function(data) { 
+        $('#facbook_count').html(data.likes) 
+      });
+ 
+      $.getJSON('http://twitter.com/users/show.xml?screen_name=Geniya?callback=?', function(data){
+        alert(data); 
+      });
 
+
+//      $.getJSON("http://gdata.youtube.com/feeds/api/users/UCaAogg8feczTPSpvcd-T6dg?callback=?", function(data) { 
+//      alert(data); 
+//      });
       
+
       jQuery(".best_in_place").best_in_place();      
 
       $.datepicker.setDefaults({
