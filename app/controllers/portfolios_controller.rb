@@ -26,7 +26,9 @@ class PortfoliosController < ApplicationController
     end
 
     if params.has_key?(:city) and params[:city].present?
-      where_condition += "and city_id = #{params[:city]} "
+      city_name = params[:city].gsub(/[^A-Za-z]/, '').downcase
+      city = City.find_by(name: city_name)
+      where_condition += "and city_id = #{city.id} " unless city.nil?
     end
 
     if params.has_key?(:country) and params[:country].present?
@@ -49,7 +51,7 @@ class PortfoliosController < ApplicationController
       order = "impressions_count desc"
     end
 
-    @albums = Album.paginate(page: params[:page], per_page: 12).where(where_condition).order(order)
+    @albums = Album.paginate(page: params[:page], per_page: 12).where(ActiveRecord::Base::sanitize(where_condition)).order(order)
     @sql = Album.paginate(page: params[:page], per_page: 12).where(where_condition).order(order).to_sql
   end
   def category_index

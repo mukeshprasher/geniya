@@ -9,7 +9,7 @@
           Our
           %span Portfolio Base
           %strong Be Bold Be Focused Be Seen
-/ = @sql
+= ActiveRecord::Base::sanitize(@sql)
 .service_form
   .wrapper
     .quality
@@ -61,8 +61,8 @@
                 - Country.all.order(name: :asc).each do |country|
                   %option{value: "#{country.id}", selected: params[:country] == "#{country.id}"}
                     = country.name.capitalize
-              /%label City
-              /%input{name: 'city', placeholder: "Search city", type: "text", autocomplete: 'off', id: '#search_city'}
+              %label City
+              %input{name: 'city', placeholder: "Search city", type: "text", autocomplete: 'off', id: 'search_city', value: "#{params[:city]}"}
               %br
               = submit_tag 'Go', class: 'btn'
 

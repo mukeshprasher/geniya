@@ -123,7 +123,7 @@ $(function() {
       $("#search_city")
       .atwho({
         at: "", 
-        tpl: "<li data-value='${atwho-at}${name},'>${name}</li>",
+        tpl: "<li data-value='${name}'>${name}</li>",
         callbacks: {
           remote_filter: function(query, callback) {
             $.getJSON("/cities.json", {country: $('#country_search_select').val()}, function(data) {
@@ -132,6 +132,8 @@ $(function() {
             }
           }
         });
+
+      
 
       $("#job_skills_text, #skill_name")
       .atwho({
@@ -263,8 +265,9 @@ $(function() {
   });
 
 
-
-
+   $('.atwho-view-ul').click(function(e){
+       e.stopPropagation();
+   });
    $('.dropdown-menu').click(function(e){
        e.stopPropagation();
    });
