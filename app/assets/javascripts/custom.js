@@ -270,7 +270,7 @@ $(function() {
 
 
 
-   $('#location_dropdown').click(function(e){
+   $('.dropdown-menu').click(function(e){
        e.stopPropagation();
    });
 

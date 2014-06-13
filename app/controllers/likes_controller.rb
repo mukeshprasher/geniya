@@ -18,13 +18,15 @@ class LikesController < ApplicationController
   def destroy
     @like = Like.find(params[:id])
     @object = @like.likeable_type.constantize.find(@like.likeable_id)
+
+    destroy_activity(@object.class.name, @object.id, 'like')
+    destroy_response(@object, 'like')
+
     @like.destroy
     if @object.class.name == "Album"
       @likers = @object.likers(User)
       @object.like_count = @likers.count
       @object.save
     end    
-    destroy_activity(@object.class.name, @object.id, 'like')
-    destroy_response(@object, 'like')
   end
 end

@@ -2710,7 +2710,7 @@ color:#85AB48;
 }
 
 
-#advance_src_tilte {
+.advance_src_tilte {
     font-size: 30px;
 }
 
@@ -2740,10 +2740,9 @@ color:#85AB48;
 }
 
 
-#feature_search, #global_search {
+.feature_search {
     float: left;
-    margin: 12px 0 9px;
-    width: 30%;
+    margin: 12px 30px 9px;
 }
 
 
@@ -2989,8 +2988,8 @@ body {
     margin:0;
 }
 
-#location_dropdown{
-  padding: 5px;
+.dropdown-menu{
+  padding: 10px;
 }
   
 .tab_content a {
