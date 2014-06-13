@@ -160,8 +160,20 @@ $(function() {
         });         
 
 
+      $.getJSON("https://graph.facebook.com/GeniyaNetwork?callback=?", function(data) { 
+        $('#facbook_count').html(data.likes) 
+      });
+ 
+//      $.getJSON('https://api.twitter.com/1/users/show.json?callback=?&amp;screen_name=GeniyaNetwork', function(data){
+//        alert(data.followers_count); 
+//      });
 
+
+//      $.getJSON("http://gdata.youtube.com/feeds/api/users/UCaAogg8feczTPSpvcd-T6dg?callback=?", function(data) { 
+//      alert(data); 
+//      });
       
+
       jQuery(".best_in_place").best_in_place();      
 
       $.datepicker.setDefaults({
