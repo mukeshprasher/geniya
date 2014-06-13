@@ -4,7 +4,11 @@ class PortfoliosController < ApplicationController
     if !params[:q].nil?
       q = "%#{params[:q]}%"
       
-      @albums = (Album.where("name   like ? and kind=?", q, 'portfolio').order(impressions_count: :desc) | @albums_by_title = Album.where("title like ? and kind=?", q, 'portfolio').order(impressions_count: :desc) | Album.where("description like ? and kind=?", q, 'portfolio').order(impressions_count: :desc)).uniq
+      @albums = (
+        Album.where("name   like      ? and kind=?", q, 'portfolio').order(impressions_count: :desc) | 
+        Album.where("title like       ? and kind=?", q, 'portfolio').order(impressions_count: :desc) | 
+        Album.where("description like ? and kind=?", q, 'portfolio').order(impressions_count: :desc)
+      ).uniq
     elsif !params[:gr].nil?
       @albums = Array.new
       params[:gr].each do |group_id|

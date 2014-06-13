@@ -1219,7 +1219,7 @@ form {margin: 0 0 5px;}
 
 .portfolio p span {color: #739B1F;}
 
-.portfolio .our_base {float: left;margin: 50px 0;}
+.portfolio .our_base {float: left;margin: 50px 0;text-align: center;width: 100%;}
 
 .portfolio .our_base h2 {color: #000000;font-family: 'latobold';font-size: 60px;text-transform: capitalize;}
 
@@ -2989,6 +2989,10 @@ body {
     margin:0;
 }
 
+#location_dropdown{
+  padding: 5px;
+}
+  
 .tab_content a {
     text-decoration: none;
 }

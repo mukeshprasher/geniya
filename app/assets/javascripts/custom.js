@@ -120,6 +120,19 @@ $(function() {
           }
         });
 
+      $("#search_city")
+      .atwho({
+        at: "", 
+        tpl: "<li data-value='${atwho-at}${name},'>${name}</li>",
+        callbacks: {
+          remote_filter: function(query, callback) {
+            $.getJSON("/cities.json", {country: $('#country_search_select').val()}, function(data) {
+              callback(data)
+            });
+            }
+          }
+        });
+
       $("#job_skills_text, #skill_name")
       .atwho({
         at: "", 
@@ -248,6 +261,13 @@ $(function() {
       $('#network_response_notifications').html(data);
     });
   });
+
+
+
+
+   $('#location_dropdown').click(function(e){
+       e.stopPropagation();
+   });
 
 
   $(document).ready(toDoOnload);
