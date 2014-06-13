@@ -9,6 +9,7 @@
           Our
           %span Portfolio Base
           %strong Be Bold Be Focused Be Seen
+/ = @sql
 .service_form
   .wrapper
     .quality
@@ -23,10 +24,33 @@
       #filter_album
         %span
           Filter Portfolio's
-      %ul#feature_search
-        %li#fat-menu.dropdown
+
+      %ul.feature_search
+        %li.dropdown
           %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
-            %span#advance_src_tilte
+            %span.advance_src_tilte
+              Sort
+            %b.caret
+          %ul.dropdown-menu
+            %li
+              %input{ type:"radio", name:"order", value:"recent", checked: params[:order] == "recent"} &nbsp; Recent
+              %br
+              %br
+              %input{ type:"radio", name:"order", value:"discussed", checked: params[:order] == "discussed"} &nbsp; Most discussed
+              %br
+              %br
+              %input{ type:"radio", name:"order", value:"liked", checked: params[:order] == "liked"} &nbsp; Most liked
+              %br
+              %br
+              %input{ type:"radio", name:"order", value:"viewed", checked: params[:order] == "viewed" || params[:order].nil?} &nbsp; Most viewed
+              %br
+              %br
+              = submit_tag 'Go', class: 'btn'              
+            
+      %ul.feature_search
+        %li.dropdown
+          %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
+            %span.advance_src_tilte
               Location
             %b.caret
           %ul.dropdown-menu{id: "location_dropdown"}
@@ -36,23 +60,12 @@
                 %option{value: ''}- Select -
                 - Country.all.order(name: :asc).each do |country|
                   %option{value: "#{country.id}", selected: params[:country] == "#{country.id}"}
-                    = country.name
+                    = country.name.capitalize
               /%label City
               /%input{name: 'city', placeholder: "Search city", type: "text", autocomplete: 'off', id: '#search_city'}
+              %br
               = submit_tag 'Go', class: 'btn'
-             
-  /    %ul#feature_search
-  /      %li#fat-menu.dropdown
-  /        %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
-  /          %span#advance_src_tilte
-  /            Most Featured
-  /          %b.caret
-  /        %ul.dropdown-menu{id: "feature_dropdown"}
-  /          %li= link_to "Most Featured"
-  /          %li= link_to "Most Appreciated"
-  /          %li= link_to "Most Viewed"
-  /          %li= link_to "Most Disscussed"
-  /          %li= link_to "Most Recent"
+
   /    %ul#global_search
   /      %li#fat-menu.dropdown
   /        %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}

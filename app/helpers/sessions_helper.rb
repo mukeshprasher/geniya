@@ -109,7 +109,7 @@ module SessionsHelper
   end
 
   def destroy_activity(acted_upon_type, acted_upon_id, action)
-    Activity.find_by(acted_upon_type: acted_upon_type, acted_upon_id: acted_upon_id, action: action, user_id: current_user.id).destroy  
+    Activity.find_by(acted_upon_type: acted_upon_type, acted_upon_id: acted_upon_id, user_id: current_user.id).destroy  
   end
 
   def create_response(obj, act, description = '')
@@ -119,6 +119,19 @@ module SessionsHelper
 
   def destroy_response(obj, act)
     acted_upon_created_by_user_id = (obj.class.name == 'Update') ? obj.sender_user_id : obj.user_id
-    Response.find_by(user_id: acted_upon_created_by_user_id, acted_upon_type: obj.class.name, acted_upon_id: obj.id, act: act, actor_id: current_user.id, action: params[:action], controller: params[:controller]).destroy  
+    Response.find_by(user_id: acted_upon_created_by_user_id, acted_upon_type: obj.class.name, acted_upon_id: obj.id, act: act, actor_id: current_user.id).destroy  
+  end
+
+  def add_location_to_user_albums(location)
+    if current_user.albums.any?
+      current_user.albums.each do |album|
+        album.country_id = location.country_id if !location.country_id.nil?
+        album.state_id = location.state_id if !location.state_id.nil?
+        album.city_id = location.city_id if !location.city_id.nil?
+        album.pin_id = location.pin_id if !location.pin_id.nil?
+        
+        album.save
+      end
+    end
   end
 end

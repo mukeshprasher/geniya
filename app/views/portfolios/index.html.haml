@@ -6,8 +6,7 @@
         #ajax-portfolio-detail-homepage.modal.fade.modal-scrollable{style: "display: none;", tabindex: "-1"}
         - @albums.each do |album|
           = render 'shared/album_view', album: album
-      - if params[:q].nil? && params[:gr].nil?
-        #infinite-scrolling
-          = will_paginate @albums      
+      #infinite-scrolling
+        = will_paginate @albums      
       .clear
 

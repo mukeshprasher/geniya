@@ -41,6 +41,9 @@ class AlbumsController < ApplicationController
     @album = Album.new(album_params)
     respond_to do |format|
       if @album.save
+        if @album.user.locations.any?
+          add_location_to_user_albums(@album.user.locations.where(status: 'current').first) if @album.user.locations.where(status: 'current').any?
+        end
         create_activity(@album.class.name, @album.id, 'create')
         format.html { render action: 'crop' }
       else
