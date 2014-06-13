@@ -51,7 +51,7 @@ class PortfoliosController < ApplicationController
       order = "impressions_count desc"
     end
 
-    @albums = Album.paginate(page: params[:page], per_page: 12).where(ActiveRecord::Base::sanitize(where_condition)).order(order)
+    @albums = Album.paginate(page: params[:page], per_page: 12).where(where_condition).order(order)
     @sql = Album.paginate(page: params[:page], per_page: 12).where(where_condition).order(order).to_sql
   end
   def category_index
