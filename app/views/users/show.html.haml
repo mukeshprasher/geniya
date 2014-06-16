@@ -304,7 +304,7 @@
           .summery
             %h2 Summary
             %p
-              = best_in_place_if @can_edit, @user, :summary, :nil => "Tell something about yourself"              
+              = best_in_place_if @can_edit, @user, :summary, :nil => "Tell something about yourself", :type => :textarea              
         .profile_background
           .education_photography
             .education

@@ -12,9 +12,51 @@
       .basic_plan
         .free_plan
           %h2
+            Visitor
+            %span Plan
+            %em That Free!!
+            %em For visitors
+            %em All features
+          %ul
+            %li
+              Browse portfolios
+            %li
+              %a{href: "#"} Showcase your best photos
+            %li
+              %a{href: "#"} Upload upto 3 videos
+            %li
+              %a{href: "#"} No Long-term Contracts
+            %li
+              %a{href: "#"} No Long-term Contracts
+            %li
+              %a{href: "#"} You can add upto 200 connections
+            %li
+              %a{href: "#"} Get Employed
+            %li
+              %a{href: "#"} Personal Store
+            %li
+              %a{href: "#"} No Long-term Contracts
+            %li
+              %a{href: "#"} No Long-term Contracts
+        .get_started
+          %a{href: "/register"}
+            %img{alt: "", src: "/assets/get_started.png"}/
+        .price
+          %h2
+            %sup> $
+            00
+            %sup .00
+            %span /month
+        %a#basic{href: "/register"+"?plan=trial"}
+          .basic-plan-register 
+      .basic_plan
+        .free_plan
+          %h2
             Basic
             %span Plan
             %em That Free!!
+            %em For professionals
+            %em Limited features
           %ul
             %li
               %a{href: "#"} 20 uploads per week
@@ -47,12 +89,13 @@
             %span /month
         %a#basic{href: "/register"+"?plan=trial"}
           .basic-plan-register            
-      .Awesome_Plan
+      .basic_plan
         .sale_plan
           %h2
-            Awesome
+            Deluxe
             %span Plan
-            %em Includes Portfolios
+            %em For professionals
+            %em All features
           %ul
             %li
               %a{href: "#"} 100 uploads per week
@@ -83,6 +126,7 @@
             00
             %sup .00
             %span /month
-        %a#awsm{href: "/register"+"?plan=deluxe"}
-          .awesom-plan-register            
+        .center_align
+          %a#awsm{href: "/register"+"?plan=deluxe"}
+            .awesom-plan-register            
       .clear
