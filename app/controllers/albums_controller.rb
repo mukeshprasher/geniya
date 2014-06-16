@@ -76,12 +76,43 @@ class AlbumsController < ApplicationController
   # DELETE /albums/1
   # DELETE /albums/1.json
   def destroy
-    @album.destroy
-    destroy_activity(@album.class.name, @album.id, 'create')
-    respond_to do |format|
-      format.html { redirect_to albums_url }
-      format.json { head :no_content }
+    @album.multiuploads.each do |multiupload|
+      multiupload.destroy
     end
+  # destroy responses
+    Response.where(acted_upon_type: "Album", acted_upon_id: @album.id).each do |album_response|
+      album_response.destroy
+    end
+  #destroy activities
+    Activity.where(acted_upon_type: "Album", acted_upon_id: @album.id).each do |album_activity|
+      album_activity.destroy
+    end  
+  #destroy comments
+    Comment.where(commentable_type: 'Album', commentable_id: @album.id).each do |album_comment|
+      Like.where(likeable_type: 'Comment', likeable_id: album_comment.id).each do |comment_likes|
+        comment_likes.destroy
+      end
+    Response.where(acted_upon_type: "Comment", acted_upon_id: album_comment.id).each do |comment_response|
+      comment_response.destroy
+    end      
+      if album_comment.has_children?
+        album_comment.children.each do |child|
+          child.destroy
+        end
+      end
+    end
+  
+  #destroy likes
+    Like.where(likeable_type: 'Album', likeable_id: @album.id).each do |album_likes|
+      album_likes.destroy
+    end  
+#    destroy_activity(@album.class.name, @album.id, 'create')
+#    destroy_activity(@album.class.name, @album.id, 'like')
+    @album.destroy
+#    respond_to do |format|
+#      format.html { redirect_to albums_url }
+#      format.json { head :no_content }
+#    end
   end
 
   private
