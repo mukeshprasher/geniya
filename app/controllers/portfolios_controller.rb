@@ -25,7 +25,11 @@ class PortfoliosController < ApplicationController
       where_condition += "and user_id IN (#{user_ids_for_sql}) "
     end
 
-    if params.has_key?(:city) and params[:city].present?
+    if params.has_key?(:pin) and params[:pin].present?
+      code = params[:pin].gsub(/[^A-Za-z0-9]/, '')
+      pin = Pin.find_by(code: code)
+      where_condition += "and pin_id = #{pin.id} " unless pin.nil?
+    elsif params.has_key?(:city) and params[:city].present?
       city_name = params[:city].gsub(/[^A-Za-z]/, '').downcase
       city = City.find_by(name: city_name)
       where_condition += "and city_id = #{city.id} " unless city.nil?
@@ -81,7 +85,11 @@ class PortfoliosController < ApplicationController
       where_condition += "and user_id IN (#{user_ids_for_sql}) "
     end
 
-    if params.has_key?(:city) and params[:city].present?
+    if params.has_key?(:pin) and params[:pin].present?
+      code = params[:pin].gsub(/[^A-Za-z0-9]/, '')
+      pin = Pin.find_by(code: code)
+      where_condition += "and pin_id = #{pin.id} " unless pin.nil?
+    elsif params.has_key?(:city) and params[:city].present?
       city_name = params[:city].gsub(/[^A-Za-z]/, '').downcase
       city = City.find_by(name: city_name)
       where_condition += "and city_id = #{city.id} " unless city.nil?
