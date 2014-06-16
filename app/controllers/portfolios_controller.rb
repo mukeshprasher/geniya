@@ -5,8 +5,8 @@ class PortfoliosController < ApplicationController
     where_condition = "kind = 'portfolio' "
 
     if params.has_key?(:q) and params[:q].present?
-      q = "'%#{params[:q]}%'"
-      where_condition += "and (name like #{q} or title like #{q}) "
+      q = "'%#{params[:q]}%'".downcase
+      where_condition += "and (LOWER(name) like #{q} or LOWER(title) like #{q}) "
     end
 
     if params.has_key?(:gr) and params[:gr].present?
@@ -63,8 +63,8 @@ class PortfoliosController < ApplicationController
     where_condition = "kind = 'portfolio' AND category_id = #{@category.id} "
 
     if params.has_key?(:q) and params[:q].present?
-      q = "'%#{params[:q]}%'"
-      where_condition += "and (name like #{q} or title like #{q}) "
+      q = "'%#{params[:q]}%'".downcase
+      where_condition += "and (LOWER(name) like #{q} or LOWER(title) like #{q}) "
     end
 
     if params.has_key?(:sc) and params[:sc].present?
