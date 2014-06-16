@@ -1,6 +1,5 @@
 class Album < ActiveRecord::Base
   belongs_to :user
-  belongs_to :advertisement
   belongs_to :update
   belongs_to :category
   has_many :uploads
@@ -8,7 +7,6 @@ class Album < ActiveRecord::Base
   has_many :multiuploads
   has_many :likes,foreign_key: 'likeable_id'
   has_many :comments, foreign_key: 'commentable_id'
-
   has_attached_file :cover, :styles => { :large => "600x600>", :medium => "300x300>", :small => "100x100>" }, :default_url => "/assets/missing-image-geniya.png", :hash_secret => "geniyaAttach", :path => ":rails_root/public/system/albumcovers/:id_:style.:extension", :url => "/system/albumcovers/:id_:style.:extension",
                         :storage        => :s3                                                 ,
                       :s3_credentials => {:bucket            => 'geniya',

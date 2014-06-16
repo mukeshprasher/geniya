@@ -52,7 +52,19 @@ $(function() {
        {$("#ads_box-"+delete_comment_id).show();
        return false;}
      }); 
- 
+
+    $(".portfolio_box-delete").click(function(){
+     var delcomment = confirm("Do you want to delete this Portfolio ?");
+     if(delcomment == true)
+     {
+     var delete_comment_id=this.id.split("-")[2]
+       $("#portfolio_box-"+delete_comment_id).hide('slow');
+       return true;
+     }
+     else
+       {$("#portfolio_box-"+delete_comment_id).show();
+       return false;}
+     });  
  
  
     

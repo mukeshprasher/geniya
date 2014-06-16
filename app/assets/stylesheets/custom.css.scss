@@ -55,7 +55,7 @@ button { cursor:pointer }
 
 .align_middle { display: table; margin: 0 auto; }
 
-.inline_block { display:inline-block; vertical-align:top }
+.inline_block { display:inline-block; vertical-align:top; padding-bottom: 20px; }
 
 .span690 { width:690px; }
 
@@ -345,11 +345,14 @@ p.description { color: #FFFFFF; font-size: 14px; padding:5px 0px 0px; opacity:0 
 
 .pull_inside2 > input[type="button"]:hover { background: none repeat scroll 0 0 #42454d; transition:0.5s }
 
-.tab_nav > li { background: none repeat scroll 0 0 #2B2E36; float: left; padding: 0; width: 33.3%; cursor: pointer; }
+.tab_nav > li { background: none repeat scroll 0 0 #2B2E36; float: left; padding: 0; width: auto; cursor: pointer; }
+
+
+.tab_nav > li.last_most_dissucss {    width: 55.8%;}
 
 .tab_nav > li:hover, .tab_nav > li:hover a, .tab_nav > li.active, .tab_nav > li.active a { background:#fff; color:#97b850 }
 
-.tab_nav > li a { color: #FFFFFF; display: block; font-family: latobold; font-size: 16px; padding: 10px 10%; width: 80%; }
+.tab_nav > li a { color: #FFFFFF; display: block; font-family: latobold; font-size: 16px; padding: 10px 10%;  }
 
 .tab_content { padding:10px; }
 
@@ -1169,7 +1172,7 @@ form {margin: 0 0 5px;}
 .search input {background: none repeat scroll 0 0 #FFFFFF;border: medium none;box-shadow: none;color: #000000;font-family: latolight;font-size: 16px;padding: 8px 2%;width: 75%;}
 .srch-portf {
     float: left;
-    width: 90% !important;}
+    width: 84% !important;}
 .login_nav img {
     height: 16px;
     width: 17px;
@@ -1185,7 +1188,7 @@ form {margin: 0 0 5px;}
 
 
 .login_nav li.spacial:hover{ background:#ccc;}
-.search .go {background: none repeat scroll 0 0 #567882;border-radius: 0 3px 3px 0;color: #FFFFFF;font-family: latoregular;text-align: center;width: 10%;}
+.search .go {background: none repeat scroll 0 0 #567882;border-radius: 0 3px 3px 0;color: #FFFFFF;font-family: latoregular;text-align: center;width: 14%;}
 
 .ageFilter {padding: 20px 0;position: relative;width: 90%;}
 
@@ -3060,4 +3063,16 @@ body {
   margin: 30px;
   font-size: 24px;
   text-align: center;
+}
+
+
+.edit_cross_portfolio_box {
+    left: 78%;
+    position: absolute;
+}
+
+
+.edit_cross_portfolio_box a {
+    color: #E3B8BB;
+    text-decoration: none;
 }

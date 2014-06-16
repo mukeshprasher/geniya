@@ -5,6 +5,7 @@ class UsersController < ApplicationController
   before_action :admin_user,     only: :destroy
   before_action :redirect_if_already_signed_in, only: [:new, :create]
   before_action :can_edit, only: [:show]
+  before_action :show_users, only: [:index]
   
   def index
     if params[:q]
@@ -143,6 +144,17 @@ class UsersController < ApplicationController
 
     def redirect_if_already_signed_in
       redirect_to(root_url) if signed_in? 
+    end
+
+    def show_users
+      if !signed_in?
+        redirect_to(root_url)
+      else
+        if current_user.plan == "admin"
+        else
+          redirect_to(root_url)
+        end
+      end
     end
 
     def can_edit
