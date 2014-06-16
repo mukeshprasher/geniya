@@ -4,6 +4,21 @@ class PinsController < ApplicationController
   # GET /pins
   # GET /pins.json
   def index
+    if params.has_key?(:country) and params[:country].present?
+      country = Country.find(params[:country])
+      if !country.nil?
+        if country.pins.any?
+          @pins = country.pins
+        else
+          @pins = Pin.all
+        end
+      else
+        @pins = Pin.all
+      end    
+    else
+      @pins = Pin.all
+    end
+
     @pins = Pin.all
   end
 

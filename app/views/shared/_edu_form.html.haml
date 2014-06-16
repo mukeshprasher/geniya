@@ -7,11 +7,11 @@
     .edu_start_date
       %label
         Start Year
-      = f.select :start_date, (Time.zone.now.year - 70)..(Time.zone.now.year + 1)
+      = f.input :start_date, as: :select, collection: Date.current.year.downto(1940), include_blank: false
     .edu_end_date
       %label
         End Year    
-      = f.select :end_date, (Time.zone.now.year - 40)..(Time.zone.now.year + 10)
+      = f.input :end_date, as: :select, collection: Date.current.year.downto(1940), include_blank: false
   .form-actions-edu
     = f.button :submit , value: "Add Education", id: "edu"
     /= button_tag "Cancel", id: "cancel-edu", type:"button"

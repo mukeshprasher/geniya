@@ -16,9 +16,6 @@
   .field
     = f.label :description
     = f.text_area :description
-    .field
-    = f.label :type
-    = f.select :description, options_for_select(["Portfolio", "Album", "Project"])
   .field
     = f.label :category_id
     = collection_select(:album, :category_id, Category.all, :id, :name)

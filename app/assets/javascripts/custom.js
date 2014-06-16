@@ -132,7 +132,6 @@ $(function() {
             }
           }
         });
-
       
 
       $("#job_skills_text, #skill_name")

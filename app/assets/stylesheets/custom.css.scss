@@ -2856,9 +2856,10 @@ fieldset .field {
 /********* alert msg css**********/
 
 .alert, .alert h4 {
-    color: #C09853;
+    color: #A0522D;
     font-size: 17px;
     font-weight: bold;
+    margin: 0px;
 }
 
 
@@ -3075,4 +3076,7 @@ body {
 .edit_cross_portfolio_box a {
     color: #E3B8BB;
     text-decoration: none;
+=======
+.center_align{
+  text-align: center;
 }

@@ -25,8 +25,14 @@ class LocationsController < ApplicationController
   # POST /locations.json
   def create
     if params[:location][:country_id] == '0'
+      @country = Country.create!(name: params[:location][:new_country].downcase)
+    else
+      @country = Country.find(params[:location][:country_id])
+    end
+  
+    if params[:location][:country_id] == '0'
       if params[:location][:new_pin] == ''
-        @country = Country.create!(name: params[:location][:new_country].downcase)
+        #@country = Country.create!(name: params[:location][:new_country].downcase)
         @state = State.create!(country_id: @country.id, name: params[:location][:new_state].downcase)
         @city = City.create!(state_id: @state.id, name: params[:location][:new_city].downcase)
         @location = Location.new(location_params)
@@ -35,10 +41,10 @@ class LocationsController < ApplicationController
         @location.city_id = @city.id
         @location.save
       else
-        @country = Country.create!(name: params[:location][:new_country].downcase)
+        #@country = Country.create!(name: params[:location][:new_country].downcase)
         @state = State.create!(country_id: @country.id, name: params[:location][:new_state].downcase)
         @city = City.create!(state_id: @state.id, name: params[:location][:new_city].downcase)
-        @pin = Pin.create!(city_id: @city.id, code: params[:location][:new_pin])
+        @pin = Pin.create!(city_id: @city.id, country_id: @country.id, code: params[:location][:new_pin])
         @location = Location.new(location_params)
         @location.country_id = @country.id
         @location.state_id = @state.id
@@ -57,7 +63,7 @@ class LocationsController < ApplicationController
       else
         @state = State.create!(country_id: params[:location][:country_id], name: params[:location][:new_state].downcase)
         @city = City.create!(state_id: @state.id, name: params[:location][:new_city].downcase)
-        @pin = Pin.create!(city_id: @city.id, code: params[:location][:new_pin].downcase)
+        @pin = Pin.create!(city_id: @city.id, country_id: @country.id, code: params[:location][:new_pin].downcase)
         @location = Location.new(location_params)
         @location.state_id = @state.id
         @location.city_id = @city.id
@@ -72,7 +78,7 @@ class LocationsController < ApplicationController
         @location.save
       else
         @city = City.create!(state_id: params[:location][:state_id], name: params[:location][:new_city].downcase)
-        @pin = Pin.create!(city_id: @city.id, code: params[:location][:new_pin])
+        @pin = Pin.create!(city_id: @city.id, country_id: @country.id, code: params[:location][:new_pin])
         @location = Location.new(location_params)
         @location.city_id = @city.id
         @location.pin_id = @pin.id
@@ -83,7 +89,7 @@ class LocationsController < ApplicationController
         @location = Location.new(location_params)
         @location.save
       else
-        @pin = Pin.create!(city_id: params[:location][:city_id], code: params[:location][:new_pin])
+        @pin = Pin.create!(city_id: params[:location][:city_id], country_id: @country.id, code: params[:location][:new_pin])
         @location = Location.new(location_params)
         @location.pin_id = @pin.id
         @location.save

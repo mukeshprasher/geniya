@@ -9,7 +9,7 @@
           Our
           %span Portfolio Base
           %strong Be Bold Be Focused Be Seen
-/= ActiveRecord::Base::sanitize(@sql)
+/= @sql
 .service_form
   .wrapper
     .quality
@@ -31,6 +31,12 @@
             %span.advance_src_tilte
               Sort
             %b.caret
+          - if params.has_key?(:order) and params[:order].present?
+            = "Most " if params[:order] != 'recent' 
+            = params[:order].capitalize
+          - else
+            Most Viewed
+          
           %ul.dropdown-menu
             %li
               %input{ type:"radio", name:"order", value:"recent", checked: params[:order] == "recent"} &nbsp; Recent
@@ -42,7 +48,7 @@
               %input{ type:"radio", name:"order", value:"liked", checked: params[:order] == "liked"} &nbsp; Most liked
               %br
               %br
-              %input{ type:"radio", name:"order", value:"viewed", checked: params[:order] == "viewed" || params[:order].nil?} &nbsp; Most viewed
+              %input{ type:"radio", name:"order", value:"viewed", checked: params[:order] == "viewed" || (!params.has_key?(:order) or !params[:order].present?)} &nbsp; Most viewed
               %br
               %br
               = submit_tag 'Go', class: 'btn'              
@@ -62,7 +68,11 @@
                   %option{value: "#{country.id}", selected: params[:country] == "#{country.id}"}
                     = country.name.capitalize
               %label City
-              %input{name: 'city', placeholder: "Search city", type: "text", autocomplete: 'off', id: 'search_city', value: "#{params[:city]}"}
+              %input{name: 'city', placeholder: "Enter city name", type: "text", autocomplete: 'off', id: 'search_city', value: "#{params[:city]}"}
+              %br
+              .center_align or
+              %label ZIP or PIN code
+              %input{name: 'pin', placeholder: "Enter ZIP/PIN code", type: "text", autocomplete: 'off', id: 'search_pin', value: "#{params[:pin]}"}
               %br
               = submit_tag 'Go', class: 'btn'
 
