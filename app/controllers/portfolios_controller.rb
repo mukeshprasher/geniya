@@ -27,16 +27,17 @@ class PortfoliosController < ApplicationController
 
     if params.has_key?(:pin) and params[:pin].present?
       code = params[:pin].gsub(/[^A-Za-z0-9]/, '')
-      pin = Pin.find_by(code: code)
-      where_condition += "and pin_id = #{pin.id} " unless pin.nil?
+      @pin = Pin.find_by(code: code)
+      where_condition += "and pin_id = #{@pin.id} " unless @pin.nil?
     elsif params.has_key?(:city) and params[:city].present?
       city_name = params[:city].gsub(/[^A-Za-z]/, '').downcase
-      city = City.find_by(name: city_name)
-      where_condition += "and city_id = #{city.id} " unless city.nil?
+      @city = City.find_by(name: city_name)
+      where_condition += "and city_id = #{@city.id} " unless @city.nil?
     end
 
     if params.has_key?(:country) and params[:country].present?
-      where_condition += "and country_id = #{params[:country]} "
+      @country = Country.find(params[:country])
+      where_condition += "and country_id = #{params[:country]} " if !@country.nil?
     end
 
     if params.has_key?(:order) and params[:order].present?
@@ -87,16 +88,17 @@ class PortfoliosController < ApplicationController
 
     if params.has_key?(:pin) and params[:pin].present?
       code = params[:pin].gsub(/[^A-Za-z0-9]/, '')
-      pin = Pin.find_by(code: code)
-      where_condition += "and pin_id = #{pin.id} " unless pin.nil?
+      @pin = Pin.find_by(code: code)
+      where_condition += "and pin_id = #{@pin.id} " unless @pin.nil?
     elsif params.has_key?(:city) and params[:city].present?
       city_name = params[:city].gsub(/[^A-Za-z]/, '').downcase
-      city = City.find_by(name: city_name)
-      where_condition += "and city_id = #{city.id} " unless city.nil?
+      @city = City.find_by(name: city_name)
+      where_condition += "and city_id = #{@city.id} " unless @city.nil?
     end
 
     if params.has_key?(:country) and params[:country].present?
-      where_condition += "and country_id = #{params[:country]} "
+      @country = Country.find(params[:country])
+      where_condition += "and country_id = #{params[:country]} " unless @country.nil?
     end
 
     if params.has_key?(:order) and params[:order].present?

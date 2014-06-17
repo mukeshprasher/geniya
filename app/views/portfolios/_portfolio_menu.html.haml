@@ -1,9 +1,6 @@
 .innerBenner
   .wrapper
     .portfolio
-      /%p
-      /  Your trial expires in 11 days.
-      /  %span Upgrade.
       .our_base
         %h2
           Our
@@ -54,11 +51,14 @@
               = submit_tag 'Go', class: 'btn'              
             
       %ul.feature_search
-        %li.dropdown
+        %li.dropdown#location_search_dropdown
           %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
             %span.advance_src_tilte
               Location
             %b.caret
+          = @country.name.capitalize if !@country.nil?
+          = @city.name.capitalize if !@city.nil? and @pin.nil?
+          = @pin.code.capitalize if !@pin.nil?
           %ul.dropdown-menu{id: "location_dropdown"}
             %li
               %label Country
@@ -76,13 +76,6 @@
               %br
               = submit_tag 'Go', class: 'btn'
 
-  /    %ul#global_search
-  /      %li#fat-menu.dropdown
-  /        %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
-  /          %span#advance_src_tilte
-  /            Globally
-  /          %b.caret
-           
   .inneContainer-links
     .wrapper
       .dropdown
