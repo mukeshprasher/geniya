@@ -14,23 +14,24 @@
         /%a{href: "/search?field=44", title: "Graphic Design"} Graphic Design
 
     #primary-project-content.project-styles
-    - if signed_in?
-      - if (@user.name== current_user.name)
-        #album-form.modal.fade{"data-width" => "760", style: "display: none;", tabindex: "-1"}
-          .modal-header
-            %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
-            %h4.modal-title Add Images to #{@album.kind}
-          .modal-body
-            = render 'shared/multiupload_img', album_id: @album.id, album_name: @album.name
-          .modal-footer
-            %button#close.btn.btn-default{:data => "#{@album.id}", "data-dismiss" => "modal", type: "button"} Close
-            /%button.btn.btn-primary{type: "button"} Save changes
-        %a.demo{"data-toggle" => "modal",href: "#album-form", id: "add-img_renamed"}
-          Add/Remove Pictures
-        |     
-        = link_to "Edit #{@album.kind}", edit_album_path(@album)
-       
-
+      - if signed_in?
+        - if (@user.name== current_user.name)
+          #album-form.modal.fade{"data-width" => "760", style: "display: none;", tabindex: "-1"}
+            .modal-header
+              %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
+              %h4.modal-title Add Images to #{@album.kind}
+            .modal-body
+              = render 'shared/multiupload_img', album_id: @album.id, album_name: @album.name
+            .modal-footer
+              %button#close.btn.btn-default{:data => "#{@album.id}", "data-dismiss" => "modal", type: "button"} Close
+              /%button.btn.btn-primary{type: "button"} Save changes
+          %a.demo{"data-toggle" => "modal",href: "#album-form", id: "add-img_renamed"}
+            %span#add_img_btn
+              Add/Remove Pictures
+          |     
+          
+          = link_to "Edit #{@album.kind}", edit_album_path(@album)
+          
     %ul#project-modules
       .album
         - album.multiuploads.each do |upload|
@@ -97,6 +98,10 @@
           %span#add_img_btn
             Add/Remove Pictures        
 
+    .current_album_like_form
+      -if signed_in?
+        .likes-album
+          = render 'shared/like_form', object: album, user: album.user
 
 
   #project-sidebar.right
