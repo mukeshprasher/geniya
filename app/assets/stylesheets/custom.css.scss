@@ -1885,7 +1885,7 @@ cursor: pointer;
 .right {float: right;}
 #project-sidebar {box-sizing: border-box;width: 26.8687%;    border-left: 1px solid #ECECEC; background:#fff; border-radius:0px 4px 4px 0px}
 .sidebar-block {border-bottom: 1px solid #DFDFDF;border-top: 0 none;padding: 40px 24px 20px 22px;position: relative;}
-#primary-project-content {background-color: #FFFFFF;padding-top: 50px;}
+#primary-project-content {   background-color: #FFFFFF;float: left;margin: 0 2px 0 50px;padding-top: 50px;width: auto;}
 #project-modules li {padding-bottom: 10px; text-align: center;}
 #project-comments.big-comments {background: none repeat scroll 0 0 #FCFCFC;border-bottom-left-radius: 4px;padding: 58px 0; overflow:hidden;}
 
@@ -2856,7 +2856,7 @@ fieldset .field {
 /********* alert msg css**********/
 
 .alert, .alert h4 {
-    color: #A0522D;
+    color: #82AB2E;
     font-size: 17px;
     font-weight: bold;
     margin: 0px;
@@ -2884,6 +2884,18 @@ fieldset .field {
     width: 14px;
 }
 
+
+.portfolio_box_container {
+    float: left;
+    width: auto;
+}
+
+
+#edit_portfolio_cross {
+    background: url("/assets/cross.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+       float: left;
+    width: 14px;
+}
 
 .edit_cross_makeup_box {
     float: right;
@@ -3069,7 +3081,7 @@ body {
 
 .edit_cross_portfolio_box {
     left: 78%;
-    position: absolute;
+    position: relative;
 }
 
 
@@ -3079,4 +3091,14 @@ body {
     }
 .center_align{
   text-align: center;
+}
+
+
+.current_album_like_form {
+    clear: both;
+    float: left;
+    font-size: 18px;
+    margin: 0 0 0 260px;
+    text-align: center;
+    width: 27%;
 }

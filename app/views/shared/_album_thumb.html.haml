@@ -1,58 +1,60 @@
-.box.ajax-portfolio-detail-homepage-modal-trigger{ :id => "portfolio_box-#{album.id}" }
+.portfolio_box_container{ :id => "portfolio_box-#{album.id}" }
   - if current_user == album.user
     .edit_cross_portfolio_box
       %span#edit_adds
         %a{href: "/albums/"+"#{album.slug}"+"/edit"}
           %img{alt: "", src: "/assets/edit.png"}/  
-      %span#edit_adds_cross
-        = link_to "×", album_path(album), :method => :delete, :remote => true,  :disable_with => "×", :class => 'portfolio_box-delete' , :id => "portfolio_box-delete-#{album.id}"        
-  .albm-img{:data => "#{album.id}"}  
-    - if !album.cover.nil?
-      .content-profile
-        = image_tag album.cover.url(:large)
-    - else
-      .content-profile
-        = image_tag '/assets/missing-image-geniya.png', alt: '/assets/missing-image-geniya.png'
-    /-if album.multiuploads.any?
-    /  .content-profile
-    /    - album.multiuploads.last(1).each do|upload_img_name|
-    /      = image_tag upload_img_name.multiupload.url(:original), alt: upload_img_name.multiupload_file_name
-    /-  elsif album.uploads.any?
-    /  .content-profile
-    /    - album.uploads.last(1).each do|upload_img_name|
-    /      = image_tag upload_img_name.file_attachment.url(:original)
-    /-  elsif album.covers.any?
-    /  .content-profile
-    /    - album.covers.last(1).each do|upload_img_name|
-    /      = image_tag upload_img_name.file_attachment.url(:original)
-    /.descr
-    /  = album.name
-  .potrate-img
-    = link_to album.name, album
-  .like-comment-box  
-    %p
-      - @likers = album.likers(User)
-      - @comments = album.comment_threads.where('parent_id IS NULL').order('created_at desc')
-      %img{alt: "", height: "11", src: "/assets/heart_img.png", width: "12"}/
-      %span
-        = @likers.count
-      /= render 'shared/like_form', object: album, user: album.user
-    %p
-      %img{alt: "", height: "11", src: "/assets/feed_icon1.png", width: "13"}/
-      %span
-        = @comments.count
-  .add_comment
-    = render 'shared/user_img', user: album.user, album: album
-  
-                 
-  
-  /.profile_portfolio_delux  
-  /  .album_title-single-profile
-  /    = link_to album.name, album
-  /  .album_category
-  /    = render 'shared/like_form', object: album, user: album.user     
-  /  .portfolio_author_name
-  /    = render 'shared/user_img', user: album.user
-  /  .album_category
-  /    = album.category.name
+      %span#edit_portfolio_cross
+        = link_to "×", album_path(album), :method => :delete, :remote => true,  :disable_with => "×", :class => 'portfolio_box-delete' , :id => "portfolio_box-delete-#{album.id}"
+
+  .box.ajax-portfolio-detail-homepage-modal-trigger
+    .albm-img{:data => "#{album.id}"}  
+      - if !album.cover.nil?
+        .content-profile
+          = image_tag album.cover.url(:large)
+      - else
+        .content-profile
+          = image_tag '/assets/missing-image-geniya.png', alt: '/assets/missing-image-geniya.png'
+      /-if album.multiuploads.any?
+      /  .content-profile
+      /    - album.multiuploads.last(1).each do|upload_img_name|
+      /      = image_tag upload_img_name.multiupload.url(:original), alt: upload_img_name.multiupload_file_name
+      /-  elsif album.uploads.any?
+      /  .content-profile
+      /    - album.uploads.last(1).each do|upload_img_name|
+      /      = image_tag upload_img_name.file_attachment.url(:original)
+      /-  elsif album.covers.any?
+      /  .content-profile
+      /    - album.covers.last(1).each do|upload_img_name|
+      /      = image_tag upload_img_name.file_attachment.url(:original)
+      /.descr
+      /  = album.name
+    .potrate-img
+      = link_to album.name, album
+    .like-comment-box  
+      %p
+        - @likers = album.likers(User)
+        - @comments = album.comment_threads.where('parent_id IS NULL').order('created_at desc')
+        %img{alt: "", height: "11", src: "/assets/heart_img.png", width: "12"}/
+        %span
+          = @likers.count
+        /= render 'shared/like_form', object: album, user: album.user
+      %p
+        %img{alt: "", height: "11", src: "/assets/feed_icon1.png", width: "13"}/
+        %span
+          = @comments.count
+    .add_comment
+      = render 'shared/user_img', user: album.user, album: album
+    
+                   
+    
+    /.profile_portfolio_delux  
+    /  .album_title-single-profile
+    /    = link_to album.name, album
+    /  .album_category
+    /    = render 'shared/like_form', object: album, user: album.user     
+    /  .portfolio_author_name
+    /    = render 'shared/user_img', user: album.user
+    /  .album_category
+    /    = album.category.name
 
