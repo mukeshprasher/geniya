@@ -41,6 +41,8 @@ a, img { border:none; text-decoration:none }
 
 img { max-width:100% }
 
+.basic_plan sup {font-size: 60px;}
+
 .wrapper_c { margin:0 auto; width:1024px; max-width:100%; position: relative; }
 
 .wrapper_c:after, .wrapper_c:before { clear:both; display:table }
@@ -62,6 +64,7 @@ button { cursor:pointer }
 .span315 { width:315px; }
 
 .offset1 { margin-left:14px; }
+
 
 /***********************/
 
@@ -824,25 +827,38 @@ form {margin: 0 0 5px;}
 
 .pricing_page {padding: 70px 0 40px;}
 
-.basic_plan {background: none repeat scroll 0 0 #DFDEDE;border: 2px solid #C5C4C4;border-radius: 5px;float: left;padding: 0 20px 0 40px;width: 40%;}
+.basic_plan_old {background: none repeat scroll 0 0 #DFDEDE;border: 2px solid #C5C4C4;border-radius: 5px;float: left;padding: 0 20px 0 40px;width: 40%;}
+
+.basic_plan{
+  background: none repeat scroll 0 0 #DFDEDE;
+  border: 2px solid #C5C4C4;
+  border-radius: 5px;
+  float: left;
+  margin-right: 20px;
+  max-width: 24%;
+  padding: 10px 62px 10px 5px;
+}
 
 .free_plan {float: left;}
 
-.free_plan h2 {font-family: Calibri;font-size: 47px;font-weight: bold;margin: 34px 0;}
+.free_plan h2 {font-family: Calibri;font-size: 40px;font-weight: bold;margin: 34px 0;}
 
-.free_plan ul {list-style: none outside none;}
+.free_plan ul {list-style: none outside none; margin: 0px 0px 10px 10px}
 
-.free_plan ul li {background: url("../assets/listing_star.png") no-repeat scroll 0 2px rgba(0, 0, 0, 0);display: block;font-family: 'latoregular';font-size: 20px;padding: 0 0 0 10px;}
+.free_plan ul li {background: url("../assets/listing_star.png") no-repeat scroll 0 2px rgba(0, 0, 0, 0);display: block;font-family: 'latoregular';font-size: 20px;padding: 0 0 20px 20px;}
 
-.free_plan ul li a {color: #484848;display: block;padding: 0 0 20px;}
+.free_plan ul li a {color: #484848;display: block;}
 
-.get_started {float: right;margin: -15px 0;}
+.get_started_old {float: right;margin: -15px 0;}
+.get_started {
+  margin: -25px 0;
+}
 
 .price {text-align: center;width: 100%;}
 
 .price h2 {color: #2A83C4;font-family: "Arial Black";font-size: 88px;position: relative;text-shadow: 5px 5px 5px #BBBABA;}
 
-.price h2 span {bottom: 0px;color: #6D6D6C;font-family: Calibri;font-size: 21px;position: absolute;right: 80px;}
+.price h2 span {bottom: -10px;color: #6D6D6C;font-family: Calibri;font-size: 21px;position: absolute;right: 12px;}
 
 .free_plan h2 span {color: #2495E3;}
 
@@ -852,19 +868,17 @@ form {margin: 0 0 5px;}
 
 .sale_plan {float: left;}
 
-.sale_plan h2 {color: #575876;font-family: Calibri;font-size: 47px;font-weight: bold;margin: 34px 0;}
+.sale_plan h2 {color: #575876;font-family: Calibri;font-size: 40px;font-weight: bold;margin: 34px 0;}
 
 .sale_plan h2 span {color: #7BA400;}
 
 .sale_plan h2 em {color: #282828;display: block;font-family: 'latoregular';font-size: 26px;font-style: normal;}
 
-.sale_plan ul {list-style: none outside none;}
+.sale_plan ul {list-style: none outside none;  margin: 0px 0px 10px 10px}
 
-.sale_plan ul li {background: url("/assets/listing_star.png") no-repeat scroll 0 2px rgba(0, 0, 0, 0);display: block;font-family: 'latoregular';font-size: 20px;padding: 0 0 0 10px;}
+.sale_plan ul li {background: url("/assets/listing_star.png") no-repeat scroll 0 2px rgba(0, 0, 0, 0);display: block;font-family: 'latoregular';font-size: 20px;padding: 0 0 20px 20px;}
 
-.sale_plan ul li a {color: #484848;display: block;padding: 0 0 20px;}
-
-.get_started {float: right;margin: -15px 0;}
+.sale_plan ul li a {color: #484848;display: block;}
 
 .price_sale {text-align: center;width: 100%;}
 
@@ -873,7 +887,9 @@ form {margin: 0 0 5px;}
 .clear {clear: both;}
 
 
-.price_sale h2 span {bottom: 0px;color: #6D6D6C;font-family: Calibri;font-size: 21px;position: absolute;right: 80px;}
+.price_sale h2 span {
+bottom: -10px;color: #6D6D6C;font-family: Calibri;font-size: 21px;position: absolute;right: 12px;
+}
 
 *{
 	margin:0;
@@ -979,9 +995,24 @@ form {margin: 0 0 5px;}
 	color:#00021c;
 }
 
-.awesom-plan-register {background: url("/assets/register.jpeg") no-repeat scroll 0 2px rgba(0, 0, 0, 0);float: right;left: 28%;margin: 18px 188px 0 0;width: 121px;height:40px;}
+.awesom-plan-register {
+  background: url("/assets/register.jpeg") no-repeat scroll 0 2px rgba(0, 0, 0, 0);
+/*
+  float: right;
+  left: 28%;
+  margin: 18px 188px 0 0;
+  width: 121px;
+  height:40px;
+*/
 
-.basic-plan-register {background: url("/assets/reg.jpeg") no-repeat scroll 0 2px rgba(0, 0, 0, 0);float: left; margin: -100px 0 0 172px;width: 123px; height:41px;}
+    display: block;
+    float: left;
+    height: 41px;
+    margin: 20px 33%;
+    width: 123px;
+}
+
+
 
 .slider_profile { height: 300px;position: relative;width: 100%;
   background: url("/assets/cover.jpg") repeat scroll 0 0 rgba(0, 0, 0, 0);
@@ -1241,6 +1272,8 @@ form {margin: 0 0 5px;}
 
 
 /**********pricing table **********/
+
+.basic-plan-register {background: url("/assets/reg.jpeg") no-repeat scroll 0 2px rgba(0, 0, 0, 0);float: left; margin: -100px 0 0 172px;width: 123px; height:41px;}
 
 #basic .basic-plan-register {
     background: url("/assets/reg.jpeg") no-repeat scroll 0 2px rgba(0, 0, 0, 0);
