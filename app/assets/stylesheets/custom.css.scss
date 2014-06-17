@@ -843,11 +843,11 @@ form {margin: 0 0 5px;}
 
 .free_plan h2 {font-family: Calibri;font-size: 40px;font-weight: bold;margin: 34px 0;}
 
-.free_plan ul {list-style: none outside none;}
+.free_plan ul {list-style: none outside none; margin: 0px 0px 10px 10px}
 
-.free_plan ul li {background: url("../assets/listing_star.png") no-repeat scroll 0 2px rgba(0, 0, 0, 0);display: block;font-family: 'latoregular';font-size: 20px;padding: 0 0 0 10px;}
+.free_plan ul li {background: url("../assets/listing_star.png") no-repeat scroll 0 2px rgba(0, 0, 0, 0);display: block;font-family: 'latoregular';font-size: 20px;padding: 0 0 20px 20px;}
 
-.free_plan ul li a {color: #484848;display: block;padding: 0 0 20px;}
+.free_plan ul li a {color: #484848;display: block;}
 
 .get_started_old {float: right;margin: -15px 0;}
 .get_started {
@@ -858,7 +858,7 @@ form {margin: 0 0 5px;}
 
 .price h2 {color: #2A83C4;font-family: "Arial Black";font-size: 88px;position: relative;text-shadow: 5px 5px 5px #BBBABA;}
 
-.price h2 span {bottom: 0px;color: #6D6D6C;font-family: Calibri;font-size: 21px;position: absolute;right: 12px;}
+.price h2 span {bottom: -10px;color: #6D6D6C;font-family: Calibri;font-size: 21px;position: absolute;right: 12px;}
 
 .free_plan h2 span {color: #2495E3;}
 
@@ -874,11 +874,11 @@ form {margin: 0 0 5px;}
 
 .sale_plan h2 em {color: #282828;display: block;font-family: 'latoregular';font-size: 26px;font-style: normal;}
 
-.sale_plan ul {list-style: none outside none;}
+.sale_plan ul {list-style: none outside none;  margin: 0px 0px 10px 10px}
 
-.sale_plan ul li {background: url("/assets/listing_star.png") no-repeat scroll 0 2px rgba(0, 0, 0, 0);display: block;font-family: 'latoregular';font-size: 20px;padding: 0 0 0 10px;}
+.sale_plan ul li {background: url("/assets/listing_star.png") no-repeat scroll 0 2px rgba(0, 0, 0, 0);display: block;font-family: 'latoregular';font-size: 20px;padding: 0 0 20px 20px;}
 
-.sale_plan ul li a {color: #484848;display: block;padding: 0 0 20px;}
+.sale_plan ul li a {color: #484848;display: block;}
 
 .price_sale {text-align: center;width: 100%;}
 
@@ -888,7 +888,7 @@ form {margin: 0 0 5px;}
 
 
 .price_sale h2 span {
-bottom: 0px;color: #6D6D6C;font-family: Calibri;font-size: 21px;position: absolute;right: 12px;
+bottom: -10px;color: #6D6D6C;font-family: Calibri;font-size: 21px;position: absolute;right: 12px;
 }
 
 *{
