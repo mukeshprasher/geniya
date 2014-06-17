@@ -1918,7 +1918,7 @@ cursor: pointer;
 .right {float: right;}
 #project-sidebar {box-sizing: border-box;width: 26.8687%;    border-left: 1px solid #ECECEC; background:#fff; border-radius:0px 4px 4px 0px}
 .sidebar-block {border-bottom: 1px solid #DFDFDF;border-top: 0 none;padding: 40px 24px 20px 22px;position: relative;}
-#primary-project-content {   background-color: #FFFFFF;float: left;margin: 0 2px 0 50px;padding-top: 50px;width: auto;}
+.primary-project-content {   background-color: #FFFFFF;float: left;margin: 0 2px 0 50px;padding-top: 50px;width: auto;}
 #project-modules li {padding-bottom: 10px; text-align: center;}
 #project-comments.big-comments {background: none repeat scroll 0 0 #FCFCFC;border-bottom-left-radius: 4px;padding: 58px 0; overflow:hidden;}
 
@@ -2515,15 +2515,17 @@ textarea:focus, input[type="text"]:focus, input[type="password"]:focus, input[ty
 #organization_controll_container a{text-decoration:none;}
 #organization_controll_container a:hover{background:red;}
 
-#add_img_btn{
-    background: none repeat scroll 0 0 #86B031;
-    border-radius: 4px;
-    color: #FFFFFF;
-    float: left;
-    height: 23px;
-    padding: 4px 0 0 6px;
-    width: 140px;
-    margin-bottom: 20px;
+.add_img_btn{
+  background: none repeat scroll 0 0 #86B031;
+  border-radius: 4px;
+  color: #FFFFFF;
+  float: left;
+  margin: 8px;
+  padding: 6px;
+}
+
+.add_img_btn a{
+  color: #FFFFFF;
 }
 
 

@@ -6,55 +6,54 @@
       %h1#project-title
         = @album.title
       #creative-fields.secondary-text
-        %a{href: "/portfolios/"+"#{@album.category.slug}", title: "Art Direction"}
+        %a{href: "/portfolios/"+"#{@album.category.slug}", title: "#{@album.category.name}"}
           = @album.category.name
         /%span.separator ,
         /%a{href: "/search?field=109", title: "Branding"} Branding
         /%span.separator ,
         /%a{href: "/search?field=44", title: "Graphic Design"} Graphic Design
-
-    #primary-project-content.project-styles
-      - if signed_in?
-        - if (@user.name== current_user.name)
-          #album-form.modal.fade{"data-width" => "760", style: "display: none;", tabindex: "-1"}
-            .modal-header
-              %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
-              %h4.modal-title Add Images to #{@album.kind}
-            .modal-body
-              = render 'shared/multiupload_img', album_id: @album.id, album_name: @album.name
-            .modal-footer
-              %button#close.btn.btn-default{:data => "#{@album.id}", "data-dismiss" => "modal", type: "button"} Close
-              /%button.btn.btn-primary{type: "button"} Save changes
-          %a.demo{"data-toggle" => "modal",href: "#album-form", id: "add-img_renamed"}
-            %span#add_img_btn
-              Add/Remove Pictures
-          |     
-          
+    
+    - if signed_in? and current_user?(@user)
+      .primary-project-content.project-styles
+        #album-form.modal.fade{"data-width" => "760", style: "display: none;", tabindex: "-1"}
+          .modal-header
+            %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
+            %h4.modal-title Add Images to #{@album.kind}
+          .modal-body
+            = render 'shared/multiupload_img', album_id: @album.id, album_name: @album.name
+          .modal-footer
+            %button#close.btn.btn-default{:data => "#{@album.id}", "data-dismiss" => "modal", type: "button"} Close
+            /%button.btn.btn-primary{type: "button"} Save changes
+        %a.demo{"data-toggle" => "modal",href: "#album-form", id: "add-img_renamed"}
+          %span.add_img_btn
+            Add/Remove Pictures
+        %span.add_img_btn
           = link_to "Edit #{@album.kind}", edit_album_path(@album)
           
     %ul#project-modules
       .album
         - album.multiuploads.each do |upload|
-          = render "shared/portfolio_album", upload: upload
-        - album.uploads.each do |s|
-          = render "shared/profliepic_album", s: s
-        - album.covers.each do |s|
-          = render "shared/coverpic_album", s: s          
-        /- if @user_profile_pics.any?
-        /  - @user_profile_pics.each do |s|
-        /    = render "shared/profliepic_album", s: s
+          .fleft
+            %ul.gallery.clearfix
 
+
+          %ul.gallery.clearfix
+            %li
+              %a{href: "#{upload.multiupload.url(:original)}", rel: "prettyPhoto[mixed]", title: "#{upload.multiupload_file_title}"}
+                =image_tag upload.multiupload.url(:original), alt: upload.multiupload_file_name
+          %ul#album-upload-content
+            %li#album-upload-title 
+              = upload.multiupload_file_title
+            %li#album-upload-desc
+              = upload.multiupload_file_desc
+    - if signed_in? and current_user?(@user) and album.multiuploads.any?
+      .primary-project-content.project-styles
+        %a.demo{"data-toggle" => "modal",href: "#album-form"}
+          %span.add_img_btn
+            Add/Remove Pictures
+        %span.add_img_btn
+          = link_to "Edit #{@album.kind}", edit_album_path(@album)
     .clear
-
-      /#pp_gallery.pp_gallery
-      /  #pp_loading.pp_loading
-      /  #pp_prev.pp_prev
-      /  #pp_next.pp_next
-      /  #pp_thumbContainer
-      /    .album
-      /      - album.multiuploads.each do |upload|
-      /        = render "shared/portfolio_album", upload: upload
-      /  .clear
 
     #project-comments.big-comments
       #comments-container{entity_id: "16086365", entity_type: "project"}
@@ -88,16 +87,6 @@
           = render :partial => 'comments/form', :locals => { comment: @new_comment, parent_id: nil }
           = render :partial => 'comments/comment', :collection => @comments, :as => :comment        
 
-
-    
-
-    - if signed_in?
-      - if (@user.name== current_user.name)
-        %a.demo{"data-toggle" => "modal",href: "#album-form", id: "add-img"}
-          /Add Images to #{@album.kind}
-          %span#add_img_btn
-            Add/Remove Pictures        
-
     .current_album_like_form
       -if signed_in?
         .likes-album
@@ -123,8 +112,6 @@
             #owner-location-container
               /%a.location-link.text-ellipsis.beicons-pre.beicons-pre-location Brooklyn, NY, USA
         #owner-buttons-container.clear
-          /.follow-button-container.action-follow-user
-          /  %a.form-button.form-button-follow.form-button-large.form-button-default.form-button-left-icon.form-button-icon-follow Follow
           .follow-btn
             - if signed_in? 
               = render 'shared/follow_form'
@@ -168,7 +155,6 @@
               Views
             %span.stat-value 
               = @album.impressions_count
-              /= pluralize(@album.impressions_count, 'unique visior')
           %li.project-stat.project-stat-views.beicons-pre.beicons-pre-eye
             %span
               %img{alt: "", height: "11", src: "/assets/heart_img.png", width: "12"}/
@@ -176,7 +162,6 @@
               Likes
             %span.stat-value 
               = @likers.count
-              /= pluralize(@likers.count, 'like')
           %li.project-stat.project-stat-views.beicons-pre.beicons-pre-eye
             %span
               %img{alt: "", height: "11", src: "/assets/feed_icon1.png", width: "13"}/
@@ -184,68 +169,9 @@
               Comments
             %span.stat-value
               = @comments.count
-              /= pluralize(@comments.count, 'comment') 
-        /#short-url.margin-top-15.stat-label.pre-icon.pre-icon-link.text-ellipsis
-        /  %a{href: "", target: "_blank"} http://bit.ly/1grur7S
-
-    /.sidebar-block
-    /  .sidebar-label Project Tags
-    /  .sidebar-content
-    /    #object-tags.cfix
-    /      %a.object-tag{href: ""} identity
-    /      %a.object-tag{href: ""} Website
-    /      %a.object-tag{href: ""} san francisco
-    /      %a.object-tag{href: ""} Brooklyn
-    /  #object-tags-see-all{style: "display: block;"}
-    /    %span.viewing-less-copy
-    /      See all
-    /      %span#project-tags-count.fake-link 8 tags
 
     .sidebar-block.sidebar-meta
       .sidebar-content.cfix
         #copyright-info.tooltipi-container
           /%span.copyright-info.pointer.sidebar-meta-item.pre-icon.pre-icon-copyright ©Project Copyright Info
           /%span.fake-link.sidebar-meta-item.pre-icon.pre-icon-report.flag-spam.flag-spam-project.js-report.project-report{spam_id: "16086365"} Geniya
-
-
-/.album_cont
-/  .album_main
-/    .album_header
-/      %h4= @album.name
-/      %h5= @album.title
-/      %h6= @album.category.name
-/    .album_body
-/      - album.uploads.each do |upload|
-/        .album_upload
-/          %h6=upload.name
-/          %h7=upload.title
-/          %p=upload.description
-/          .album_upload_file
-/            =image_tag upload.file_attachment.url  
-/    .album_footer
-/      = rating_for @album, "rating"
-/  .album_sidebar
-/    .user_info
-/      = @album.kind.capitalize 
-/      by
-/      %br
-/      = link_to @album.user.name, @album.user
-/      %br
-/      = time_ago_in_words(@album.created_at) 
-/      ago
-/    .follow_form
-/      = render 'shared/follow_form' if signed_in?
-/    .connect_form
-/      = render 'shared/connect_form' if signed_in?
-/    .album_description
-/      .stats
-/        .stat
-/          = pluralize(@album.impressions_count, 'unique visior')
-/        .stat
-/          = pluralize(@likers.count, 'like')
-/        .stat
-/          = pluralize(@comments.count, 'comment')
-/      = @album.description
-/  .comments
-/    = render :partial => 'comments/form', :locals => { comment: @new_comment, parent_id: nil }
-/    = render :partial => 'comments/comment', :collection => @comments, :as => :comment

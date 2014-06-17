@@ -63,8 +63,8 @@
     <td class="preview"><span class="fade"></span></td>
     <td class="name">
       <span>{%=file.name%}</span> 
-      <span><%= text_field_tag "multiupload[multiupload_file_title]",  nil, :placeholder => 'Enter title for upload...'%></span>
-      <span><%= text_area_tag "multiupload[multiupload_file_desc]", nil, :placeholder => 'Enter  for upload...'%>
+      <span><%= text_field_tag "multiupload[multiupload_file_title]",  nil, :placeholder => 'Enter title for picture ...'%></span>
+      <span><%= text_area_tag "multiupload[multiupload_file_desc]", nil, :placeholder => 'Enter description for picture ...'%>
       <%= hidden_field_tag "multiupload[user_id]", "{%=data.user_id%}" %>
       <%= hidden_field_tag "multiupload[album_id]", "{%=data.album_id%}" %>
     </td><td class="size"><span>{%=o.formatFileSize(file.size)%}</span></td>
@@ -145,9 +145,12 @@
                 
              // });
 
-              $.each(data.result.files, function (index, file) {
-$('.album').append('<div class="fleft"><ul class="gallery clearfix"></ul></div><ul class="gallery clearfix"><li><a title="" rel="prettyPhoto[mixed]" href="'+ file.url +'"><img src="'+ file.url +'" alt="'+ file.name +'"></a></li></ul><ul id="album-upload-content"><li id="album-upload-title">'+ file.title +'</li><li id="album-upload-desc">'+ file.description +'</li></ul>')
-              });
+              //$.each(data.result.files, function (index, file) {
+//$('.album').append('<div class="fleft"><ul class="gallery clearfix"></ul></div><ul class="gallery clearfix"><li><a title="" rel="prettyPhoto[mixed]" href="'+ file.url +'"><img src="'+ file.url +'" alt="'+ file.name +'"></a></li></ul><ul id="album-upload-content"><li id="album-upload-title">'+ file.title +'</li><li id="album-upload-desc">'+ file.description +'</li></ul>')
+              //});
+              
+              //console.log('ggg')
+              window.location.href = "/albums/" + <%= album_id %>;
               
             });
 
@@ -161,7 +164,7 @@ $('.album').append('<div class="fleft"><ul class="gallery clearfix"></ul></div><
         fu._adjustMaxNumberOfFiles(-files.length);
         //console.log(files);
         template = fu._renderDownload(files)
-          .appendTo($('#fileupload .files'));
+          .prependTo($('#fileupload .files'));
         // Force reflow:
         fu._reflow = fu._transition && template.length &&
           template[0].offsetWidth;
