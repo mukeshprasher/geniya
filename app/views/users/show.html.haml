@@ -9,8 +9,9 @@
         .ani_top
           %h2
             = @user.name
-            %span
-              = @user.sub_category.name 
+            - if @user.plan != 'visitor'
+              %span
+                = @user.sub_category.name 
         .art_gallery
           %ul
             #affiliations.modal.fade{"data-width" => "760", style: "display: none;", tabindex: "-1"}
@@ -207,44 +208,32 @@
   %section.main_container
     .wrapper
       .span690.inline_block
-        - if signed_in?
-          - if(@user.name == current_user.name)
-            .profile_background{id:"controlls"}
-              .bg_buttan
-                Controls
-              #controll_container
-                #controll_left_container
-                  
-                  #organization_controll_container
-                    - if signed_in?
-                      - if (@user.name== current_user.name)
-                        #orgn_form.modal.fade{"data-width" => "760", style: "display: none;", tabindex: "-1"}
-                          .modal-header
-                            %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
-                            %h4.modal-title Add Organization Details:
-                          .modal-body
-                            = render 'organizations/form'
-                          .modal-footer
-                            %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
-                            /%button.btn.btn-primary{type: "button"} Save changes
-                        %a.demo{"data-toggle" => "modal",href: "#orgn_form"}
-                          %span#orgn_container
-                            Add Organization     
-
-                  /#organization_controll_container  
-                  /  - if signed_in?
-                  /    - if (@user.name== current_user.name)
-                  /      - if (@user.plan== "admin" || @user.plan == "deluxe")
-                  /        %a.demo{href: "", id: ""}
-                  /          %span#orgn_container
-                  /            Create Bussiness Profile    
+        - if signed_in? and current_user?(@user)
+          .profile_background{id:"controlls"}
+            .bg_buttan
+              Controls
+            #controll_container
+              #controll_left_container
+                #organization_controll_container
+                  #orgn_form.modal.fade{"data-width" => "760", style: "display: none;", tabindex: "-1"}
+                    .modal-header
+                      %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
+                      %h4.modal-title Add Organization Details:
+                    .modal-body
+                      = render 'organizations/form'
+                    .modal-footer
+                      %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
+                  %a.demo{"data-toggle" => "modal",href: "#orgn_form"}
+                    %span#orgn_container
+                      Add Organization     
+ 
+                - if current_user.plan == 'deluxe'
                   #organization_controll_container    
-                    - if signed_in?
-                      - if (@user.name== current_user.name)
-                        %a.demo{href: "/jobs/new", id: ""}
-                          %span#orgn_container
-                            Post Job 
+                    %a.demo{href: "/jobs/new", id: ""}
+                      %span#orgn_container
+                        Post Job 
 
+                - if @user.feature_img == 'true'
                   #organization_controll_container    
                     #addfeatureimg.modal.fade{"data-width" => "760", style: "display: none;", tabindex: "-1"}
                       .modal-header
@@ -266,30 +255,25 @@
                         Add Feature Image       
 
 
-                #controll_right_container
+              #controll_right_container
+                #organization_controll_container  
+                  %a.demo{href: "/users/"+@user.slug+"/profile_edit"}
+                    %span#orgn_container
+                      Edit Profile          
+                - if @user.plan == 'deluxe'
                   #organization_controll_container  
-                    - if signed_in?
-                      - if (@user.name== current_user.name)
-                        %a.demo{href: "/users/"+@user.slug+"/profile_edit"}
-                          %span#orgn_container
-                            Edit Profile          
+                    %a.demo{href: "/advertisements/new", id: ""}
+                      %span#orgn_container
+                        Post Advertisements    
+
+                - if @user.advertisements.any?
                   #organization_controll_container  
-                    - if signed_in?
-                      - if (@user.name== current_user.name)
-                        %a.demo{href: "/advertisements/new", id: ""}
-                          %span#orgn_container
-                            Post Advertisements    
+                    %a.demo{href: "/advertisements/", id: ""}
+                      %span#orgn_container
+                        My Advertisements   
 
-                  - if @user.advertisements.any?
-                    #organization_controll_container  
-                      - if signed_in?
-                        - if (@user.name== current_user.name)
-                          %a.demo{href: "/advertisements/", id: ""}
-                            %span#orgn_container
-                              My Advertisements   
-
-                .clear
               .clear
+            .clear
 
 
         .profile_background
@@ -360,64 +344,41 @@
           .clear
         .profile_background
           .bg_buttan
-            Portfolio's          
+            - if @user.plan == 'visitor'
+              Liked portfolios
+            - else
+              Portfolios
           .box_sec
             .profile_portfolio_section
-              /- if signed_in? and current_user?(@user)
-              /  .new_portfolio_button_cont
-              /    #new-album
-              /      %a
-              /        Add Album
-              /    .album-form
-              /      = render 'shared/album_form'
-
-                    
-              - if signed_in?
-                - if (@user.name== current_user.name)
-                  #portfolio-form.modal.fade{"data-width" => "760", style: "display: none;", tabindex: "-1"}
-                    .modal-header
-                      %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
-                      %h4.modal-title Add Portfolio's Details:
-                    .modal-body
-                      = render 'shared/album_form'
-                    .modal-footer
-                      %button.btn.btn-default#close_portfolio_modal{"data-dismiss" => "modal", type: "button"} Close
-                      /%button.btn.btn-primary{type: "button"} Save changes
-                  %a.demo{"data-toggle" => "modal",href: "#portfolio-form"}
-                    %span#add_portfolio_btn
-                      Add Portfolio's 
-
-
-
-
-
-              /- if signed_in?
-              /  - if (@user.name== current_user.name)
-              /    #album-form.modal.fade{"data-width" => "760", style: "display: none;", tabindex: "-1"}
-              /      .modal-header
-              /        %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
-              /        %h4.modal-title Add Images to album
-              /      .modal-body
-              /        = render 'shared/portfoilo_upload'
-              /      .modal-footer
-              /        %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
-              /        %button.btn.btn-primary{type: "button"} Save changes
-              /    %a.demo{"data-toggle" => "modal",href: "#album-form"}
-              /      Upload Albums                      
-                               
+              - if signed_in? and current_user?(@user) and @user.plan != 'visitor'
+                #portfolio-form.modal.fade{"data-width" => "760", style: "display: none;", tabindex: "-1"}
+                  .modal-header
+                    %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
+                    %h4.modal-title Add Portfolio's Details:
+                  .modal-body
+                    = render 'shared/album_form'
+                  .modal-footer
+                    %button.btn.btn-default#close_portfolio_modal{"data-dismiss" => "modal", type: "button"} Close
+                %a.demo{"data-toggle" => "modal",href: "#portfolio-form"}
+                  %span#add_portfolio_btn
+                    Add Portfolio's 
             
             #ajax-portfolio-detail-homepage.modal.fade.modal-scrollable{style: "display: none;", tabindex: "-1"}
-            - @user.albums.where(kind: 'portfolio').each do |album|
-              = render 'shared/album_thumb', album: album
-            
-            /#pp_gallery.pp_gallery
-            /  #pp_loading.pp_loading
-            /  #pp_next.pp_next
-            /  #pp_prev.pp_prev
-            /  #pp_thumbContainer
-            /    - @user.albums.each do |album|
-            /      = render 'shared/album_thumb', album: album          
-            /  .clear
+            - if @user.plan == 'visitor'
+              - album_likes = Like.where(liker_id: @user.id, liker_type: 'User', likeable_type: 'Album')
+              - if album_likes.any?
+                - album_likes.each do |album_like|
+                  - album = Album.find(album_like.likeable_id)
+                  = render 'shared/album_thumb', album: album if !album.nil? and album.kind == 'portfolio'
+              - else
+                - if signed_in? and current_user?(@user)
+                  = link_to "Browse portfolios", portfolios_path
+                - else
+                  = @user.name
+                  has not liked any portfolio yet.
+            - else
+              - @user.albums.where(kind: 'portfolio').each do |album|
+                = render 'shared/album_thumb', album: album
             
           .clear    
       .span315.offset1.inline_block
