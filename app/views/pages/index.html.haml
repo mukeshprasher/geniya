@@ -42,9 +42,9 @@
         .home_control_section
           .bg_buttan_feed
             Controls
-          #controll_left_container
-            #user_controll_container
-              - if signed_in?
+          - if current_user.plan != 'visitor'
+            #controll_left_container
+              #user_controll_container
                 #orgn_form.modal.fade{"data-width" => "760", style: "display: none;", tabindex: "-1"}
                   .modal-header
                     %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
@@ -58,18 +58,16 @@
                   %span#orgn_container
                     Add Organization          
 
-            #user_controll_container    
-              - if signed_in?
-                %a.demo{href: "/jobs/new", id: ""}
-                  %span#orgn_container
-                    Post Job        
+              - if current_user.plan != 'deluxe'
+                #user_controll_container    
+                  %a.demo{href: "/jobs/new", id: ""}
+                    %span#orgn_container
+                      Post Job        
 
-            #user_controll_container
-              - if signed_in?
-                %a.demo{href: "/advertisements/new", id: ""}
-                  %span#orgn_container
-                    Post Advertisements
-
+                #user_controll_container
+                  %a.demo{href: "/advertisements/new", id: ""}
+                    %span#orgn_container
+                      Post Advertisements
 
         .add_sec
           - if @jobs.any?

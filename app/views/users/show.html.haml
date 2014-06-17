@@ -227,7 +227,7 @@
                     %span#orgn_container
                       Add Organization     
  
-                - if current_user.plan == 'deluxe'
+                - if current_user.plan == 'deluxe' or current_user.plan == 'admin'
                   #organization_controll_container    
                     %a.demo{href: "/jobs/new", id: ""}
                       %span#orgn_container
@@ -260,7 +260,7 @@
                   %a.demo{href: "/users/"+@user.slug+"/profile_edit"}
                     %span#orgn_container
                       Edit Profile          
-                - if @user.plan == 'deluxe'
+                - if current_user.plan == 'deluxe' or current_user.plan == 'admin'
                   #organization_controll_container  
                     %a.demo{href: "/advertisements/new", id: ""}
                       %span#orgn_container
@@ -354,14 +354,14 @@
                 #portfolio-form.modal.fade{"data-width" => "760", style: "display: none;", tabindex: "-1"}
                   .modal-header
                     %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
-                    %h4.modal-title Add Portfolio's Details:
+                    %h4.modal-title Add Portfolio Details:
                   .modal-body
                     = render 'shared/album_form'
                   .modal-footer
                     %button.btn.btn-default#close_portfolio_modal{"data-dismiss" => "modal", type: "button"} Close
                 %a.demo{"data-toggle" => "modal",href: "#portfolio-form"}
                   %span#add_portfolio_btn
-                    Add Portfolio's 
+                    Add Portfolio
             
             #ajax-portfolio-detail-homepage.modal.fade.modal-scrollable{style: "display: none;", tabindex: "-1"}
             - if @user.plan == 'visitor'

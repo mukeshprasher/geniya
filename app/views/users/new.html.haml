@@ -3,7 +3,10 @@
   .row
     .span6.offset3
       %h2 
-        = @plan.capitalize
+        - if @plan == 'trial'
+          Basic
+        - else
+          = @plan.capitalize
         plan
       .field
       = simple_form_for @user do |f|
