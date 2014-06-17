@@ -1,17 +1,20 @@
 .wrapper
   %h1 Join Geniya
-
   .row
     .span6.offset3
+      %h2 
+        = @plan.capitalize
+        plan
       .field
       = simple_form_for @user do |f|
         = render 'shared/error_messages', object: f.object
-        .field
-          = f.label "Area of work"
-          = f.association :category, collection: Category.order('name ASC'), include_blank: false
-        .field
-          = f.label "Profession"
-          = render 'shared/sub_category_select', c: Category.order('name ASC').first
+        %span{:class => ("hidden" if @plan == 'visitor')}
+          .field
+            = f.label "Area of work"
+            = f.association :category, collection: Category.order('name ASC'), include_blank: false, label: false
+          .field
+            = f.label "Profession"
+            = render 'shared/sub_category_select', c: Category.order('name ASC').first
         .field
           = f.label :email
           = f.text_field :email
@@ -26,7 +29,7 @@
           = f.label :password_confirmation
           = f.password_field :password_confirmation
         .field
-          = f.hidden_field :plan, value: params[:plan]  
+          = f.hidden_field :plan, value: @plan
         .actions
           = f.submit 'Create my account', class: "btn btn-large btn-primary"
 

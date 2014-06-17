@@ -14,9 +14,13 @@
       .field
         %label Plan end date
         = @user.plan_end
-      .field
-        %label Area of work
-        /= @user.sub_categories.first.category.name if @user.sub_categories
+      - if @user.plan != 'visitor'
+        .field
+          %label Area of work
+          = @user.category.name
+        .field
+          %label Profession
+          = @user.sub_categories.first.category.name if @user.sub_categories
       .field
         %label Status
         = @user.status  
@@ -29,7 +33,7 @@
 
       .field
         = f.label :name
-        = f.text_field :name, placeholder: "Name"
+        = f.text_field :name, placeholder: "Full name"
       - if current_user.plan == "admin"
         .field
           = f.input :feature_img,     as: :radio_buttons
@@ -44,7 +48,7 @@
         = text_area_tag 'user[summary]', nil, size: "5x5", placeholder: "Tell Something about yourself.."
       .field.datepicker
         = f.label :birthdate
-        = f.text_field :birthdate, placeholder: "Select Your Birthday"
+        = f.text_field :birthdate, placeholder: "Select Your date of birth"
       .field
         = f.label :available
         = f.select(:available, options_for_select([['Yes', 'yes'], ['No', 'no'], ['Probably', 'probably'], ['Busy', 'busy']]))         
@@ -70,4 +74,4 @@
 
 
       .actions
-        = f.submit 'Save'
+        = f.submit 'Save', class: "btn btn-large btn-primary"

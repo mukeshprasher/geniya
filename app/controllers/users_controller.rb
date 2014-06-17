@@ -36,6 +36,11 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
+    if (['trial', 'deluxe', 'visitor'].include?(params[:plan]))
+      @plan = params[:plan]
+    else
+      @plan = 'trial'
+    end
   end
 
   def profile_edit
@@ -47,11 +52,13 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    if (['trial', 'deluxe'].include?(params[:user][:plan]))
+    if (['trial', 'deluxe', 'visitor'].include?(params[:user][:plan]))
       @user.plan = params[:user][:plan]
     else
       @user.plan = 'trial'
     end
+    
+    @plan = @user.plan
     @user.plan_end = Date.today + 1.month
     @user.status = "active"
     respond_to do |format|
