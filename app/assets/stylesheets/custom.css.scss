@@ -2295,7 +2295,8 @@ input:focus:invalid, textarea:focus:invalid, select:focus:invalid {
 }
 textarea:focus, input[type="text"]:focus, input[type="password"]:focus, input[type="datetime"]:focus, input[type="datetime-local"]:focus, input[type="date"]:focus, input[type="month"]:focus, input[type="time"]:focus, input[type="week"]:focus, input[type="number"]:focus, input[type="email"]:focus, input[type="url"]:focus, input[type="search"]:focus, input[type="tel"]:focus, input[type="color"]:focus, .uneditable-input:focus {
     border-color: #81AA05;
-    box-shadow: #81AA05;
+    //box-shadow: #81AA05;
+    box-shadow: 0 0 6px #81AA05;
     outline: 0 none;
 }
 
