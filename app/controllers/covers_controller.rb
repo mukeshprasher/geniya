@@ -44,6 +44,14 @@ class CoversController < ApplicationController
   # PATCH/PUT /covers/1
   # PATCH/PUT /covers/1.json
   def update
+    if params.has_key?(:cover) and params[:cover].has_key?(:file_attachment_original_w)
+      if params[:cover][:file_attachment_original_w].to_f > 1000
+        scale_factor = params[:cover][:file_attachment_original_w].to_f / 1000
+        params[:cover][:file_attachment_crop_w] = params[:cover][:file_attachment_crop_w].to_f * scale_factor
+        params[:cover][:file_attachment_crop_h] = params[:cover][:file_attachment_crop_h].to_f * scale_factor
+      end
+    end
+
     respond_to do |format|
       if @cover.update_attributes(cover_params)
         format.html { redirect_to current_user, notice: 'Cover Pic was successfully updated.' }
