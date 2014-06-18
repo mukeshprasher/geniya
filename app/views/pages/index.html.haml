@@ -157,7 +157,7 @@
           .block
             -if Video.any?
               - if ["video/mpeg", "video/x-msvideo", "video/3gpp"].include? @video.file_attachment.content_type
-                %object{ data: "#{@video.file_attachment.url}", width: "303", height: "230", autoplay: "false"}
+                %object{ data: "#{@video.file_attachment.url}", width: "303", height: "230"}
                   %embed{ src: "#{@video.file_attachment.url}", width: "303", height: "230"}
               - elsif ["video/mp4", "video/ogg", "video/webm", "video/x-flv"].include? @video.file_attachment.content_type
                 %video{ width: "303", height:"230", poster:"poster.jpg", controls:"controls", preload:"none" }
