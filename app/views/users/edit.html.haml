@@ -20,7 +20,7 @@
           = @user.category.name
         .field
           %label Profession
-          = @user.sub_categories.first.category.name if @user.sub_categories
+          = @user.sub_category.name if @user.sub_category
       .field
         %label Status
         = @user.status  
