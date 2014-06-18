@@ -17,7 +17,8 @@ class Video < ActiveRecord::Base
 
   acts_as_likeable
   acts_as_commentable 
-  is_impressionable counter_cache: true
+  #is_impressionable counter_cache: true
+  is_impressionable :unique => :user_id, :counter_cache => true
   extend FriendlyId
   friendly_id :slug_adds, use: [:slugged, :finders]  
 
