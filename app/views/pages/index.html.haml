@@ -186,8 +186,8 @@
                 %a#recent_portfolio_link  Recent
               %li
                 %a#popular_portfolio_link Popular
-              %li.last_most_dissucss
-                %a#comment_portfolio_link Most Disscussed
+              %li
+                %a#comment_portfolio_link Disscussed
               .clear
             %ul.tab_content#recent_portfolio
               - fetch_recent_albums = Album.limit(2).order(created_at: :desc)
