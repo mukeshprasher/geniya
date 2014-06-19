@@ -37,8 +37,10 @@ class TagsController < ApplicationController
     tags.each do |tag_name|
       searched_tag = Tag.find_by(name: tag_name)
       tag = (searched_tag) ? searched_tag : Tag.new(name: tag_name)
-      tag.users << current_user unless tag.users.include? current_user
-      tag.save
+      if @user.tags.count < 14
+        tag.users << current_user unless tag.users.include? current_user
+        tag.save
+      end
     end
 
 

@@ -1,4 +1,6 @@
 $('#tag_name').val('')
 $('#add_tag_modal_close').click()
 $("#tags_cloud").html("<%= escape_javascript render 'users/tags' %>")
-
+if(<%= @user.tags.count %> >= 14){
+  alert('Maximum 14 tags can be added.')
+}
