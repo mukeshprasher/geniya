@@ -70,7 +70,7 @@ class User < ActiveRecord::Base
     validates :password, length: { minimum: 6 }, on: :create
     validates_presence_of :category_id, presence: true
     validates_presence_of :sub_category_id, presence: true
-    validates_presence_of :slug
+    #validates_presence_of :slug
 
 
     
