@@ -193,9 +193,9 @@
                   = f.button :submit, value: "Add Tags", id: "add_tag"
           .modal-footer
             %button#add_tag_modal_close.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
-          #add_tag_link
-            %a.demo{"data-toggle" => "modal",href: "#tags"}
-              Add Tags
+        #add_tag_link
+          %a.demo{"data-toggle" => "modal",href: "#tags"}
+            Add Tags
       #tags_cloud
         = render 'tags'
   %section.main_container
