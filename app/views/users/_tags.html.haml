@@ -24,7 +24,7 @@
         %li[tag]
           - unless(@j%2 == 0) 
             %span
-              = link_to tag.name, tag
+              = link_to tag.name.gsub('_',' ').capitalize, tag
               - if  !tag.id.nil? and current_user and @user.id == current_user.id
                 = link_to "x", '/user_tags/' + UserTag.find_by(user_id: current_user.id, tag_id: tag.id).id.to_s, method: :delete, :data => { :confirm => 'Are you sure?' }, class: 'tag_delete', remote: true
           - else

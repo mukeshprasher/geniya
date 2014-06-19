@@ -86,7 +86,7 @@ class TagsController < ApplicationController
       sanitized_text.split(/,/).each do |text|
         tag = text.strip.gsub(' ','_')
         if tag.length > 0 and !tag.nil?
-          tags << tag
+          tags << tag.downcase
         end
       end
       
