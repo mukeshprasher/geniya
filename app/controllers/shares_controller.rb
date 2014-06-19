@@ -1,6 +1,9 @@
 class SharesController < ApplicationController
   before_action :set_share, only: [:show, :edit, :update, :destroy]
   before_action :signed_in_user, only: [:update, :destroy, :create]
+  before_action only: [:edit, :update, :destroy] do
+    redirect_with_notice_if_incorrect_user(@share)
+  end
 
   # GET /shares
   # GET /shares.json

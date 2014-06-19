@@ -1,5 +1,9 @@
 class VideosController < ApplicationController
   before_action :set_video, only: [:show, :edit, :update, :destroy]
+  before_action :signed_in_user, only: [ :new, :edit, :create, :update, :destroy]
+  before_action only: [:edit, :update, :destroy] do
+    redirect_with_notice_if_incorrect_user(@video)
+  end
 
   # GET /videos
   # GET /videos.json

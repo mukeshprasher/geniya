@@ -1,27 +1,23 @@
-- if signed_in?
-  = simple_form_for(@organization) do |f|
-    = f.error_notification
+= simple_form_for(@organization) do |f|
+  = f.error_notification
 
-    .form-inputs
-      #org_name
-        %label
-          %b
-            Organization Name
-      = f.input :name
-      #org_name
-        %label
-          %b
-            Area Of Work
-      = collection_select(:organization, :category_id, Category.all, :id, :name)
-      #aff_start_date
-        %label
-          %b
-            Start Date    
-      .field.datepicker
-        = text_field(:organization, :start_date)    
-      /= f.input :start_date
-      /= f.input :address_id
-      = f.hidden_field :user_id, value:current_user.id
+  .form-inputs
+    #org_name
+      %label
+        %b
+          Organization Name
+    = f.input :name
+    #org_name
+      %label
+        %b
+          Area Of Work
+    = collection_select(:organization, :category_id, Category.all, :id, :name)
+    #aff_start_date
+      %label
+        %b
+          Start Date    
+    .field.datepicker
+      = text_field(:organization, :start_date)    
 
-    .orgn_btn
-      = f.button :submit, value:"Add Organization", id: "orgn_btn"
+  .orgn_btn
+    = f.button :submit, value:"Add Organization", id: "orgn_btn"

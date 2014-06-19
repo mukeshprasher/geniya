@@ -1,5 +1,9 @@
 class CoversController < ApplicationController
   before_action :set_cover, only: [:show, :edit, :update, :destroy]
+  before_action :signed_in_user, only: [:new, :edit, :create, :update, :destroy]
+  before_action only: [:edit, :update, :destroy] do
+    redirect_with_notice_if_incorrect_user(@cover)
+  end
 
   # GET /covers
   # GET /covers.json

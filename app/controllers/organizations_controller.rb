@@ -1,5 +1,11 @@
 class OrganizationsController < ApplicationController
   before_action :set_organization, only: [:show, :edit, :update, :destroy]
+  before_action :signed_in_user, only: [ :new, :edit, :create, :update, :destroy]
+  before_action only: [:edit, :update, :destroy] do
+    redirect_with_notice_if_incorrect_user(@organization)
+  end
+
+
 
   # GET /organizations
   # GET /organizations.json
@@ -33,6 +39,7 @@ class OrganizationsController < ApplicationController
   # POST /organizations.json
   def create
     @organization = Organization.new(organization_params)
+    @organization.user_id = current_user.id
 
     respond_to do |format|
       if @organization.save
@@ -77,6 +84,6 @@ class OrganizationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def organization_params
-      params.require(:organization).permit(:name, :category_id, :start_date, :address_id, :user_id)
+      params.require(:organization).permit(:name, :category_id, :start_date, :address_id)
     end
 end

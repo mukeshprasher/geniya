@@ -22,7 +22,7 @@ module SessionsHelper
   def signed_in_user
     unless signed_in?
       store_location
-      redirect_to signin_url, notice: "Please sign in."
+      redirect_to signin_url, notice: "Please sign in to perform this action."
     end
   end
 
@@ -133,5 +133,13 @@ module SessionsHelper
         album.save
       end
     end
+  end
+  
+  def redirect_with_notice_if_incorrect_user(obj, notice = "Unauthorized action")
+    redirect_to root_url, notice: notice unless current_user_id_is_same_as_user_id?(@organization)
+  end
+
+  def current_user_id_is_same_as_user_id?(obj)
+    current_user.id == obj.user_id
   end
 end

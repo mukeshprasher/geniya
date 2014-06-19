@@ -1,5 +1,9 @@
 class EducationsController < ApplicationController
   before_action :set_education, only: [:show, :edit, :update, :destroy]
+  before_action :signed_in_user, only: [ :new, :edit, :create, :update, :destroy]
+  before_action only: [:edit, :update, :destroy] do
+    redirect_with_notice_if_incorrect_user(@education)
+  end
 
   # GET /educations
   # GET /educations.json

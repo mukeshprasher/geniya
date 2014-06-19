@@ -1,5 +1,9 @@
 class FeatureimgsController < ApplicationController
   before_action :set_featureimg, only: [:show, :edit, :update, :destroy]
+  before_action :signed_in_user, only: [ :new, :edit, :create, :update, :destroy]
+  before_action only: [:edit, :update, :destroy] do
+    redirect_with_notice_if_incorrect_user(@featureimg)
+  end
 
   # GET /featureimgs
   # GET /featureimgs.json

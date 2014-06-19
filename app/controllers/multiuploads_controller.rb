@@ -1,5 +1,9 @@
 class MultiuploadsController < ApplicationController
   before_action :set_multiupload, only: [:show, :edit, :update, :destroy]
+  before_action :signed_in_user, only: [ :new, :edit, :create, :update, :destroy]
+  before_action only: [:edit, :update, :destroy] do
+    redirect_with_notice_if_incorrect_user(@multiupload)
+  end
 
   # GET /multiuploads
   # GET /multiuploads.json

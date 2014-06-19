@@ -1,5 +1,9 @@
 class AdvertisementsController < ApplicationController
   before_action :set_advertisement, only: [:show, :edit, :update, :destroy]
+  before_action :signed_in_user, only: [ :index, :new, :edit, :create, :update, :destroy]
+  before_action only: [:edit, :update, :destroy] do
+    redirect_with_notice_if_incorrect_user(@advertisement)
+  end
 
   # GET /advertisements
   # GET /advertisements.json
