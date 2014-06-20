@@ -222,9 +222,25 @@ $(function() {
         });
       }, 1000);
     });
+
+    var $modal2 = $('#send_message');
+     
+    $('.send_message_button').on('click', function(){
+      // create the backdrop and wait for next modal to be triggered
+      $('body').modalmanager('loading');
+      user_id = $(this).attr('data')
+       
+      setTimeout(function(){
+        $modal2.load('/ajax/chat/' + user_id, '', function(){
+          $modal2.modal();
+        });
+      }, 1000);
+    });
+
      
     $modal.on('click', '.update', function(){
       $modal.modal('loading');
+      
       setTimeout(function(){
         $modal
         .modal('loading')
@@ -265,6 +281,12 @@ $(function() {
     });
   });
 
+  $('#message_response_notifications_trigger').click(function(){
+    $('#message_response_notifications').html('<img src="/assets/loader.gif" alt="loading" />');
+    $.get('/ajax/mark_message_notifications_as_seen', {}, function(data){
+      $('#message_response_notifications').html(data);
+    });
+  });
 
    $('.dropdown-menu').click(function(e){
        e.stopPropagation();

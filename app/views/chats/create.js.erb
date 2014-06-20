@@ -1,0 +1,9 @@
+<% if @chat.errors.any? %>
+  alert('Error saving message')
+<% else %>
+  $('#chat_message').val('')
+  $("#chat_show_table").append("<%= escape_javascript(render('shared/chat_message', chat: @chat)) %>")
+  var objDiv = document.getElementById("chat_modal_body");
+  objDiv.scrollTop = objDiv.scrollHeight;
+
+<% end %>

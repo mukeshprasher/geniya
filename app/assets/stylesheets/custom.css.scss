@@ -3133,6 +3133,9 @@ body {
 .center_align{
   text-align: center;
 }
+.full_width{
+  width: 100%;
+}
 
 
 .current_album_like_form {
@@ -3145,4 +3148,20 @@ body {
 }
 .hidden{
   display: none;
+}
+
+.chat_show{
+  width: 80%;
+}
+.chat_show td{
+  padding: 5px;
+}
+.unread_chat{
+  background-color: grey;
+}
+.chat_modal_body {
+    max-height: 250px;
+    padding: 15px;
+    position: relative;
+    overflow-y: scroll;
 }

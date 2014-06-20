@@ -1,0 +1,14 @@
+%p#notice= notice
+.user_card
+  - if @other_user.headshot
+    = image_tag @other_user.headshot.file_attachment.url(:medium), width: "80px", height: "80px"
+  - else
+    = image_tag '/assets/missing.png', width: "80px", height: "80px"
+  = @other_user.name  
+%table#chat_show_table
+  - @chats.each do |chat|
+    = render 'shared/chat_message', chat: chat
+%br
+= render 'form', reciever: @other_user
+
+= link_to 'Back', chats_path

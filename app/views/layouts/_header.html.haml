@@ -26,6 +26,11 @@
             = current_user.connections.where(status: 'requested').count
             %b.caret
           %ul.dropdown-menu#network_response_notifications
+        %li#message-notice-menu.dropdown
+          %a#message_response_notifications_trigger.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
+            = Chat.where(reciever_id: current_user.id, status: 'unread').count
+            %b.caret
+          %ul.dropdown-menu#message_response_notifications
 
         /%li#fat-menu.dropdown
         /  %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}

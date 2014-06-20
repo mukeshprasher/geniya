@@ -1,0 +1,4 @@
+- @chat_requests.each do |chat|
+  - other_user = (chat.user == current_user) ? chat.reciever : chat.user
+  %li
+    = link_to "#{other_user.name} #{truncate(chat.message, length: 17)}", chat 

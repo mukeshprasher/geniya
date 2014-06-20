@@ -128,6 +128,10 @@
                   %span.uilinkText View Cover Photos...
       .art_social
         %ul
+          - if (current_user != @user) && signed_in?    
+            %li
+              = render 'shared/send_message_form'
+              %button.send_message_button.btn.btn-primary.btn-large.demo{"data-toggle" => "modal", "data"=> @user.id} Send message
           %li
             = render 'shared/follow_form' if signed_in?
           %li
@@ -300,7 +304,7 @@
                 %a.demo{"data-toggle" => "modal",href: "#edu"}
                   Add Education Detail 
             .key_skills
-              %h2 Key Skills  Expertise
+              %h2 Key Skills Expertise
               %ul#skills-field
                 = render 'skills'
 
@@ -320,7 +324,7 @@
                         = f.button :submit, value: "Add Skills", id: "add"
                   .modal-footer
                     %button#add_skill_modal_close_button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
-                  %a.demo{"data-toggle" => "modal",href: "#skills"}
+                %a.demo{"data-toggle" => "modal",href: "#skills"}
                     Add Skills              
             .clear
           .clear

@@ -136,7 +136,7 @@ module SessionsHelper
   end
   
   def redirect_with_notice_if_incorrect_user(obj, notice = "Unauthorized action")
-    redirect_to root_url, notice: notice unless current_user_id_is_same_as_user_id?(@organization)
+    redirect_to root_url, notice: notice unless current_user_id_is_same_as_user_id?(obj)
   end
 
   def current_user_id_is_same_as_user_id?(obj)

@@ -20,7 +20,8 @@ class UsersController < ApplicationController
       @updates = @user.updates.paginate(page: params[:page], :per_page => 10)
       @headshot = Upload.new
       @covershot = Cover.new
-      @featureimg = Featureimg.new 
+      @featureimg = Featureimg.new
+      @new_chat = Chat.new
       #impressionist @user, '', unique: [:user_id] if current_user
       @skill = current_user.skills.build
       @education = current_user.educations.build

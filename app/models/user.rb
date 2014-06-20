@@ -56,6 +56,9 @@ class User < ActiveRecord::Base
     has_many :responses
     has_many :shares
     
+    has_many :chats
+    has_many :recieved_chats, class_name: 'Chat', foreign_key: 'reciever_id'
+    
     before_create :create_remember_token
     
     before_save do 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140616071716) do
+ActiveRecord::Schema.define(version: 20140619093941) do
 
   create_table "activities", force: true do |t|
     t.integer  "user_id"
@@ -89,6 +89,15 @@ ActiveRecord::Schema.define(version: 20140616071716) do
 
   add_index "categories", ["name"], name: "index_categories_on_name", unique: true
   add_index "categories", ["slug"], name: "index_categories_on_slug", unique: true
+
+  create_table "chats", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "reciever_id"
+    t.text     "message"
+    t.string   "status",      default: "unread"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "cities", force: true do |t|
     t.integer  "state_id"

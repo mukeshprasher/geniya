@@ -1,4 +1,6 @@
 Geniya::Application.routes.draw do
+  resources :chats
+
   resources :shares
 
   resources :featureimgs
@@ -30,8 +32,10 @@ Geniya::Application.routes.draw do
   resources :user_skills, only: [:create, :destroy]
 
   get "ajax/portfolio_detail/:id" => 'ajax#portfolio_detail'
+  get "ajax/chat/:id" => 'ajax#chat'
   get "ajax/mark_notifications_as_seen" => 'ajax#mark_notifications_as_seen'
   get "ajax/mark_network_notifications_as_seen" => 'ajax#mark_network_notifications_as_seen'
+  get "ajax/mark_message_notifications_as_seen" => 'ajax#mark_message_notifications_as_seen'
   resources :videos
 
   resources :advertisements

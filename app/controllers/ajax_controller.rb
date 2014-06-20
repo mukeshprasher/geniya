@@ -14,6 +14,13 @@ class AjaxController < ApplicationController
     render @album
   end
 
+  def chat
+    @new_chat = Chat.new
+    @other_user = User.find(params[:id])
+    @chats = Chat.where("(reciever_id = ? AND user_id = ?) OR (reciever_id = ? AND user_id = ?)", @other_user.id, current_user.id, current_user.id, @other_user.id).order('created_at DESC').limit(50).reverse
+    render 'chat', layout: false
+  end
+
   def mark_notifications_as_seen
     @responses = current_user.responses.order('created_at DESC').limit(100)
     #current_user.responses.where(status: 0).each {|response| response.update_attribute(:status, 1)}
@@ -30,5 +37,10 @@ class AjaxController < ApplicationController
     #current_user.responses.where(status: 0).each {|response| response.update_attribute(:status, 1)}
     render 'mark_network_notifications_as_seen', layout: false
     #current_user.responses.where(status: 0).each {|response| response.update_attribute(:status, 1)}
+  end
+
+  def mark_message_notifications_as_seen
+    @chat_requests = Chat.where("reciever_id = ? AND status = ?", current_user.id, 'unread').order('created_at DESC').group(:user_id).limit(10)
+    render 'mark_message_notifications_as_seen', layout: false
   end
 end

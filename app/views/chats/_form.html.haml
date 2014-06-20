@@ -1,0 +1,8 @@
+= simple_form_for(@new_chat, remote: true) do |f|
+  = f.error_notification
+  .form-inputs
+    = f.hidden_field :reciever_id, value: reciever.id
+    = f.input :message, placeholder: "Write your message for #{reciever.name}"
+
+  .form-actions
+    = f.button :submit, value: "Send"

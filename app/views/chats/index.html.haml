@@ -1,0 +1,30 @@
+%h1 Listing conversations
+
+.center_align.full_width
+  %table
+    %tr
+      %th User
+      %th Sent/Received
+      %th Message
+      %th Status
+
+    - displayed_users = Array.new
+    - @chats.each do |chat|
+      - other_user = (chat.user == current_user) ? chat.reciever : chat.user
+      - unless displayed_users.include?(other_user)
+        - displayed_users << other_user
+        %tr{:class => ("unread_chat" if ((chat.status == 'unread') and  (chat.user != current_user)))}
+          %td
+            = link_to chat do
+              - if other_user.headshot
+                = image_tag other_user.headshot.file_attachment.url(:medium), width: "80px", height: "80px"
+              - else
+                = image_tag '/assets/missing.png', width: "80px", height: "80px"
+              = other_user.name           
+          %td= (chat.user == current_user) ? "->" : "<-"
+          %td= chat.message
+          %td= chat.status
+
+  %br
+  - if current_user.connected_users.any?
+    = link_to 'New Chat among connections', new_chat_path
