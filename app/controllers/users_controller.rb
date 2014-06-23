@@ -33,9 +33,10 @@ class UsersController < ApplicationController
       @tag = current_user.tags.build
       @location = current_user.locations.build
 
-      @advertize = Advertisement.where.not(user_id: @user.id)
-      @ads = @advertize.where(category_id: @user.category_id)      
     end
+
+    @advertize = Advertisement.where.not(user_id: @user.id)
+    @ads = @advertize.where(category_id: @user.category_id)
 
     @jobs = Array.new
     @user.skills.each {|skill| skill.jobs.each{|job| @jobs << job } }
