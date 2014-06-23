@@ -1,13 +1,17 @@
-.wrapper
-  %h1 Join Geniya
-  .row
-    .span6.offset3
+.innerBenner
+  .wrapper
+    .news_feeds
       %h2 
         - if @plan == 'trial'
           Basic
         - else
           = @plan.capitalize
-        plan
+        %span plan
+      %p Join our thriving community today!
+.wrapper
+  .row
+    .span6.offset3
+
       .field
       = simple_form_for @user do |f|
         = render 'shared/error_messages', object: f.object
@@ -24,7 +28,7 @@
         .field
           = f.label :username
           = request.host + '/'
-          = f.text_field :username, style: "width: 70%"
+          = f.text_field :username
         .field
           = f.label :password
           = f.password_field :password

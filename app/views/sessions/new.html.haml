@@ -1,11 +1,3 @@
-.innerBenner
-  .wrapper
-    .news_feeds
-      %a.text{href: "#"}
-        %h2
-          Login
-          %span Page
-        %p Join our thriving community today!
 .inneContainer
   .wrapper
     .login_container
@@ -13,7 +5,7 @@
         = form_for(:session, url: sessions_path) do |f|
           .form-item.user_name
             = f.label :email
-            = f.text_field :email, placeholder: "Username"  
+            = f.text_field :email, placeholder: "Email"  
           .form-item.password
             = f.label :password
             = f.password_field :password, placeholder: "Password"
@@ -26,5 +18,5 @@
             %br/
             %a{href: "/signup"} Create New Account
           .form-submit.right
-            = f.submit "Submit"
+            = f.submit "Login"
         
