@@ -1,4 +1,4 @@
 - @chat_requests.each do |chat|
   - other_user = (chat.user == current_user) ? chat.reciever : chat.user
   %li
-    = link_to "#{other_user.name} #{truncate(chat.message, length: 17)}", chat 
+    %a.send_message_button.demo{"data-toggle" => "modal", "data"=> chat.user.id} #{other_user.name}: #{truncate(chat.message, length: 17)}

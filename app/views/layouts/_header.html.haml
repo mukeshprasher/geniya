@@ -27,6 +27,7 @@
             %b.caret
           %ul.dropdown-menu#network_response_notifications
         %li#message-notice-menu.dropdown
+          = render 'shared/send_message_form'
           %a#message_response_notifications_trigger.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
             = Chat.where(reciever_id: current_user.id, status: 'unread').count
             %b.caret

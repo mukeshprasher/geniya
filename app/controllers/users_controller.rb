@@ -32,12 +32,15 @@ class UsersController < ApplicationController
       @organization = current_user.organizations.build
       @tag = current_user.tags.build
       @location = current_user.locations.build
-      @jobs = Array.new
-      @user.skills.each {|skill| skill.jobs.each{|job| @jobs << job } }
-      @jobs = @jobs.uniq
-      @advertize = Advertisement.where.not(user_id: @user.id)
-      @ads = @advertize.where(category_id: @user.category_id)      
+
     end
+
+    @advertize = Advertisement.where.not(user_id: @user.id)
+    @ads = @advertize.where(category_id: @user.category_id)
+
+    @jobs = Array.new
+    @user.skills.each {|skill| skill.jobs.each{|job| @jobs << job } }
+    @jobs = @jobs.uniq
   end
 
   def new
