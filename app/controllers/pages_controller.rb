@@ -12,6 +12,8 @@ class PagesController < ApplicationController
         @jobs = Array.new
         current_user.skills.each {|skill| skill.jobs.each{|job| @jobs << job } }
         @jobs = @jobs.uniq
+        @advertize = Advertisement.where.not(user_id: current_user.id)
+        @ads = @advertize.where(category_id: current_user.category_id)
         
         
         respond_to do |format|

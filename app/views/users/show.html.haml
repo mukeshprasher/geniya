@@ -487,8 +487,22 @@
           /      %span 19
           /    .rightGrip.grip{"data-value" => "51", style: "left: 260px;"}
           /      %span 50+
+        
         .add_sec
-          = render 'shared/advertise_form', user: @user 
+          - if @jobs.any?
+            .bg_buttan_job
+              Jobs
+          .ads-box
+            - @jobs.each do |job|
+              = render job        
+
+        .add_sec
+          - if @ads.any?
+            .bg_buttan_job
+              Advertisements
+          .ads-box
+            = render 'shared/advertise_form', user: @user 
+        
   /  %p#notice= notice
   /  - provide(:title, @user.name)
   /  .row
