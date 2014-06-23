@@ -27,7 +27,7 @@
 
   .profile_editable
     .field
-    = simple_form_for @user do |f|
+    = simple_form_for @user, html: {id: "edit_user" } do |f|
       = render 'shared/error_messages', object: f.object
       /= render 'shared/sub_categories_select', form_object: f, category_id: @user.sub_categories.first.category.id
 
@@ -47,7 +47,8 @@
         = f.label :summary
         = text_area_tag 'user[summary]', nil, size: "5x5", placeholder: "Tell Something about yourself.."
       .field.datepicker
-        = f.label :birthdate
+        %label
+          Date of Birth
         = f.text_field :birthdate, placeholder: "Select Your date of birth"
       .field
         = f.label :available
