@@ -77,6 +77,13 @@
             - @jobs.each do |job|
               = render job
 
+        .add_sec
+          - if @ads.any?
+            .bg_buttan_job
+              Advertisements
+          .ads-box
+            = render 'shared/advertise_form', user: current_user
+            
         
 - else
   .index_user_slider
