@@ -1,10 +1,10 @@
 .modal-header
   %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
-  %span
+  %span.profile_pic_50
     - if @other_user.headshot
-      = image_tag @other_user.headshot.file_attachment.url(:medium), width: "50px", height: "50px"
+      = image_tag @other_user.headshot.file_attachment.url(:medium), width: "50px"
     - else
-      = image_tag '/assets/missing.png', width: "50px", height: "50px"
+      = image_tag '/assets/missing.png', width: "50px"
   %span.modal-title.chat-modal-title #{@other_user.name}
 .modal-body.chat_modal_body#chat_modal_body
   .row
