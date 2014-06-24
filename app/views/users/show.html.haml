@@ -363,7 +363,8 @@
                   has not liked any portfolio yet.
             - else
               - @user.albums.where(kind: 'portfolio').each do |album|
-                = render 'shared/album_thumb', album: album
+                .profile_portfolio_cont
+                  = render 'shared/album_thumb', album: album
             
           .clear    
       .span315.offset1.inline_block
@@ -601,6 +602,3 @@
   /      %b Eyes:
   /      = best_in_place_if @can_edit, @user, :eyes/
   /
-    = link_to 'Edit', edit_user_path(@user)
-    \|
-    = link_to 'Back', users_path

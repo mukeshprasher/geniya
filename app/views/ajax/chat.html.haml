@@ -7,10 +7,9 @@
       = image_tag '/assets/missing.png', width: "50px"
   %span.modal-title.chat-modal-title #{@other_user.name}
 .modal-body.chat_modal_body#chat_modal_body
-  .row
-    .col-md-6
-      #chat_show_table
-        - @chats.each do |chat|
-          = render 'shared/chat_message', chat: chat
+  .col-md-6
+    #chat_show_table
+      - @chats.each do |chat|
+        = render 'shared/chat_message', chat: chat
 .modal-footer
   = render 'chats/form', reciever: @other_user
