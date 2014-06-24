@@ -1,5 +1,5 @@
 <% if @chat.errors.any? %>
-  alert('Error saving message')
+  alert('Error sending message')
 <% else %>
   $('#chat_message').val('')
   $("#chat_show_table").append("<%= escape_javascript(render('shared/chat_message', chat: @chat)) %>")

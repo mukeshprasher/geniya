@@ -121,16 +121,16 @@
                 %a.demo{"data-toggle" => "modal",href: "#uploadcoverphoto", id: "#uploadcoverphoto"}
                   Upload Cover Photo...           
               
-              %li
-                %a{href: "/albums/cover-pics-"+"#{@user.slug}"}
-                  %i
-                    %img{alt: "", src: "/assets/reposition.png"}/
-                  %span.uilinkText View Cover Photos...
+              /%li
+              /  %a{href: "/albums/cover-pics-"+"#{@user.slug}"}
+              /    %i
+              /      %img{alt: "", src: "/assets/reposition.png"}/
+              /    %span.uilinkText View Cover Photos...
       .art_social
         %ul
           - if (current_user != @user) && signed_in?    
             %li
-              %button.send_message_button.btn.btn-primary.btn-large.demo{"data-toggle" => "modal", "data"=> @user.id} Send message
+              %button.send_message_button.btn.btn-primary.btn-large.demo{"data-toggle" => "modal", "data"=> @user.id, "onclick"=>"javascript:open_chat_modal(#{@user.id})"} Send message
           %li
             = render 'shared/follow_form' if signed_in?
           %li

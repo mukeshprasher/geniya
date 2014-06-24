@@ -19,6 +19,10 @@ class AjaxController < ApplicationController
     @other_user = User.find(params[:id])
     @chats = Chat.where("(reciever_id = ? AND user_id = ?) OR (reciever_id = ? AND user_id = ?)", @other_user.id, current_user.id, current_user.id, @other_user.id).order('created_at DESC').limit(50).reverse
     render 'chat', layout: false
+
+    Chat.where(reciever_id: current_user.id, user_id: @other_user.id, status: 'unread').each do |chat|
+      chat.update_attribute(:status, 'read')
+    end
   end
 
   def mark_notifications_as_seen

@@ -1,7 +1,10 @@
-%tr{id: "chat_" + chat.id.to_s, :class => ("unread_chat" if chat.status == 'unread')}
+.chat_message_row{id: "chat_" + chat.id.to_s, :class => ("unread_chat" if chat.status == 'unread')}
+  .chat_delete
+    = link_to "x", chat, method: :delete, :data => { :confirm => 'Are you sure?' }, remote: true if (chat.user == current_user)
+  .chat_text{id: "chat_" + chat.id.to_s, :class => ("unread_chat" if chat.status == 'unread')}
   %td= (chat.user == current_user) ? chat.user.name : " "
   %td= chat.message
   %td= (chat.user == current_user) ? " " : chat.user.name
   %td= time_ago_in_words(chat.created_at) + " ago" 
   %td
-    = link_to "X", chat, method: :delete, :data => { :confirm => 'Are you sure?' }, remote: true if (chat.user == current_user)
+    
