@@ -1221,6 +1221,9 @@ bottom: -10px;color: #6D6D6C;font-family: Calibri;font-size: 21px;position: abso
     float: none;
     padding: 0;
 }
+.dropdown-menu > li > a {
+    padding: 0;
+}
 
 
 .login_nav li.spacial:hover{ background:#ccc;}
@@ -3194,3 +3197,11 @@ body {
 #new_user button.btn.btn-large, #new_user input.btn.btn-large[type="submit"]{ background: none repeat scroll 0 0 #85af30; border: 0 none; color: #FFFFFF; font-family: calibri; font-size: 16px; font-weight: bold; padding: 5px 20px; text-transform: uppercase;border-radius:0px; float:right }
 
 #new_user button.btn.btn-large:hover, #new_user input.btn.btn-large[type="submit"]:hover { background: none repeat scroll 0 0 #729a22; border: 0 none; color: #FFFFFF; font-family: calibri; font-size: 16px; font-weight: bold; padding: 5px 20px; text-transform: uppercase; border-radius:0px}
+
+#network_response_notifications form{
+  float: left;
+}
+
+#header_wrapper .dropdown-menu{
+  left: -50px;
+}
