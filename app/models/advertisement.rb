@@ -1,5 +1,6 @@
 class Advertisement < ActiveRecord::Base
   belongs_to :user
+  belongs_to :category
   has_many :likes,foreign_key: 'likeable_id'
   has_many :comments, foreign_key: 'commentable_id'
   has_attached_file :file_attachment, :styles => { :large => "600x600>", :medium => "300x300>"}, :default_url => "/assets/missing-image-geniya.png", :hash_secret => "geniyaAttach", :path => ":rails_root/public/system/advertisementcovers/:id_:style.:extension", :url => "/system/advertisementcovers/:id_:style.:extension",

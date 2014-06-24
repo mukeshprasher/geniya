@@ -453,14 +453,54 @@ $(function() {
     }
     else
     {
-      alert('Status successfully created');
+      $(".user_updates_ajax").show();
       return true;
+      
     }
     }); 
 
+    $(document).ready(function () {
+        $(document).ajaxStop(function () {
+            $(".user_updates_ajax").hide();
+        });
+    }); 
 
-
-
+    $("#edit_user").submit(function(){
+    var birthdate = $("#user_birthdate")
+     birth = birthdate.val();
+    var rxDatePattern = /^(\d{4})(\/|-)(\d{1,2})(\/|-)(\d{1,2})$/;
+	  var dtArray = birth.match(rxDatePattern); 
+//    var objDate = new Date();
+    var fullDate = new Date()
+    //Thu May 19 2011 17:25:38 GMT+1000 {}
+      
+    //convert month to 2 digits
+    var twoDigitMonth = ((fullDate.getMonth().length+1) === 1)? (fullDate.getMonth()+1) : '0' + (fullDate.getMonth()+1);
+      
+    var currentDate = fullDate.getFullYear() + "-" + twoDigitMonth + "-" + fullDate.getDate();
+    
+    if (birth == '')
+    {
+      alert('Please select D.O.B');
+      return false;
+    }
+    else
+    if (dtArray == null)
+    {
+      alert('D.O.B is not in valid format');
+      return false;
+    }
+    else
+    if(currentDate<birth)
+    {
+      alert("Date of Birth is not greater than Current date");
+      return false;    
+    }
+    else
+    {
+      return true;
+    }
+    });
 
    
 

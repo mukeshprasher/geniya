@@ -729,6 +729,11 @@ _user
 
 .user_updates_form {float: left;width: 568px;}
 
+.user_updates_ajax{display:none; background: none repeat scroll 0 0 #000000; float: left;  height: 100%;  left: 0;  opacity: 0.7;  position: fixed;  top: 0;  width: 100%;  z-index: 999;}
+
+
+.user_updates_ajax img {left: 47%;position: absolute;top: 50%;}
+
 .user_description .firstCol {background: none repeat scroll 0 0 #FFFFFF;border-bottom: 1px solid #EEEEEE;float: left;padding: 25px 0;}
 
 .user_description .firstCol .img {float: left;margin: 0 20px 0 0;}
@@ -2960,22 +2965,34 @@ fieldset .field {
 
 
 #contact_us_text {
+  float: left;
     font-size: 18px;
     font-weight: bold;
+    width: 20%;
 }
 
 
 #contact_us_link {
-    font-size: 19px;
+   float: left;
     font-family: latobold;
+    font-size: 19px;
+    height: auto;
     margin: 0 0 0 8px;
+    width: 76%;
 }
 
 #contact-us-container {
-    float: left;
+   float: left;
     margin: 0 0 21px 28px;
+    width: 94%;
 }
 
+
+
+.contact_link_text {
+    float: left;
+    width: 100%;
+}
 /************* Feed Page Control Sections*************/
 .home_control_section {
     background: none repeat scroll 0 0 #FFFFFF;

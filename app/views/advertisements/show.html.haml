@@ -43,6 +43,27 @@
           #contact-us-container
             .contact_link_text
               %span#contact_us_text
+                Category: 
+              %span#contact_us_link
+                = @advertisement.category.name
+            .contact_link_text
+              %span#contact_us_text
+                Title: 
+              %span#contact_us_link
+                = @advertisement.title
+            .contact_link_text
+              %span#contact_us_text
+                Slogan: 
+              %span#contact_us_link
+                = @advertisement.slogan                
+            .contact_link_text
+              %span#contact_us_text
+                Description: 
+              %span#contact_us_link
+                = simple_format @advertisement.description
+
+            .contact_link_text
+              %span#contact_us_text
                 Contact us: 
               %span#contact_us_link
                 %a{href: "//"+"#{@advertisement.link}"}
@@ -136,7 +157,7 @@
             Advertisement
           .sidebar-content
             .project-description
-              = simple_format @advertisement.description
+              /= simple_format @advertisement.description
               /.variable-text.variable-text-short
               /  #ad-text
               /    = @advertisement.name
