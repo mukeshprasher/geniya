@@ -11,5 +11,6 @@
     #chat_show_table
       - @chats.each do |chat|
         = render 'shared/chat_message', chat: chat
+    
 .modal-footer
   = render 'chats/form', reciever: @other_user
