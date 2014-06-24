@@ -44,7 +44,7 @@ class AjaxController < ApplicationController
   end
 
   def mark_message_notifications_as_seen
-    @chat_requests = Chat.select("user_id, reciever_id, message, status, created_at, updated_at ").where("reciever_id = ? AND status = ?", current_user.id, 'unread').order('created_at DESC').group(:user_id).limit(10)
+    @chat_requests = Chat.select("user_id, reciever_id, message, status, created_at, updated_at ").where("reciever_id = ? AND status = ?", current_user.id, 'unread').order('created_at DESC').group(:user_id, :reciever_id).limit(10)
     render 'mark_message_notifications_as_seen', layout: false
   end
 end
