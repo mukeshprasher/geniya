@@ -2008,9 +2008,9 @@ cursor: default;font-family: Arial,sans-serif;font-size: 10px;font-weight: bold;
 }
 
 #follow-form-button, #unfollow-form-button, #disconnect-form-button, #connect-form-button {
-    height: 37px !important;
-    padding: 0;
-    width: 80px;
+    //height: 37px !important;
+    //padding: 0;
+    //width: 80px;
 }
 
 .port-by{display:none;}
@@ -2123,6 +2123,7 @@ cursor: default;font-family: Arial,sans-serif;font-size: 10px;font-weight: bold;
     opacity: 0;
 }
 #follow-form-button, #connect-form-button, #comment-box-btn, #dummy-follow-buttom, #all_search_button, #crop_btn {
+    /*
     background-color: #6A8741;
     background-image: linear-gradient(to bottom, #94BE4C, #698941);
     background-repeat: repeat-x;
@@ -2130,7 +2131,10 @@ cursor: default;font-family: Arial,sans-serif;font-size: 10px;font-weight: bold;
     color: #FFFFFF;
     text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
     width:80px;
+    */
 }
+
+
 #dummy-follow-buttom:hover, #dummy-follow-buttom:focus, #dummy-follow-buttom:active, #dummy-follow-buttom.active, #dummy-follow-buttom.disabled, #dummy-follow-buttom[disabled] {
     background-color: #698941;
     color: #FFFFFF;
@@ -3258,3 +3262,13 @@ body {
 .profile_portfolio_cont{
   max-width: 33%;
 }
+.btn-primary{
+  background-color: #6A8741;
+  background-image: linear-gradient(to bottom, #94BE4C, #698941);
+}
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .btn-primary.disabled, .btn-primary[disabled] {
+  color: white;
+  background-color: #6A8741;
+  *background-color: #6A8741; }
+.btn-primary:active, .btn-primary.active {
+  background-color: #6A8741 \9; }

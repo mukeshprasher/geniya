@@ -2,6 +2,7 @@ class UploadsController < ApplicationController
   before_action :set_upload, only: [:show, :edit, :update, :destroy]
   before_action :signed_in_user, except: [ :index, :show]
   before_action :correct_user,   only: [:edit, :update, :destroy]
+  before_action :admin_user,     only: :index
 
   # GET /uploads
   # GET /uploads.json

@@ -4,28 +4,28 @@
     = f.hidden_field :connection_id
     = f.hidden_field :user_id  
     = f.hidden_field :status, value: "request"
-    = f.submit "Cancel", class: "btn btn-large", id: "disconnect-form-button"
+    = f.submit "Cancel", class: "btn", id: "disconnect-form-button"
 -elsif connection.status == 'accepted' or connection.status == 'confirmed'
   = form_for(connection, html: { method: :delete }, remote: true) do |f|
     = f.hidden_field :connection_id
     = f.hidden_field :user_id
     = f.hidden_field :status, value: "disconnect"
-    = f.submit "Disconnect", class: "btn btn-large", id: "disconnect-form-button"
+    = f.submit "Disconnect", class: "btn", id: "disconnect-form-button"
 -elsif connection.status == 'requested'
   = form_for(connection, remote: true) do |f|
     = f.hidden_field :connection_id
     = f.hidden_field :user_id
     = f.hidden_field :status, value: "accept"
-    = f.submit "Accept", class: "btn btn-large"
+    = f.submit "Accept", class: "btn"
   = form_for(connection, remote: true) do |f|
     = f.hidden_field :connection_id
     = f.hidden_field :user_id
     = f.hidden_field :status, value: "reject"
-    = f.submit "Reject", class: "btn btn-large"
+    = f.submit "Reject", class: "btn"
 -elsif connection.status == 'rejected'
   = form_for(connection, remote: true) do |f|
     = f.hidden_field :connection_id
     = f.hidden_field :user_id
     = f.hidden_field :status, value: "connect"
-    = f.submit "Connect", class: "btn btn-large btn-primary", id: "disconnect-form-button"
+    = f.submit "Connect", class: "btn btn-primary", id: "disconnect-form-button"
 -elsif connection.status == 'got rejected'
