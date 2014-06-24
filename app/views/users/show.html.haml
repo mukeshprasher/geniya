@@ -158,7 +158,7 @@
                     %h4.modal-title Upload Profile Photo
                   .modal-body#profile_pic_upload_modal_body
                     %img{alt: "loading", src: "/assets/loader.gif", style: "visibility: hidden"}/
-                    = form_for @headshot, remote: true, :html => {  id: :profile_img_form  }  do |f|
+                    = form_for @headshot, :html => {  id: :profile_img_form  }  do |f|
                       = f.hidden_field :album_id, value: current_user.profile_pic_album.id
                       = f.hidden_field :upload_type, value: current_user.profile_pic_album.kind
                       = f.hidden_field :name, value: current_user.name
@@ -170,12 +170,12 @@
                   .modal-footer
                     %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
                 %a.demo{"data-toggle" => "modal",href: "#uploadphoto", id: "#uploadphoto"}
-                  Upload Profile Photo...  
-              %li
-                %a{href: "/albums/profile-pics-"+"#{@user.slug}"}
-                  %i
-                    %img{alt: "", src: "/assets/edit.png"}/
-                  %span.uilinkText View Profile Photos...
+                  Upload Profile picture...  
+              /%li
+              /  %a{href: "/albums/profile-pics-"+"#{@user.slug}"}
+              /    %i
+              /      %img{alt: "", src: "/assets/edit.png"}/
+              /    %span.uilinkText View Profile Photos...
     #profile_nav.profile_nav
       - if (current_user == @user) && signed_in?
         #tags.modal.fade{"data-width" => "760", style: "display: none;", tabindex: "-1"}
