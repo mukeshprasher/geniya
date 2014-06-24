@@ -1,7 +1,6 @@
 %p.education-detail{id: "edu_detail_#{edu_detail.id}"}
-  .delete_edu 
-    = link_to 'x', edu_detail, :method => :delete, :data => { :confirm => 'Really want to remove this education detail?' }, remote: true
   = edu_detail.institute_name
+  = link_to 'x', edu_detail, :method => :delete, :data => { :confirm => 'Really want to remove this education detail?' }, remote: true, class: 'tag_delete'
   %span
     = edu_detail.course_name
   %em

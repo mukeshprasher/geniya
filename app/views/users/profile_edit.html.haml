@@ -1,5 +1,4 @@
 .wrapper
-
   .profile_form_editable
     %h1 Edit Profile
     .field
@@ -9,14 +8,14 @@
       = field_set_tag 'Change Passsword' do
         .field
           = f.label :password
-          = f.password_field :password
+          = f.password_field :password, placeholder: "Leave blank to keep unchanged"
         .field
           = f.label :password_confirmation
-          = f.password_field :password_confirmation      
-      %span{:class => ("hidden" if @plan == 'visitor')}
+          = f.password_field :password_confirmation, placeholder: "Leave blank to keep unchanged"
+      %span{:class => ("hidden" if @user.plan == 'visitor')}
         .field
           = f.label "Area of work"
-          = f.association :category, collection: Category.order('name ASC'), include_blank: false
+          = f.association :category, collection: Category.order('name ASC'), include_blank: false, label: false
         .field
           = f.label "Profession"
           -c = @user.category
