@@ -1,4 +1,7 @@
+- user_ids = Array.new
 - @chat_requests.each do |chat|
-  - other_user = (chat.user == current_user) ? chat.reciever : chat.user
-  %li
-    %a.send_message_button.demo{"data-toggle" => "modal", "data"=> chat.user.id, "onclick"=>"javascript:open_chat_modal(#{chat.user.id})"} #{other_user.name}: #{truncate(chat.message, length: 17)}
+  - unless user_ids.include?(chat.user_id)
+    - user_ids << chat.user_id
+    - other_user = (chat.user == current_user) ? chat.reciever : chat.user
+    %li
+      %a.send_message_button.demo{"data-toggle" => "modal", "data"=> chat.user.id, "onclick"=>"javascript:open_chat_modal(#{chat.user.id})"} #{other_user.name}: #{truncate(chat.message, length: 17)}
