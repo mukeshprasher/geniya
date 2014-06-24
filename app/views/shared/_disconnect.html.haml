@@ -4,7 +4,7 @@
     = f.hidden_field :connection_id
     = f.hidden_field :user_id  
     = f.hidden_field :status, value: "request"
-    = f.submit "Request", class: "btn btn-large", id: "disconnect-form-button"
+    = f.submit "Cancel", class: "btn btn-large", id: "disconnect-form-button"
 -elsif connection.status == 'accepted' or connection.status == 'confirmed'
   = form_for(connection, html: { method: :delete }, remote: true) do |f|
     = f.hidden_field :connection_id
@@ -20,7 +20,7 @@
   = form_for(connection, remote: true) do |f|
     = f.hidden_field :connection_id
     = f.hidden_field :user_id
-    = f.hidden_field :status, value: "accept"
+    = f.hidden_field :status, value: "reject"
     = f.submit "Reject", class: "btn btn-large"
 -elsif connection.status == 'rejected'
   = form_for(connection, remote: true) do |f|
