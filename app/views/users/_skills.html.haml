@@ -1,6 +1,7 @@
 - @user.skills.each do |skill|
   %li[skill]
     %span
-      = link_to skill.name, skill
+      /= link_to skill.name, skill
+      = skill.name
       - if !skill.id.nil? and current_user and @user.id == current_user.id
         = link_to "x", '/user_skills/' + UserSkill.find_by(user_id: current_user.id, skill_id: skill.id).id.to_s, method: :delete, :data => { :confirm => 'Are you sure you want to remove this skill?' }, class: 'tag_delete', remote: true

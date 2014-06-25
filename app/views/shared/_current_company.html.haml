@@ -1,7 +1,8 @@
 %p.aff_org_name{ :id => "current_company-#{@user.affiliations.where(status: 'yes').order(created_at: :desc).first.id}" }
-  %a{href:"/organizations/"+"#{@user.affiliations.where(status: 'yes').order(created_at: :desc).first.organization.id}"}
+  /%a{href:"/organizations/"+"#{@user.affiliations.where(status: 'yes').order(created_at: :desc).first.organization.id}"}
+  %span.font_17
     = @user.affiliations.where(status: 'yes').order(created_at: :desc).first.organization.name
-  -if (current_user == @user) && signed_in?
-    = link_to "×", affiliation_path(@user.affiliations.where(status: 'yes').order(created_at: :desc).first.id), :method => :delete, :remote => true,  :disable_with => "×", :class => 'affiliation-delete' , :id => "affiliation-delete-#{@user.affiliations.where(status: 'yes').order(created_at: :desc).first.id}"
+    -if (current_user == @user) && signed_in?
+      = link_to "×", affiliation_path(@user.affiliations.where(status: 'yes').order(created_at: :desc).first.id), :method => :delete, :remote => true,  :disable_with => "×", :class => 'tag_delete' , :id => "affiliation-delete-#{@user.affiliations.where(status: 'yes').order(created_at: :desc).first.id}"
 
     

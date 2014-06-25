@@ -3,19 +3,19 @@
     %span
   - else
     %span
-      %a{href:"/locations/"+"#{@user.locations.last.id}"}
-        = @user.locations.last.street_address
+      /%a{href:"/locations/"+"#{@user.locations.last.id}"}
+      = @user.locations.last.street_address
       ,
   %span
-    %a{href:"/cities/"+"#{@user.locations.last.city.id}"}
-      = @user.locations.last.city.name
+    /%a{href:"/cities/"+"#{@user.locations.last.city.id}"}
+    = @user.locations.last.city.name
     ,
   %span
-    %a{href:"/states/"+"#{@user.locations.last.city.state.id}"}
-      = @user.locations.last.city.state.name
+    /%a{href:"/states/"+"#{@user.locations.last.city.state.id}"}
+    = @user.locations.last.city.state.name
     ,
   %span
-    %a{href:"/countries/"+"#{@user.locations.last.city.state.country.id}"}
-      = @user.locations.last.city.state.country.name 
+    /%a{href:"/countries/"+"#{@user.locations.last.city.state.country.id}"}
+    = @user.locations.last.city.state.country.name 
   -if (current_user == @user) && signed_in?
     = link_to "×", location_path(@user.locations.last.id), :method => :delete, :remote => true,  :disable_with => "×", :class => 'tag_delete' , :id => "address-delete-#{@user.locations.last.id}"                    
