@@ -128,6 +128,10 @@
             - else
               %a.fake-link{href: "/signup"}
                 = button_tag "Connect", id: "dummy-follow-buttom", type:"button"
+          .clear
+          %br
+          - if signed_in? and !current_user?(@album.user)
+            %button.send_message_button.btn.btn-primary.demo{"data-toggle" => "modal", "data"=> @album.user.id, "onclick"=>"javascript:open_chat_modal(#{@album.user.id})"}Send Message
 
     .sidebar-block.sidebar-actions
       /%a.sidebar-action.send-message

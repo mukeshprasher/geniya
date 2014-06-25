@@ -31,8 +31,8 @@
               - if  !tag.id.nil? and current_user and @user.id == current_user.id
                 = link_to "x", '/user_tags/' + UserTag.find_by(user_id: current_user.id, tag_id: tag.id).id.to_s, method: :delete, :data => { :confirm => 'Are you sure?' }, class: 'tag_delete', remote: true
           - else
-            = link_to tag.name.gsub('_',' ').capitalize, tag
-            /= tag.name.gsub('_',' ').capitalize
+            /= link_to tag.name.gsub('_',' ').capitalize, tag
+            = tag.name.gsub('_',' ').capitalize
             - if !tag.id.nil? and current_user and @user.id == current_user.id
               = link_to "x", '/user_tags/' + UserTag.find_by(user_id: current_user.id, tag_id: tag.id).id.to_s, method: :delete, :data => { :confirm => 'Are you sure?' }, class: 'tag_delete', remote: true
           - @j += 1
