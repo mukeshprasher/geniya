@@ -48,7 +48,7 @@
                     %a{href:"/organizations/"+"#{@user.affiliations.where(status: 'no').order(end_date: :desc).first.organization.id}"}
                       = @user.affiliations.where(status: 'no').order(end_date: :desc).first.organization.name
                     -if (current_user == @user) && signed_in?
-                      = link_to "×", affiliation_path(@user.affiliations.where(status: 'no').order(end_date: :desc).first.id), :method => :delete, :remote => true,  :disable_with => "×", :class => 'affiliation-delete' , :id => "affiliation-delete-#{@user.affiliations.where(status: 'no').order(end_date: :desc).first.id}" 
+                      = link_to "×", affiliation_path(@user.affiliations.where(status: 'no').order(end_date: :desc).first.id), :method => :delete, :remote => true,  :disable_with => "×", :class => 'tag_delete' , :id => "affiliation-delete-#{@user.affiliations.where(status: 'no').order(end_date: :desc).first.id}" 
                 - else
                   %span
                     Add Detail
@@ -363,8 +363,7 @@
                   has not liked any portfolio yet.
             - else
               - @user.albums.where(kind: 'portfolio').each do |album|
-                .profile_portfolio_cont
-                  = render 'shared/album_thumb', album: album
+                = render 'shared/album_thumb', album: album
             
           .clear    
       .span315.offset1.inline_block
