@@ -1118,14 +1118,18 @@ bottom: -10px;color: #6D6D6C;font-family: Calibri;font-size: 21px;position: abso
 .education_photography {border-bottom: 1px solid #CCCCCC;padding: 15px 0;}
 
 
-.education_photography .education {background: url("/assets/devison.png") no-repeat scroll right top rgba(0, 0, 0, 0);float: left;padding: 0 40px 0 0; width:38%}
+.education_photography .education {
+  background: url("/assets/devison.png") no-repeat scroll right top rgba(0, 0, 0, 0);
+  float: left;
+  width: 47%;
+}
 
 
 .education_photography .education h2 {background: url("/assets/education.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);color: #6E8F26;font-family: 'latoregular';font-size: 16px;padding: 0 25px;   margin: 0 auto;
    line-height: normal; }
 
 
-.education_photography .education p {color: #5B5B5B;font-family: 'latobold';font-size: 18px;padding: 8px 0 0 25px;}
+.education_photography .education p {color: #5B5B5B;font-family: 'latobold';font-size: 18px;padding: 8px 0 0 5px;}
 
 
 .education_photography .education p span {color: #5B5B5B;display: block;font-size: 14px;}
@@ -1809,7 +1813,7 @@ cursor: pointer;
 
 
 .edu-box {
-    width: 350px;
+    //width: 350px;
 }
 
 

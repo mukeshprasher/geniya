@@ -236,7 +236,7 @@ $(function() {
          }
          else
          if((this.files[0].size/1024/1024) > (1)){ // Max Photo Size 1MB
-          alert("You Photo is too big !");
+          alert("Picture is too big ! Maximum 1MB");
           $("#cover_img").val('');
           return false;
          }
