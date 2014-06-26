@@ -41,10 +41,11 @@
               = will_paginate @activities
 
       .inner_rightSection
-        .home_control_section
-          .bg_buttan_feed
-            Controls
-          - if current_user.plan != 'visitor'
+        - if current_user.plan != 'visitor'
+          .home_control_section
+            .bg_buttan_feed
+              Controls
+            
             #controll_left_container
               #user_controll_container
                 #orgn_form.modal.fade{"data-width" => "760", style: "display: none;", tabindex: "-1"}

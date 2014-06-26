@@ -57,6 +57,17 @@ class AlbumsController < ApplicationController
   # PATCH/PUT /albums/1.json
   def update
     respond_to do |format|
+      if album_params.has_key?(:cover_original_w)
+        #params[:album][:cover_box_w] = 1000
+        if album_params[:cover_original_w].to_f > 1000
+          scale_factor = album_params[:cover_original_w].to_f / 1000
+          album_params[:cover_crop_x] = album_params[:cover_crop_x].to_f * scale_factor
+          album_params[:cover_crop_y] = album_params[:cover_crop_y].to_f * scale_factor
+          album_params[:cover_crop_w] = album_params[:cover_crop_w].to_f * scale_factor
+          album_params[:cover_crop_h] = album_params[:cover_crop_h].to_f * scale_factor
+        end
+      end
+
       if @album.update_attributes(album_params)
         format.html {           
           if album_params.has_key?(:cover)
