@@ -1,0 +1,6 @@
+.detail_controls_cont
+  = link_to 'Edit', send(:"edit_#{obj.class.name.downcase}_path", obj)
+  \|
+  = link_to "Delete", obj, method: :delete, :data => { :confirm => "Are you sure you want to delete this #{obj.class.name.downcase}?" }
+  \|
+  = link_to 'View all', send(:"#{obj.class.name.downcase.pluralize}_path")

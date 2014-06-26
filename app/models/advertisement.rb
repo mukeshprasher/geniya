@@ -12,10 +12,15 @@ class Advertisement < ActiveRecord::Base
                       :s3_host_name   => "s3-us-west-1.amazonaws.com",
                       :bucket => "geniya"
   crop_attached_file :file_attachment , :aspect => "600:600"
-  validates_attachment :file_attachment, 
+  validates_attachment :file_attachment,
+  presence: true, 
   :content_type => { :content_type => ["image/jpg", "image/jpeg", "image/gif", "image/png"] },
   :size => { :in => 0..1000.kilobytes },
   :file_name => { :matches => [/png\Z/, /jpe?g\Z/, /gif\Z/] }
+
+  validates :title,  presence: true, length: { minimum: 10, maximum: 140 }
+  validates :slogan, presence: true, length: { minimum: 10, maximum: 140 }
+  validates_presence_of :category_id, presence: true
 
   acts_as_likeable
   acts_as_commentable 

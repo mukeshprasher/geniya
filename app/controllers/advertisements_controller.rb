@@ -52,6 +52,17 @@ class AdvertisementsController < ApplicationController
   # PATCH/PUT /advertisements/1
   # PATCH/PUT /advertisements/1.json
   def update
+    if params.has_key?(:advertisement) and params[:advertisement].has_key?(:file_attachment_original_w)
+      #params[:advertisement][:file_attachment_box_w] = 1000
+      if params[:advertisement][:file_attachment_original_w].to_f > 1000
+        scale_factor = params[:advertisement][:file_attachment_original_w].to_f / 1000
+        params[:advertisement][:file_attachment_crop_x] = params[:advertisement][:file_attachment_crop_x].to_f * scale_factor
+        params[:advertisement][:file_attachment_crop_y] = params[:advertisement][:file_attachment_crop_y].to_f * scale_factor
+        params[:advertisement][:file_attachment_crop_w] = params[:advertisement][:file_attachment_crop_w].to_f * scale_factor
+        params[:advertisement][:file_attachment_crop_h] = params[:advertisement][:file_attachment_crop_h].to_f * scale_factor
+      end
+    end
+
     respond_to do |format|
       if @advertisement.update(advertisement_params)
         format.html { redirect_to @advertisement, notice: 'Advertisement was successfully posted.' }
@@ -67,10 +78,11 @@ class AdvertisementsController < ApplicationController
   # DELETE /advertisements/1.json
   def destroy
     @advertisement.destroy
-#    respond_to do |format|
-#      format.html { redirect_to advertisements_url }
-#      format.json { head :no_content }
-#    end
+    respond_to do |format|
+      format.html { redirect_to advertisements_url }
+      format.json { head :no_content }
+      format.js {  }
+    end
   end
 
   private

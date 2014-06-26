@@ -48,7 +48,7 @@ class CoversController < ApplicationController
   # PATCH/PUT /covers/1
   # PATCH/PUT /covers/1.json
   def update
-    if params.has_key?(:cover) and params[:cover].has_key?(:file_attachment_box_w)
+    if params.has_key?(:cover) and params[:cover].has_key?(:file_attachment_original_w)
       #params[:cover][:file_attachment_box_w] = 1000
       if params[:cover][:file_attachment_original_w].to_f > 1000
         scale_factor = params[:cover][:file_attachment_original_w].to_f / 1000

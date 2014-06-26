@@ -3,110 +3,24 @@
     #content-container
       #project-main.left
         #project-header-main.work-header-main.work-header
-          %h1#project-title
-            Advertisement Deatil
-          %h1#project-title
+          .color_white 
+            = @advertisement.category.name
+            advertisement
+          %h1.color_white
             = @advertisement.title
-          #creative-fields.secondary-text
-            /%a{href: "/portfolios/"+"#{@album.category.slug}", title: "Art Direction"}
-            /  = @album.category.name
-            /%span.separator ,
-            /%a{href: "/search?field=109", title: "Branding"} Branding
-            /%span.separator ,
-            /%a{href: "/search?field=44", title: "Graphic Design"} Graphic Design
-
-        #primary-project-content.project-styles
-        /- if signed_in?
-        /  - if (@user.name== current_user.name)
-        /    #skill-link
-        /    #album-form.modal.fade{"data-width" => "760", style: "display: none;", tabindex: "-1"}
-        /      .modal-header
-        /        %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
-        /        %h4.modal-title Add Images to Portfolio, Album and Project
-        /      .modal-body
-        /        = render 'shared/multiupload_img', album_id: @album.id, album_name: @album.name
-        /      .modal-footer
-        /        %button#close.btn.btn-default{:data => "#{@album.id}", "data-dismiss" => "modal", type: "button"} Close
-        /        %button.btn.btn-primary{type: "button"} Save changes
-        /    %a.demo{"data-toggle" => "modal",href: "#album-form", id: "add-img"}
-        /      Add Images to album      
-
-
-
-        /%ul#project-modules
-        /  .album
-        /    - album.multiuploads.each do |upload|
-        /      = render "shared/portfolio_album", upload: upload
-        /.clear
 
         #project-comments.video
           #contact-us-container
-            .contact_link_text
-              %span#contact_us_text
-                Category: 
-              %span#contact_us_link
-                = @advertisement.category.name
-            .contact_link_text
-              %span#contact_us_text
-                Title: 
-              %span#contact_us_link
-                = @advertisement.title
-            .contact_link_text
-              %span#contact_us_text
-                Slogan: 
-              %span#contact_us_link
-                = @advertisement.slogan                
-            .contact_link_text
-              %span#contact_us_text
-                Description: 
-              %span#contact_us_link
-                = simple_format @advertisement.description
+            %h3 
+              = @advertisement.slogan
+            %p 
+              = @advertisement.description
+            %a{href: "#{@advertisement.link}", target:"_blank"}
+              = @advertisement.link
 
-            .contact_link_text
-              %span#contact_us_text
-                Contact us: 
-              %span#contact_us_link
-                %a{href: "//"+"#{@advertisement.link}"}
-                  = @advertisement.link
-          #comments-container{entity_id: "16086365", entity_type: "project"}
+          #ad-detail-cover-container
             = image_tag @advertisement.file_attachment.url(:large)
-        /    #comments-header.comments-header
-        /  %h4.block-title
-        /    %span.bold Discuss about this Job:
-        /    %span.comments-stats.hide{style: "display: inline;"}
-        /      (
-        /      %span.comments-total
-        /        = @comments.count 
-        /      = succeed ")" do
-        /        %span.comments-total-text Comments
-        
-        
-        /#ads-like
-        /  .like_this-1
-        /    = render 'shared/like_form', object: @advertisement, user: @advertisement.user
-        /- if signed_in?
-        /  .port-by
-        /    Welcome
-        /    = link_to @advertisement.user.name, @advertisement.user 
-        /- else 
-        /  - @vidcomment = @advertisement.root_comments
-        /  - if @albumcomment.nil?
-        /    %p
-        /      Plese log in            
-        /  - else
-        /    .post-comment-logged-out
-        /      Please
-        /      %a.link-login.fake-link{href: "/signup"} Sign up
-        /      for Discuss.
-        /.comments
-        /  = render :partial => 'comments/form', :locals => { comment: @new_comment, parent_id: nil }
-        /  = render :partial => 'comments/comment', :collection => @comments, :as => :comment   
-
-
-
-
-
-
+        = render 'shared/detail_controls', obj: @advertisement
       #project-sidebar.right
         .sidebar-block.sidebar-owner
           .sidebar-label
@@ -123,134 +37,19 @@
                 #owners.cfix
                   #owner.text-ellipsis
                     = link_to @advertisement.user.name, @advertisement.user 
-                #owner-location-container
-                  /%a.location-link.text-ellipsis.beicons-pre.beicons-pre-location Brooklyn, NY, USA
+                  - if (current_user != @advertisement.user) && signed_in?    
+                    %br
+                    %button.send_message_button.btn.btn-primary.demo{"data-toggle" => "modal", "data"=> @advertisement.user.id, "onclick"=>"javascript:open_chat_modal(#{@advertisement.user.id})"} Send message
             #owner-buttons-container.clear
-              /.follow-button-container.action-follow-user
-              /  %a.form-button.form-button-follow.form-button-large.form-button-default.form-button-left-icon.form-button-icon-follow Follow
               .follow-btn
                 - if signed_in? 
                   = render 'shared/follow_form'
-                - else
-                  %a.fake-link{href: "/signup"}
-                    = button_tag "Follow", id: "dummy-follow-buttom", type:"button"
-              /.form-button.form-button-large.form-button-light-and-blue.add-to-collection.hide-phone
-              /  %span.project-icon-left.project-icon-left-save
-              /    %span.hide-tablet> Add to
-              /    Collection
               .connect-btn
                 - if signed_in? 
                   = render 'shared/connect_form'
-                - else
-                  %a.fake-link{href: "/signup"}
-                    = button_tag "Connect", id: "dummy-follow-buttom", type:"button"
-
-        .sidebar-block.sidebar-actions
-          /%a.sidebar-action.send-message
-          /  %span.project-icon-left.project-icon-left-mail.project-icon-right.project-icon-right-arrow Message Creative
-          /.sidebar-action.tooltipi-container
-          /  %span.project-icon-left.project-icon-left-share.project-icon-right.project-icon-right-arrow Share Project
 
         .sidebar-block
-          .sidebar-label 
-            About 
-            Advertisement
-          .sidebar-content
-            .project-description
-              /= simple_format @advertisement.description
-              /.variable-text.variable-text-short
-              /  #ad-text
-              /    = @advertisement.name
-              /  %span.variable-text-link.fake-link Read More
-              /.variable-text.variable-text-short
-              /  #ad-text
-              /    = @advertisement.address
-              /  %span.variable-text-link.fake-link Read More
-              /.variable-text.variable-text-short
-              /  #ad-text
-              /    = @advertisement.contact
-              .project-published.tiny-text
-                Published: 
-                = time_ago_in_words(@advertisement.created_at)
-                ago 
-              /%ul#project-stats.object-stats
-              /%li.project-stat.project-stat-views.beicons-pre.beicons-pre-eye
-              /  %span
-              /    %img{alt: "", height: "11", src: "/assets/heart_img.png", width: "12"}/
-              /  %span 
-              /    Views
-              /  %span.stat-value 
-              /    = @video.impressions_count
-              /%li.project-stat.project-stat-views.beicons-pre.beicons-pre-eye
-              /  %span
-              /    %img{alt: "", height: "11", src: "/assets/heart_img.png", width: "12"}/
-              /  %span
-              /    Likes
-              /  %span.stat-value{ :id => "likes_count_#{@advertisement.class.name}_#{@advertisement.id}" }  
-              /    = @likers.count
-              /    = pluralize(@likers.count, 'like')
-              /%li.project-stat.project-stat-views.beicons-pre.beicons-pre-eye
-              /  %span
-              /    %img{alt: "", height: "11", src: "/assets/feed_icon1.png", width: "13"}/
-              /  %span
-              /    Comments
-              /  %span.stat-value{ :id => "comment_count_#{@advertisement.class.name}_#{@advertisement.id}" }  
-              /    = @comments.count
-              /    = pluralize(@comments.count, 'comment') 
-            /#short-url.margin-top-15.stat-label.pre-icon.pre-icon-link.text-ellipsis
-            /  %a{href: "", target: "_blank"} http://bit.ly/1grur7S
-
-        /.sidebar-block
-        /  .sidebar-label Project Tags
-        /  .sidebar-content
-        /    #object-tags.cfix
-        /      %a.object-tag{href: ""} identity
-        /      %a.object-tag{href: ""} Website
-        /      %a.object-tag{href: ""} san francisco
-        /      %a.object-tag{href: ""} Brooklyn
-        /  #object-tags-see-all{style: "display: block;"}
-        /    %span.viewing-less-copy
-        /      See all
-        /      %span#project-tags-count.fake-link 8 tags
-
-        .sidebar-block.sidebar-meta
-          .sidebar-content.cfix
-            #copyright-info.tooltipi-container
-              /%span.copyright-info.pointer.sidebar-meta-item.pre-icon.pre-icon-copyright ©Project Copyright Info
-              /%span.fake-link.sidebar-meta-item.pre-icon.pre-icon-report.flag-spam.flag-spam-project.js-report.project-report{spam_id: "16086365"} Geniya
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/.wrapper
-/  %p#notice= notice
-/  %p
-/    %b Job Photo:
-/  %p    
-/    = image_tag @advertisement.file_attachment.url(:original)
-/  %p
-/    %b Job Title:
-/    = @advertisement.name
-/  %p
-/    %b Job Location:
-/    = @advertisement.address
-/  %p
-/    %b Contact Details:
-/    = @advertisement.contact
-/  .comments
-/    = render :partial => 'comments/form', :locals => { comment: @new_comment, parent_id: nil }
-/    = render :partial => 'comments/comment', :collection => @comments, :as => :comment
-/  .add-links
-/    = link_to 'Edit', edit_advertisement_path(@advertisement)
-/    = link_to 'Back', advertisements_path
+          .project-published.tiny-text
+            Published: 
+            = time_ago_in_words(@advertisement.created_at)
+            ago
