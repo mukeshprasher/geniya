@@ -196,56 +196,59 @@
               %li
                 %a#popular_portfolio_link Popular
               %li.last_most_dissucss
-                %a#comment_portfolio_link Most disscussed
+                %a#comment_portfolio_link Most Discussed
               .clear
             %ul.tab_content#recent_portfolio
-              - fetch_recent_albums = Album.limit(2).order(created_at: :desc)
-              - fetch_recent_albums.each do |recent_album_detail|
-                %li
-                  %a{href:"/users/"+"#{recent_album_detail.user.slug}"}
-                    .imagecol
-                      - if recent_album_detail.user.headshot
-                        = image_tag recent_album_detail.user.headshot.file_attachment.url(:thumb)
-                      -else
-                        =image_tag '/assets/missing.png'    
-                  .txtcol
-                    %a{href:"/albums/"+"#{recent_album_detail.slug}"}
-                      %span.heading
-                        = recent_album_detail.title
-                    .time
-                      = recent_album_detail.created_at
+              - fetch_recent_albums = Album.where(kind: 'portfolio').limit(2).order(created_at: :desc)
+              - if fetch_recent_albums.any?
+                - fetch_recent_albums.each do |recent_album_detail|
+                  %li
+                    %a{href:"/users/"+"#{recent_album_detail.user.slug}"}
+                      .imagecol
+                        - if recent_album_detail.user.headshot
+                          = image_tag recent_album_detail.user.headshot.file_attachment.url(:thumb)
+                        -else
+                          =image_tag '/assets/missing.png'    
+                    .txtcol
+                      %a{href:"/albums/"+"#{recent_album_detail.slug}"}
+                        %span.heading
+                          = recent_album_detail.title
+                      .time
+                        = recent_album_detail.created_at
             %ul.tab_content#popular_portfolio
-              - fetch_recent_albums = Album.limit(2).order(impressions_count: :desc)
-              - fetch_recent_albums.each do |recent_album_detail|
-                %li
-                  %a{href:"/users/"+"#{recent_album_detail.user.slug}"}
-                    .imagecol
-                      - if recent_album_detail.user.headshot
-                        = image_tag recent_album_detail.user.headshot.file_attachment.url(:thumb)
-                      -else
-                        =image_tag '/assets/missing.png'    
-                  .txtcol
-                    %a{href:"/albums/"+"#{recent_album_detail.slug}"}
-                      %span.heading
-                        = recent_album_detail.title
-                    .time
-                      = recent_album_detail.created_at
+              - fetch_recent_albums = Album.where(kind: 'portfolio').limit(2).order(impressions_count: :desc)
+              - if fetch_recent_albums.any?
+                - fetch_recent_albums.each do |recent_album_detail|
+                  %li
+                    %a{href:"/users/"+"#{recent_album_detail.user.slug}"}
+                      .imagecol
+                        - if recent_album_detail.user.headshot
+                          = image_tag recent_album_detail.user.headshot.file_attachment.url(:thumb)
+                        -else
+                          =image_tag '/assets/missing.png'    
+                    .txtcol
+                      %a{href:"/albums/"+"#{recent_album_detail.slug}"}
+                        %span.heading
+                          = recent_album_detail.title
+                      .time
+                        = recent_album_detail.created_at
             %ul.tab_content#commented_portfolio
-              - fetch_recent_albums = Album.limit(2).order(comment_count: :desc)
-              - fetch_recent_albums.each do |recent_album_detail|
-                %li
-                  %a{href:"/users/"+"#{recent_album_detail.user.slug}"}
-                    .imagecol
-                      - if recent_album_detail.user.headshot
-                        = image_tag recent_album_detail.user.headshot.file_attachment.url(:thumb)
-                      -else
-                        =image_tag '/assets/missing.png'    
-                  .txtcol
-                    %a{href:"/albums/"+"#{recent_album_detail.slug}"}
-                      %span.heading
-                        = recent_album_detail.title
-                    .time
-                      = recent_album_detail.created_at
+              - fetch_recent_albums = Album.where(kind: 'portfolio').limit(2).order(comment_count: :desc)
+              - if fetch_recent_albums.any?
+                - fetch_recent_albums.each do |recent_album_detail|
+                  %li
+                    %a{href:"/users/"+"#{recent_album_detail.user.slug}"}
+                      .imagecol
+                        - if recent_album_detail.user.headshot
+                          = image_tag recent_album_detail.user.headshot.file_attachment.url(:thumb)
+                        -else
+                          =image_tag '/assets/missing.png'    
+                    .txtcol
+                      %a{href:"/albums/"+"#{recent_album_detail.slug}"}
+                        %span.heading
+                          = recent_album_detail.title
+                      .time
+                        = recent_album_detail.created_at
 
           .clear
 
