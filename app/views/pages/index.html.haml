@@ -41,36 +41,20 @@
               = will_paginate @activities
 
       .inner_rightSection
-        - if current_user.plan != 'visitor'
-          .home_control_section
-            .bg_buttan_feed
-              Controls
+        #home_control_section.home_control_section
+          .bg_buttan_feed
+            Controls
+          %a.btn{href: "/users/"+current_user.slug+"/profile_edit"}
+            Edit Profile          
+          = link_to 'Create organization', new_organization_path, class: 'btn'
+          
+          - if current_user.plan != 'visitor'
             
-            #controll_left_container
-              #user_controll_container
-                #orgn_form.modal.fade{"data-width" => "760", style: "display: none;", tabindex: "-1"}
-                  .modal-header
-                    %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
-                    %h4.modal-title Add Organization Details:
-                  .modal-body
-                    = render 'organizations/form'
-                  .modal-footer
-                    %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
-                    /%button.btn.btn-primary{type: "button"} Save changes
-                %a.demo{"data-toggle" => "modal",href: "#orgn_form"}
-                  %span#orgn_container
-                    Add Organization          
-
-              - if current_user.plan != 'deluxe'
-                #user_controll_container    
-                  %a.demo{href: "/jobs/new", id: ""}
-                    %span#orgn_container
-                      Post Job        
-
-                #user_controll_container
-                  %a.demo{href: "/advertisements/new", id: ""}
-                    %span#orgn_container
-                      Post Advertisements
+            - if current_user.plan == 'deluxe' or current_user.plan == 'admin'
+              = link_to 'Post job', new_job_path, class: 'btn'
+              = link_to 'Create advertisement', new_advertisement_path, class: 'btn'
+              - if current_user.advertisements.any?
+                = link_to 'My advertisements', advertisements_path, class: 'btn'
 
         .add_sec
           - if @jobs.any?

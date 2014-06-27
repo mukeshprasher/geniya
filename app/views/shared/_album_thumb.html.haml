@@ -15,20 +15,6 @@
       - else
         .content-profile
           = image_tag '/assets/missing-image-geniya.png', alt: '/assets/missing-image-geniya.png'
-      /-if album.multiuploads.any?
-      /  .content-profile
-      /    - album.multiuploads.last(1).each do|upload_img_name|
-      /      = image_tag upload_img_name.multiupload.url(:original), alt: upload_img_name.multiupload_file_name
-      /-  elsif album.uploads.any?
-      /  .content-profile
-      /    - album.uploads.last(1).each do|upload_img_name|
-      /      = image_tag upload_img_name.file_attachment.url(:original)
-      /-  elsif album.covers.any?
-      /  .content-profile
-      /    - album.covers.last(1).each do|upload_img_name|
-      /      = image_tag upload_img_name.file_attachment.url(:original)
-      /.descr
-      /  = album.name
     .potrate-img
       = link_to album.name, album
     .like-comment-box  
@@ -45,16 +31,3 @@
           = @comments.count
     .add_comment
       = render 'shared/user_img', user: album.user, album: album
-    
-                   
-    
-    /.profile_portfolio_delux  
-    /  .album_title-single-profile
-    /    = link_to album.name, album
-    /  .album_category
-    /    = render 'shared/like_form', object: album, user: album.user     
-    /  .portfolio_author_name
-    /    = render 'shared/user_img', user: album.user
-    /  .album_category
-    /    = album.category.name
-

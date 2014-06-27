@@ -211,24 +211,10 @@
               Controls
             #controll_container
               #controll_left_container
-                #organization_controll_container
-                  #orgn_form.modal.fade{"data-width" => "760", style: "display: none;", tabindex: "-1"}
-                    .modal-header
-                      %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
-                      %h4.modal-title Add Organization Details:
-                    .modal-body
-                      = render 'organizations/form'
-                    .modal-footer
-                      %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
-                  %a.demo{"data-toggle" => "modal",href: "#orgn_form"}
-                    %span#orgn_container
-                      Add Organization     
+                = link_to 'Create organization', new_organization_path, class: 'btn'    
  
                 - if current_user.plan == 'deluxe' or current_user.plan == 'admin'
-                  #organization_controll_container    
-                    %a.demo{href: "/jobs/new", id: ""}
-                      %span#orgn_container
-                        Post Job 
+                  = link_to 'Post job', new_job_path, class: 'btn'
 
                 - if @user.feature_img == 'true'
                   #organization_controll_container    
@@ -253,21 +239,13 @@
 
 
               #controll_right_container
-                #organization_controll_container  
-                  %a.demo{href: "/users/"+@user.slug+"/profile_edit"}
-                    %span#orgn_container
-                      Edit Profile          
+                = link_to 'Edit profile', "/users/"+current_user.slug+"/profile_edit", class: 'btn'
+       
                 - if current_user.plan == 'deluxe' or current_user.plan == 'admin'
-                  #organization_controll_container  
-                    %a.demo{href: "/advertisements/new", id: ""}
-                      %span#orgn_container
-                        Post Advertisements    
+                  = link_to 'Create advertisement', new_advertisement_path, class: 'btn'
 
-                - if @user.advertisements.any?
-                  #organization_controll_container  
-                    %a.demo{href: "/advertisements/", id: ""}
-                      %span#orgn_container
-                        My Advertisements   
+                  - if @user.advertisements.any?
+                    = link_to 'My advertisements', advertisements_path, class: 'btn'
 
               .clear
             .clear
