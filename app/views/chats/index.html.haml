@@ -15,7 +15,7 @@
         - displayed_users << other_user
         %tr{:class => ("unread_chat" if ((chat.status == 'unread') and  (chat.user != current_user)))}
           %td
-            = link_to chat do
+            %a.send_message_button.demo{"data-toggle" => "modal", "data"=> chat.user.id, "onclick"=>"javascript:open_chat_modal(#{chat.user.id})"}
               - if other_user.headshot
                 = image_tag other_user.headshot.file_attachment.url(:medium), width: "80px", height: "80px"
               - else

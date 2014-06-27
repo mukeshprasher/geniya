@@ -1,19 +1,16 @@
 .modal-header
   %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
-  %h4.modal-title Conversation with #{@other_user.name}
-  .user_card
+  %span.profile_pic_50
     - if @other_user.headshot
-      = image_tag @other_user.headshot.file_attachment.url(:medium), width: "80px", height: "80px"
+      = image_tag @other_user.headshot.file_attachment.url(:medium), width: "50px"
     - else
-      = image_tag '/assets/missing.png', width: "80px", height: "80px"
-    = @other_user.name  
+      = image_tag '/assets/missing.png', width: "50px"
+  %span.modal-title.chat-modal-title #{@other_user.name}
 .modal-body.chat_modal_body#chat_modal_body
-  .row
-    .col-md-6
-      %table#chat_show_table
-        - @chats.each do |chat|
-          = render 'shared/chat_message', chat: chat
+  .col-md-6
+    #chat_show_table
+      - @chats.each do |chat|
+        = render 'shared/chat_message', chat: chat
+    
 .modal-footer
   = render 'chats/form', reciever: @other_user
-%script{type: "text/javascript", language: "Javascript"}
-  $("#chat_modal_body").animate({ scrollTop: $("#chat_modal_body")[0].scrollHeight}, 1000);

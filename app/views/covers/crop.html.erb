@@ -11,12 +11,12 @@
           <%= form_for(@cover) do |f| %>
             <div class="landscape-crop-area">
               <% # Crop area. Mantains original image proportions. Crop area takes the aspect ratio %>
-              <%= f.cropbox :file_attachment %>
+              <%= f.cropbox :file_attachment, width: 1000 %>
             </div>
             <div class="clear"></div>
-
+            <br />
             <div class="actions">
-              <%= f.submit 'Crop image', id:'crop_btn' %>
+              <%= f.submit 'Crop picture', id:'crop_cover_btn', class: 'btn btn-large btn-primary' %>
             </div>
           <% end %>
           </div>

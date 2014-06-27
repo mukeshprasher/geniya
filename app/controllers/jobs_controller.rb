@@ -72,6 +72,18 @@ class JobsController < ApplicationController
   # PATCH/PUT /jobs/1
   # PATCH/PUT /jobs/1.json
   def update
+    if job_params.has_key?(:cover_original_w)
+      #params[:job][:cover_box_w] = 1000
+      if job_params[:cover_original_w].to_f > 1000
+        scale_factor = job_params[:cover_original_w].to_f / 1000
+        job_params[:cover_crop_x] = job_params[:cover_crop_x].to_f * scale_factor
+        job_params[:cover_crop_y] = job_params[:cover_crop_y].to_f * scale_factor
+        job_params[:cover_crop_w] = job_params[:cover_crop_w].to_f * scale_factor
+        job_params[:cover_crop_h] = job_params[:cover_crop_h].to_f * scale_factor
+      end
+    end
+
+
     respond_to do |format|
       if @job.update(job_params)
         if params[:job][:skills_text].present?

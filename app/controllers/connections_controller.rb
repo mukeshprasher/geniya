@@ -7,7 +7,7 @@ class ConnectionsController < ApplicationController
 
   def update
     @user = User.find(params[:connection][:connection_id])
-    Connection.accept_or_reject(params[:connection][:user_id], params[:connection][:connection_id], params['commit'].downcase)
+    Connection.accept_or_reject(params[:connection][:user_id], params[:connection][:connection_id], params[:connection][:status])
   end
 
   def destroy

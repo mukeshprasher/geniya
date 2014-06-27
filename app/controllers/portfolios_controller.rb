@@ -20,9 +20,13 @@ class PortfoliosController < ApplicationController
         end
       end
 
-      user_ids_for_sql = user_ids.join(',')
+      if user_ids.any?
+        user_ids_for_sql = user_ids.join(',')
 
-      where_condition += "and user_id IN (#{user_ids_for_sql}) "
+        where_condition += "and user_id IN (#{user_ids_for_sql}) "
+      else
+        where_condition += "and user_id IN (0) "
+      end
     end
 
     if params.has_key?(:pin) and params[:pin].present?
@@ -81,9 +85,13 @@ class PortfoliosController < ApplicationController
         end
       end
 
-      user_ids_for_sql = user_ids.join(',')
+      if user_ids.any?
+        user_ids_for_sql = user_ids.join(',')
 
-      where_condition += "and user_id IN (#{user_ids_for_sql}) "
+        where_condition += "and user_id IN (#{user_ids_for_sql}) "
+      else
+        where_condition += "and user_id IN (0) "
+      end
     end
 
     if params.has_key?(:pin) and params[:pin].present?

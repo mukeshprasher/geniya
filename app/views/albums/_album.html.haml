@@ -29,7 +29,7 @@
             Add/Remove Pictures
         %span.add_img_btn
           = link_to "Edit #{@album.kind}", edit_album_path(@album)
-          
+    %br      
     %ul#project-modules
       .album
         - album.multiuploads.each do |upload|
@@ -115,9 +115,9 @@
           .follow-btn
             - if signed_in? 
               = render 'shared/follow_form'
-            - else
-              %a.fake-link{href: "/signup"}
-                = button_tag "Follow", id: "dummy-follow-buttom", type:"button"
+            /- else
+            /  %a.fake-link{href: "/signup"}
+            /    = button_tag "Follow", id: "dummy-follow-buttom", type:"button"
           /.form-button.form-button-large.form-button-light-and-blue.add-to-collection.hide-phone
           /  %span.project-icon-left.project-icon-left-save
           /    %span.hide-tablet> Add to
@@ -125,9 +125,13 @@
           .connect-btn
             - if signed_in? 
               = render 'shared/connect_form'
-            - else
-              %a.fake-link{href: "/signup"}
-                = button_tag "Connect", id: "dummy-follow-buttom", type:"button"
+            /- else
+            /  %a.fake-link{href: "/signup"}
+            /    = button_tag "Connect", id: "dummy-follow-buttom", type:"button"
+          .clear
+          %br
+          - if signed_in? and !current_user?(@album.user)
+            %button.send_message_button.btn.btn-primary.demo{"data-toggle" => "modal", "data"=> @album.user.id, "onclick"=>"javascript:open_chat_modal(#{@album.user.id})"}Send Message
 
     .sidebar-block.sidebar-actions
       /%a.sidebar-action.send-message

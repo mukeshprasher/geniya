@@ -1,3 +1,7 @@
+- if @user.plan == 'visitor'
+  - provide(:title, "#{@user.name}")
+- else
+  - provide(:title, "#{@user.name} | #{@user.sub_category.name}")
 .inneContaineralbum
   .wrapper
     .slider_profile
@@ -45,10 +49,11 @@
               #prev_orgnz_detail
                 - if @user.affiliations.where(status: 'no').any?
                   %p.aff_org_name{ :id => "current_company-#{@user.affiliations.where(status: 'no').order(end_date: :desc).first.id}" }
-                    %a{href:"/organizations/"+"#{@user.affiliations.where(status: 'no').order(end_date: :desc).first.organization.id}"}
+                    /%a{href:"/organizations/"+"#{@user.affiliations.where(status: 'no').order(end_date: :desc).first.organization.id}"}
+                    %span.font_17
                       = @user.affiliations.where(status: 'no').order(end_date: :desc).first.organization.name
                     -if (current_user == @user) && signed_in?
-                      = link_to "×", affiliation_path(@user.affiliations.where(status: 'no').order(end_date: :desc).first.id), :method => :delete, :remote => true,  :disable_with => "×", :class => 'affiliation-delete' , :id => "affiliation-delete-#{@user.affiliations.where(status: 'no').order(end_date: :desc).first.id}" 
+                      = link_to "×", affiliation_path(@user.affiliations.where(status: 'no').order(end_date: :desc).first.id), :method => :delete, :remote => true,  :disable_with => "×", :class => 'tag_delete' , :id => "affiliation-delete-#{@user.affiliations.where(status: 'no').order(end_date: :desc).first.id}" 
                 - else
                   %span
                     Add Detail
@@ -121,16 +126,16 @@
                 %a.demo{"data-toggle" => "modal",href: "#uploadcoverphoto", id: "#uploadcoverphoto"}
                   Upload Cover Photo...           
               
-              %li
-                %a{href: "/albums/cover-pics-"+"#{@user.slug}"}
-                  %i
-                    %img{alt: "", src: "/assets/reposition.png"}/
-                  %span.uilinkText View Cover Photos...
+              /%li
+              /  %a{href: "/albums/cover-pics-"+"#{@user.slug}"}
+              /    %i
+              /      %img{alt: "", src: "/assets/reposition.png"}/
+              /    %span.uilinkText View Cover Photos...
       .art_social
         %ul
           - if (current_user != @user) && signed_in?    
             %li
-              %button.send_message_button.btn.btn-primary.btn-large.demo{"data-toggle" => "modal", "data"=> @user.id} Send message
+              %button.send_message_button.btn.btn-primary.demo{"data-toggle" => "modal", "data"=> @user.id, "onclick"=>"javascript:open_chat_modal(#{@user.id})"} Send message
           %li
             = render 'shared/follow_form' if signed_in?
           %li
@@ -158,7 +163,7 @@
                     %h4.modal-title Upload Profile Photo
                   .modal-body#profile_pic_upload_modal_body
                     %img{alt: "loading", src: "/assets/loader.gif", style: "visibility: hidden"}/
-                    = form_for @headshot, remote: true, :html => {  id: :profile_img_form  }  do |f|
+                    = form_for @headshot, :html => {  id: :profile_img_form  }  do |f|
                       = f.hidden_field :album_id, value: current_user.profile_pic_album.id
                       = f.hidden_field :upload_type, value: current_user.profile_pic_album.kind
                       = f.hidden_field :name, value: current_user.name
@@ -170,12 +175,12 @@
                   .modal-footer
                     %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
                 %a.demo{"data-toggle" => "modal",href: "#uploadphoto", id: "#uploadphoto"}
-                  Upload Profile Photo...  
-              %li
-                %a{href: "/albums/profile-pics-"+"#{@user.slug}"}
-                  %i
-                    %img{alt: "", src: "/assets/edit.png"}/
-                  %span.uilinkText View Profile Photos...
+                  Upload Profile picture...  
+              /%li
+              /  %a{href: "/albums/profile-pics-"+"#{@user.slug}"}
+              /    %i
+              /      %img{alt: "", src: "/assets/edit.png"}/
+              /    %span.uilinkText View Profile Photos...
     #profile_nav.profile_nav
       - if (current_user == @user) && signed_in?
         #tags.modal.fade{"data-width" => "760", style: "display: none;", tabindex: "-1"}
@@ -210,24 +215,10 @@
               Controls
             #controll_container
               #controll_left_container
-                #organization_controll_container
-                  #orgn_form.modal.fade{"data-width" => "760", style: "display: none;", tabindex: "-1"}
-                    .modal-header
-                      %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
-                      %h4.modal-title Add Organization Details:
-                    .modal-body
-                      = render 'organizations/form'
-                    .modal-footer
-                      %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
-                  %a.demo{"data-toggle" => "modal",href: "#orgn_form"}
-                    %span#orgn_container
-                      Add Organization     
+                = link_to 'Create organization', new_organization_path, class: 'btn'    
  
                 - if current_user.plan == 'deluxe' or current_user.plan == 'admin'
-                  #organization_controll_container    
-                    %a.demo{href: "/jobs/new", id: ""}
-                      %span#orgn_container
-                        Post Job 
+                  = link_to 'Post job', new_job_path, class: 'btn'
 
                 - if @user.feature_img == 'true'
                   #organization_controll_container    
@@ -252,21 +243,13 @@
 
 
               #controll_right_container
-                #organization_controll_container  
-                  %a.demo{href: "/users/"+@user.slug+"/profile_edit"}
-                    %span#orgn_container
-                      Edit Profile          
+                = link_to 'Edit profile', "/users/"+current_user.slug+"/profile_edit", class: 'btn'
+       
                 - if current_user.plan == 'deluxe' or current_user.plan == 'admin'
-                  #organization_controll_container  
-                    %a.demo{href: "/advertisements/new", id: ""}
-                      %span#orgn_container
-                        Post Advertisements    
+                  = link_to 'Create advertisement', new_advertisement_path, class: 'btn'
 
-                - if @user.advertisements.any?
-                  #organization_controll_container  
-                    %a.demo{href: "/advertisements/", id: ""}
-                      %span#orgn_container
-                        My Advertisements   
+                  - if @user.advertisements.any?
+                    = link_to 'My advertisements', advertisements_path, class: 'btn'
 
               .clear
             .clear
@@ -601,6 +584,3 @@
   /      %b Eyes:
   /      = best_in_place_if @can_edit, @user, :eyes/
   /
-    = link_to 'Edit', edit_user_path(@user)
-    \|
-    = link_to 'Back', users_path

@@ -21,6 +21,7 @@ body { margin:0px; padding:0px; background:#FFFFFF; font-family:'latoregular', A
 
 a {
     color: #82AB05;
+    cursor: pointer;
 }
 
 
@@ -348,10 +349,10 @@ p.description { color: #FFFFFF; font-size: 14px; padding:5px 0px 0px; opacity:0 
 
 .pull_inside2 > input[type="button"]:hover { background: none repeat scroll 0 0 #42454d; transition:0.5s }
 
-.tab_nav > li { background: none repeat scroll 0 0 #2B2E36; float: left; padding: 0; width: 33.3%; cursor: pointer; }
+.tab_nav > li { background: none repeat scroll 0 0 #2B2E36; float: left; padding: 0; width: 25%; cursor: pointer; }
 
 
-.tab_nav > li.last_most_dissucss {    width: 55.8%;}
+.tab_nav > li.last_most_dissucss {    width: 50%;}
 
 .tab_nav > li:hover, .tab_nav > li:hover a, .tab_nav > li.active, .tab_nav > li.active a { background:#fff; color:#97b850 }
 
@@ -1034,11 +1035,11 @@ bottom: -10px;color: #6D6D6C;font-family: Calibri;font-size: 21px;position: abso
 
 .anisten .ani_top {border-bottom: 1px dashed #B9B5BB;}
 
-.anisten .ani_top h2 {color: #FFFFFF;font-family: 'latobold';font-size: 26px;}
+.anisten .ani_top h2 {color: #FFFFFF;font-family: 'latobold';font-size: 20px; line-height: 35px; margin-bottom: 5px;}
 
-.anisten .ani_top h2 span {display: block;font-family: 'latobold';font-size: 14px;padding-top: 7px;}
+.anisten .ani_top h2 span {display: block;font-family: 'latobold';font-size: 14px;}
 
-.anisten .art_gallery ul {list-style: none outside none;padding-top: 0px;}
+.anisten .art_gallery ul {list-style: none outside none;padding-top: 0px; margin: 0px}
 
 .anisten .art_gallery ul li {display: block;}
 
@@ -1120,14 +1121,18 @@ bottom: -10px;color: #6D6D6C;font-family: Calibri;font-size: 21px;position: abso
 .education_photography {border-bottom: 1px solid #CCCCCC;padding: 15px 0;}
 
 
-.education_photography .education {background: url("/assets/devison.png") no-repeat scroll right top rgba(0, 0, 0, 0);float: left;padding: 0 40px 0 0; width:38%}
+.education_photography .education {
+  background: url("/assets/devison.png") no-repeat scroll right top rgba(0, 0, 0, 0);
+  float: left;
+  width: 47%;
+}
 
 
 .education_photography .education h2 {background: url("/assets/education.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);color: #6E8F26;font-family: 'latoregular';font-size: 16px;padding: 0 25px;   margin: 0 auto;
    line-height: normal; }
 
 
-.education_photography .education p {color: #5B5B5B;font-family: 'latobold';font-size: 18px;padding: 8px 0 0 25px;}
+.education_photography .education p {color: #5B5B5B;font-family: 'latobold';font-size: 18px;padding: 8px 0 0 5px;}
 
 
 .education_photography .education p span {color: #5B5B5B;display: block;font-size: 14px;}
@@ -1223,6 +1228,10 @@ bottom: -10px;color: #6D6D6C;font-family: Calibri;font-size: 21px;position: abso
 .dropdown-menu > li {
     float: none;
     padding: 0;
+}
+.dropdown-menu > li > a {
+    padding: 0;
+    cursor: pointer;
 }
 
 
@@ -1518,13 +1527,13 @@ bottom: -10px;color: #6D6D6C;font-family: Calibri;font-size: 21px;position: abso
     font-size: 16px;
        padding: 0 0 0 10px;
 }
-
-.education a {
-    color: #6E8F26 !important;
-    font-family: latobold;
-    font-size: 14px;
-}
-
+/*
+    .education a {
+        color: #6E8F26 !important;
+        font-family: latobold;
+        font-size: 14px;
+    }
+*/
 #skill-link {
     color: #6E8F26 !important;
     font-family: latobold;
@@ -1807,7 +1816,7 @@ cursor: pointer;
 
 
 .edu-box {
-    width: 350px;
+    //width: 350px;
 }
 
 
@@ -1909,9 +1918,12 @@ cursor: pointer;
 
 
 
-.profile_nav ul li span a{
+.profile_nav ul li span {
     font-family: 'latoregular';
     font-size: 20px;
+}
+.profile_nav ul li  {
+    color: #82AB05;
 }
 
 
@@ -1921,7 +1933,7 @@ cursor: pointer;
 #content-container{ width:1004px; margin:10px auto}
 .previewing #editor-content-container, #project-main {box-shadow: 2px 0 6px 0 rgba(0, 0, 0, 0.1);position: relative;}
 .work-header { border-radius:4px 0 0;background: linear-gradient(#2E2E2E, #1A1A1A) repeat scroll 0 0 rgba(0, 0, 0, 0);border-bottom: 1px solid rgba(187, 187, 187, 0.1);padding: 12px 20px 15px;}
-.work-header h1 {color: #FFFFFF;font-size: 20px;line-height: 23px;margin-bottom: 7px;}
+.work-header h1 {color: #FFFFFF;line-height: 23px;margin-bottom: 7px;}
 .secondary-text, .secondary-text a {color: #C9C9C9;}
 #project-main {width: 73.0313%; min-height: 654px;background: none repeat scroll 0 0 #FCFCFC;}
 .right {float: right;}
@@ -2006,9 +2018,9 @@ cursor: default;font-family: Arial,sans-serif;font-size: 10px;font-weight: bold;
 }
 
 #follow-form-button, #unfollow-form-button, #disconnect-form-button, #connect-form-button {
-    height: 37px !important;
-    padding: 0;
-    width: 80px;
+    //height: 37px !important;
+    //padding: 0;
+    //width: 80px;
 }
 
 .port-by{display:none;}
@@ -2121,6 +2133,7 @@ cursor: default;font-family: Arial,sans-serif;font-size: 10px;font-weight: bold;
     opacity: 0;
 }
 #follow-form-button, #connect-form-button, #comment-box-btn, #dummy-follow-buttom, #all_search_button, #crop_btn {
+    /*
     background-color: #6A8741;
     background-image: linear-gradient(to bottom, #94BE4C, #698941);
     background-repeat: repeat-x;
@@ -2128,7 +2141,10 @@ cursor: default;font-family: Arial,sans-serif;font-size: 10px;font-weight: bold;
     color: #FFFFFF;
     text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
     width:80px;
+    */
 }
+
+
 #dummy-follow-buttom:hover, #dummy-follow-buttom:focus, #dummy-follow-buttom:active, #dummy-follow-buttom.active, #dummy-follow-buttom.disabled, #dummy-follow-buttom[disabled] {
     background-color: #698941;
     color: #FFFFFF;
@@ -2522,8 +2538,8 @@ textarea:focus, input[type="text"]:focus, input[type="password"]:focus, input[ty
 
 }
 #organization_controll_container{float:left;}
-#organization_controll_container a{text-decoration:none;}
-#organization_controll_container a:hover{background:red;}
+//#organization_controll_container a{text-decoration:none;}
+//#organization_controll_container a:hover{background:red;}
 
 .add_img_btn{
   background: none repeat scroll 0 0 #86B031;
@@ -3176,11 +3192,10 @@ body {
 .chat_show td{
   padding: 5px;
 }
-.unread_chat{
-  background-color: grey;
-}
+
 .chat_modal_body {
     max-height: 250px;
+    min-height: 150px;
     padding: 15px;
     position: relative;
     overflow-y: scroll;
@@ -3196,3 +3211,101 @@ body {
 #new_user button.btn.btn-large, #new_user input.btn.btn-large[type="submit"]{ background: none repeat scroll 0 0 #85af30; border: 0 none; color: #FFFFFF; font-family: calibri; font-size: 16px; font-weight: bold; padding: 5px 20px; text-transform: uppercase;border-radius:0px; float:right }
 
 #new_user button.btn.btn-large:hover, #new_user input.btn.btn-large[type="submit"]:hover { background: none repeat scroll 0 0 #729a22; border: 0 none; color: #FFFFFF; font-family: calibri; font-size: 16px; font-weight: bold; padding: 5px 20px; text-transform: uppercase; border-radius:0px}
+
+#network_response_notifications form{
+  float: left;
+}
+
+#header_wrapper .dropdown-menu{
+  left: -50px;
+}
+
+#new_chat .form-actions{
+    border-top: none;
+    margin: 0px;
+    padding: 0px;
+}
+#new_chat label{
+    text-align: left;
+}
+
+.chat_message_row {
+  margin: 3px 0;
+  padding: 2px 10px 1px;
+} 
+.sent_chat{
+  background-color: #E1E1E1;
+  border-radius: 15px 6px 15px 0;
+  float: left;
+  width: 90%;
+}
+.recieved_chat {
+  background-color: #6A8741;
+  border-radius: 6px 15px 0 15px;
+  float: right;
+  width: 90%;
+} 
+.unread_chat{
+  
+}
+.chat_delete{
+  text-align: right;
+}
+.chat_text{
+  
+}
+.chat_time {
+  color: #444444;
+  font-size: 10px;
+  text-align: right;
+}
+.chat-modal-title{
+  padding: 5px;
+  font-size: 20px;
+}
+.profile_pic_50{
+  width: 50px;
+  height: 50px;
+  overflow: hidden;
+}
+.profile_portfolio_cont{
+  max-width: 33%;
+}
+.btn-primary{
+  background-color: #6A8741;
+  background-image: linear-gradient(to bottom, #94BE4C, #698941);
+}
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .btn-primary.disabled, .btn-primary[disabled] {
+  color: white;
+  background-color: #6A8741;
+  *background-color: #6A8741; }
+.btn-primary:active, .btn-primary.active {
+  background-color: #6A8741 \9; }
+.font_17{
+  font-size: 17px !important;
+}
+.network_btn_cont{
+  float: left;
+  width: auto;
+}
+.profile_pic_50 img{
+  width: 50px;
+}
+.color_white{
+  color: #FFFFFF;
+}
+.detail_controls_cont{
+  margin: 10px;
+}
+#home_control_section .btn{
+  margin: 5px;
+}
+#controll_container .btn{
+  margin: 5px;
+}
+.align_right{
+  text-align: right;
+}
+.delete_portfolio_cross_cont{
+  margin-left: 3px;
+}

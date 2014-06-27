@@ -2,6 +2,7 @@ class UploadsController < ApplicationController
   before_action :set_upload, only: [:show, :edit, :update, :destroy]
   before_action :signed_in_user, except: [ :index, :show]
   before_action :correct_user,   only: [:edit, :update, :destroy]
+  before_action :admin_user,     only: :index
 
   # GET /uploads
   # GET /uploads.json
@@ -69,6 +70,17 @@ class UploadsController < ApplicationController
   def update
 #    @upload = Upload.find(params[:id])
 #    @upload.update!(upload_params)
+    if upload_params.has_key?(:file_attachment_original_w)
+      #params[:file_attachment][:cover_box_w] = 1000
+      if upload_params[:file_attachment_original_w].to_f > 1000
+        scale_factor = upload_params[:file_attachment_original_w].to_f / 1000
+        upload_params[:file_attachment_crop_x] = upload_params[:file_attachment_crop_x].to_f * scale_factor
+        upload_params[:file_attachment_crop_y] = upload_params[:file_attachment_crop_y].to_f * scale_factor
+        upload_params[:file_attachment_crop_w] = upload_params[:file_attachment_crop_w].to_f * scale_factor
+        upload_params[:file_attachment_crop_h] = upload_params[:file_attachment_crop_h].to_f * scale_factor
+      end
+    end
+
     respond_to do |format|
       if @upload.update_attributes(upload_params)
         format.html { redirect_to current_user}

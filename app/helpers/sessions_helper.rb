@@ -109,7 +109,8 @@ module SessionsHelper
   end
 
   def destroy_activity(acted_upon_type, acted_upon_id, action)
-    Activity.find_by(acted_upon_type: acted_upon_type, acted_upon_id: acted_upon_id, user_id: current_user.id).destroy  
+    activity = Activity.find_by(acted_upon_type: acted_upon_type, acted_upon_id: acted_upon_id, user_id: current_user.id)
+    activity.destroy unless activity.nil?
   end
 
   def create_response(obj, act, description = '')
@@ -119,7 +120,8 @@ module SessionsHelper
 
   def destroy_response(obj, act)
     acted_upon_created_by_user_id = (obj.class.name == 'Update') ? obj.sender_user_id : obj.user_id
-    Response.find_by(user_id: acted_upon_created_by_user_id, acted_upon_type: obj.class.name, acted_upon_id: obj.id, act: act, actor_id: current_user.id).destroy  
+    response = Response.find_by(user_id: acted_upon_created_by_user_id, acted_upon_type: obj.class.name, acted_upon_id: obj.id, act: act, actor_id: current_user.id)
+    response.destroy unless response.nil? 
   end
 
   def add_location_to_user_albums(location)

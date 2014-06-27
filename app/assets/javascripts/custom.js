@@ -1,3 +1,17 @@
+function open_chat_modal(user_id){
+  var $modal2 = $('#send_message');
+  //create the backdrop and wait for next modal to be triggered
+  $('body').modalmanager('loading');
+  //user_id = $(this).attr('data')
+   
+  setTimeout(function(){
+    $modal2.load('/ajax/chat/' + user_id, '', function(){
+      $modal2.modal();
+      $("#chat_modal_body").animate({ scrollTop: $("#chat_modal_body")[0].scrollHeight}, 1000);
+    });
+  }, 1000);
+}
+
 $(function() {
   var toDoOnload;
   toDoOnload = function() {
@@ -223,20 +237,6 @@ $(function() {
       }, 1000);
     });
 
-    var $modal2 = $('#send_message');
-     
-    $('.send_message_button').on('click', function(){
-      // create the backdrop and wait for next modal to be triggered
-      $('body').modalmanager('loading');
-      user_id = $(this).attr('data')
-       
-      setTimeout(function(){
-        $modal2.load('/ajax/chat/' + user_id, '', function(){
-          $modal2.modal();
-        });
-      }, 1000);
-    });
-
      
     $modal.on('click', '.update', function(){
       $modal.modal('loading');
@@ -292,6 +292,7 @@ $(function() {
        e.stopPropagation();
    });
 
+  //$("#chat_modal_body").animate({ scrollTop: $("#chat_modal_body")[0].scrollHeight}, 1000);
 
   $(document).ready(toDoOnload);
   $(document).on('page:load', toDoOnload);

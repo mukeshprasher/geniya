@@ -1,5 +1,7 @@
-%p#education-detail
+%p.education-detail{id: "edu_detail_#{edu_detail.id}"}
   = edu_detail.institute_name
+  - if (current_user == @user) && signed_in?
+    = link_to 'x', edu_detail, :method => :delete, :data => { :confirm => 'Really want to remove this education detail?' }, remote: true, class: 'tag_delete'
   %span
     = edu_detail.course_name
   %em

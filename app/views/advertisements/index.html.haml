@@ -29,21 +29,6 @@
                   Contact Now
               %span#view_detail_link
                 = link_to "View Details", '/advertisements/'+ add_detail.slug        
-            
-            
-            
-
-  /%table
-  /  %tr
-  /    %th Title
-  /    %th Slogan
-  /    %th
-  /    %th
-  /    %th
-  /  - @advertisements.each do |advertisement|
-  /    %tr
-  /      %td= advertisement.title
-  /      %td= advertisement.slogan
-  /      %td= link_to 'Show', advertisement
-  /      %td= link_to 'Edit', edit_advertisement_path(advertisement)
-  /      %td= link_to 'Destroy', advertisement, :method => :delete, :data => { :confirm => 'Are you sure?' }
+  %br
+    = link_to 'Create new advertisement', new_advertisement_path, class: 'btn btn-large btn-primary'
+  %br
