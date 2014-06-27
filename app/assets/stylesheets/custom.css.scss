@@ -1930,7 +1930,9 @@ cursor: pointer;
 #content-container{ width:1004px; margin:10px auto}
 .previewing #editor-content-container, #project-main {box-shadow: 2px 0 6px 0 rgba(0, 0, 0, 0.1);position: relative;}
 .work-header { border-radius:4px 0 0;background: linear-gradient(#2E2E2E, #1A1A1A) repeat scroll 0 0 rgba(0, 0, 0, 0);border-bottom: 1px solid rgba(187, 187, 187, 0.1);padding: 12px 20px 15px;}
-.work-header h1 {color: #FFFFFF;line-height: 23px;margin-bottom: 7px;}
+.work-header h1 {
+  color: #FFFFFF;
+}
 .secondary-text, .secondary-text a {color: #C9C9C9;}
 #project-main {width: 73.0313%; min-height: 654px;background: none repeat scroll 0 0 #FCFCFC;}
 .right {float: right;}
@@ -3306,4 +3308,7 @@ body {
 }
 .delete_portfolio_cross_cont{
   margin-left: 3px;
+}
+.album_detail_title{
+  margin-left: 10px;
 }

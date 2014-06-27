@@ -39,5 +39,5 @@
       /= f.label :category_id
       /= collection_select(:album, :category_id, Category.all, :id, :name)
     .form-actions-album
-      = f.submit 'Add Portfolio', id: "album-btn"
+      = f.submit 'Add Portfolio', id: "album-btn", class: "btn btn-primary"
       /= button_tag "Cancel", id: "cancel-album", type:"button"

@@ -4,7 +4,7 @@
       <div id="crop-project-main" class="left">
         <div id="project-header-main" class="work-header-main work-header">
           <h1 id="project-title">
-            Crop #{@album.kind} cover picture
+            Crop <%= @album.kind %> cover picture
           </h1>
         </div>
         <div id="crop_img_area">
@@ -14,7 +14,7 @@
               <%= f.cropbox :cover, width: 1000 %>
             </div>
             <div class="clear"></div>
-
+            <br />
             <div class="actions">
               <%= f.submit 'Crop picture', id:'album_crop_btn', class: 'btn btn-large btn-primary' %>
             </div>

@@ -327,9 +327,8 @@
                     = render 'shared/album_form'
                   .modal-footer
                     %button.btn.btn-default#close_portfolio_modal{"data-dismiss" => "modal", type: "button"} Close
-                %a.demo{"data-toggle" => "modal",href: "#portfolio-form"}
-                  %span#add_portfolio_btn
-                    Add Portfolio
+                %a.btn.btn-large.btn-primary.demo{"data-toggle" => "modal",href: "#portfolio-form"}
+                  Add Portfolio
             
             #ajax-portfolio-detail-homepage.modal.fade.modal-scrollable{style: "display: none;", tabindex: "-1"}
             - if @user.plan == 'visitor'
