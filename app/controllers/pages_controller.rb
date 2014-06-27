@@ -28,7 +28,7 @@ class PagesController < ApplicationController
         
         @albums = Array.new
         @categories.each do |category|
-          category_albums = Album.where(kind: 'portfolio', category_id: category.id).order(impressions_count: :desc).limit(6)
+          category_albums = Album.where(kind: 'portfolio', category_id: category.id).order(impressions_count: :desc).limit(8)
           category_albums.each {|album| @albums << album}
         end
         #@albums = Album.paginate(page: params[:page], per_page: @per_page).where(kind: 'portfolio').order(impressions_count: :desc)
