@@ -842,7 +842,7 @@ form {margin: 0 0 5px;}
   float: left;
   margin-right: 20px;
   max-width: 24%;
-  padding: 10px 62px 10px 5px;
+  padding: 10px 62px 10px 5px; position:relative
 }
 
 .free_plan {float: left;}
@@ -856,8 +856,11 @@ form {margin: 0 0 5px;}
 .free_plan ul li a {color: #484848;display: block;}
 
 .get_started_old {float: right;margin: -15px 0;}
+
 .get_started {
-  margin: -25px 0;
+margin: -25px 0;
+position: absolute;
+right: 0px;
 }
 
 .price {text-align: center;width: 100%;}
@@ -2843,9 +2846,8 @@ color:#85AB48;
 }
 
 
-#user_sub_category_id, #user_category_id, #user_available, #user_gender{
-    width: 500px;
-}
+#user_sub_category_id, #user_category_id, #user_available, #user_gender{width: 271px;}
+.profile_fixed label {font-weight: bold;padding-bottom: 0;}
 
 #user_advertisement_categroy{ width: 550px;}
 .gray{
