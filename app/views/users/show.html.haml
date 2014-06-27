@@ -1,3 +1,7 @@
+- if @user.plan == 'visitor'
+  - provide(:title, "#{@user.name}")
+- else
+  - provide(:title, "#{@user.name} | #{@user.sub_category.name}")
 .inneContaineralbum
   .wrapper
     .slider_profile

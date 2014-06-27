@@ -1,11 +1,12 @@
 .portfolio_box_container{ :id => "portfolio_box-#{album.id}" }
   - if current_user == album.user
-    .edit_cross_portfolio_box
-      %span#edit_adds
-        %a{href: "/albums/"+"#{album.slug}"+"/edit"}
+    .profile_edit_delete_portfolio_cont.align_right
+      %span.edit_portfolio_pencil_cont
+        = link_to edit_album_path(album) do
           %img{alt: "", src: "/assets/edit.png"}/  
-      %span#edit_portfolio_cross
-        = link_to "×", album_path(album), :method => :delete, :remote => true,  :disable_with => "×", :class => 'portfolio_box-delete' , :id => "portfolio_box-delete-#{album.id}"
+      %span.delete_portfolio_cross_cont
+        = link_to album_path(album), :method => :delete, :remote => true,  :disable_with => "×", :class => 'portfolio_box-delete' , :id => "portfolio_box-delete-#{album.id}" do 
+          %img{alt: "", src: "/assets/cross.png"}/  
 
   .box.ajax-portfolio-detail-homepage-modal-trigger
     .albm-img{:data => "#{album.id}"}  
