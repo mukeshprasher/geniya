@@ -362,7 +362,13 @@ p.description { color: #FFFFFF; font-size: 14px; padding:5px 0px 0px; opacity:0 
 
 .tab_content li { display: block; padding-bottom: 20px; width: 100%; }
 
-.tab_content .imagecol { display: inline-block; vertical-align: top; width: 29%; }
+.tab_content .imagecol {
+  display: inline-block;
+  height: 75px;
+  overflow: hidden;
+  vertical-align: top;
+  width: 75px;
+}
 
 .tab_content .txtcol { display: inline-block; padding-left: 3%; vertical-align: top; width: 66%; }
 
