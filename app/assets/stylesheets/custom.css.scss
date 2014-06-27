@@ -3279,6 +3279,22 @@ body {
 .profile_portfolio_cont{
   max-width: 33%;
 }
+
+.btn-blue{
+    background-color: #006CCC;
+    background-image: linear-gradient(to bottom, #0088CC, #0044CC);
+    background-repeat: repeat-x;
+    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+    color: #FFFFFF;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+}
+.btn-blue:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .btn-primary.disabled, .btn-primary[disabled] {
+  color: white;
+  background-color: #0044cc;
+  *background-color: #0044cc; }
+.btn-blue:active, .btn-blue.active {
+  background-color: #0044cc \9; }
+
 .btn-primary{
   background-color: #6A8741;
   background-image: linear-gradient(to bottom, #94BE4C, #698941);
@@ -3289,6 +3305,7 @@ body {
   *background-color: #6A8741; }
 .btn-primary:active, .btn-primary.active {
   background-color: #6A8741 \9; }
+
 .font_17{
   font-size: 17px !important;
 }
@@ -3319,4 +3336,22 @@ body {
 }
 .album_detail_title{
   margin-left: 10px;
+}
+.price_other{
+  color: #2A83C4;
+  font-family: "Arial Black";
+  font-size: 43px;
+  text-shadow: 5px 5px 5px #BBBABA;
+}
+.price_deluxe{
+  color: #7BA400;
+  font-family: "Arial Black";
+  font-size: 43px;
+  text-shadow: 5px 5px 5px #BBBABA;
+}
+.plan_term{
+    color: #6D6D6C;
+    font-family: Calibri;
+    font-size: 17px;
+    font-weight: bold;
 }
