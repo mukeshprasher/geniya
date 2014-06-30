@@ -28,6 +28,7 @@ class LocationsController < ApplicationController
   # POST /locations
   # POST /locations.json
   def create
+    @user = current_user
     if params[:location][:country_id] == '0'
       @country = Country.create!(name: params[:location][:new_country].downcase)
     else
@@ -119,6 +120,7 @@ class LocationsController < ApplicationController
   # PATCH/PUT /locations/1
   # PATCH/PUT /locations/1.json
   def update
+    @user = current_user
     respond_to do |format|
       if @location.update(location_params)
         format.html { redirect_to @location, notice: 'Location was successfully updated.' }

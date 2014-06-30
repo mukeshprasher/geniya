@@ -1,6 +1,6 @@
 $('#address_form_area_close').click();
 $('.address_box_container').hide();
-$("#user_addrss_detail").html("<%= escape_javascript(render('locations/current_address', {:location => @location})) %>");
+$("#user_addrss_detail").html("<%= escape_javascript(render('shared/current_address', {:location => @location})) %>");
 $('#location_new_country').val('');
 $('#location_new_state').val('');
 $('#location_new_city').val('');
