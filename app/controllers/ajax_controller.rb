@@ -18,6 +18,7 @@ class AjaxController < ApplicationController
     @new_chat = Chat.new
     @other_user = User.find(params[:id])
     @chats = Chat.where("(reciever_id = ? AND user_id = ?) OR (reciever_id = ? AND user_id = ?)", @other_user.id, current_user.id, current_user.id, @other_user.id).order('created_at DESC').limit(50).reverse
+    @last_msg_id = (@chats.any?) ? @chats.last.id : 0
     render 'chat', layout: false
 
     Chat.where(reciever_id: current_user.id, user_id: @other_user.id, status: 'unread').each do |chat|
@@ -46,5 +47,13 @@ class AjaxController < ApplicationController
   def mark_message_notifications_as_seen
     @chat_requests = Chat.where("reciever_id = ? AND status = ?", current_user.id, 'unread').order('created_at DESC').limit(100)
     render 'mark_message_notifications_as_seen', layout: false
+  end
+
+  def new_chats
+    @other_user = User.find(params[:uid])
+    @last_id = params[:lid].to_i
+    @chats = Chat.where("id > ? AND ((reciever_id = ? AND user_id = ?) OR (reciever_id = ? AND user_id = ?))", @last_id,  @other_user.id, current_user.id, current_user.id, @other_user.id).order('created_at DESC').limit(50).reverse
+    @last_msg_id = (@chats.any?) ? @chats.last.id : @last_id
+    render 'new_chats', layout: false
   end
 end

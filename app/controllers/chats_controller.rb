@@ -42,7 +42,10 @@ class ChatsController < ApplicationController
       @chat.user_id = current_user.id
       @chat.save
     end
-
+    @reciever_id = @chat.reciever_id
+    
+    @chats = Chat.where("id > ?", params[:last_msg_id].to_i).order('created_at ASC')
+    @last_msg_id = @chats.last.id
 #    respond_to do |format|
 #      if @chat.save
 #        format.html { redirect_to @chat, notice: 'Chat was successfully created.' }
@@ -90,6 +93,6 @@ class ChatsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def chat_params
-      params.require(:chat).permit(:user_id, :reciever_id, :message, :status)
+      params.require(:chat).permit(:user_id, :reciever_id, :message, :status, :last_msg_id)
     end
 end

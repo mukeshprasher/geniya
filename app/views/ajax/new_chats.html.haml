@@ -1,0 +1,6 @@
+- @chats.each do |chat|
+  = render 'shared/chat_message', chat: chat
+%script{type: "text/javascript", language: "Javascript"}
+  $("#last_msg_id_#{@other_user.id}").val("#{@last_msg_id}")
+  var objDiv = document.getElementById("chat_modal_body");
+  objDiv.scrollTop = objDiv.scrollHeight;

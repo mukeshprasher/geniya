@@ -12,6 +12,30 @@ function open_chat_modal(user_id){
   }, 1000);
 }
 
+function get_fb(user_id){
+    var uid = user_id
+    //console.log($('#last_msg_id_' + uid).val())
+    if ( $('#last_msg_id_' + user_id).length  ){
+      var lid = $('#last_msg_id_' + uid).val()
+      //console.log(uid)
+      var feedback = $.ajax({
+          type: "POST",
+          url: "/ajax/new_chats",
+          data: {uid: uid, lid: lid},
+          async: false
+      }).complete(function(){
+          //var last_id = $('#chat_show_table_' + uid + ' div:last-child').attr('id').split('_').last();
+          //$('#last_msg_id_' + uid).val(last_id)
+          setTimeout(function(){get_fb(uid);}, 15000);
+      }).responseText;
+    
+      console.log(feedback)
+      $('#chat_show_table_' + user_id).append(feedback);
+    } else{
+      return false;
+    }
+}
+
 $(function() {
   var toDoOnload;
   toDoOnload = function() {

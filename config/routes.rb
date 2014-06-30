@@ -36,6 +36,7 @@ Geniya::Application.routes.draw do
   get "ajax/mark_notifications_as_seen" => 'ajax#mark_notifications_as_seen'
   get "ajax/mark_network_notifications_as_seen" => 'ajax#mark_network_notifications_as_seen'
   get "ajax/mark_message_notifications_as_seen" => 'ajax#mark_message_notifications_as_seen'
+  match "ajax/new_chats", to: 'ajax#new_chats', via: 'post'
   resources :videos
 
   resources :advertisements
