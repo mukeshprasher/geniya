@@ -105,12 +105,37 @@ module SessionsHelper
   end    
 
   def create_activity(acted_upon_type, acted_upon_id, action, description = '')
+    # Used in updates/create albums/create likes/create shares/create
     @activity = Activity.create!(acted_upon_type: acted_upon_type, acted_upon_id: acted_upon_id, action: action, user_id: current_user.id, description: description)
   end
 
   def destroy_activity(acted_upon_type, acted_upon_id, action)
+    # Used in updates/destroy albums/create likes/create shares/create
     activity = Activity.find_by(acted_upon_type: acted_upon_type, acted_upon_id: acted_upon_id, user_id: current_user.id)
     activity.destroy unless activity.nil?
+  end
+
+  def destroy_all_comments_likes_activities_and_responses_of_obj(obj)
+    # Used in albums/destoy
+    activities = Activity.where(acted_upon_type: obj.class.name, acted_upon_id: obj.id)
+    activities.each {|activity| activity.destroy } if activities.any?
+
+    responses = Response.where(acted_upon_type: obj.class.name, acted_upon_id: obj.id)
+    responses.each {|response| response.destroy } if responses.any?
+
+    Like.where(likeable_type: obj.class.name, likeable_id: obj.id).each do |like|
+      like.destroy
+    end
+
+    comments = Comment.where(commentable_type: obj.class.name, commentable_id: obj.id)
+    
+    if comments.any?
+      comments.each do |comment| 
+        comment.likes.each {|like| like.destroy }
+        comment.delete 
+      end
+    end
+
   end
 
   def create_response(obj, act, description = '')

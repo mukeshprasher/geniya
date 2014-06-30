@@ -90,33 +90,39 @@ class AlbumsController < ApplicationController
     @album.multiuploads.each do |multiupload|
       multiupload.destroy
     end
+    
+    destroy_all_comments_likes_activities_and_responses_of_obj(@album)
   # destroy responses
-    Response.where(acted_upon_type: "Album", acted_upon_id: @album.id).each do |album_response|
-      album_response.destroy
-    end
-  #destroy activities
-    Activity.where(acted_upon_type: "Album", acted_upon_id: @album.id).each do |album_activity|
-      album_activity.destroy
-    end  
+#    Response.where(acted_upon_type: "Album", acted_upon_id: @album.id).each do |album_response|
+#      album_response.destroy
+#    end
+#  #destroy activities
+#    Activity.where(acted_upon_type: "Album", acted_upon_id: @album.id).each do |album_activity|
+#      album_activity.destroy
+#    end  
   #destroy comments
-    Comment.where(commentable_type: 'Album', commentable_id: @album.id).each do |album_comment|
-      Like.where(likeable_type: 'Comment', likeable_id: album_comment.id).each do |comment_likes|
-        comment_likes.destroy
-      end
-    Response.where(acted_upon_type: "Comment", acted_upon_id: album_comment.id).each do |comment_response|
-      comment_response.destroy
-    end      
-      if album_comment.has_children?
-        album_comment.children.each do |child|
-          child.destroy
-        end
-      end
-    end
+#    Comment.where(commentable_type: 'Album', commentable_id: @album.id).each do |album_comment|
+#      Like.where(likeable_type: 'Comment', likeable_id: album_comment.id).each do |comment_likes|
+#        comment_likes.destroy
+#      end
+
+#      Response.where(acted_upon_type: "Comment", acted_upon_id: album_comment.id).each do |comment_response|
+#        comment_response.destroy
+#      end      
+#      
+#      if album_comment.has_children?
+#        album_comment.children.each do |child|
+#          child.destroy
+#        end
+#      end
+
+#      album_comment.destroy
+#    end
   
   #destroy likes
-    Like.where(likeable_type: 'Album', likeable_id: @album.id).each do |album_likes|
-      album_likes.destroy
-    end  
+#    Like.where(likeable_type: 'Album', likeable_id: @album.id).each do |album_likes|
+#      album_likes.destroy
+#    end  
 #    destroy_activity(@album.class.name, @album.id, 'create')
 #    destroy_activity(@album.class.name, @album.id, 'like')
     @album.destroy

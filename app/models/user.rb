@@ -71,7 +71,7 @@ class User < ActiveRecord::Base
     validates :email, presence: true, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }
 
     has_secure_password
-    validates :password, length: { minimum: 6 }, on: :create
+    validates :password, length: { minimum: 6,  maximum: 30 }, on: :create
     validates_presence_of :category_id, presence: true
     validates_presence_of :sub_category_id, presence: true
     #validates_presence_of :slug

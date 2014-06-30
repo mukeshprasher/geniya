@@ -10,7 +10,10 @@
         = @user.username
       .field
         %label Plan
-        = @user.plan
+        - if @user.plan == 'trial'
+          Basic
+        - else
+          = @user.plan.capitalize
       .field
         %label Plan end date
         = @user.plan_end
