@@ -26,7 +26,7 @@ function get_fb(user_id){
       }).complete(function(){
           //var last_id = $('#chat_show_table_' + uid + ' div:last-child').attr('id').split('_').last();
           //$('#last_msg_id_' + uid).val(last_id)
-          setTimeout(function(){get_fb(uid);}, 15000);
+          setTimeout(function(){get_fb(uid);}, 4000);
       }).responseText;
     
       console.log(feedback)

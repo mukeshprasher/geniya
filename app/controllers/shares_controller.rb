@@ -14,7 +14,7 @@ class SharesController < ApplicationController
   # POST /shares
   # POST /shares.json
   def create
-    @object = params[:share][:shared_type].constantize.find(params[:share][:shared_id])
+    @object = share_params[:shared_type].constantize.find(share_params[:shared_id])
 
     if @object
       @share = Share.new(share_params)
@@ -22,7 +22,7 @@ class SharesController < ApplicationController
       @share.save
     end
 
-    create_activity(@object.class.name, @object.id, 'share')
+    create_activity(@object.class.name, @object.id, 'share', share_params[:comment])
     
     # For Picture, Album, Video or Status update
     create_response(@object, 'share')

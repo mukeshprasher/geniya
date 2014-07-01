@@ -1,6 +1,6 @@
 - acted_upon_obj = activity.acted_upon_type.constantize.find(activity.acted_upon_id)
 - action_texts = {'like'=> 'likes', 'share'=> 'shared', 'create'=> 'shared'}
-- unless ((activity.acted_upon_type == 'Update') and (acted_upon_obj.privacy == 'connections') and (!current_user.connected_user_ids.include?(activity.user_id)) )
+- unless ( (activity.acted_upon_type == 'Update') and ( ((acted_upon_obj.privacy == 'connections') and (!@connected_user_ids.include?(activity.user_id))) or ((acted_upon_obj.privacy == 'connections and followers') and (!@listning_to_user_ids.include?(activity.user_id))) )  )
   %li{id: "activity_#{activity.id}", class: "firstCol"}
     .delete-update
       - if current_user?(activity.user)
@@ -28,6 +28,9 @@
     .user
       .userTop
         %p.feed-text
+          - if activity.description.present?
+            = activity.description
+            %hr
           - if activity.acted_upon_type == 'Update'
             = simple_format raw acted_upon_obj.text
         - if activity.acted_upon_type == 'Update'
