@@ -1,7 +1,10 @@
 <% if signed_in? %>
-  $('.updates').append('<%= j render partial: 'shared/feed_item', collection: @feed_items %>');
-  <% if @feed_items.next_page %>
-    $('.pagination').replaceWith('<%= j will_paginate @feed_items %>');
+  <% @activities.each do |activity| %>
+    $('#feed_cont').append('<%= j render activity %>');
+  <% end %>
+  
+  <% if @activities.next_page %>
+    $('.pagination').replaceWith('<%= j will_paginate @activities %>');
   <% else %>
     $(window).off('scroll');
     $('.pagination').remove();

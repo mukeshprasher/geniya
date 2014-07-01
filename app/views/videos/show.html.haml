@@ -45,7 +45,7 @@
               %object{ data: "#{@video.file_attachment.url}", width: "550", height: "330", autoplay: "false", autoStart: "0"}
                 %embed{ src: "#{@video.file_attachment.url}", width: "550", height: "330", autoplay: "false", autoStart: "0"}
             - elsif ["video/mp4", "video/ogg", "video/webm", "video/x-flv"].include? @video.file_attachment.content_type
-              %video{ width: "550", height:"330", poster:"poster.jpg", controls:"controls", preload:"none" }
+              %video{ width: "550", height:"330", poster:"/assets/logo.png", controls:"controls", preload:"none" }
                 %source{type:"#{@video.file_attachment.content_type}", src:"#{@video.file_attachment.url}"}
                 %object{width:"550", height:"330", type:"application/x-shockwave-flash", data:"#{@video.file_attachment.url}", autoplay: "false", autoStart: "0"}
                   %embed{ src: "#{@video.file_attachment.url}", width: "550", height: "330", autoplay: "false", autoStart: "0"}
@@ -200,7 +200,7 @@
 /    %object{ data: "#{@video.file_attachment.url}", width: "320", height: "240", autoplay: "false"}
 /      %embed{ src: "#{@video.file_attachment.url}", width: "320", height: "240"}
 /  - elsif ["video/mp4", "video/ogg", "video/webm", "video/x-flv"].include? @video.file_attachment.content_type
-/    %video{ width: "320", height:"240", poster:"poster.jpg", controls:"controls", preload:"none" }
+/    %video{ width: "320", height:"240", poster:"", controls:"controls", preload:"none" }
 /      %source{type:"#{@video.file_attachment.content_type}", src:"#{@video.file_attachment.url}"}
 /      %object{width:"320", height:"240", type:"application/x-shockwave-flash", data:"#{@video.file_attachment.url}"}
 /        %embed{ src: "#{@video.file_attachment.url}", width: "320", height: "240"}

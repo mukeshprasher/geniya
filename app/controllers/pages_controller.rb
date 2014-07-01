@@ -2,7 +2,15 @@ class PagesController < ApplicationController
     def index
       @subscription = Subscription.new
       if signed_in?
-        @activities = Activity.paginate(page: params[:page], per_page: 15).order(created_at: :desc)
+        listning_to_user_ids_for_sql_in = (current_user.connected_user_ids + current_user.followed_user_ids).uniq.join(',')
+        @ids = listning_to_user_ids_for_sql_in
+        if listning_to_user_ids_for_sql_in.length == 0
+          @activities = Activity.paginate(page: params[:page], per_page: 15).order(created_at: :desc)
+        else
+          @activities = Activity.where("`user_id` IN ( #{listning_to_user_ids_for_sql_in} ) ").paginate(page: params[:page], per_page: 15).order(created_at: :desc)
+          @sql = Activity.where("`user_id` IN ( #{listning_to_user_ids_for_sql_in} ) ").paginate(page: params[:page], per_page: 15).order(created_at: :desc).to_sql
+        end
+        
         @update = current_user.updates.build
         @video = current_user.videos.build
         @advertisement = current_user.advertisements.build

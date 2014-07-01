@@ -36,9 +36,13 @@
           - if @activities.any?
             %ol.updates#feed_cont
               - @activities.each do |activity|
-                = render activity
+                = render activity 
             #infinite-scrolling
               = will_paginate @activities
+          - else
+            %h3
+              No feeds to show, follow more profesionals to get news feeds
+            = link_to 'Browse top portfolios', '/portfolios', class: 'btn btn-large btn-primary'
 
       .inner_rightSection
         #home_control_section.home_control_section
@@ -154,7 +158,7 @@
                 %object{ data: "#{@video.file_attachment.url}", width: "303", height: "230", autoplay: "false", autoStart: "0"}
                   %embed{ src: "#{@video.file_attachment.url}", width: "303", height: "230", autoplay: "false", autoStart: "0"}
               - elsif ["video/mp4", "video/ogg", "video/webm", "video/x-flv"].include? @video.file_attachment.content_type
-                %video{ width: "303", height:"230", poster:"poster.jpg", controls:"controls", preload:"none" }
+                %video{ width: "303", height:"230", poster:"", controls:"controls", preload:"none" }
                   %source{type:"#{@video.file_attachment.content_type}", src:"#{@video.file_attachment.url}"}
                   %object{width:"303", height:"230", type:"application/x-shockwave-flash", data:"#{@video.file_attachment.url}", autoplay: "false", autoStart: "0"}
                     %embed{ src: "#{@video.file_attachment.url}", width: "303", height: "230", autoplay: "false", autoStart: "0"}              
