@@ -476,30 +476,30 @@ $(function() {
       
     //convert month to 2 digits
     var twoDigitMonth = ((fullDate.getMonth().length+1) === 1)? (fullDate.getMonth()+1) : '0' + (fullDate.getMonth()+1);
-      
-    var currentDate = fullDate.getFullYear() + "-" + twoDigitMonth + "-" + fullDate.getDate();
-    
+    var twoDigitDate = ((fullDate.getDate().length+1) === 1)? (fullDate.getDate()+1) : '0' + (fullDate.getDate()+1);  
+    var currentDate = fullDate.getFullYear() + "-" + twoDigitMonth + "-" + twoDigitDate;
+    //alert(currentDate)
     if (birth == '')
     {
-      alert('Please select D.O.B');
-      return false;
-    }
-    else
-    if (dtArray == null)
-    {
-      alert('D.O.B is not in valid format');
-      return false;
-    }
-    else
-    if(currentDate<birth)
-    {
-      alert("Date of Birth is not greater than Current date");
-      return false;    
-    }
-    else
-    {
+      //alert('Please select D.O.B');
       return true;
     }
+    else
+      if (dtArray == null)
+      {
+        alert('D.O.B is not in valid format');
+        return false;
+      }
+      else
+        if(currentDate<birth)
+        {
+          alert("Date of Birth is greater than Current date");
+          return false;    
+        }
+        else
+        {
+          return true;
+        }
     });
 
    

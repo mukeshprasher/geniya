@@ -33,6 +33,7 @@
         .user_updates_ajax
           %img{alt: "slider", src: "/assets/loader.gif"}/
         .user_description
+          /= @sql
           - if @activities.any?
             %ol.updates#feed_cont
               - @activities.each do |activity|
