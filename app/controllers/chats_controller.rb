@@ -44,7 +44,7 @@ class ChatsController < ApplicationController
     end
     @reciever_id = @chat.reciever_id
     
-    @chats = Chat.where("id > ? AND (reciever_id = ? AND user_id = ?) OR (reciever_id = ? AND user_id = ?)", params[:last_msg_id].to_i, @reciever_id, current_user.id, current_user.id, @reciever_id).order('created_at ASC')
+    @chats = Chat.where("id > ? AND ((reciever_id = ? AND user_id = ?) OR (reciever_id = ? AND user_id = ?))", params[:last_msg_id].to_i, @reciever_id, current_user.id, current_user.id, @reciever_id).order('created_at ASC')
     @last_msg_id = @chats.last.id
 #    respond_to do |format|
 #      if @chat.save

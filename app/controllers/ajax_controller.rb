@@ -18,7 +18,7 @@ class AjaxController < ApplicationController
     @new_chat = Chat.new
     @other_user = User.find(params[:id])
     @chats = Chat.where("(reciever_id = ? AND user_id = ?) OR (reciever_id = ? AND user_id = ?)", @other_user.id, current_user.id, current_user.id, @other_user.id).order('created_at DESC').limit(50).reverse
-    @last_msg_id = (@chats.any?) ? @chats.last.id : 0
+    @last_msg_id = (@chats.any?) ? @chats.first.id : 0
     render 'chat', layout: false
 
     Chat.where(reciever_id: current_user.id, user_id: @other_user.id, status: 'unread').each do |chat|
@@ -53,6 +53,7 @@ class AjaxController < ApplicationController
     @other_user = User.find(params[:uid])
     @last_id = params[:lid].to_i
     @chats = Chat.where("id > ? AND ((reciever_id = ? AND user_id = ?) OR (reciever_id = ? AND user_id = ?))", @last_id,  @other_user.id, current_user.id, current_user.id, @other_user.id).order('created_at DESC').limit(50).reverse
+    @sql = Chat.where("id > ? AND ((reciever_id = ? AND user_id = ?) OR (reciever_id = ? AND user_id = ?))", @last_id,  @other_user.id, current_user.id, current_user.id, @other_user.id).order('created_at DESC').limit(50).to_sql
     @last_msg_id = (@chats.any?) ? @chats.last.id : @last_id
     render 'new_chats', layout: false
   end
