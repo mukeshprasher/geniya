@@ -107,6 +107,7 @@ gem 'papercrop'
 
 gem "cocoon"
 
+gem 'fullcalendar-rails'
 #gem 'devise'
 
 # Use unicorn as the app server

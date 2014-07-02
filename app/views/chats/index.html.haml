@@ -14,7 +14,7 @@
       - unless displayed_users.include?(other_user)
         - displayed_users << other_user
         %tr{:class => ("unread_chat" if ((chat.status == 'unread') and  (chat.user != current_user)))}
-          %td
+          %td.text_left
             %a.send_message_button.demo{"data-toggle" => "modal", "data"=> other_user.id, "onclick"=>"javascript:open_chat_modal(#{other_user.id})"}
               - if other_user.headshot
                 = image_tag other_user.headshot.file_attachment.url(:medium), width: "80px", height: "80px"
@@ -22,7 +22,7 @@
                 = image_tag '/assets/missing.png', width: "80px", height: "80px"
               = other_user.name           
           %td= (chat.user == current_user) ? "->" : "<-"
-          %td= chat.message
+          %td.text_left= chat.message
           %td= chat.status
 
   %br

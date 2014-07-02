@@ -1,0 +1,12 @@
+%h2
+  = best_in_place_if @can_edit, @event, :title, :nil => "No title"
+%p
+  = best_in_place_if @can_edit, @event, :description, :nil => "No description", type: 'textarea'
+%p
+  %b Start:
+  = best_in_place_if @can_edit, @event, :start, type: 'datetime'
+%p
+  %b End:
+  = best_in_place_if @can_edit, @event, :end, type: 'datetime'
+
+= link_to 'Destroy', @event, :method => :delete, :data => { :confirm => 'Are you sure to delete this event?' }

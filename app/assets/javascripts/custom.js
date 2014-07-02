@@ -12,6 +12,18 @@ function open_chat_modal(user_id){
   }, 1000);
 }
 
+function open_event_modal(event_id){
+  var $modal_event = $('#event_modal');
+  //create the backdrop and wait for next modal to be triggered
+  $('body').modalmanager('loading');
+  //user_id = $(this).attr('data')
+   
+  setTimeout(function(){
+    $modal_event.load('/events/' + event_id + '.js', '', function(){
+      $modal_event.modal();
+    });
+  }, 1000);
+}
 function get_fb(user_id){
     var uid = user_id
     //console.log($('#last_msg_id_' + uid).val())
@@ -317,6 +329,24 @@ $(function() {
    });
 
   //$("#chat_modal_body").animate({ scrollTop: $("#chat_modal_body")[0].scrollHeight}, 1000);
+  $('#event_calendar').fullCalendar({
+    header: {
+        left: 'prev,next,today',
+        center: 'title',
+        right: 'month,agendaDay,agendaWeek'
+    },
+    events: '/events.json',
+    eventRender: function (event, element) {
+        element.attr('href', 'javascript:void(0);');
+        element.attr('onclick', 'open_event_modal("' + event.id + '");');
+    }    
+//    title: {
+//      month: 'MMM YY', // September 2009
+//      week: "MMM D YY", // Sep 13 2009
+//      day: 'MMM D YY'  // September 8 2009    
+//    }
+
+  });
 
   $(document).ready(toDoOnload);
   $(document).on('page:load', toDoOnload);

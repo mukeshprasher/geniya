@@ -24,5 +24,6 @@
 //= require best_in_place
 //= require best_in_place.purr
 //= require cocoon
+//= require fullcalendar
 //= require_tree .
 

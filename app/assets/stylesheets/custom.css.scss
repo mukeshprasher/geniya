@@ -3358,3 +3358,39 @@ body {
 #send_message .modal-header{
   padding: 0px 15px;
 }
+#event_calendar{
+  max-width: 315px;
+}
+#event_calendar_cont{
+  margin: 10px 0px;
+  
+}
+.fc-header-title h2{
+  font-size: 10px;
+  color: #000;
+}
+.fc-button{
+  padding: 3px;
+}
+.text_left{
+  text-align: left;
+}
+.ui-datepicker{
+  z-index: 1061 !important;
+}
+#event_modal{
+padding: 5px 20px 20px;
+}
+.spaced-top {
+  margin-top: 20px;
+}
+.spaced-left {
+  padding-left: 20px;
+}
+.spaced-right {
+    padding-right: 20px;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Oswald',sans-serif;
+    font-weight: normal;
+}

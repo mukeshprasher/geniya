@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140619093941) do
+ActiveRecord::Schema.define(version: 20140701105247) do
 
   create_table "activities", force: true do |t|
     t.integer  "user_id"
@@ -187,6 +187,16 @@ ActiveRecord::Schema.define(version: 20140619093941) do
     t.integer  "start_date"
     t.integer  "end_date"
     t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "events", force: true do |t|
+    t.integer  "user_id"
+    t.string   "title"
+    t.text     "description"
+    t.datetime "start"
+    t.datetime "end"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

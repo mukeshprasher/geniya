@@ -30,15 +30,17 @@ class CommentsController < ApplicationController
     @comment = Comment.find(params[:id])
     @obj = @comment.commentable_type.constantize.find(@comment.commentable_id)
     destroy_response(@obj, 'comment')
-    Like.where(likeable_type: 'Comment', likeable_id: @comment.id).each do |comment_likes|
-      comment_likes.destroy
-    end
+    
+
     if @comment.has_children?
       @comment.children.each do |child|
         Like.where(likeable_type: 'Comment', likeable_id: child.id).destroy
+        destroy_all_comments_likes_activities_and_responses_of_obj(child)
         child.destroy
       end
     end
+    
+    destroy_all_comments_likes_activities_and_responses_of_obj(@comment)
     @comment.destroy
 #    if @comment.destroy
 #      render :json => @comment, :status => :ok

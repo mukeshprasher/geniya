@@ -16,5 +16,6 @@
  *= require jquery.atwho
  *= require jquery.jcrop
  *= require fonts
+ *= require fullcalendar
  *= require_tree .
  */

@@ -132,6 +132,7 @@ module SessionsHelper
     if comments.any?
       comments.each do |comment| 
         comment.likes.each {|like| like.destroy }
+        destroy_all_comments_likes_activities_and_responses_of_obj(comment)
         comment.delete 
       end
     end

@@ -446,9 +446,23 @@
                   - if @users.any?
                     See All Connections »                                
             .clear 
-
+        #event_calendar_cont.span315.network
+          #event_modal.modal.fade{"data-width" => "400", style: "display: none;", tabindex: "-1"}
+          %h2 Event calendar
+          #event_calendar
+          #new_event_modal.modal.fade{"data-width" => "500", style: "display: none;", tabindex: "-1"}
+            .modal-header
+              %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
+              %h4.modal-title
+                New event
+            .modal-body
+              = render 'events/form'
+            .modal-footer
+              %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
+          %a.demo{"data-toggle" => "modal",href: "#new_event_modal", id: "new_event_button"}
+            Add new event
         
-        .discover
+        #discover_geniye_profile_cont.discover.span315
           Discover Geniya
           %ul.discover_nav
             %li

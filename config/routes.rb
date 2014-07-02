@@ -1,4 +1,6 @@
 Geniya::Application.routes.draw do
+  resources :events
+
   resources :chats
 
   resources :shares

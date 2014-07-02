@@ -1,0 +1,12 @@
+.span6
+  = simple_form_for(@event) do |f|
+    = f.error_notification
+
+    .form-inputs
+      = f.input :title
+      = f.input :description
+      = f.input :start, as: 'string', input_html: {class: 'datetimepicker'}
+      = f.input :end, as: 'string', input_html: {class: 'datetimepicker'}
+
+    .event_form_button_cont
+      = f.button :submit, class: 'btn btn-large btn-primary'
