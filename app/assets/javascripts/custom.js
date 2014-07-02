@@ -331,9 +331,9 @@ $(function() {
   //$("#chat_modal_body").animate({ scrollTop: $("#chat_modal_body")[0].scrollHeight}, 1000);
   $('#event_calendar').fullCalendar({
     header: {
-        left: 'prev,next,today',
-        center: 'title',
-        right: 'month,agendaDay,agendaWeek'
+        //left: 'prev,next,today',
+        //center: 'title'
+        //right: 'month,agendaDay,agendaWeek'
     },
     events: '/events.json',
     eventRender: function (event, element) {
