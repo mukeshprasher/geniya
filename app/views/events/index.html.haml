@@ -1,27 +1,10 @@
-%h1 Listing events
-
-%table.table.table-bordered
-  %tr
-    %th User
-    %th Title
-    %th Description
-    %th Start
-    %th End
-    %th
-    %th
-    %th
-
-  - @events.each do |event|
-    %tr
-      %td= event.user_id
-      %td= event.title
-      %td= event.description
-      %td= event.start
-      %td= event.end
-      %td= link_to 'Show', event
-      %td= link_to 'Edit', edit_event_path(event)
-      %td= link_to 'Destroy', event, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
-%br
-
-= link_to 'New Event', new_event_path
+.row-fluid.spaced-top
+  .span2.spaced-left
+    .btn-group.btn-group-vertical.btn-block
+      = link_to 'New event', new_event_path, class: 'btn btn-success'
+      = link_to 'My profile', current_user, class: 'btn'
+  .span9
+    %h1 Event Calander
+    #event_modal.modal.fade{"data-width" => "400", style: "display: none;", tabindex: "-1"}
+    #event_calendar
+  %br

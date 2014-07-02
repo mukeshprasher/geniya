@@ -1,11 +1,14 @@
 class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
+  before_action :signed_in_user
+  before_action :correct_user,   only: [:edit, :update, :profile_edit]
   before_action :can_edit, only: [:show]
+
 
   # GET /events
   # GET /events.json
   def index
-    @events = Event.all
+    @events = current_user.events
   end
 
   # GET /events/1

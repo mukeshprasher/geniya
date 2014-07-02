@@ -3358,9 +3358,7 @@ body {
 #send_message .modal-header{
   padding: 0px 15px;
 }
-#event_calendar{
-  max-width: 315px;
-}
+
 #event_calendar_cont{
   margin: 10px 0px;
   
@@ -3374,6 +3372,9 @@ body {
 }
 .text_left{
   text-align: left;
+}
+.text_right{
+  text-align: right;
 }
 .ui-datepicker{
   z-index: 1061 !important;
@@ -3393,4 +3394,13 @@ padding: 5px 20px 20px;
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Oswald',sans-serif;
     font-weight: normal;
+}
+.width_half{
+  width: 50%;
+}
+.float_left{
+  float: left;
+}
+.spaced-right {
+  padding-right: 20px;
 }

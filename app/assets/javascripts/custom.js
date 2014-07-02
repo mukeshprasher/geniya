@@ -339,6 +339,7 @@ $(function() {
     eventRender: function (event, element) {
         element.attr('href', 'javascript:void(0);');
         element.attr('onclick', 'open_event_modal("' + event.id + '");');
+        element.attr('title', event.title + '\n' + event.start + '\n' + event.end);
     }    
 //    title: {
 //      month: 'MMM YY', // September 2009
