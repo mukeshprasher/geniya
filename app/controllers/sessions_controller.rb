@@ -1,5 +1,18 @@
 class SessionsController < ApplicationController
   def new
+    if params.has_key?(:a) and params[:a].present?
+      user = User.find_by(status: params[:a])
+      if !user.nil?
+        user.status = 'active'
+        if user.save
+          flash.now[:success] = 'Your account has been activated. Login to continue.'
+        else
+          flash.now[:error] = 'Error activating account.'
+        end
+      else
+        flash.now[:error] = 'Wrong activation link.'
+      end
+    end
   end
 
   def create
