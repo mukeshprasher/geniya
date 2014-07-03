@@ -1,9 +1,8 @@
 class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
   before_action :signed_in_user
-  before_action :correct_user,   only: [:edit, :update, :profile_edit]
+  before_action :correct_user,   only: [:edit, :update, :destroy]
   before_action :can_edit, only: [:show]
-
 
   # GET /events
   # GET /events.json
@@ -33,7 +32,7 @@ class EventsController < ApplicationController
 
     respond_to do |format|
       if @event.save
-        format.html { redirect_to current_user, notice: 'Event was successfully created.' }
+        format.html { redirect_to events_path, notice: 'Event was successfully created.' }
         format.json { render action: 'show', status: :created, location: @event }
       else
         format.html { render action: 'new' }
@@ -47,7 +46,7 @@ class EventsController < ApplicationController
   def update
     respond_to do |format|
       if @event.update(event_params)
-        format.html { redirect_to @event, notice: 'Event was successfully updated.' }
+        format.html { redirect_to events_path, notice: 'Event was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -79,5 +78,9 @@ class EventsController < ApplicationController
 
     def can_edit
       @can_edit = (current_user and current_user?(@event.user))
+    end
+    
+    def correct_user
+      redirect_to root_url unless current_user?(@event.user)
     end
 end

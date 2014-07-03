@@ -461,8 +461,8 @@
               .modal-footer
                 %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
             .width_half.float_left
-              %a.demo{"data-toggle" => "modal",href: "#new_event_modal", id: "new_event_button"}
-                Add new event
+              /%a.demo{"data-toggle" => "modal",href: "#new_event_modal", id: "new_event_button"}
+              = link_to 'Add new event', new_event_path
             .width_half.float_left.text_right
               = link_to 'View detail', events_path
         
