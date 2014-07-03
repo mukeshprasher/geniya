@@ -70,7 +70,7 @@ class UsersController < ApplicationController
     
     @plan = @user.plan
     @user.plan_end = Date.today + 1.month
-    @user.status = "active"
+    @user.status = ('a'..'z').to_a.shuffle[0..19].join
     respond_to do |format|
       if @user.save
 #        set_sub_categories
@@ -87,9 +87,12 @@ class UsersController < ApplicationController
         status_pic_album.save                
                 
         format.html {
-            sign_in @user
-            flash[:success] = "Welcome to Geniya!, tell us something more about you." 
-            redirect_to edit_user_path(@user)
+            #sign_in @user
+            
+            flash[:notice] = "Please check your email for activation link."
+            NewsletterMailer.newsletter_email(@newsletter).deliver 
+            redirect_to new_session_path
+            #redirect_to edit_user_path(@user)
         }
         format.json { render action: 'show', status: :created, location: @user }
       else
