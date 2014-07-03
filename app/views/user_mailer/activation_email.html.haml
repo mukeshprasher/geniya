@@ -85,14 +85,15 @@
                               %tr
                                 %td{style: "border-collapse: collapse;", valign: "top"}
                                   %div{align: "left", style: "color: #505050; font-family: Arial; font-size: 14px; line-height: 150%; text-align: left;"}
-                                    Hi
-                                    = @user.name
+                                    Hello
                                     ,
                                     %br
-                                    Please click this link 
-                                    %a{href: "#{new_session_path}?a=#{@user.status}"}
+                                    Please click
+                                    %a{href: "#{new_session_url}?a=#{@user.status}"}
+                                      here
                                     to activate your account on Geniya
                                     %br
+                                    = @url 
                                     %br
                                     Regards,
                                     %br
@@ -113,11 +114,11 @@
                                 %td#social{bgcolor: "#FCFCFC", colspan: "2", style: "background: #FCFCFC; border-collapse: collapse; border: 0;", valign: "middle"}
                                   %div{align: "center", style: "color: #707070; font-family: Arial; font-size: 12px; line-height: 125%; text-align: center;"}
                                     \ 
-                                    %a{href: "http://twitter.com/?utm_source%3Dnewsletter%26utm_medium%3Demail%26utm_campaign%3D+Geniya+News#!/twitter", style: "color: #336699; font-weight: normal; text-decoration: underline;", target: "_blank"} Twitter
+                                    %a{href: "https://twitter.com/GeniyaNetwork", style: "color: #336699; font-weight: normal; text-decoration: underline;", target: "_blank"} Twitter
                                     |
-                                    %a{href: "http://www.facebook.com/facebook?utm_source%3Dnewsletter%26utm_medium%3Demail%26utm_campaign%3D+Geniya+News", style: "color: #336699; font-weight: normal; text-decoration: underline;", target: "_blank"} Facebook
+                                    %a{href: "https://www.facebook.com/GeniyaNetwork", style: "color: #336699; font-weight: normal; text-decoration: underline;", target: "_blank"} Facebook
                                     |
-                                    %a{href: "http://www.linkedin.com/company/linkedin?utm_source%3Dnewsletter%26utm_medium%3Demail%26utm_campaign%3D+Geniya+News", style: "color: #336699; font-weight: normal; text-decoration: underline;", target: "_blank"} LinkedIn
+                                    %a{href: "https://www.youtube.com/channel/UCaAogg8feczTPSpvcd-T6dg", style: "color: #336699; font-weight: normal; text-decoration: underline;", target: "_blank"} Youtube
                                     \ 
                               %tr
                                 %td{style: "border-collapse: collapse;", valign: "top", width: "350"}

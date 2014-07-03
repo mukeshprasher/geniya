@@ -3,7 +3,7 @@ class UserMailer < ActionMailer::Base
 
   def activation_email(user)
     @user = user
-    @url  = new_session_path
+    @url  = new_session_url
     mail(to: @user.email, subject: 'Geniya account activation')
   end
 
