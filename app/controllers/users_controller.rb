@@ -90,7 +90,7 @@ class UsersController < ApplicationController
             #sign_in @user
             
             flash[:notice] = "Please check your email for activation link."
-            NewsletterMailer.newsletter_email(@newsletter).deliver 
+            UserMailer.activation_email(@user).deliver 
             redirect_to new_session_path
             #redirect_to edit_user_path(@user)
         }
