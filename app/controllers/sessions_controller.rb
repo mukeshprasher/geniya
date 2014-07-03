@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
       user = User.find_by(status: params[:a])
       if !user.nil?
         user.status = 'active'
-        if user.save
+        if user.save(:validate => false)
           flash.now[:success] = 'Your account has been activated. Login to continue.'
         else
           flash.now[:error] = 'Error activating account.'
