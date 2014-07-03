@@ -89,11 +89,15 @@
                                     ,
                                     %br
                                     Please click
-                                    %a{href: "#{new_session_url}?a=#{@user.status}"}
+                                    %a{href: "#{new_session_url}?a=#{@user.status}", target: "_blank"}
                                       here
                                     to activate your account on Geniya
                                     %br
-                                    = @url 
+                                    Or copy following url and paste it in your browser address bar
+                                    %br
+                                    = new_session_url + "?a=" + @user.status
+                                    
+                                    %br
                                     %br
                                     Regards,
                                     %br
@@ -123,7 +127,7 @@
                               %tr
                                 %td{style: "border-collapse: collapse;", valign: "top", width: "350"}
                                   %div{align: "left", style: "color: #707070; font-family: Arial; font-size: 12px; line-height: 125%; text-align: left;"}
-                                    %em Copyright © 2014 Geniya, All rights reserved.
+                                    /%em Copyright © 2014 Geniya, All rights reserved.
                                     %br/
                                     
                                     \ 
