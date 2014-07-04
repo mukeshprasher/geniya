@@ -24,7 +24,7 @@ class SessionsController < ApplicationController
       sign_in user
       if user.name.nil?
         flash.now[:notice] = 'Please enter your name.'
-        redirect_to profile_edit_path
+        redirect_to profile_edit_path user
       else
         redirect_back_or root_url
       end
