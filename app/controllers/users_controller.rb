@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy, :profile_edit]
+  before_action :set_user, only: [:show, :edit, :update, :destroy, :profile_edit, :change_password]
   before_action :signed_in_user, only: [ :edit, :update, :destroy, :following, :followers, :profile_edit]
   before_action :correct_user,   only: [:edit, :update, :profile_edit]
   before_action :admin_user,     only: :destroy
@@ -56,6 +56,40 @@ class UsersController < ApplicationController
   def profile_edit
   end  
   
+  def forgot_password
+  end
+
+  def recover_password
+    @user = User.find_by_email(user_params[:email])
+    if !@user.nil?
+      @user.change_password_code = ('a'..'z').to_a.shuffle[0..19].join
+      @user.save(:validate => false)
+      
+      if(UserMailer.recover_password(@user).deliver)
+        flash[:success] = "Please check your email to recover password."
+      else
+        flash[:error] = "Error sending email."
+      end
+    else
+      flash[:error] = "Wrong email entered."
+    end
+    
+    redirect_to new_session_path
+  end
+
+  def change_password
+    if params.has_key?(:a) and params[:a].present?
+      if @user.change_password_code == params[:a]
+        sign_in @user
+      else
+        flash[:error] = "Wrong link"
+        redirect_to new_session_path
+      end
+    else
+      flash[:error] = "Unauthorized action"
+      redirect_to new_session_path
+    end
+  end
   
   def edit
   end
@@ -84,7 +118,7 @@ class UsersController < ApplicationController
         cover_pic_album.save
         
         profile_pic_album = @user.albums.build(name: "Profile Pictures Album",category_id: params[:user][:category_id], title: "Profile Pictures uploads", description: " pictures go here", kind: "profile")
-        status_pic_album.save                
+        profile_pic_album.save                
                 
         format.html {
             #sign_in @user

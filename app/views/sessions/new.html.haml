@@ -14,7 +14,7 @@
               /%input{type: "checkbox", value: ""}/
               /Keep me signed in
           .left.other_options
-            /%a{href: "/"} Forgot Password?
+            = link_to 'Forgot Password?', forgot_password_path
             %br/
             %a{href: "/signup"} Create New Account
           .form-submit.right

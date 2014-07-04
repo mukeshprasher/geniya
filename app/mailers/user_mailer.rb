@@ -7,6 +7,11 @@ class UserMailer < ActionMailer::Base
     mail(to: @user.email, subject: 'Geniya account activation')
   end
 
+  def recover_password(user)
+    @user = user
+    mail(to: @user.email, subject: 'Geniya password recovery')
+  end
+
 #  def activation_email(user)
 #    #@req = request.original_url
 #    @newsletter = newsletter

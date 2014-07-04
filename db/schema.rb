@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140701105247) do
+ActiveRecord::Schema.define(version: 20140703122540) do
 
   create_table "activities", force: true do |t|
     t.integer  "user_id"
@@ -597,10 +597,11 @@ ActiveRecord::Schema.define(version: 20140701105247) do
     t.string   "status"
     t.string   "tag"
     t.string   "slug"
-    t.integer  "impressions_count", default: 0
+    t.integer  "impressions_count",    default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "feature_img"
+    t.string   "change_password_code"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
