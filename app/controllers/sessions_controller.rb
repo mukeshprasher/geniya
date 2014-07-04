@@ -17,20 +17,28 @@ class SessionsController < ApplicationController
 
   def create
     user = User.find_by(email: params[:session][:email].downcase)
-    if user.status != 'active'
-      flash.now[:error] = 'Please check your email for activation link.'
-      render 'new'
-    elsif user && user.authenticate(params[:session][:password])
-      sign_in user
-      if user.name.nil?
-        flash.now[:notice] = 'Please enter your name.'
-        redirect_to profile_edit_path user
-      else
-        redirect_back_or root_url
-      end
-    else
+
+    if user.nil?
       flash.now[:error] = 'Invalid email/password combination'
-      render 'new'
+      render 'new'    
+    else
+      if user.status != 'active'
+        flash.now[:error] = 'Please check your email for activation link.'
+        render 'new'
+      elsif user && user.authenticate(params[:session][:password])
+        keep_signed_in = (params[:keep_signed_in].present? and !params[:keep_signed_in].nil? and params[:keep_signed_in] == 'yes') ? true : false
+        sign_in(user, keep_signed_in)
+        
+        if user.name.nil?
+          flash.now[:notice] = 'Please enter your name.'
+          redirect_to profile_edit_path user
+        else
+          redirect_back_or root_url
+        end
+      else
+        flash.now[:error] = 'Invalid email/password combination'
+        render 'new'
+      end
     end
   end
 

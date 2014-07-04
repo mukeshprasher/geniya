@@ -11,8 +11,8 @@
             = f.password_field :password, placeholder: "Password"
           .left.other_options
             .form-item
-              /%input{type: "checkbox", value: ""}/
-              /Keep me signed in
+              %input{type: "checkbox", value: "yes", name:"keep_signed_in"}/
+              Keep me signed in
           .left.other_options
             = link_to 'Forgot Password?', forgot_password_path
             %br/
