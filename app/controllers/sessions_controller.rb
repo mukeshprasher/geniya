@@ -22,7 +22,12 @@ class SessionsController < ApplicationController
       render 'new'
     elsif user && user.authenticate(params[:session][:password])
       sign_in user
-      redirect_back_or root_url
+      if user.name.nil?
+        flash.now[:notice] = 'Please enter your name.'
+        redirect_to profile_edit_path
+      else
+        redirect_back_or root_url
+      end
     else
       flash.now[:error] = 'Invalid email/password combination'
       render 'new'

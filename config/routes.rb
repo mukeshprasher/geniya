@@ -61,7 +61,7 @@ Geniya::Application.routes.draw do
   post '/rate' => 'rater#create', :as => 'rate'
   resources :newsletters
   match "/newsletters/:id/send_email", to: 'newsletters#send_email', via: 'post'
-  match "/users/:id/profile_edit", to: 'users#profile_edit', via: 'get'
+  match "/users/:id/profile_edit", to: 'users#profile_edit', via: 'get', as: :profile_edit
   match "/users/forgot_password", to: 'users#forgot_password', via: 'get', as: :forgot_password
   match "/users/recover_password", to: 'users#recover_password', via: 'post'
   # Named route that can be invoked with change_password_url(id: user.id)
