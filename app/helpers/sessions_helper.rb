@@ -103,7 +103,7 @@ module SessionsHelper
       text
     end
   end    
-
+  
   def create_activity(acted_upon_type, acted_upon_id, action, description = '')
     # Used in updates/create albums/create likes/create shares/create
     @activity = Activity.create!(acted_upon_type: acted_upon_type, acted_upon_id: acted_upon_id, action: action, user_id: current_user.id, description: description)
