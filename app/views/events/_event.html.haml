@@ -8,7 +8,14 @@
 %p
   %b End:
   = @event.end
+%p
+  %b Location:
+  = @event.location
 
-= link_to 'Edit', edit_event_path(@event)
-\|
-= link_to 'Delete', @event, :method => :delete, :data => { :confirm => 'Are you sure to delete this event?' }
+- if signed_in? and current_user == @event.user
+  %p
+    %b Privacy:
+    = @event.privacy
+  = link_to 'Edit', edit_event_path(@event)
+  \|
+  = link_to 'Delete', @event, :method => :delete, :data => { :confirm => 'Are you sure to delete this event?' }

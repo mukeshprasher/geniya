@@ -12,7 +12,8 @@
       .field.datetimepicker
         = f.label :end
         = f.text_field :end, placeholder: "yyyy-mm-dd HH:mm:ss", style: 'width: 90%'
-
+      = f.input :location
+      = f.input :privacy , priority: [ "connections" ], collection: {"Connections" => "connections","Connections and followers" => "connections and followers"}, include_blank: false
 
     .event_form_button_cont
       = f.button :submit, class: 'btn btn-large btn-primary'
