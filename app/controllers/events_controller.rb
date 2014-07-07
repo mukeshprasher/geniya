@@ -7,6 +7,13 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
+    @connected_user_ids = current_user.connections.where("status= 'accepted' or status='confirmed'").pluck(:connection_id)
+    @listning_to_user_ids = @connected_user_ids + current_user.followed_user_ids
+    
+    @listning_to_user_ids << current_user.id
+
+    @events = Event.where(user_id: @listning_to_user_ids.uniq)
+
     @events = current_user.events
   end
 
