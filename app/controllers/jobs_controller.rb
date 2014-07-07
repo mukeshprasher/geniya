@@ -2,7 +2,7 @@ class JobsController < ApplicationController
   before_action :set_job, only: [:show, :edit, :update, :destroy]
   before_action :signed_in_user, only: [ :new, :create, :edit, :update, :destroy]
   before_action only: [:edit, :update, :destroy] do
-    redirect_with_notice_if_incorrect_user(@featureimg)
+    redirect_with_notice_if_incorrect_user(@job)
   end
 
   # GET /jobs
