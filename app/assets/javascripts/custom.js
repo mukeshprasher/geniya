@@ -339,8 +339,27 @@ $(function() {
     eventRender: function (event, element) {
         element.attr('href', 'javascript:void(0);');
         element.attr('onclick', 'open_event_modal("' + event.id + '");');
-        element.attr('title', event.title + '\n' + event.start + '\n' + event.end);
-    }    
+        element.attr('title', 'By: ' + event.user.name + '\n' + event.title + '\n' + event.start + '\n' + event.end + '\n'  + event.location);
+        $(element).html(event.user.name + $(element).html())
+    }
+  });    
+
+  $('#event_calendar_full').fullCalendar({
+    header: {
+        //left: 'prev,next,today',
+        //center: 'title'
+        //right: 'month,agendaDay,agendaWeek'
+    },
+    events: '/events.json',
+    eventRender: function (event, element) {
+        element.attr('href', 'javascript:void(0);');
+        element.attr('onclick', 'open_event_modal("' + event.id + '");');
+        element.attr('title', 'By: ' + event.user.name + '\n' + event.title + '\n' + event.start + '\n' + event.end + '\n'  + event.location);
+        if(event.user.headshot.length > 0)
+          $(element).html('<img src="'+ event.user.headshot +'" width="30px" height="30px" /> ' + event.user.name + $(element).html())
+        else
+          $(element).html( event.user.name + $(element).html())
+    }
 //    title: {
 //      month: 'MMM YY', // September 2009
 //      week: "MMM D YY", // Sep 13 2009

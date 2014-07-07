@@ -1,3 +1,9 @@
+%p
+  - if @event.user.headshot
+    = image_tag @event.user.headshot.file_attachment.url(:thumb), width: '50px'
+  = link_to @event.user.name, @event.user
+    
+
 %h2
   = @event.title
 %p

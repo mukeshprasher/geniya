@@ -232,7 +232,7 @@
                           .field
                             = f.file_field :feature_img, id: "user_feature_img"  
                           .actions
-                            = f.submit 'Add Feature Image', id: "user_featureimg_btn"
+                            = f.submit 'Add Feature Image', id: "user_featureimg_btn", class: "btn"
                           %img{alt: "loading", src: "/assets/loader.gif", style: "visibility: hidden"}/
                       .modal-footer
                         %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close

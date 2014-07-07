@@ -1,20 +1,17 @@
 class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
   before_action :signed_in_user
-  before_action :correct_user,   only: [:edit, :update, :destroy]
+  before_action :correct_user,   only: [:show, :edit, :update, :destroy]
   before_action :can_edit, only: [:show]
 
   # GET /events
   # GET /events.json
   def index
     @connected_user_ids = current_user.connections.where("status= 'accepted' or status='confirmed'").pluck(:connection_id)
+    @connected_user_ids << current_user.id
     @listning_to_user_ids = @connected_user_ids + current_user.followed_user_ids
     
-    @listning_to_user_ids << current_user.id
-
     @events = Event.where(user_id: @listning_to_user_ids.uniq)
-
-    @events = current_user.events
   end
 
   # GET /events/1
