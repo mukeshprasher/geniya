@@ -1,0 +1,95 @@
+%h1 Listing payments
+
+%table
+  %tr
+    %th Payment subscription
+    %th User
+    %th Txn
+    %th Subscr
+    %th Item name
+    %th Transaction subject
+    %th Item number
+    %th Receiver email
+    %th Payer email
+    %th Business
+    %th Payer
+    %th Receiver
+    %th Payment date
+    %th Payment status
+    %th Mc gross
+    %th Payment gross
+    %th Mc fee
+    %th Payment fee
+    %th Mc currency
+    %th Protection eligibility
+    %th First name
+    %th Last name
+    %th Address name
+    %th Address street
+    %th Address city
+    %th Address state
+    %th Address zip
+    %th Address country code
+    %th Address country
+    %th Residence country
+    %th Address status
+    %th Payment type
+    %th Txn type
+    %th Payer status
+    %th Verify sign
+    %th Ipn track
+    %th Test ipn
+    %th Charset
+    %th Notify version
+    %th
+    %th
+    %th
+
+  - @payments.each do |payment|
+    %tr
+      %td= payment.payment_subscription_id
+      %td= payment.user_id
+      %td= payment.txn_id
+      %td= payment.subscr_id
+      %td= payment.item_name
+      %td= payment.transaction_subject
+      %td= payment.item_number
+      %td= payment.receiver_email
+      %td= payment.payer_email
+      %td= payment.business
+      %td= payment.payer_id
+      %td= payment.receiver_id
+      %td= payment.payment_date
+      %td= payment.payment_status
+      %td= payment.mc_gross
+      %td= payment.payment_gross
+      %td= payment.mc_fee
+      %td= payment.payment_fee
+      %td= payment.mc_currency
+      %td= payment.protection_eligibility
+      %td= payment.first_name
+      %td= payment.last_name
+      %td= payment.address_name
+      %td= payment.address_street
+      %td= payment.address_city
+      %td= payment.address_state
+      %td= payment.address_zip
+      %td= payment.address_country_code
+      %td= payment.address_country
+      %td= payment.residence_country
+      %td= payment.address_status
+      %td= payment.payment_type
+      %td= payment.txn_type
+      %td= payment.payer_status
+      %td= payment.verify_sign
+      %td= payment.ipn_track_id
+      %td= payment.test_ipn
+      %td= payment.charset
+      %td= payment.notify_version
+      %td= link_to 'Show', payment
+      %td= link_to 'Edit', edit_payment_path(payment)
+      %td= link_to 'Destroy', payment, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Payment', new_payment_path

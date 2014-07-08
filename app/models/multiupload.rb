@@ -8,6 +8,10 @@ class Multiupload < ActiveRecord::Base
                       :s3_protocol    => "https"                                             ,
                       :s3_host_name   => "s3-us-west-1.amazonaws.com",
                       :bucket => "geniya"
+  validates_attachment :multiupload, 
+  :content_type => { :content_type => ["image/jpg", "image/jpeg", "image/gif", "image/png"] },
+  :size => { :in => 0..2000.kilobytes },
+  :file_name => { :matches => [/png\Z/, /jpe?g\Z/, /gif\Z/] }
 
   include Rails.application.routes.url_helpers
 

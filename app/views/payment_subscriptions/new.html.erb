@@ -1,0 +1,34 @@
+
+<form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
+
+  <input type="radio" name="t3" value="Y" onclick="document.getElementById('planPrice').value = '100';" checked="checked" />Anually
+  <input type="radio" name="t3" value="M" onclick="document.getElementById('planPrice').value = '10';" />Monthly
+  <br />
+
+  <!-- Identify the subscription. -->
+  <input type="hidden" name="item_name" value="deluxe" />
+  
+  <!-- Identify your business so that you can collect the payments. -->
+  <input type="hidden" name="business" value="neeraj.singh-facilitator@60degree.com" />
+
+  <!-- Specify a Subscribe button. -->
+  <input type="hidden" name="cmd" value="_xclick-subscriptions">
+
+  <!-- Set the terms of the regular subscription. -->
+  <input type="hidden" name="currency_code" value="USD" />
+  <input type="hidden" name="a3" value="100" id="planPrice" />
+  <input type="hidden" name="p3" value="1" />
+
+  <!-- Set recurring payments until canceled. -->
+  <input type="hidden" name="src" value="1" />
+  
+  <input type="hidden" name="notify_url" value="<%= new_payment_url %>" />
+  <input type="hidden" name="return" value="<%= user_url(current_user) %>" />
+  <input type="hidden" name="cancel_return" value="<%= new_payment_url %>" />
+  
+  <input type="hidden" name="custom" id="custom" value="<%= current_user.id %>" />
+  
+  <!-- Display the payment button. -->
+  <input type="image" name="submit" border="0" src="https://www.paypalobjects.com/en_US/i/btn/btn_subscribe_LG.gif" alt="PayPal - The safer, easier way to pay online">
+  <img alt="" border="0" width="1" height="1" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" />
+</form>

@@ -52,7 +52,11 @@ class AjaxController < ApplicationController
   def new_chats
     @other_user = User.find(params[:uid])
     @last_id = params[:lid].to_i
-    @chats = Chat.where("id > ? AND ((reciever_id = ? AND user_id = ?) OR (reciever_id = ? AND user_id = ?))", @last_id,  @other_user.id, current_user.id, current_user.id, @other_user.id).order('created_at DESC').limit(50).reverse
+    if signed_in?
+      @chats = Chat.where("id > ? AND ((reciever_id = ? AND user_id = ?) OR (reciever_id = ? AND user_id = ?))", @last_id,  @other_user.id, current_user.id, current_user.id, @other_user.id).order('created_at DESC').limit(50).reverse
+    else
+      @chats = Array.new
+    end
     @sql = Chat.where("id > ? AND ((reciever_id = ? AND user_id = ?) OR (reciever_id = ? AND user_id = ?))", @last_id,  @other_user.id, current_user.id, current_user.id, @other_user.id).order('created_at DESC').limit(50).to_sql
     @last_msg_id = (@chats.any?) ? @chats.last.id : @last_id
     render 'new_chats', layout: false

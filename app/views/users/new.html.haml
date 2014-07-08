@@ -22,6 +22,10 @@
           .field
             = f.label "Profession"
             = render 'shared/sub_category_select', c: Category.order('name ASC').first
+
+        .field
+          = f.label :name
+          = f.text_field :name
         .field
           = f.label :email
           = f.text_field :email

@@ -1,0 +1,2 @@
+module PaymentSubscriptionsHelper
+end

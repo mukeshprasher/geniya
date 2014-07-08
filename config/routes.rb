@@ -1,4 +1,8 @@
 Geniya::Application.routes.draw do
+  resources :payments
+
+  resources :payment_subscriptions
+
   resources :events
 
   resources :chats

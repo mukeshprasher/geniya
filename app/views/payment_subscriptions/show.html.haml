@@ -1,0 +1,81 @@
+%p#notice= notice
+
+%p
+  %b User:
+  = @payment_subscription.user_id
+%p
+  %b Subscr:
+  = @payment_subscription.subscr_id
+%p
+  %b Custom:
+  = @payment_subscription.custom
+%p
+  %b Txn type:
+  = @payment_subscription.txn_type
+%p
+  %b Subscr date:
+  = @payment_subscription.subscr_date
+%p
+  %b Period3:
+  = @payment_subscription.period3
+%p
+  %b Item name:
+  = @payment_subscription.item_name
+%p
+  %b Item number:
+  = @payment_subscription.item_number
+%p
+  %b Amount3:
+  = @payment_subscription.amount3
+%p
+  %b Mc amount3:
+  = @payment_subscription.mc_amount3
+%p
+  %b Mc currency:
+  = @payment_subscription.mc_currency
+%p
+  %b First name:
+  = @payment_subscription.first_name
+%p
+  %b Last name:
+  = @payment_subscription.last_name
+%p
+  %b Address name:
+  = @payment_subscription.address_name
+%p
+  %b Address status:
+  = @payment_subscription.address_status
+%p
+  %b Address street:
+  = @payment_subscription.address_street
+%p
+  %b Address city:
+  = @payment_subscription.address_city
+%p
+  %b Address state:
+  = @payment_subscription.address_state
+%p
+  %b Address zip:
+  = @payment_subscription.address_zip
+%p
+  %b Address country:
+  = @payment_subscription.address_country
+%p
+  %b Address country code:
+  = @payment_subscription.address_country_code
+%p
+  %b Residence country:
+  = @payment_subscription.residence_country
+%p
+  %b Status:
+  = @payment_subscription.status
+%p
+  %b Shipment sent:
+  = @payment_subscription.shipment_sent
+%p
+  %b Invoice:
+  = @payment_subscription.invoice
+
+= link_to 'Edit', edit_payment_subscription_path(@payment_subscription)
+\|
+= link_to 'Back', payment_subscriptions_path

@@ -1,0 +1,32 @@
+= simple_form_for(@payment_subscription) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :user_id
+    = f.input :subscr_id
+    = f.input :custom
+    = f.input :txn_type
+    = f.input :subscr_date
+    = f.input :period3
+    = f.input :item_name
+    = f.input :item_number
+    = f.input :amount3
+    = f.input :mc_amount3
+    = f.input :mc_currency
+    = f.input :first_name
+    = f.input :last_name
+    = f.input :address_name
+    = f.input :address_status
+    = f.input :address_street
+    = f.input :address_city
+    = f.input :address_state
+    = f.input :address_zip
+    = f.input :address_country
+    = f.input :address_country_code
+    = f.input :residence_country
+    = f.input :status
+    = f.input :shipment_sent
+    = f.input :invoice
+
+  .form-actions
+    = f.button :submit

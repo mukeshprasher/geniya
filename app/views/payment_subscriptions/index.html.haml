@@ -1,0 +1,67 @@
+%h1 Listing payment_subscriptions
+
+%table
+  %tr
+    %th User
+    %th Subscr
+    %th Custom
+    %th Txn type
+    %th Subscr date
+    %th Period3
+    %th Item name
+    %th Item number
+    %th Amount3
+    %th Mc amount3
+    %th Mc currency
+    %th First name
+    %th Last name
+    %th Address name
+    %th Address status
+    %th Address street
+    %th Address city
+    %th Address state
+    %th Address zip
+    %th Address country
+    %th Address country code
+    %th Residence country
+    %th Status
+    %th Shipment sent
+    %th Invoice
+    %th
+    %th
+    %th
+
+  - @payment_subscriptions.each do |payment_subscription|
+    %tr
+      %td= payment_subscription.user_id
+      %td= payment_subscription.subscr_id
+      %td= payment_subscription.custom
+      %td= payment_subscription.txn_type
+      %td= payment_subscription.subscr_date
+      %td= payment_subscription.period3
+      %td= payment_subscription.item_name
+      %td= payment_subscription.item_number
+      %td= payment_subscription.amount3
+      %td= payment_subscription.mc_amount3
+      %td= payment_subscription.mc_currency
+      %td= payment_subscription.first_name
+      %td= payment_subscription.last_name
+      %td= payment_subscription.address_name
+      %td= payment_subscription.address_status
+      %td= payment_subscription.address_street
+      %td= payment_subscription.address_city
+      %td= payment_subscription.address_state
+      %td= payment_subscription.address_zip
+      %td= payment_subscription.address_country
+      %td= payment_subscription.address_country_code
+      %td= payment_subscription.residence_country
+      %td= payment_subscription.status
+      %td= payment_subscription.shipment_sent
+      %td= payment_subscription.invoice
+      %td= link_to 'Show', payment_subscription
+      %td= link_to 'Edit', edit_payment_subscription_path(payment_subscription)
+      %td= link_to 'Destroy', payment_subscription, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Payment subscription', new_payment_subscription_path

@@ -3,20 +3,20 @@
   .profile_fixed
     .aside
       .field
+        %label Name
+        = @user.name
+      .field
         %label Email
         = @user.email
       .field
         %label Username
         = @user.username
       .field
-        %label Plan
+        %label Account plan
         - if @user.plan == 'trial'
           Basic
         - else
           = @user.plan.capitalize
-      .field
-        %label Plan end date
-        = @user.plan_end
       - if @user.plan != 'visitor'
         .field
           %label Area of work
@@ -34,9 +34,6 @@
       = render 'shared/error_messages', object: f.object
       /= render 'shared/sub_categories_select', form_object: f, category_id: @user.sub_categories.first.category.id
 
-      .field
-        = f.label :name
-        = f.text_field :name, placeholder: "Full name"
       - if current_user.plan == "admin"
         .field
           = f.input :feature_img,     as: :radio_buttons

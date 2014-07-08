@@ -28,12 +28,17 @@ class SessionsController < ApplicationController
       elsif user && user.authenticate(params[:session][:password])
         keep_signed_in = (params[:keep_signed_in].present? and !params[:keep_signed_in].nil? and params[:keep_signed_in] == 'yes') ? true : false
         sign_in(user, keep_signed_in)
-        
-        if user.name.nil?
-          flash.now[:notice] = 'Please enter your name.'
-          redirect_to profile_edit_path user
-        else
-          redirect_back_or root_url
+
+        if user.chosen_plan == 'deluxe' and user.plan == 'trial'
+          flash.now[:notice] = 'Please make payment to subscribe to deluxe plan'
+          redirect_to new_payment_subscription_path
+        else 
+          if user.name.nil?
+            flash.now[:notice] = 'Please enter your name.'
+            redirect_to profile_edit_path user
+          else
+            redirect_back_or root_url
+          end
         end
       else
         flash.now[:error] = 'Invalid email/password combination'

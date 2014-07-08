@@ -1,0 +1,46 @@
+.profile_background{id:"controlls"}
+  .bg_buttan
+    Controls
+  #controll_container
+    #controll_left_container
+      = link_to 'Create organization', new_organization_path, class: 'btn'    
+
+      - if current_user.plan == 'deluxe' or current_user.plan == 'admin'
+        = link_to 'Post job', new_job_path, class: 'btn'
+
+      - if current_user.plan == 'trial'
+        = link_to 'Upgrade', new_payment_subscription_path, class: 'btn'
+
+      - if @user.feature_img == 'true'
+        #organization_controll_container    
+          #addfeatureimg.modal.fade{"data-width" => "760", style: "display: none;", tabindex: "-1"}
+            .modal-header
+              %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
+              %h4.modal-title Add Feature Image
+            .modal-body#profile_cover_upload_modal_body
+              = form_for @featureimg,  :html => { :multipart => true, id: :feature_img_form} do |f|
+                = f.hidden_field :user_id, value: current_user.id    
+                .field
+                  = f.file_field :feature_img, id: "user_feature_img"  
+                .actions
+                  = f.submit 'Add Feature Image', id: "user_featureimg_btn", class: "btn"
+                %img{alt: "loading", src: "/assets/loader.gif", style: "visibility: hidden"}/
+            .modal-footer
+              %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
+              /%button.btn.btn-primary{type: "button"} Save changes
+          %a.demo{"data-toggle" => "modal",href: "#addfeatureimg", id: "#addfeatureimg", class: 'btn'}
+            %span
+              Add Feature Image       
+
+
+    #controll_right_container
+      = link_to 'Edit profile', "/users/"+current_user.slug+"/profile_edit", class: 'btn'
+
+      - if current_user.plan == 'deluxe' or current_user.plan == 'admin'
+        = link_to 'Create advertisement', new_advertisement_path, class: 'btn'
+
+        - if current_user.advertisements.any?
+          = link_to 'My advertisements', advertisements_path, class: 'btn'
+
+    .clear
+  .clear

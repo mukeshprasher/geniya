@@ -8,6 +8,7 @@
   - when 'share'
     - action_text = 'shared'
 
-  - obj = response.acted_upon_type.constantize.find(response.acted_upon_id)
-  %li{:class => ("gray" unless response.status == 0)}
-    = link_to "#{actor.name} #{action_text} your #{response.acted_upon_type}", obj
+  - obj = response.acted_upon_type.constantize.find_by_id(response.acted_upon_id)
+  - unless obj.nil?
+    %li{:class => ("gray" unless response.status == 0)}
+      = link_to "#{actor.name} #{action_text} your #{response.acted_upon_type}", obj

@@ -1,0 +1,46 @@
+= simple_form_for(@payment) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :payment_subscription_id
+    = f.input :user_id
+    = f.input :txn_id
+    = f.input :subscr_id
+    = f.input :item_name
+    = f.input :transaction_subject
+    = f.input :item_number
+    = f.input :receiver_email
+    = f.input :payer_email
+    = f.input :business
+    = f.input :payer_id
+    = f.input :receiver_id
+    = f.input :payment_date
+    = f.input :payment_status
+    = f.input :mc_gross
+    = f.input :payment_gross
+    = f.input :mc_fee
+    = f.input :payment_fee
+    = f.input :mc_currency
+    = f.input :protection_eligibility
+    = f.input :first_name
+    = f.input :last_name
+    = f.input :address_name
+    = f.input :address_street
+    = f.input :address_city
+    = f.input :address_state
+    = f.input :address_zip
+    = f.input :address_country_code
+    = f.input :address_country
+    = f.input :residence_country
+    = f.input :address_status
+    = f.input :payment_type
+    = f.input :txn_type
+    = f.input :payer_status
+    = f.input :verify_sign
+    = f.input :ipn_track_id
+    = f.input :test_ipn
+    = f.input :charset
+    = f.input :notify_version
+
+  .form-actions
+    = f.button :submit

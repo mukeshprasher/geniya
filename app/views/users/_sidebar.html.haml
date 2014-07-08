@@ -1,0 +1,152 @@
+.network
+  %h2 Network
+  %ul
+    %li#network_tab_follower
+      %span#tab_logo
+      %strong#followers.stat
+        = @user.followers.count
+      Followers
+      %a#followersuser
+        %img{alt: "", height: "22", src: "/assets/network_img2.png", width: "22", id: "follw-img"}/
+    .social_user
+      - @users = @user.followers.limit(18)
+      - if @users.any?
+        %ul.users= render @users
+      - else
+        .empty_content_follower
+          %p
+            No Followers
+      %p
+        #all-follower.modal.fade{"data-width" => "760", style: "display: none;", tabindex: "-1"}
+          .modal-header
+            %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
+            %h4.modal-title
+              = @user.username
+              Followers
+          .modal-body
+            - @users = @user.followers.limit(18)
+            - if @users.any?
+              %ul.users= render @users
+          .modal-footer
+            %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
+        %a.demo{"data-toggle" => "modal",href: "#all-follower", id: "follower-link"}
+          - if @users.any?
+            See All Followers »
+    %li#network_tab_following
+      %span#tab_logo
+      %strong#following.stat
+        = @user.followed_users.count
+      Following
+      %a#followinguser
+        %img{alt: "", height: "22", src: "/assets/network_img2.png", width: "22"}/
+    .socail_share
+      - @users = @user.followed_users.limit(18)
+      - if @users.any?
+        %ul.users= render @users 
+      - else
+        .empty_content_following
+          %p
+            No Followings                         
+      %p
+        #all-following.modal.fade{"data-width" => "760", style: "display: none;", tabindex: "-1"}
+          .modal-header
+            %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
+            %h4.modal-title 
+              = @user.username
+              Following
+          .modal-body
+            - @users = @user.followed_users
+            - if @users.any?
+              %ul.users= render @users
+          .modal-footer
+            %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
+        %a.demo{"data-toggle" => "modal",href: "#all-following", id: "follower-link"}
+          - if @users.any?
+            See All Following »          
+    %li#network_tab_connected
+      %span#tab_logo
+      %p 
+        = @user.connected_users.count
+        Connections
+      %a#connecteduser
+        %img{alt: "", height: "22", src: "/assets/network_img2.png", width: "22"}/
+    .connt_user
+      - @users = @user.connected_users.limit(18)
+      - if @users.any?
+        %ul.users= render @users          
+      - else
+        .empty_content_connect
+          %p
+            No Connections 
+      %p
+        #all-connection.modal.fade{"data-width" => "760", style: "display: none;", tabindex: "-1"}
+          .modal-header
+            %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
+            %h4.modal-title
+              = @user.username
+              Connetions
+          .modal-body
+            - @users = @user.connected_users
+            - if @users.any?
+              %ul.users= render @users
+          .modal-footer
+            %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
+        %a.demo{"data-toggle" => "modal",href: "#all-connection", id: "follower-link"}
+          - if @users.any?
+            See All Connections »                                
+    .clear 
+- if signed_in? and current_user?(@user) and (current_user.plan == 'deluxe' or current_user.plan == 'admin')
+  #event_calendar_cont.span315.network
+    #event_modal.modal.fade{"data-width" => "400", style: "display: none;", tabindex: "-1"}
+    %h2 Event calendar
+    #event_calendar
+    #new_event_modal.modal.fade{"data-width" => "500", style: "display: none;", tabindex: "-1"}
+      .modal-header
+        %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
+        %h4.modal-title
+          New event
+      .modal-body
+        = render 'events/form'
+      .modal-footer
+        %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
+    .width_half.float_left
+      /%a.demo{"data-toggle" => "modal",href: "#new_event_modal", id: "new_event_button"}
+      = link_to 'Add new event', new_event_path
+    .width_half.float_left.text_right
+      = link_to 'View detail', events_path
+
+#discover_geniye_profile_cont.discover.span315
+  Discover Geniya
+  %ul.discover_nav
+    %li
+      %a{href: ""} Home
+    - @categories.each do |category|
+      %li
+        = link_to category.name.sub(' ', '/'), '/portfolios/'+ category.slug
+  .clear
+  .search
+    = form_tag(portfolios_path, method: :get) do
+      %input{name: 'q', placeholder: "Enter keyword", type: "text", class: "srch-portf"}
+      = submit_tag 'Go', class: 'go'      
+  /.ageFilter
+  /  #ageRange
+  /    .currentRange{style: "left: 4.5px; right: 0px;"}
+  /    .leftGrip.grip{"data-value" => "19", style: "left: 4.5px;"}
+  /      %span 19
+  /    .rightGrip.grip{"data-value" => "51", style: "left: 260px;"}
+  /      %span 50+
+
+.add_sec
+  - if @jobs.any?
+    .bg_buttan_job
+      Jobs
+  .ads-box
+    - @jobs.each do |job|
+      = render job        
+
+.add_sec
+  - if @ads.any?
+    .bg_buttan_job
+      Advertisements
+  .ads-box
+    = render 'shared/advertise_form', user: @user 

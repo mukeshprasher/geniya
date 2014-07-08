@@ -1,0 +1,123 @@
+%p#notice= notice
+
+%p
+  %b Payment subscription:
+  = @payment.payment_subscription_id
+%p
+  %b User:
+  = @payment.user_id
+%p
+  %b Txn:
+  = @payment.txn_id
+%p
+  %b Subscr:
+  = @payment.subscr_id
+%p
+  %b Item name:
+  = @payment.item_name
+%p
+  %b Transaction subject:
+  = @payment.transaction_subject
+%p
+  %b Item number:
+  = @payment.item_number
+%p
+  %b Receiver email:
+  = @payment.receiver_email
+%p
+  %b Payer email:
+  = @payment.payer_email
+%p
+  %b Business:
+  = @payment.business
+%p
+  %b Payer:
+  = @payment.payer_id
+%p
+  %b Receiver:
+  = @payment.receiver_id
+%p
+  %b Payment date:
+  = @payment.payment_date
+%p
+  %b Payment status:
+  = @payment.payment_status
+%p
+  %b Mc gross:
+  = @payment.mc_gross
+%p
+  %b Payment gross:
+  = @payment.payment_gross
+%p
+  %b Mc fee:
+  = @payment.mc_fee
+%p
+  %b Payment fee:
+  = @payment.payment_fee
+%p
+  %b Mc currency:
+  = @payment.mc_currency
+%p
+  %b Protection eligibility:
+  = @payment.protection_eligibility
+%p
+  %b First name:
+  = @payment.first_name
+%p
+  %b Last name:
+  = @payment.last_name
+%p
+  %b Address name:
+  = @payment.address_name
+%p
+  %b Address street:
+  = @payment.address_street
+%p
+  %b Address city:
+  = @payment.address_city
+%p
+  %b Address state:
+  = @payment.address_state
+%p
+  %b Address zip:
+  = @payment.address_zip
+%p
+  %b Address country code:
+  = @payment.address_country_code
+%p
+  %b Address country:
+  = @payment.address_country
+%p
+  %b Residence country:
+  = @payment.residence_country
+%p
+  %b Address status:
+  = @payment.address_status
+%p
+  %b Payment type:
+  = @payment.payment_type
+%p
+  %b Txn type:
+  = @payment.txn_type
+%p
+  %b Payer status:
+  = @payment.payer_status
+%p
+  %b Verify sign:
+  = @payment.verify_sign
+%p
+  %b Ipn track:
+  = @payment.ipn_track_id
+%p
+  %b Test ipn:
+  = @payment.test_ipn
+%p
+  %b Charset:
+  = @payment.charset
+%p
+  %b Notify version:
+  = @payment.notify_version
+
+= link_to 'Edit', edit_payment_path(@payment)
+\|
+= link_to 'Back', payments_path
