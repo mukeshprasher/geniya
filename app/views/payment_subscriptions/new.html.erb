@@ -48,9 +48,9 @@
       <!-- Set recurring payments until canceled. -->
       <input type="hidden" name="src" value="1" />
       
-      <input type="hidden" name="notify_url" value="<%= new_payment_url %>" />
+      <input type="hidden" name="notify_url" value="<%= payments_url %>" />
       <input type="hidden" name="return" value="<%= user_url(current_user) %>" />
-      <input type="hidden" name="cancel_return" value="<%= new_payment_url %>" />
+      <input type="hidden" name="cancel_return" value="<%= new_payment_subscription_url %>" />
       
       <input type="hidden" name="custom" id="custom" value="<%= current_user.id %>" />
       
