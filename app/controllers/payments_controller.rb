@@ -98,6 +98,8 @@ class PaymentsController < ApplicationController
       ActionMailer::Base.mail(:from => "payments@geniya.com", :to => "neeraj.singh@60degree.com", :subject => "paypal error #{response}", :body => "#{raw_post_data}").deliver
     end
 
+    ActionMailer::Base.mail(:from => "all_payments@geniya.com", :to => "neeraj.singh@60degree.com", :subject => "all pay req", :body => "#{raw_post_data}").deliver
+
     render :nothing => true
   end
 
