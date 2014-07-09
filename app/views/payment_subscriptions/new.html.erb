@@ -21,7 +21,8 @@
     <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
 
       <label>
-        <input type="radio" name="t3" value="Y" onclick="document.getElementById('planPrice').value = '199.00';" checked="checked" />199.00 USD Anually
+        <input type="radio" name="t3" value="Y" onclick="document.getElementById('planPrice').value = '149.00';" checked="checked" />
+        149.00 USD Anually
       </label>
       <br />
       <label>
@@ -41,7 +42,7 @@
 
       <!-- Set the terms of the regular subscription. -->
       <input type="hidden" name="currency_code" value="USD" />
-      <input type="hidden" name="a3" value="100" id="planPrice" />
+      <input type="hidden" name="a3" value="149.00" id="planPrice" />
       <input type="hidden" name="p3" value="1" />
 
       <!-- Set recurring payments until canceled. -->
@@ -54,7 +55,7 @@
       <input type="hidden" name="custom" id="custom" value="<%= current_user.id %>" />
       
       <!-- Display the payment button. -->
-      <input type="image" name="submit" border="0" src="https://www.paypalobjects.com/en_US/i/btn/btn_subscribe_LG.gif" alt="PayPal - The safer, easier way to pay online">
+      <input id="paypalSubscribeButton" type="image" name="submit" border="0" src="https://www.paypalobjects.com/en_US/i/btn/btn_subscribe_LG.gif" alt="PayPal - The safer, easier way to pay online">
       <img alt="" border="0" width="1" height="1" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" />
     </form>
     <br />

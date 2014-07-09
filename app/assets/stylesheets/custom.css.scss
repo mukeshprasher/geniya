@@ -848,7 +848,8 @@ form {margin: 0 0 5px;}
   float: left;
   margin-right: 20px;
   max-width: 24%;
-  padding: 10px 62px 10px 5px; position:relative
+  padding: 10px 62px 10px 5px; position:relative;
+  min-height: 910px;
 }
 
 .free_plan {float: left;}
@@ -3346,7 +3347,7 @@ body {
 .price_deluxe{
   color: #7BA400;
   font-family: "Arial Black";
-  font-size: 43px;
+  font-size: 40px;
   text-shadow: 5px 5px 5px #BBBABA;
 }
 .plan_term{
@@ -3403,4 +3404,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 .spaced-right {
   padding-right: 20px;
+}
+#paypalSubscribeButton{
+  border: none;
 }
