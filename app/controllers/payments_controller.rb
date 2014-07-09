@@ -1,4 +1,6 @@
 class PaymentsController < ApplicationController
+  protect_from_forgery :except => [:create] #Otherwise the request from PayPal wouldn't make it to the controller  
+  
   before_action :set_payment, only: [:show, :edit, :update, :destroy]
   before_action :admin_user, :except => [:create]
 
