@@ -100,5 +100,7 @@ Geniya::Application.configure do
       :secret_access_key => ENV['5UAbLpnnhu109OSm8ec0B+hnBeoIhyIcIQYVQ36k']
     }
   }
+  
+  config.action_controller.action_on_unpermitted_parameters = :log
 
 end

@@ -25,7 +25,7 @@
                 = link_to acted_upon_obj.name, acted_upon_obj
               - if activity.user != acted_upon_obj.user
                 by
-                = link_to acted_upon_obj.user.name, activity.user
+                = link_to acted_upon_obj.user.name, acted_upon_obj.user
       .user
         .userTop
           %p.feed-text
