@@ -5,6 +5,8 @@ class PagesController < ApplicationController
         @connected_user_ids = current_user.connections.where("status= 'accepted' or status='confirmed'").pluck(:connection_id)
         @listning_to_user_ids = @connected_user_ids + current_user.followed_user_ids
         
+        @listning_to_user_ids << current_user.id
+        
         #@ids = listning_to_user_ids_for_sql_in
         if @listning_to_user_ids.length == 0
           @activities = Activity.paginate(page: params[:page], per_page: 15).order(created_at: :desc)
