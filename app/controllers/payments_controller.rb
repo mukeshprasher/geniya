@@ -45,28 +45,32 @@ class PaymentsController < ApplicationController
           @payment_subscription = PaymentSubscription.where(:subscr_id => subscription_id).first
           @payment_subscription = PaymentSubscription.new(raw_post_data) if @payment_subscription.blank?
           @payment_subscription.status = 'active'          
-          if @payment_subscription.save
-            raw_post_data[:payment_subscription_id] = @payment_subscription.id
-            @payment = Payment.new(raw_post_data)
-            @payment.save
-            if @payment.save
-              @user = User.find(@payment.user_id)
-              @user.plan = 'deluxe'
-              @user.save validate: false
+          if ((params[:mc_gross] == "149.00" or params[:mc_gross] == "19.99" or params[:mc_gross] == "1.01") and params[:receiver_email] == "neeraj.singh-facilitator@60degree.com")
+            if @payment_subscription.save
+              raw_post_data[:payment_subscription_id] = @payment_subscription.id
+              @payment = Payment.new(raw_post_data)
+              @payment.save
+              if @payment.save
+                @user = User.find(@payment.user_id)
+                @user.plan = 'deluxe'
+                @user.save validate: false
+              end
             end
           end
         end
       when "subscr_signup"
-        @payment_subscription = PaymentSubscription.where(:subscr_id => subscription_id).first
-        if @payment_subscription.blank?
-          @payment_subscription = PaymentSubscription.new(raw_post_data)
-          @payment_subscription.status = 'new'
-        else
-          @payment_subscription.update_attributes(raw_post_data)
-          @payment_subscription.status = 'active'
+        if ((params[:mc_amount3] == "149.00" and params[:period3] == "1 Y") or (params[:mc_amount3] == "19.99" and params[:period3] == "1 M") or (params[:mc_amount3] == "1.01" and params[:period3] == "1 D")  and params[:receiver_email] == "neeraj.singh-facilitator@60degree.com")
+          @payment_subscription = PaymentSubscription.where(:subscr_id => subscription_id).first
+          if @payment_subscription.blank?
+            @payment_subscription = PaymentSubscription.new(raw_post_data)
+            @payment_subscription.status = 'new'
+          else
+            @payment_subscription.update_attributes(raw_post_data)
+            @payment_subscription.status = 'active'
+          end
+          
+          @payment_subscription.save
         end
-        
-        @payment_subscription.save
       else
         @payment_subscription = PaymentSubscription.where(:subscr_id => subscription_id).first
         case transaction_type
