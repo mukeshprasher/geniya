@@ -27,7 +27,7 @@ class PaymentsController < ApplicationController
   # POST /payments
   # POST /payments.json
   def create
-  
+    params.permit!
     params[:user_id]   = params[:custom]
     transaction_type      = params[:txn_type]
     payment_status        = params[:payment_status]
