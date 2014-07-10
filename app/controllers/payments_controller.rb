@@ -46,7 +46,7 @@ class PaymentsController < ApplicationController
           @payment_subscription = PaymentSubscription.new(raw_post_data) if @payment_subscription.blank?
           @payment_subscription.status = 'active'          
           if @payment_subscription.save
-            raw_post_data[:subscription_id] = @payment_subscription.id
+            raw_post_data[:payment_subscription_id] = @payment_subscription.id
             @payment = Payment.new(raw_post_data)
             @payment.save
             if @payment.save
