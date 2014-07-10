@@ -2,4 +2,7 @@
   - c.sub_category_groups.each do|group|
     %optgroup{label: "#{group.name}"}
       - group.sub_categories.each do|sub_cat|
-        %option{value: "#{sub_cat.id}", selected: params[:user][:sub_category_id] == "#{sub_cat.id}"}  #{sub_cat.name}
+        - if params[:user].present? and params[:user][:sub_category_id].present?
+          %option{value: "#{sub_cat.id}", selected: params[:user][:sub_category_id] == "#{sub_cat.id}"}  #{sub_cat.name}
+        - else
+          %option{value: "#{sub_cat.id}"}  #{sub_cat.name}
