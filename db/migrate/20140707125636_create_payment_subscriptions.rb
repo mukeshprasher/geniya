@@ -27,6 +27,30 @@ class CreatePaymentSubscriptions < ActiveRecord::Migration
       t.string :shipment_sent
       t.string :invoice
       t.string :status
+      t.string :business
+      t.string :recurring
+      t.string :verify_sign
+      t.string :payer_status
+      t.string :test_ipn
+      t.string :payer_email
+      t.string :receiver_email
+      t.string :payer_id
+      t.string :reattempt
+      t.string :charset
+      t.string :notify_version
+      t.string :ipn_track_id
+      t.string :transaction_subject
+      t.string :payment_date
+      t.string :txn_type
+      t.string :payment_gross
+      t.string :payment_type
+      t.string :protection_eligibility
+      t.string :txn_id
+      t.string :receiver_id
+      t.string :payment_status
+      t.string :payment_fee
+      t.string :mc_fee
+      t.string :mc_gross
 
       t.timestamps
     end

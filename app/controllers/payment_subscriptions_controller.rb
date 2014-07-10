@@ -70,6 +70,6 @@ class PaymentSubscriptionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def payment_subscription_params
-      params.require(:payment_subscription).permit(:user_id, :subscr_id, :custom, :txn_type, :subscr_date, :period3, :item_name, :item_number, :amount3, :mc_amount3, :mc_currency, :first_name, :last_name, :address_name, :address_status, :address_street, :address_city, :address_state, :address_zip, :address_country, :address_country_code, :residence_country, :status, :shipment_sent, :invoice)
+      params.require(:payment_subscription).permit(:user_id, :business, :subscr_id, :custom, :txn_type, :subscr_date, :period3, :item_name, :item_number, :amount3, :mc_amount3, :mc_currency, :first_name, :last_name, :address_name, :address_status, :address_street, :address_city, :address_state, :address_zip, :address_country, :address_country_code, :residence_country, :status, :shipment_sent, :invoice)
     end
 end

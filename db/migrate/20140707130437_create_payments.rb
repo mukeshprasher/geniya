@@ -40,6 +40,7 @@ class CreatePayments < ActiveRecord::Migration
       t.string :test_ipn
       t.string :charset
       t.string :notify_version
+      t.string :custom
 
       t.timestamps
     end
