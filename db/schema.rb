@@ -435,6 +435,8 @@ ActiveRecord::Schema.define(version: 20140708105040) do
     t.string   "payment_fee"
     t.string   "mc_fee"
     t.string   "mc_gross"
+    t.string   "controller"
+    t.string   "action"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -480,6 +482,8 @@ ActiveRecord::Schema.define(version: 20140708105040) do
     t.string   "charset"
     t.string   "notify_version"
     t.string   "custom"
+    t.string   "controller"
+    t.string   "action"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

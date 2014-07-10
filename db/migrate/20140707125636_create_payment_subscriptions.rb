@@ -51,6 +51,8 @@ class CreatePaymentSubscriptions < ActiveRecord::Migration
       t.string :payment_fee
       t.string :mc_fee
       t.string :mc_gross
+      t.string :controller
+      t.string :action
 
       t.timestamps
     end

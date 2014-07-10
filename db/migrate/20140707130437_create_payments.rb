@@ -41,6 +41,8 @@ class CreatePayments < ActiveRecord::Migration
       t.string :charset
       t.string :notify_version
       t.string :custom
+      t.string :controller
+      t.string :action
 
       t.timestamps
     end
