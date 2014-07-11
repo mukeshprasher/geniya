@@ -1,44 +1,55 @@
+function show_reply_box(comment_id){
+  //var comment_id=this.id.split("-")[1]
+  $(".child-comment-form-"+comment_id).show();
+  //console.log($(".child-comment-form-"+comment_id).html())
+  $('.child_comment_reply_textarea_'+comment_id).focus();
+
+  $(this).attr('disabled','disabled');
+}
+
 $(function() {
   var toDoOnloadComment;
   toDoOnloadComment = function() {
-    $(".comment-reply").click(function() {
-      var comment_id=this.id.split("-")[1]
-      $("#child-comment-form-"+comment_id).show();
-      $('#child_comment_reply_textarea_'+comment_id).focus();
+//    $(".comment-reply").click(function() {
+//      alert('dv')
+//      var comment_id=this.id.split("-")[1]
+//      $(".child-comment-form-"+comment_id).show();
+//      //console.log($(".child-comment-form-"+comment_id).html())
+//      $('.child_comment_reply_textarea_'+comment_id).focus();
 
-      $(this).attr('disabled','disabled');
-//      $('#child_comment_reply_textarea_'+comment_id).live("keypress", function(e) {
-//         var code = (e.keyCode ? e.keyCode : e.which);
-//         if (code == 13 && e.shiftKey) {
-//            var content = this.value;
-//            //var caret = getCaret(this);
-//            this.value = content + "\n"
-//            //this.value = content.substring(0,caret)+"\n"+content.substring(caret,content.length-1);
-//            $(this).attr('rows', parseInt($(this).attr('rows')) + 1)
-//            e.preventDefault();
-//            e.stopPropagation();
-//         }
-//         else if (code == 13) {
-//            e.preventDefault();
-//            e.stopPropagation();
-//            $(this).closest('form').submit();
-//            $(this).attr('rows', 1)
-//         }
-//      });
-    });
+//      $(this).attr('disabled','disabled');
+////      $('#child_comment_reply_textarea_'+comment_id).live("keypress", function(e) {
+////         var code = (e.keyCode ? e.keyCode : e.which);
+////         if (code == 13 && e.shiftKey) {
+////            var content = this.value;
+////            //var caret = getCaret(this);
+////            this.value = content + "\n"
+////            //this.value = content.substring(0,caret)+"\n"+content.substring(caret,content.length-1);
+////            $(this).attr('rows', parseInt($(this).attr('rows')) + 1)
+////            e.preventDefault();
+////            e.stopPropagation();
+////         }
+////         else if (code == 13) {
+////            e.preventDefault();
+////            e.stopPropagation();
+////            $(this).closest('form').submit();
+////            $(this).attr('rows', 1)
+////         }
+////      });
+//    });
     
-    $(".comment-delete").click(function(){
-     var delcomment = confirm("Do you want to delete this comment ?");
-     if(delcomment == true)
-     {
-     var delete_comment_id=this.id.split("-")[2]
-       $("#comment-"+delete_comment_id).hide('slow');
-       return true;
-     }
-     else
-       {$("#comment-"+delete_comment_id).show();
-       return false;}
-     });
+//    $(".comment-delete").click(function(){
+//     var delcomment = confirm("Do you want to delete this comment ?");
+//     if(delcomment == true)
+//     {
+//     var delete_comment_id=this.id.split("-")[2]
+//       $("#comment-"+delete_comment_id).hide('slow');
+//       return true;
+//     }
+//     else
+//       {$("#comment-"+delete_comment_id).show();
+//       return false;}
+//     });
  
     $(".ads_box-delete").click(function(){
      var delcomment = confirm("Do you want to delete this Advertisement ?");

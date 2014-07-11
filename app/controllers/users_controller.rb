@@ -17,6 +17,9 @@ class UsersController < ApplicationController
 
   def show
     if signed_in?
+      if params[:auth].present?
+        flash[:notice] = "It may take a while to process payments."
+      end
       @updates = @user.updates.paginate(page: params[:page], :per_page => 10)
       @headshot = Upload.new
       @covershot = Cover.new

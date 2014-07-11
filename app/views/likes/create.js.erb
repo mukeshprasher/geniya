@@ -1,4 +1,4 @@
-$("#like_form_<%= @object.class.name %>_<%= @object.id %>").html("<%= escape_javascript(render('shared/unlike', object: @object)) %>")
-$("#likers_<%= @object.class.name %>_<%= @object.id %>").html("<%= escape_javascript(render('shared/comment_count', comment: @object)) %>")
+$(".like_form_<%= @object.class.name %>_<%= @object.id %>").html("<%= escape_javascript(render('shared/unlike', object: @object)) %>")
+$(".likers_<%= @object.class.name %>_<%= @object.id %>").html("<%= escape_javascript(render('shared/comment_count', comment: @object)) %>")
 $("#likes_count_<%= @object.class.name %>_<%= @object.id %>").html("<%= @object.likers(User).count %>")
 

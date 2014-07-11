@@ -1,7 +1,7 @@
 - acted_upon_obj = activity.acted_upon_type.constantize.find_by(id: activity.acted_upon_id)
 - unless acted_upon_obj.nil?
 - action_texts = {'like'=> 'likes', 'share'=> 'shared', 'create'=> 'shared'}
-  - unless ( (activity.acted_upon_type == 'Update') and ( ((acted_upon_obj.privacy == 'connections') and (!@connected_user_ids.include?(activity.user_id))) or ((acted_upon_obj.privacy == 'connections and followers') and (!@listning_to_user_ids.include?(activity.user_id))) )  )
+  - unless ( ((activity.acted_upon_type == 'Update') and ( ((acted_upon_obj.privacy == 'connections') and (!@connected_user_ids.include?(activity.user_id))) or ((acted_upon_obj.privacy == 'connections and followers') and (!@listning_to_user_ids.include?(activity.user_id))) )) and  activity.user != current_user )
     %li{id: "activity_#{activity.id}", class: "firstCol"}
       .delete-update
         - if current_user?(activity.user)
@@ -71,7 +71,7 @@
             #{time_ago_in_words(activity.created_at)} ago.
         .userBottom
           .like_this-1
-            = render 'shared/like_form', object: acted_upon_obj, user: acted_upon_obj.user
+            = render 'shared/like_form', object: acted_upon_obj
           - if current_user
             .like_this-1
               &nbsp 
@@ -99,5 +99,5 @@
             - comments = acted_upon_obj.comment_threads.where('parent_id IS NULL').order('created_at desc').limit(2)
             - @new_comment = Comment.build_from(acted_upon_obj, current_user.id, "")
             .comments
-              = render :partial => 'comments/feed_comment', :locals => { comment: @new_comment, parent_id: nil , feed_id: acted_upon_obj.id}
-              = render :partial => 'comments/feed_child_comments', :collection => comments, :as => :comment
+              = render :partial => 'comments/form', :locals => { comment: @new_comment, parent_id: nil , feed_id: acted_upon_obj.id}
+              = render :partial => 'comments/comment', :collection => comments, :as => :comment

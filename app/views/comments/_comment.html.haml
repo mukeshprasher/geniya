@@ -1,7 +1,7 @@
-%div.comment{ :id => "comment-#{comment.id}" }
+%div{ :id => "comment-#{comment.id}", class: "comment-#{comment.id} comment" }
   %hr
     -if (current_user == comment.user) && signed_in?
-      = link_to "×", comment_path(comment), :method => :delete, :remote => true,  :disable_with => "×", :class => 'comment-delete' , :id => "comment-delete-#{comment.id}"
+      = link_to '×', comment, :method => :delete, :remote => true, :data => { :confirm => 'Are you sure?' }
     %span.comment-user-pic  
       - if comment.user.headshot
         = image_tag comment.user.headshot.file_attachment.url(:thumb)
@@ -19,8 +19,8 @@
         = render 'shared/like_form', object: comment, user: comment.user
     -if signed_in? 
       .reply-button 
-        %input{type: "button", value: "Reply", class: "comment-reply" ,id: "reply-#{comment.id}"}/
-      %div.child_comments{ :id => "child-comments-#{comment.id}" }
+        %input{onclick: "show_reply_box(#{comment.id})", type: "button", value: "Reply", class: "comment-reply reply-#{comment.id}" ,id: "reply-#{comment.id}"}/
+      %div{ :id => "child-comments-#{comment.id}", :class => "child-comments-#{comment.id} child_comments"  }
         - comment.children.each do|child| 
           = render :partial => 'comments/child_comment', :locals => { child: child}
     = render :partial => 'comments/child_form', :locals => { comment: @new_comment, parent_id: comment.id}          

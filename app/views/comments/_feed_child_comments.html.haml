@@ -12,7 +12,6 @@
         = comment.user.username
       %span#feed_text
         = simple_format raw comment.body
-      //%small= simple_format(comment.body)
       %p
         %small 
           = comment.updated_at
@@ -20,7 +19,7 @@
         = render 'shared/like_form', object: comment, user: comment.user
     -if signed_in?
       .reply-button 
-        %input{type: "button", value: "Reply", class: "comment-reply" ,id: "reply-#{comment.id}"}/
+        %input{onclick: "show_reply_box(#{comment.id})", type: "button", value: "Reply", class: "comment-reply" ,id: "reply-#{comment.id}"}/
       %div.child_comments{ :id => "child-comments-#{comment.id}" }
         - comment.children.each do|child| 
           = render :partial => 'comments/child_comment', :locals => { child: child}

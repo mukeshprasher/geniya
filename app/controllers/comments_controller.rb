@@ -34,7 +34,7 @@ class CommentsController < ApplicationController
 
     if @comment.has_children?
       @comment.children.each do |child|
-        Like.where(likeable_type: 'Comment', likeable_id: child.id).destroy
+        #Like.where(likeable_type: 'Comment', likeable_id: child.id).destroy
         destroy_all_comments_likes_activities_and_responses_of_obj(child)
         child.destroy
       end

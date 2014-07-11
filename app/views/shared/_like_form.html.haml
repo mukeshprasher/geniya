@@ -1,9 +1,9 @@
 - if signed_in?
-  %div{ :id => "like_form_#{object.class.name}_#{object.id}" }
+  %div{ :id => "like_form_#{object.class.name}_#{object.id}", :class => "like_form_#{object.class.name}_#{object.id}" }
     -if current_user.likes?(object)
       = render 'shared/unlike', object: object
     -else
       = render 'shared/like', object: object
-  %div{ :id => "likers_#{object.class.name}_#{object.id}" }
+  %div{ :id => "likers_#{object.class.name}_#{object.id}", :class => "likers_#{object.class.name}_#{object.id}" }
     = render 'shared/comment_count', comment: object
 
