@@ -77,6 +77,8 @@ class User < ActiveRecord::Base
     validates_presence_of :category_id, presence: true
     validates_presence_of :sub_category_id, presence: true
     #validates_presence_of :slug
+    validate :birthdate_custom_validate
+
 
 
     
@@ -87,6 +89,11 @@ class User < ActiveRecord::Base
      
     extend FriendlyId
     friendly_id :username, use: [:slugged, :finders]
+
+    def birthdate_custom_validate
+      errors.add(:birthdate, 'must be a valid date') if ((DateTime.parse(birthdate.to_s) rescue ArgumentError) == ArgumentError) and birthdate.present?
+      errors.add(:birthdate, 'must be a from past') if birthdate.present? and birthdate > Date.today 
+    end
 
     def User.new_remember_token
         SecureRandom.urlsafe_base64

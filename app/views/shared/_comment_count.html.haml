@@ -40,13 +40,13 @@
         %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
         %h4.modal-title
           = comment.class.name
-          - if comment.class.name != 'Update'
+          - if comment.class.name != 'Update' and comment.class.name != 'Comment'
             '
             = comment.name
             '
           liked by Users
       .modal-body
-        %ul.users= render others
+        %ul.users= render others.first(50)
       .modal-footer
         %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
     %a.demo{"data-toggle" => "modal",href: "#" + rand_string, title: others_title}
