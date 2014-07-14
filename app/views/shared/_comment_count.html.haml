@@ -31,7 +31,7 @@
     = ' and ' unless you == false and main.count == 0
     - others_title = ''
     - others.each_with_index do |user, index|
-      - others_title += user.name
+      - others_title += user.name if user.name.present?
       - others_title += ', ' if index +1 < others.count
 
     - rand_string = ('a'..'z').to_a.shuffle[0..19].join
