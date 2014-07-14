@@ -28,8 +28,8 @@
         = ', ' if you == true
         =  link_to user.name, user
   - if others.count > 0
-    - likers_text += ' and ' unless you == false and main.count == 0
-    - likers_text += link_to others.count, current_user
+    = ' and ' unless you == false and main.count == 0
+    = link_to others.count, current_user
     - if you == false and main.count == 0 and others.count == 1
       = ' person'
     - elsif you == false and main.count == 0 and others.count > 1
