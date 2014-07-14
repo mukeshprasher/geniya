@@ -3,7 +3,7 @@
   %ul
     %li#network_tab_follower
       %span#tab_logo
-      %strong#followers.stat
+      %strong#followers.stat.followers
         = @user.followers.count
       Followers
       %a#followersuser
@@ -66,12 +66,12 @@
     %li#network_tab_connected
       %span#tab_logo
       %p 
-        = @user.connected_users.count
+        = @user.confirmed_connected_users.count
         Connections
       %a#connecteduser
         %img{alt: "", height: "22", src: "/assets/network_img2.png", width: "22"}/
     .connt_user
-      - @users = @user.connected_users.limit(18)
+      - @users = @user.confirmed_connected_users.limit(18)
       - if @users.any?
         %ul.users= render @users          
       - else
@@ -86,7 +86,7 @@
               = @user.username
               Connetions
           .modal-body
-            - @users = @user.connected_users
+            - @users = @user.confirmed_connected_users
             - if @users.any?
               %ul.users= render @users
           .modal-footer

@@ -94,7 +94,7 @@
             %h3
               %span
                 %span#connct-counts
-                  = @user.connected_users.count
+                  = @user.confirmed_connected_users.count
                 Connections
       - if (current_user == @user) && signed_in?    
         #ProfileCoverPhotoSelector
