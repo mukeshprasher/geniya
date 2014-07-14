@@ -29,7 +29,28 @@
         =  link_to user.name, user
   - if others.count > 0
     = ' and ' unless you == false and main.count == 0
-    = link_to others.count, current_user
+    - others_title = ''
+    - others.each_with_index do |user, index|
+      - others_title += user.name
+      - others_title += ', ' if index +1 < others.count
+
+    - rand_string = ('a'..'z').to_a.shuffle[0..19].join
+    %div.modal.fade{"data-width" => "760", style: "display: none;", tabindex: "-1", id: rand_string}
+      .modal-header
+        %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
+        %h4.modal-title
+          = comment.class.name
+          - if comment.class.name != 'Update'
+            '
+            = comment.name
+            '
+          liked by Users
+      .modal-body
+        %ul.users= render others
+      .modal-footer
+        %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
+    %a.demo{"data-toggle" => "modal",href: "#" + rand_string, title: others_title}
+      = others.count
     - if you == false and main.count == 0 and others.count == 1
       = ' person'
     - elsif you == false and main.count == 0 and others.count > 1
@@ -40,10 +61,10 @@
       = ' others'
   - unless you == false and main.count == 0 and others.count == 0
     - if main.count + others.count == 1 and you == false
-      = " likes"
+      = " likes "
     - else
-      = " like"
-  = ' this ' + comment.class.name.downcase
+      = " like "
+  = 'this ' + comment.class.name.downcase
   /
     - if current_user.likes?(comment)
       - if (liker.count==1) 
