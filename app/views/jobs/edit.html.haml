@@ -1,7 +1,9 @@
-%h1 Editing job
+.row-fluid.spaced-top
+  .span2.spaced-left
+    .btn-group.btn-group-vertical.btn-block
+      = link_to 'Back', @job, class: 'btn'
+      = link_to 'My jobs', jobs_path, class: 'btn'
+  .span6
+    %h1 Editing job
 
-= render 'form'
-
-= link_to 'Show', @job
-\|
-= link_to 'Back', jobs_path
+    = render 'form'

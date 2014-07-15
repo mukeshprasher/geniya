@@ -25,6 +25,7 @@ class Job < ActiveRecord::Base
   validates_presence_of :sub_category_id
   validates :title,  presence: true, length: { minimum: 10, maximum: 140 }
   validates :description,  presence: true, length: { minimum: 10, maximum: 250 }
+  validates :skills_text,  presence: true
   
   
 end
