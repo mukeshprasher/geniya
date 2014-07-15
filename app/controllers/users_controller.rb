@@ -56,6 +56,11 @@ class UsersController < ApplicationController
     end
   end
 
+  def bussiness
+    @user = User.new
+  end
+
+
   def profile_edit
   end  
   
@@ -143,6 +148,49 @@ class UsersController < ApplicationController
     end
   end
 
+
+  def create_bussiness
+    params[:user][:category_id] = current_user.category_id
+    params[:user][:sub_category_id] = current_user.sub_category_id
+    params[:user][:chosen_plan] = current_user.plan
+    params[:user][:password]  = "password"
+    params[:user][:password_confirmation] = "password"
+    params[:user][:kind] = "bussiness"
+    params[:user][:parent_id] = current_user.id
+    @user = User.new(user_params)
+    @user.plan_end = Date.today + 1.month
+    @user.email = ('a'..'z').to_a.shuffle[0..3].join+"geniya@4123geniya.com"
+    @user.status = "active"
+    respond_to do |format|
+      if @user.save
+#        set_sub_categories
+#        set_sub_categories
+        default_album = @user.albums.build(name: "Default Album", category_id: params[:user][:category_id], title: "Profile picture and timeline uploads", description: "The pictues which dont belong to any album go here", kind: "default")
+        default_album.save
+        
+        status_pic_album = @user.albums.build(name: "Status Pictures Album", category_id: params[:user][:category_id], title: "Status and timeline uploads", description: "Status and timelines pictures go here", kind: "status")
+        status_pic_album.save
+        
+        cover_pic_album = @user.albums.build(name: "Cover Pictures Album", category_id: params[:user][:category_id], title: "Cover Pictures uploads", description: "Cover pictures go here", kind: "cover")
+        cover_pic_album.save
+        
+        profile_pic_album = @user.albums.build(name: "Profile Pictures Album",category_id: params[:user][:category_id], title: "Profile Pictures uploads", description: " pictures go here", kind: "profile")
+        profile_pic_album.save 
+
+        format.html {
+            sign_in @user
+            redirect_to @user
+        }
+        format.json { render action: 'show', status: :created, location: @user, notice: 'Bussiness Page successfully created.'  }
+      else
+        format.html { render action: 'bussiness' }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+
+
   def update
     respond_to do |format|
       if @user.update(user_params)
@@ -193,7 +241,7 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:category_id, :sub_category_id, :chosen_plan, :email, :username, :tag, :password, :password_confirmation, :name, :gender, :summary, :height, :bust, :hips, :shoes, :hair, :eyes, :birthdate, :available, :feature_img)
+      params.require(:user).permit(:category_id, :sub_category_id, :chosen_plan, :email, :username, :tag, :password, :password_confirmation, :name, :gender, :summary, :height, :bust, :hips, :shoes, :hair, :eyes, :birthdate, :available, :feature_img, :kind, :parent_id)
     end
 
     # Before filters

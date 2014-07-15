@@ -31,7 +31,7 @@
           %a.demo{"data-toggle" => "modal",href: "#addfeatureimg", id: "#addfeatureimg", class: 'btn'}
             %span
               Add Feature Image       
-
+      = link_to 'Create Bussiness Page', "/users/bussiness", class: 'btn'
 
     #controll_right_container
       = link_to 'Edit profile', "/users/"+current_user.slug+"/profile_edit", class: 'btn'
