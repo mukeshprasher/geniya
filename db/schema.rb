@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140708105040) do
+ActiveRecord::Schema.define(version: 20140715110645) do
 
   create_table "activities", force: true do |t|
     t.integer  "user_id"
@@ -707,6 +707,8 @@ ActiveRecord::Schema.define(version: 20140708105040) do
     t.string   "feature_img"
     t.string   "change_password_code"
     t.string   "chosen_plan"
+    t.string   "kind",                 default: "user"
+    t.integer  "parent_id",            default: 0
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

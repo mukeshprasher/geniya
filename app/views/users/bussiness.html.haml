@@ -1,0 +1,24 @@
+.innerBenner
+  .wrapper
+    .news_feeds
+      %h2 
+        %span Create Your Bussiness Page Here!
+      %p Join our thriving community today!
+.wrapper
+  .row
+    .span6.offset3
+
+      .field
+      = simple_form_for @user, :url => url_for(:action => 'create_bussiness', :controller => 'users'), :method => 'post' do |f|
+        = render 'shared/error_messages', object: f.object
+        .field
+          = f.label :name
+          = f.text_field :name
+        .field
+          = f.label :username
+          = request.host + '/'
+          = f.text_field :username
+        .actions
+          = f.submit 'Create Bussiness Page', class: "btn btn-large btn-primary"
+        .clear
+  /= link_to 'Back', users_path
