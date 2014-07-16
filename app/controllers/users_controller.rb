@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy, :profile_edit, :change_password]
+  before_action :set_user, only: [:show, :edit, :update, :destroy, :profile_edit, :change_password, :change_login]
   before_action :signed_in_user, only: [ :edit, :update, :destroy, :following, :followers, :profile_edit]
   before_action :correct_user,   only: [:edit, :update, :profile_edit]
   before_action :admin_user,     only: :destroy
@@ -98,6 +98,13 @@ class UsersController < ApplicationController
       redirect_to new_session_path
     end
   end
+ 
+  def change_login
+    if @user.parent_id == current_user.id || @user.id == current_user.parent_id
+      sign_in @user
+      redirect_to @user
+    end
+  end
   
   def edit
   end
@@ -158,8 +165,9 @@ class UsersController < ApplicationController
     params[:user][:kind] = "bussiness"
     params[:user][:parent_id] = current_user.id
     @user = User.new(user_params)
+    @user.plan = current_user.plan
     @user.plan_end = Date.today + 1.month
-    @user.email = ('a'..'z').to_a.shuffle[0..3].join+"geniya@4123geniya.com"
+    @user.email = @user.username+"@geniya.com"
     @user.status = "active"
     respond_to do |format|
       if @user.save

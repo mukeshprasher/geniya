@@ -1,0 +1,9 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @menucategory.name
+
+= link_to 'Edit', edit_menucategory_path(@menucategory)
+\|
+= link_to 'Back', menucategories_path

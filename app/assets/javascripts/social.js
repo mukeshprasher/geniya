@@ -31,6 +31,11 @@ jQuery(document).ready(function(){
          jQuery('.uiMenucover').toggle('show');
          return false;
     });  
+   
+    jQuery('.get_quote').live('click', function(event) {        
+         jQuery('.Quote_form').toggle('show');
+         return false;
+    });   
     
     jQuery('#srh-checkbox').live('click', function(event) {
         if($(this).is(':checked')){
@@ -83,6 +88,68 @@ jQuery(document).ready(function(){
       $('#comment_portfolio_link').css("color","#97B84A")   
     });      
     
+
+    jQuery('#bnss_agenda_link').live('click', function(event) {
+      $('#bnss_summary').hide('slow');
+      $('#bnss_services').hide('slow');
+      $('#bnss_about').hide('slow');
+      $('#bnss_agenda').show('slow');
+      $('#bnss_summary_link').css("background","#fff")
+      $('#bnss_summary_link').css("color","#69873F")     
+      $('#bnss_services_link').css("background","#fff")
+      $('#bnss_services_link').css("color","#69873F")  
+      $('#bnss_about_link').css("background","#fff")
+      $('#bnss_about_link').css("color","#69873F")  
+      $('#bnss_agenda_link').css("background","#69873F")
+      $('#bnss_agenda_link').css("color","#FFFFFF")                    
+    });
+
+    jQuery('#bnss_services_link').live('click', function(event) {
+      $('#bnss_summary').hide('slow');
+      $('#bnss_services').show('slow');
+      $('#bnss_about').hide('slow');
+      $('#bnss_agenda').hide('slow');
+      $('#bnss_summary_link').css("background","#fff")
+      $('#bnss_summary_link').css("color","#69873F")     
+      $('#bnss_services_link').css("background","#69873F")
+      $('#bnss_services_link').css("color","#FFFFFF")  
+      $('#bnss_about_link').css("background","#fff")
+      $('#bnss_about_link').css("color","#69873F")  
+      $('#bnss_agenda_link').css("background","#fff")
+      $('#bnss_agenda_link').css("color","#69873F")       
+    });
+    
+    jQuery('#bnss_about_link').live('click', function(event) {
+      $('#bnss_summary').hide('slow');
+      $('#bnss_services').hide('slow');
+      $('#bnss_about').show('slow');
+      $('#bnss_agenda').hide('slow');
+      $('#bnss_summary_link').css("background","#fff")
+      $('#bnss_summary_link').css("color","#69873F")     
+      $('#bnss_services_link').css("background","#fff")
+      $('#bnss_services_link').css("color","#69873F")  
+      $('#bnss_about_link').css("background","#69873F")
+      $('#bnss_about_link').css("color","#FFFFFF")  
+      $('#bnss_agenda_link').css("background","#fff")
+      $('#bnss_agenda_link').css("color","#69873F")       
+    });
+
+    jQuery('#bnss_summary_link').live('click', function(event) {
+      $('#bnss_summary').show('slow');
+      $('#bnss_services').hide('slow');
+      $('#bnss_about').hide('slow');
+      $('#bnss_agenda').hide('slow');
+      $('#bnss_summary_link').css("background","#69873F")
+      $('#bnss_summary_link').css("color","#FFFFFF")     
+      $('#bnss_services_link').css("background","#fff")
+      $('#bnss_services_link').css("color","#69873F")  
+      $('#bnss_about_link').css("background","#fff")
+      $('#bnss_about_link').css("color","#69873F")  
+      $('#bnss_agenda_link').css("background","#fff")
+      $('#bnss_agenda_link').css("color","#69873F")         
+    });
+
+
     
     jQuery('#affiliation_status').live('click', function(event) {
         if($(this).is(':checked')){

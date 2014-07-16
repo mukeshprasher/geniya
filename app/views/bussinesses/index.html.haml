@@ -1,0 +1,37 @@
+%h1 Listing bussinesses
+
+%table
+  %tr
+    %th Summary
+    %th Agenda
+    %th Services
+    %th About
+    %th Industry
+    %th Website
+    %th Contact
+    %th Headquarter
+    %th Companysize
+    %th Founded
+    %th
+    %th
+    %th
+
+  - @bussinesses.each do |bussiness|
+    %tr
+      %td= bussiness.summary
+      %td= bussiness.agenda
+      %td= bussiness.services
+      %td= bussiness.about
+      %td= bussiness.industry
+      %td= bussiness.website
+      %td= bussiness.contact
+      %td= bussiness.headquarter
+      %td= bussiness.companysize
+      %td= bussiness.founded
+      %td= link_to 'Show', bussiness
+      %td= link_to 'Edit', edit_bussiness_path(bussiness)
+      %td= link_to 'Destroy', bussiness, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Bussiness', new_bussiness_path

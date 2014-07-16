@@ -1,0 +1,36 @@
+%p#notice= notice
+
+%p
+  %b Summary:
+  = @bussiness.summary
+%p
+  %b Agenda:
+  = @bussiness.agenda
+%p
+  %b Services:
+  = @bussiness.services
+%p
+  %b About:
+  = @bussiness.about
+%p
+  %b Industry:
+  = @bussiness.industry
+%p
+  %b Website:
+  = @bussiness.website
+%p
+  %b Contact:
+  = @bussiness.contact
+%p
+  %b Headquarter:
+  = @bussiness.headquarter
+%p
+  %b Companysize:
+  = @bussiness.companysize
+%p
+  %b Founded:
+  = @bussiness.founded
+
+= link_to 'Edit', edit_bussiness_path(@bussiness)
+\|
+= link_to 'Back', bussinesses_path

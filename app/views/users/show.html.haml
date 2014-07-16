@@ -4,98 +4,140 @@
   - provide(:title, "#{@user.name} | #{@user.sub_category.name}")
 .inneContaineralbum
   .wrapper
+    - if @user.kind=="bussiness"
+      .bussiness_profile_picture
+        - if @user.bussiness.nil?
+          = link_to 'Add Bussiness Details', "/bussinesses/new/", class: 'btn'
+        .company_left
+          - if @user.bussiness
+            = image_tag @user.bussiness.file_attachment.url(:medium)
+          - else
+            
+        .follow_us
+          %p Follow Us:
+          %ul
+            %li
+              %a{href: "#"}
+                %img{src: "/assets/follow_icon1.png"}/
+            %li
+              %a{href: "#"}
+                %img{src: "/assets/follow_icon2.png"}/
+            %li
+              %a{href: "#"}
+                %img{src: "/assets/follow_icon3.png"}/
+            %li
+              %a{href: "#"}
+                %img{src: "/assets/follow_icon4.png"}/
+
+      .company_banner
+        .company_nav
+          %ul
+            %li.active
+              %a{href: "#"} Home
+            %li
+              %a{href: "#"} Carrier
+        .get_quote
+          %a{id: "get_quote_form"} Get a Quote
+          .Quote_form
+            %input.comp_int{placeholder: "Username", type: "text"}/
+            %input.comp_int{placeholder: "Email", type: "text"}/
+            %input.comp_int{placeholder: "Contact", type: "text"}/
+            %textarea.comp_text{placeholder: "Message"}
+            %a.compBtn Submit
+            
     .slider_profile
       .cover-photo
         .cover-pic
           - if @user.covershot
             = image_tag @user.covershot.file_attachment.url(:large)     
-      .anisten
-        .ani_top
-          %h2
-            = @user.name
-            - if @user.plan != 'visitor'
-              %span
-                = @user.sub_category.name 
-        .art_gallery
-          %ul
-            - if (current_user == @user) && signed_in?
-              #affiliations.modal.fade{"data-width" => "760", style: "display: none;", tabindex: "-1"}
-                .modal-header
-                  %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
-                  %h4.modal-title Add Affiliations Details:
-                .modal-body
-                  = render 'shared/exp_form'
-                .modal-footer
-                  %button.btn.btn-default#affiliation_form_area_close{"data-dismiss" => "modal", type: "button"} Close
-              %a.demo{"data-toggle" => "modal",href: "#affiliations"}
-                %b#aff_title_container
-                  -if @user.affiliations.any?
-                    Change Affiliations
+      - if @user.kind == "user"
+        .anisten
+          .ani_top
+            %h2
+              = @user.name
+              - if @user.plan != 'visitor'
+                %span
+                  = @user.sub_category.name 
+          .art_gallery
+            %ul
+              - if (current_user == @user) && signed_in?
+                #affiliations.modal.fade{"data-width" => "760", style: "display: none;", tabindex: "-1"}
+                  .modal-header
+                    %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
+                    %h4.modal-title Add Affiliations Details:
+                  .modal-body
+                    = render 'shared/exp_form'
+                  .modal-footer
+                    %button.btn.btn-default#affiliation_form_area_close{"data-dismiss" => "modal", type: "button"} Close
+                %a.demo{"data-toggle" => "modal",href: "#affiliations"}
+                  %b#aff_title_container
+                    -if @user.affiliations.any?
+                      Change Affiliations
+                    - else
+                      Add Affiliations                        
+              %li#affiliation_content
+                %span Current:
+                
+                #orgnz_detail
+                  - if @user.affiliations.where(status: 'yes').any?
+                    = render 'shared/current_company', user: @user  
                   - else
-                    Add Affiliations                        
-            %li#affiliation_content
-              %span Current:
-              
-              #orgnz_detail
-                - if @user.affiliations.where(status: 'yes').any?
-                  = render 'shared/current_company', user: @user  
-                - else
-                  - if (current_user == @user) && signed_in?
+                    - if (current_user == @user) && signed_in?
+                      %span
+                        Add Detail
+              %li#affiliation_content
+                %span Previous:
+                
+                #prev_orgnz_detail
+                  - if @user.affiliations.where(status: 'no').any?
+                    %p.aff_org_name{ :id => "current_company-#{@user.affiliations.where(status: 'no').order(end_date: :desc).first.id}" }
+                      /%a{href:"/organizations/"+"#{@user.affiliations.where(status: 'no').order(end_date: :desc).first.organization.id}"}
+                      %span.font_17
+                        = @user.affiliations.where(status: 'no').order(end_date: :desc).first.organization.name
+                      -if (current_user == @user) && signed_in?
+                        = link_to "×", affiliation_path(@user.affiliations.where(status: 'no').order(end_date: :desc).first.id), :method => :delete, :remote => true,  :disable_with => "×", :class => 'tag_delete' , :id => "affiliation-delete-#{@user.affiliations.where(status: 'no').order(end_date: :desc).first.id}" 
+                  - else
                     %span
                       Add Detail
-            %li#affiliation_content
-              %span Previous:
-              
-              #prev_orgnz_detail
-                - if @user.affiliations.where(status: 'no').any?
-                  %p.aff_org_name{ :id => "current_company-#{@user.affiliations.where(status: 'no').order(end_date: :desc).first.id}" }
-                    /%a{href:"/organizations/"+"#{@user.affiliations.where(status: 'no').order(end_date: :desc).first.organization.id}"}
-                    %span.font_17
-                      = @user.affiliations.where(status: 'no').order(end_date: :desc).first.organization.name
-                    -if (current_user == @user) && signed_in?
-                      = link_to "×", affiliation_path(@user.affiliations.where(status: 'no').order(end_date: :desc).first.id), :method => :delete, :remote => true,  :disable_with => "×", :class => 'tag_delete' , :id => "affiliation-delete-#{@user.affiliations.where(status: 'no').order(end_date: :desc).first.id}" 
-                - else
-                  %span
-                    Add Detail
-            %li
-              %span Available:
-              %p 
-                =@user.available
-            %li
-              %span
-                /%img{alt: "", src: "/assets/artgallery_img1.png"}/
-              - if (current_user == @user) && signed_in?
+              %li
+                %span Available:
                 %p 
-                  = @user.email
-            - if (current_user == @user) && signed_in?
-              #address.modal.fade{"data-width" => "760", style: "display: none;", tabindex: "-1"}
-                .modal-header
-                  %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
-                  %h4.modal-title Location details:
-                .modal-body
-                  = render 'shared/user_location'
-                .modal-footer
-                  %button.btn.btn-default#address_form_area_close{"data-dismiss" => "modal", type: "button"} Close
-              %a.demo{"data-toggle" => "modal",href: "#address"}
-                %b#user_address_title_container
-                  -if @user.locations.any?
-                    Change Location
+                  =@user.available
+              %li
+                %span
+                  /%img{alt: "", src: "/assets/artgallery_img1.png"}/
+                - if (current_user == @user) && signed_in?
+                  %p 
+                    = @user.email
+              - if (current_user == @user) && signed_in?
+                #address.modal.fade{"data-width" => "760", style: "display: none;", tabindex: "-1"}
+                  .modal-header
+                    %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
+                    %h4.modal-title Location details:
+                  .modal-body
+                    = render 'shared/user_location'
+                  .modal-footer
+                    %button.btn.btn-default#address_form_area_close{"data-dismiss" => "modal", type: "button"} Close
+                %a.demo{"data-toggle" => "modal",href: "#address"}
+                  %b#user_address_title_container
+                    -if @user.locations.any?
+                      Change Location
+                    - else
+                      Add Location       
+              %li
+                %span
+                #user_addrss_detail
+                  - if @user.locations.any?
+                    = render 'shared/current_address', user: @user
                   - else
-                    Add Location       
-            %li
-              %span
-              #user_addrss_detail
-                - if @user.locations.any?
-                  = render 'shared/current_address', user: @user
-                - else
-                  - if (current_user == @user) && signed_in?
-                    %span
-                      Set Location   
-            %h3
-              %span
-                %span#connct-counts
-                  = @user.confirmed_connected_users.count
-                Connections
+                    - if (current_user == @user) && signed_in?
+                      %span
+                        Set Location   
+              %h3
+                %span
+                  %span#connct-counts
+                    = @user.confirmed_connected_users.count
+                  Connections
       - if (current_user == @user) && signed_in?    
         #ProfileCoverPhotoSelector
           %i
@@ -141,169 +183,317 @@
           %li
             = render 'shared/connect_form' if signed_in?
       .clear
-    .profile_picture
-      .pick
-        .proflie
-          - if @user.headshot
-            = image_tag @user.headshot.file_attachment.url(:medium)
-          - else
-            = image_tag '/assets/missing.png', width: "198px", height: "198px"
-      - if (current_user == @user) && signed_in?    
-        .ProfilePicSelector
-          %img{alt: "", src: "/assets/cam_big.png"}/
-          .txt Update Profile Picture
-          .uiMenu
-            %ul
-              %li
-                %i
-                  %img{alt: "", src: "/assets/upload.png"}/
-                #uploadphoto.modal.fade{"data-width" => "760", style: "display: none;", tabindex: "-1"}
-                  .modal-header
-                    %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
-                    %h4.modal-title Upload Profile Photo
-                  .modal-body#profile_pic_upload_modal_body
-                    %img{alt: "loading", src: "/assets/loader.gif", style: "visibility: hidden"}/
-                    = form_for @headshot, :html => {  id: :profile_img_form  }  do |f|
-                      = f.hidden_field :album_id, value: current_user.profile_pic_album.id
-                      = f.hidden_field :upload_type, value: current_user.profile_pic_album.kind
-                      = f.hidden_field :name, value: current_user.name
-                      = f.hidden_field :special_attribute, value: "headshot"
-                      .field
-                        = f.file_field :file_attachment, id: "profile_img"
-                      .actions
-                        = f.submit 'Upload Profile Pic', id: "upload_profile_pic"
-                  .modal-footer
-                    %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
-                %a.demo{"data-toggle" => "modal",href: "#uploadphoto", id: "#uploadphoto"}
-                  Upload Profile picture...  
-              /%li
-              /  %a{href: "/albums/profile-pics-"+"#{@user.slug}"}
-              /    %i
-              /      %img{alt: "", src: "/assets/edit.png"}/
-              /    %span.uilinkText View Profile Photos...
-    #profile_nav.profile_nav
-      - if (current_user == @user) && signed_in?
-        #tags.modal.fade{"data-width" => "760", style: "display: none;", tabindex: "-1"}
-          .modal-header
-            %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
-            %h4.modal-title Add Tags
-          .modal-body
-            - if signed_in?
-              = simple_form_for(@tag, remote: true) do |f|
-                = f.error_notification
+    - if @user.kind == "user"
+      .profile_picture
+        .pick
+          .proflie
+            - if @user.headshot
+              = image_tag @user.headshot.file_attachment.url(:medium)
+            - else
+              = image_tag '/assets/missing.png', width: "198px", height: "198px"
+        - if (current_user == @user) && signed_in?    
+          .ProfilePicSelector
+            %img{alt: "", src: "/assets/cam_big.png"}/
+            .txt Update Profile Picture
+            .uiMenu
+              %ul
+                %li
+                  %i
+                    %img{alt: "", src: "/assets/upload.png"}/
+                  #uploadphoto.modal.fade{"data-width" => "760", style: "display: none;", tabindex: "-1"}
+                    .modal-header
+                      %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
+                      %h4.modal-title Upload Profile Photo
+                    .modal-body#profile_pic_upload_modal_body
+                      %img{alt: "loading", src: "/assets/loader.gif", style: "visibility: hidden"}/
+                      = form_for @headshot, :html => {  id: :profile_img_form  }  do |f|
+                        = f.hidden_field :album_id, value: current_user.profile_pic_album.id
+                        = f.hidden_field :upload_type, value: current_user.profile_pic_album.kind
+                        = f.hidden_field :name, value: current_user.name
+                        = f.hidden_field :special_attribute, value: "headshot"
+                        .field
+                          = f.file_field :file_attachment, id: "profile_img"
+                        .actions
+                          = f.submit 'Upload Profile Pic', id: "upload_profile_pic"
+                    .modal-footer
+                      %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
+                  %a.demo{"data-toggle" => "modal",href: "#uploadphoto", id: "#uploadphoto"}
+                    Upload Profile picture...  
+                /%li
+                /  %a{href: "/albums/profile-pics-"+"#{@user.slug}"}
+                /    %i
+                /      %img{alt: "", src: "/assets/edit.png"}/
+                /    %span.uilinkText View Profile Photos...
+      #profile_nav.profile_nav
+        - if (current_user == @user) && signed_in?
+          #tags.modal.fade{"data-width" => "760", style: "display: none;", tabindex: "-1"}
+            .modal-header
+              %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
+              %h4.modal-title Add Tags
+            .modal-body
+              - if signed_in?
+                = simple_form_for(@tag, remote: true) do |f|
+                  = f.error_notification
 
-                .form-inputs
-                  %label
-                    Enter Tags separated by comma 
-                  = f.text_field :name, :autocomplete => :off
+                  .form-inputs
+                    %label
+                      Enter Tags separated by comma 
+                    = f.text_field :name, :autocomplete => :off
 
-                .form-actions-tags
-                  = f.button :submit, value: "Add Tags", id: "add_tag"
-          .modal-footer
-            %button#add_tag_modal_close.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
-        #add_tag_link
-          %a.demo{"data-toggle" => "modal",href: "#tags"}
-            Add Tags
-      #tags_cloud
-        = render 'tags'
+                  .form-actions-tags
+                    = f.button :submit, value: "Add Tags", id: "add_tag"
+            .modal-footer
+              %button#add_tag_modal_close.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
+          #add_tag_link
+            %a.demo{"data-toggle" => "modal",href: "#tags"}
+              Add Tags
+        #tags_cloud
+          = render 'tags'
   %section.main_container
     .wrapper
       .span690.inline_block
-        - if signed_in? and current_user?(@user)
-          = render 'controls'
-        .profile_background
-          .bg_buttan
-            Background
-          .row
-            %aside.span4
-              .stats
-                .stat
-                  - pluralize(@user.impressions_count, 'unique visior')
-          .summery
-            %h2 Summary
-            %p
-              = best_in_place_if @can_edit, @user, :summary, :nil => "Tell something about yourself", :type => :textarea              
-        .profile_background
-          .education_photography
-            .education
-              %h2 Education
-              .edu-box
-                - @user.educations.each do |edu_detail|
-                  = render 'shared/edu_detail', edu_detail: edu_detail
-              - if (current_user == @user) && signed_in?
-                #edu.modal.fade{"data-width" => "760", style: "display: none;", tabindex: "-1"}
-                  .modal-header
-                    %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
-                    %h4.modal-title Add Educations Details
-                  .modal-body
-                    = render 'shared/edu_form' 
-                  .modal-footer
-                    %button.btn.btn-default#close_education_modal{"data-dismiss" => "modal", type: "button"} Close
-                %a.demo{"data-toggle" => "modal",href: "#edu"}
-                  Add Education Detail 
-            .key_skills
-              %h2 Key Skills Expertise
-              %ul#skills-field
-                = render 'skills'
+        - if @user.kind == "user"
+          - if signed_in? and current_user?(@user)
+            = render 'controls'
+            = render 'bussiness'
+          .profile_background
+            .bg_buttan
+              Background
+            .row
+              %aside.span4
+                .stats
+                  .stat
+                    - pluralize(@user.impressions_count, 'unique visior')
+            .summery
+              %h2 Summary
+              %p
+                = best_in_place_if @can_edit, @user, :summary, :nil => "Tell something about yourself", :type => :textarea              
+          .profile_background
+            .education_photography
+              .education
+                %h2 Education
+                .edu-box
+                  - @user.educations.each do |edu_detail|
+                    = render 'shared/edu_detail', edu_detail: edu_detail
+                - if (current_user == @user) && signed_in?
+                  #edu.modal.fade{"data-width" => "760", style: "display: none;", tabindex: "-1"}
+                    .modal-header
+                      %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
+                      %h4.modal-title Add Educations Details
+                    .modal-body
+                      = render 'shared/edu_form' 
+                    .modal-footer
+                      %button.btn.btn-default#close_education_modal{"data-dismiss" => "modal", type: "button"} Close
+                  %a.demo{"data-toggle" => "modal",href: "#edu"}
+                    Add Education Detail 
+              .key_skills
+                %h2 Key Skills Expertise
+                %ul#skills-field
+                  = render 'skills'
 
-              - if (current_user == @user) && signed_in?
-                #skills.modal.fade{"data-width" => "760", style: "display: none;", tabindex: "-1"}
-                  .modal-header
-                    %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
-                    %h4.modal-title Add Skills
-                  .modal-body
-                    = simple_form_for(@skill, remote: true) do |f|
-                      = f.error_notification
+                - if (current_user == @user) && signed_in?
+                  #skills.modal.fade{"data-width" => "760", style: "display: none;", tabindex: "-1"}
+                    .modal-header
+                      %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
+                      %h4.modal-title Add Skills
+                    .modal-body
+                      = simple_form_for(@skill, remote: true) do |f|
+                        = f.error_notification
 
-                      .form-inputs
-                        = f.text_field :name, placeholder: 'Enter skills separated by commas', autocomplete: 'off'
+                        .form-inputs
+                          = f.text_field :name, placeholder: 'Enter skills separated by commas', autocomplete: 'off'
 
-                      .form-actions-skills
-                        = f.button :submit, value: "Add Skills", id: "add"
-                  .modal-footer
-                    %button#add_skill_modal_close_button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
-                %a.demo{"data-toggle" => "modal",href: "#skills"}
-                  Add Skills              
+                        .form-actions-skills
+                          = f.button :submit, value: "Add Skills", id: "add"
+                    .modal-footer
+                      %button#add_skill_modal_close_button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
+                  %a.demo{"data-toggle" => "modal",href: "#skills"}
+                    Add Skills              
+              .clear
             .clear
-          .clear
-        .profile_background
-          .bg_buttan
-            - if @user.plan == 'visitor'
-              Liked portfolios
-            - else
-              Portfolios
-          .box_sec
-            .profile_portfolio_section
-              - if signed_in? and current_user?(@user) and @user.plan != 'visitor'
-                #portfolio-form.modal.fade{"data-width" => "760", style: "display: none;", tabindex: "-1"}
-                  .modal-header
-                    %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
-                    %h4.modal-title Add Portfolio Details:
-                  .modal-body
-                    = render 'shared/album_form'
-                  .modal-footer
-                    %button.btn.btn-default#close_portfolio_modal{"data-dismiss" => "modal", type: "button"} Close
-                %a.btn.btn-large.btn-primary.demo{"data-toggle" => "modal",href: "#portfolio-form"}
-                  Add Portfolio
-            
-            #ajax-portfolio-detail-homepage.modal.fade.modal-scrollable{style: "display: none;", tabindex: "-1"}
-            - if @user.plan == 'visitor'
-              - album_likes = Like.where(liker_id: @user.id, liker_type: 'User', likeable_type: 'Album')
-              - if album_likes.any?
-                - album_likes.each do |album_like|
-                  - album = Album.find(album_like.likeable_id)
-                  = render 'shared/album_thumb', album: album if !album.nil? and album.kind == 'portfolio'
+          .profile_background
+            .bg_buttan
+              - if @user.plan == 'visitor'
+                Liked portfolios
               - else
-                - if signed_in? and current_user?(@user)
-                  = link_to "Browse portfolios", portfolios_path
+                Portfolios
+            .box_sec
+              .profile_portfolio_section
+                - if signed_in? and current_user?(@user) and @user.plan != 'visitor'
+                  #portfolio-form.modal.fade{"data-width" => "760", style: "display: none;", tabindex: "-1"}
+                    .modal-header
+                      %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
+                      %h4.modal-title Add Portfolio Details:
+                    .modal-body
+                      = render 'shared/album_form'
+                    .modal-footer
+                      %button.btn.btn-default#close_portfolio_modal{"data-dismiss" => "modal", type: "button"} Close
+                  %a.btn.btn-large.btn-primary.demo{"data-toggle" => "modal",href: "#portfolio-form"}
+                    Add Portfolio
+              
+              #ajax-portfolio-detail-homepage.modal.fade.modal-scrollable{style: "display: none;", tabindex: "-1"}
+              - if @user.plan == 'visitor'
+                - album_likes = Like.where(liker_id: @user.id, liker_type: 'User', likeable_type: 'Album')
+                - if album_likes.any?
+                  - album_likes.each do |album_like|
+                    - album = Album.find(album_like.likeable_id)
+                    = render 'shared/album_thumb', album: album if !album.nil? and album.kind == 'portfolio'
                 - else
-                  = @user.name
-                  has not liked any portfolio yet.
-            - else
-              - @user.albums.where(kind: 'portfolio').each do |album|
-                = render 'shared/album_thumb', album: album
-            
-          .clear    
+                  - if signed_in? and current_user?(@user)
+                    = link_to "Browse portfolios", portfolios_path
+                  - else
+                    = @user.name
+                    has not liked any portfolio yet.
+              - else
+                - @user.albums.where(kind: 'portfolio').each do |album|
+                  = render 'shared/album_thumb', album: album
+              
+            .clear
+        - else
+          .bussiness_profile_background
+            .summary_tabs
+              %ul
+                %li
+                  %a{id: "bnss_summary_link"} Summary
+                %li
+                  %a{id: "bnss_agenda_link"} Agenda
+                %li
+                  %a{id: "bnss_services_link"} Services
+                %li
+                  %a{id: "bnss_about_link"} About Us
+              .summary_discription{id: "bnss_summary"}
+                %p 
+                  - if @user.bussiness
+                    = @user.bussiness.summary
+                  - else 
+                    Add Summary Text
+              .summary_discription{id: "bnss_agenda"}
+                %p 
+                  - if @user.bussiness
+                    = @user.bussiness.agenda
+                  - else 
+                    Add Agenda Text              
+              .summary_discription{id: "bnss_services"}
+                %p 
+                  - if @user.bussiness
+                    = @user.bussiness.services
+                  - else
+                    Add Summary Text
+              
+              .summary_discription{id: "bnss_about"}
+                %p 
+                  - if @user.bussiness
+                    = @user.bussiness.about
+                  - else
+                    Add About text                                                      
+            .education_photography
+              %a.our_manu.left Our Menu
+              %a.full_manu.right Full Menu »
+              .clear
+            .box_sec
+              - @user.menuitems.each do|x|
+                - x.menucategory.menuitems.each do|n|
+                  .company_manu
+                    %h2.main_head
+                      = n.menucategory.name
+                    %ul
+                      %li
+                        .left_part
+                          %h3
+                            = n.name
+                          %p 
+                            = n.description
+                        .right_part
+                          = n.price
+
+
+              .clear
+            .education_photography
+              %a.our_manu.left Contact Detail
+              .clear
+            .box_sec
+              .company_contact
+                %ul
+                  %li
+                    %h2.main_head Industry
+                    %p 
+                      - if @user.bussiness
+                        = @user.bussiness.industry
+                      - else
+                        Add Industry Information
+                  %li
+                    %h2.main_head Website
+                    %p
+                      - if @user.bussiness
+                        = @user.bussiness.website
+                      - else
+                        Add Website information
+                  %li
+                    %h2.main_head Contact
+                    %p 
+                      - if @user.bussiness
+                        = @user.bussiness.contact
+                      - else
+                        Add Contact details
+                        
+                  %li
+                    %h2.main_head Headquarters
+                    %p 
+                      - if @user.bussiness
+                        = @user.bussiness.headquarter
+                      - else
+                        Add Headquarters Information
+                  %li
+                    %h2.main_head Company Size
+                    %p 
+                      - if @user.bussiness
+                        = @user.bussiness.companysize
+                      - else
+                        Add Company Size
+                  %li
+                    %h2.main_head Founded
+                    %p 
+                      - if @user.bussiness
+                        = @user.bussiness.founded
+                      - else
+                        Add Company founded Information
+              .clear
+            .box_sec
+              .education_photography.no_border
+                %a.our_manu.left Image Gallery
+                .clear
+              .company_gallary
+                .profile_portfolio_section
+                  - if signed_in? and current_user?(@user) and @user.plan != 'visitor'
+                    #portfolio-form.modal.fade{"data-width" => "760", style: "display: none;", tabindex: "-1"}
+                      .modal-header
+                        %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
+                        %h4.modal-title Add Portfolio Details:
+                      .modal-body
+                        = render 'shared/album_form'
+                      .modal-footer
+                        %button.btn.btn-default#close_portfolio_modal{"data-dismiss" => "modal", type: "button"} Close
+                    %a.btn.btn-large.btn-primary.demo{"data-toggle" => "modal",href: "#portfolio-form"}
+                      Add Portfolio
+                
+                #ajax-portfolio-detail-homepage.modal.fade.modal-scrollable{style: "display: none;", tabindex: "-1"}
+                - if @user.plan == 'visitor'
+                  - album_likes = Like.where(liker_id: @user.id, liker_type: 'User', likeable_type: 'Album')
+                  - if album_likes.any?
+                    - album_likes.each do |album_like|
+                      - album = Album.find(album_like.likeable_id)
+                      = render 'shared/album_thumb', album: album if !album.nil? and album.kind == 'portfolio'
+                  - else
+                    - if signed_in? and current_user?(@user)
+                      = link_to "Browse portfolios", portfolios_path
+                    - else
+                      = @user.name
+                      has not liked any portfolio yet.
+                - else
+                  - @user.albums.where(kind: 'portfolio').each do |album|
+                    = render 'shared/album_thumb', album: album
+              .clear        
+              
       .span315.offset1.inline_block
         = render 'sidebar'
         

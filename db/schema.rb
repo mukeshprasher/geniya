@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140715110645) do
+ActiveRecord::Schema.define(version: 20140716100709) do
 
   create_table "activities", force: true do |t|
     t.integer  "user_id"
@@ -78,6 +78,26 @@ ActiveRecord::Schema.define(version: 20140715110645) do
 
   add_index "albums", ["category_id"], name: "index_albums_on_category_id"
   add_index "albums", ["slug"], name: "index_albums_on_slug", unique: true
+
+  create_table "bussinesses", force: true do |t|
+    t.integer  "user_id"
+    t.text     "summary"
+    t.text     "agenda"
+    t.text     "services"
+    t.text     "about"
+    t.text     "industry"
+    t.text     "website"
+    t.text     "contact"
+    t.text     "headquarter"
+    t.text     "companysize"
+    t.text     "founded"
+    t.string   "file_attachment_file_name"
+    t.string   "file_attachment_content_type"
+    t.integer  "file_attachment_file_size"
+    t.datetime "file_attachment_updated_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "categories", force: true do |t|
     t.string   "name"
@@ -334,6 +354,22 @@ ActiveRecord::Schema.define(version: 20140715110645) do
 
   add_index "mentions", ["mentionable_id", "mentionable_type"], name: "fk_mentionables"
   add_index "mentions", ["mentioner_id", "mentioner_type"], name: "fk_mentions"
+
+  create_table "menucategories", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "menuitems", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "menucategory_id"
+    t.string   "name"
+    t.string   "price"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "multiuploads", force: true do |t|
     t.string   "multiupload_file_title"

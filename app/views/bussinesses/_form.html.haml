@@ -1,0 +1,19 @@
+= simple_form_for(@bussiness) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :summary
+    = f.input :agenda
+    = f.input :services
+    = f.input :about
+    = f.input :industry
+    = f.input :website
+    = f.input :contact
+    = f.input :headquarter
+    = f.input :companysize
+    = f.input :founded
+    %label
+      Company Logo
+    = f.file_field :file_attachment
+  .form-actions
+    = f.button :submit
