@@ -1,0 +1,23 @@
+%h1 Listing menuitems
+
+%table
+  %tr
+    %th Name
+    %th Price
+    %th Description
+    %th
+    %th
+    %th
+
+  - @menuitems.each do |menuitem|
+    %tr
+      %td= menuitem.name
+      %td= menuitem.price
+      %td= menuitem.description
+      %td= link_to 'Show', menuitem
+      %td= link_to 'Edit', edit_menuitem_path(menuitem)
+      %td= link_to 'Destroy', menuitem, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Menuitem', new_menuitem_path

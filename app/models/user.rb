@@ -3,6 +3,9 @@ class User < ActiveRecord::Base
 #    include Mailboxer::Models::Messageable
     extend Mailboxer::Models::Messageable::ActiveRecord
     acts_as_messageable
+    has_one :bussiness
+    has_many :menuitems
+    has_many :menucategories
     belongs_to :category
     belongs_to :sub_category
     has_many :subscriptions

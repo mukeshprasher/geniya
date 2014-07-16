@@ -1,4 +1,10 @@
 Geniya::Application.routes.draw do
+  resources :menuitems
+
+  resources :menucategories
+
+  resources :bussinesses
+
   resources :payments
 
   resources :payment_subscriptions

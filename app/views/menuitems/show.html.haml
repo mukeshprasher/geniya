@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @menuitem.name
+%p
+  %b Price:
+  = @menuitem.price
+%p
+  %b Description:
+  = @menuitem.description
+
+= link_to 'Edit', edit_menuitem_path(@menuitem)
+\|
+= link_to 'Back', menuitems_path

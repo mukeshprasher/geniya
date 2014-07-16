@@ -1,0 +1,19 @@
+%h1 Listing menucategories
+
+%table
+  %tr
+    %th Name
+    %th
+    %th
+    %th
+
+  - @menucategories.each do |menucategory|
+    %tr
+      %td= menucategory.name
+      %td= link_to 'Show', menucategory
+      %td= link_to 'Edit', edit_menucategory_path(menucategory)
+      %td= link_to 'Destroy', menucategory, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Menucategory', new_menucategory_path

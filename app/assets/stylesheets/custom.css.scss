@@ -1031,7 +1031,7 @@ bottom: -10px;color: #6D6D6C;font-family: Calibri;font-size: 21px;position: abso
 
 
 .slider_profile { height: 300px;position: relative;width: 100%;
-  background: url("/assets/cover.jpg") repeat scroll 0 0 rgba(0, 0, 0, 0);
+  background: url("/assets/cover.jpg") repeat scroll 0 0 rgba(0, 0, 0, 0);clear:both;
 }
 
 .anisten {    background: none repeat scroll 0 0 rgba(0, 0, 0, 0.4);
@@ -3411,3 +3411,126 @@ h1, h2, h3, h4, h5, h6 {
 .row-fluid select{
   width: 100%;
 }
+
+/***********************Company Profile Page Starts Here************************************/
+
+
+
+
+.bussiness_profile_picture { margin-bottom: 20px; background: #fff; padding: 20px 3px; width: 100%;overflow: hidden; }
+
+.company_left { padding: 0 10px; float: left; width: 70px; overflow: hidden;}
+
+.follow_us { float: right; padding-top: 30px; width: 190px; }
+
+.follow_us p { font-size: 14px; font-family: 'latoregular'; color: #787878; float: left; padding: 2px; }
+
+.follow_us ul { }
+
+.follow_us ul li { float: left; padding: 0 5px; }
+
+.company_banner { }
+
+.company_banner .company_nav { float: left;margin-top: 3px;clear:both; }
+
+.company_banner .company_nav ul li { background: none repeat scroll 0 0 #69873f; float: left; font-size: 16px; font-weight: bold; margin: 0 10px 0 0; border-top: 2px solid #f3f1f1; }
+
+.company_banner .company_nav ul li:hover, .company_banner .company_nav ul li.active { border-top: 2px solid #69873f; background: #fff }
+
+.company_banner .company_nav ul li:hover a, .company_banner .company_nav ul li.active a { color: #759b00; }
+
+.company_banner .company_nav ul li a { color: #fff; display: block; padding: 10px; }
+
+.company_banner .company_img { }
+
+.company_banner .get_quote { background: none repeat scroll 0 0 #87b009; float: right; font-weight: bold; padding: 10px 6px; position: relative; pointer:cursor;}
+
+.company_banner .get_quote a { color: #f7f7f7; font-family: 'latobold'; font-size: 14px; text-decoration:none; }
+
+.summary_tabs {padding-top: 20px;width: 100%;float: left; }
+
+.summary_tabs ul { }
+
+.summary_tabs ul li { float: left; background: #fff; border: 1px solid#69873f; border-radius: 2px; font-size: 16px; margin: 0 5px 0 0; position: relative; }
+
+.summary_tabs ul li:hover, .summary_tabs ul li.active { background: #69873f; }
+
+.summary_tabs ul li:hover:before, .summary_tabs ul li.active:before { border-color: #6d941d rgba(0, 0, 0, 0); border-style: solid; border-width: 6px 5px 0; content: ""; display: block; left: 50%; margin-left: -5px; position: absolute; top: 29px; }
+
+.summary_tabs ul li:hover a, .summary_tabs ul li.active a { color: #fff; }
+
+.summary_tabs ul li a { color: #69873f; display: block; padding: 5px 10px; }
+
+.summary_discription { display: block; float: left;width: 100%; }
+
+.summary_discription p { clear: both; padding: 10px 0; border: 1px solid #dcedc5; clear: both; padding: 10px 5px; font-family: 'latoregular'; line-height: 22px; }
+
+.our_manu { color: #6e8f26; font-weight: bold; font-size: 18px; font-family: 'latobold'; }
+
+.full_manu { color: #6e8f26; font-size: 14px; font-family: 'latoregular'; }
+
+.company_manu { float: left; padding-bottom: 20px; width: 100%; }
+
+.main_head { color: #6e8f26; font-size: 14px; font-family: 'latobold'; margin:0;}
+
+.company_manu ul { }
+
+.company_manu ul li { float: left; width: 45%; margin: 0 5% 0 0; }
+
+.company_manu ul li .left_part { float: left; width: 70%; }
+
+.company_manu ul li .left_part h3 { color: #5b5b5b; font-size: 14px; font-family: 'latobold';margin:0; }
+
+.company_manu ul li .left_part p { color: #b4b4b4; font-family: 'latobold'; font-size: 12px;margin:0; }
+
+.company_manu ul li .right_part { background: none repeat scroll 0 0 #69873f; border-radius: 24px; color: #fff; float: right; font-family: 'latobold'; font-size: 12px; height: 16px; padding: 10px 0; text-align: center; width: 36px;   margin-top: 3%; }
+
+.company_contact { }
+
+.company_contact ul li { float: left; margin: 0 0 20px; width: 33%; }
+
+.company_contact ul li p, .company_contact ul li p a { color: #4a4a4a; font-family: 'latobold'; font-size: 12px; line-height: 17px; }
+
+.company_contact ul li h2 { padding: 0 0 5px; }
+
+.company_gallary ul li { float: left; margin: 0 15px 0 0; position: relative; }
+
+.company_gallary ul li:last-child { margin: 0; }
+
+.company_gallary ul li img { border: 1px solid #ccc; }
+
+.no_border { border: none; }
+
+.hover_plus { display: none; }
+
+.company_gallary ul li:hover .hover_plus, .company_gallary ul li.active .hover_plus { position: absolute; top: 40%; left: 40%; display: block; }
+
+.no_margin { margin: 0px; }
+
+.Quote_form { background: none repeat scroll 0 0 #e2e2e2; box-shadow: 3px 1px 2px #ccc; padding: 15px 20px 0 10px; position: absolute; right: 0; top: 43px; width: 300px; z-index: 2147483647; }
+
+.company_banner .get_quote { background: none repeat scroll 0 0 #87b009; float: right; font-weight: bold; padding: 10px 6px; position: relative; }
+
+.company_banner .get_quote:before { border-color: #e2e2e2 rgba(0, 0, 0, 0); border-style: solid; border-width: 0 6px 8px; content: ""; display: block; left: 50%; margin-left: -5px; position: absolute; top: 35px; }
+
+.Quote_form .comp_int { border: 1px solid #ccc; height: 32px !important; line-height: 32px; margin: 0 0 5px; padding: 0 5px; width: 100%; }
+
+.Quote_form .comp_text { border: 1px solid #ccc; height: 75px; padding: 5px; width: 100%; }
+
+.Quote_form .compBtn { background: none repeat scroll 0 0 #87b009; border-radius: 4px; float: right; font-weight: bold; margin: 13px -9px; padding: 10px; }
+
+
+.bussiness_profile_background {background: none repeat scroll 0 0 #FFFFFF;overflow: hidden;padding: 0 10px 20px;position: relative;overflow:hidden; margin: 25px 0 0;}
+
+.company_nav ul, .summary_tabs ul, .company_manu ul, .company_contact ul, .company_gallary ul{margin:0; width: 100%;float: left;}
+
+#bnss_about, #bnss_agenda, #bnss_services{display:none;} 
+
+#bnss_summary_link {
+    background: none repeat scroll 0 0 #69873F;
+    color: #FFFFFF;
+}
+
+.Quote_form{ display:none;}
+
+.bussiness_profile_background .box_sec{width:100%;}

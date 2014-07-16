@@ -1,0 +1,13 @@
+= simple_form_for(@menuitem) do |f|
+  = f.error_notification
+
+  .form-inputs
+    %label
+      Select Menu
+    = collection_select(:menuitem, :menucategory_id , Menucategory.all, :id, :name)
+    = f.input :name
+    = f.input :price
+    = f.input :description
+
+  .form-actions
+    = f.button :submit
