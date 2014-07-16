@@ -67,6 +67,7 @@ Geniya::Application.routes.draw do
   match "/newsletters/:id/send_email", to: 'newsletters#send_email', via: 'post'
   match "/users/:id/profile_edit", to: 'users#profile_edit', via: 'get', as: :profile_edit
   match "/users/forgot_password", to: 'users#forgot_password', via: 'get', as: :forgot_password
+  match "/users/:id/change_login", to: 'users#change_login', via: 'get'
   match "/users/recover_password", to: 'users#recover_password', via: 'post'
   match "/users/bussiness", to: 'users#bussiness', via: 'get'
   match "/users/create_bussiness", to: 'users#create_bussiness', via: 'post'
