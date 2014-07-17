@@ -2043,15 +2043,14 @@ cursor: default;font-family: Arial,sans-serif;font-size: 10px;font-weight: bold;
 
 
 #dummy-follow-buttom {
-    background-color: #006CCC;
-    background-image: linear-gradient(to bottom, #0088CC, #0044CC);
+    background-color: #6E9044;
     background-repeat: repeat-x;
     border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
     color: #FFFFFF;
     text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
         height: 37px !important;
     padding: 0;
-    width: 200px;
+    width: 80px;
         border-radius: 6px;
     font-size: 17.5px;
      margin: 0 0 7px;
@@ -3534,3 +3533,18 @@ h1, h2, h3, h4, h5, h6 {
 .Quote_form{ display:none;}
 
 .bussiness_profile_background .box_sec{width:100%;}
+
+.network h2{margin: 0 0 5px;}
+.network .upcoming_events { background: none repeat scroll 0 0 #fff; margin: 0 0 10px; padding: 6px; }
+
+.network .upcoming_events li { background: none !important; }
+
+.network .upcoming_events li .event_right p { color: #606060; font-size: 14px; font-family: 'latoregular'; margin: 0; }
+
+.network .upcoming_events li .event_right { float: right !important; width: 65%; }
+
+.network .upcoming_events li .event_right p span { margin: 0; color: #898989; font-size: 12px; font-family: 'latoregular'; display: block; }
+
+.network .upcoming_events li .coming_image { float: left; margin: 0 0 5px; }
+
+.network .upcoming_events li .coming_image { float: left; margin: 0 0 5px; }
