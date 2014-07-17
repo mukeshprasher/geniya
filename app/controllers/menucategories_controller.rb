@@ -24,17 +24,11 @@ class MenucategoriesController < ApplicationController
   # POST /menucategories
   # POST /menucategories.json
   def create
-    @menucategory = Menucategory.new(menucategory_params)
-
-    respond_to do |format|
-      if @menucategory.save
-        format.html { redirect_to @menucategory, notice: 'Menucategory was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @menucategory }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @menucategory.errors, status: :unprocessable_entity }
-      end
-    end
+    searched_menucat = Menucategory.find_by(name: params[:menucategory][:name])
+    menucategory = (searched_menucat) ? searched_menucat : Menucategory.new(menucategory_params)
+    menucategory.users << current_user unless menucategory.users.include? current_user
+    menucategory.save
+    redirect_to current_user
   end
 
   # PATCH/PUT /menucategories/1

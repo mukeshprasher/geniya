@@ -32,7 +32,7 @@ jQuery(document).ready(function(){
          return false;
     });  
    
-    jQuery('.get_quote').live('click', function(event) {        
+    jQuery('#get_quote_form').live('click', function(event) {        
          jQuery('.Quote_form').toggle('show');
          return false;
     });   

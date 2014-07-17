@@ -42,7 +42,7 @@ class BussinessesController < ApplicationController
   def update
     respond_to do |format|
       if @bussiness.update(bussiness_params)
-        format.html { redirect_to @bussiness, notice: 'Bussiness was successfully updated.' }
+        format.html { redirect_to current_user, notice: 'Bussiness was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

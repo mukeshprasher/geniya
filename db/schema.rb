@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140716100709) do
+ActiveRecord::Schema.define(version: 20140717095331) do
 
   create_table "activities", force: true do |t|
     t.integer  "user_id"
@@ -689,6 +689,13 @@ ActiveRecord::Schema.define(version: 20140716100709) do
     t.string   "special_attribute"
     t.string   "file_attachment_fingerprint"
     t.integer  "impressions_count",            default: 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "user_menucategories", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "menucategory_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

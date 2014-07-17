@@ -13,6 +13,8 @@ class User < ActiveRecord::Base
     has_many :companies
     has_many :user_tags
     has_many :tags, through: :user_tags
+    has_many :user_menucategories
+    has_many :menucategories, through: :user_menucategories    
     has_many :user_skills
     has_many :skills, through: :user_skills
     has_many :affiliations

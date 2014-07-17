@@ -29,7 +29,7 @@ class MenuitemsController < ApplicationController
 
     respond_to do |format|
       if @menuitem.save
-        format.html { redirect_to @menuitem, notice: 'Menuitem was successfully created.' }
+        format.html { redirect_to current_user, notice: 'Menuitem was successfully created.' }
         format.json { render action: 'show', status: :created, location: @menuitem }
       else
         format.html { render action: 'new' }

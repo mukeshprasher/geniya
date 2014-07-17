@@ -108,6 +108,8 @@ gem 'papercrop'
 gem "cocoon"
 
 gem 'fullcalendar-rails'
+
+gem 'tinymce-rails'
 #gem 'devise'
 
 # Use unicorn as the app server

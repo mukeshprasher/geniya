@@ -1,19 +1,41 @@
+= tinymce_assets
 = simple_form_for(@bussiness) do |f|
   = f.error_notification
 
   .form-inputs
-    = f.input :summary
-    = f.input :agenda
-    = f.input :services
-    = f.input :about
-    = f.input :industry
-    = f.input :website
-    = f.input :contact
-    = f.input :headquarter
-    = f.input :companysize
-    = f.input :founded
+    %label
+      Summary
+    = f.text_area :summary, class: "tinymce"
+    %label
+      Agenda
+    = f.text_area :agenda, class: "tinymce"
+    %label
+      Services
+    = f.text_area :services, class: "tinymce"
+    %label
+      About US
+    = f.text_area :about, class: "tinymce"
+    %label
+      Industry
+    = f.text_area :industry, class: "tinymce"
+    %label
+      Website Link
+    = f.text_area :website, class: "tinymce"
+    %label
+      Contact Details
+    = f.text_area :contact, class: "tinymce"
+    %label 
+      Headquarters
+    = f.text_area :headquarter, class: "tinymce"
+    %label
+      Company Size
+    = f.text_area :companysize, class: "tinymce"
+    %label
+      Company Establish
+    = f.text_area :founded, class: "tinymce"
     %label
       Company Logo
     = f.file_field :file_attachment
   .form-actions
     = f.button :submit
+= tinymce

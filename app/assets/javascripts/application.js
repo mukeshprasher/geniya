@@ -23,6 +23,7 @@
 //= require jquery.atwho
 //= require best_in_place
 //= require best_in_place.purr
+//= require tinymce
 //= require cocoon
 //= require fullcalendar
 //= require_tree .

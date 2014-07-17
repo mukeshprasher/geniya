@@ -6,8 +6,14 @@
   .wrapper
     - if @user.kind=="bussiness"
       .bussiness_profile_picture
-        - if @user.bussiness.nil?
-          = link_to 'Add Bussiness Details', "/bussinesses/new/", class: 'btn'
+        - if signed_in? and current_user?(@user)
+          .bussiness_page_btn
+            - if @user.bussiness.nil?
+              = link_to 'Add Bussiness Details', "/bussinesses/new/", class: 'btn'
+            - else
+              = link_to 'Edit Bussiness Details', "/bussinesses/#{@user.bussiness.id}/edit/", class: 'btn'        
+            .switch_user
+              = link_to 'Switch to Main Account', "/users/#{@user.parent_id}/change_login", class: 'btn'        
         .company_left
           - if @user.bussiness
             = image_tag @user.bussiness.file_attachment.url(:medium)
@@ -362,49 +368,50 @@
                 %li
                   %a{id: "bnss_about_link"} About Us
               .summary_discription{id: "bnss_summary"}
-                %p 
-                  - if @user.bussiness
-                    = @user.bussiness.summary
-                  - else 
-                    Add Summary Text
+                - if @user.bussiness
+                  = raw (@user.bussiness.summary)
+                - else 
+                  Add Summary Text
               .summary_discription{id: "bnss_agenda"}
-                %p 
-                  - if @user.bussiness
-                    = @user.bussiness.agenda
-                  - else 
-                    Add Agenda Text              
+                - if @user.bussiness
+                  = raw @user.bussiness.agenda
+                - else 
+                  Add Agenda Text              
               .summary_discription{id: "bnss_services"}
-                %p 
-                  - if @user.bussiness
-                    = @user.bussiness.services
-                  - else
-                    Add Summary Text
+                - if @user.bussiness
+                  =  raw @user.bussiness.services
+                - else
+                  Add Summary Text
               
               .summary_discription{id: "bnss_about"}
-                %p 
-                  - if @user.bussiness
-                    = @user.bussiness.about
-                  - else
-                    Add About text                                                      
+                - if @user.bussiness
+                  = raw @user.bussiness.about
+                - else
+                  Add About text                                                      
             .education_photography
               %a.our_manu.left Our Menu
               %a.full_manu.right Full Menu »
               .clear
             .box_sec
-              - @user.menuitems.each do|x|
-                - x.menucategory.menuitems.each do|n|
-                  .company_manu
-                    %h2.main_head
-                      = n.menucategory.name
-                    %ul
+              = link_to 'Add Menu Categories', "/menucategories/new", class: 'btn'
+              = link_to 'Add Menu', "/menuitems/new", class: 'btn'
+              - @user.menucategories.each do|x|
+                .company_manu
+                  %h2.main_head
+                    = x.name 
+                  %ul
+                    - Menuitem.where(menucategory_id: x.id).each do|n|
                       %li
                         .left_part
                           %h3
                             = n.name
-                          %p 
-                            = n.description
+                          %p
+                            = n.description 
                         .right_part
+                          $
                           = n.price
+                          
+
 
 
               .clear
@@ -418,21 +425,21 @@
                     %h2.main_head Industry
                     %p 
                       - if @user.bussiness
-                        = @user.bussiness.industry
+                        = raw @user.bussiness.industry
                       - else
                         Add Industry Information
                   %li
                     %h2.main_head Website
                     %p
                       - if @user.bussiness
-                        = @user.bussiness.website
+                        = raw @user.bussiness.website
                       - else
                         Add Website information
                   %li
                     %h2.main_head Contact
                     %p 
                       - if @user.bussiness
-                        = @user.bussiness.contact
+                        = raw @user.bussiness.contact
                       - else
                         Add Contact details
                         
@@ -440,21 +447,21 @@
                     %h2.main_head Headquarters
                     %p 
                       - if @user.bussiness
-                        = @user.bussiness.headquarter
+                        = raw @user.bussiness.headquarter
                       - else
                         Add Headquarters Information
                   %li
                     %h2.main_head Company Size
                     %p 
                       - if @user.bussiness
-                        = @user.bussiness.companysize
+                        = raw @user.bussiness.companysize
                       - else
                         Add Company Size
                   %li
                     %h2.main_head Founded
                     %p 
                       - if @user.bussiness
-                        = @user.bussiness.founded
+                        = raw @user.bussiness.founded
                       - else
                         Add Company founded Information
               .clear
@@ -495,6 +502,26 @@
               .clear        
               
       .span315.offset1.inline_block
+        - if @user.kind =="bussiness"
+          .network
+            %h2 Upcoming events
+            %ul.upcoming_events
+              - if @user.events
+                - @user.events.limit(2).order(created_at: :desc).each do |x|
+                  %li
+                    .coming_image
+                      - if @user.headshot
+                        = image_tag @user.headshot.file_attachment.url(:medium)
+                      - else
+                        = image_tag '/assets/company_logo.png', width: "198px", height: "198px"
+                    .event_right
+                      %p
+                        %a.upcoming_link{href: "/events/#{x.id}.html/"}
+                          = x.title
+                      %span
+                        = x.description
+
+              .clear        
         = render 'sidebar'
         
   /  %p#notice= notice
