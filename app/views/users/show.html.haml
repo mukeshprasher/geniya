@@ -45,7 +45,7 @@
         .get_quote
           %a{id: "get_quote_form"} Get a Quote
           .Quote_form
-            %input.comp_int{placeholder: "Username", type: "text"}/
+            %input.comp_int{placeholder: "Name", type: "text"}/
             %input.comp_int{placeholder: "Email", type: "text"}/
             %input.comp_int{placeholder: "Contact", type: "text"}/
             %textarea.comp_text{placeholder: "Message"}
@@ -393,8 +393,9 @@
               %a.full_manu.right Full Menu »
               .clear
             .box_sec
-              = link_to 'Add Menu Categories', "/menucategories/new", class: 'btn'
-              = link_to 'Add Menu', "/menuitems/new", class: 'btn'
+              - if signed_in? and current_user?(@user)
+                = link_to 'Add Menu Categories', "/menucategories/new", class: 'btn'
+                = link_to 'Add Menu', "/menuitems/new", class: 'btn'
               - @user.menucategories.each do|x|
                 .company_manu
                   %h2.main_head

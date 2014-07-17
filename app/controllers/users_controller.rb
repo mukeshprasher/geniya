@@ -85,6 +85,14 @@ class UsersController < ApplicationController
     redirect_to new_session_path
   end
 
+  def get_quote
+    
+  end
+
+
+
+
+
   def change_password
     if params.has_key?(:a) and params[:a].present?
       if @user.change_password_code == params[:a]

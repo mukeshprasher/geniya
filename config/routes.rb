@@ -75,6 +75,7 @@ Geniya::Application.routes.draw do
   match "/users/forgot_password", to: 'users#forgot_password', via: 'get', as: :forgot_password
   match "/users/:id/change_login", to: 'users#change_login', via: 'get'
   match "/users/recover_password", to: 'users#recover_password', via: 'post'
+  match "/users/get_quote", to: 'users#get_quote', via: 'post'
   match "/users/bussiness", to: 'users#bussiness', via: 'get'
   match "/users/create_bussiness", to: 'users#create_bussiness', via: 'post'
   # Named route that can be invoked with change_password_url(id: user.id)
