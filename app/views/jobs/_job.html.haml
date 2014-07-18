@@ -2,6 +2,9 @@
   - if !job.cover_file_name.nil?
     .makeUp
       = image_tag job.cover.url(:medium), width: "100%"
+  - else
+    .makeUp
+      = image_tag '/assets/missing.png', width: "100%"  
   .make_comtact
     .job_title_cont
       = job.title
