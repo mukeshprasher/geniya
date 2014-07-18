@@ -745,7 +745,7 @@ _user
 
 .user_description .firstCol .img {float: left;margin: 0 20px 0 0;}
 
-.user_description .firstCol .user {float: right;width: 82%;}
+.user_description .firstCol .user {float: left;width: 82%; margin: 0 0 0 14px;}
 
 .user_description .firstCol .user .userTop {float: left; width:550px;}
 
@@ -1384,7 +1384,7 @@ bottom: -10px;color: #6D6D6C;font-family: Calibri;font-size: 21px;position: abso
 .box_section ul {float: left;list-style: none outside none;margin:0 auto;}
 
 
-.box_section ul li {background: none repeat scroll 0 0 #FFFFFF;box-shadow: 0 0 3px #CCCCCC;display: block;float: left;margin: 20px 0 0 19px;padding: 0;width: 320px;}
+.box_section ul li {background: none repeat scroll 0 0 #FFFFFF;box-shadow: 0 0 3px #CCCCCC;display: block;float: left;margin: 20px 0 0 19px;padding: 0;width: 320px;position: relative;}
 
 
 .box_section ul li h2 {color: #4A4A4A;float: left;font-family: 'latobold';font-size: 16px;padding: 0 15px;}
@@ -1400,6 +1400,9 @@ bottom: -10px;color: #6D6D6C;font-family: Calibri;font-size: 21px;position: abso
 .box_section ul li ul li p {color: #777777;font-family: 'latobold';font-size: 13px;}
 
 .box_section ul li ul li em {color: #AEADAD;font-family: 'latobold';font-size: 13px;font-style: normal;}
+
+
+.deluxe_img {position: absolute;top: 0; left:0;}
 
 .potrate-img {   float: left;font-family: latobold;height: auto;margin: 5px 0 0 7px;overflow: hidden;width: 203px;}
 
@@ -1763,7 +1766,7 @@ display:none;
 
 .feed-user-name a {color: #82AB05;font-family: latobold;font-size: 16px;font-weight: bold;}
 
-.feed-text {color: #4C4C4C;font-family: latoregular;font-size: 14px;font-weight: normal;padding: 20px 0;}
+.feed-text {color: #4C4C4C;font-family: latoregular;font-size: 14px;font-weight: normal;}
 
 .comment-user-pic {float: left;height: 30px;width: 30px;}
 
@@ -3515,7 +3518,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .Quote_form .comp_text { border: 1px solid #ccc; height: 75px; padding: 5px; width: 100%; }
 
-.Quote_form .compBtn { background: none repeat scroll 0 0 #87b009; border-radius: 4px; float: right; font-weight: bold; margin: 13px -9px; padding: 10px; }
+.Quote_form .compBtn { background: none repeat scroll 0 0 #87b009; border-radius: 4px; float: right; margin: 12px 1px;   padding: 5px 10px 5px 13px;color:#ffffff; }
 
 
 .bussiness_profile_background {background: none repeat scroll 0 0 #FFFFFF;overflow: hidden;padding: 0 10px 20px;position: relative;overflow:hidden; margin: 25px 0 0;}
@@ -3566,3 +3569,16 @@ h1, h2, h3, h4, h5, h6 {
 .bussiness_timeline .user_description {    margin: 0;}
 
 #business_timeline_comment {border-bottom: 1px solid #CCCCCC;color: #6E8F26;font-size: 20px;font-weight: bold;margin: 0;padding: 0 0 16px 14px;width: 98%;}
+
+#bussiness_quote {color: #7B9B00;font-size: 23px;}
+
+.Quote_form label {display: none;}
+
+.Quote_form input {margin: 0;padding: 8px;}
+
+.comments .comment-user-name > a {
+    float: left;
+    padding: 0 10px 0 0;
+}
+
+#feed_text p {margin: 0;}

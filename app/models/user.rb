@@ -21,6 +21,7 @@ class User < ActiveRecord::Base
     has_many :organizations
     has_many :videos
     has_many :advertisements
+    has_many :quotes
     has_many :updates, foreign_key: "sender_user_id", dependent: :destroy
     has_many :recieved_updates, :class_name => "Update",
 :foreign_key => "receiver_user_id", dependent: :destroy

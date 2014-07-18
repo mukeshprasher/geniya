@@ -41,7 +41,7 @@ class UsersController < ApplicationController
 
     @advertize = Advertisement.where.not(user_id: @user.id)
     @ads = @advertize.where(category_id: @user.category_id)
-
+    @quote = @user.quotes.build
     @jobs = Array.new
     @user.skills.each {|skill| skill.jobs.each{|job| @jobs << job } }
     @jobs = @jobs.uniq

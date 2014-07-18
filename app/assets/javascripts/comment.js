@@ -562,6 +562,47 @@ $(function() {
     });
   
   
+// for quote_form
+
+    $("#new_quote").submit(function(){
+    var name = $("#quote_name").val();
+    var email = $("#quote_email").val();
+    var contact = $("#quote_contact").val();
+    var message = $("#quote_message").val();
+     
+    if (name == '')
+    {
+      alert('Please Enter Your Name');
+      return false;
+    }
+    else
+    if(email == '')
+    {
+          alert('Please Enter Your Email');
+      return false;
+    }
+    else
+    if(contact == '')
+    {
+          alert('Please Enter Contact Information');
+      return false;
+    }
+    else
+    if(message == '')
+    {
+          alert('Please Enter Your Message');
+      return false;
+    }       
+    
+    else
+    {
+      return true;
+    }
+    });
+
+
+
+
   
   
     

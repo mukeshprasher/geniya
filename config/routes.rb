@@ -1,4 +1,6 @@
 Geniya::Application.routes.draw do
+  resources :quotes
+
   resources :menuitems
 
   resources :menucategories

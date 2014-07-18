@@ -32,3 +32,6 @@
       .portf_like_cat 
         = album.category.name
         /= render 'shared/like_form', object: album, user: album.user 
+    - if album.user.plan == "deluxe"
+      .deluxe_img
+        %img{src: "/assets/deluxe_img.png"}/        
