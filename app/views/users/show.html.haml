@@ -46,8 +46,7 @@
           %ul
             %li.active
               %a{href: ""} Home
-            %li
-              %a{href: ""} Carrier
+
         - if signed_in? and !current_user?(@user)
           .get_quote
             %a{id: "get_quote_form"} Get a Quote
