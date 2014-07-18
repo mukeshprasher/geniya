@@ -1830,7 +1830,6 @@ cursor: pointer;
 
 .content-profile {
     float: left;
-    height: 235px;
     width: 220px;
 }
 
@@ -3558,9 +3557,12 @@ h1, h2, h3, h4, h5, h6 {
     margin: 5px !important;
 }
 
-.network .upcoming_events li .event_right p {font-size: 14px;margin: 0;width: 100%;
-}
-.event_right .upcoming_link {
-    float: none !important;
-    margin: 0;
-}
+.network .upcoming_events li .event_right p {font-size: 14px;margin: 0;width: 100%;}
+
+.event_right .upcoming_link {float: none !important;margin: 0;}
+
+.bussiness_timeline {float: left;}
+
+.bussiness_timeline .user_description {    margin: 0;}
+
+#business_timeline_comment {border-bottom: 1px solid #CCCCCC;color: #6E8F26;font-size: 20px;font-weight: bold;margin: 0;padding: 0 0 16px 14px;width: 98%;}

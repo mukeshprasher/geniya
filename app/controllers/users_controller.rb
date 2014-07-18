@@ -36,7 +36,7 @@ class UsersController < ApplicationController
       @organization = current_user.organizations.build
       @tag = current_user.tags.build
       @location = current_user.locations.build
-
+      @activities = Activity.where(user_id: @user.id).paginate(page: params[:page], per_page: 15).order(created_at: :desc)
     end
 
     @advertize = Advertisement.where.not(user_id: @user.id)

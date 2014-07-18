@@ -395,7 +395,7 @@
             .box_sec
               - if signed_in? and current_user?(@user)
                 = link_to 'Add Menu Categories', "/menucategories/new", class: 'btn'
-                = link_to 'Add Menu', "/menuitems/new", class: 'btn'
+                = link_to 'Add Menu Items', "/menuitems/new", class: 'btn'
               - @user.menucategories.each do|x|
                 .company_manu
                   %h2.main_head
@@ -501,7 +501,21 @@
                   - @user.albums.where(kind: 'portfolio').each do |album|
                     = render 'shared/album_thumb', album: album
               .clear        
-              
+          .bussiness_timeline
+            .user_description
+              /= @sql
+              #business_timeline_comment
+                Recent Comments
+              - if @activities.any?
+                %ol.updates#feed_cont
+                  - @activities.each do |activity|
+                    = render activity 
+                #infinite-scrolling
+                  = will_paginate @activities    
+              - else
+                No Activity  
+      
+      
       .span315.offset1.inline_block
         - if @user.kind =="bussiness"
           .network

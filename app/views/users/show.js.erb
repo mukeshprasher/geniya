@@ -1,1 +1,21 @@
+<% if signed_in? %>
+  <% @activities.each do |activity| %>
+    $('#feed_cont').append('<%= j render activity %>');
+  <% end %>
+  
+  <% if @activities.next_page %>
+    $('.pagination').replaceWith('<%= j will_paginate @activities %>');
+  <% else %>
+    $(window).off('scroll');
+    $('.pagination').remove();
+  <% end %>
+<% else %>
+  $('#editorsPicks').append('<% @albums.each do|album| %><%= j render 'album_home_thumb', album: album %><% end %>');
+  <% if @albums.next_page %>
+    $('.pagination').replaceWith('<%= j will_paginate @albums %>');
+  <% else %>
+    $(window).off('scroll');
+    $('.pagination').remove();
+  <% end %>
+<% end %>
 $(".pick").append("<%= escape_javascript(render('shared/profile_thumb', headshot: @headshot)) %>")
