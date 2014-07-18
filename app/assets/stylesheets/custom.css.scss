@@ -1253,9 +1253,10 @@ bottom: -10px;color: #6D6D6C;font-family: Calibri;font-size: 21px;position: abso
 
 .makeup_sec {margin-bottom: 7px;position: relative;clear:both;}
 
-.add_sec .makeUp { height: auto;    min-height: 250px;
+.add_sec .makeUp { height: 225px;    min-height: 250px;
     min-width: 288px;
-    width: 295px;}
+    width: 295px;
+    overflow:hidden;}
 
 .add_sec {
     background: none repeat scroll 0 0 #FFFFFF;
@@ -1858,6 +1859,7 @@ cursor: pointer;
     position: absolute;
     transition: all 0.5s ease 0s;
     width: 163px;
+    z-index:99;
 }
 
 

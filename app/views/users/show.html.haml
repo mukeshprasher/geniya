@@ -18,31 +18,32 @@
         .company_left
           - if @user.bussiness
             = image_tag @user.bussiness.file_attachment.url(:medium)
-          - else
+          - else  
+            Please Upload  Company Logo
             
         .follow_us
           %p Follow Us:
           %ul
             %li
-              %a{href: "#"}
+              %a{href: "#{@user.bussiness.facebook_link}", target: "_blank"}
                 %img{src: "/assets/follow_icon1.png"}/
             %li
-              %a{href: "#"}
+              %a{href: "#{@user.bussiness.youtube_link}", target: "_blank"}
                 %img{src: "/assets/follow_icon2.png"}/
             %li
-              %a{href: "#"}
+              %a{href: "#{@user.bussiness.google_link}", target: "_blank"}
                 %img{src: "/assets/follow_icon3.png"}/
             %li
-              %a{href: "#"}
+              %a{href: "#{@user.bussiness.twitter_link}", target: "_blank"}
                 %img{src: "/assets/follow_icon4.png"}/
 
       .company_banner
         .company_nav
           %ul
             %li.active
-              %a{href: "#"} Home
+              %a{href: ""} Home
             %li
-              %a{href: "#"} Carrier
+              %a{href: ""} Carrier
         - if signed_in? and !current_user?(@user)
           .get_quote
             %a{id: "get_quote_form"} Get a Quote
@@ -58,6 +59,34 @@
                   = f.input :contact, placeholder: "Contact"
                   = f.input :message, placeholder: "Message"
                   = f.button :submit, class: "compBtn", value: "Submit"
+      .ProfilePicSelector
+        %img{alt: "", src: "/assets/cam_big.png"}/
+        .txt Update Profile Picture
+        .uiMenu
+          %ul
+            %li
+              %i
+                %img{alt: "", src: "/assets/upload.png"}/
+              #uploadphoto.modal.fade{"data-width" => "760", style: "display: none;", tabindex: "-1"}
+                .modal-header
+                  %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
+                  %h4.modal-title Upload Profile Photo
+                .modal-body#profile_pic_upload_modal_body
+                  %img{alt: "loading", src: "/assets/loader.gif", style: "visibility: hidden"}/
+                  = form_for @headshot, :html => {  id: :profile_img_form  }  do |f|
+                    = f.hidden_field :album_id, value: current_user.profile_pic_album.id
+                    = f.hidden_field :upload_type, value: current_user.profile_pic_album.kind
+                    = f.hidden_field :name, value: current_user.name
+                    = f.hidden_field :special_attribute, value: "headshot"
+                    .field
+                      = f.file_field :file_attachment, id: "profile_img"
+                    .actions
+                      = f.submit 'Upload Profile Pic', id: "upload_profile_pic"
+                .modal-footer
+                  %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
+              %a.demo{"data-toggle" => "modal",href: "#uploadphoto", id: "#uploadphoto"}
+                Upload Profile Picture..  
+
             
     .slider_profile
       .cover-photo
@@ -408,9 +437,17 @@
                 .company_manu
                   %h2.main_head
                     = x.name 
+                    - if signed_in? and current_user?(@user)
+                      %span.edit_portfolio_pencil_cont
+                        %a{href: "/menucategories/#{x.id}/edit"}
+                          %img{alt: "", src: "/assets/edit.png"}/                     
                   %ul
                     - Menuitem.where(menucategory_id: x.id).each do|n|
                       %li
+                        - if signed_in? and current_user?(@user)
+                          %span.edit_portfolio_pencil_cont
+                            %a{href: "/menuitems/#{n.id}/edit"}
+                              %img{alt: "", src: "/assets/edit.png"}/               
                         .left_part
                           %h3
                             = n.name
@@ -544,6 +581,8 @@
                           = x.title
                       %span
                         = x.description
+              - else
+                Recently No Event
 
               .clear        
         = render 'sidebar'

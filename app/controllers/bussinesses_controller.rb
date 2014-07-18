@@ -69,6 +69,6 @@ class BussinessesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def bussiness_params
-      params.require(:bussiness).permit(:summary, :agenda, :services, :about, :industry, :website, :contact, :headquarter, :companysize, :founded, :file_attachment)
+      params.require(:bussiness).permit(:summary, :agenda, :services, :about, :industry, :website, :contact, :headquarter, :companysize, :founded, :file_attachment, :facebook_link, :twitter_link, :youtube_link, :google_link)
     end
 end

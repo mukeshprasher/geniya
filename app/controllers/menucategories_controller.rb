@@ -36,7 +36,7 @@ class MenucategoriesController < ApplicationController
   def update
     respond_to do |format|
       if @menucategory.update(menucategory_params)
-        format.html { redirect_to @menucategory, notice: 'Menucategory was successfully updated.' }
+        format.html { redirect_to current_user, notice: 'Menucategory was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
