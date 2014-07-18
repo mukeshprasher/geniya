@@ -25,16 +25,20 @@
           %p Follow Us:
           %ul
             %li
-              %a{href: "#{@user.bussiness.facebook_link}", target: "_blank"}
+              - if @user.bussiness
+                %a{href: "#{@user.bussiness.facebook_link}", target: "_blank"}
                 %img{src: "/assets/follow_icon1.png"}/
             %li
-              %a{href: "#{@user.bussiness.youtube_link}", target: "_blank"}
+              - if @user.bussiness
+                %a{href: "#{@user.bussiness.youtube_link}", target: "_blank"}
                 %img{src: "/assets/follow_icon2.png"}/
             %li
-              %a{href: "#{@user.bussiness.google_link}", target: "_blank"}
+              - if @user.bussiness
+                %a{href: "#{@user.bussiness.google_link}", target: "_blank"}
                 %img{src: "/assets/follow_icon3.png"}/
             %li
-              %a{href: "#{@user.bussiness.twitter_link}", target: "_blank"}
+              - if @user.bussiness
+                %a{href: "#{@user.bussiness.twitter_link}", target: "_blank"}
                 %img{src: "/assets/follow_icon4.png"}/
 
       .company_banner
