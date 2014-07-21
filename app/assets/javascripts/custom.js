@@ -12,6 +12,12 @@ function open_chat_modal(user_id){
   }, 1000);
 }
 
+function myFunction()
+{
+alert("hello");
+}
+
+
 function open_event_modal(event_id){
   var $modal_event = $('#event_modal');
   //create the backdrop and wait for next modal to be triggered
@@ -222,6 +228,36 @@ $(function() {
             }
           }
         });         
+
+
+
+        $("#srch_profile")
+        .atwho({
+          at: "", 
+          tpl: "<li data-value='${atwho-at}${name}' class='profile-data' data='${slug}' ><div class='profile_img_container'><img src=\"${headshot}\"  width=\"50px\" /></div><div class='profile_container'><span class='profile_username'>${name}</span><p class='profile_followers'>${followers} followers</p></div></li>",
+          callbacks: {
+            /*
+             It function is given, At.js will invoke it if local filter can not find any data
+             @param query [String] matched query
+             @param callback [Function] callback to render page.
+            */
+            remote_filter: function(query, callback) {
+              $.getJSON("/users.json", {q: query}, function(data) {
+                callback(data)
+              $('.profile-data').click(function(){
+                  var user_slug = $(this).attr( "data" );
+                  window.location.href = "/users/"+user_slug;
+              });
+              $('.profile-data').keyup(function(e){
+                alert('hh');
+//                if (e.keyCode == 13) { 
+//                  alert('hello');
+//              }
+              });
+              });
+            }
+          }
+        }); 
 
       $.getJSON("https://graph.facebook.com/GeniyaNetwork?callback=?", function(data) { 
         $('#facbook_count').html(data.likes) 

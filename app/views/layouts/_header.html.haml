@@ -54,6 +54,8 @@
         %li= link_to "Register", signup_path
         %li.login
           = link_to "Login", signin_path
+    #srch_people_container
+      %input{name: 'q', placeholder: "Search People, Bussiness Here", type: "text", id: "srch_profile",autocomplete: "off"}    
     %a.logo{href: "/"}
       %img{alt: "Logo", src: "/assets/logo.png"}/
     %nav#man_nav
@@ -68,3 +70,4 @@
             %li= link_to category.name.sub(' ', '/'), '/portfolios/' + category.slug, class: midsection_class           
       .clear
   .clear
+  

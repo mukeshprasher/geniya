@@ -3580,6 +3580,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .Quote_form label {display: none;}
 
+
 .Quote_form input {margin: 0;padding: 8px;}
 
 .comments .comment-user-name > a {
@@ -3590,3 +3591,33 @@ h1, h2, h3, h4, h5, h6 {
 #feed_text p {margin: 0;}
 
 .company_left img {max-width: 70px;}
+
+#srch_people_container {float: left;width: 41.5%;}
+
+#atwho-ground-srch_profile .atwho-view
+{width:33%; left:10.2% !important;}
+
+#atwho-ground-srch_profile .atwho-view ul li{
+height:55px;
+}
+
+.profile_username {font-size: 14px;font-weight: bold;text-transform: capitalize;}
+
+
+.profile_img_container {float: left;width: 15%;}
+
+
+.profile_container {float: left;width: 80%;}
+
+
+#fat-menu {
+    background: url("/assets/friends.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+}
+
+#network-notice-menu {
+    background: url("/assets/notification.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+}
+
+#message-notice-menu {
+    background: url("/assets/massege.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+}
