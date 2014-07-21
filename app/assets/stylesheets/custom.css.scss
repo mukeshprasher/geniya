@@ -3330,8 +3330,12 @@ body {
   margin: 5px;
 }
 #controll_container .btn{
-  margin: 5px;
+  margin: 5px 0;
+  text-transform: capitalize;
 }
+
+#bussiness_controll_container {margin: 0 0 0 31px;width: 90%;}
+
 .align_right{
   text-align: right;
 }
@@ -3584,3 +3588,5 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #feed_text p {margin: 0;}
+
+.company_left img {max-width: 70px;}

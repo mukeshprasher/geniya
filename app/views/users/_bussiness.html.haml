@@ -1,4 +1,4 @@
-- user_bussiness_page = User.where(parent_id: current_user.id)
+- user_bussiness_page = User.where(parent_id: @user.id)
 - if (user_bussiness_page==[])
 - else
   .profile_background
@@ -7,6 +7,10 @@
     #controll_container
       #controll_left_container
         - user_bussiness_page.each do |user_buss_detail|
-          = link_to user_buss_detail.username, "/users/"+user_buss_detail.slug+"/change_login", class: 'btn'
+          #bussiness_btns
+            - if signed_in? and current_user?(@user)
+              = link_to user_buss_detail.name, "/users/"+user_buss_detail.slug+"/change_login", class: 'btn'
+            - else
+              = link_to user_buss_detail.name, "/users/"+user_buss_detail.slug, class: 'btn'
       .clear
     .clear
