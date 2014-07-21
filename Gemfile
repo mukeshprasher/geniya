@@ -110,6 +110,8 @@ gem "cocoon"
 gem 'fullcalendar-rails'
 
 gem 'tinymce-rails'
+
+gem 'rack-canonical-host' #for redirecting to single domain
 #gem 'devise'
 
 # Use unicorn as the app server
