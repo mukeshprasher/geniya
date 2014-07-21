@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   before_action :admin_user,     only: :destroy
   before_action :redirect_if_already_signed_in, only: [:new, :create]
   before_action :can_edit, only: [:show]
-  before_action :show_users, only: [:index]
+#  before_action :show_users, only: [:index]
   
   def index
     if params[:q]

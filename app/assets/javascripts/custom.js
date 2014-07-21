@@ -12,10 +12,6 @@ function open_chat_modal(user_id){
   }, 1000);
 }
 
-function myFunction()
-{
-alert("hello");
-}
 
 
 function open_event_modal(event_id){
