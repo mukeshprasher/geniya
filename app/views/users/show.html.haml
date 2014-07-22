@@ -10,19 +10,18 @@
         - if signed_in? and current_user?(@user)
           .bussiness_page_btn
             - if @user.bussiness.nil?
-              = link_to 'Add Bussiness Details', "/bussinesses/new/", class: 'btn'
+              = link_to 'Add Business Details', "/bussinesses/new/", class: 'btn'
             - else
-              = link_to 'Edit Bussiness Details', "/bussinesses/#{@user.bussiness.id}/edit/", class: 'btn'        
+              = link_to 'Edit Business Details', "/bussinesses/#{@user.bussiness.id}/edit/", class: 'btn'        
             .switch_user
               = link_to 'Switch to Main Account', "/users/#{@user.parent_id}/change_login", class: 'btn'        
         .company_left
           - if @user.bussiness
             = image_tag @user.bussiness.file_attachment.url(:medium)
-          - else  
-            Please Upload  Company Logo
             
         .follow_us
-          %p Follow Us:
+          - if @user.bussiness
+            %p Follow Us:
           %ul
             %li
               - if @user.bussiness
@@ -155,7 +154,7 @@
                   =@user.available
               %li
                 %span
-                  /%img{alt: "", src: "/assets/artgallery_img1.png"}/
+                  %img{alt: "", src: "/assets/artgallery_img1.png"}/
                 - if (current_user == @user) && signed_in?
                   %p 
                     = @user.email
@@ -176,6 +175,7 @@
                       Add Location       
               %li
                 %span
+                  %img{alt: "", src: "/assets/artgallery_img2.png"}/
                 #user_addrss_detail
                   - if @user.locations.any?
                     = render 'shared/current_address', user: @user
@@ -337,7 +337,7 @@
                   %a.demo{"data-toggle" => "modal",href: "#edu"}
                     Add Education Detail 
               .key_skills
-                %h2 Key Skills Expertise
+                %h2 Key Skills & Expertise
                 %ul#skills-field
                   = render 'skills'
 
