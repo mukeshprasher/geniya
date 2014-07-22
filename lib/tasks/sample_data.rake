@@ -4,10 +4,10 @@ namespace :db do
     make_categories
     make_subcategories_group
     make_subcategories
-    make_users
-    make_microposts
-    make_relationships
-    make_albums
+#    make_users
+    #make_microposts
+    #make_relationships
+    #make_albums
 #    make_uploads
   end
 
