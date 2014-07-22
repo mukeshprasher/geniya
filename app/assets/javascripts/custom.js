@@ -11,7 +11,10 @@ function open_chat_modal(user_id){
     });
   }, 1000);
 }
-
+ function mu()
+ {
+ alert("hello");
+ }
 
 
 function open_event_modal(event_id){
@@ -230,7 +233,7 @@ $(function() {
         $("#srch_profile")
         .atwho({
           at: "", 
-          tpl: "<li data-value='${atwho-at}${name}' class='profile-data' data='${slug}' ><div class='profile_img_container'><img src=\"${headshot}\"  width=\"50px\" /></div><div class='profile_container'><span class='profile_username'>${name}</span><p class='profile_followers'>${followers} followers</p></div></li>",
+          tpl: "<li data-value='${atwho-at}${name}' class='profile-data' data='${slug}' onkeypress='mu()'><div class='profile_img_container'><img src=\"${headshot}\"  width=\"50px\" /></div><div class='profile_container'><span class='profile_username'>${name}</span><p class='profile_followers'>${followers} followers</p></div></li>",
           callbacks: {
             /*
              It function is given, At.js will invoke it if local filter can not find any data
@@ -244,12 +247,10 @@ $(function() {
                   var user_slug = $(this).attr( "data" );
                   window.location.href = "/users/"+user_slug;
               });
-              $('.profile-data').keyup(function(e){
-                alert('hh');
-//                if (e.keyCode == 13) { 
-//                  alert('hello');
-//              }
-              });
+//              $('#header_wrapper li').keydown(function(event) {
+//               alert('You pressed '+event.keyCode);
+//               event.preventDefault();
+//              });              
               });
             }
           }
@@ -305,6 +306,12 @@ $(function() {
       }, 1000);
     });
 
+//    $('#header_wrapper li').on("keydown", function () {
+//      alert("hh")
+////      if (event.keyCode == 13) { 
+////        alert('hello');
+////    }
+//    }); 
      
     $modal.on('click', '.update', function(){
       $modal.modal('loading');

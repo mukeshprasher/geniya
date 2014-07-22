@@ -601,8 +601,47 @@ $(function() {
     });
 
 
+// for menu_item
+
+    $("#new_menuitem").submit(function(){
+    var name = $("#menuitem_name").val();
+    var price = $("#menuitem_price").val();
+     
+    if (name == '')
+    {
+      alert('Please Enter Item Name');
+      return false;
+    }
+    else
+    if(price == '')
+    {
+          alert('Please Enter Item Price');
+      return false;
+    }
+    else
+    {
+      return true;
+    }
+    });
 
 
+
+
+// for menus
+
+    $("#new_menucategory").submit(function(){
+    var name = $("#menucategory_name").val();
+     
+    if (name == '')
+    {
+      alert('Please Enter Menu Name');
+      return false;
+    }
+    else
+    {
+      return true;
+    }
+    });
   
   
     
