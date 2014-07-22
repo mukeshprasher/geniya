@@ -87,7 +87,7 @@ Geniya::Application.configure do
         :port => 587,
         :domain => 'localhost',
         :user_name => 'geniya.network@gmail.com',
-        :password => 'geniya@123',
+        :password => 'geniya@1234',
         :authentication => :plain,
         :enable_starttls_auto => true
   }
