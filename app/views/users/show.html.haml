@@ -1,3 +1,4 @@
+
 - if @user.plan == 'visitor'
   - provide(:title, "#{@user.name}")
 - else
@@ -414,24 +415,16 @@
               .summary_discription{id: "bnss_summary"}
                 - if @user.bussiness
                   = raw (@user.bussiness.summary)
-                - else 
-                  Add Summary Text
               .summary_discription{id: "bnss_agenda"}
                 - if @user.bussiness
                   = raw @user.bussiness.agenda
-                - else 
-                  Add Agenda Text              
               .summary_discription{id: "bnss_services"}
                 - if @user.bussiness
                   =  raw @user.bussiness.services
-                - else
-                  Add Summary Text
               
               .summary_discription{id: "bnss_about"}
                 - if @user.bussiness
                   = raw @user.bussiness.about
-                - else
-                  Add About text                                                      
             .education_photography
               %a.our_manu.left Our Menu
               /%a.full_manu.right Full Menu »
@@ -480,44 +473,32 @@
                     %p 
                       - if @user.bussiness
                         = raw @user.bussiness.industry
-                      - else
-                        Add Industry Information
                   %li
                     %h2.main_head Website
                     %p
                       - if @user.bussiness
                         = raw @user.bussiness.website
-                      - else
-                        Add Website information
                   %li
                     %h2.main_head Contact
                     %p 
                       - if @user.bussiness
                         = raw @user.bussiness.contact
-                      - else
-                        Add Contact details
                         
                   %li
                     %h2.main_head Headquarters
                     %p 
                       - if @user.bussiness
                         = raw @user.bussiness.headquarter
-                      - else
-                        Add Headquarters Information
                   %li
                     %h2.main_head Company Size
                     %p 
                       - if @user.bussiness
                         = raw @user.bussiness.companysize
-                      - else
-                        Add Company Size
                   %li
                     %h2.main_head Founded
                     %p 
                       - if @user.bussiness
                         = raw @user.bussiness.founded
-                      - else
-                        Add Company founded Information
               .clear
             .box_sec
               .education_photography.no_border
@@ -567,7 +548,8 @@
                   #infinite-scrolling
                     = will_paginate @activities    
                 - else
-                  Recent no Activity  
+                  #no_activity
+                    Recent no Activity  
       
       
       .span315.offset1.inline_block
@@ -575,22 +557,24 @@
           .network
             %h2 Upcoming events
             %ul.upcoming_events
-              - if @user.events
-                - @user.events.limit(2).order(created_at: :desc).each do |x|
-                  %li
-                    .coming_image
-                      - if @user.headshot
-                        = image_tag @user.headshot.file_attachment.url(:medium)
-                      - else
-                        = image_tag '/assets/company_logo.png', width: "198px", height: "198px"
-                    .event_right
-                      %p
-                        %a.upcoming_link{href: "/events/#{x.id}.html/"}
-                          = x.title
-                      %span
-                        = x.description
+              - if @user.events.any?
+                - if @user.events
+                  - @user.events.limit(2).order(created_at: :desc).each do |x|
+                    %li
+                      .coming_image
+                        - if @user.headshot
+                          = image_tag @user.headshot.file_attachment.url(:medium)
+                        - else
+                          = image_tag '/assets/company_logo.png', width: "198px", height: "198px"
+                      .event_right
+                        %p
+                          %a.upcoming_link{href: "/events/#{x.id}.html/"}
+                            = x.title
+                        %span
+                          = x.description
               - else
-                Recently No Event
+                #no_recent_event
+                  Recently No Event
 
               .clear        
         = render 'sidebar'

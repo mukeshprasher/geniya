@@ -46,9 +46,9 @@ Geniya::Application.configure do
   config.paperclip_defaults = {
     :storage => :s3,
     :s3_credentials => {
-      :bucket => ENV['geniya'],
-      :access_key_id => ENV['AKIAIDTQALVDJOTAFN5A'],
-      :secret_access_key => ENV['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']
+      :bucket => ENV['geniyanet'],
+      :access_key_id => ENV['AKIAIUP2GZ5XEI6BZW3A'],
+      :secret_access_key => ENV['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']
     }
   }
 end

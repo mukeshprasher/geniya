@@ -4,12 +4,12 @@ class Video < ActiveRecord::Base
   has_many :comments, foreign_key: 'commentable_id'
   has_attached_file :file_attachment, :hash_secret => "geniyaAttach",
                         :storage        => :s3                                                 ,
-                      :s3_credentials => {:bucket            => 'geniya',
-                                          :access_key_id     => 'AKIAIDTQALVDJOTAFN5A',
-                                          :secret_access_key => '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'},
+                      :s3_credentials => {:bucket            => 'geniyanet',
+                                          :access_key_id     => 'AKIAIUP2GZ5XEI6BZW3A',
+                                          :secret_access_key => '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'},
                       :s3_protocol    => "https"                                             ,
                       :s3_host_name   => "s3-us-west-1.amazonaws.com",
-                      :bucket => "geniya"
+                      :bucket => "geniyanet"
   validates_attachment :file_attachment, :presence => true,
   :content_type => { :content_type => ["video/mpeg", "video/ogg", "video/mp4", "video/webm", "video/x-flv", "video/x-msvideo", "video/3gpp"] },
   :size => { :in => 0..10.megabytes },

@@ -11,7 +11,8 @@
       = simple_form_for @user, :url => url_for(:action => 'create_bussiness', :controller => 'users'), :method => 'post' do |f|
         = render 'shared/error_messages', object: f.object
         .field
-          = f.label :name
+          %label
+            *Business Name
           = f.text_field :name
         .field
           = f.label :username
