@@ -1,5 +1,5 @@
 class UserMailer < ActionMailer::Base
-  default from: "neeraj.avant.garde@gmail.com"
+  default from: "geniya.network@gmail.com"
 
   def activation_email(user)
     @user = user

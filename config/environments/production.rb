@@ -81,13 +81,13 @@ Geniya::Application.configure do
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = false
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.default_url_options = { :host => "geniya.herokuapp.com" }
+  config.action_mailer.default_url_options = { :host => "www.geniya.net" }
   config.action_mailer.smtp_settings = {
         :address => "smtp.gmail.com",
         :port => 587,
         :domain => 'localhost',
-        :user_name => 'neeraj.avant.garde@gmail.com',
-        :password => 'neerajpass12',
+        :user_name => 'geniya.network@gmail.com',
+        :password => 'geniya@123',
         :authentication => :plain,
         :enable_starttls_auto => true
   }

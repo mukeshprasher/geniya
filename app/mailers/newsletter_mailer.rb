@@ -1,7 +1,8 @@
 class NewsletterMailer < ActionMailer::Base
-  default from: "neeraj.avant.garde@gmail.com"
+  default from: "geniya.network@gmail.com"
 
   def welcome_email(user)
+    #not used, for test only
     @user = user
     @url  = 'http://example.com/login'
     mail(to: @user.email, subject: 'Welcome to My Awesome Site')

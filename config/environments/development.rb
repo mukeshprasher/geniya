@@ -35,8 +35,8 @@ Geniya::Application.configure do
         :address => "smtp.gmail.com",
         :port => 587,
         :domain => 'localhost',
-        :user_name => 'neeraj.avant.garde@gmail.com',
-        :password => 'neerajpass12',
+        :user_name => 'geniya.network@gmail.com',
+        :password => 'geniya@123',
         :authentication => :plain,
         :enable_starttls_auto => true
   }
