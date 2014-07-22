@@ -1,8 +1,11 @@
-.wrapper
-  %h1 Editing menucategory
+.row-fluid.spaced-top
+  .span2.spaced-left
+    .btn-group.btn-group-vertical.btn-block
+      = link_to 'Back', current_user, class: 'btn'
 
-  = render 'form'
+  .span6
+    %h1 Editing menucategory
 
-  = link_to 'Show', @menucategory
-  \|
-  = link_to 'Back', menucategories_path
+    = render 'form'
+
+

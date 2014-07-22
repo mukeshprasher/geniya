@@ -1,6 +1,9 @@
-.wrapper
-  %h1 New menucategory
+.row-fluid.spaced-top
+  .span2.spaced-left
+    .btn-group.btn-group-vertical.btn-block
+      = link_to 'Back', current_user, class: 'btn'
+  .span6
+    %h1 New Menu
 
-  = render 'form'
+    = render 'form'
 
-  = link_to 'Back', menucategories_path

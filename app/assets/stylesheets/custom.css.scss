@@ -3478,7 +3478,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .company_manu { float: left; padding-bottom: 20px; width: 100%; }
 
-.main_head { color: #6e8f26; font-size: 14px; font-family: 'latobold'; margin:0;}
+.main_head { color: #6e8f26; font-size: 18px; font-family: 'latobold'; margin:0;    text-transform: capitalize;}
 
 .company_manu ul { }
 
@@ -3621,3 +3621,12 @@ height:55px;
 #message-notice-menu {
     background: url("/assets/massege.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
 }
+
+
+#bussiness_page_name {bottom: 14%;color: #FFFFFF;font-size: 45px;font-weight: bold;left: 1%;position: absolute;z-index: 999;text-transform: capitalize;}
+
+
+#menu_box {margin: 15px 0 0;}
+
+
+#new_menuitem select {text-transform: capitalize;}

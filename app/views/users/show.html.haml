@@ -62,6 +62,9 @@
                   = f.input :contact, placeholder: "Contact"
                   = f.input :message, placeholder: "Message"
                   = f.button :submit, class: "compBtn", value: "Submit"
+      #bussiness_page_name
+        - if @user.bussiness
+          = @user.name
       - if (current_user == @user) && signed_in?    
         .ProfilePicSelector
           %img{alt: "", src: "/assets/cam_big.png"}/
@@ -431,39 +434,40 @@
                   Add About text                                                      
             .education_photography
               %a.our_manu.left Our Menu
-              %a.full_manu.right Full Menu »
+              /%a.full_manu.right Full Menu »
               .clear
             .box_sec
-              - if signed_in? and current_user?(@user)
-                = link_to 'Add Menu Categories', "/menucategories/new", class: 'btn'
-                = link_to 'Add Menu Items', "/menuitems/new", class: 'btn'
-              - @user.menucategories.each do|x|
-                .company_manu
-                  %h2.main_head
-                    = x.name 
-                    - if signed_in? and current_user?(@user)
-                      %span.edit_portfolio_pencil_cont
-                        %a{href: "/menucategories/#{x.id}/edit"}
-                          %img{alt: "", src: "/assets/edit.png"}/                     
-                  %ul
-                    - Menuitem.where(menucategory_id: x.id).each do|n|
-                      %li
-                        - if signed_in? and current_user?(@user)
-                          %span.edit_portfolio_pencil_cont
-                            %a{href: "/menuitems/#{n.id}/edit"}
-                              %img{alt: "", src: "/assets/edit.png"}/               
-                        .left_part
-                          %h3
-                            = n.name
-                          %p
-                            = n.description 
-                        .right_part
-                          $
-                          = n.price
+              #menu_box
+                - if signed_in? and current_user?(@user)
+                  = link_to 'Add Menu', "/menucategories/new", class: 'btn'
+                  = link_to 'Add Items', "/menuitems/new", class: 'btn'
+                - @user.menucategories.each do|x|
+                  .company_manu
+                    %h2.main_head
+                      = x.name 
+                      - if signed_in? and current_user?(@user)
+                        %span.edit_portfolio_pencil_cont
+                          %a{href: "/menucategories/#{x.id}/edit"}
+                            %img{alt: "", src: "/assets/edit.png"}/                     
+                    %ul
+                      - Menuitem.where(menucategory_id: x.id).each do|n|
+                        %li
+                          - if signed_in? and current_user?(@user)
+                            %span.edit_portfolio_pencil_cont
+                              %a{href: "/menuitems/#{n.id}/edit"}
+                                %img{alt: "", src: "/assets/edit.png"}/               
+                          .left_part
+                            %h3
+                              = n.name
+                            %p
+                              = n.description 
+                          .right_part
+                            $
+                            = n.price
                           
 
 
-
+                .clear
               .clear
             .education_photography
               %a.our_manu.left Contact Detail

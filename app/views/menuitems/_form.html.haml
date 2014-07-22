@@ -4,10 +4,10 @@
   .form-inputs
     %label
       Select Menu
-    = collection_select(:menuitem, :menucategory_id , Menucategory.all, :id, :name)
+    = collection_select(:menuitem, :menucategory_id , current_user.menucategories.all, :id, :name)
     = f.input :name
     = f.input :price
     = f.input :description
 
   .form-actions
-    = f.button :submit
+    = f.button :submit, value: "Submit"
