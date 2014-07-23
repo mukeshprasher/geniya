@@ -9,7 +9,7 @@ class Multiupload < ActiveRecord::Base
                       :bucket => "geniyanet"
   validates_attachment :multiupload, 
   :content_type => { :content_type => ["image/jpg", "image/jpeg", "image/gif", "image/png"] },
-  :size => { :in => 0..2000.kilobytes },
+  :size => { :in => 0..10000.kilobytes },
   :file_name => { :matches => [/png\Z/, /jpe?g\Z/, /gif\Z/] }
 
   include Rails.application.routes.url_helpers
