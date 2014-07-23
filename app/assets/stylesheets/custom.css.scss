@@ -2915,7 +2915,9 @@ fieldset .field {
 }
 
 .content-profile img {
-    width: 217px;
+  height: 217px;
+  max-height: 217px;
+  width: 217px;
 }
 
 
