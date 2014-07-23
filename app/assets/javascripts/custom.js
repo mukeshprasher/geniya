@@ -13,6 +13,7 @@ function open_chat_modal(user_id){
 }
  function mu()
  {
+ console.log('dsf')
  alert("hello");
  }
 
@@ -233,7 +234,7 @@ $(function() {
         $("#srch_profile")
         .atwho({
           at: "", 
-          tpl: "<li data-value='${atwho-at}${name}' class='profile-data' data='${slug}' onkeypress='mu()'><div class='profile_img_container'><img src=\"${headshot}\"  width=\"50px\" /></div><div class='profile_container'><span class='profile_username'>${name}</span><p class='profile_followers'>${followers} followers</p></div></li>",
+          tpl: "<li data-value='${slug}' class='profile-data' data='${slug}' onkeypress='mu()'><div class='profile_img_container'><img src=\"${headshot}\"  width=\"50px\" /></div><div class='profile_container'><span class='profile_username'>${name}</span><p class='profile_followers'>${followers} followers</p></div></li>",
           callbacks: {
             /*
              It function is given, At.js will invoke it if local filter can not find any data
@@ -241,16 +242,31 @@ $(function() {
              @param callback [Function] callback to render page.
             */
             remote_filter: function(query, callback) {
-              $.getJSON("/users.json", {q: query}, function(data) {
+              $.getJSON("/users.json", {q: $("#srch_profile").val()}, function(data) {
                 callback(data)
               $('.profile-data').click(function(){
                   var user_slug = $(this).attr( "data" );
                   window.location.href = "/users/"+user_slug;
               });
-//              $('#header_wrapper li').keydown(function(event) {
-//               alert('You pressed '+event.keyCode);
-//               event.preventDefault();
-//              });              
+              $('#srch_profile').keydown(function(event) {
+               if (event.keyCode == 13){
+                 var user_slug = $('.profile-data.cur').attr( "data" );
+                 var srch_txt = $('#srch_profile').val();
+                 var complete_txt = $.trim(srch_txt);
+                 if (user_slug == complete_txt)
+                 {
+                    window.location.href = "/users/"+user_slug;
+                 }
+                 else
+                 {
+                  $('#no_srch_content').show('slow');
+                  event.stopPropagation();
+                 }
+               }
+               
+               
+               //event.preventDefault();
+              });              
               });
             }
           }
