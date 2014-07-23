@@ -6,7 +6,6 @@ class Multiupload < ActiveRecord::Base
                                           :access_key_id     => 'AKIAIUP2GZ5XEI6BZW3A',
                                           :secret_access_key => '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'},
                       :s3_protocol    => "https"                                             ,
-                      :s3_host_name   => "s3-us-west-1.amazonaws.com",
                       :bucket => "geniyanet"
   validates_attachment :multiupload, 
   :content_type => { :content_type => ["image/jpg", "image/jpeg", "image/gif", "image/png"] },
