@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
     belongs_to :sub_category
     has_many :subscriptions
     has_many :educations
-    has_many :companies
+    #has_many :companies
     has_many :user_tags
     has_many :tags, through: :user_tags
     has_many :user_menucategories
@@ -41,7 +41,7 @@ class User < ActiveRecord::Base
     has_many :connected_users, through: :connections, source: :connected_user
     has_many :confirmed_connected_users, through: :connections, source: :connected_user, conditions: "connections.status= 'accepted' or connections.status='confirmed'"
     #has_many :pending_recieved_connection_requests, through: :connections, source: :connection, conditions: "status = 'pending'"
-    has_many :countries
+    #has_many :countries
     has_many :locations
     has_many :albums
     has_many :uploads, through: :albums
