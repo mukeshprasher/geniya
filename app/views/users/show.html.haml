@@ -63,8 +63,7 @@
                   = f.input :message, placeholder: "Message"
                   = f.button :submit, class: "compBtn", value: "Submit"
       #bussiness_page_name
-        - if @user.bussiness
-          = @user.name
+        = @user.name
       - if (current_user == @user) && signed_in?    
         .ProfilePicSelector
           %img{alt: "", src: "/assets/cam_big.png"}/
