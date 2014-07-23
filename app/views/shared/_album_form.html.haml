@@ -6,7 +6,7 @@
         %ul
           - @album.errors.full_messages.each do |msg|
             %li= msg
-    = f.hidden_field :user_id, value: current_user.id
+    /= f.hidden_field :user_id, value: current_user.id
     = f.hidden_field :kind, value: "portfolio"
     .field
       %span#state_label

@@ -154,9 +154,9 @@
                 %p 
                   =@user.available
               %li
-                %span
-                  %img{alt: "", src: "/assets/artgallery_img1.png"}/
-                - if (current_user == @user) && signed_in?
+                - if (current_user == @user) && signed_in? 
+                  %span
+                    %img{alt: "", src: "/assets/artgallery_img1.png"}/
                   %p 
                     = @user.email
               - if (current_user == @user) && signed_in?
