@@ -250,12 +250,36 @@ $(function() {
               });
               $('#srch_profile').keydown(function(event) {
                if (event.keyCode == 13){
-               console.log('You pressed '+ $("#srch_profile").val());
+                 var user_slug = $('.profile-data.cur').attr( "data" );
+                 var srch_txt = $('#srch_profile').val();
+                 var complete_txt = $.trim(srch_txt);
+                 if (user_slug == complete_txt)
+                 {
+                    window.location.href = "/users/"+user_slug;
+                 }
+                 else
+                 {
+                  $('#no_srch_content').show('slow');
+                  event.stopPropagation();
+                 }
                }
-               
-               
-               //event.preventDefault();
-              });              
+              });
+              
+              
+              $('#profile-srch-btn').click(function(event) {
+                 var user_slug = $('.profile-data.cur').attr( "data" );
+                 var srch_txt = $('#srch_profile').val();
+                 var complete_txt = $.trim(srch_txt);
+                 if (user_slug == complete_txt)
+                 {
+                    window.location.href = "/users/"+user_slug;
+                 }
+                 else
+                 {
+                  $('#no_srch_content').show('slow');
+                  event.stopPropagation();
+                 }
+              });                  
               });
             }
           }
