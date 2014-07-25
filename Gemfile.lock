@@ -96,6 +96,8 @@ GEM
       activesupport (>= 4.0.1)
       haml (>= 3.1, < 5.0)
       railties (>= 4.0.1)
+    heroku-deflater (0.5.3)
+      rack (>= 1.4.5)
     hike (1.2.3)
     html5_validators (1.1.2)
     httpclient (2.3.4.1)
@@ -262,6 +264,7 @@ DEPENDENCIES
   friendly_id (= 5.0.2)
   fullcalendar-rails
   haml-rails (= 0.5.3)
+  heroku-deflater
   html5_validators
   impressionist
   jbuilder (= 1.5.3)
