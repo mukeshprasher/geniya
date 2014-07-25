@@ -128,7 +128,7 @@ class UsersController < ApplicationController
     @user.chosen_plan = @user.plan
     @plan = @user.plan
     
-    @user.plan = 'trial' if @user.plan == 'deluxe'
+#    @user.plan = 'trial' if @user.plan == 'deluxe'
     
     @user.plan_end = Date.today + 1.month
     @user.status = ('a'..'z').to_a.shuffle[0..19].join

@@ -242,7 +242,7 @@ $(function() {
              @param callback [Function] callback to render page.
             */
             remote_filter: function(query, callback) {
-              $.getJSON("/users.json", {q: $("#srch_profile").val()}, function(data) {
+               $.getJSON("/users.json", {q: $("#srch_profile").val()}, function(data) {
                 callback(data)
               $('.profile-data').click(function(){
                   var user_slug = $(this).attr( "data" );
