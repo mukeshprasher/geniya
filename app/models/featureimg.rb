@@ -5,7 +5,7 @@ class Featureimg < ActiveRecord::Base
                       :s3_credentials => {:bucket            => 'geniyanet',
                                           :access_key_id     => 'AKIAIUP2GZ5XEI6BZW3A',
                                           :secret_access_key => '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'},
-                      :s3_protocol    => "https"                                             ,
+                      :s3_protocol    => "http"                                             ,
                       :bucket => "geniyanet"
   crop_attached_file :feature_img , :aspect => "215:400"
   validates_attachment :feature_img, 

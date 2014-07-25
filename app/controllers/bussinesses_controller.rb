@@ -28,7 +28,7 @@ class BussinessesController < ApplicationController
     @bussiness.user_id = current_user.id
     respond_to do |format|
       if @bussiness.save
-        format.html { redirect_to current_user, notice: 'Bussiness was successfully created.' }
+        format.html { redirect_to current_user, notice: 'Business was successfully created.' }
         format.json { render action: 'show', status: :created, location: @bussiness }
       else
         format.html { render action: 'new' }
@@ -42,7 +42,7 @@ class BussinessesController < ApplicationController
   def update
     respond_to do |format|
       if @bussiness.update(bussiness_params)
-        format.html { redirect_to current_user, notice: 'Bussiness was successfully updated.' }
+        format.html { redirect_to current_user, notice: 'Business was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
