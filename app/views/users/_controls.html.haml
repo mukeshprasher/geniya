@@ -31,12 +31,13 @@
           %a.demo{"data-toggle" => "modal",href: "#addfeatureimg", id: "#addfeatureimg", class: 'btn'}
             %span
               Add Feature Image       
-      = link_to 'Create Business Page', "/users/bussiness", class: 'btn btn-primary'
+      - if current_user.plan != 'visitor'
+        = link_to 'Create Business Page', "/users/bussiness", class: 'btn btn-primary'
 
     #controll_right_container
       = link_to 'Edit profile', "/users/"+current_user.slug+"/profile_edit", class: 'btn'
 
-      - if current_user.plan == 'deluxe' or current_user.plan == 'admin'
+      - if current_user.plan == 'deluxe' or current_user.plan == 'admin' or current_user.plan == 'trial'
         = link_to 'Create advertisement', new_advertisement_path, class: 'btn'
 
         - if current_user.advertisements.any?

@@ -29,7 +29,19 @@ class AlbumsController < ApplicationController
 
   # GET /albums/new
   def new
-    @album = Album.new
+    if current_user.plan == 'trial'
+      if current_user.albums.count>=7
+        redirect_to current_user, notice: 'Please Upgrade Your Plan for Create more Portfolios.' 
+      else
+        @album = Album.new
+      end
+    else
+      if current_user.plan == 'visitor'
+        redirect_to current_user, notice: 'You Cannot Create Portfolios.'
+      else
+        @album = Album.new
+      end
+    end
   end
 
   # GET /albums/1/edit

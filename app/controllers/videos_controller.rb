@@ -26,7 +26,19 @@ class VideosController < ApplicationController
 
   # GET /videos/new
   def new
-    @video = Video.new
+    if current_user.plan == 'trial'
+      if current_user.videos.count>=3
+        redirect_to current_user, notice: 'Please Upgrade Your Plan for Post more Videos.' 
+      else
+        @video = Video.new
+      end
+    else
+      if current_user.plan == 'visitor'
+        redirect_to current_user, notice: 'You Cannot Post Video.'
+      else
+        @video = Video.new
+      end
+    end
   end
 
   # GET /videos/1/edit

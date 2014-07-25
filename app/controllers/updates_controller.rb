@@ -24,9 +24,22 @@ class UpdatesController < ApplicationController
       @update_upload = current_user.uploads.build(uploads_params)
       @update_upload.save
       params[:update][:name] = sanitize_and_linkify_text(params[:update][:text])
-      @update_video = current_user.videos.build(video_params)
-      @update_video.save      
-
+      if current_user.plan == 'trial'
+        if current_user.videos.count>=3
+          format.html { redirect_to current_user, notice: 'Please Upgrade Your Plan for Post more Videos' }
+          format.json { head :no_content }
+        else
+          @update_video = current_user.videos.build(video_params)
+          @update_video.save  
+        end
+      else
+        if current_user.plan == 'visitor'
+          redirect_to current_user, notice: 'You Cannot Post Video.'
+        else
+          @update_video = current_user.videos.build(video_params)
+          @update_video.save 
+        end
+      end
       @activity = create_activity(@update.class.name, @update.id, 'create')
     end
 #        format.html { 

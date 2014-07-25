@@ -369,19 +369,35 @@
               - else
                 Portfolios
             .box_sec
-              .profile_portfolio_section
-                - if signed_in? and current_user?(@user) and @user.plan != 'visitor'
-                  #portfolio-form.modal.fade{"data-width" => "760", style: "display: none;", tabindex: "-1"}
-                    .modal-header
-                      %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
-                      %h4.modal-title Add Portfolio Details:
-                    .modal-body
-                      = render 'shared/album_form'
-                    .modal-footer
-                      %button.btn.btn-default#close_portfolio_modal{"data-dismiss" => "modal", type: "button"} Close
-                  %a.btn.btn-large.btn-primary.demo{"data-toggle" => "modal",href: "#portfolio-form"}
-                    Add Portfolio
-              
+              - if @user.plan == 'trial'
+                - if @user.albums.count>=7
+                - else
+                  .profile_portfolio_section
+                    - if signed_in? and current_user?(@user) and @user.plan != 'visitor'
+                      #portfolio-form.modal.fade{"data-width" => "760", style: "display: none;", tabindex: "-1"}
+                        .modal-header
+                          %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
+                          %h4.modal-title Add Portfolio Details:
+                        .modal-body
+                          = render 'shared/album_form'
+                        .modal-footer
+                          %button.btn.btn-default#close_portfolio_modal{"data-dismiss" => "modal", type: "button"} Close
+                      %a.btn.btn-large.btn-primary.demo{"data-toggle" => "modal",href: "#portfolio-form"}
+                        Add Portfolio
+              - else
+                .profile_portfolio_section
+                  - if signed_in? and current_user?(@user) and @user.plan != 'visitor'
+                    #portfolio-form.modal.fade{"data-width" => "760", style: "display: none;", tabindex: "-1"}
+                      .modal-header
+                        %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
+                        %h4.modal-title Add Portfolio Details:
+                      .modal-body
+                        = render 'shared/album_form'
+                      .modal-footer
+                        %button.btn.btn-default#close_portfolio_modal{"data-dismiss" => "modal", type: "button"} Close
+                    %a.btn.btn-large.btn-primary.demo{"data-toggle" => "modal",href: "#portfolio-form"}
+                      Add Portfolio
+                                                      
               #ajax-portfolio-detail-homepage.modal.fade.modal-scrollable{style: "display: none;", tabindex: "-1"}
               - if @user.plan == 'visitor'
                 - album_likes = Like.where(liker_id: @user.id, liker_type: 'User', likeable_type: 'Album')
