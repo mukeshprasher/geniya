@@ -31,13 +31,13 @@ class AlbumsController < ApplicationController
   def new
     if current_user.plan == 'trial'
       if current_user.albums.count>=7
-        redirect_to current_user, notice: 'Please Upgrade Your Plan for Create more Portfolios.' 
+        redirect_to new_payment_subscription_path, notice: 'Please upgrade your plan to create more portfolios.' 
       else
         @album = Album.new
       end
     else
       if current_user.plan == 'visitor'
-        redirect_to current_user, notice: 'You Cannot Create Portfolios.'
+        redirect_to current_user, notice: 'You cannot create portfolios.'
       else
         @album = Album.new
       end
