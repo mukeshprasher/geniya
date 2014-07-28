@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140718113544) do
+ActiveRecord::Schema.define(version: 20140728124056) do
 
   create_table "activities", force: true do |t|
     t.integer  "user_id"
@@ -800,6 +800,7 @@ ActiveRecord::Schema.define(version: 20140718113544) do
     t.integer  "impressions_count",            default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "album_id"
   end
 
 end

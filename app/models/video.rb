@@ -1,5 +1,6 @@
 class Video < ActiveRecord::Base
   belongs_to :user
+  belongs_to :album
   has_many :likes,foreign_key: 'likeable_id'
   has_many :comments, foreign_key: 'commentable_id'
   has_attached_file :file_attachment, :hash_secret => "geniyaAttach",

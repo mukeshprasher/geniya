@@ -18,30 +18,47 @@ class UpdatesController < ApplicationController
   # POST /updates
   # POST /updates.json
   def create
-    params[:update][:text] = sanitize_and_linkify_text(params[:update][:text])
-    @update = current_user.updates.build(update_params)
-    if @update.save
-      @update_upload = current_user.uploads.build(uploads_params)
-      @update_upload.save
-      params[:update][:name] = sanitize_and_linkify_text(params[:update][:text])
-      if current_user.plan == 'trial'
-        if current_user.videos.count>=3
-          format.html { redirect_to current_user, notice: 'Please Upgrade Your Plan for Post more Videos' }
-          format.json { head :no_content }
+    if current_user.plan == "trial"
+      if current_user.videos.count>=3
+        if params[:update].has_key?(:file_attachment)
         else
-          @update_video = current_user.videos.build(video_params)
-          @update_video.save  
+          params[:update][:text] = sanitize_and_linkify_text(params[:update][:text])
+          @update = current_user.updates.build(update_params)
+          if @update.save
+            @update_upload = current_user.uploads.build(uploads_params)
+            @update_upload.save
+            params[:update][:name] = sanitize_and_linkify_text(params[:update][:text])
+            @activity = create_activity(@update.class.name, @update.id, 'create')
+          end
         end
       else
-        if current_user.plan == 'visitor'
-          redirect_to current_user, notice: 'You Cannot Post Video.'
-        else
+        params[:update][:text] = sanitize_and_linkify_text(params[:update][:text])
+        @update = current_user.updates.build(update_params)
+        if @update.save
+          @update_upload = current_user.uploads.build(uploads_params)
+          @update_upload.save
+          params[:update][:name] = sanitize_and_linkify_text(params[:update][:text])
           @update_video = current_user.videos.build(video_params)
           @update_video.save 
+          @activity = create_activity(@update.class.name, @update.id, 'create')
         end
       end
-      @activity = create_activity(@update.class.name, @update.id, 'create')
+    else
+      if current_user.plan == "visitor"
+      else
+        params[:update][:text] = sanitize_and_linkify_text(params[:update][:text])
+        @update = current_user.updates.build(update_params)
+        if @update.save
+          @update_upload = current_user.uploads.build(uploads_params)
+          @update_upload.save
+          params[:update][:name] = sanitize_and_linkify_text(params[:update][:text])
+          @update_video = current_user.videos.build(video_params)
+          @update_video.save 
+          @activity = create_activity(@update.class.name, @update.id, 'create')
+        end  
+      end
     end
+
 #        format.html { 
 #          flash[:success] = "Update successfully created!"
 #          redirect_to @update

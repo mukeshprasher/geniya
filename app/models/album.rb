@@ -3,6 +3,7 @@ class Album < ActiveRecord::Base
   belongs_to :update
   belongs_to :category
   has_many :uploads
+  has_many :videos
   has_many :covers
   has_many :multiuploads
   has_many :likes,foreign_key: 'likeable_id'

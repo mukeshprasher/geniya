@@ -643,6 +643,30 @@ $(function() {
     }
     });
   
+ 
+
+    $("#new_video").submit(function(){
+    var name = $("#video_name").val();
+    var FileName =  $("#video_file_attachment").val();
+    var FileExtension = FileName.split('.').pop().toLowerCase();
+    if (name == '')
+    {
+      alert('Please Enter Video Name');
+      return false;
+    }
+    else
+    if(FileName.indexOf(".")==-1 || FileExtension != "mp4" && FileExtension != "3gp" && FileExtension != "ogg" && FileExtension != "mpeg" && FileExtension != "flv" && FileExtension != "avi" && FileExtension != "mpg" && FileExtension != "webm" && FileExtension != "ogv"){ // Curstom File Extension
+      alert("This isn't a Video !");
+      $("#video_file_attachment").val('');
+      return false;
+     }
+    else
+    {
+      return true;
+    }
+    });
+ 
+
   
     
         $("#new_album").submit(function(){

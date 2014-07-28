@@ -57,6 +57,7 @@ class VideosController < ApplicationController
     if @video.save
       @update_upload = current_user.uploads.build(video_params1)
       @update_upload.save
+      redirect_to @video, notice: 'Video was successfully added.' 
     end
 #    respond_to do |format|
 #      if @video.save
@@ -101,7 +102,7 @@ class VideosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def video_params
-      params.require(:video).permit(:name, :file_attachment)
+      params.require(:video).permit(:name, :file_attachment, :album_id)
     end
     def video_params1
       params.require(:video).permit(:file_attachment)
