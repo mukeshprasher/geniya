@@ -7,11 +7,13 @@
         %li[tag]
           - if(@i%2 == 0) 
             %span
-              = tag.name.gsub('_',' ').capitalize
+              %a{href:"/tags/#{tag.name.gsub(/#/,"")}"}
+                = tag.name.gsub('_',' ').capitalize
               - if !tag.id.nil? and current_user and @user.id == current_user.id
                 = link_to "x", '/user_tags/' + UserTag.find_by(user_id: current_user.id, tag_id: tag.id).id.to_s, method: :delete, :data => { :confirm => 'Are you sure?' }, class: 'tag_delete', remote: true
           - else
-            = tag.name.gsub('_',' ').capitalize
+            %a{href:"/tags/#{tag.name.gsub(/#/,"")}"}
+              = tag.name.gsub('_',' ').capitalize
             - if !tag.id.nil? and current_user and @user.id == current_user.id
               = link_to "x", '/user_tags/' + UserTag.find_by(user_id: current_user.id, tag_id: tag.id).id.to_s, method: :delete, :data => { :confirm => 'Are you sure?' }, class: 'tag_delete', remote: true
           - @i += 1
@@ -25,11 +27,13 @@
         %li[tag]
           - unless(@j%2 == 0) 
             %span
-              = tag.name.gsub('_',' ').capitalize
+              %a{href:"/tags/#{tag.name.gsub(/#/,"")}"}
+                = tag.name.gsub('_',' ').capitalize
               - if  !tag.id.nil? and current_user and @user.id == current_user.id
                 = link_to "x", '/user_tags/' + UserTag.find_by(user_id: current_user.id, tag_id: tag.id).id.to_s, method: :delete, :data => { :confirm => 'Are you sure?' }, class: 'tag_delete', remote: true
           - else
-            = tag.name.gsub('_',' ').capitalize
+            %a{href:"/tags/#{tag.name.gsub(/#/,"")}"}
+              = tag.name.gsub('_',' ').capitalize
             - if !tag.id.nil? and current_user and @user.id == current_user.id
               = link_to "x", '/user_tags/' + UserTag.find_by(user_id: current_user.id, tag_id: tag.id).id.to_s, method: :delete, :data => { :confirm => 'Are you sure?' }, class: 'tag_delete', remote: true
           - @j += 1

@@ -1,4 +1,9 @@
-%h2 Users with #{@tag.name} tag
-- @users.each do |user|
-  = render user
-= will_paginate @users
+.row-fluid.spaced-top
+  .span2.spaced-left
+    .btn-group.btn-group-vertical.btn-block
+      = link_to 'Back', current_user, class: 'btn'
+  .span10.spaced-right
+    %h2 Users with #{@tag.name} tag
+    - @users.each do |user|
+      = render user
+    = will_paginate @users  
