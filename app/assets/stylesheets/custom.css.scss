@@ -3612,17 +3612,12 @@ height:55px;
 .profile_container {float: left;width: 80%;}
 
 
-#fat-menu {
-    background: url("/assets/friends.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+.notification_image {
+    float: left;
+    margin: -3px -2px 0 0;
 }
 
-#network-notice-menu {
-    background: url("/assets/notification.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
-}
 
-#message-notice-menu {
-    background: url("/assets/massege.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
-}
 
 
 #bussiness_page_name {bottom: 14%;color: #FFFFFF;font-size: 45px;font-weight: bold;left: 1%;position: absolute;z-index: 999;text-transform: capitalize;}
@@ -3667,4 +3662,15 @@ height:55px;
 
 .sale_plan ul {
     margin-top: 90px;
+}
+
+#notification_count {
+    background: none repeat scroll 0 0 #FF0000;
+    border-radius: 27%;
+    color: #FFFFFF;
+    float: left;
+    font-size: 10px;
+    margin: -3px 0 0;
+    padding: 0 4px 1px;
+    position: relative;
 }

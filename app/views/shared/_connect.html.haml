@@ -1,5 +1,5 @@
 - if current_user.plan == 'trial'
-  - if current_user.confirmed_connected_users.count>=1
+  - if current_user.confirmed_connected_users.count>=50
   - else
     = form_for(current_user.connections.build(connection_id: @user.id), remote: true) do |f|
       = f.hidden_field :connection_id

@@ -16,21 +16,33 @@
         %li= link_to 'Home', root_path
         %li
           |
-        %li#fat-menu.dropdown
-          %a#header_response_notifications_trigger.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
-            = current_user.responses.where(status: 0).count
-            %b.caret
-          %ul.dropdown-menu#header_response_notifications
         %li#network-notice-menu.dropdown
           %a#network_response_notifications_trigger.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
-            = current_user.connections.where(status: 'requested').count
-            %b.caret
+            %img{alt: "friends", src: "/assets/friends.png", class:"notification_image"}/
+            - if (current_user.connections.where(status: 'requested').count == 0)
+            - else
+              %span#notification_count
+                = current_user.connections.where(status: 'requested').count
+            /%b.caret
           %ul.dropdown-menu#network_response_notifications
+        %li#fat-menu.dropdown
+          %a#header_response_notifications_trigger.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
+            %img{alt: "notices", src: "/assets/notification.png", class:"notification_image"}/
+            - if (current_user.responses.where(status: 0).count == 0)
+            - else
+              %span#notification_count
+                = current_user.responses.where(status: 0).count
+            /%b.caret
+          %ul.dropdown-menu#header_response_notifications
         %li#message-notice-menu.dropdown
           = render 'shared/send_message_form'
           %a#message_response_notifications_trigger.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
-            = Chat.where(reciever_id: current_user.id, status: 'unread').count
-            %b.caret
+            %img{alt: "notices", src: "/assets/massege.png", class:"notification_image"}/
+            - if (Chat.where(reciever_id: current_user.id, status: 'unread').count == 0)
+            - else
+              %span#notification_count
+                = Chat.where(reciever_id: current_user.id, status: 'unread').count
+            /%b.caret
           %ul.dropdown-menu#message_response_notifications
 
         /%li#fat-menu.dropdown
