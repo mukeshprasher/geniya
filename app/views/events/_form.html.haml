@@ -1,19 +1,18 @@
-.span6
-  = simple_form_for(@event) do |f|
-    /= f.error_notification
-    = render 'shared/error_messages', object: f.object
+= simple_form_for(@event) do |f|
+  /= f.error_notification
+  = render 'shared/error_messages', object: f.object
 
-    .form-inputs
-      = f.input :title
-      = f.input :description
-      .field.datetimepicker
-        = f.label :start
-        = f.text_field :start, placeholder: "yyyy-mm-dd HH:mm:ss", style: 'width: 90%'
-      .field.datetimepicker
-        = f.label :end
-        = f.text_field :end, placeholder: "yyyy-mm-dd HH:mm:ss", style: 'width: 90%'
-      = f.input :location
-      = f.input :privacy , priority: [ "connections" ], collection: {"Connections" => "connections","Connections and followers" => "connections and followers"}, include_blank: false
+  .form-inputs
+    = f.input :title
+    = f.input :description
+    .field.datetimepicker
+      = f.label :start
+      = f.text_field :start, placeholder: "yyyy-mm-dd HH:mm:ss", style: 'width: 90%'
+    .field.datetimepicker
+      = f.label :end
+      = f.text_field :end, placeholder: "yyyy-mm-dd HH:mm:ss", style: 'width: 90%'
+    = f.input :location
+    = f.input :privacy , priority: [ "connections" ], collection: {"Connections" => "connections","Connections and followers" => "connections and followers"}, include_blank: false
 
-    .event_form_button_cont
-      = f.button :submit, class: 'btn btn-large btn-primary'
+  .event_form_button_cont
+    = f.button :submit, class: 'btn btn-large btn-primary'
