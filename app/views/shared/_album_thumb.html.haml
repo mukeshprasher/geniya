@@ -33,3 +33,6 @@
             = @comments.count
       .add_comment
         = render 'shared/user_img', user: album.user, album: album
+    - if album.user.plan == "deluxe"
+      .deluxe_img
+        %img{src: "/assets/deluxe_img.png"}/   

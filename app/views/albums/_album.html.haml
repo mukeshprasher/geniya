@@ -81,6 +81,9 @@
                   = video.name                 
     - if signed_in? and current_user?(@user) and album.multiuploads.any?
       .primary-project-content.project-styles
+        %a.demo{"data-toggle" => "modal",href: "#video-form"}
+          %span.add_img_btn
+            Add Video's 
         %a.demo{"data-toggle" => "modal",href: "#album-form"}
           %span.add_img_btn
             Add/Remove Pictures
