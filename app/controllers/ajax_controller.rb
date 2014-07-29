@@ -8,9 +8,9 @@ class AjaxController < ApplicationController
     impressionist @album, '', unique: [:user_id] if current_user
     @likers = @album.likers(User)
     @comments = @album.comment_threads.where('parent_id IS NULL').order('created_at desc')
-    @video = current_user.videos.build
     if signed_in?
       @new_comment = Comment.build_from(@album, current_user.id, "")
+      @video = current_user.videos.build
     end
     render @album
   end
