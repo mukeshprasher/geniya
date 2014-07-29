@@ -3,7 +3,8 @@
     Controls
   #controll_container
     #controll_left_container
-      = link_to 'Create organization', new_organization_path, class: 'btn'    
+      - if current_user.plan != 'visitor' && current_user.plan != 'trial'
+        = link_to 'Create organization', new_organization_path, class: 'btn'    
 
       - if current_user.plan == 'deluxe' or current_user.plan == 'admin'
         = link_to 'Post job', new_job_path, class: 'btn'
@@ -31,7 +32,7 @@
           %a.demo{"data-toggle" => "modal",href: "#addfeatureimg", id: "#addfeatureimg", class: 'btn'}
             %span
               Add Feature Image       
-      - if current_user.plan != 'visitor'
+      - if current_user.plan != 'visitor' && current_user.plan != 'trial'
         = link_to 'Create Business Page', "/users/bussiness", class: 'btn btn-primary'
 
     #controll_right_container

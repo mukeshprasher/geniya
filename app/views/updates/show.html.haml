@@ -1,22 +1,24 @@
-%p#notice= notice
+.wrapper
+  .row-fluid.spaced-top
+    .span2.spaced-left
+      .btn-group.btn-group-vertical.btn-block
+        = link_to 'Back', current_user, class: 'btn'
+    .span10.spaced-right
+      %p#notice= notice
 
-%p
-  %b Text:
-  = @update.text
-%p
-  %b Privacy:
-  = @update.privacy
-%p
-  %b Sender user:
-  = @update.sender_user_id
-%p
-  %b Receiver user:
-  = @update.receiver_user_id
+      %p
+        %b Text:
+        = @update.text
+      %p
+        %b Privacy:
+        = @update.privacy
+      %p
+        %b Sender user:
+        = @update.sender_user_id
+      %p
+        %b Receiver user:
+        = @update.receiver_user_id
 
-.comments
-  = render :partial => 'comments/form', :locals => { comment: @new_comment, parent_id: nil }
-  = render :partial => 'comments/comment', :collection => @comments, :as => :comment
-
-= link_to 'Edit', edit_update_path(@update)
-\|
-= link_to 'Back', root_url
+      .comments
+        = render :partial => 'comments/form', :locals => { comment: @new_comment, parent_id: nil }
+        = render :partial => 'comments/comment', :collection => @comments, :as => :comment

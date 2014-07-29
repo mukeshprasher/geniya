@@ -849,7 +849,7 @@ form {margin: 0 0 5px;}
   margin-right: 20px;
   max-width: 24%;
   padding: 10px 62px 10px 5px; position:relative;
-  min-height: 990px;
+  min-height: 1084px;
 }
 
 .free_plan {float: left;}
@@ -3614,7 +3614,9 @@ height:55px;
 
 .notification_image {
     float: left;
-    margin: -3px -2px 0 0;
+    height: 15px !important;
+    margin: 0 -2px 0 0;
+    width: 17px !important;
 }
 
 
@@ -3665,7 +3667,7 @@ height:55px;
 }
 
 #notification_count {
-    background: none repeat scroll 0 0 #FF0000;
+    background: none repeat scroll 0 0 #E6535B;
     border-radius: 27%;
     color: #FFFFFF;
     float: left;

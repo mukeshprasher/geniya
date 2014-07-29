@@ -51,7 +51,8 @@
             Controls
           %a.btn{href: "/users/"+current_user.slug+"/profile_edit"}
             Edit Profile          
-          = link_to 'Create organization', new_organization_path, class: 'btn'
+          - if current_user.plan != 'visitor' && current_user.plan != 'trial'
+            = link_to 'Create organization', new_organization_path, class: 'btn'
           - if current_user.plan == 'trial'
             = link_to 'Create advertisement', new_advertisement_path, class: 'btn'
             - if current_user.advertisements.any?
