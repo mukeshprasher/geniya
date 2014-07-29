@@ -551,7 +551,7 @@
                   - @user.albums.where(kind: 'portfolio').each do |album|
                     = render 'shared/album_thumb', album: album
               .clear        
-          - if signed_in? and current_user?(@user)
+          - if signed_in? 
             .bussiness_timeline
               .user_description
                 /= @sql
