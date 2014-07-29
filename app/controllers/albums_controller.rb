@@ -21,10 +21,10 @@ class AlbumsController < ApplicationController
     @user_profile_pics = @user.uploads.where(upload_type: 'profile')
     impressionist @album, '', unique: [:user_id] if current_user
     @likers = @album.likers(User)
-    @video = current_user.videos.build
     @comments = @album.comment_threads.where('parent_id IS NULL').order('created_at desc')
     if signed_in?
       @new_comment = Comment.build_from(@album, current_user.id, "")
+      @video = current_user.videos.build
     end
   end
 
