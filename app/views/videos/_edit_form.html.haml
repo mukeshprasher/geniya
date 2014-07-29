@@ -1,0 +1,11 @@
+= simple_form_for(@video) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :name
+    
+    = f.file_field :file_attachment
+    %br
+    %br
+    %p
+      = f.button :submit, value: "Add Video"

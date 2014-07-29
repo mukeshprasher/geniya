@@ -1,7 +1,11 @@
-%h1 Editing video
+.row-fluid.spaced-top
+  .span2.spaced-left
+    .btn-group.btn-group-vertical.btn-block
+      - if @video.album_id.nil?
+        = link_to 'Back', current_user, class: 'btn'
+      - else
+        = link_to 'Back', '/albums/'+@video.album.slug, class: 'btn'
+  .span6
+    %h1 Editing video
+    = render 'edit_form'
 
-= render 'form'
-
-= link_to 'Show', @video
-\|
-= link_to 'Back', videos_path

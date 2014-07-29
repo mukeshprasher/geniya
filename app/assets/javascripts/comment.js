@@ -105,6 +105,18 @@ $(function() {
        return false;}
      });     
      
+    $(".video_box-delete").click(function(){
+     var delcomment = confirm("Do you want to delete this Video ?");
+     if(delcomment == true)
+     {
+     var delete_comment_id=this.id.split("-")[2]
+       $("#video_box-"+delete_comment_id).hide('slow');
+       return true;
+     }
+     else
+       {$("#video_box-"+delete_comment_id).show();
+       return false;}
+     }); 
      
      
 // delete images from uploads 

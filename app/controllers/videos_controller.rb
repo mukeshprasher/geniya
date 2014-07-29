@@ -55,9 +55,13 @@ class VideosController < ApplicationController
     @video = Video.new(video_params)
     @video.user_id = current_user.id
     if @video.save
-      @update_upload = current_user.uploads.build(video_params1)
-      @update_upload.save
-      redirect_to @video, notice: 'Video was successfully added.' 
+#      @update_upload = current_user.uploads.build(video_params1)
+#      @update_upload.save
+      if @video.album_id.present?
+        redirect_to @video.album, notice: 'Video was successfully added.' 
+      else
+        redirect_to @video, notice: 'Video was successfully added.'
+      end
     end
 #    respond_to do |format|
 #      if @video.save
@@ -88,10 +92,10 @@ class VideosController < ApplicationController
   # DELETE /videos/1.json
   def destroy
     @video.destroy
-    respond_to do |format|
-      format.html { redirect_to videos_url }
-      format.json { head :no_content }
-    end
+#    respond_to do |format|
+#      format.html { redirect_to videos_url }
+#      format.json { head :no_content }
+#    end
   end
 
   private
@@ -104,7 +108,7 @@ class VideosController < ApplicationController
     def video_params
       params.require(:video).permit(:name, :file_attachment, :album_id)
     end
-    def video_params1
-      params.require(:video).permit(:file_attachment)
-    end    
+#    def video_params1
+#      params.require(:video).permit(:file_attachment)
+#    end    
 end
