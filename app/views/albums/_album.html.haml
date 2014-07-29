@@ -61,13 +61,14 @@
           - @album.videos.each do |video|
             %ul.video-gallery{ :id => "video_box-#{video.id}" }
               %li 
-                .profile_edit_delete_portfolio_cont.align_right
-                  %span.edit_portfolio_pencil_cont
-                    = link_to edit_video_path(video) do
-                      %img{alt: "", src: "/assets/edit.png"}/  
-                  %span.delete_portfolio_cross_cont
-                    = link_to video_path(video), :method => :delete, :remote => true,  :disable_with => "×", :class => 'video_box-delete' , :id => "video_box-delete-#{video.id}" do 
-                      %img{alt: "", src: "/assets/cross.png"}/               
+                - if current_user == @album.user && signed_in?
+                  .profile_edit_delete_portfolio_cont.align_right
+                    %span.edit_portfolio_pencil_cont
+                      = link_to edit_video_path(video) do
+                        %img{alt: "", src: "/assets/edit.png"}/  
+                    %span.delete_portfolio_cross_cont
+                      = link_to video_path(video), :method => :delete, :remote => true,  :disable_with => "×", :class => 'video_box-delete' , :id => "video_box-delete-#{video.id}" do 
+                        %img{alt: "", src: "/assets/cross.png"}/               
               
                 - if ["video/mpeg", "video/x-msvideo", "video/3gpp"].include? video.file_attachment.content_type
                   %object{ data: "#{video.file_attachment.url}", width: "303", height: "230", autoplay: "false"}
