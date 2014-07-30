@@ -1,5 +1,9 @@
-.wrapper
-  %h1 Editing Business Details
+.row-fluid.spaced-top
+  .span2.spaced-left
+    .btn-group.btn-group-vertical.btn-block
+      = link_to 'Back', current_user, class: 'btn'
+  .span9
+    %h1 Editing Business Details
+    = render 'form'
 
-  = render 'form'
-
+    .clear

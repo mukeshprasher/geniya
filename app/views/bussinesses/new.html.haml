@@ -1,6 +1,10 @@
-.wrapper
-  %h1 New business
+.row-fluid.spaced-top
+  .span2.spaced-left
+    .btn-group.btn-group-vertical.btn-block
+      = link_to 'Back', current_user, class: 'btn'
+  .span9
+    .max_form_width
+       %h1 New business
+        = render 'form'
 
-  = render 'form'
-
-  = link_to 'Back', bussinesses_path
+        .clear
