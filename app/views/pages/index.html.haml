@@ -139,7 +139,7 @@
           Discover Geniya
           %ul.discover_nav
             %li
-              %a{href: ""} All
+              %a{href: "/portfolios"} All
             - @categories.each do |category|
               %li
                 = link_to category.name.sub(' ', '/'), '/portfolios/'+ category.slug
