@@ -3484,9 +3484,9 @@ h1, h2, h3, h4, h5, h6 {
 
 .summary_tabs ul li a { color: #69873f; display: block; padding: 5px 10px; }
 
-.summary_discription { display: block; float: left;width: 100%; }
+.summary_discription { display: block; float: left;width: 100%; border: 1px solid #DCEDC5;  margin: 8px 0 10px; }
 
-.summary_discription p { clear: both; padding: 10px 0; border: 1px solid #dcedc5; clear: both; padding: 10px 5px; font-family: 'latoregular'; line-height: 22px;   margin-top: 1%; }
+.summary_discription p { clear: both; padding: 10px 0; clear: both; padding: 10px 5px; font-family: 'latoregular'; line-height: 22px;   margin-top: 1%; }
 
 .our_manu { color: #6e8f26; font-weight: bold; font-size: 18px; font-family: 'latobold'; }
 
@@ -3750,4 +3750,9 @@ max-width:300px;
 
 .max_add_form_width {
     max-width: 551px;
+}
+
+
+#available_txt {
+    text-transform: capitalize;
 }
