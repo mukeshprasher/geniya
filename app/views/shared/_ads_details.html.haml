@@ -10,7 +10,7 @@
           %em
             please add Contact Details
       - else
-        %a{href: "//"+"#{add_detail.link}", target: "_blank"}
+        %a{href: "#{add_detail.link}", target: "_blank"}
           Contact Now
       %span#view_detail_link
         = link_to "View Details", '/advertisements/'+ add_detail.slug

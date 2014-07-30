@@ -16,7 +16,7 @@
       = f.input :title
       = f.input :slogan
       = f.input :description, as: :text, :input_html => { :cols => 5, :rows => 10 }
-      = f.input :link
+      = f.input :link, placeholder: "for example https://www.your-contact-link.com/"
       /= f.input :address
       /= f.input :contact
       = f.file_field :file_attachment
