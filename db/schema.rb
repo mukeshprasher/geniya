@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140728124056) do
+ActiveRecord::Schema.define(version: 20140730075631) do
 
   create_table "activities", force: true do |t|
     t.integer  "user_id"
@@ -101,6 +101,7 @@ ActiveRecord::Schema.define(version: 20140728124056) do
     t.string   "twitter_link"
     t.string   "youtube_link"
     t.string   "google_link"
+    t.text     "tagline"
   end
 
   create_table "categories", force: true do |t|

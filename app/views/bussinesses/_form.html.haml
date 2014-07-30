@@ -4,6 +4,10 @@
 
   .form-inputs
     %label
+      Business Tagline
+    = f.text_area :tagline, class: "tinymce"
+    %br
+    %label
       Summary
     = f.text_area :summary, class: "tinymce"
     %br
@@ -27,8 +31,8 @@
     %br
     %br
     %label
-      Website Link
-    = f.text_area :website, class: "tinymce"
+      Please Give Complete Website link 
+    = f.input :website, placeholder: "for example https://www.geniya.net/", id: "company_website_link"
     %br
     %br
     %label
@@ -51,9 +55,9 @@
     = f.text_area :founded, class: "tinymce"
     %br
     %br
-    %label
-      Company Logo
-    = f.file_field :file_attachment
+    /%label
+    /  Company Logo
+    /= f.file_field :file_attachment
     %br
     %br
     %label
@@ -71,6 +75,5 @@
     %label
       Please Give Complete link 
     = f.input :twitter_link, placeholder: "for example https://www.twitter.com/your-business-page-name/"      
-  .form-actions
-    = f.button :submit
+    = f.button :submit, value: "Submit", class:"btn btn btn-large btn-primary"
 = tinymce

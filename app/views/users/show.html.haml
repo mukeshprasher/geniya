@@ -7,39 +7,6 @@
   .wrapper
     - if @user.kind=="bussiness"
       #bussiness_quote
-      .bussiness_profile_picture
-        - if signed_in? and current_user?(@user)
-          .bussiness_page_btn
-            - if @user.bussiness.nil?
-              = link_to 'Add Business Details', "/bussinesses/new/", class: 'btn'
-            - else
-              = link_to 'Edit Business Details', "/bussinesses/#{@user.bussiness.id}/edit/", class: 'btn'        
-            .switch_user
-              = link_to 'Switch to Main Account', "/users/#{@user.parent_id}/change_login", class: 'btn'        
-        .company_left
-          - if @user.bussiness
-            = image_tag @user.bussiness.file_attachment.url(:medium)
-            
-        .follow_us
-          - if @user.bussiness
-            %p Follow Us:
-          %ul
-            %li
-              - if @user.bussiness
-                %a{href: "#{@user.bussiness.facebook_link}", target: "_blank"}
-                  %img{src: "/assets/follow_icon1.png"}/
-            %li
-              - if @user.bussiness
-                %a{href: "#{@user.bussiness.youtube_link}", target: "_blank"}
-                  %img{src: "/assets/follow_icon2.png"}/
-            %li
-              - if @user.bussiness
-                %a{href: "#{@user.bussiness.google_link}", target: "_blank"}
-                  %img{src: "/assets/follow_icon3.png"}/
-            %li
-              - if @user.bussiness
-                %a{href: "#{@user.bussiness.twitter_link}", target: "_blank"}
-                  %img{src: "/assets/follow_icon4.png"}/
 
       .company_banner
         .company_nav
@@ -62,36 +29,42 @@
                   = f.input :contact, placeholder: "Contact"
                   = f.input :message, placeholder: "Message"
                   = f.button :submit, class: "compBtn", value: "Submit"
-      #bussiness_page_name
-        = @user.name
-      - if (current_user == @user) && signed_in?    
-        .ProfilePicSelector
-          %img{alt: "", src: "/assets/cam_big.png"}/
-          .txt Update Profile Picture
-          .uiMenu
-            %ul
-              %li
-                %i
-                  %img{alt: "", src: "/assets/upload.png"}/
-                #uploadphoto.modal.fade{"data-width" => "760", style: "display: none;", tabindex: "-1"}
-                  .modal-header
-                    %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
-                    %h4.modal-title Upload Profile Photo
-                  .modal-body#profile_pic_upload_modal_body
-                    %img{alt: "loading", src: "/assets/loader.gif", style: "visibility: hidden"}/
-                    = form_for @headshot, :html => {  id: :profile_img_form  }  do |f|
-                      = f.hidden_field :album_id, value: current_user.profile_pic_album.id
-                      = f.hidden_field :upload_type, value: current_user.profile_pic_album.kind
-                      = f.hidden_field :name, value: current_user.name
-                      = f.hidden_field :special_attribute, value: "headshot"
-                      .field
-                        = f.file_field :file_attachment, id: "profile_img"
-                      .actions
-                        = f.submit 'Upload Profile Pic', id: "upload_profile_pic"
-                  .modal-footer
-                    %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
-                %a.demo{"data-toggle" => "modal",href: "#uploadphoto", id: "#uploadphoto"}
-                  Upload Profile Picture..  
+    - if @user.kind == "bussiness"
+      .business_profile_picture
+        .pick
+          .proflie
+            - if @user.headshot
+              = image_tag @user.headshot.file_attachment.url(:medium)
+            - else
+              = image_tag '/assets/company_logo.png', width: "198px", height: "198px"      
+        - if (current_user == @user) && signed_in? && @user.kind == "bussiness"   
+          .ProfilePicSelector
+            %img{alt: "", src: "/assets/cam_big.png"}/
+            .txt Update Profile Picture
+            .uiMenu
+              %ul
+                %li
+                  %i
+                    %img{alt: "", src: "/assets/upload.png"}/
+                  #uploadphoto.modal.fade{"data-width" => "760", style: "display: none;", tabindex: "-1"}
+                    .modal-header
+                      %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
+                      %h4.modal-title Upload Profile Photo
+                    .modal-body#profile_pic_upload_modal_body
+                      %img{alt: "loading", src: "/assets/loader.gif", style: "visibility: hidden"}/
+                      = form_for @headshot, :html => {  id: :profile_img_form  }  do |f|
+                        = f.hidden_field :album_id, value: current_user.profile_pic_album.id
+                        = f.hidden_field :upload_type, value: current_user.profile_pic_album.kind
+                        = f.hidden_field :name, value: current_user.name
+                        = f.hidden_field :special_attribute, value: "headshot"
+                        .field
+                          = f.file_field :file_attachment, id: "profile_img"
+                        .actions
+                          = f.submit 'Upload Profile Pic', id: "upload_profile_pic"
+                    .modal-footer
+                      %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
+                  %a.demo{"data-toggle" => "modal",href: "#uploadphoto", id: "#uploadphoto"}
+                    Upload Profile Picture..  
 
             
     .slider_profile
@@ -224,6 +197,10 @@
               /    %i
               /      %img{alt: "", src: "/assets/reposition.png"}/
               /    %span.uilinkText View Cover Photos...
+      
+      
+
+      
       .art_social
         %ul
           - if (current_user != @user) && signed_in?    
@@ -234,6 +211,56 @@
           %li
             = render 'shared/connect_form' if signed_in?
       .clear
+    
+    - if @user.kind=="bussiness"
+      .bussiness_profile_picture
+        /- if signed_in? and current_user?(@user)
+        /  .bussiness_page_btn
+        /    - if @user.bussiness.nil?
+        /      = link_to 'Add Business Details', "/bussinesses/new/", class: 'btn'
+        /    - else
+        /      = link_to 'Edit Business Details', "/bussinesses/#{@user.bussiness.id}/edit/", class: 'btn'        
+        /    .switch_user
+        /      = link_to 'Switch to Main Account', "/users/#{@user.parent_id}/change_login", class: 'btn'        
+        /.company_left
+        /  - if @user.bussiness
+        /    = image_tag @user.bussiness.file_attachment.url(:medium)
+        #bussiness_page_name
+          #business_title_page
+            = @user.name
+          - if @user.bussiness
+            .business_tagline
+              = raw (@user.bussiness.tagline)
+        .follow_us
+          - if @user.bussiness
+            %p Follow Us:
+          %ul
+            %li
+              - if @user.bussiness
+                - if @user.bussiness.facebook_link.empty?
+                - else
+                  %a{href: "#{@user.bussiness.facebook_link}", target: "_blank"}
+                    %img{src: "/assets/follow_icon1.png"}/
+            %li
+              - if @user.bussiness
+                - if @user.bussiness.youtube_link.empty?
+                - else
+                  %a{href: "#{@user.bussiness.youtube_link}", target: "_blank"}
+                    %img{src: "/assets/follow_icon2.png"}/
+            %li
+              - if @user.bussiness
+                - if @user.bussiness.google_link.empty?
+                - else
+                  %a{href: "#{@user.bussiness.google_link}", target: "_blank"}
+                    %img{src: "/assets/follow_icon3.png"}/
+            %li
+              - if @user.bussiness
+                - if @user.bussiness.twitter_link.empty?
+                - else
+                  %a{href: "#{@user.bussiness.twitter_link}", target: "_blank"}
+                    %img{src: "/assets/follow_icon4.png"}/      
+          
+    
     - if @user.kind == "user"
       .profile_picture
         .pick
@@ -418,6 +445,14 @@
             .clear
         - else
           .bussiness_profile_background
+            - if signed_in? and current_user?(@user)
+              .bussiness_page_btn
+                - if @user.bussiness.nil?
+                  = link_to 'Add Business Details', "/bussinesses/new/", class: 'btn btn btn-primary'
+                - else
+                  = link_to 'Edit Business Details', "/bussinesses/#{@user.bussiness.id}/edit/", class: 'btn btn btn-primary'        
+                .switch_user
+                  = link_to 'Switch to Main Account', "/users/#{@user.parent_id}/change_login", class: 'btn btn btn-primary'             
             .summary_tabs
               %ul
                 %li
@@ -442,14 +477,14 @@
                 - if @user.bussiness
                   = raw @user.bussiness.about
             .education_photography
-              %a.our_manu.left Our Menu
+              %a.our_manu.left Offering
               /%a.full_manu.right Full Menu »
               .clear
             .box_sec
               #menu_box
                 - if signed_in? and current_user?(@user)
-                  = link_to 'Add Menu', "/menucategories/new", class: 'btn'
-                  = link_to 'Add Items', "/menuitems/new", class: 'btn'
+                  = link_to 'Add Category', "/menucategories/new", class: 'btn btn btn-primary'
+                  = link_to 'Add Item', "/menuitems/new", class: 'btn btn btn-primary'
                 - @user.menucategories.each do|x|
                   .company_manu
                     %h2.main_head
@@ -493,7 +528,8 @@
                     %h2.main_head Website
                     %p
                       - if @user.bussiness
-                        = raw @user.bussiness.website
+                        %a{href: "#{@user.bussiness.website}" , target: "_blank"}
+                          = raw @user.bussiness.website
                   %li
                     %h2.main_head Contact
                     %p 
@@ -570,29 +606,30 @@
       
       .span315.offset1.inline_block
         - if @user.kind =="bussiness"
-          .network
-            %h2 Upcoming events
-            %ul.upcoming_events
-              - if @user.events.any?
-                - if @user.events
-                  - @user.events.limit(2).order(created_at: :desc).each do |x|
-                    %li
-                      .coming_image
-                        - if @user.headshot
-                          = image_tag @user.headshot.file_attachment.url(:medium)
-                        - else
-                          = image_tag '/assets/company_logo.png', width: "198px", height: "198px"
-                      .event_right
-                        %p
-                          %a.upcoming_link{href: "/events/#{x.id}.html/"}
-                            = x.title
-                        %span
-                          = x.description
-              - else
-                #no_recent_event
-                  Recently No Event
+          #upcoming_event_box
+            .network
+              %h2 Upcoming events
+              %ul.upcoming_events
+                - if @user.events.any?
+                  - if @user.events
+                    - @user.events.limit(2).order(created_at: :desc).each do |x|
+                      %li
+                        .coming_image
+                          - if @user.headshot
+                            = image_tag @user.headshot.file_attachment.url(:medium)
+                          - else
+                            = image_tag '/assets/company_logo.png', width: "198px", height: "198px"
+                        .event_right
+                          %p
+                            %a.upcoming_link{href: "/events/#{x.id}.html/"}
+                              = x.title
+                          %span
+                            = x.description
+                - else
+                  #no_recent_event
+                    Recently No Event
 
-              .clear        
+                .clear        
         = render 'sidebar'
         
   /  %p#notice= notice
