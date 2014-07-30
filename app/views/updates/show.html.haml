@@ -7,17 +7,17 @@
       %p#notice= notice
 
       %p
-        %b Text:
-        = @update.text
-      %p
-        %b Privacy:
-        = @update.privacy
-      %p
-        %b Sender user:
-        = @update.sender_user_id
-      %p
-        %b Receiver user:
-        = @update.receiver_user_id
+        %b 
+          = @update.text
+      /%p
+      /  %b Privacy:
+      /  = @update.privacy
+      /%p
+      /  %b Sender user:
+      /  = @update.sender_user_id
+      /%p
+      /  %b Receiver user:
+      /  = @update.receiver_user_id
 
       .comments
         = render :partial => 'comments/form', :locals => { comment: @new_comment, parent_id: nil }

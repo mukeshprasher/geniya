@@ -1,5 +1,10 @@
-%h1 Editing organization
+.row-fluid.spaced-top
+  .span2.spaced-left
+    .btn-group.btn-group-vertical.btn-block
+      = link_to 'Back', current_user, class: 'btn'
+  .span9
+    .max_add_form_width
+      %h1 Editing organization
+      = render 'form'
 
-= render 'form'
-#org_back
-  = link_to 'cancel', @organization
+      .clear

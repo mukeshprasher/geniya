@@ -1,21 +1,22 @@
-%p#notice= notice
+.wrapper
+  %p#notice= notice
 
-%p
-  %b Name:
-  = @organization.name
-%p
-  %b Cateogry:
-  = @organization.category_id
-%p
-  %b Start date:
-  = @organization.start_date
-%p
-  %b Address:
-  = @organization.address_id
-%p
-  %b User:
-  = @organization.user_id
+  %p
+    %b Name:
+    = @organization.name
+  %p
+    %b Cateogry:
+    = @organization.category_id
+  %p
+    %b Start date:
+    = @organization.start_date
+  %p
+    %b Address:
+    = @organization.address_id
+  %p
+    %b User:
+    = @organization.user_id
 
-= link_to 'Edit', edit_organization_path(@organization)
-\|
-= link_to 'Back', organizations_path
+  = link_to 'Edit', edit_organization_path(@organization)
+  \|
+  = link_to 'Back', organizations_path

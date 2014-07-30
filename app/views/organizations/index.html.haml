@@ -1,27 +1,28 @@
-%h1 Listing organizations
+.wrapper
+  %h1 Listing organizations
 
-%table
-  %tr
-    %th Name
-    %th Category
-    %th Start date
-    %th Address
-    %th User
-    %th
-    %th
-    %th
-
-  - @organizations.each do |organization|
+  %table
     %tr
-      %td= organization.name
-      %td= organization.category_id
-      %td= organization.start_date
-      %td= organization.address_id
-      %td= organization.user_id
-      %td= link_to 'Show', organization
-      %td= link_to 'Edit', edit_organization_path(organization)
-      %td= link_to 'Destroy', organization, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %th Name
+      %th Category
+      %th Start date
+      %th Address
+      %th User
+      %th
+      %th
+      %th
 
-%br
-= will_paginate
-= link_to 'New Organization', new_organization_path
+    - @organizations.each do |organization|
+      %tr
+        %td= organization.name
+        %td= organization.category_id
+        %td= organization.start_date
+        %td= organization.address_id
+        %td= organization.user_id
+        %td= link_to 'Show', organization
+        %td= link_to 'Edit', edit_organization_path(organization)
+        %td= link_to 'Destroy', organization, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+  %br
+  = will_paginate
+  = link_to 'New Organization', new_organization_path
