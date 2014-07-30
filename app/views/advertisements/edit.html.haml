@@ -1,8 +1,10 @@
-.wrapper
-  %h1 Editing advertisement
+.row-fluid.spaced-top
+  .span2.spaced-left
+    .btn-group.btn-group-vertical.btn-block
+      = link_to 'Back', current_user, class: 'btn'
+  .span9
+    .max_add_form_width
+      %h1 Editing advertisement
+      = render 'form'
 
-  = render 'form'
-
-  = link_to 'Show', @advertisement
-  \|
-  = link_to 'Back', advertisements_path
+      .clear

@@ -1,6 +1,10 @@
-.wrapper
-  %h1 New album
+.row-fluid.spaced-top
+  .span2.spaced-left
+    .btn-group.btn-group-vertical.btn-block
+      = link_to 'Back', current_user, class: 'btn'
+  .span9
+    .max_form_width
+      %h1 New album
+      = render 'form'
 
-  = render 'form'
-
-  = link_to 'Back', albums_path
+      .clear

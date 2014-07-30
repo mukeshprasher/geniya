@@ -554,7 +554,12 @@
               .clear
             .box_sec
               .education_photography.no_border
-                %a.our_manu.left Image Gallery
+                %a.our_manu.left 
+                  - if signed_in?
+                    Image Gallery
+                  - else
+                    - if @user.albums.count>=5
+                      Image Gallery
                 .clear
               .company_gallary
                 .profile_portfolio_section
