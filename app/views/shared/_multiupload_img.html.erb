@@ -150,7 +150,9 @@
               //});
               
               //console.log('ggg')
-              window.location.href = "/albums/" + <%= album_id %>;
+              setTimeout(function(){
+                window.location.href = "/albums/" + <%= album_id %>;
+              }, 10);
               
             });
 
@@ -170,6 +172,7 @@
           template[0].offsetWidth;
         template.addClass('in');
         $('#loading').remove();
+        //console.log('existing')
       });
 
   });

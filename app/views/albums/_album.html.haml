@@ -17,14 +17,14 @@
           #video-form.modal.fade{"data-width" => "760", style: "display: none;", tabindex: "-1"}
             .modal-header
               %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
-              %h4.modal-title Add Video's:
+              %h4.modal-title Add Video:
             .modal-body
               = render 'videos/form', album: @album
             .modal-footer
               %button.btn.btn-default#close_portfolio_modal{"data-dismiss" => "modal", type: "button"} Close
           %a.demo{"data-toggle" => "modal",href: "#video-form"}
             %span.add_img_btn
-              Add Video's        
+              Add Video       
         #album-form.modal.fade{"data-width" => "760", style: "display: none;", tabindex: "-1"}
           .modal-header
             %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
