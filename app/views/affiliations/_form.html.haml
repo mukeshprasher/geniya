@@ -20,7 +20,7 @@
             %b
               Affiliation start date    
         .datepicker
-          = text_field(:affiliation, :start_date, placeholder: 'Click on Calender')
+          = text_field(:affiliation, :start_date, placeholder: 'Click on Calendar')
       .aff_divider
         _
       .aff_end_period
@@ -29,7 +29,7 @@
             %b
               Affiliation end date    
         .datepicker
-          = text_field(:affiliation, :end_date, placeholder: 'Click on Calender')
+          = text_field(:affiliation, :end_date, placeholder: 'Click on Calendar')
       %span#aff_work_status
         %b
           Present
@@ -41,7 +41,7 @@
       yes
 
   .aff_btn
-    = f.button :submit, value:"Add affiliation to profile", id:"aff_add_btn"
+    = f.button :submit, value:"Add affiliation to profile", class:"btn btn-large btn-primary"
 
 :javascript
     $('.datepicker, .datetimepicker').append('<span class="add-on"><i data-time-icon="icon-time" data-date-icon="icon-calendar"></i></span>')

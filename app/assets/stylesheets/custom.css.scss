@@ -2648,7 +2648,7 @@ textarea:focus, input[type="text"]:focus, input[type="password"]:focus, input[ty
 
 #org_detail_box {
     float: left;
-    margin: 6px 0 23px;
+   
     width: 100%;
 }
 
@@ -3122,15 +3122,16 @@ body {
 #facbook_count, #subscribe_youtube {
     color: #FFFFFF;
     font-weight: bold;
-    position: relative;
-    right: 74%;
+    margin-top: 13px;
+    position: absolute;
+    right: 23%;
 }
 
 .social_count {
     color: #FFFFFF;
+    left: 78%;
     margin: 12px 0 0;
     position: absolute;
-    left: 78%;
 }
 
 #youtube_fans {
@@ -3166,7 +3167,7 @@ body {
 
 
 .discover {
-   margin: 15px 0 0;
+   margin: 0;
 }
 
 .no_results{
@@ -3756,3 +3757,34 @@ max-width:300px;
 #available_txt {
     text-transform: capitalize;
 }
+
+
+/************* user tag search***************/
+
+
+.tags_user {   border: 1px solid #CCCCCC;float: left;margin: 4px 0;padding: 8px 0 8px 8px;width: 500px;}
+
+
+.tag_user_img {float: left;height: 100px;width: 100px;}
+
+
+.tag_user_details {float: left;height: auto;margin: 6px 2px 0 15px;width: 370px;}
+
+#tag_user_name {font-size: 21px;text-transform: capitalize;width: 360px;}
+
+
+#tag_user_connections ul {margin: 10px 0 0;}
+
+#tag_user_connections ul li {float: left;width: 88px;}
+
+.bootstrap-datetimepicker-widget.dropdown-menu {
+    z-index: 9999;
+}
+
+
+#affiliations .modal-header {margin: 0 !important;padding: 0 0 0 15px !important;}
+
+#affiliations {top: -35px;}
+
+
+#affiliations label {cursor: default;}

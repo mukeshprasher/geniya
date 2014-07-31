@@ -1,0 +1,75 @@
+.tags_user
+  .tag_user_img
+    %a{href:"/users/"+"#{user.slug}"}
+      - if user.headshot
+        =image_tag user.headshot.file_attachment.url(:medium), title: "#{user.name}"
+      - else
+        =image_tag '/assets/missing.png', width: "100px", height: "100px", title: "#{user.name}"
+  .tag_user_details
+    #tag_user_name
+      = link_to user.name, user
+    #tag_user_proff
+      = user.sub_category.name
+    #tag_user_follower_count
+      - if user.followers.count == 0
+      - else
+        = user.followers.count
+        followers
+    /#tag_user_connections
+    /  %ul
+    /    %li
+    /      - if signed_in?
+    /        - unless current_user?(user)
+    /          #follow_form.follow_form
+    /            - if current_user.following?(user)
+    /              = form_for(current_user.relationships.find_by(followed_id: user.id), |
+    /                html: { method: :delete }, remote: true) do |f|                                   |
+    /                = f.submit "Unfollow", class: "btn", id: "unfollow-form-button"
+    /            - else
+    /              = form_for(current_user.relationships.build(followed_id: user.id), remote: true) do |f|
+    /                %div= f.hidden_field :followed_id
+    /                = f.submit "Follow", class: "btn btn-primary", id: "follow-form-button"
+
+    /      %li
+    /        - if signed_in?
+    /          - unless current_user?(user)
+    /            #connect_form.connect_form
+    /              - if current_user.connected?(user)
+    /                - connection = current_user.connections.find_by(connection_id: user.id)
+    /                -if connection.status == 'pending'
+    /                  = form_for(connection, html: { method: :delete }, remote: true) do |f|
+    /                    = f.hidden_field :connection_id
+    /                    = f.hidden_field :user_id  
+    /                    = f.hidden_field :status, value: "request"
+    /                    = f.submit "Cancel", class: "btn", id: "disconnect-form-button"
+    /                -elsif connection.status == 'accepted' or connection.status == 'confirmed'
+    /                  = form_for(connection, html: { method: :delete }, remote: true) do |f|
+    /                    = f.hidden_field :connection_id
+    /                    = f.hidden_field :user_id
+    /                    = f.hidden_field :status, value: "disconnect"
+    /                    = f.submit "Disconnect", class: "btn", id: "disconnect-form-button"
+    /                -elsif connection.status == 'requested'
+    /                  = form_for(connection, remote: true) do |f|
+    /                    = f.hidden_field :connection_id
+    /                    = f.hidden_field :user_id
+    /                    = f.hidden_field :status, value: "accept"
+    /                    = f.submit "Accept", class: "btn"
+    /                  = form_for(connection, remote: true) do |f|
+    /                    = f.hidden_field :connection_id
+    /                    = f.hidden_field :user_id
+    /                    = f.hidden_field :status, value: "reject"
+    /                    = f.submit "Reject", class: "btn"
+    /                -elsif connection.status == 'rejected'
+    /                  = form_for(connection, remote: true) do |f|
+    /                    = f.hidden_field :connection_id
+    /                    = f.hidden_field :user_id
+    /                    = f.hidden_field :status, value: "connect"
+    /                    = f.submit "Connect", class: "btn btn-primary", id: "disconnect-form-button"
+    /                -elsif connection.status == 'got rejected'
+    /              - else
+    /                - unless current_user.plan == 'trial' && current_user.confirmed_connected_users.count>=50
+    /                  = form_for(current_user.connections.build(connection_id: user.id), remote: true) do |f|
+    /                    = f.hidden_field :connection_id
+    /                    = f.hidden_field :user_id
+    /                    = f.hidden_field :status, value: "connect"
+    /                    = f.button "Connect", class: "btn btn-primary", id: "connect-form-button"           
