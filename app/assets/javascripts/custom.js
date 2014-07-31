@@ -223,7 +223,21 @@ $(function() {
               $.get("/organizations/"+ org_data+ ".js", {}, function(data) {
 //                callback(data)
               });              
-              });                
+              }); 
+              
+              $('#srch_org').keydown(function(event) {
+               if (event.keyCode == 13){
+                 var org_data = $('.orgn-data.cur').attr( "data" );
+              $.get("/organizations/"+ org_data+ ".js", {}, function(data) {
+//                callback(data)
+              });  
+               
+               }
+              });
+              
+                            
+              
+                             
               });
             }
           }

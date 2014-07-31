@@ -667,8 +667,8 @@ $(function() {
       return false;
     }
     else
-    if(FileName.indexOf(".")==-1 || FileExtension != "mp4" && FileExtension != "3gp" && FileExtension != "ogg" && FileExtension != "mpeg" && FileExtension != "flv" && FileExtension != "avi" && FileExtension != "mpg" && FileExtension != "webm" && FileExtension != "ogv"){ // Curstom File Extension
-      alert("This isn't a Video !");
+    if(FileName.indexOf(".")==-1 || FileExtension != "mp4" && FileExtension != "3gp" && FileExtension != "ogg" && FileExtension != "mpeg" && FileExtension != "flv" && FileExtension != "mpg" && FileExtension != "webm" && FileExtension != "ogv"){ // Curstom File Extension
+      alert("unsupported format, please upload flv, mp4, 3gp ...");
       $("#video_file_attachment").val('');
       return false;
      }
@@ -683,22 +683,15 @@ $(function() {
     
         $("#new_album").submit(function(){
     var albumnamefield = $("#album_name")
-    var albumtitlefield = $("#album_title")
     var albumcover = $("#album_cover")
      albumName = albumnamefield.val();
-     albumtitle = albumtitlefield.val();
      album_cover_img = albumcover.val(); 
     if (albumName == '')
     {
       alert('Please Enter Portfolio Name');
       return false;
     }
-    else
-    if(albumtitle == '')
-    {
-          alert('Please Enter Portfolio Title');
-      return false;
-    }
+
     else 
     if(album_cover_img == '')
     {

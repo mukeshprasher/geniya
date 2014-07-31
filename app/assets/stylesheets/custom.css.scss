@@ -2648,7 +2648,7 @@ textarea:focus, input[type="text"]:focus, input[type="password"]:focus, input[ty
 
 #org_detail_box {
     float: left;
-    margin: 6px 0 23px;
+   
     width: 100%;
 }
 
@@ -3776,3 +3776,15 @@ max-width:300px;
 #tag_user_connections ul {margin: 10px 0 0;}
 
 #tag_user_connections ul li {float: left;width: 88px;}
+
+.bootstrap-datetimepicker-widget.dropdown-menu {
+    z-index: 9999;
+}
+
+
+#affiliations .modal-header {margin: 0 !important;padding: 0 0 0 15px !important;}
+
+#affiliations {top: -35px;}
+
+
+#affiliations label {cursor: default;}

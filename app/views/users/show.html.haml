@@ -98,40 +98,57 @@
                       Change Affiliations
                     - else
                       Add Affiliations                        
-              %li#affiliation_content
-                %span Current:
-                
-                #orgnz_detail
-                  - if @user.affiliations.where(status: 'yes').any?
-                    = render 'shared/current_company', user: @user  
-                  - else
-                    - if (current_user == @user) && signed_in?
+              - if @user.affiliations.where(status: 'yes').any?
+                %li#affiliation_content
+                  %span Current:
+                  
+                  #orgnz_detail
+                    - if @user.affiliations.where(status: 'yes').any?
+                      = render 'shared/current_company', user: @user  
+                    
+              - else
+                - if (current_user == @user) && signed_in?               
+                  %li#affiliation_content
+                    %span Current:
+                    #orgnz_detail                
                       %span
                         Add Detail
-              %li#affiliation_content
-                %span Previous:
-                
-                #prev_orgnz_detail
-                  - if @user.affiliations.where(status: 'no').any?
-                    %p.aff_org_name{ :id => "current_company-#{@user.affiliations.where(status: 'no').order(end_date: :desc).first.id}" }
-                      /%a{href:"/organizations/"+"#{@user.affiliations.where(status: 'no').order(end_date: :desc).first.organization.id}"}
-                      %span.font_17
-                        = @user.affiliations.where(status: 'no').order(end_date: :desc).first.organization.name
-                      -if (current_user == @user) && signed_in?
-                        = link_to "×", affiliation_path(@user.affiliations.where(status: 'no').order(end_date: :desc).first.id), :method => :delete, :remote => true,  :disable_with => "×", :class => 'tag_delete' , :id => "affiliation-delete-#{@user.affiliations.where(status: 'no').order(end_date: :desc).first.id}" 
-                  - else
-                    %span
-                      Add Detail
-              %li#available_txt
-                %span Available:
-                %p 
-                  =@user.available
-              %li
-                - if (current_user == @user) && signed_in? 
-                  %span
-                    %img{alt: "", src: "/assets/artgallery_img1.png"}/
+              
+              
+              - if @user.affiliations.where(status: 'no').any?
+                %li#affiliation_content
+                  %a.demo{"data-toggle" => "modal",href: "#affiliations"}
+                    %span Previous:
+                  
+                  #prev_orgnz_detail
+                    - if @user.affiliations.where(status: 'no').any?
+                      %p.aff_org_name{ :id => "current_company-#{@user.affiliations.where(status: 'no').order(end_date: :desc).first.id}" }
+                        /%a{href:"/organizations/"+"#{@user.affiliations.where(status: 'no').order(end_date: :desc).first.organization.id}"}
+                        %span.font_17
+                          = @user.affiliations.where(status: 'no').order(end_date: :desc).first.organization.name
+                        -if (current_user == @user) && signed_in?
+                          = link_to "×", affiliation_path(@user.affiliations.where(status: 'no').order(end_date: :desc).first.id), :method => :delete, :remote => true,  :disable_with => "×", :class => 'tag_delete' , :id => "affiliation-delete-#{@user.affiliations.where(status: 'no').order(end_date: :desc).first.id}" 
+              - else
+                - if (current_user == @user) && signed_in?   
+                  %li#affiliation_content
+                    %a.demo{"data-toggle" => "modal",href: "#affiliations"}
+                      %span Previous:
+                      %span
+                        Add Detail
+              - if @user.available.nil? 
+              - else
+                %li#available_txt
+                  %span Available:
                   %p 
-                    = @user.email
+                    =@user.available
+              - if @user.email.nil? && signed_in?
+              - else
+                %li
+                  - if (current_user == @user) && signed_in? 
+                    %span
+                      %img{alt: "", src: "/assets/artgallery_img1.png"}/
+                    %p 
+                      = @user.email
               - if (current_user == @user) && signed_in?
                 #address.modal.fade{"data-width" => "760", style: "display: none;", tabindex: "-1"}
                   .modal-header
@@ -147,16 +164,20 @@
                       Change Location
                     - else
                       Add Location       
-              %li
-                %span
-                  %img{alt: "", src: "/assets/artgallery_img2.png"}/
-                #user_addrss_detail
-                  - if @user.locations.any?
+              - if @user.locations.any?
+                %li
+                  %span
+                    %img{alt: "", src: "/assets/artgallery_img2.png"}/
+                  #user_addrss_detail
                     = render 'shared/current_address', user: @user
-                  - else
-                    - if (current_user == @user) && signed_in?
+              - else
+                - if (current_user == @user) && signed_in?
+                  %li
+                    %span
+                      %img{alt: "", src: "/assets/artgallery_img2.png"}/
+                    #user_addrss_detail
                       %span
-                        Set Location   
+                        Set Location                 
               %h3
                 %span
                   %span#connct-counts
