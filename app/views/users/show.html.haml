@@ -120,21 +120,17 @@
                   %a.demo{"data-toggle" => "modal",href: "#affiliations"}
                     %span Previous:
                   
-                  #prev_orgnz_detail
-                    - if @user.affiliations.where(status: 'no').any?
-                      %p.aff_org_name{ :id => "current_company-#{@user.affiliations.where(status: 'no').order(end_date: :desc).first.id}" }
-                        /%a{href:"/organizations/"+"#{@user.affiliations.where(status: 'no').order(end_date: :desc).first.organization.id}"}
-                        %span.font_17
-                          = @user.affiliations.where(status: 'no').order(end_date: :desc).first.organization.name
-                        -if (current_user == @user) && signed_in?
-                          = link_to "×", affiliation_path(@user.affiliations.where(status: 'no').order(end_date: :desc).first.id), :method => :delete, :remote => true,  :disable_with => "×", :class => 'tag_delete' , :id => "affiliation-delete-#{@user.affiliations.where(status: 'no').order(end_date: :desc).first.id}" 
+                    #prev_orgnz_detail
+                      - if @user.affiliations.where(status: 'no').any?
+                        = render 'shared/prev_company', user: @user   
               - else
                 - if (current_user == @user) && signed_in?   
                   %li#affiliation_content
                     %a.demo{"data-toggle" => "modal",href: "#affiliations"}
                       %span Previous:
-                      %span
-                        Add Detail
+                      #prev_orgnz_detail
+                        %span
+                          Add Detail
               - if @user.available.nil? 
               - else
                 %li#available_txt

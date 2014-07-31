@@ -5,8 +5,6 @@
         #project-header-main.work-header-main.work-header
           %h1#project-title
             Geniya Videos
-          %h1#project-title
-            = @video.name
           #creative-fields.secondary-text
             /%a{href: "/portfolios/"+"#{@album.category.slug}", title: "Art Direction"}
             /  = @album.category.name
@@ -55,9 +53,10 @@
                 %object{width:"550", height:"330", type:"application/x-shockwave-flash", data:"#{@video.file_attachment.url}", autoplay: "false", autoStart: "0"}
                   %embed{ src: "#{@video.file_attachment.url}", width: "550", height: "330", autoplay: "false", autoStart: "0"}
             #comments-header.comments-header
-          %h4.block-title
+          .block_title_video
             .like_this-1
               = render 'shared/like_form', object: @video, user: @video.user
+          .disscus_video
             %span.bold Discuss this video:
             %span.comments-stats.hide{style: "display: inline;"}
               /(

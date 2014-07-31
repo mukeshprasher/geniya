@@ -1,0 +1,20 @@
+%p.aff_org_name{ :id => "current_company-#{@user.affiliations.where(status: 'no').order(end_date: :desc).first.id}" }
+  %a{href:"/organizations/"+"#{@user.affiliations.where(status: 'no').order(end_date: :desc).first.organization.id}"}
+    %span.font_17
+      = @user.affiliations.where(status: 'no').order(end_date: :desc).first.organization.name
+      - if (current_user == @user) && signed_in?
+        = link_to "×", affiliation_path(@user.affiliations.where(status: 'no').order(end_date: :desc).first.id), :method => :delete, :remote => true,  :disable_with => "×", :class => 'affiliation-delete' , :id => "affiliation-delete-#{@user.affiliations.where(status: 'no').order(end_date: :desc).first.id}" 
+        
+:javascript
+  $(".affiliation-delete").click(function(){
+   var delcomment = confirm("Do you want to delete this Affiliation ?");
+   if(delcomment == true)
+   {
+   var delete_comment_id=this.id.split("-")[2]
+     $("#current_company-"+delete_comment_id).hide('slow');
+     return true;
+   }
+   else
+     {$("#current_company-"+delete_comment_id).show();
+     return false;}
+   });

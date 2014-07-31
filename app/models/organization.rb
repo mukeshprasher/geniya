@@ -1,5 +1,5 @@
 class Organization < ActiveRecord::Base
-  has_many :affiliations
+  has_many :affiliations, dependent: :destroy
   has_many :users, through: :affiliations
   belongs_to :user
   has_many :addresses
