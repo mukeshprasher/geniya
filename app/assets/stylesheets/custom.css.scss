@@ -3122,15 +3122,16 @@ body {
 #facbook_count, #subscribe_youtube {
     color: #FFFFFF;
     font-weight: bold;
-    position: relative;
-    right: 74%;
+    margin-top: 13px;
+    position: absolute;
+    right: 23%;
 }
 
 .social_count {
     color: #FFFFFF;
+    left: 78%;
     margin: 12px 0 0;
     position: absolute;
-    left: 78%;
 }
 
 #youtube_fans {
@@ -3166,7 +3167,7 @@ body {
 
 
 .discover {
-   margin: 15px 0 0;
+   margin: 0;
 }
 
 .no_results{
