@@ -1,14 +1,11 @@
 %li.ajax-portfolio-detail-homepage-modal-trigger{:data => "#{album.id}"}
-  .albm-img{:data => "#{album.id}", id:"portfolio_album_img"}  
+  .albm-img{:data => "#{album.id}", id:"portfolio_album_img", onclick: "javascript: open_album_modal(#{album.id})"}  
     -if !album.cover.nil?
       = image_tag album.cover.url(:large), alt: album.title  
     -else
       =image_tag '/assets/missing-image-geniya.png', width: "100%" 
-    /-if album.uploads.any?
-    /  = image_tag album.uploads.first.file_attachment.url(:medium), title: album.name, width: "100%" 
   %p.album-name
     = link_to album.name, album
-  /%a.favourite{href: "#"} Add to favourite
   -if signed_in?
     .likes-album
       = render 'shared/like_form', object: album, user: album.user
@@ -31,7 +28,3 @@
       = render 'shared/portfolio_users', user: album.user
       .portf_like_cat 
         = album.category.name
-        /= render 'shared/like_form', object: album, user: album.user 
-    /- if album.user.plan == "deluxe"
-    /  .deluxe_img
-    /    %img{src: "/assets/deluxe_img.png"}/        
