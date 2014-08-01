@@ -1,5 +1,16 @@
-%h1 Listing jobs
-
+.row-fluid.spaced-top
+  .span2.spaced-left
+    .btn-group.btn-group-vertical.btn-block
+      = link_to 'New job', new_job_path, class: 'btn btn-success'
+      = link_to 'My profile', current_user, class: 'btn'
+  .span9.min500
+    %h1 My posted jobs
+    - if current_user.jobs.any?
+      - current_user.jobs.each do |job|
+        = link_to 'Show', job
+    - else
+      %h3 You have not posted any job yet
+      = link_to 'Post new job', new_job_path, class: 'btn btn-success btn-primary btn-large'
 %table
   %tr
     %th User

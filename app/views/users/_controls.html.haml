@@ -11,6 +11,8 @@
 
       - if current_user.plan == 'trial'
         = link_to 'Upgrade', new_payment_subscription_path, class: 'btn'
+      - if current_user.jobs.any?
+        = link_to 'My posted jobs', jobs_path, class: 'btn'
 
       - if @user.feature_img == 'true'
         #organization_controll_container    

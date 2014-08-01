@@ -1,6 +1,6 @@
 class JobsController < ApplicationController
   before_action :set_job, only: [:show, :edit, :update, :destroy]
-  before_action :signed_in_user, only: [ :new, :create, :edit, :update, :destroy]
+  before_action :signed_in_user, only: [:index, :new, :create, :edit, :update, :destroy]
   before_action only: [:edit, :update, :destroy] do
     redirect_with_notice_if_incorrect_user(@job)
   end
@@ -19,7 +19,7 @@ class JobsController < ApplicationController
 
   # GET /jobs/new
   def new
-    if current_user.plan == "trial"
+    if current_user.plan == "trial" or current_user.plan == "visitor"
       redirect_to current_user, :alert => "Please Upgrade your Plan to Deluxe for Post Jobs." 
     else
       redirect_to new_organization_path, notice: 'Please create an organization to create a job.' unless current_user.organizations.any?
