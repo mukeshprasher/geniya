@@ -3763,13 +3763,13 @@ max-width:300px;
 /************* user tag search***************/
 
 
-.tags_user {   border: 1px solid #CCCCCC;float: left;margin: 4px 0;padding: 8px 0 8px 8px;width: 500px;}
+.tags_user {  min-height: 125px;   border: 1px solid #CCCCCC;float: left;margin: 4px 0;padding: 8px 0 8px 8px;width: 520px;}
 
 
-.tag_user_img {float: left;height: 100px;width: 100px;}
+.tag_user_img {float: left;height: 118px;width: 118px;}
 
 
-.tag_user_details {float: left;height: auto;margin: 6px 2px 0 15px;width: 370px;}
+.tag_user_details {float: left;height: auto;margin: -5px 2px 0 15px;width: 370px;}
 
 #tag_user_name {font-size: 21px;text-transform: capitalize;width: 360px;}
 
@@ -3801,3 +3801,13 @@ max-width:300px;
 
 
 #new_organization .string.required.control-label {display: none;}
+
+.affiliation-delete {color: #FF0000 !important;}
+
+#tag_user_address {text-transform: capitalize;}
+
+
+.tag_user_details > div {padding: 2px 0 0;  font-family: latobold;}
+
+
+.tags_user:hover {background: none repeat scroll 0 0 #F3F1F1;}

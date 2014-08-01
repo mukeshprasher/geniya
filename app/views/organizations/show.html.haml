@@ -1,22 +1,24 @@
-.wrapper
-  %p#notice= notice
+.row-fluid.spaced-top
+  .span2.spaced-left
+    .btn-group.btn-group-vertical.btn-block
+      - if signed_in? and current_user == @organization.user
+        = link_to 'Edit', edit_organization_path(@organization), class: 'btn btn-success'
+      = link_to 'Back', current_user, class: 'btn'
+  .span10.spaced-right
+    %h1 Organization
+    %p  
+      %h3 
+        = @organization.name
+    %p
+      %h4
+        = @organization.category.name
+    /%p
+    /  %b Start date:
+    /  = @organization.start_date
+    /%p
+    /  %b Address:
+    /  = @organization.address_id
+    /%p
+    /  %b User:
+    /  = @organization.user_id
 
-  %p
-    %b Name:
-    = @organization.name
-  %p
-    %b Cateogry:
-    = @organization.category_id
-  %p
-    %b Start date:
-    = @organization.start_date
-  %p
-    %b Address:
-    = @organization.address_id
-  %p
-    %b User:
-    = @organization.user_id
-
-  = link_to 'Edit', edit_organization_path(@organization)
-  \|
-  = link_to 'Back', organizations_path

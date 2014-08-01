@@ -1,9 +1,8 @@
 %p.aff_org_name{ :id => "current_company-#{@user.affiliations.where(status: 'no').order(end_date: :desc).first.id}" }
   %a{href:"/organizations/"+"#{@user.affiliations.where(status: 'no').order(end_date: :desc).first.organization.id}"}
-    %span.font_17
-      = @user.affiliations.where(status: 'no').order(end_date: :desc).first.organization.name
-      - if (current_user == @user) && signed_in?
-        = link_to "×", affiliation_path(@user.affiliations.where(status: 'no').order(end_date: :desc).first.id), :method => :delete, :remote => true,  :disable_with => "×", :class => 'affiliation-delete' , :id => "affiliation-delete-#{@user.affiliations.where(status: 'no').order(end_date: :desc).first.id}" 
+    = @user.affiliations.where(status: 'no').order(end_date: :desc).first.organization.name
+    - if (current_user == @user) && signed_in?
+      = link_to "×", affiliation_path(@user.affiliations.where(status: 'no').order(end_date: :desc).first.id), :method => :delete, :remote => true,  :disable_with => "×", :class => 'affiliation-delete' , :id => "affiliation-delete-#{@user.affiliations.where(status: 'no').order(end_date: :desc).first.id}" 
         
 :javascript
   $(".affiliation-delete").click(function(){
