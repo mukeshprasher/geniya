@@ -450,7 +450,7 @@ $(function() {
         element.attr('onclick', 'open_event_modal("' + event.id + '");');
         element.attr('title', 'By: ' + event.user.name + '\n' + event.title + '\n' + event.start + '\n' + event.end + '\n'  + event.location);
         if(event.user.headshot.length > 0)
-          $(element).html('<img src="'+ event.user.headshot +'" width="30px" height="30px" /> ' + event.user.name + $(element).html())
+          $(element).html('<img class="event_user_img" src="'+ event.user.headshot +'" width="30px" height="30px" /> ' + event.user.name + $(element).html())
         else
           $(element).html( event.user.name + $(element).html())
     }
