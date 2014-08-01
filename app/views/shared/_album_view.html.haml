@@ -1,5 +1,5 @@
 %li.ajax-portfolio-detail-homepage-modal-trigger{:data => "#{album.id}"}
-  .albm-img{:data => "#{album.id}", id:"portfolio_album_img", onclick: "javascript: open_album_modal(#{album.id})"}  
+  .albm-img{:data => "#{album.id}", onclick: "javascript: open_album_modal(#{album.id})"}  
     -if !album.cover.nil?
       = image_tag album.cover.url(:large), alt: album.title  
     -else
