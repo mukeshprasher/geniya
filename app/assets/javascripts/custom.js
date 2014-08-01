@@ -1,3 +1,16 @@
+function open_album_modal(album_id){
+  var $modal3 = $('#ajax-portfolio-detail-homepage');
+  album_id = $(this).attr('data')
+  // create the backdrop and wait for next modal to be triggered
+  $('body').modalmanager('loading');
+   
+  setTimeout(function(){
+    $modal3.load('/ajax/portfolio_detail/'+ album_id, '', function(){
+      $modal3.modal();
+    });
+  }, 1000);
+}
+
 function open_chat_modal(user_id){
   var $modal2 = $('#send_message');
   //create the backdrop and wait for next modal to be triggered
@@ -371,18 +384,18 @@ $(function() {
 
 
     //Portfolio modal homepage
-    var $modal = $('#ajax-portfolio-detail-homepage');
-    $('.ajax-portfolio-detail-homepage-modal-trigger .albm-img').on('click', function(){
-      album_id = $(this).attr('data')
-      // create the backdrop and wait for next modal to be triggered
-      $('body').modalmanager('loading');
-       
-      setTimeout(function(){
-        $modal.load('/ajax/portfolio_detail/'+ album_id, '', function(){
-          $modal.modal();
-        });
-      }, 1000);
-    });
+//    var $modal = $('#ajax-portfolio-detail-homepage');
+//    $('.ajax-portfolio-detail-homepage-modal-trigger .albm-img').on('click', function(){
+//      album_id = $(this).attr('data')
+//      // create the backdrop and wait for next modal to be triggered
+//      $('body').modalmanager('loading');
+//       
+//      setTimeout(function(){
+//        $modal.load('/ajax/portfolio_detail/'+ album_id, '', function(){
+//          $modal.modal();
+//        });
+//      }, 1000);
+//    });
   };
 
   $('#header_response_notifications_trigger').click(function(){

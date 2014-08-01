@@ -34,4 +34,10 @@
         /= render 'shared/like_form', object: album, user: album.user 
     /- if album.user.plan == "deluxe"
     /  .deluxe_img
-    /    %img{src: "/assets/deluxe_img.png"}/        
+    /    %img{src: "/assets/deluxe_img.png"}/   
+    
+:javascript
+  $('.albm-img').click(function(){
+    album_id = $(this).attr('data');
+    open_album_modal(album_id);
+  });     
