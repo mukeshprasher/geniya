@@ -1,5 +1,5 @@
 - unless current_user?(@user)
-  .connect_form{id: "connect_form_#{@user.id}"}
+  .connect_form{class: "connect_form_#{@user.id}"}
     - if current_user.connected?(@user)
       = render 'shared/disconnect'
     - else
