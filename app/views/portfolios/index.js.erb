@@ -5,3 +5,15 @@ $('#portfolios').append('<% @albums.each do |album| %><%= j render 'shared/album
   $(window).off('scroll');
   $('.pagination').remove();
 <% end %>
+var $modal = $('#ajax-portfolio-detail-homepage');
+$('.ajax-portfolio-detail-homepage-modal-trigger .albm-img').on('click', function(){
+  album_id = $(this).attr('data')
+  // create the backdrop and wait for next modal to be triggered
+  $('body').modalmanager('loading');
+   
+  setTimeout(function(){
+    $modal.load('/ajax/portfolio_detail/'+ album_id, '', function(){
+      $modal.modal();
+    });
+  }, 1000);
+});
