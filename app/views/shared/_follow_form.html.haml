@@ -1,5 +1,5 @@
 - unless current_user?(@user)
-  .follow_form{id: "follow_form_#{@user.id}"}
+  .follow_form{class: "follow_form_#{@user.id}"}
     - if current_user.following?(@user)
       = render 'shared/unfollow'
     - else

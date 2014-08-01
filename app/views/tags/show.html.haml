@@ -6,5 +6,6 @@
     .span7.spaced-right
       %h3 Users with #{@tag.name} tag
       - @users.each do |user|
+        - @user = user
         = render 'users/taguser', user: user
       = will_paginate @users  

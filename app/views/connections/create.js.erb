@@ -1,2 +1,2 @@
-$("#connect_form_<%= @user.id %>").html("<%= escape_javascript(render('shared/disconnect')) %>")
+$(".connect_form_<%= @user.id %>").html("<%= escape_javascript(render('shared/disconnect')) %>")
 $(".connections").html('<%= @user.confirmed_connected_users.count %>')
