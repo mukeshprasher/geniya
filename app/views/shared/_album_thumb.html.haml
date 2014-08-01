@@ -9,7 +9,7 @@
           %img{alt: "", src: "/assets/cross.png"}/  
 
   .box.ajax-portfolio-detail-homepage-modal-trigger
-    .albm-img{:data => "#{album.id}"}  
+    .albm-img{:data => "#{album.id}", onclick: "javascript: open_album_modal(#{album.id})"}  
       - if !album.cover.nil?
         .content-profile
           = image_tag album.cover.url(:large)
