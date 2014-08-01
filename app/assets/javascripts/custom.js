@@ -1,6 +1,5 @@
 function open_album_modal(album_id){
   var $modal3 = $('#ajax-portfolio-detail-homepage');
-  album_id = $(this).attr('data')
   // create the backdrop and wait for next modal to be triggered
   $('body').modalmanager('loading');
    
