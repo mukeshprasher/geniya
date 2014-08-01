@@ -18,7 +18,7 @@
     - if user.affiliations.any?
       #tag_user_company
         %span
-          = user.affiliations.where(status: 'yes').order(created_at: :desc).first.organization.name
+          = user.affiliations.first.organization.name
     - if user.locations.any?
       #tag_user_address
         %span
