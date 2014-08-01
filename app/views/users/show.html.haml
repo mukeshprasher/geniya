@@ -10,9 +10,9 @@
 
       .company_banner
         .company_nav
-          %ul
-            %li.active
-              %a{href: ""} Home
+          /%ul
+          /  %li.active
+          /    %a{href: ""} Home
 
         - if signed_in? and !current_user?(@user)
           .get_quote
