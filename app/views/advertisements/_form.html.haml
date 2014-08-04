@@ -3,16 +3,7 @@
     = f.error_notification
 
     .form-inputs
-      .field
-        %label Advertisement Category
-        -c = Category.all
-        %select#user_advertisement_categroy.select.required{name: "advertisement[category_id]"}
-          - c.each do|cat|
-            - if current_user.category.id == cat.id 
-              %option{selected: "selected",value: "#{cat.id}"}  #{cat.name} 
-            - else  
-              %option{value: "#{cat.id}"}  #{cat.name}        
-      /= f.input :name
+      = f.association :category, include_blank: false
       = f.input :title
       = f.input :slogan
       = f.input :description, as: :text, :input_html => { :cols => 5, :rows => 10 }
