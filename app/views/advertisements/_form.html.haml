@@ -3,7 +3,7 @@
     = f.error_notification
 
     .form-inputs
-      = f.category :name
+      = f.association :category, include_blank: false
       = f.input :title
       = f.input :slogan
       = f.input :description, as: :text, :input_html => { :cols => 5, :rows => 10 }

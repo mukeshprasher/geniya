@@ -27,6 +27,7 @@ class AdvertisementsController < ApplicationController
   # GET /advertisements/new
   def new
     @advertisement = Advertisement.new
+    @advertisement.category = current_user.category
   end
 
   # GET /advertisements/1/edit
