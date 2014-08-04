@@ -25,6 +25,18 @@ class Job < ActiveRecord::Base
   validates :title,  presence: true, length: { minimum: 10, maximum: 140 }
   validates :description,  presence: true, length: { minimum: 10, maximum: 250 }
   validates :skills_text,  presence: true
+  validate :maximum_salary_validation
+  validate :maximum_experience_validation
   
-  
+  def maximum_salary_validation
+    if !self.minimum_salary.nil? and (self.maximum_salary < self.minimum_salary)
+      errors.add(:maximum_salary, 'can not be less than minimum salary')
+    end
+  end  
+
+  def maximum_experience_validation
+    if !self.minimum_experience.nil? and (self.maximum_experience < self.minimum_experience)
+      errors.add(:maximum_experience, 'can not be less than minimum experience')
+    end
+  end
 end
