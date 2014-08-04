@@ -131,7 +131,7 @@ nav { display: block; float: left; margin-top: 4px; padding-bottom: 28px; positi
 
 .slider { margin:0px; padding:0px; width:100%; }
 
-.slogan { background: url("/assets/green_brush.png") no-repeat scroll center center #4B6515; color: #FFFFFF; font-size: 38px; font-weight: normal; margin: 0; padding: 5px 0; text-align: center; width: 100%;text-transform: uppercase;  }
+.slogan { background: url("/assets/green_brush.png") no-repeat scroll center center #4B6515; color: #FFFFFF; font-size: 38px; font-weight: normal; margin: 0; padding: 5px 0; text-align: center; width: 100%;text-transform: uppercase;clear: both;  }
 
 .slogan span { font-family: 'latoblack'; font-weight:normal }
 
@@ -195,20 +195,20 @@ nav { display: block; float: left; margin-top: 4px; padding-bottom: 28px; positi
 
 .trendingInfo h6.aqua:after { border-right: 7px solid rgba(0, 0, 0, 0); border-top: 7px solid rgba(0, 0, 0, 0); bottom: -7px; content: ""; display: block; left: 0; position: absolute; transition: border 0.3s ease 0s; border-top-color:#2caa9f; }
 
-.trendingInfo h6.aqua { background: none repeat scroll 0 0 #2CAA9F; color: #FFFFFF; font-size: 14px; padding: 5px; position: relative; width: -moz-min-content; }
+.trendingInfo h6.aqua { background: none repeat scroll 0 0 #2CAA9F; color: #FFFFFF; font-size: 14px; padding: 5px;  position: inherit; width: -moz-min-content; }
 
 /************ culinary category tag color**********/
 
 .trendingInfo h6#culinary:after { border-right: 7px solid rgba(0, 0, 0, 0); border-top: 7px solid rgba(0, 0, 0, 0); bottom: -7px; content: ""; display: block; left: 0; position: absolute; transition: border 0.3s ease 0s; border-top-color:#2caa9f; }
 
-.trendingInfo h6#culinary { background: none repeat scroll 0 0 #2caa9f; color: #FFFFFF; font-size: 14px; padding: 5px; position: relative; width: -moz-min-content; }
+.trendingInfo h6#culinary { background: none repeat scroll 0 0 #2caa9f; color: #FFFFFF; font-size: 14px; padding: 5px;  position: inherit; width: -moz-min-content; }
 
 
 /************ Arts category tag color**********/
 
 .trendingInfo h6#arts:after { border-right: 7px solid rgba(0, 0, 0, 0); border-top: 7px solid rgba(0, 0, 0, 0); bottom: -7px; content: ""; display: block; left: 0; position: absolute; transition: border 0.3s ease 0s; border-top-color:#0B2A6A; }
 
-.trendingInfo h6#arts { background: none repeat scroll 0 0 #0B2A6A; color: #FFFFFF; font-size: 14px; padding: 5px; position: relative; width: -moz-min-content; }
+.trendingInfo h6#arts { background: none repeat scroll 0 0 #0B2A6A; color: #FFFFFF; font-size: 14px; padding: 5px;  position: inherit; width: -moz-min-content; }
 
 
 
@@ -216,7 +216,7 @@ nav { display: block; float: left; margin-top: 4px; padding-bottom: 28px; positi
 
 .trendingInfo h6#entertainment:after { border-right: 7px solid rgba(0, 0, 0, 0); border-top: 7px solid rgba(0, 0, 0, 0); bottom: -7px; content: ""; display: block; left: 0; position: absolute; transition: border 0.3s ease 0s; border-top-color:#5037cc; }
 
-.trendingInfo h6#entertainment { background: none repeat scroll 0 0 #5037cc; color: #FFFFFF; font-size: 14px; padding: 5px; position: relative; width: -moz-min-content; }
+.trendingInfo h6#entertainment { background: none repeat scroll 0 0 #5037cc; color: #FFFFFF; font-size: 14px; padding: 5px;  position: inherit; width: -moz-min-content; }
 #entertainment
 
 
@@ -224,14 +224,14 @@ nav { display: block; float: left; margin-top: 4px; padding-bottom: 28px; positi
 
 .trendingInfo h6#travel-leisure:after { border-right: 7px solid rgba(0, 0, 0, 0); border-top: 7px solid rgba(0, 0, 0, 0); bottom: -7px; content: ""; display: block; left: 0; position: absolute; transition: border 0.3s ease 0s; border-top-color:#dc2b0f; }
 
-.trendingInfo h6#travel-leisure { background: none repeat scroll 0 0 #dc2b0f; color: #FFFFFF; font-size: 14px; padding: 5px; position: relative; width: -moz-min-content; }
+.trendingInfo h6#travel-leisure { background: none repeat scroll 0 0 #dc2b0f; color: #FFFFFF; font-size: 14px; padding: 5px;  position: inherit; width: -moz-min-content; }
 
 
 /************ fitness category tag color**********/
 
 .trendingInfo h6#fitness:after { border-right: 7px solid rgba(0, 0, 0, 0); border-top: 7px solid rgba(0, 0, 0, 0); bottom: -7px; content: ""; display: block; left: 0; position: absolute; transition: border 0.3s ease 0s; border-top-color:#1da8e2; }
 
-.trendingInfo h6#fitness { background: none repeat scroll 0 0 #1da8e2; color: #FFFFFF; font-size: 14px; padding: 5px; position: relative; width: -moz-min-content; }
+.trendingInfo h6#fitness { background: none repeat scroll 0 0 #1da8e2; color: #FFFFFF; font-size: 14px; padding: 5px;  position: inherit; width: -moz-min-content; }
 
 
 
@@ -239,18 +239,29 @@ nav { display: block; float: left; margin-top: 4px; padding-bottom: 28px; positi
 
 .trendingInfo h6#photography-modelling:after { border-right: 7px solid rgba(0, 0, 0, 0); border-top: 7px solid rgba(0, 0, 0, 0); bottom: -7px; content: ""; display: block; left: 0; position: absolute; transition: border 0.3s ease 0s; border-top-color:#82ab29; }
 
-.trendingInfo h6#photography-modelling { background: none repeat scroll 0 0 #82ab29; color: #FFFFFF; font-size: 14px; padding: 5px; position: relative; width: -moz-min-content; }
+.trendingInfo h6#photography-modelling { background: none repeat scroll 0 0 #82ab29; color: #FFFFFF; font-size: 14px; padding: 5px;  position: inherit; width: -moz-min-content; }
 
 
 /************ fashion-beauty category tag color**********/
 
 .trendingInfo h6#fashion-beauty:after { border-right: 7px solid rgba(0, 0, 0, 0); border-top: 7px solid rgba(0, 0, 0, 0); bottom: -7px; content: ""; display: block; left: 0; position: absolute; transition: border 0.3s ease 0s; border-top-color:#c251ca; }
 
-.trendingInfo h6#fashion-beauty { background: none repeat scroll 0 0 #c251ca; color: #FFFFFF; font-size: 14px; padding: 5px; position: relative; width: -moz-min-content; }
+.trendingInfo h6#fashion-beauty { background: none repeat scroll 0 0 #c251ca; color: #FFFFFF; font-size: 14px; padding: 5px;  position: inherit; width: -moz-min-content; }
 
 .trendingInfo h6 a { color:#fff; font-weight:normal }
 
-#editorsPicks .isotopeSummary h4 { display: block; font-weight: 200; font-size: 20px; padding-top:12px; }
+#editorsPicks .isotopeSummary h4 {    display: block;
+    font-size: 20px;
+    font-weight: 200;
+    position: absolute;
+    top: 33%; }
+
+
+.isotopeDetailed {
+    position: absolute;
+    top: 55%;
+}
+
 
 #editorsPicks .isotopeSummary h4 a { color:#fff; }
 
@@ -770,6 +781,8 @@ _user
 .btn.likepubBtn{background:url("/assets/heart_img.png")no-repeat;border:none; color: #FFFFFF;}
 
 .btn.pubBtn, .comment-reply {background: none repeat scroll 0 0 #81AA05;border: 1px solid #81AA05;border-radius: 1px;color: #FFFFFF;}
+
+.comment-reply{min-height: 24px !important;}
 
 //.text.required {height: 30px;}
 

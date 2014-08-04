@@ -53,7 +53,7 @@
       .field
         = f.label :available
         = f.select(:available, options_for_select([['Yes', 'yes'], ['No', 'no'], ['Probably', 'probably'], ['Busy', 'busy']]))         
-      -if @user.sub_category.name == 'model'
+      -if @user.sub_category.name == 'Modelling'
         .field
           = f.label :height
           = f.number_field :height
