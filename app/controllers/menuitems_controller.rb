@@ -14,7 +14,11 @@ class MenuitemsController < ApplicationController
 
   # GET /menuitems/new
   def new
-    @menuitem = Menuitem.new
+    if current_user.menucategories.any?
+      @menuitem = Menuitem.new
+    else
+      redirect_to new_menucategory_path, notice: 'Please add the category for add an item.'
+    end
   end
 
   # GET /menuitems/1/edit
@@ -24,17 +28,21 @@ class MenuitemsController < ApplicationController
   # POST /menuitems
   # POST /menuitems.json
   def create
-    @menuitem = Menuitem.new(menuitem_params)
-    @menuitem.user_id = current_user.id
+    if current_user.menucategories.any?
+      @menuitem = Menuitem.new(menuitem_params)
+      @menuitem.user_id = current_user.id
 
-    respond_to do |format|
-      if @menuitem.save
-        format.html { redirect_to current_user, notice: 'Menuitem was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @menuitem }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @menuitem.errors, status: :unprocessable_entity }
+      respond_to do |format|
+        if @menuitem.save
+          format.html { redirect_to current_user, notice: 'Menuitem was successfully created.' }
+          format.json { render action: 'show', status: :created, location: @menuitem }
+        else
+          format.html { render action: 'new' }
+          format.json { render json: @menuitem.errors, status: :unprocessable_entity }
+        end
       end
+    else
+      redirect_to new_menucategory_path, notice: 'Please add the category for add an item.'
     end
   end
 
@@ -56,10 +64,10 @@ class MenuitemsController < ApplicationController
   # DELETE /menuitems/1.json
   def destroy
     @menuitem.destroy
-    respond_to do |format|
-      format.html { redirect_to menuitems_url }
-      format.json { head :no_content }
-    end
+#    respond_to do |format|
+#      format.html { redirect_to menuitems_url }
+#      format.json { head :no_content }
+#    end
   end
 
   private

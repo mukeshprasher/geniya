@@ -500,25 +500,32 @@
               /%a.full_manu.right Full Menu »
               .clear
             .box_sec
-              #menu_box
+              #menu_cat_btn
                 - if signed_in? and current_user?(@user)
                   = link_to 'Add Category', "/menucategories/new", class: 'btn btn btn-primary'
-                  = link_to 'Add Item', "/menuitems/new", class: 'btn btn btn-primary'
+                  = link_to 'Add Item', "/menuitems/new", class: 'btn btn btn-primary'              
+              #menu_box
                 - @user.menucategories.each do|x|
-                  .company_manu
+                  .company_manu{ :id => "menucat_box-#{x.id}" }
                     %h2.main_head
                       = x.name 
                       - if signed_in? and current_user?(@user)
                         %span.edit_portfolio_pencil_cont
                           %a{href: "/menucategories/#{x.id}/edit"}
-                            %img{alt: "", src: "/assets/edit.png"}/                     
+                            %img{alt: "", src: "/assets/edit.png"}/  
+                        %span.delete_portfolio_cross_cont
+                          = link_to menucategory_path(x), :method => :delete, :remote => true,  :disable_with => "×", :class => 'menucat_box-delete' , :id => "menucat_box-delete-#{x.id}" do 
+                            %img{alt: "", src: "/assets/cross.png"}/                                                 
                     %ul
                       - Menuitem.where(menucategory_id: x.id).each do|n|
-                        %li
+                        %li{ :id => "menuitem_box-#{n.id}" }
                           - if signed_in? and current_user?(@user)
                             %span.edit_portfolio_pencil_cont
                               %a{href: "/menuitems/#{n.id}/edit"}
                                 %img{alt: "", src: "/assets/edit.png"}/               
+                            %span.delete_portfolio_cross_cont
+                              = link_to menuitem_path(n), :method => :delete, :remote => true,  :disable_with => "×", :class => 'menuitem_box-delete' , :id => "menuitem_box-delete-#{n.id}" do 
+                                %img{alt: "", src: "/assets/cross.png"}/                            
                           .left_part
                             %h3
                               = n.name
