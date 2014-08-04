@@ -488,6 +488,7 @@ $(function() {
     $(document).ready(function () {
         $(document).ajaxStop(function () {
             $(".user_updates_ajax").hide();
+            $("#loading_img_quote").hide();
         });
     }); 
 
@@ -611,6 +612,7 @@ $(function() {
     
     else
     {
+      $("#loading_img_quote").show();
       return true;
     }
     });

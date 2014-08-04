@@ -30,7 +30,7 @@ class QuotesController < ApplicationController
     end
     if @quote.save
       if(UserMailer.get_quote(@quote).deliver)
-        flash[:success] = "Your Request is send for Quote."
+#        flash[:success] = "Your Request is send for Quote."
       else
         flash[:error] = "Error sending email."
       end 

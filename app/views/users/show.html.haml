@@ -8,27 +8,7 @@
     - if @user.kind=="bussiness"
       #bussiness_quote
 
-      .company_banner
-        .company_nav
-          /%ul
-          /  %li.active
-          /    %a{href: ""} Home
 
-        - if signed_in? and !current_user?(@user)
-          .get_quote
-            %a{id: "get_quote_form"} Get a Quote
-            .Quote_form
-              = simple_form_for(@quote, remote: true) do |f|
-                = f.error_notification
-
-                .form-inputs
-                  = f.hidden_field :user_id, value: @user.parent_id
-                  = f.hidden_field :page_id, value: @user.id
-                  = f.input :name, placeholder: "Name"
-                  = f.input :email, placeholder: "Email"
-                  = f.input :contact, placeholder: "Contact"
-                  = f.input :message, placeholder: "Message"
-                  = f.button :submit, class: "compBtn", value: "Submit"
     - if @user.kind == "bussiness"
       .business_profile_picture
         .pick
@@ -277,6 +257,28 @@
                   %a{href: "#{@user.bussiness.twitter_link}", target: "_blank"}
                     %img{src: "/assets/follow_icon4.png"}/      
           
+
+        .company_banner
+
+          - if signed_in? and current_user?(@user) 
+          - else
+            .get_quote
+              %a{id: "get_quote_form"} Get a Quote
+            .Quote_form
+              = simple_form_for(@quote, remote: true) do |f|
+                = f.error_notification
+
+                .form-inputs
+                  = f.hidden_field :user_id, value: @user.parent_id
+                  = f.hidden_field :page_id, value: @user.id
+                  = f.input :name, placeholder: "Name"
+                  = f.input :email, placeholder: "Email"
+                  = f.input :contact, placeholder: "Contact"
+                  = f.input :message, placeholder: "Message"
+                  = f.button :submit, class: "compBtn", value: "Submit"
+                #loading_img_quote
+                  %img{src: "/assets/loader.gif", alt: "loading"}/   
+
     
     - if @user.kind == "user"
       .profile_picture

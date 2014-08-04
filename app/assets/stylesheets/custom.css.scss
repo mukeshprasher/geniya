@@ -3437,13 +3437,13 @@ h1, h2, h3, h4, h5, h6 {
 
 
 .bussiness_profile_picture {     background: none repeat scroll 0 0 #FFFFFF;
-    min-height: 80px;
+    min-height: 105px;
     overflow: hidden;
     width: 100%; }
 
 .company_left { padding: 0 10px; float: left; height: 70px; overflow: hidden;}
 
-.follow_us { bottom: 7%;
+.follow_us {   bottom: 13%;
     left: 81%;
     position: absolute;
     width: 190px; }
@@ -3532,11 +3532,14 @@ h1, h2, h3, h4, h5, h6 {
 
 .no_margin { margin: 0px; }
 
-.Quote_form { background: none repeat scroll 0 0 #e2e2e2; box-shadow: 3px 1px 2px #ccc; padding: 15px 20px 0 10px; position: absolute; right: 0; top: 43px; width: 300px; z-index: 2147483647; }
+.Quote_form { background: none repeat scroll 0 0 #e2e2e2; box-shadow: 3px 1px 2px #ccc; padding: 15px 20px 0 10px; position: absolute; right: 0; top: 117%; width: 300px; z-index: 2147483647; }
 
 .company_banner .get_quote { background: none repeat scroll 0 0 #87b009; float: right; font-weight: bold; padding: 10px 6px; position: relative; }
 
 .company_banner .get_quote:before { border-color: #e2e2e2 rgba(0, 0, 0, 0); border-style: solid; border-width: 0 6px 8px; content: ""; display: block; left: 50%; margin-left: -5px; position: absolute; top: 35px; }
+
+
+.company_banner {bottom: 2%;position: absolute;right: 1%;}
 
 .Quote_form .comp_int { border: 1px solid #ccc; height: 32px !important; line-height: 32px; margin: 0 0 5px; padding: 0 5px; width: 100%; }
 
@@ -3594,7 +3597,15 @@ h1, h2, h3, h4, h5, h6 {
 
 #business_timeline_comment {border-bottom: 1px solid #CCCCCC;color: #6E8F26;font-size: 20px;font-weight: bold;margin: 0;padding: 0 0 16px 14px;width: 98%;}
 
-#bussiness_quote {color: #7B9B00;font-size: 23px;}
+#bussiness_quote {display: none;}
+
+#bussiness_quote { background: none repeat scroll 0 0 #DFF0D8;
+    border-color: #D6E9C6;
+    color: #7B9B00;
+    font-size: 20px;
+    font-weight: bold;
+    min-height: 31px;
+    padding: 5px 0 0 9px;}
 
 .Quote_form label {display: none;}
 
