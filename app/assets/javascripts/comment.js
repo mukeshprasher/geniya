@@ -76,7 +76,39 @@ $(function() {
        {$("#portfolio_box-"+delete_comment_id).show();
        return false;}
      });  
- 
+
+
+// delete the business page categories
+
+    $(".menucat_box-delete").click(function(){
+     var delcomment = confirm("Do you want to delete this Category ?");
+     if(delcomment == true)
+     {
+     var delete_comment_id=this.id.split("-")[2]
+       $("#menucat_box-"+delete_comment_id).hide('slow');
+       return true;
+     }
+     else
+       {$("#menucat_box-"+delete_comment_id).show();
+       return false;}
+     });  
+
+
+// delete the business page menu_items
+
+    $(".menuitem_box-delete").click(function(){
+     var delcomment = confirm("Do you want to delete this Item ?");
+     if(delcomment == true)
+     {
+     var delete_comment_id=this.id.split("-")[2]
+       $("#menuitem_box-"+delete_comment_id).hide('slow');
+       return true;
+     }
+     else
+       {$("#menuitem_box-"+delete_comment_id).show();
+       return false;}
+     });  
+  
  
 //    
 //    $(".affiliation-delete").click(function(){

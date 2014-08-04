@@ -49,10 +49,10 @@ class MenucategoriesController < ApplicationController
   # DELETE /menucategories/1.json
   def destroy
     @menucategory.destroy
-    respond_to do |format|
-      format.html { redirect_to menucategories_url }
-      format.json { head :no_content }
-    end
+#    respond_to do |format|
+#      format.html { redirect_to menucategories_url }
+#      format.json { head :no_content }
+#    end
   end
 
   private
