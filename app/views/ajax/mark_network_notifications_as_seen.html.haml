@@ -1,13 +1,17 @@
-- @connection_requests.each do |user|
+- if @connection_requests.empty? and @new_connections.empty? and @new_relationships.empty?
   %li
-    - @user = user
-    = link_to "#{user.name} wants to connect with you", user 
-    = render 'shared/connect_form'
-- @new_connections.each do |user|
-  %li
-    - @user = user
-    = link_to "#{user.name} is now connected with you", user
-    = render 'shared/connect_form'
-- @new_relationships.each do |user|
-  %li
-    = link_to "#{user.name} is now following you", user
+    No connection requests recieved
+- else
+  - @connection_requests.each do |user|
+    %li
+      - @user = user
+      = link_to "#{user.name} wants to connect with you", user 
+      = render 'shared/connect_form'
+  - @new_connections.each do |user|
+    %li
+      - @user = user
+      = link_to "#{user.name} is now connected with you", user
+      = render 'shared/connect_form'
+  - @new_relationships.each do |user|
+    %li
+      = link_to "#{user.name} is now following you", user
