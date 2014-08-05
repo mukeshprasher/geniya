@@ -24,6 +24,7 @@ class OrganizationsController < ApplicationController
     if signed_in?
       @affiliation = current_user.affiliations.build
     end
+    @users = @organization.users.paginate(page: params[:page])
   end
 
   # GET /organizations/new
