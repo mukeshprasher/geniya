@@ -309,7 +309,8 @@ $(function() {
           $("#cover_img").val('');
           return false;
           }
-        $('#profile_cover_upload_modal_body').append('<img src="/assets/loader.gif" alt="loading" />')
+        $("#loading_img_quote").show();
+        //$('#profile_cover_upload_modal_body').append('<img src="/assets/loader.gif" alt="loading" />')
         $('#cover_img_form').submit(); //better ways to do it ^^
 //        $('.modal-scrollable').hide('slow');
 //        $('.modal-backdrop.fade.in').hide();
@@ -351,7 +352,8 @@ $(function() {
           $("#cover_img").val('');
           return false;
           }
-        $('#profile_cover_upload_modal_body').append('<img src="/assets/loader.gif" alt="loading" />')
+        $('#loading_img_for_feature_img').show();
+        //$('#profile_cover_upload_modal_body').append('<img src="/assets/loader.gif" alt="loading" />')
         $('#feature_img_form').submit(); //better ways to do it ^^
 //        $('.modal-scrollable').hide('slow');
 //        $('.modal-backdrop.fade.in').hide();
@@ -517,12 +519,6 @@ $(function() {
     }
     }); 
 
-    $(document).ready(function () {
-        $(document).ajaxStop(function () {
-            $(".user_updates_ajax").hide();
-            $("#loading_img_quote").hide();
-        });
-    }); 
 
     $("#edit_user").submit(function(){
     var birthdate = $("#user_birthdate")
@@ -711,6 +707,7 @@ $(function() {
      }
     else
     {
+      $('#loading_img_for_video').show();
       return true;
     }
     });
@@ -738,6 +735,7 @@ $(function() {
     }
     else
     {
+      $('#loading_img_for_album_cover').show();
       //skillfield.val('');
       //alert('Successfully added');
       return true;
@@ -906,7 +904,7 @@ $(function() {
           $("#profile_img").val('');
           return false;
           }
-        $('#profile_pic_upload_modal_body').append('<img src="/assets/loader.gif" alt="loading" />')
+        $('#loading_img_for_profile').show();
         $('#profile_img_form').submit(); //better ways to do it ^^
 //        $('.modal-scrollable').hide('slow');
 //        $('.modal-backdrop.fade.in').hide();
@@ -949,6 +947,17 @@ $(function() {
 //    });   
 
 
+    $(document).ready(function () {
+        $(document).ajaxStop(function () {
+            $(".user_updates_ajax").hide();
+            $("#loading_img_quote").hide();
+            $("#loading_img_for_profile").hide();
+            $('#loading_img_for_feature_img').hide();
+            $('#loading_img_for_album_cover').hide();
+            $('#loading_img_for_video').hide();
+            
+        });
+    }); 
 
 
   $('#uploadcoverphoto').click(function() {

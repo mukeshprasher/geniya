@@ -27,7 +27,9 @@
                   = f.file_field :feature_img, id: "user_feature_img"  
                 .actions
                   = f.submit 'Add Feature Image', id: "user_featureimg_btn", class: "btn"
-                %img{alt: "loading", src: "/assets/loader.gif", style: "visibility: hidden"}/
+                /%img{alt: "loading", src: "/assets/loader.gif", style: "visibility: hidden"}/
+                #loading_img_for_feature_img
+                  %img{src: "/assets/loader.gif", alt: "loading"}/               
             .modal-footer
               %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
               /%button.btn.btn-primary{type: "button"} Save changes

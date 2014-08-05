@@ -2,4 +2,4 @@
 - likers = comment.likers(User).last(1)
 - liker_name = liker - likers
 - liker_name.each do|likername|
-  =[likername.username] - [current_user.username]
+  =[likername.name] - [current_user.name]

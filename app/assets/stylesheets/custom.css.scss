@@ -910,7 +910,7 @@ right: 0px;
 
 .sale_plan ul li a {color: #484848;display: block;}
 
-.price_sale {text-align: center;width: 100%;}
+.price_sale {  float: left;margin: 55px 0 0;text-align: center;width: 100%;}
 
 .price_sale h2 {color: #7BA400;font-family: "Arial Black";font-size: 88px;position: relative;text-shadow: 5px 5px 5px #BBBABA;}
 
@@ -2888,7 +2888,7 @@ color:#85AB48;
 
 #user_advertisement_categroy{ width: 550px;}
 .gray{
-  background-color: gray;
+  background-color: #C9C8C3;
 }
 
 legend {
@@ -3277,13 +3277,13 @@ body {
 } 
 .sent_chat{
   background-color: #E1E1E1;
-  border-radius: 15px 6px 15px 0;
+  border-radius: 15px 8px 8px 0;
   float: left;
   width: 90%;
 }
 .recieved_chat {
   background-color: #6A8741;
-  border-radius: 6px 15px 0 15px;
+  border-radius: 6px 15px 0 6px;
   float: right;
   width: 90%;
 } 
@@ -3384,6 +3384,7 @@ body {
 .price_deluxe{
   color: #7BA400;
   font-family: "Arial Black";
+  text-decoration: line-through;
   font-size: 40px;
   text-shadow: 5px 5px 5px #BBBABA;
 }
@@ -3711,18 +3712,16 @@ height:55px;
 
 
 .limited_offer_img {
+  bottom: 20%;
     left: 0;
     position: absolute;
-    top: 199px;
 }
 .sale_plan {
     float: left;
 }
 
 
-.sale_plan ul {
-    margin-top: 90px;
-}
+
 
 #notification_count {
     background: none repeat scroll 0 0 #E6535B;
@@ -3862,3 +3861,8 @@ max-width:300px;
 #geniya_logo{
   height: 110px;
 }
+
+
+#new_organization label, #new_education .string.optional.control-label, #new_education .control-group.select.optional label {cursor: default;}
+
+.education_photography .key_skills #skills-field .skill {text-transform: capitalize;}

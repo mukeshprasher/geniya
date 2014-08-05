@@ -31,7 +31,7 @@
                       %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
                       %h4.modal-title Upload Profile Photo
                     .modal-body#profile_pic_upload_modal_body
-                      %img{alt: "loading", src: "/assets/loader.gif", style: "visibility: hidden"}/
+                      /%img{alt: "loading", src: "/assets/loader.gif", style: "visibility: hidden"}/
                       = form_for @headshot, :html => {  id: :profile_img_form  }  do |f|
                         = f.hidden_field :album_id, value: current_user.profile_pic_album.id
                         = f.hidden_field :upload_type, value: current_user.profile_pic_album.kind
@@ -41,6 +41,8 @@
                           = f.file_field :file_attachment, id: "profile_img"
                         .actions
                           = f.submit 'Upload Profile Pic', id: "upload_profile_pic"
+                        #loading_img_for_profile
+                          %img{src: "/assets/loader.gif", alt: "loading"}/                                
                     .modal-footer
                       %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
                   %a.demo{"data-toggle" => "modal",href: "#uploadphoto", id: "#uploadphoto"}
@@ -183,7 +185,9 @@
                         = f.file_field :file_attachment, id: "cover_img"
                       .actions
                         = f.submit 'Upload Cover Photo', id: "upload_cover_pic"
-                      %img{alt: "loading", src: "/assets/loader.gif", style: "visibility: hidden"}/
+                      /%img{alt: "loading", src: "/assets/loader.gif", style: "visibility: hidden"}/
+                      #loading_img_quote
+                        %img{src: "/assets/loader.gif", alt: "loading"}/                     
                   .modal-footer
                     %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
                 %a.demo{"data-toggle" => "modal",href: "#uploadcoverphoto", id: "#uploadcoverphoto"}
@@ -302,7 +306,7 @@
                       %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
                       %h4.modal-title Upload Profile Photo
                     .modal-body#profile_pic_upload_modal_body
-                      %img{alt: "loading", src: "/assets/loader.gif", style: "visibility: hidden"}/
+                      /%img{alt: "loading", src: "/assets/loader.gif", style: "visibility: hidden"}/
                       = form_for @headshot, :html => {  id: :profile_img_form  }  do |f|
                         = f.hidden_field :album_id, value: current_user.profile_pic_album.id
                         = f.hidden_field :upload_type, value: current_user.profile_pic_album.kind
@@ -312,6 +316,8 @@
                           = f.file_field :file_attachment, id: "profile_img"
                         .actions
                           = f.submit 'Upload Profile Pic', id: "upload_profile_pic"
+                      #loading_img_for_profile
+                        %img{src: "/assets/loader.gif", alt: "loading"}/                       
                     .modal-footer
                       %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
                   %a.demo{"data-toggle" => "modal",href: "#uploadphoto", id: "#uploadphoto"}

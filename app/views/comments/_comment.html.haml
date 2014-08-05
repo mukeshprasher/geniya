@@ -9,7 +9,7 @@
         =image_tag '/assets/missing.png'   
     %span.comment-user-name
       %a{href: "/users/"+"#{comment.user.slug}"}
-        = comment.user.username
+        = comment.user.name
       %span#feed_text
         = raw simple_format comment.body
       %p
