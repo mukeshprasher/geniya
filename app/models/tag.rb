@@ -21,4 +21,7 @@ class Tag < ActiveRecord::Base
     connection = Connection.find_by_user_id_and_connection_id(id, other_user.id) unless id == other_user.id
   end
 
+  include ActiveModel::Validations  
+  validates :name,  presence: true, length: { minimum: 4,  maximum: 15 }
+
 end
