@@ -1,14 +1,18 @@
-- @responses.each do |response|
-  - actor = User.find(response.actor_id)
-  - case response.act
-  - when 'like'
-    - action_text = 'likes'
-  - when 'comment'
-    - action_text = 'commented on'
-  - when 'share'
-    - action_text = 'shared'
+- if @responses.empty?
+  %li
+    No new updates
+- else
+  - @responses.each do |response|
+    - actor = User.find(response.actor_id)
+    - case response.act
+    - when 'like'
+      - action_text = 'likes'
+    - when 'comment'
+      - action_text = 'commented on'
+    - when 'share'
+      - action_text = 'shared'
 
-  - obj = response.acted_upon_type.constantize.find_by_id(response.acted_upon_id)
-  - unless obj.nil?
-    %li{:class => ("gray" unless response.status == 0)}
-      = link_to "#{actor.name} #{action_text} your #{response.acted_upon_type}", obj
+    - obj = response.acted_upon_type.constantize.find_by_id(response.acted_upon_id)
+    - unless obj.nil?
+      %li{:class => ("gray" unless response.status == 0)}
+        = link_to "#{actor.name} #{action_text} your #{response.acted_upon_type}", obj
