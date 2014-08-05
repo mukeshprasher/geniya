@@ -19,14 +19,18 @@ class PagesController < ApplicationController
         @video = current_user.videos.build
         @advertisement = current_user.advertisements.build
         @feed_items = current_user.feed.paginate(page: params[:page], per_page: 5)
-        @advertisements = Advertisement.all
         @organization = current_user.organizations.build
         @jobs = Array.new
-        current_user.skills.each {|skill| skill.jobs.each{|job| @jobs << job } }
-        @jobs = @jobs.uniq
-        @advertize = Advertisement.where.not(user_id: current_user.id)
-        @ads = @advertize.where(category_id: current_user.category_id)
+        current_user.skills.each {|skill| skill.jobs.each{|job| @jobs << job unless current_user == job.user } }
+        @jobs = @jobs.uniq.sample 2
         
+        if current_user.plan == 'visitor'
+          count = Advertisement.where.not(user_id: current_user.id).count
+          @advertisements = Advertisement.where.not(user_id: current_user.id).limit(2).offset(rand count)
+        else
+          count = Advertisement.where("user_id != ? and category_id = ?", current_user.id, current_user.category_id).count
+          @advertisements = Advertisement.where("user_id != ? and category_id = ?", current_user.id, current_user.category_id).offset(rand count).limit(2)
+        end
         
         respond_to do |format|
           format.html

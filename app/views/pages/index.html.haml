@@ -19,19 +19,6 @@
               = render 'shared/feed_img'
           .user_updates_form
             = render 'shared/update_form'
-            /#portfolio-form.modal.fade{"data-width" => "760", style: "display: none;", tabindex: "-1"}
-            /  .modal-header
-            /    %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
-            /    %h4.modal-title Post Job Here:
-            /  .modal-body
-            /    = render 'shared/ads_form'
-            /  .modal-footer
-            /    %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
-            /    %button.btn.btn-primary{type: "button"} Save changes
-            /%a.demo{"data-toggle" => "modal",href: "#portfolio-form"}
-            /  %span#ads_post-link 
-            /    Add Job        
-        
         
         .user_updates_ajax
           %img{alt: "slider", src: "/assets/loader.gif"}/
@@ -61,9 +48,10 @@
             - if current_user.advertisements.any?
               = link_to 'My advertisements', advertisements_path, class: 'btn'          
           - if current_user.plan != 'visitor'
-            
             - if current_user.plan == 'deluxe' or current_user.plan == 'admin'
               = link_to 'Post job', new_job_path, class: 'btn'
+              - if current_user.jobs.any?
+                = link_to 'My posted jobs', jobs_path, class: 'btn'
               = link_to 'Create advertisement', new_advertisement_path, class: 'btn'
               - if current_user.advertisements.any?
                 = link_to 'My advertisements', advertisements_path, class: 'btn'
@@ -77,11 +65,12 @@
               = render job
 
         .add_sec
-          - if @ads.any?
+          - if @advertisements.any?
             .bg_buttan_job
               Advertisements
           .ads-box
-            = render 'shared/advertise_form', user: current_user
+            - @advertisements.each do |advertisement|
+              = render advertisement
             
         
 - else

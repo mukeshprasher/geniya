@@ -145,8 +145,8 @@
       = render job        
 
 .add_sec
-  - if @ads.any?
+  - if @advertisements.any?
     .bg_buttan_job
       Advertisements
-  .ads-box
-    = render 'shared/advertise_form', user: @user 
+  - @advertisements.each do |advertisement|
+    = render advertisement
