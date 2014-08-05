@@ -1,28 +1,35 @@
-.wrapper
-  %h1 Listing organizations
+.row-fluid.spaced-top
+  .span2.spaced-left
+    .btn-group.btn-group-vertical.btn-block
+      = link_to 'New Organization', new_organization_path, class: 'btn btn-success'
+      = link_to 'My profile', current_user, class: 'btn'
+  .span10.min500
+    %h1 Listing organizations
 
-  %table
-    %tr
-      %th Name
-      %th Category
-      %th Start date
-      %th Address
-      %th User
-      %th
-      %th
-      %th
+    .organization_listing
+      %table
+        %tr
+          %th Name
+          %th Category
+          %th Start date
+          %th Created by
+          %th
+          %th
+          %th
 
-    - @organizations.each do |organization|
-      %tr
-        %td= organization.name
-        %td= organization.category_id
-        %td= organization.start_date
-        %td= organization.address_id
-        %td= organization.user_id
-        %td= link_to 'Show', organization
-        %td= link_to 'Edit', edit_organization_path(organization)
-        %td= link_to 'Destroy', organization, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        - @organizations.each do |organization|
+          %tr
+            %td
+              = link_to organization do
+                = organization.name
+            %td= organization.category.name
+            %td= organization.start_date
+            %td= organization.user.name
+            - if signed_in? and current_user?(organization.user)
+              %td= link_to 'Edit', edit_organization_path(organization)
+              %td
+                |
+              %td= link_to 'Destroy', organization, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
-  %br
-  = will_paginate
-  = link_to 'New Organization', new_organization_path
+      %br
+      = will_paginate

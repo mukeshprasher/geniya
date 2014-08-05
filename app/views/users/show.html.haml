@@ -82,8 +82,9 @@
                       Add Affiliations                        
               - if @user.affiliations.where(status: 'yes').any?
                 %li#affiliation_content
-                  %span Current:
-                  
+                  %a.demo{"data-toggle" => "modal",href: "#affiliations"}
+                    %span Current:
+                    
                   #orgnz_detail
                     - if @user.affiliations.where(status: 'yes').any?
                       = render 'shared/current_company', user: @user  
@@ -91,10 +92,11 @@
               - else
                 - if (current_user == @user) && signed_in?               
                   %li#affiliation_content
-                    %span Current:
-                    #orgnz_detail                
-                      %span
-                        Add Detail
+                    %a.demo{"data-toggle" => "modal",href: "#affiliations"}
+                      %span Current:
+                      #orgnz_detail                
+                        %span
+                          Add Detail
               
               
               - if @user.affiliations.where(status: 'no').any?
@@ -102,9 +104,9 @@
                   %a.demo{"data-toggle" => "modal",href: "#affiliations"}
                     %span Previous:
                   
-                    #prev_orgnz_detail
-                      - if @user.affiliations.where(status: 'no').any?
-                        = render 'shared/prev_company', user: @user   
+                  #prev_orgnz_detail
+                    - if @user.affiliations.where(status: 'no').any?
+                      = render 'shared/prev_company', user: @user   
               - else
                 - if (current_user == @user) && signed_in?   
                   %li#affiliation_content

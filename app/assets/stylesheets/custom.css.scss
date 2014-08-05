@@ -1596,7 +1596,7 @@ bottom: -10px;color: #6D6D6C;font-family: Calibri;font-size: 21px;position: abso
     width: 200px;
 }
 
-.pagination ul{ display:none;}
+#infinite-scrolling .pagination ul{ display:none;}
 
 .page_loader{margin-top:50px;}
 
@@ -3866,6 +3866,31 @@ max-width:300px;
 #new_organization label, #new_education .string.optional.control-label, #new_education .control-group.select.optional label {cursor: default;}
 
 .education_photography .key_skills #skills-field .skill {text-transform: capitalize;}
+<<<<<<< HEAD
 .wrapper h1{
   margin-top: 0px;
+}
+
+#affiliations .modal-header p {color: #82AB05;font-family: latobold;
+    background-color: #FCF8E3;
+    border: 1px solid #FBEED5;
+    border-radius: 4px;
+    padding: 4px 35px 4px 14px;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+
+}
+
+.organization_listing table{
+    width: 1024px;
+}
+
+
+.organization_listing table tbody {
+    font-size: 16px;
+    text-transform: capitalize;
+    text-align:left;
+}
+
+.organization_listing table td {
+    padding: 8px 4px 0 0px;
 }

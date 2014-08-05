@@ -14,7 +14,7 @@ class OrganizationsController < ApplicationController
     if params[:q]
       @organizations = Organization.where("lower(name) like lower(?)", "%#{params[:q]}%")
     else  
-      @organizations = Organization.paginate(page: params[:page])
+      @organizations = Organization.paginate(page: params[:page], :per_page => 15)
     end
   end
 
@@ -43,7 +43,7 @@ class OrganizationsController < ApplicationController
 
     respond_to do |format|
       if @organization.save
-        format.html { redirect_to current_user, notice: 'Organization was successfully created.' }
+        format.html { redirect_to current_user, notice: 'Organization created, now add affiliation.' }
         format.json { render action: 'show', status: :created, location: @organization }
       else
         format.html { render action: 'new' }
