@@ -9,5 +9,5 @@ class Organization < ActiveRecord::Base
   has_many :jobs
 
   include ActiveModel::Validations  
-  validates :name,  presence: true, length: { minimum: 4 }
+  validates :name,  presence: true, length: { minimum: 4,  maximum: 40 }
 end
