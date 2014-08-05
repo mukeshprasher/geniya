@@ -15,12 +15,17 @@ class JobsController < ApplicationController
   # GET /jobs/1
   # GET /jobs/1.json
   def show
+    @user = @job.user
+    impressionist @job, '', unique: [:user_id] if current_user
+    if signed_in?
+      @new_comment = Comment.build_from(@job, current_user.id, "")
+    end
   end
 
   # GET /jobs/new
   def new
     if current_user.plan == "trial" or current_user.plan == "visitor"
-      redirect_to current_user, :alert => "Please Upgrade your Plan to Deluxe for Post Jobs." 
+      redirect_to current_user, :alert => "Please upgrade your plan to Deluxe to post jobs." 
     else
       redirect_to new_organization_path, notice: 'Please create an organization to create a job.' unless current_user.organizations.any?
       @job = Job.new

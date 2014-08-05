@@ -4,7 +4,11 @@ class Job < ActiveRecord::Base
   belongs_to :category
   belongs_to :sub_category
   has_many :job_skills
-  has_many :skills, through: :job_skills  
+  has_many :skills, through: :job_skills
+  has_many :comments, foreign_key: 'commentable_id'
+  
+  acts_as_commentable
+  is_impressionable :unique => :user_id, :counter_cache => true  
 
   has_attached_file :cover, :styles => { :large => "600x600>", :medium => "300x300>", :small => "100x100>" }, :default_url => "/assets/missing.png", :hash_secret => "geniyaAttach", :path => ":rails_root/public/system/jobs/:id_:style.:extension", :url => "/system/jobs/:id_:style.:extension",
                         :storage        => :s3                                                 ,

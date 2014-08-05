@@ -1,50 +1,88 @@
-%p
-  %b User:
-  = @job.user_id
-%p
-  %b Organization:
-  = @job.organization_id
-%p
-  %b Category:
-  = @job.category_id
-%p
-  %b Sub category:
-  = @job.sub_category_id
-%p
-  %b Reference code:
-  = @job.reference_code
-%p
-  %b Title:
-  = @job.title
-%p
-  %b Description:
-  = @job.description
-%p
-  %b Skills:
-  - @job.skills.each do |skill|
-    = link_to skill.name, skill 
-%p
-  %b Minimum experience:
-  = @job.minimum_experience
-%p
-  %b Maximum experience:
-  = @job.maximum_experience
-%p
-  %b Minimum salary:
-  = @job.minimum_salary
-%p
-  %b Maximum salary:
-  = @job.maximum_salary
-%p
-  %b Employment type:
-  = @job.employment_type
-%p
-  %b Employment status:
-  = @job.employment_status
-%p
-  %b Cover:
-  = @job.cover
+#content-container
+  #project-main.left
+    #project-header-main.work-header-main.work-header
+      %h1
+        = @job.title
+    = render 'shared/detail_controls', obj: @job
+    %h2.album_detail_title
+      = @job.description    
+    %br      
 
-= link_to 'Edit', edit_job_path(@job)
-\|
-= link_to 'Back', jobs_path
+    .clear
+
+    #project-comments.big-comments
+      #comments-container
+        #comments-header.comments-header
+          %h4.block-title
+            %span.bold Discuss this job:
+            %span.comments-stats.hide{style: "display: inline;"}
+              (
+              %span.comments-total
+                = @job.comments.count 
+              = succeed ")" do
+                %span.comments-total-text Comments
+        
+          - if signed_in?
+            = render :partial => 'comments/form', :locals => { comment: @new_comment, parent_id: nil }
+          - else
+            Please
+            = link_to 'sign up', price_table_path
+            or
+            = link_to 'login', signin_path
+            to discuss this job.
+        .comments
+          = render :partial => 'comments/comment', :collection => @job.comments, :as => :comment        
+
+  #project-sidebar.right
+    .sidebar-block.sidebar-owner
+      .sidebar-label
+        Job by  
+      .sidebar-content.cfix
+        #owner-icon-info.cfix
+          #owner-icon.user-img-50.left
+            - if @job.user.headshot
+              = image_tag @job.user.headshot.file_attachment.url(:thumb)
+            -else
+              =image_tag '/assets/missing.png' 
+          #owner-info.left
+            #owners.cfix
+              #owner.text-ellipsis
+                = link_to @job.user.name, @job.user
+            - if signed_in? and !current_user?(@job.user)
+              %br
+              %button.send_message_button.btn.btn-primary.demo{"data-toggle" => "modal", "data"=> @job.user.id, "onclick"=>"javascript:open_chat_modal(#{@job.user.id})"}Send Message
+            #owner-location-container
+              /%a.location-link.text-ellipsis.beicons-pre.beicons-pre-location Brooklyn, NY, USA
+        #owner-buttons-container.clear
+          .follow-btn
+            - if signed_in? 
+              = render 'shared/follow_form'
+          .connect-btn
+            - if signed_in? 
+              = render 'shared/connect_form'
+          .clear
+          %br
+
+    .sidebar-block
+      .sidebar-label 
+        About job
+      .sidebar-content
+        .project-description
+          .project-published.tiny-text
+            Published: 
+            = time_ago_in_words(@job.created_at)  
+        %ul#project-stats.object-stats
+          %li.project-stat.project-stat-views.beicons-pre.beicons-pre-eye
+            %span
+              %img{alt: "", height: "11", src: "/assets/heart_img.png", width: "12"}/
+            %span 
+              Views
+            %span.stat-value 
+              = @job.impressions_count
+          %li.project-stat.project-stat-views.beicons-pre.beicons-pre-eye
+            %span
+              %img{alt: "", height: "11", src: "/assets/feed_icon1.png", width: "13"}/
+            %span
+              Comments
+            %span.stat-value
+              = @job.comments.count
