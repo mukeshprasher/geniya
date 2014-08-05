@@ -39,12 +39,13 @@ class UsersController < ApplicationController
       @activities = Activity.where(user_id: @user.id).paginate(page: params[:page], per_page: 15).order(created_at: :desc)
     end
 
-    @advertize = Advertisement.where.not(user_id: @user.id)
-    @ads = @advertize.where(category_id: @user.category_id)
+    @advertisements =@user.advertisements.limit(1).offset rand @user.advertisements.count
+    @jobs =@user.jobs.limit(1).offset rand @user.jobs.count
+
     @quote = @user.quotes.build
-    @jobs = Array.new
-    @user.skills.each {|skill| skill.jobs.each{|job| @jobs << job } }
-    @jobs = @jobs.uniq
+#    @jobs = Array.new
+#    @user.skills.each {|skill| skill.jobs.each{|job| @jobs << job } }
+#    @jobs = @jobs.uniq
   end
 
   def new
