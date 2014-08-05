@@ -3,6 +3,7 @@
     .btn-group.btn-group-vertical.btn-block
       - if signed_in? and current_user == @organization.user
         = link_to 'Edit', edit_organization_path(@organization), class: 'btn btn-success'
+      = link_to 'View Organizations', organizations_url, class: 'btn'
       = link_to 'Back', current_user, class: 'btn'
   .span10.spaced-right
     %h1 Organization
@@ -12,13 +13,6 @@
     %p
       %h4
         = @organization.category.name
-    /%p
-    /  %b Start date:
-    /  = @organization.start_date
-    /%p
-    /  %b Address:
-    /  = @organization.address_id
-    /%p
-    /  %b User:
-    /  = @organization.user_id
-
+    - @organization.users.each do |user|
+      - @user = user
+      = render 'users/taguser', user: user
