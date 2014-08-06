@@ -1,23 +1,16 @@
-%h1 Listing Categories
-
-%table
-  %tr
-    %th Name
-    %th
-    %th
-    %th
-
+.wrapper.row-fluid.spaced-top
+  %h1 Listing Categories
   - @categories.each do |category|
-    - subcategory_names = category.sub_categories.map{ |sub_category| sub_category.name }
-    - alert_msg = ["The following Subcategories will also get deleted?"]
-    - full_alert_msg = alert_msg | subcategory_names
-    %tr
-      %td= link_to category.name, category
-      %td= link_to 'Show', category
-      %td= link_to 'Edit', edit_category_path(category)
-      - if  subcategory_names == []
-        %td= link_to 'Destroy', category, :method => :delete,:data => { :confirm => 'Are you sure Want to Delete the Category?'}
-      - else
-        %td= link_to 'Destroy', category, :method => :delete,:data => { :confirm => full_alert_msg.join("\n")}
-%br
-= link_to 'New Category', new_category_path
+    .span12
+      = link_to category do
+        %h2 
+          = category.name
+      .spaced-left
+        - category.sub_category_groups.each do |sub_category_group|
+          .left.width_quarter
+            %h3
+              = sub_category_group.name
+            - sub_category_group.sub_categories.each do |sub_category|
+              = link_to sub_category.name, sub_category
+              %br
+    %hr

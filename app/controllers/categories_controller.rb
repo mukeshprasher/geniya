@@ -1,5 +1,5 @@
 class CategoriesController < ApplicationController
-  before_action :admin_user, except: [:show]
+  before_action :admin_user, except: [:show, :index]
   before_action :set_category, only: [:show, :edit, :update, :destroy]
 
   # GET /categories
@@ -12,6 +12,7 @@ class CategoriesController < ApplicationController
   # GET /categories/1
   # GET /categories/1.json
   def show
+    @albums = @category.albums.where("kind NOT IN ('status', 'default', 'cover', 'profile')").paginate(page: params[:page], :per_page => 30)
   end
 
   # GET /categories/new

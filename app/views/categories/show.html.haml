@@ -1,16 +1,11 @@
-%p#notice= notice
-
-%p
-  %b Name:
-  = @category.name
-  %br
-  %b Order:
-  = @category.order
-  %br
-  %b Sub Categories:
-  - @category.sub_categories.each do |sub_category| 
-    = sub_category.name
-- if signed_in? && current_user.plan == 'admin'
-  = link_to 'Edit', edit_category_path(@category)
-  \|
-= link_to 'Back', categories_path
+.inneContainer
+  .wrapper
+    .box_section
+      %h1 
+        = @category.name
+      %ul#portfolios
+        #ajax-portfolio-detail-homepage.modal.fade.modal-scrollable{style: "display: none;", tabindex: "-1"}
+        - @albums.each do |album|
+          = render 'shared/album_view', album: album
+    .clear
+    = will_paginate @albums
