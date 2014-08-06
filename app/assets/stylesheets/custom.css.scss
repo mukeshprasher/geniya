@@ -101,8 +101,18 @@ line-height: 12px; padding: 4px 7px; }
 .login_nav li:last-child { border:none;  border-top: 1px solid #CCCCCC; }
 
 
-#header_response_notifications li:hover {
+#header_response_notifications li:hover, #network_response_notifications li:hover, #message_response_notifications li:hover {
     background: none repeat scroll 0 0 #D0DAE8;
+}
+
+
+#message_response_notifications #activity_user_img img {
+    margin: 0 0 0 6px;
+}
+
+#activity_connect_form {
+    float: left;
+    margin: 5px 0 0;
 }
 
 .login_nav li.login { background: url("/assets/login.png") no-repeat scroll left top rgba(0, 0, 0, 0); color: #FFFFFF; display: block; font-family: 'latobold'; margin-left: 8px; padding: 3px 12px 20px 20px; position: relative; text-align: center; text-transform: none; top: 0; width: 54px; }
@@ -2898,6 +2908,7 @@ color:#85AB48;
 #user_advertisement_categroy{ width: 550px;}
 .gray{
   background-color: #F4F6F9;
+   width: 94%;
 }
 
 
@@ -2934,11 +2945,33 @@ fieldset .field {
 }
 
 
-#header_response_notifications #activity_user_img img {
+#header_response_notifications #activity_user_img img, #network_response_notifications #activity_user_img img, #message_response_notifications #activity_user_img img {
     height: 50px;
     width: 50px;
 }
 
+
+#user_chat_msg {
+    color: #808080;
+    font-size: 12px;
+    margin: 5px 0 0;
+}
+
+
+#message_response_notifications li {
+    cursor: pointer;
+}
+
+#user_no_msg {
+    font-style: normal;
+    text-align: center;
+}
+
+
+#user_no_msg a {
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
+   
+}
 
 #activity_user_detail {
     color: #000000 !important;

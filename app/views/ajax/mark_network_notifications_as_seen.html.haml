@@ -3,15 +3,47 @@
     No connection requests recieved
 - else
   - @connection_requests.each do |user|
-    %li
-      - @user = user
-      = link_to "#{user.name} wants to connect with you", user 
-      = render 'shared/connect_form'
+    = link_to user do
+      %li
+        - @user = user
+        #activity_user_img
+          - if user.headshot
+            = image_tag user.headshot.file_attachment.url(:medium)
+          - else
+            - if user.kind == 'user'
+              = image_tag '/assets/missing.png', width: "50px", height: "50px"
+            - else
+              = image_tag '/assets/company_logo.png', width: "50px", height: "50px"         
+        #activity_user_detail
+          = "#{user.name} wants to connect with you"
+          #activity_connect_form
+            = render 'shared/connect_form'
   - @new_connections.each do |user|
-    %li
-      - @user = user
-      = link_to "#{user.name} is now connected with you", user
-      = render 'shared/connect_form'
+    = link_to user do
+      %li
+        - @user = user
+        #activity_user_img
+          - if user.headshot
+            = image_tag user.headshot.file_attachment.url(:medium)
+          - else
+            - if user.kind == 'user'
+              = image_tag '/assets/missing.png', width: "50px", height: "50px"
+            - else
+              = image_tag '/assets/company_logo.png', width: "50px", height: "50px" 
+        #activity_user_detail
+          = "#{user.name} is now connected with you"                    
+          = render 'shared/connect_form'
+      
   - @new_relationships.each do |user|
-    %li
-      = link_to "#{user.name} is now following you", user
+    = link_to user do
+      %li
+        #activity_user_img
+          - if user.headshot
+            = image_tag user.headshot.file_attachment.url(:medium)
+          - else
+            - if user.kind == 'user'
+              = image_tag '/assets/missing.png', width: "50px", height: "50px"
+            - else
+              = image_tag '/assets/company_logo.png', width: "50px", height: "50px" 
+        #activity_user_detail
+          = "#{user.name} is now following you"

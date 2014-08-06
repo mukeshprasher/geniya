@@ -3,8 +3,20 @@
   - unless user_ids.include?(chat.user_id)
     - user_ids << chat.user_id
     - other_user = (chat.user == current_user) ? chat.reciever : chat.user
-    %li
-      %a.send_message_button.demo{"data-toggle" => "modal", "data"=> chat.user.id, "onclick"=>"javascript:open_chat_modal(#{chat.user.id})"} #{other_user.name}: #{truncate(chat.message, length: 17)}
+    %li.send_message_button.demo{"data-toggle" => "modal", "data"=> chat.user.id, "onclick"=>"javascript:open_chat_modal(#{chat.user.id})"}
+      #activity_user_img
+        - if chat.user.headshot
+          = image_tag chat.user.headshot.file_attachment.url(:medium)
+        - else
+          - if chat.user.kind == 'user'
+            = image_tag '/assets/missing.png', width: "50px", height: "50px"
+          - else
+            = image_tag '/assets/company_logo.png', width: "50px", height: "50px" 
+      #activity_user_detail
+        = "#{other_user.name}"
+        %p#user_chat_msg
+          = "#{truncate(chat.message, length: 17)}"
 - if current_user.chats.any? or current_user.recieved_chats.any?
-  %li
+  %li#user_no_msg
     = link_to "View all conversations", chats_path
+    
