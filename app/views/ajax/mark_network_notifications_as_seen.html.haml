@@ -1,6 +1,7 @@
 - if @connection_requests.empty? and @new_connections.empty? and @new_relationships.empty?
   %li
-    No connection requests recieved
+    #user_no_msg
+      No connection requests recieved
 - else
   - @connection_requests.each do |user|
     = link_to user do
