@@ -1,96 +1,11 @@
-#calendar
-  
-#responsive.modal.fade{"data-width" => "760", style: "display: none;", tabindex: "-1"}
-  .modal-header
-    %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
-    %h4.modal-title Responsive
-  .modal-body
-    .row
-      .col-md-6
-        %h4 Some Input
-        %p
-          %input.form-control{type: "text"}/
-        %p
-          %input.form-control{type: "text"}/
-        %p
-          %input.form-control{type: "text"}/
-        %p
-          %input.form-control{type: "text"}/
-        %p
-          %input.form-control{type: "text"}/
-        %p
-          %input.form-control{type: "text"}/
-        %p
-          %input.form-control{type: "text"}/
-      .col-md-6
-        %h4 Some More Input
-        %p
-          %input.form-control{type: "text"}/
-        %p
-          %input.form-control{type: "text"}/
-        %p
-          %input.form-control{type: "text"}/
-        %p
-          %input.form-control{type: "text"}/
-        %p
-          %input.form-control{type: "text"}/
-        %p
-          %input.form-control{type: "text"}/
-        %p
-          %input.form-control{type: "text"}/
-  .modal-footer
-    %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
-    %button.btn.btn-primary{type: "button"} Save changes
-%button.demo.btn.btn-primary.btn-lg{"data-toggle" => "modal", href: "#responsive"} Responsive
-///////////////////////////////////////////////////////////////////////////////////////////////////////
-#stack1.modal.fade{"data-focus-on" => "input:first", style: "display: none;", tabindex: "-1"}
-  .modal-header
-    %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
-    %h4.modal-title Stack One
-  .modal-body
-    %p One fine body…
-    %p One fine body…
-    %p One fine body…
-    %input.form-control{"data-tabindex" => "1", type: "text"}/
-    %input.form-control{"data-tabindex" => "2", type: "text"}/
-    %button.btn.btn-default{"data-toggle" => "modal", href: "#stack2"} Launch modal
-  .modal-footer
-    %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
-    %button.btn.btn-primary{type: "button"} Ok
-#stack2.modal.fade{"data-focus-on" => "input:first", style: "display: none;", tabindex: "-1"}
-  .modal-header
-    %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
-    %h4.modal-title Stack Two
-  .modal-body
-    %p One fine body…
-    %p One fine body…
-    %input.form-control{"data-tabindex" => "1", type: "text"}/
-    %input.form-control{"data-tabindex" => "2", type: "text"}/
-    %button.btn.btn-default{"data-toggle" => "modal", href: "#stack3"} Launch modal
-  .modal-footer
-    %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
-    %button.btn.btn-primary{type: "button"} Ok
-#stack3.modal.fade{"data-focus-on" => "input:first", style: "display: none;", tabindex: "-1"}
-  .modal-header
-    %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
-    %h4.modal-title Stack Three
-  .modal-body
-    %p One fine body…
-    %input.form-control{"data-tabindex" => "1", type: "text"}/
-    %input.form-control{"data-tabindex" => "2", type: "text"}/
-  .modal-footer
-    %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
-    %button.btn.btn-primary{type: "button"} Ok
-%button.demo.btn.btn-primary.btn-lg{"data-toggle" => "modal", href: "#stack1"} Stackable
-/////////////////////////////////////////////////////////////////////////////////////////////////
-#ajax-modal.modal.fade{style: "display: none;", tabindex: "-1"}
-%button#ajax.btn.btn-primary.btn-lg.ajax.demo{"data-toggle" => "modal"} Ajax
-///////////////////////////////////////////////
-%h1 Our Portfolio Base
-%li= link_to "All", albums_path
-- @categories.each do |category|
-  %li= link_to category.name.capitalize, category
-.profile_portfolio_section
-  - @albums.each do |album|
-    = render 'shared/album_thumb', album: album
+.inneContainer
+  .wrapper
+    .box_section
+      %h1 Listing albums
+      %ul#portfolios
+        #ajax-portfolio-detail-homepage.modal.fade.modal-scrollable{style: "display: none;", tabindex: "-1"}
+        - @albums.each do |album|
+          = render 'shared/album_view', album: album
+    .clear
+    = will_paginate
      
