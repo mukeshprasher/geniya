@@ -1,0 +1,37 @@
+.tags_user
+  .tag_user_img
+    = link_to user do
+      - if user.headshot
+        =image_tag user.headshot.file_attachment.url(:medium), title: "#{user.name}"
+      - else
+        =image_tag '/assets/missing.png', width: "100px", height: "100px", title: "#{user.name}"
+  .tag_user_details
+    #tag_user_name
+      = link_to user.name, user
+    #tag_user_proff
+      = user.sub_category.name
+    #tag_user_follower_count
+      - if user.followers.count == 0
+      - else
+        = user.followers.count
+        followers
+    - if user.affiliations.any?
+      #tag_user_company
+        %span
+          = user.affiliations.first.organization.name
+    - if user.locations.any?
+      #tag_user_address
+        %span
+          = user.locations.last.city.name
+          ,
+        %span
+          = user.locations.last.state.name
+          ,
+        %span
+          = user.locations.last.country.name                    
+    #tag_user_connections
+      %ul
+        %li
+          = render 'shared/follow_form' if signed_in?
+        %li
+          = render 'shared/connect_form' if signed_in?        
