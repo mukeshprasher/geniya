@@ -3,12 +3,13 @@
     .btn-group.btn-group-vertical.btn-block
       = link_to 'New job', new_job_path, class: 'btn btn-success'
       = link_to 'My profile', current_user, class: 'btn'
-  .span10.min500
+  .span10
     %h1 My posted jobs
-    - if current_user.jobs.any?
-      - current_user.jobs.each do |job|
-        .left.job_index_box
-          = render job
-    - else
-      %h3 You have not posted any job yet
-      = link_to 'Post new job', new_job_path, class: 'btn btn-success btn-primary btn-large'
+    .min500
+      - if current_user.jobs.any?
+        - current_user.jobs.each do |job|
+          .left.job_index_box
+            = render job
+      - else
+        %h3 You have not posted any job yet
+        = link_to 'Post new job', new_job_path, class: 'btn btn-success btn-primary btn-large'

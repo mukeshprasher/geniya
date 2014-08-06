@@ -438,6 +438,29 @@ $(function() {
     }
   });    
 
+
+  $("#form_category_id").change(function() {
+    return $.get("/categories/" + $(this).val() + ".json", function(jsonObjCategory) {
+      var sub_category_options;
+      sub_category_options = "";
+      $.each(jsonObjCategory.sub_category_groups, function(key, sub_category_group) {
+        sub_category_options += '<optgroup label="' + sub_category_group.name + '" >';
+        $.each(sub_category_group.sub_categories, function(key_c, sub_category) {
+          if (key === 0 && key_c === 0) {
+            return sub_category_options += '<option value="' + sub_category.id + '" seleted="selected">' + sub_category.name + '</option>';
+          } else {
+            return sub_category_options += '<option value="' + sub_category.id + '">' + sub_category.name + '</option>';
+          }
+        });
+        return sub_category_options += "</optgroup>";
+      });
+      return $("#form_sub_category_id").html(sub_category_options);
+    });
+  });
+
+
+
+
   $('#event_calendar_full').fullCalendar({
     header: {
         //left: 'prev,next,today',

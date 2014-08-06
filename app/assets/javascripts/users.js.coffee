@@ -17,6 +17,8 @@ $ ->
           sub_category_options += "</optgroup>"
         $("#user_sub_category_id").html sub_category_options
     return
+
+  
     
   $(document).ready toDoOnload
   $(document).on "page:load", toDoOnload

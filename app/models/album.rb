@@ -2,6 +2,7 @@ class Album < ActiveRecord::Base
   belongs_to :user
   belongs_to :update
   belongs_to :category
+  belongs_to :sub_category
   has_many :uploads
   has_many :videos
   has_many :covers
@@ -30,6 +31,10 @@ class Album < ActiveRecord::Base
   is_impressionable :unique => :user_id, :counter_cache => true
 
   #letsrate_rateable "rating"
+#  validates :name,  presence: true, length: { minimum: 5, maximum: 20 }
+#  validates :cover,  presence: true
+#  validates :category_id,  presence: true
+#  validates :sub_category_id,  presence: true
 
   def slug_candidates
     [
