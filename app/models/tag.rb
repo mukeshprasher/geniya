@@ -22,6 +22,6 @@ class Tag < ActiveRecord::Base
   end
 
   include ActiveModel::Validations  
-  validates :name,  presence: true, length: { minimum: 4,  maximum: 15 }
+  validates :name,  presence: true, length: { minimum: 4 }
 
 end
