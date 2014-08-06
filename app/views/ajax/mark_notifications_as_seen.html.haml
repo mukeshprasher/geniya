@@ -14,5 +14,15 @@
 
     - obj = response.acted_upon_type.constantize.find_by_id(response.acted_upon_id)
     - unless obj.nil?
-      %li{:class => ("gray" unless response.status == 0)}
-        = link_to "#{actor.name} #{action_text} your #{response.acted_upon_type}", obj
+      = link_to obj do
+        %li{:class => ("gray" unless response.status == 0)}
+          #activity_user_img
+            - if actor.headshot
+              = image_tag actor.headshot.file_attachment.url(:medium)
+            - else
+              - if actor.kind == 'user'
+                = image_tag '/assets/missing.png', width: "50px", height: "50px"
+              - else
+                = image_tag '/assets/company_logo.png', width: "50px", height: "50px" 
+          #activity_user_detail
+            = "#{actor.name} #{action_text} your #{response.acted_upon_type}"

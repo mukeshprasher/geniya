@@ -98,7 +98,12 @@ header { margin:0px; padding:0px; width:100%; background:#f3f1f1; position:relat
 //border-right: 1px solid #E5E5E5; 
 line-height: 12px; padding: 4px 7px; }
 
-.login_nav li:last-child { border:none }
+.login_nav li:last-child { border:none;  border-top: 1px solid #CCCCCC; }
+
+
+#header_response_notifications li:hover {
+    background: none repeat scroll 0 0 #D0DAE8;
+}
 
 .login_nav li.login { background: url("/assets/login.png") no-repeat scroll left top rgba(0, 0, 0, 0); color: #FFFFFF; display: block; font-family: 'latobold'; margin-left: 8px; padding: 3px 12px 20px 20px; position: relative; text-align: center; text-transform: none; top: 0; width: 54px; }
 
@@ -1255,8 +1260,10 @@ bottom: -10px;color: #6D6D6C;font-family: Calibri;font-size: 21px;position: abso
 }
 
 .dropdown-menu > li {
-    float: none;
-    padding: 0;
+    border-top: 1px solid #CCCCCC;
+    float: left;
+    padding: 8px 0;
+    width: 100%;
 }
 .dropdown-menu > li > a {
     padding: 0;
@@ -2888,8 +2895,9 @@ color:#85AB48;
 
 #user_advertisement_categroy{ width: 550px;}
 .gray{
-  background-color: #C9C8C3;
+  background-color: #F4F6F9;
 }
+
 
 legend {
     display: block;
@@ -2916,6 +2924,36 @@ fieldset .field {
 
 .bootstrap-datetimepicker-widget.dropdown-menu{ z-index: 1070;}
 
+
+
+#activity_user_img {
+    float: left;
+    width: 26%;
+}
+
+
+#header_response_notifications #activity_user_img img {
+    height: 50px;
+    width: 50px;
+}
+
+
+#activity_user_detail {
+    color: #000000 !important;
+    float: left;
+    font-style: normal;
+    width: 70%;
+}
+
+#activity_user_detail{
+    font-family: latoregular;
+    font-size: 14px;
+}
+.gray a, .dropdown-menu > li a {
+    color: #000000 !important;
+    font-family: latoregular;
+    font-size: 14px;
+}
 
 #new_organization, #org_back {
     float: left;
