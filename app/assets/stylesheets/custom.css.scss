@@ -458,6 +458,7 @@ aside {
   }
   strong {
     display: block;
+    
   }
 }
 
@@ -591,7 +592,7 @@ User profile portfolio section
       width: 100%;
      
     }
-     .album_category{
+     .album_category-renamed{
       color: #999999;
       float: left;
       font-weight: bold;
@@ -1235,7 +1236,7 @@ bottom: -10px;color: #6D6D6C;font-family: Calibri;font-size: 21px;position: abso
 
 .network ul li span {float: left;margin: 8px 35px 0 10px;}
 
-.network ul li p {color: #3F4747;float: left;font-family: 'latoregular';font-size: 16px;}
+.network ul li p {color: #3F4747;float: left;font-family: 'latoregular';font-size: 14px;}
 
 .network ul li a {float: right;padding: 4px; cursor: pointer;}
 
@@ -1504,7 +1505,7 @@ bottom: -10px;color: #6D6D6C;font-family: Calibri;font-size: 21px;position: abso
     padding: 0 0 0 10px;
 }
 
-.album_category {
+.album_category-renamed {
     float: left;
     height: 18px;
     margin: 0 0 0 11px;
@@ -3585,7 +3586,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .summary_discription p { clear: both; padding: 10px 0; clear: both; padding: 10px 5px; font-family: 'latoregular'; line-height: 22px;   margin-top: 1%; }
 
-.our_manu { color: #6e8f26; font-weight: bold; font-size: 18px; font-family: 'latobold'; }
+.our_manu { color: #6e8f26;  font-size: 18px; font-family: 'latobold'; }
 
 .full_manu { color: #6e8f26; font-size: 14px; font-family: 'latoregular'; }
 
@@ -3663,11 +3664,17 @@ h1, h2, h3, h4, h5, h6 {
 
 .network .upcoming_events li { background: none !important; }
 
-.network .upcoming_events li .event_right p { color: #606060; font-size: 14px; font-family: 'latoregular'; margin: 0; }
+.network .upcoming_events li .event_right p { color: #606060; font-size: 14px; font-family: 'latoregular'; margin: 0; word-wrap: break-word; }
 
 .network .upcoming_events li .event_right { float: right !important; width: 65%; }
 
-.network .upcoming_events li .event_right p span { margin: 0; color: #898989; font-size: 12px; font-family: 'latoregular'; display: block; }
+.network .upcoming_events li .event_right p span { margin: 0; color: #898989; font-size: 12px; font-family: 'latoregular'; display: block;     }
+
+
+.network .upcoming_events span {
+width: 100%;
+   word-wrap: break-word;
+}
 
 .network .upcoming_events li .coming_image { float: left; margin: 0 0 5px;  width: 85px; }
 
@@ -3969,3 +3976,12 @@ max-width:300px;
 .organization_listing table td {
     padding: 8px 4px 0 0px;
 }
+
+
+/************* event form *************/
+
+#new_event .help-inline {display: none;}
+
+.network strong {font-weight: 500 !important;}
+
+#event_calendar table th {font-weight: 500;}

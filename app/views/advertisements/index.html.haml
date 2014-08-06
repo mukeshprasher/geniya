@@ -1,35 +1,40 @@
-.wrapper
-  %h1 Listing advertisements
-
-  .advertisement_container_box
-    #advertise_container
-      /- advertise = current_user.advertisements.order(impressions_count: :desc) 
-      - current_user.advertisements.each do |add_detail| 
-        #ads_makeup_box
-          .makeup_sec{ :id => "ads_box-#{add_detail.id}" }
-            - if signed_in?
-              - if (current_user.username == add_detail.user.username)
-                .edit_cross_makeup_box
-                  %span#edit_adds
-                    %a{href: "/advertisements/"+"#{add_detail.slug}"+"/edit"}
-                      %img{alt: "", src: "/assets/edit.png"}/
-                  %span#edit_adds_cross
-                    = link_to "×", advertisement_path(add_detail), :method => :delete, :remote => true,  :disable_with => "×", :class => 'ads_box-delete' , :id => "ads_box-delete-#{add_detail.id}"            
-            .makeUp
-              = image_tag add_detail.file_attachment.url(:medium)
-            .make_comtact
-              %p 
-                = add_detail.title
-              - if (add_detail.link == '')
-                %span
-                  %em
-                    please add Contact Details
-              - else
-                %a{href: "#{add_detail.link}", target: "_blank"}
-                  Contact Now
-              %span#view_detail_link
-                = link_to "View Details", '/advertisements/'+ add_detail.slug        
-  .clear
-  %br
-    = link_to 'Create new advertisement', new_advertisement_path, class: 'btn btn-large btn-primary'
-  %br
+.row-fluid.spaced-top.
+  .span2.spaced-left
+    .btn-group.btn-group-vertical.btn-block
+      = link_to 'New advertisement', new_advertisement_path, class: 'btn btn-success'
+      = link_to 'My profile', current_user, class: 'btn'
+  .span10.min500
+    %h1 My advertisements
+    - if current_user.advertisements.any?
+      .advertisement_container_box
+        #advertise_container
+          /- advertise = current_user.advertisements.order(impressions_count: :desc) 
+          - current_user.advertisements.each do |add_detail| 
+            #ads_makeup_box
+              .makeup_sec{ :id => "ads_box-#{add_detail.id}" }
+                - if signed_in?
+                  - if (current_user.username == add_detail.user.username)
+                    .edit_cross_makeup_box
+                      %span#edit_adds
+                        %a{href: "/advertisements/"+"#{add_detail.slug}"+"/edit"}
+                          %img{alt: "", src: "/assets/edit.png"}/
+                      %span#edit_adds_cross
+                        = link_to "×", advertisement_path(add_detail), :method => :delete, :remote => true,  :disable_with => "×", :class => 'ads_box-delete' , :id => "ads_box-delete-#{add_detail.id}"            
+                .makeUp
+                  = image_tag add_detail.file_attachment.url(:medium)
+                .make_comtact
+                  %p 
+                    = add_detail.title
+                  - if (add_detail.link == '')
+                    %span
+                      %em
+                        please add Contact Details
+                  - else
+                    %a{href: "#{add_detail.link}", target: "_blank"}
+                      Contact Now
+                  %span#view_detail_link
+                    = link_to "View Details", '/advertisements/'+ add_detail.slug        
+      .clear
+    - else
+      %h3 You have not posted any advertisement yet
+      = link_to 'Create new advertisement', new_advertisement_path, class: 'btn btn-large btn-primary'

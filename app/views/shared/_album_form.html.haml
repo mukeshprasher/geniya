@@ -1,46 +1,19 @@
-.wrapper
-  = form_for @album do |f|
-    - if @album.errors.any?
-      #error_explanation
-        %h2= "#{pluralize(@album.errors.count, "error")} prohibited this album from being saved:"
-        %ul
-          - @album.errors.full_messages.each do |msg|
-            %li= msg
-    /= f.hidden_field :user_id, value: current_user.id
-    = f.hidden_field :kind, value: "portfolio"
-    .field
-      %span#state_label
-        Portfolio Name  
-        %span#upload_cover_mandatory
-          *      
-      /= f.label :name
-      = f.text_field :name, placeholder: 'Enter Portfolio Name here:'
-    .field
-      %span#state_label
-        Portfolio Title       
-      /= f.label :title
-      = f.text_field :title, placeholder: 'Enter Portfolio Title here:'
-    .field
-      %span#state_label
-        Portfolio Description        
-      /= f.label :description
-      = f.text_area :description, placeholder: 'Enter Portfolio Description here:'
-    .field
-      = f.hidden_field :kind, value: "portfolio"
-      /= f.select :description, options_for_select(["Portfolio", "Album", "Project"])
-    .field
-      = f.hidden_field :category_id, value: current_user.category_id
-      %span#state_label
-        Upload Portfolio Cover Image       
-        %span#upload_cover_mandatory
-          *      
-      %p
-        = f.file_field :cover
-      /= f.label :category_id
-      /= collection_select(:album, :category_id, Category.all, :id, :name)
-    #loading_img_for_album_cover
-      %img{src: "/assets/loader.gif", alt: "loading"}/  
-    .form-actions-album
-      = f.submit 'Add Portfolio', id: "album-btn", class: "btn btn-primary"
-      /= button_tag "Cancel", id: "cancel-album", type:"button"
-    
+= simple_form_for @album do |f|
+  - if @album.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@album.errors.count, "error")} prohibited this album from being saved:"
+      %ul
+        - @album.errors.full_messages.each do |msg|
+          %li= msg
+  = f.hidden_field :user_id, value: current_user.id
+  = f.hidden_field :kind, value: "portfolio"
+  = f.input :name
+  = f.input :title
+  = f.input :description
+  = f.input :category_id, collection: @categories , selected: current_user.category_id, input_html: { id: 'form_category_id' }
+  = f.input :sub_category_id, collection: current_user.category.sub_categories , selected: current_user.sub_category_id, input_html: {id: 'form_sub_category_id' }
+  = f.input :cover    
+  #loading_img_for_album_cover
+    %img{src: "/assets/loader.gif", alt: "loading"}/      
+  .actions
+    = f.submit 'Save', class:"btn btn btn-large btn-primary"

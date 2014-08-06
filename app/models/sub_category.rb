@@ -1,6 +1,7 @@
 class SubCategory < ActiveRecord::Base
   has_many :users
   has_many :jobs
+  has_many :albums
   belongs_to :category
   belongs_to :organization 
   belongs_to :sub_category_group
