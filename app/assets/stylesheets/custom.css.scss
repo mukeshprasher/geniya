@@ -1985,7 +1985,9 @@ cursor: pointer;
 /************* FOR Portfolio album page***************/
 
 
-#content-container{ width:1004px; margin:0px auto; padding-top:10px;}
+#content-container{ width:1004px; margin:0px auto; 
+//padding-top:10px;
+}
 .previewing #editor-content-container, #project-main {box-shadow: 2px 0 6px 0 rgba(0, 0, 0, 0.1);position: relative;}
 .work-header { border-radius:4px 0 0;background: linear-gradient(#2E2E2E, #1A1A1A) repeat scroll 0 0 rgba(0, 0, 0, 0);border-bottom: 1px solid rgba(187, 187, 187, 0.1);padding: 12px 20px 15px;}
 .work-header h1 {

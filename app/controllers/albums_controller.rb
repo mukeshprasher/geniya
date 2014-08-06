@@ -1,13 +1,13 @@
 class AlbumsController < ApplicationController
   before_action :set_album, only: [:show]
   before_action :signed_in_user, except: [:show]
-  before_action :admin_user, only: [:index]
+  #before_action :admin_user, only: [:index]
   before_action :correct_user,   only: [:edit, :update, :destroy]
 
   # GET /albums
   # GET /albums.json
   def index
-    @albums = Album.where(:kind => "portfolio")
+    @albums = Album.where("kind NOT IN ('status', 'default', 'cover', 'profile')").paginate(page: params[:page], :per_page => 30)
   end
 
   # GET /albums/1
