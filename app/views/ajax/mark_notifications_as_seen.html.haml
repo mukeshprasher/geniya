@@ -1,6 +1,7 @@
 - if @responses.empty?
   %li
-    No new updates
+    #user_no_msg
+      No new updates
 - else
   - @responses.each do |response|
     - actor = User.find(response.actor_id)

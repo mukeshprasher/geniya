@@ -19,4 +19,6 @@
 - if current_user.chats.any? or current_user.recieved_chats.any?
   %li#user_no_msg
     = link_to "View all conversations", chats_path
-    
+- if current_user.chats.empty? and current_user.recieved_chats.empty?
+  %li#user_no_msg
+    No Chat History    
