@@ -10,22 +10,18 @@ class PortfoliosController < ApplicationController
     end
 
     if params.has_key?(:gr) and params[:gr].present?
-      user_ids = Array.new
+      sub_category_ids = Array.new
       params[:gr].each do |group_id|
         group = SubCategoryGroup.find(group_id.first)
         group.sub_categories.each do |sub_category|
-          sub_category.users.each do |user|
-            user_ids << user.id
-          end
+          sub_category_ids << sub_category.id
         end
       end
 
-      if user_ids.any?
-        user_ids_for_sql = user_ids.join(',')
+      if sub_category_ids.any?
+        sub_category_ids_for_sql = sub_category_ids.join(',')
 
-        where_condition += "and user_id IN (#{user_ids_for_sql}) "
-      else
-        where_condition += "and user_id IN (0) "
+        where_condition += "and sub_category_id IN (#{sub_category_ids_for_sql}) "
       end
     end
 
@@ -77,20 +73,18 @@ class PortfoliosController < ApplicationController
     end
 
     if params.has_key?(:sc) and params[:sc].present?
-      user_ids = Array.new
+      where_condition += "and sub_category_id IN (0) "
+      sub_category_ids = Array.new
       params[:sc].each do |sc_id|
-        sub_category = SubCategory.find(sc_id.first)
-        sub_category.users.each do |user|
-          user_ids << user.id
-        end
+        sub_category_ids << sc_id
       end
 
-      if user_ids.any?
-        user_ids_for_sql = user_ids.join(',')
+      if sub_category_ids.any?
+        sub_category_ids_for_sql = sub_category_ids.join(',')
 
-        where_condition += "and user_id IN (#{user_ids_for_sql}) "
-      else
-        where_condition += "and user_id IN (0) "
+        where_condition += "and sub_category_id IN (#{sub_category_ids_for_sql}) "
+#      else
+#        where_condition += "and sub_category_id IN (0) "
       end
     end
 
