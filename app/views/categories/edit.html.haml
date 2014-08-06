@@ -1,7 +1,8 @@
-%h1 Editing Category
-
-= render 'form'
-
-= link_to 'Show', @category
-\|
-= link_to 'Back', categories_path
+.row-fluid.spaced-top
+  .span2.spaced-left
+    .btn-group.btn-group-vertical.btn-block
+      = link_to 'Back', @category, class: 'btn'
+  .span9
+    %h1 Editing Category
+    .max_form_width.min500
+      = render 'form'

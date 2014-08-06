@@ -2,7 +2,7 @@
   .span2.spaced-left
     .btn-group.btn-group-vertical.btn-block
       = link_to 'Back', @event, class: 'btn'
-  .span6
+  .span10
     %h1 Editing event
-
-    = render 'form'
+    .max_form_width
+      = render 'form'
