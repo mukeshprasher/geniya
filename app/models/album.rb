@@ -31,10 +31,11 @@ class Album < ActiveRecord::Base
   is_impressionable :unique => :user_id, :counter_cache => true
 
   #letsrate_rateable "rating"
-#  validates :name,  presence: true, length: { minimum: 5, maximum: 20 }
-#  validates :cover,  presence: true
-#  validates :category_id,  presence: true
-#  validates :sub_category_id,  presence: true
+  validates :name,  presence: true, length: { minimum: 5, maximum: 20 }
+  validates :title,   length: { minimum: 5, maximum: 30 }
+  validates :cover,  presence: true
+  validates :category_id,  presence: true
+  validates :sub_category_id,  presence: true
 
   def slug_candidates
     [

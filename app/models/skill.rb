@@ -15,5 +15,8 @@ class Skill < ActiveRecord::Base
       [:name]
     ]
   end  
+
+  include ActiveModel::Validations  
+  validates :name,  presence: true, length: { minimum: 4,  maximum: 18 }
     
 end
