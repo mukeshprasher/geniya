@@ -1,4 +1,5 @@
 class MultiuploadsController < ApplicationController
+  skip_before_action :verify_authenticity_token
   before_action :set_multiupload, only: [:show, :edit, :update, :destroy]
   before_action :signed_in_user, only: [ :new, :edit, :create, :update, :destroy]
   before_action only: [:edit, :update, :destroy] do
