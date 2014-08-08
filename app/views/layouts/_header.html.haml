@@ -66,9 +66,8 @@
         %li= link_to "Register", signup_path
         %li.login
           = link_to "Login", signin_path
-    - if signed_in?
-      #srch_people_container
-        %input{name: 'q', placeholder: "Search People, Business Here", type: "text", id: "srch_profile",autocomplete: "off", onkeypress: ""}
+    #srch_people_container
+      %input{name: 'q', placeholder: "Search People, Business Here", type: "text", id: "srch_profile",autocomplete: "off", onkeypress: ""}
     %a.logo{href: "/"}
       %img{alt: "Logo", src: "/assets/logo.png", id: "geniya_logo"}/
     %nav#man_nav

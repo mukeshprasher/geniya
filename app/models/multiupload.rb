@@ -1,12 +1,12 @@
 class Multiupload < ActiveRecord::Base
   belongs_to :album
-  has_attached_file :multiupload,
-                        :storage        => :s3                                                 ,
-                      :s3_credentials => {:bucket            => 'geniyanet',
-                                          :access_key_id     => 'AKIAIUP2GZ5XEI6BZW3A',
-                                          :secret_access_key => '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'},
-                      :s3_protocol    => "http"                                             ,
-                      :bucket => "geniyanet"
+  has_attached_file :multiupload
+#                        :storage        => :s3                                                 ,
+#                      :s3_credentials => {:bucket            => 'geniyanet',
+#                                          :access_key_id     => 'AKIAIUP2GZ5XEI6BZW3A',
+#                                          :secret_access_key => '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'},
+#                      :s3_protocol    => "http"                                             ,
+#                      :bucket => "geniyanet"
   validates_attachment :multiupload, 
   :content_type => { :content_type => ["image/jpg", "image/jpeg", "image/gif", "image/png"] },
   :size => { :in => 0..10000.kilobytes },
