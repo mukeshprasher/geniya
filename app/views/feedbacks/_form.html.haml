@@ -1,15 +1,15 @@
-= simple_form_for(@feedback) do |f|
-  = f.error_notification
-
-  .form-inputs
-    = f.input :parent_id
-    = f.input :user_id
+= simple_form_for @feedback do |f|
+  = render 'shared/error_messages', object: f.object
+  - if signed_in?
+    = f.hidden_field :email, value: current_user.email
+  - else
     = f.input :email
-    = f.input :kind
-    = f.input :subject
-    = f.input :description
-    = f.input :priority
-    = f.input :status
-
-  .form-actions
-    = f.button :submit
+  = f.label :kind
+  = f.select(:kind, options_for_select([['Appreciation', 'appreciation'], ['Bug report', 'bug report'], ['Question', 'question']], :selected=> 'bug report'))
+  = f.input :subject
+  = f.input :description
+  = f.hidden_field :status, value: 'unanswered'
+  = f.label :priority
+  = f.select(:priority, options_for_select([['High', 'high'], ['Medium', 'medium'], ['Low', 'low']], :selected=> '2'))
+  %br
+  = f.button :submit, class: 'btn btn-primary'

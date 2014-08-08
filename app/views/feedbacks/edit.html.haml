@@ -1,7 +1,13 @@
-%h1 Editing feedback
+.row-fluid.spaced-top
+  .span2.spaced-left
+    .btn-group.btn-group-vertical.btn-block
+      = link_to 'Back', current_user, class: 'btn'
 
-= render 'form'
+  .span9
+    .max_add_form_width
+      %h1 Editing organization
+      = render 'form'
 
-= link_to 'Show', @feedback
-\|
-= link_to 'Back', feedbacks_path
+      .clear
+
+

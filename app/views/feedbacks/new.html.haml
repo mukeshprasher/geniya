@@ -1,5 +1,11 @@
-%h1 New feedback
+.row-fluid.spaced-top
+  .span2.spaced-left
+    .btn-group.btn-group-vertical.btn-block
+      = link_to 'Back', current_user, class: 'btn'
+  .span9
+    .max_add_form_width
+      %h1 New feedback
+      = render 'form'
 
-= render 'form'
+      .clear
 
-= link_to 'Back', feedbacks_path

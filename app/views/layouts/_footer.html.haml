@@ -13,13 +13,16 @@
           %a{href: "https://twitter.com/GeniyaNetwork", target: "_blank"}
             %img{alt: "", src: "/assets/twitter.png"}/
 
-      #feedback_modal.modal.fade{"data-width" => "760", style: "display: none;", tabindex: "-1"}
+      #feedback_modal.modal.fade{"data-width" => "", style: "display: none;", tabindex: "-1"}
         .modal-header
           %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
           %h4.modal-title Feedback or Support request
         .modal-body#profile_cover_upload_modal_body
           = simple_form_for Feedback.new do |f|
-            = f.input :email unless signed_in?
+            - if signed_in?
+              = f.hidden_field :email, value: current_user.email
+            - else
+              = f.input :email
             = f.label :kind
             = f.select(:kind, options_for_select([['Appreciation', 'appreciation'], ['Bug report', 'bug report'], ['Question', 'question']], :selected=> 'bug report'))
             = f.input :subject

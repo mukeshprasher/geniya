@@ -1,28 +1,31 @@
-%p
-  %b Parent:
-  = @feedback.parent_id
-%p
-  %b User:
-  = @feedback.user_id
-%p
-  %b Email:
-  = @feedback.email
-%p
-  %b Kind:
-  = @feedback.kind
-%p
-  %b Subject:
-  = @feedback.subject
-%p
-  %b Description:
-  = @feedback.description
-%p
-  %b Priority:
-  = @feedback.priority
-%p
-  %b Status:
-  = @feedback.status
+.row-fluid.spaced-top
+  .span2.spaced-left
+    .btn-group.btn-group-vertical.btn-block
+      - if signed_in? 
+        = link_to 'Edit', edit_feedback_path(@feedback), class: 'btn btn-success'
+        = link_to 'My Profile', current_user, class: 'btn'
+  .span7.spaced-right
+    .min500
+      /%p
+      /  %b Parent:
+      /  = @feedback.parent_id
+      /%p
+      /  %b User:
+      /  = @feedback.user_id
+      /%p
+      /  %b Email:
+      /  = @feedback.email
+      %h5
+        = @feedback.kind.capitalize
+      %h1
+        = @feedback.subject
+      %p
+        = @feedback.description
+      %p
+        %b Priority:
+        = @feedback.priority
+      %p
+        %b Status:
+        = @feedback.status
 
-= link_to 'Edit', edit_feedback_path(@feedback)
-\|
-= link_to 'Back', feedbacks_path
+
