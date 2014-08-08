@@ -1,6 +1,6 @@
 class Featureimg < ActiveRecord::Base
   belongs_to :user
-  has_attached_file :feature_img, :styles => { :large => "600x600>", :medium => "300x300>", :small => "100x100>" }, :default_url => "/assets/missing-image-geniya.png", :hash_secret => "geniyaAttach", :path => ":rails_root/public/system/featureimgs/:id_:style.:extension", :url => "/system/featureimgs/:id_:style.:extension",
+  has_attached_file :feature_img, :styles => { :large => "600x600>", :medium => "300x300>", :small => "100x100>" }, :default_url => "/assets/missing-image-geniya.png", :hash_secret => "geniyaAttach", :path => ":rails_root/public/system/featureimgs/:id_:style.:extension", :url => "/system/featureimgs/:id_:style.:extension"
 #                        :storage        => :s3                                                 ,
 #                      :s3_credentials => {:bucket            => 'geniyanet',
 #                                          :access_key_id     => 'AKIAIUP2GZ5XEI6BZW3A',

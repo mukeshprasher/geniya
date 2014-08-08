@@ -3,7 +3,7 @@ class Upload < ActiveRecord::Base
   belongs_to :user
   belongs_to :update
   
-  has_attached_file :file_attachment, :styles => { :medium => "300x300>", :thumb => "400x400>" }, :default_url => "/assets/missing.png", :hash_secret => "geniyaAttach",
+  has_attached_file :file_attachment, :styles => { :medium => "300x300>", :thumb => "400x400>" }, :default_url => "/assets/missing.png", :hash_secret => "geniyaAttach"
 #                        :storage        => :s3                                                 ,
 #                      :s3_credentials => {:bucket            => 'geniyanet',
 #                                          :access_key_id     => 'AKIAIUP2GZ5XEI6BZW3A',

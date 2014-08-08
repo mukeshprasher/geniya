@@ -10,7 +10,7 @@ class Job < ActiveRecord::Base
   acts_as_commentable
   is_impressionable :unique => :user_id, :counter_cache => true  
 
-  has_attached_file :cover, :styles => { :large => "600x600>", :medium => "300x300>", :small => "100x100>" }, :default_url => "/assets/missing.png", :hash_secret => "geniyaAttach", :path => ":rails_root/public/system/jobs/:id_:style.:extension", :url => "/system/jobs/:id_:style.:extension",
+  has_attached_file :cover, :styles => { :large => "600x600>", :medium => "300x300>", :small => "100x100>" }, :default_url => "/assets/missing.png", :hash_secret => "geniyaAttach", :path => ":rails_root/public/system/jobs/:id_:style.:extension", :url => "/system/jobs/:id_:style.:extension"
 #                        :storage        => :s3                                                 ,
 #                      :s3_credentials => {:bucket            => 'geniyanet',
 #                                          :access_key_id     => 'AKIAIUP2GZ5XEI6BZW3A',
