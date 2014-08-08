@@ -1,0 +1,7 @@
+development:
+  access_key_id: AKIAIDTQALVDJOTAFN5A
+  secret_access_key: 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
+
+production:
+  access_key_id: AKIAIUP2GZ5XEI6BZW3A
+  secret_access_key: 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

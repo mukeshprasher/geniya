@@ -45,10 +45,20 @@ Geniya::Application.configure do
 
   config.paperclip_defaults = {
     :storage => :s3,
+    :s3_protocol    => "http",
+    :bucket => "geniya",
+    :s3_host_name   => "s3-us-west-1.amazonaws.com",
     :s3_credentials => {
-      :bucket => ENV['geniyanet'],
-      :access_key_id => ENV['AKIAIUP2GZ5XEI6BZW3A'],
-      :secret_access_key => ENV['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']
+      :bucket => 'geniya'
     }
   }
+
+#  config.paperclip_defaults = {
+#    :storage => :s3,
+#    :s3_credentials => {
+#      :bucket => ENV['geniya'],
+#      :access_key_id => ENV['AKIAIUP2GZ5XEI6BZW3A'],
+#      :secret_access_key => ENV['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']
+#    }
+#  }
 end

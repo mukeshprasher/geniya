@@ -92,14 +92,24 @@ Geniya::Application.configure do
         :enable_starttls_auto => true
   }
 
+
   config.paperclip_defaults = {
     :storage => :s3,
+    :s3_protocol    => "http",
+    :bucket => "geniyanet",
     :s3_credentials => {
-      :bucket => ENV['geniyanet'],
-      :access_key_id => ENV['AKIAIUP2GZ5XEI6BZW3A'],
-      :secret_access_key => ENV['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']
+      :bucket => 'geniyanet'
     }
   }
+
+#  config.paperclip_defaults = {
+#    :storage => :s3,
+#    :s3_credentials => {
+#      :bucket => ENV['geniyanet'],
+#      :access_key_id => ENV['AKIAIUP2GZ5XEI6BZW3A'],
+#      :secret_access_key => ENV['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']
+#    }
+#  }
   
   config.action_controller.action_on_unpermitted_parameters = :log
 
