@@ -389,8 +389,9 @@
                       = render 'shared/edu_form' 
                     .modal-footer
                       %button.btn.btn-default#close_education_modal{"data-dismiss" => "modal", type: "button"} Close
-                  %a.demo{"data-toggle" => "modal",href: "#edu"}
-                    Add Education Detail 
+                  #link_for_edu_modal
+                    %a.demo{"data-toggle" => "modal",href: "#edu"}
+                      Add Education Detail 
               .key_skills
                 %h2 Key Skills & Expertise
                 %ul#skills-field

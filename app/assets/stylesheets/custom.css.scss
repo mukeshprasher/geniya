@@ -2819,7 +2819,7 @@ color:#85AB48;
 }
 
 
-#location_old_country_id.select.required, #location_old_state_id.select.required, #location_old_city_id.select.required, #location_old_pin_id.select.required {font-family: latobold;font-size: 15px;font-style: italic;text-transform: capitalize;}
+#location_old_country_id.select.required, #location_old_state_id.select.required, #location_old_city_id.select.required, #location_old_pin_id.select.required {font-family: latoregular;font-size: 15px;text-transform: capitalize;}
 
 
 #location_old_country_id option, #location_old_state_id option, #location_old_city_id option, #location_old_pin_id option {font-family: latobold;font-size: 15px;padding: 0 0 0 5px;}
@@ -3985,3 +3985,5 @@ max-width:300px;
 .network strong {font-weight: 500 !important;}
 
 #event_calendar table th {font-weight: 500;}
+
+#link_for_edu_modal {margin: 20px 0 0;}

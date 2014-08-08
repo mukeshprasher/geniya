@@ -761,12 +761,7 @@ $(function() {
       alert('Please Enter Advertisement Title:');
       return false;
     }
-    else
-    if(slogan == '')
-    {
-          alert('Please Enter Advertisement slogan:');
-      return false;
-    }
+    
     else
     if(link == '')
     {

@@ -2,7 +2,8 @@
   .row-fluid.spaced-top
     .span2.spaced-left
       .btn-group.btn-group-vertical.btn-block
-        = link_to 'Back', current_user, class: 'btn'
+        - if signed_in?
+          = link_to 'Back', current_user, class: 'btn'
     .span7.spaced-right
       %h3 Users with #{@tag.name} tag
       - @users.each do |user|
