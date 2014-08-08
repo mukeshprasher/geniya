@@ -22,12 +22,13 @@
             = f.input :email unless signed_in?
             = f.label :kind
             = f.select(:kind, options_for_select([['Appreciation', 'appreciation'], ['Bug report', 'bug report'], ['Question', 'question']], :selected=> 'bug report'))
+            = f.input :subject
             = f.input :description
             = f.hidden_field :status, value: 'unanswered'
             = f.label :priority
             = f.select(:priority, options_for_select([['High', 'high'], ['Medium', 'medium'], ['Low', 'low']], :selected=> '2'))
-            .form-actions
-              = f.button :submit, class: 'btn btn-primary'
+            %br
+            = f.button :submit, class: 'btn btn-primary'
         .modal-footer
           %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
       %a{"data-toggle" => "modal",href: "#feedback_modal", id: "feedback_trigger"}
