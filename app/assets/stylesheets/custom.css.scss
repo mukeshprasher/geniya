@@ -3987,3 +3987,14 @@ max-width:300px;
 #event_calendar table th {font-weight: 500;}
 
 #link_for_edu_modal {margin: 20px 0 0;}
+#feedback_trigger {
+  background-color: captiontext;
+  border-radius: 15px 15px 0 0;
+  bottom: 130px;
+  padding: 12px;
+  position: fixed;
+  right: -73px;
+  transform: rotate(270deg);
+  z-index: 1;
+  cursor: pointer;
+}

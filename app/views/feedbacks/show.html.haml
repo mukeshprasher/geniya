@@ -1,0 +1,28 @@
+%p
+  %b Parent:
+  = @feedback.parent_id
+%p
+  %b User:
+  = @feedback.user_id
+%p
+  %b Email:
+  = @feedback.email
+%p
+  %b Kind:
+  = @feedback.kind
+%p
+  %b Subject:
+  = @feedback.subject
+%p
+  %b Description:
+  = @feedback.description
+%p
+  %b Priority:
+  = @feedback.priority
+%p
+  %b Status:
+  = @feedback.status
+
+= link_to 'Edit', edit_feedback_path(@feedback)
+\|
+= link_to 'Back', feedbacks_path

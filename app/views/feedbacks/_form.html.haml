@@ -1,0 +1,15 @@
+= simple_form_for(@feedback) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :parent_id
+    = f.input :user_id
+    = f.input :email
+    = f.input :kind
+    = f.input :subject
+    = f.input :description
+    = f.input :priority
+    = f.input :status
+
+  .form-actions
+    = f.button :submit

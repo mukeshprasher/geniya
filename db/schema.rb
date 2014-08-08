@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140806112917) do
+ActiveRecord::Schema.define(version: 20140808104412) do
 
   create_table "activities", force: true do |t|
     t.integer  "user_id"
@@ -236,6 +236,19 @@ ActiveRecord::Schema.define(version: 20140806112917) do
     t.string   "feature_img_content_type"
     t.integer  "feature_img_file_size"
     t.datetime "feature_img_updated_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "feedbacks", force: true do |t|
+    t.integer  "parent_id"
+    t.integer  "user_id"
+    t.string   "email"
+    t.string   "kind"
+    t.string   "subject"
+    t.text     "description"
+    t.string   "priority"
+    t.string   "status"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
