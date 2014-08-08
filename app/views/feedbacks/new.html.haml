@@ -1,7 +1,8 @@
 .row-fluid.spaced-top
   .span2.spaced-left
     .btn-group.btn-group-vertical.btn-block
-      = link_to 'Back', current_user, class: 'btn'
+      - if signed_in? 
+        = link_to 'My Profile', current_user, class: 'btn'
   .span9
     .max_add_form_width
       %h1 New feedback
