@@ -4003,5 +4003,34 @@ max-width:300px;
 }
 
 #feedback_modal {
-    top: 0;
+    top: -45px;
+}
+
+
+#feedback_modal .control-group, .field_with_errors {
+    margin-bottom: 0;
+}
+
+#feedback_user_img {
+    width: 135px;
+}
+
+#feedback_user_img img {
+    width: 135px;
+}
+
+.feedback_listing table{
+    width: 1024px;
+}
+
+
+.feedback_listing table tbody {
+    font-size: 14px;
+    text-align:left;
+}
+
+
+.feedback_listing table td {
+    border: 1px solid #CCCCCC;
+    padding: 5px;
 }

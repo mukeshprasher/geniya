@@ -17,6 +17,11 @@ class UserMailer < ActionMailer::Base
     mail(to: @quote.user.email, subject: 'Get Quote Request')
   end
 
+  def feedback_request(feedback)
+    @feedback = feedback
+    mail(to: ENV["feedback_email"], subject: ' User Feedback Request')
+  end
+
 #  def activation_email(user)
 #    #@req = request.original_url
 #    @newsletter = newsletter

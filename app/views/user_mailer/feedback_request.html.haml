@@ -1,0 +1,138 @@
+:css
+  #messagebody div.rcmBody {
+  width: 100% !important;
+  }
+  #messagebody div.rcmBody .ReadMsgBody {
+  width: 100%;
+  }
+  #messagebody div.rcmBody .ExternalClass {
+  width: 100%;
+  }
+  #messagebody div.rcmBody {
+  -webkit-text-size-adjust: none;
+  }
+  #messagebody div.rcmBody {
+  margin: 0; padding: 0;
+  }
+  #messagebody div.rcmBody img {
+  border: 0; height: auto; line-height: 100%; outline: none; text-decoration: none;
+  }
+  #messagebody div.rcmBody #backgroundTable {
+  height: 100% !important; margin: 0; padding: 0; width: 100% !important;
+  }
+  #messagebody div.rcmBody {
+  background-color: #FCFCFC;
+  }
+  #messagebody div.rcmBody #backgroundTable {
+  background-color: #FCFCFC;
+  }
+  #messagebody div.rcmBody .preheaderContent div a:visited {
+  color: #336699; font-weight: normal; text-decoration: underline;
+  }
+  #messagebody div.rcmBody .headerContent a:visited {
+  color: #336699; font-weight: normal; text-decoration: underline;
+  }
+  #messagebody div.rcmBody .bodyContent div a:visited {
+  color: #336699; font-weight: normal; text-decoration: underline;
+  }
+  #messagebody div.rcmBody .footerContent div a:visited {
+  color: #336699; font-weight: normal; text-decoration: underline;
+  }
+%center
+  %table#backgroundTable{bgcolor: "#FCFCFC", border: "0", cellpadding: "0", cellspacing: "0", height: "100%", style: "background: #FCFCFC; height: 100% ; margin: 0; padding: 0; width: 100% ;", width: "100%"}
+    %tbody
+      %tr
+        %td{align: "center", style: "border-collapse: collapse;", valign: "top"}
+          / node type 8
+          %table#templatePreheader{bgcolor: "#FCFCFC", border: "0", cellpadding: "10", cellspacing: "0", style: "background: #FCFCFC;", width: "600"}
+            %tbody
+              %tr
+                %td.preheaderContent{style: "border-collapse: collapse;", valign: "top"}
+                  / node type 8
+                  %table{border: "0", cellpadding: "10", cellspacing: "0", width: "100%"}
+                    %tbody
+                      %tr
+                        %td{style: "border-collapse: collapse;", valign: "top"}
+                          %div{align: "left", style: "color: #505050; font-family: Arial; font-size: 10px; line-height: 100%; text-align: left;"}
+                        %td{style: "border-collapse: collapse;", valign: "top", width: "190"}
+                          %div{align: "left", style: "color: #505050; font-family: Arial; font-size: 10px; line-height: 100%; text-align: left;"}
+                            
+                  / node type 8
+          / node type 8
+          %table#templateContainer{bgcolor: "#FCFCFC", border: "0", cellpadding: "0", cellspacing: "0", style: "background: #FCFCFC;", width: "600"}
+            %tbody
+              %tr
+                %td{align: "center", style: "border-collapse: collapse;", valign: "top"}
+                  / node type 8
+                  %table#templateHeader{bgcolor: "#FCFCFC", border: "0", cellpadding: "0", cellspacing: "0", style: "background: #FCFCFC; border-bottom-width: 0px;", width: "600"}
+                    %tbody
+                      %tr
+                        %td.headerContent{align: "left", style: "border-collapse: collapse; color: #202020; font-family: Arial; font-size: 34px; font-weight: bold; line-height: 100%; padding: 0; text-align: left; vertical-align: middle;", valign: "middle"}
+
+                          / node type 8
+                          %hr{style: "color: #CCCCCC; margin-top: 0px;"}/
+                  / node type 8
+              %tr
+                %td{align: "center", style: "border-collapse: collapse;", valign: "top"}
+                  / node type 8
+                  %table#templateBody{border: "0", cellpadding: "0", cellspacing: "0", width: "600"}
+                    %tbody
+                      %tr
+                        %td.bodyContent{bgcolor: "#FCFCFC", style: "background: #FCFCFC; border-collapse: collapse;", valign: "top"}
+                          / node type 8
+                          %table{border: "0", cellpadding: "20", cellspacing: "0", width: "100%"}
+                            %tbody
+                              %tr
+                                %td{style: "border-collapse: collapse;", valign: "top"}
+                                  %div{align: "left", style: "color: #505050; font-family: Arial; font-size: 14px; line-height: 150%; text-align: left;"}
+                                    %h2
+                                    = @feedback.kind
+                                    ,
+                                    %br
+                                    Hello
+                                    = @feedback.subject
+                                    ,
+                                    %br
+                                    Please click below link for reply the feedback
+                                    %p
+                                    %a{href: "#{feedback_url(id: @feedback.id)}", target: "_blank"}
+                                      = feedback_url(id: @feedback.id)
+                                    %br
+                                    %br
+                                    %br
+                                    %br
+                                    Regards,
+                                    %br
+                                    Geniya team
+                          / node type 8
+                  / node type 8
+              %tr
+                %td{align: "center", style: "border-collapse: collapse;", valign: "top"}
+                  / node type 8
+                  %table#templateFooter{bgcolor: "#FCFCFC", border: "0", cellpadding: "10", cellspacing: "0", style: "background: #FCFCFC; border-top-width: 0px;", width: "600"}
+                    %tbody
+                      %tr
+                        %td.footerContent{style: "border-collapse: collapse;", valign: "top"}
+                          / node type 8
+                          %table{border: "0", cellpadding: "10", cellspacing: "0", width: "100%"}
+                            %tbody
+                              %tr
+                                %td#social{bgcolor: "#FCFCFC", colspan: "2", style: "background: #FCFCFC; border-collapse: collapse; border: 0;", valign: "middle"}
+                                  %div{align: "center", style: "color: #707070; font-family: Arial; font-size: 12px; line-height: 125%; text-align: center;"}
+                                    \ 
+                                    %a{href: "https://twitter.com/GeniyaNetwork", style: "color: #336699; font-weight: normal; text-decoration: underline;", target: "_blank"} Twitter
+                                    |
+                                    %a{href: "https://www.facebook.com/GeniyaNetwork", style: "color: #336699; font-weight: normal; text-decoration: underline;", target: "_blank"} Facebook
+                                    |
+                                    %a{href: "https://www.youtube.com/channel/UCaAogg8feczTPSpvcd-T6dg", style: "color: #336699; font-weight: normal; text-decoration: underline;", target: "_blank"} Youtube
+                                    \ 
+                              %tr
+                                %td{style: "border-collapse: collapse;", valign: "top", width: "350"}
+                                  %div{align: "left", style: "color: #707070; font-family: Arial; font-size: 12px; line-height: 125%; text-align: left;"}
+                                    /%em Copyright © 2014 Geniya, All rights reserved.
+                                    %br/
+                                    
+                                    \ 
+                          / node type 8
+                  / node type 8
+          %br/

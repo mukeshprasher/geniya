@@ -15,6 +15,14 @@
       /%p
       /  %b Email:
       /  = @feedback.email
+      %p#feedback_user_img
+        - if signed_in?
+          - if @feedback.user.headshot
+            = image_tag @feedback.user.headshot.file_attachment.url(:medium)
+          - else
+            = image_tag '/assets/missing.png', width: "135px", height: "135px"         
+        - else
+          = image_tag '/assets/missing.png', width: "135px", height: "135px"
       %h5
         = @feedback.kind.capitalize
       %h2

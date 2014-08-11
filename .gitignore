@@ -30,3 +30,6 @@ doc/
 /public/system/multiuploads/multiuploads/*
 /public/system/uploads/*
 /public/system/covers/*
+
+# Ignore application configuration
+/config/application.yml
