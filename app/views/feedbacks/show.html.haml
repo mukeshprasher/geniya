@@ -1,7 +1,7 @@
 .row-fluid.spaced-top
   .span2.spaced-left
     .btn-group.btn-group-vertical.btn-block
-      - if signed_in? 
+      - if signed_in? and current_user?(@feedback.user)
         = link_to 'Edit', edit_feedback_path(@feedback), class: 'btn btn-success'
         = link_to 'My Profile', current_user, class: 'btn'
   .span7.spaced-right
@@ -17,12 +17,27 @@
       /  = @feedback.email
       %p#feedback_user_img
         - if signed_in?
-          - if @feedback.user.headshot
-            = image_tag @feedback.user.headshot.file_attachment.url(:medium)
+          - if @feedback.user.nil?
+            = image_tag '/assets/missing.png', width: "135px", height: "135px"
+            %br
+            %h3
+              Guest User   
           - else
-            = image_tag '/assets/missing.png', width: "135px", height: "135px"         
+            - if @feedback.user.headshot
+              = image_tag @feedback.user.headshot.file_attachment.url(:medium)
+              %br
+              %h3
+                = @feedback.user.name              
+            - else
+              = image_tag '/assets/missing.png', width: "135px", height: "135px"
+              %br
+              %h3
+                = @feedback.user.name                       
         - else
           = image_tag '/assets/missing.png', width: "135px", height: "135px"
+          %br
+          %h3
+            Guest User          
       %h5
         = @feedback.kind.capitalize
       %h2

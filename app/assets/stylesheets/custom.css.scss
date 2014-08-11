@@ -4030,7 +4030,12 @@ max-width:300px;
 }
 
 
-.feedback_listing table td {
-    border: 1px solid #CCCCCC;
-    padding: 5px;
+
+#feedback_user_img_list {
+    text-align: center;
+}
+
+
+#feedback_user_img_list img {
+    width: 70px;
 }

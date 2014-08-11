@@ -7,14 +7,12 @@
       %h1 Listing feedbacks
       .min500
         .feedback_listing
-          %table
+          %table.table.table-bordered
             %tr
-              %th Parent
               %th User
               %th Email
               %th Kind
               %th Subject
-              %th Description
               %th Priority
               %th Status
               %th
@@ -23,12 +21,32 @@
 
             - @feedbacks.each do |feedback|
               %tr
-                %td= feedback.parent_id
-                %td= feedback.user_id
+                %td#feedback_user_img_list
+                  - if signed_in?
+                    - if feedback.user.nil?
+                      = image_tag '/assets/missing.png', width: "70px", height: "70px"
+                      %br
+                      %h6
+                        Guest User   
+                    - else
+                      - if feedback.user.headshot
+                        = image_tag feedback.user.headshot.file_attachment.url(:thumb)
+                        %br
+                        %h6
+                          = feedback.user.name              
+                      - else
+                        = image_tag '/assets/missing.png', width: "70px", height: "70px"
+                        %br
+                        %h6
+                          = feedback.user.name                       
+                  - else
+                    = image_tag '/assets/missing.png', width: "70px", height: "70px"
+                    %br
+                    %h3
+                      Guest User   
                 %td= feedback.email
                 %td= feedback.kind
                 %td= feedback.subject
-                %td= feedback.description
                 %td= feedback.priority
                 %td= feedback.status
                 %td= link_to 'Show', feedback
@@ -41,18 +59,15 @@
   - else
     .span10
       %h1 My feedbacks
-      = ENV["feedback_email"]
       .min500
         - if current_user.feedbacks.any?      
           .feedback_listing
-            %table
+            %table.table.table-bordered
               %tr
-                %th Parent
                 %th User
                 %th Email
                 %th Kind
                 %th Subject
-                %th Description
                 %th Priority
                 %th Status
                 %th
@@ -61,12 +76,32 @@
                 
               - current_user.feedbacks.each do |feedback|
                 %tr
-                  %td= feedback.parent_id
-                  %td= feedback.user_id
+                  %td#feedback_user_img_list
+                    - if signed_in?
+                      - if feedback.user.nil?
+                        = image_tag '/assets/missing.png', width: "70px", height: "70px"
+                        %br
+                        %h6
+                          Guest User   
+                      - else
+                        - if feedback.user.headshot
+                          = image_tag feedback.user.headshot.file_attachment.url(:thumb)
+                          %br
+                          %h6
+                            = feedback.user.name              
+                        - else
+                          = image_tag '/assets/missing.png', width: "70px", height: "70px"
+                          %br
+                          %h6
+                            = feedback.user.name                       
+                    - else
+                      = image_tag '/assets/missing.png', width: "70px", height: "70px"
+                      %br
+                      %h3
+                        Guest User 
                   %td= feedback.email
                   %td= feedback.kind
                   %td= feedback.subject
-                  %td= feedback.description
                   %td= feedback.priority
                   %td= feedback.status
                   %td= link_to 'Show', feedback
