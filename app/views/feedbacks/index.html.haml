@@ -41,6 +41,7 @@
   - else
     .span10
       %h1 My feedbacks
+      = ENV["feedback_email"]
       .min500
         - if current_user.feedbacks.any?      
           .feedback_listing
