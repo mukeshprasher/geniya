@@ -50,5 +50,11 @@
       %p
         %b Status:
         = @feedback.status
-
+      #feedback_reply_form
+        = simple_form_for Feedback.new do |f|
+          = f.hidden_field :parent_id, value: @feedback.id
+          = f.hidden_field :subject, value: "reply of feedback"
+          = text_area_tag 'feedback[description]'
+          %br
+          = f.button :submit, value: "Reply feedback", class: 'btn btn-primary'      
 

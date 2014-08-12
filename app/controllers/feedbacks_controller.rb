@@ -35,11 +35,11 @@ class FeedbacksController < ApplicationController
     end
     respond_to do |format|
       if @feedback.save
-        if(UserMailer.feedback_request(@feedback).deliver)
-  #        flash[:success] = "Your Request is send for Quote."
-        else
-          flash[:error] = "Error sending email."
-        end         
+#        if(UserMailer.feedback_request(@feedback).deliver)
+#  #        flash[:success] = "Your Request is send for Quote."
+#        else
+#          flash[:error] = "Error sending email."
+#        end         
         format.html { redirect_to @feedback, notice: "Thanks, we'll get back to you shortly." }
         format.json { render action: 'show', status: :created, location: @feedback }
       else
