@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Parent:
+  = @feedback_reply.parent_id
+%p
+  %b User:
+  = @feedback_reply.user_id
+%p
+  %b Message:
+  = @feedback_reply.message
+
+= link_to 'Edit', edit_feedback_reply_path(@feedback_reply)
+\|
+= link_to 'Back', feedback_replies_path

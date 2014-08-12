@@ -1,7 +1,7 @@
 class Feedback < ActiveRecord::Base
   belongs_to :user
-  has_many :replies, foreign_key: "parent_id", class_name:  "Feedback",  dependent:   :destroy
-
+#  has_many :replies, foreign_key: "parent_id", class_name:  "Feedback",  dependent:   :destroy
+  has_many :feedback_replies,  dependent:   :destroy
   validates :subject,  presence: true, length: { minimum: 5,  maximum: 70}
   validates :status,  presence: true, length: { minimum: 3,  maximum: 30}
   validates :kind,  presence: true, length: { minimum: 3,  maximum: 30}

@@ -58,7 +58,7 @@ class VideosController < ApplicationController
 #      @update_upload = current_user.uploads.build(video_params1)
 #      @update_upload.save
       if @video.album_id.present?
-        redirect_to @video.album, notice: 'Video was successfully added.' 
+        redirect_to @video.album, notice: 'Album was successfully added.' 
       else
         redirect_to @video, notice: 'Video was successfully added.'
       end

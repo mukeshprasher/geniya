@@ -1,4 +1,6 @@
 Geniya::Application.routes.draw do
+  resources :feedback_replies
+
   resources :feedbacks
 
   resources :quotes
