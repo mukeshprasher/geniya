@@ -17,8 +17,7 @@
         .field
           %span#business_hostname
             *Page Url
-            = request.host + '/'
-            business/
+            = request.host + '/' + 'business/'
           = f.text_field :username, id: "business_page_url_text"
         .actions
           = f.submit 'Create Business Page', class: "btn btn-large btn-primary"
