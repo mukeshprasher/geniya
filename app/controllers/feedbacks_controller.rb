@@ -1,10 +1,15 @@
 class FeedbacksController < ApplicationController
   before_action :set_feedback, only: [:show, :edit, :update, :destroy]
-
+  before_action :show_feedbacks, only: [:index]
   # GET /feedbacks
   # GET /feedbacks.json
   def index
     @feedbacks = Feedback.all
+    if params[:q]
+      @feedbacks = Feedback.where("lower(name) like lower(?)", "%#{params[:q]}%")
+    else  
+      @feedbacks = Feedback.paginate(page: params[:page], :per_page => 20)
+    end    
   end
 
   # GET /feedbacks/1
@@ -25,9 +30,16 @@ class FeedbacksController < ApplicationController
   # POST /feedbacks.json
   def create
     @feedback = Feedback.new(feedback_params)
-
+    if signed_in?
+      @feedback.user_id = current_user.id
+    end
     respond_to do |format|
       if @feedback.save
+#        if(UserMailer.feedback_request(@feedback).deliver)
+#  #        flash[:success] = "Your Request is send for Quote."
+#        else
+#          flash[:error] = "Error sending email."
+#        end         
         format.html { redirect_to @feedback, notice: "Thanks, we'll get back to you shortly." }
         format.json { render action: 'show', status: :created, location: @feedback }
       else
@@ -65,6 +77,13 @@ class FeedbacksController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_feedback
       @feedback = Feedback.find(params[:id])
+    end
+
+    def show_feedbacks
+      if !signed_in?
+        redirect_to(root_url)
+      else
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

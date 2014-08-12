@@ -112,6 +112,8 @@ gem 'fullcalendar-rails'
 
 gem 'tinymce-rails'
 
+gem "figaro"
+
 gem 'rack-canonical-host' #for redirecting to single domain
 #gem 'devise'
 

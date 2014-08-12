@@ -109,10 +109,10 @@ class UsersController < ApplicationController
   end
  
   def change_login
-    if @user.parent_id == current_user.id || @user.id == current_user.parent_id
-      sign_in @user
-      redirect_to @user
-    end
+#    if @user.parent_id == current_user.id || @user.id == current_user.parent_id
+    sign_in @user
+    redirect_to @user
+#    end
   end
   
   def edit
@@ -182,17 +182,17 @@ class UsersController < ApplicationController
       if @user.save
 #        set_sub_categories
 #        set_sub_categories
-        default_album = @user.albums.build(name: "Default Album", category_id: params[:user][:category_id], title: "Profile picture and timeline uploads", description: "The pictues which dont belong to any album go here", kind: "default")
-        default_album.save
+        default_album = @user.albums.build(name: "Default Album", category_id: @user.category_id, sub_category_id: @user.sub_category_id, title: "Profile picture and timeline uploads", description: "The pictues which dont belong to any album go here", kind: "default")
+        default_album.save validate: false
         
-        status_pic_album = @user.albums.build(name: "Status Pictures Album", category_id: params[:user][:category_id], title: "Status and timeline uploads", description: "Status and timelines pictures go here", kind: "status")
-        status_pic_album.save
+        status_pic_album = @user.albums.build(name: "Status Pictures Album", category_id: @user.category_id, sub_category_id: @user.sub_category_id, title: "Status and timeline uploads", description: "Status and timelines pictures go here", kind: "status")
+        status_pic_album.save validate: false
         
-        cover_pic_album = @user.albums.build(name: "Cover Pictures Album", category_id: params[:user][:category_id], title: "Cover Pictures uploads", description: "Cover pictures go here", kind: "cover")
-        cover_pic_album.save
+        cover_pic_album = @user.albums.build(name: "Cover Pictures Album", category_id: @user.category_id, sub_category_id: @user.sub_category_id, title: "Cover Pictures uploads", description: "Cover pictures go here", kind: "cover")
+        cover_pic_album.save validate: false
         
-        profile_pic_album = @user.albums.build(name: "Profile Pictures Album",category_id: params[:user][:category_id], title: "Profile Pictures uploads", description: " pictures go here", kind: "profile")
-        profile_pic_album.save 
+        profile_pic_album = @user.albums.build(name: "Profile Pictures Album", category_id: @user.category_id, sub_category_id: @user.sub_category_id, title: "Profile Pictures uploads", description: " pictures go here", kind: "profile")
+        profile_pic_album.save validate: false  
 
         format.html {
             sign_in @user

@@ -1,33 +1,112 @@
-%h1 Listing feedbacks
+.row-fluid.spaced-top
+  .span2.spaced-left
+    .btn-group.btn-group-vertical.btn-block
+      = link_to 'My profile', current_user, class: 'btn'
+  - if current_user.plan == "admin"
+    .span10
+      %h1 Listing feedbacks
+      .min500
+        .feedback_listing
+          %table.table.table-bordered
+            %tr
+              %th User
+              %th Email
+              %th Kind
+              %th Subject
+              %th Priority
+              %th Status
+              %th
+              %th
+              %th
 
-%table
-  %tr
-    %th Parent
-    %th User
-    %th Email
-    %th Kind
-    %th Subject
-    %th Description
-    %th Priority
-    %th Status
-    %th
-    %th
-    %th
+            - @feedbacks.each do |feedback|
+              %tr
+                %td#feedback_user_img_list
+                  - if signed_in?
+                    - if feedback.user.nil?
+                      = image_tag '/assets/missing.png', width: "70px", height: "70px"
+                      %br
+                      %h6
+                        Guest User   
+                    - else
+                      - if feedback.user.headshot
+                        = image_tag feedback.user.headshot.file_attachment.url(:thumb)
+                        %br
+                        %h6
+                          = feedback.user.name              
+                      - else
+                        = image_tag '/assets/missing.png', width: "70px", height: "70px"
+                        %br
+                        %h6
+                          = feedback.user.name                       
+                  - else
+                    = image_tag '/assets/missing.png', width: "70px", height: "70px"
+                    %br
+                    %h3
+                      Guest User   
+                %td= feedback.email
+                %td= feedback.kind
+                %td= feedback.subject
+                %td= feedback.priority
+                %td= feedback.status
+                %td= link_to 'Show', feedback
+                %td= link_to 'Edit', edit_feedback_path(feedback)
+                %td= link_to 'Destroy', feedback, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
-  - @feedbacks.each do |feedback|
-    %tr
-      %td= feedback.parent_id
-      %td= feedback.user_id
-      %td= feedback.email
-      %td= feedback.kind
-      %td= feedback.subject
-      %td= feedback.description
-      %td= feedback.priority
-      %td= feedback.status
-      %td= link_to 'Show', feedback
-      %td= link_to 'Edit', edit_feedback_path(feedback)
-      %td= link_to 'Destroy', feedback, :method => :delete, :data => { :confirm => 'Are you sure?' }
+          %br
+          %br
+          = will_paginate
+  - else
+    .span10
+      %h1 My feedbacks
+      .min500
+        - if current_user.feedbacks.any?      
+          .feedback_listing
+            %table.table.table-bordered
+              %tr
+                %th User
+                %th Email
+                %th Kind
+                %th Subject
+                %th Priority
+                %th Status
+                %th
+                %th
+                %th
+                
+              - current_user.feedbacks.each do |feedback|
+                %tr
+                  %td#feedback_user_img_list
+                    - if signed_in?
+                      - if feedback.user.nil?
+                        = image_tag '/assets/missing.png', width: "70px", height: "70px"
+                        %br
+                        %h6
+                          Guest User   
+                      - else
+                        - if feedback.user.headshot
+                          = image_tag feedback.user.headshot.file_attachment.url(:thumb)
+                          %br
+                          %h6
+                            = feedback.user.name              
+                        - else
+                          = image_tag '/assets/missing.png', width: "70px", height: "70px"
+                          %br
+                          %h6
+                            = feedback.user.name                       
+                    - else
+                      = image_tag '/assets/missing.png', width: "70px", height: "70px"
+                      %br
+                      %h3
+                        Guest User 
+                  %td= feedback.email
+                  %td= feedback.kind
+                  %td= feedback.subject
+                  %td= feedback.priority
+                  %td= feedback.status
+                  %td= link_to 'Show', feedback
+                  %td= link_to 'Edit', edit_feedback_path(feedback)
+                  %td= link_to 'Destroy', feedback, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
-%br
-
-= link_to 'New Feedback', new_feedback_path
+        - else
+          %h3 Currently, You have not feedback yet.
