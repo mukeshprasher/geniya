@@ -81,9 +81,12 @@ Geniya::Application.routes.draw do
   match "/users/recover_password", to: 'users#recover_password', via: 'post'
   match "/users/get_quote", to: 'users#get_quote', via: 'post'
   match "/business", to: 'users#bussiness', via: 'get'
+  match "/business/:id/", to: 'users#show', via: 'get'
   match "/users/create_bussiness", to: 'users#create_bussiness', via: 'post'
   # Named route that can be invoked with change_password_url(id: user.id)
   get 'users/:id/change_password' => 'users#change_password', as: :change_password
+  get 'businesses/:id/edit' => 'bussinesses#edit', via: 'get'
+  get 'businesses/new/' => 'bussinesses#new', via: 'post'
   resources :subscriptions
 
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
