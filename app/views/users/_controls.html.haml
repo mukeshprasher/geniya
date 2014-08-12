@@ -37,7 +37,7 @@
             %span
               Add Feature Image       
       - if current_user.plan != 'visitor' && current_user.plan != 'trial'
-        = link_to 'Create Business Page', "/users/bussiness", class: 'btn btn-primary'
+        = link_to 'Create Business Page', "/business", class: 'btn btn-primary'
 
     #controll_right_container
       = link_to 'Edit profile', "/users/"+current_user.slug+"/profile_edit", class: 'btn'
