@@ -15,10 +15,15 @@
             *Business Name
           = f.text_field :name
         .field
-          = f.label :username
-          = request.host + '/'
-          = f.text_field :username
+          %span#business_hostname
+            *Page Url
+            = request.host + '/'
+          = f.text_field :username, id: "business_page_url_text"
         .actions
           = f.submit 'Create Business Page', class: "btn btn-large btn-primary"
         .clear
   /= link_to 'Back', users_path
+  
+  
+  
+
