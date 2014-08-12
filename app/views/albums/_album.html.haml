@@ -48,9 +48,21 @@
 
 
           %ul.gallery.clearfix
-            %li
-              %a{href: "#{upload.multiupload.url(:original)}", rel: "prettyPhoto[mixed]", title: "#{upload.multiupload_file_title}"}
-                =image_tag upload.multiupload.url(:original), alt: upload.multiupload_file_name
+            - date= "2014-08-12 09:28:16.212566"
+            - if upload.multiupload_updated_at >= date            
+              - if upload.multiupload_file_size > 500000
+                %li
+                  %a{href: "#{upload.multiupload.url(:large)}", rel: "prettyPhoto[mixed]", title: "#{upload.multiupload_file_title}"}
+                    =image_tag upload.multiupload.url(:large), alt: upload.multiupload_file_name
+              - else
+                %li
+                  %a{href: "#{upload.multiupload.url(:original)}", rel: "prettyPhoto[mixed]", title: "#{upload.multiupload_file_title}"}
+                    =image_tag upload.multiupload.url(:original), alt: upload.multiupload_file_name                    
+            - else
+              %li
+                %a{href: "#{upload.multiupload.url(:original)}", rel: "prettyPhoto[mixed]", title: "#{upload.multiupload_file_title}"}
+                  =image_tag upload.multiupload.url(:original), alt: upload.multiupload_file_name            
+                  
           %ul#album-upload-content
             %li#album-upload-title 
               = upload.multiupload_file_title

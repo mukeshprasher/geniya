@@ -1,6 +1,6 @@
 class Multiupload < ActiveRecord::Base
   belongs_to :album
-  has_attached_file :multiupload
+  has_attached_file :multiupload, :styles => { :large => "1000x1000>", :medium => "500x500>", :small => "300x300>" },  :hash_secret => "geniyaAttach" 
 #                        :storage        => :s3                                                 ,
 #                      :s3_credentials => {:bucket            => 'geniyanet',
 #                                          :access_key_id     => 'AKIAIUP2GZ5XEI6BZW3A',
