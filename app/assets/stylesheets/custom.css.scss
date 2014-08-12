@@ -4040,11 +4040,15 @@ max-width:300px;
     width: 70px;
 }
 
-  #business_hostname {
+
+#business_hostname {
     float: left;
     font-size: 14px;
     padding-right: 7px;
     padding-top: 5px;
     text-align: right;
-    width: 141px;
+    width: 171px;
+}
+#business_page_url_text {
+    width: 242px !important;
 }
