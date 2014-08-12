@@ -17,14 +17,14 @@
           #video-form.modal.fade{"data-width" => "760", style: "display: none;", tabindex: "-1"}
             .modal-header
               %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
-              %h4.modal-title Add Video:
+              %h4.modal-title Add Video/Music:
             .modal-body
               = render 'videos/form', album: @album
             .modal-footer
               %button.btn.btn-default#close_portfolio_modal{"data-dismiss" => "modal", type: "button"} Close
           %a.demo{"data-toggle" => "modal",href: "#video-form"}
             %span.add_img_btn
-              Add Video       
+              Add Video/Music       
         #album-form.modal.fade{"data-width" => "760", style: "display: none;", tabindex: "-1"}
           .modal-header
             %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
@@ -70,10 +70,10 @@
                       = link_to video_path(video), :method => :delete, :remote => true,  :disable_with => "×", :class => 'video_box-delete' , :id => "video_box-delete-#{video.id}" do 
                         %img{alt: "", src: "/assets/cross.png"}/               
               
-                - if ["video/mpeg", "video/x-msvideo", "video/3gpp"].include? video.file_attachment.content_type
+                - if ["video/mpeg", "video/x-msvideo", "video/3gpp", "audio/mpeg"].include? video.file_attachment.content_type
                   %object{ data: "#{video.file_attachment.url}", width: "303", height: "230", autoplay: "false"}
                     %embed{ src: "#{video.file_attachment.url}", width: "303", height: "230"}
-                - elsif ["video/mp4", "video/ogg", "video/webm", "video/x-flv"].include? video.file_attachment.content_type
+                - elsif ["video/mp4", "video/ogg", "video/webm", "video/x-flv", "audio/ogg"].include? video.file_attachment.content_type
                   %video{ width: "303", height:"230", poster:"", controls:"controls", preload:"none" }
                     %source{type:"#{video.file_attachment.content_type}", src:"#{video.file_attachment.url}"}
                     %object{width:"303", height:"230", type:"application/x-shockwave-flash", data:"#{video.file_attachment.url}"}
@@ -84,7 +84,7 @@
       .primary-project-content.project-styles
         %a.demo{"data-toggle" => "modal",href: "#video-form"}
           %span.add_img_btn
-            Add Video's 
+            Add Video/Music
         %a.demo{"data-toggle" => "modal",href: "#album-form"}
           %span.add_img_btn
             Add/Remove Pictures

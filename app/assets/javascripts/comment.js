@@ -700,8 +700,8 @@ $(function() {
       return false;
     }
     else
-    if(FileName.indexOf(".")==-1 || FileExtension != "mp4" && FileExtension != "3gp" && FileExtension != "ogg" && FileExtension != "mpeg" && FileExtension != "flv" && FileExtension != "mpg" && FileExtension != "webm" && FileExtension != "ogv"){ // Curstom File Extension
-      alert("unsupported format, please upload flv, mp4, 3gp ...");
+    if(FileName.indexOf(".")==-1 || FileExtension != "mp4" && FileExtension != "3gp" && FileExtension != "ogg" && FileExtension != "mpeg" && FileExtension != "flv" && FileExtension != "mpg" && FileExtension != "webm" && FileExtension != "mp3" && FileExtension != "wma" && FileExtension != "ogg" && FileExtension != "ogv"){ // Curstom File Extension
+      alert("unsupported format, please upload flv, mp4, 3gp, mp3, ogg...");
       $("#video_file_attachment").val('');
       return false;
      }
