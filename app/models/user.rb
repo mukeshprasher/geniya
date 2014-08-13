@@ -67,6 +67,8 @@ class User < ActiveRecord::Base
     has_many :recieved_chats, class_name: 'Chat', foreign_key: 'reciever_id'
     has_many :events
     has_many :feedbacks
+
+    has_many :conversations, :foreign_key => :sender_id
     
     before_create :create_remember_token
     

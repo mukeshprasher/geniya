@@ -66,11 +66,7 @@ Geniya::Application.routes.draw do
   resources :educations
   
   resources :conversations do
-    member do
-      post :reply
-      post :trash
-      post :untrash
-    end
+    resources :messages
   end
 
 

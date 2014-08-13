@@ -1,62 +1,30 @@
 class ConversationsController < ApplicationController
-
-  before_action :check_user, only: [:index, :show, :new, :create]
-  helper_method :mailbox, :conversation    
+  before_action :signed_in_user
+  layout false
+ 
   def create
-    recipient_emails = conversation_params(:recipients).split(',')
-    recipients = User.where(email: recipient_emails).all
-
-    conversation = current_user.send_message(recipients, *conversation_params(:body, :subject)).conversation
-
-    redirect_to conversation
-  end
-
-  def reply
-    current_user.reply_to_conversation(conversation, *message_params(:body, :subject))
-    redirect_to conversation
-  end
-
-  def trash
-    conversation.move_to_trash(current_user)
-    redirect_to :conversations
-  end
-
-  def untrash
-    conversation.untrash(current_user)
-    redirect_to :conversations
-  end
-
-
- private
-
-  def check_user
-    current_user == current_user
-  end
-
-  def mailbox
-    @mailbox ||= current_user.mailbox
-  end
-
-  def conversation
-    @conversation ||= mailbox.conversations.find(params[:id])
-  end
-
-  def conversation_params(*keys)
-    fetch_params(:conversation, *keys)
-  end
-
-  def message_params(*keys)
-    fetch_params(:message, *keys)
-  end
-
-  def fetch_params(key, *subkeys)
-    params[key].instance_eval do
-      case subkeys.size
-      when 0 then self
-      when 1 then self[subkeys.first]
-      else subkeys.map{|k| self[k] }
-      end
+    if Conversation.between(params[:sender_id],params[:recipient_id]).present?
+      @conversation = Conversation.between(params[:sender_id],params[:recipient_id]).first
+    else
+      @conversation = Conversation.create!(conversation_params)
     end
+   
+    render json: { conversation_id: @conversation.id }
   end
-
+   
+  def show
+    @conversation = Conversation.find(params[:id])
+    @reciever = interlocutor(@conversation)
+    @messages = @conversation.messages
+    @message = Message.new
+  end
+   
+  private
+    def conversation_params
+      params.permit(:sender_id, :recipient_id)
+    end
+     
+    def interlocutor(conversation)
+      current_user == conversation.recipient ? conversation.sender : conversation.recipient
+    end
 end

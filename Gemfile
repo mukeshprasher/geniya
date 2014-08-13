@@ -115,6 +115,12 @@ gem 'tinymce-rails'
 gem "figaro"
 
 gem 'rack-canonical-host' #for redirecting to single domain
+
+# For chat
+gem 'private_pub'
+
+# Server, required for chat implementaion
+gem 'thin'
 #gem 'devise'
 
 # Use unicorn as the app server
