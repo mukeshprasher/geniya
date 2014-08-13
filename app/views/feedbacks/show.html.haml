@@ -48,13 +48,31 @@
         %b Priority:
         = @feedback.priority
       %p
-        %b Status:
-        = @feedback.status
-      #feedback_reply_form
-        = simple_form_for Feedback.new do |f|
-          = f.hidden_field :parent_id, value: @feedback.id
-          = f.hidden_field :subject, value: "reply of feedback"
-          = text_area_tag 'feedback[description]'
-          %br
-          = f.button :submit, value: "Reply feedback", class: 'btn btn-primary'      
+        %b 
+          Status:
+        %span#feedback_status
+          = @feedback.status
+      #feedback_replies_section
+      %ul#feedbacks_answer
+        - if @feedback.feedback_replies.any?
+          - @feedback.feedback_replies.each do |feedback|
+            = render 'feedback_replies', feedback: feedback
+      
+      - if signed_in?
+        - if current_user?(@feedback.user) or current_user.plan == 'admin'
+          #feedback_reply_form
+            = simple_form_for(FeedbackReply.new, remote: true) do |f|
+              = f.hidden_field :parent_id, value: @feedback.id
+              = f.hidden_field :feedback_id, value: @feedback.id
+              = text_area_tag 'feedback_reply[message]'
+              %br
+              #loading_img_for_feedback
+                %img{src: "/assets/loader.gif", alt: "loading"}/               
+              
+              %br
+              = f.button :submit, value: "Reply Feedback", class: 'btn btn-primary' 
+   
+     
+      
+           
 

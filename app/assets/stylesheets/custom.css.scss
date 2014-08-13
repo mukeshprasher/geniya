@@ -4052,3 +4052,50 @@ max-width:300px;
 #business_page_url_text {
     width: 147px !important;
 }
+
+#feedback_reply_content {
+    float: left;
+    width: 100%;
+}
+
+#feedback_reply_img {
+    float: left;
+    text-align: center;
+    width: 15%;
+}
+
+#feedback_reply_text {
+    float: left;
+    width: 83%;
+}
+
+
+#feedback_reply_content img {
+    width: 50px;
+}
+
+#feedbacks_answer li
+{float:left;
+width:100%;
+}
+
+
+.feedback_box-delete {
+    color: #FF0000;
+}
+
+
+.feedback_box-delete:hover{
+    color: #FF0000 !important;
+}
+
+
+#feedbacks_answer {
+    float: left;
+    margin: 0;
+    width: 100%;
+}
+
+#loading_img_for_feedback{display:none;}
+
+#loading_img_for_feedback_form{display:none;}

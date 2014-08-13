@@ -1,0 +1,25 @@
+%li{ :id => "feedback_box-#{feedback.id}" }
+  %hr
+  #feedback_reply_content
+    - if current_user == feedback.user && signed_in?
+      %span.delete_portfolio_cross_cont
+        = link_to 'x', feedback_reply_path(feedback), :method => :delete, :remote => true,  :disable_with => "×", :class => 'feedback_box-delete' , :id => "feedback_box-delete-#{feedback.id}"
+    #feedback_reply_img
+      - if feedback.user.nil?
+        = image_tag '/assets/missing.png', width: "50px", height: "50px"
+        %br
+        %h6
+          Guest User   
+      - else
+        - if feedback.user.headshot
+          = image_tag feedback.user.headshot.file_attachment.url(:thumb)
+          %br
+          %h6
+            = feedback.user.name              
+        - else
+          = image_tag '/assets/missing.png', width: "50px", height: "50px"
+          %br
+          %h6
+            = feedback.user.name                       
+    #feedback_reply_text
+      = raw simple_format feedback.message

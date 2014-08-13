@@ -251,6 +251,7 @@ ActiveRecord::Schema.define(version: 20140813080154) do
     t.string   "message"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "feedback_id"
   end
 
   create_table "feedbacks", force: true do |t|

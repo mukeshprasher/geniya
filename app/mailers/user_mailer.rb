@@ -22,6 +22,22 @@ class UserMailer < ActionMailer::Base
     mail(to: ENV["feedback_email"], subject: ' User Feedback Request')
   end
 
+  def feedback_response(feedback_reply)
+    @feedback_reply = feedback_reply
+    mail(to: ENV["feedback_email"], subject: ' User Response on Feedback')
+  end
+
+  def feedback_multiresponse(feedback_reply)
+    @feedback_reply = feedback_reply
+    if @feedback_reply.feedback.user_id.nil?
+      mail(to: @feedback_reply.feedback.email, subject: ' Admin Response on your Feedback')
+    else
+      mail(to: @feedback_reply.feedback.user.email, subject: ' Admin Response on your Feedback')
+    end
+  end
+
+
+
 #  def activation_email(user)
 #    #@req = request.original_url
 #    @newsletter = newsletter

@@ -31,6 +31,9 @@
             = f.label :priority
             = f.select(:priority, options_for_select([['High', 'high'], ['Medium', 'medium'], ['Low', 'low']], :selected=> '2'))
             %br
+            #loading_img_for_feedback_form
+              %img{src: "/assets/loader.gif", alt: "loading"}/             
+            %br
             = f.button :submit, class: 'btn btn-primary'
         .modal-footer
           %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
