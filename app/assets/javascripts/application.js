@@ -26,5 +26,6 @@
 //= require tinymce
 //= require cocoon
 //= require fullcalendar
+//= require private_pub
 //= require_tree .
 

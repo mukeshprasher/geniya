@@ -25,7 +25,9 @@
                     = image_tag other_user.headshot.file_attachment.url(:medium), width: "80px", height: "80px"
                   - else
                     = image_tag '/assets/missing.png', width: "80px", height: "80px"
-                  = other_user.name           
+                  = other_user.name
+                = link_to "Send Message", "#", class: "btn btn-success btn-xs start-conversation",
+"data-sid" => current_user.id, "data-rip" => other_user.id          
               %td= (chat.user == current_user) ? "->" : "<-"
               %td.text_left= chat.message
               %td= chat.status
