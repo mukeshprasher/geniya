@@ -85,18 +85,17 @@
                               %tr
                                 %td{style: "border-collapse: collapse;", valign: "top"}
                                   %div{align: "left", style: "color: #505050; font-family: Arial; font-size: 14px; line-height: 150%; text-align: left;"}
-                                    %br
-                                    Feedback Report
                                     %h2
-                                    = @feedback.kind
-                                    ,
-                                    = @feedback.subject
+                                    User replied on the feedback with below message, Plz check
+                                    %br
+                                    %br
+                                    = @feedback_reply.feedback.subject
                                     ,
                                     %br
                                     Please click below link for reply the feedback
                                     %p
-                                    %a{href: "#{feedback_url(id: @feedback.id)}", target: "_blank"}
-                                      = feedback_url(id: @feedback.id)
+                                    %a{href: "#{feedback_url(id: @feedback_reply.feedback.id)}", target: "_blank"}
+                                      = feedback_url(id: @feedback_reply.feedback.id)
                                     %br
                                     %br
                                     %br

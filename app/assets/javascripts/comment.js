@@ -77,6 +77,23 @@ $(function() {
        return false;}
      });  
 
+// feedback deletes
+
+    $(".feedback_box-delete").click(function(){
+     var delcomment = confirm("Do you want to delete this reply ?");
+     if(delcomment == true)
+     {
+     var delete_comment_id=this.id.split("-")[2]
+       $("#feedback_box-"+delete_comment_id).hide('slow');
+       return true;
+     }
+     else
+       {$("#feedback_box-"+delete_comment_id).show();
+       return false;}
+     });  
+
+
+
 
 // delete the business page categories
 
@@ -671,6 +688,36 @@ $(function() {
 
 
 
+// for feedback reply
+
+
+
+    $("#new_feedback_reply").submit(function(){
+    var name = $("#feedback_reply_message").val();
+     
+    if (name == '')
+    {
+      $('#feedback_reply_message').css("border-color","#FF0000");
+      $('#feedback_reply_message').css("box-shadow","0 0 1px #FF0000");
+      return false;
+    }
+
+    else
+    {
+      $('#feedback_reply_message').css("border-color","none")
+      $('#feedback_reply_message').css("box-shadow","none");
+      $('#loading_img_for_feedback').show();
+      return true;
+    }
+    });
+
+
+    $("#new_feedback").submit(function(){
+      $('#loading_img_for_feedback_form').show();
+      return true;
+    });
+
+
 
 // for menus
 
@@ -950,6 +997,8 @@ $(function() {
             $('#loading_img_for_feature_img').hide();
             $('#loading_img_for_album_cover').hide();
             $('#loading_img_for_video').hide();
+            $('#loading_img_for_feedback').hide();
+            $('#loading_img_for_feedback_form').hide();
             
         });
     }); 
