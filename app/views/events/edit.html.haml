@@ -1,8 +1,12 @@
-.row-fluid.spaced-top
-  .span2.spaced-left
-    .btn-group.btn-group-vertical.btn-block
-      = link_to 'Back', @event, class: 'btn'
-  .span10
-    %h1 Editing event
-    .max_form_width
-      = render 'form'
+.innerBenner
+  .wrapper
+    .news_feeds
+      %h2 
+        Editing event
+.wrapper
+  .row-fluid.spaced-top
+    .span2.spaced-left
+      .btn-group.btn-group-vertical.btn-block
+        = link_to 'Back', @event, class: 'btn'
+.detail_form_container
+  = render 'form'

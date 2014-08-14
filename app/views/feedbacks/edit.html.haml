@@ -1,13 +1,12 @@
-.row-fluid.spaced-top
-  .span2.spaced-left
-    .btn-group.btn-group-vertical.btn-block
-      = link_to 'Back', @feedback, class: 'btn'
-
-  .span9
-    .max_add_form_width.min500
-      %h1 Editing feedback
-      = render 'form'
-
-      .clear
-
-
+.innerBenner
+  .wrapper
+    .news_feeds
+      %h2 
+        Editing Feedback
+.wrapper
+  .row-fluid.spaced-top
+    .span2.spaced-left
+      .btn-group.btn-group-vertical.btn-block
+        = link_to 'My Profile', current_user, class: 'btn'
+.detail_form_container
+  = render 'form'

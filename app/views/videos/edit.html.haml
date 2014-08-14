@@ -1,11 +1,15 @@
-.row-fluid.spaced-top
-  .span2.spaced-left
-    .btn-group.btn-group-vertical.btn-block
-      - if @video.album_id.nil?
-        = link_to 'Back', current_user, class: 'btn'
-      - else
-        = link_to 'Back', '/albums/'+@video.album.slug, class: 'btn'
-  .span6
-    %h1 Editing video
-    = render 'edit_form'
-
+.innerBenner
+  .wrapper
+    .news_feeds
+      %h2 
+        Editing video
+.wrapper
+  .row-fluid.spaced-top
+    .span2.spaced-left
+      .btn-group.btn-group-vertical.btn-block
+        - if @video.album_id.nil?
+          = link_to 'Back', current_user, class: 'btn'
+        - else
+          = link_to 'Back', '/albums/'+@video.album.slug, class: 'btn'
+.detail_form_container
+  = render 'edit_form'
