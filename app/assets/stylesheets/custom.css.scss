@@ -15,6 +15,8 @@ $grayLighter: #eaeaea;
   box-sizing: border-box;
 }
 
+html, body{ height: 100%; }
+
 body { margin:0px; padding:0px; background:#FFFFFF; font-family:'latoregular', Arial, Helvetica, sans-serif; font-size:13px; font-family: 'latoregular'; line-height: normal }
 
 * { margin:0px; padding:0px; }
@@ -4099,3 +4101,8 @@ width:100%;
 #loading_img_for_feedback{display:none;}
 
 #loading_img_for_feedback_form{display:none;}
+.wrap{
+  height: auto !important;
+  margin: 0 auto -60px;
+  min-height: 100%;
+}
