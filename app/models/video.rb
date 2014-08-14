@@ -11,7 +11,7 @@ class Video < ActiveRecord::Base
 #                      :s3_protocol    => "http"                                             ,
 #                      :bucket => "geniyanet"
   validates_attachment :file_attachment, :presence => true,
-  :content_type => { :content_type => ["video/mpeg", "video/ogg", "video/mp4", "video/webm", "video/x-flv", "video/x-msvideo", "video/3gpp", "audio/rm", "audio/mpeg", "audio/ogg", "audio/wma", "audio/wav", "audio/mid", "audio/ra", "audio/ram" ] },
+  :content_type => { :content_type => ["video/mpeg", "video/ogg", "video/mp4", "video/webm", "video/x-flv", "video/x-msvideo", "video/3gpp", "audio/rm", "audio/mpeg", "audio/mp3", "audio/ogg", "audio/wma", "audio/wav", "audio/mid", "audio/ra", "audio/ram" ] },
   :size => { :in => 0..10.megabytes },
   :file_name => { :matches => [/mpg\Z/, /ogv\Z/, /mp4\Z/, /webm\Z/, /flv\Z/, /avi\Z/, /3gp\Z/, /mp3\Z/, /ogg\Z/, /wma\Z/, /wav\Z/, /mid\Z/, /ra\Z/, /ram\Z/, /rm\Z/] }
 
