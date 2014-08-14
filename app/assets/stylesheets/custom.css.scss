@@ -1343,9 +1343,8 @@ bottom: -10px;color: #6D6D6C;font-family: Calibri;font-size: 21px;position: abso
 
 .makeup_sec {margin-bottom: 7px;position: relative;clear:both;}
 
-.add_sec .makeUp { height: 200px;    min-height: 200px;
+.add_sec .makeUp { height: 190px;    min-height: 190px;
     min-width: 288px;
-    width: 295px;
     overflow:hidden;}
 
 .add_sec {
@@ -4293,3 +4292,33 @@ select{width:100% !important;}
     box-shadow: none;
     padding: 0;
 }
+
+
+
+#feedback_user_detail {
+    float: left;
+    padding: 0 0 10px;
+    width: 100%;
+}
+
+#feedback_user_detail #feedback_user_picture {
+    float: left;
+    width: 20%;
+}
+
+
+#feedback_user_detail #feedback_user_name {
+    float: left;
+    height: 120px;
+    text-transform: capitalize;
+    width: 80%;
+}
+
+
+#prev_orgnz_detail {
+    overflow: hidden;
+}
+
+#new_user select{width: 271px !important;}
+
+#loading_img_for_video{display:none;}

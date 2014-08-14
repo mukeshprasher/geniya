@@ -86,12 +86,19 @@
                                 %td{style: "border-collapse: collapse;", valign: "top"}
                                   %div{align: "left", style: "color: #505050; font-family: Arial; font-size: 14px; line-height: 150%; text-align: left;"}
                                     %h2
-                                    User replied on the feedback with below message, Plz check
+                                    %span
+                                      %br                                    
+                                    - if @feedback_reply.feedback.user_id.nil?
+                                      Guest User
+                                    - else
+                                      = @feedback_reply.feedback.user.name  
+                                    %br  
+                                    replied on the feedback with below message, Plz check
                                     %br
                                     %br
                                     = raw simple_format@feedback_reply.message
                                     %br
-                                    Please click below link for reply the feedback
+                                    Please click on below link to reply
                                     %p
                                     %a{href: "#{feedback_url(id: @feedback_reply.feedback.id)}", target: "_blank"}
                                       = feedback_url(id: @feedback_reply.feedback.id)

@@ -1,6 +1,5 @@
 = simple_form_for(@video) do |f|
-  = f.error_notification
-
+  = render 'shared/error_messages', object: f.object
   .form-inputs
     = f.hidden_field :album_id, value: album.id
     = f.input :name

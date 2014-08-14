@@ -86,14 +86,31 @@
                                 %td{style: "border-collapse: collapse;", valign: "top"}
                                   %div{align: "left", style: "color: #505050; font-family: Arial; font-size: 14px; line-height: 150%; text-align: left;"}
                                     %br
-                                    Feedback Report
+                                    %h3
+                                      Feedback Report
+                                    %h4
+                                      - if @feedback.user.nil?
+                                        %span
+                                          Guset User                                        
+                                      - else
+                                        = @feedback.user.name
+                                    %h5
+                                      = @feedback.kind.capitalize
                                     %h2
-                                    = @feedback.kind
-                                    ,
-                                    = @feedback.subject
-                                    ,
+                                      = @feedback.subject
+                                    %p
+                                      = @feedback.description
+                                    %p
+                                      %b Priority:
+                                      = @feedback.priority
+                                    %p
+                                      %b 
+                                        Status:
+                                      %span#feedback_status
+                                        = @feedback.status                                    
+                                    
                                     %br
-                                    Please click below link for reply the feedback
+                                    Please click on below link to reply
                                     %p
                                     %a{href: "#{feedback_url(id: @feedback.id)}", target: "_blank"}
                                       = feedback_url(id: @feedback.id)
