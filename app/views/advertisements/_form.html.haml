@@ -1,14 +1,13 @@
-.wrapper
-  = simple_form_for(@advertisement) do |f|
-    = f.error_notification
+= simple_form_for(@advertisement) do |f|
+  = f.error_notification
 
-    .form-inputs
-      = f.association :category, include_blank: false
-      = f.input :title, :input_html => { :maxlength => 1 }
-      = f.input :slogan
-      = f.input :description, as: :text, :input_html => { :cols => 5, :rows => 10 }
-      = f.input :link, placeholder: "for example https://www.your-contact-link.com/"
-      = f.file_field :file_attachment
-      %br
-      %br
-      = f.button :submit, value: "Save advertisement", id: "post_advertisement_btn", class: "btn btn-large btn-primary"
+  .form-inputs
+    = f.association :category, include_blank: false
+    = f.input :title, :input_html => { :maxlength => 1 }
+    = f.input :slogan
+    = f.input :description, as: :text, :input_html => { :cols => 5, :rows => 10 }
+    = f.input :link, placeholder: "for example https://www.your-contact-link.com/"
+    = f.file_field :file_attachment
+    %br
+    %br
+    = f.button :submit, value: "Save advertisement", id: "post_advertisement_btn", class: "btn btn-large btn-primary"

@@ -1,7 +1,17 @@
-%h1 Editing quote
+.innerBenner
+  .wrapper
+    .news_feeds
+      %h2 
+        Editing quote
+.wrapper
+  .row-fluid.spaced-top
+    .span2.spaced-left
+      .btn-group.btn-group-vertical.btn-block
+        = link_to 'My Profile', current_user, class: 'btn'
+.detail_form_container
+  = render 'form'
+  
+/%h1 Editing quote
+/= render 'form'
 
-= render 'form'
 
-= link_to 'Show', @quote
-\|
-= link_to 'Back', quotes_path

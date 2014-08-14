@@ -1,12 +1,12 @@
-.row-fluid.spaced-top
-  .span2.spaced-left
-    .btn-group.btn-group-vertical.btn-block
-      = link_to 'My events', events_path, class: 'btn'
-  .span9
-    .max_form_width
-      %h1 New event
-
-      = render 'form'
-
-      .clear
-  
+.innerBenner
+  .wrapper
+    .news_feeds
+      %h2 
+        New event
+.wrapper
+  .row-fluid.spaced-top
+    .span2.spaced-left
+      .btn-group.btn-group-vertical.btn-block
+        = link_to 'My events', events_path, class: 'btn'
+.detail_form_container
+  = render 'form'

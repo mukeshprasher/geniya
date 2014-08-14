@@ -1,11 +1,13 @@
-.row-fluid.spaced-top
-  .span2.spaced-left
-    .btn-group.btn-group-vertical.btn-block
-      - if signed_in?
-        = link_to 'Back', @organization, class: 'btn'
-  .span9
-    .max_add_form_width
-      %h1 Editing organization
-      = render 'form'
-
-      .clear
+.innerBenner
+  .wrapper
+    .news_feeds
+      %h2 
+        Editing organization
+.wrapper
+  .row-fluid.spaced-top
+    .span2.spaced-left
+      .btn-group.btn-group-vertical.btn-block
+        - if signed_in?
+          = link_to 'Back', @organization, class: 'btn'
+.detail_form_container
+  = render 'form'

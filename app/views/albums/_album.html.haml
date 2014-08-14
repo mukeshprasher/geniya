@@ -65,9 +65,9 @@
                   
           %ul#album-upload-content
             %li#album-upload-title 
-              = upload.multiupload_file_title
+              = best_in_place_if @can_edit, upload, :multiupload_file_title, :nil => "Enter title", :type => :textarea
             %li#album-upload-desc
-              = upload.multiupload_file_desc
+              = best_in_place_if @can_edit, upload, :multiupload_file_desc, :nil => "Enter description", :type => :textarea              
       .video_section
         - if @album.videos.any?
           - @album.videos.each do |video|

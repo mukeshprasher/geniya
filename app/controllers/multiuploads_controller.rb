@@ -2,6 +2,7 @@ class MultiuploadsController < ApplicationController
   skip_before_action :verify_authenticity_token
   before_action :set_multiupload, only: [:show, :edit, :update, :destroy]
   before_action :signed_in_user, only: [ :new, :edit, :create, :update, :destroy]
+  before_action :can_edit, only: [:show]
   before_action only: [:edit, :update, :destroy] do
     redirect_with_notice_if_incorrect_user(@multiupload)
   end
@@ -121,10 +122,9 @@ class MultiuploadsController < ApplicationController
 
 
  def update
-    @multiupload = Multiupload.find(params[:id])
 
     respond_to do |format|
-      if @multiupload.update_attributes(params[:multiupload])
+      if @multiupload.update(multiupload_params)
         format.html { redirect_to @multiupload, notice: 'Upload was successfully updated.' }
         format.json { head :no_content }
       else
@@ -175,4 +175,8 @@ class MultiuploadsController < ApplicationController
     def multiupload_params
       params.require(:multiupload).permit(:multiupload, :user_id, :multiupload_file_title, :multiupload_file_desc, :album_id)
     end
+    
+    def can_edit
+      @can_edit = (current_user and current_user?(@multiupload.album.user))
+    end    
 end

@@ -3,7 +3,7 @@ class AlbumsController < ApplicationController
   before_action :signed_in_user, except: [:show]
   #before_action :admin_user, only: [:index]
   before_action :correct_user,   only: [:edit, :update, :destroy]
-
+  before_action :can_edit, only: [:show]
   # GET /albums
   # GET /albums.json
   def index
@@ -165,4 +165,8 @@ class AlbumsController < ApplicationController
     rescue
       redirect_to root_url
     end
+
+    def can_edit
+      @can_edit = (current_user and current_user?(@album.user))
+    end     
 end

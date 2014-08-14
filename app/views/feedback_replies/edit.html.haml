@@ -1,7 +1,12 @@
-%h1 Editing feedback_reply
-
-= render 'form'
-
-= link_to 'Show', @feedback_reply
-\|
-= link_to 'Back', feedback_replies_path
+.innerBenner
+  .wrapper
+    .news_feeds
+      %h2 
+        Editing Feedback Reply
+.wrapper
+  .row-fluid.spaced-top
+    .span2.spaced-left
+      .btn-group.btn-group-vertical.btn-block
+        = link_to 'My Profile', current_user, class: 'btn'
+.detail_form_container
+  = render 'form'

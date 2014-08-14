@@ -1,6 +1,12 @@
+.innerBenner
+  .wrapper
+    .news_feeds
+      %h2 
+        New tag
 .wrapper
-  %h1 New tag
-
+  .row-fluid.spaced-top
+    .span2.spaced-left
+      .btn-group.btn-group-vertical.btn-block
+        = link_to 'My Profile', current_user, class: 'btn'
+.detail_form_container
   = render 'form'
-
-  = link_to 'Back', tags_path

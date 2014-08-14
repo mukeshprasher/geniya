@@ -1,10 +1,12 @@
-.row-fluid.spaced-top
-  .span2.spaced-left
-    .btn-group.btn-group-vertical.btn-block
-      = link_to 'Back', current_user, class: 'btn'
-  .span9
-    .max_form_width
-      %h1 New album
-      = render 'form'
-
-      .clear
+.innerBenner
+  .wrapper
+    .news_feeds
+      %h2 
+        Post Album
+.wrapper
+  .row-fluid.spaced-top
+    .span2.spaced-left
+      .btn-group.btn-group-vertical.btn-block
+        = link_to 'My Profile', current_user, class: 'btn'
+.detail_form_container
+  = render 'form'

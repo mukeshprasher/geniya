@@ -1,6 +1,14 @@
+.innerBenner
+  .wrapper
+    .news_feeds
+      %h2 
+        New skill
 .wrapper
-  %h1 New skill
-
+  .row-fluid.spaced-top
+    .span2.spaced-left
+      .btn-group.btn-group-vertical.btn-block
+        = link_to 'My Profile', current_user, class: 'btn'
+.detail_form_container
   #responsive.modal.fade{"data-width" => "760", style: "display: none;", tabindex: "-1"}
     .modal-header
       %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
@@ -12,6 +20,3 @@
       %button.btn.btn-primary{type: "button"} Save changes
   %button.demo.btn.btn-primary.btn-lg{"data-toggle" => "modal", href: "#responsive"} Responsive
 
-  
-
-  = link_to 'Back', skills_path
