@@ -1,6 +1,13 @@
+.innerBenner
+  .wrapper
+    .news_feeds
+      %h2 
+        Add Education Detail
 .wrapper
-  %h1 New education
-
+  .row-fluid.spaced-top
+    .span2.spaced-left
+      .btn-group.btn-group-vertical.btn-block
+        = link_to 'My Profile', current_user, class: 'btn btn-success'
+.detail_form_container
   = render 'form'
 
-  = link_to 'Back', educations_path

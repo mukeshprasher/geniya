@@ -1133,6 +1133,7 @@ bottom: -10px;color: #6D6D6C;font-family: Calibri;font-size: 21px;position: abso
     width:190px;
     height:190px;
     border: 5px solid #FFFFFF;
+    overflow:hidden;
 
 }
 .business_profile_picture {
@@ -3913,6 +3914,7 @@ max-width:300px;
 
 .max_add_form_width {
     max-width: 551px;
+     min-height: 650px;
 }
 
 
@@ -3975,6 +3977,10 @@ max-width:300px;
 .min500{
   min-height: 500px;
 }
+.max_width_500{
+  max-width: 500px;
+}
+
 .event_user_img{
   width: 30px;
   height: 30px;
@@ -4177,3 +4183,68 @@ width:100%;
 #address select {
     width: 100% !important;
 }
+
+/**************** Advertisement Form****************/
+
+
+#new_advertisement, .edit_advertisement {      background: none repeat scroll 0 0 #F7F7F7;
+    box-shadow: 0 2px 6px #DDDDDD;
+    height: auto;
+    margin: -24px 0 0;
+    padding: 5px 14px 37px 11px; }
+
+#new_user .field, #new_advertisement .field { display: block; width: 100%; }
+
+#new_user .field label, #new_advertisement .field label { float: left; font-size: 14px; padding-right: 7px; padding-top: 5px; text-align: right; width:141px; }
+
+#new_user .field input, #new_advertisement .field input { width: 272px; border-radius:0px }
+
+#new_user button.btn.btn-large, #new_advertisement button.btn.btn-large, #new_user input.btn.btn-large[type="submit"], #new_advertisement input.btn.btn-large[type="submit"], .edit_advertisement input.btn.btn-large[type="submit"], .edit_advertisement input.btn.btn-large[type="submit"]{ background: none repeat scroll 0 0 #85af30; border: 0 none; color: #FFFFFF; font-family: calibri; font-size: 16px; font-weight: bold; padding: 5px 20px; text-transform: uppercase;border-radius:0px; float:right }
+
+#new_user button.btn.btn-large:hover, #new_user input.btn.btn-large[type="submit"]:hover, #new_advertisement button.btn.btn-large:hover, #new_advertisement input.btn.btn-large[type="submit"]:hover, .edit_advertisement button.btn.btn-large:hover, .edit_advertisement input.btn.btn-large[type="submit"]:hover { background: none repeat scroll 0 0 #729a22; border: 0 none; color: #FFFFFF; font-family: calibri; font-size: 16px; font-weight: bold; padding: 5px 20px; text-transform: uppercase; border-radius:0px}
+
+
+select{width:100% !important;}
+
+#advertisement_file_attachment, #album_cover, #job_cover {width:100% !important;}
+
+
+/************** form for album*************/
+
+
+#new_album, .edit_album {background: none repeat scroll 0 0 #F7F7F7;
+    box-shadow: 0 2px 6px #DDDDDD;
+    height: auto;
+    margin: -24px 0 0;
+    padding: 5px 14px 37px 11px; }
+
+#new_album .field, .edit_album .field { display: block; width: 100%; }
+
+#new_album .field label, .edit_album .field label { float: left; font-size: 14px; padding-right: 7px; padding-top: 5px; text-align: right; width:141px; }
+
+#new_album .field input, .edit_album .field input { width: 272px; border-radius:0px }
+
+#new_album button.btn.btn-large, #new_album input.btn.btn-large[type="submit"], .edit_album button.btn.btn-large, .edit_album input.btn.btn-large[type="submit"]{ background: none repeat scroll 0 0 #85af30; border: 0 none; color: #FFFFFF; font-family: calibri; font-size: 16px; font-weight: bold; padding: 5px 20px; text-transform: uppercase;border-radius:0px; float:right }
+
+#new_album button.btn.btn-large:hover, #new_album input.btn.btn-large[type="submit"]:hover, .edit_album button.btn.btn-large:hover, .edit_album input.btn.btn-large[type="submit"]:hover { background: none repeat scroll 0 0 #729a22; border: 0 none; color: #FFFFFF; font-family: calibri; font-size: 16px; font-weight: bold; padding: 5px 20px; text-transform: uppercase; border-radius:0px}
+
+#portfolio-form #new_album{background:none !important; box-shadow:none;  margin: 0 !important;padding:0 !important;}
+
+
+.simple_form{background: none repeat scroll 0 0 #F7F7F7;
+    box-shadow: 0 2px 6px #DDDDDD;
+   padding: 20px 20px 40px;
+    }
+    
+    
+.simple_form [type="submit"]{ background: none repeat scroll 0 0 #85af30; border: 0 none; color: #FFFFFF; font-family: calibri; font-size: 16px; font-weight: bold; padding: 5px 20px; text-transform: uppercase;border-radius:0px; float:right }
+
+.simple_form [type="submit"]:hover { background: none repeat scroll 0 0 #729a22; border: 0 none; color: #FFFFFF; font-family: calibri; font-size: 16px; font-weight: bold; padding: 5px 20px; text-transform: uppercase; border-radius:0px}
+
+
+.detail_form_container {
+    margin: auto;
+    max-width: 600px;
+    padding: 35px 0;
+}
+.btn{text-shadow:none;}
