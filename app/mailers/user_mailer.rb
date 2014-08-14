@@ -30,9 +30,9 @@ class UserMailer < ActionMailer::Base
   def feedback_multiresponse(feedback_reply)
     @feedback_reply = feedback_reply
     if @feedback_reply.feedback.user_id.nil?
-      mail(to: @feedback_reply.feedback.email, subject: ' Admin Response on your Feedback')
+      mail(to: @feedback_reply.feedback.email, subject: ' Geniya Response on your Feedback')
     else
-      mail(to: @feedback_reply.feedback.user.email, subject: ' Admin Response on your Feedback')
+      mail(to: @feedback_reply.feedback.user.email, subject: ' Geniya Response on your Feedback')
     end
   end
 

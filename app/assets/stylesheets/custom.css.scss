@@ -4282,3 +4282,24 @@ select{width:100% !important;}
     box-shadow: none;
     padding: 0;
 }
+
+
+
+#feedback_user_detail {
+    float: left;
+    padding: 0 0 10px;
+    width: 100%;
+}
+
+#feedback_user_detail #feedback_user_picture {
+    float: left;
+    width: 20%;
+}
+
+
+#feedback_user_detail #feedback_user_name {
+    float: left;
+    height: 120px;
+    text-transform: capitalize;
+    width: 80%;
+}

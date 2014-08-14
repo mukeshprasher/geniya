@@ -85,13 +85,24 @@
                               %tr
                                 %td{style: "border-collapse: collapse;", valign: "top"}
                                   %div{align: "left", style: "color: #505050; font-family: Arial; font-size: 14px; line-height: 150%; text-align: left;"}
+                                    %span
+                                      Hello,
+                                      %br                                    
+                                    - if @feedback_reply.feedback.user_id.nil?
+                                      Guest User
+                                    - else
+                                      = @feedback_reply.feedback.user.name                                    
                                     %h2
-                                    Admin replied on the feedback with below message, Plz check
+                                    Geniya replied on your feedback with below message, Plz check
                                     %br
                                     %br
-                                    = raw simple_format @feedback_reply.message
+                                    %h2
+                                      = raw simple_format @feedback_reply.message.capitalize
                                     %br
-                                    Please click below link for reply the feedback
+                                    - if @feedback_reply.feedback.user_id.nil?
+                                      Please click on below link to view conversations
+                                    - else
+                                      Please click on below link to reply
                                     %p
                                     %a{href: "#{feedback_url(id: @feedback_reply.feedback.id)}", target: "_blank"}
                                       = feedback_url(id: @feedback_reply.feedback.id)

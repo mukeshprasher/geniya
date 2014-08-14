@@ -16,29 +16,28 @@
         /%p
         /  %b Email:
         /  = @feedback.email
-        %p#feedback_user_img
-          - if signed_in?
-            - if @feedback.user.nil?
+        #feedback_user_detail
+          - if @feedback.user.nil?
+            #feedback_user_picture
               = image_tag '/assets/missing.png', width: "135px", height: "135px"
-              %br
+            #feedback_user_name
               %h3
                 Guest User   
-            - else
-              - if @feedback.user.headshot
-                = image_tag @feedback.user.headshot.file_attachment.url(:medium)
-                %br
-                %h3
-                  = @feedback.user.name              
-              - else
-                = image_tag '/assets/missing.png', width: "135px", height: "135px"
-                %br
-                %h3
-                  = @feedback.user.name                       
           - else
-            = image_tag '/assets/missing.png', width: "135px", height: "135px"
-            %br
-            %h3
-              Guest User          
+            = link_to @feedback.user do
+              - if @feedback.user.headshot
+                #feedback_user_picture
+                  = image_tag @feedback.user.headshot.file_attachment.url(:medium)
+                #feedback_user_name
+                  %h3
+                    = @feedback.user.name              
+              - else
+                #feedback_user_picture
+                  = image_tag '/assets/missing.png', width: "135px", height: "135px"
+                #feedback_user_name
+                  %h3
+                    = @feedback.user.name                       
+         
         %h5
           = @feedback.kind.capitalize
         %h2
