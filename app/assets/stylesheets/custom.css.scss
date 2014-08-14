@@ -15,7 +15,10 @@ $grayLighter: #eaeaea;
   box-sizing: border-box;
 }
 
-html, body{ height: 100%; }
+html, body{     
+  height: auto;
+  min-height: 100%; 
+}
 
 body { margin:0px; padding:0px; background:#FFFFFF; font-family:'latoregular', Arial, Helvetica, sans-serif; font-size:13px; font-family: 'latoregular'; line-height: normal }
 
