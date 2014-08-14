@@ -23,7 +23,7 @@
             .modal-footer
               %button.btn.btn-default#close_portfolio_modal{"data-dismiss" => "modal", type: "button"} Close
           %a.demo{"data-toggle" => "modal",href: "#video-form"}
-            %span.add_img_btn
+            %span.add_img_btn.btn-primary
               Add Video/Music       
         #album-form.modal.fade{"data-width" => "760", style: "display: none;", tabindex: "-1"}
           .modal-header
@@ -35,9 +35,9 @@
             %button#close.btn.btn-default{:data => "#{@album.id}", "data-dismiss" => "modal", type: "button"} Close
             /%button.btn.btn-primary{type: "button"} Save changes
         %a.demo{"data-toggle" => "modal",href: "#album-form", id: "add-img_renamed"}
-          %span.add_img_btn
+          %span.add_img_btn.btn-primary
             Add/Remove Pictures
-        %span.add_img_btn
+        %span.add_img_btn.btn-primary
           = link_to "Edit #{@album.kind}", edit_album_path(@album)
     %br      
     %ul#project-modules
@@ -95,12 +95,12 @@
     - if signed_in? and current_user?(@user) and album.multiuploads.any?
       .primary-project-content.project-styles
         %a.demo{"data-toggle" => "modal",href: "#video-form"}
-          %span.add_img_btn
+          %span.add_img_btn.btn-primary
             Add Video/Music
         %a.demo{"data-toggle" => "modal",href: "#album-form"}
-          %span.add_img_btn
+          %span.add_img_btn.btn-primary
             Add/Remove Pictures
-        %span.add_img_btn
+        %span.add_img_btn.btn-primary
           = link_to "Edit #{@album.kind}", edit_album_path(@album)
     .clear
 
