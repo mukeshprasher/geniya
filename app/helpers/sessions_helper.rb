@@ -176,4 +176,8 @@ module SessionsHelper
   def current_user_id_is_same_as_user_id?(obj)
     current_user.id == obj.user_id
   end
+
+  def interlocutor(conversation)
+    current_user == conversation.recipient ? conversation.sender : conversation.recipient
+  end
 end
