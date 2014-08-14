@@ -11,10 +11,11 @@
     = javascript_include_tag :cocoon
     = csrf_meta_tags
   %body
-    = render 'layouts/header'
-    - flash.each do |key, value|
-      %div{class: "alert alert-#{key}"}
-        %div{class: "wrapper"}= value
-    = yield
+    .wrap
+      = render 'layouts/header'
+      - flash.each do |key, value|
+        %div{class: "alert alert-#{key}"}
+          %div{class: "wrapper"}= value
+      = yield
     = render 'layouts/footer'
     
