@@ -346,7 +346,7 @@
                     = f.text_field :name, :autocomplete => :off
 
                   .form-actions-tags
-                    = f.button :submit, value: "Add Tags", id: "add_tag"
+                    = f.button :submit, value: "Add Tags", class: "btn btn-primary"
             .modal-footer
               %button#add_tag_modal_close.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
           #add_tag_link
@@ -407,10 +407,12 @@
                         = f.error_notification
 
                         .form-inputs
+                          %label
+                            Enter skills separated by comma (maximum 15 and minimum 4 characters for each skill)                          
                           = f.text_field :name, placeholder: 'Enter skills separated by commas', autocomplete: 'off'
 
                         .form-actions-skills
-                          = f.button :submit, value: "Add Skills", id: "add"
+                          = f.button :submit, value: "Add Skills", class: "btn btn-primary"
                     .modal-footer
                       %button#add_skill_modal_close_button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
                   %a.demo{"data-toggle" => "modal",href: "#skills"}

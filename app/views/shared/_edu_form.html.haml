@@ -9,4 +9,4 @@
     .edu_end_date
       = f.input :end_date, as: :select, collection: Date.current.year.downto(1940), include_blank: false
   .form-actions-edu
-    = f.button :submit , value: "Add Education", id: "edu"
+    = f.button :submit , value: "Add Education", class: "btn btn-primary"

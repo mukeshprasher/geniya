@@ -86,7 +86,7 @@
       = f.hidden_field :user_id, value: current_user.id          
         
       #country_save_btn
-        = f.button :submit, value:"Save", id:"aff_add_btn"
+        = f.button :submit, value:"Save", id:"aff_add_btn", class: "btn btn-primary"
 :javascript
 
   $('#location_state_id').change(function(){

@@ -78,9 +78,39 @@ header { margin:0px; padding:0px; width:100%; background:#f3f1f1; position:relat
 
 .form-actions-subscribe .btn{background: none repeat scroll 0 0 #000000;border: 1px solid #000000;color: #FFFFFF;float: right; border-radius: 0;}
 
-.form-actions-ads #cancel-ads, .form-actions-tags .btn, .form-actions-ads .btn, .form-actions-edu .btn, .form-actions-edu #cancel-edu, .form-actions-skills .btn, .form-actions-skills #cancel, #album-btn, #aff_add_btn, #orgn_btn, #edit_user_profile, #advertisement_btn {background: none repeat scroll 0 0 #81AA05;border: 1px solid #81AA05;color: #FFFFFF;float: left; border-radius: 5px;}
+#edu {
+    margin-top: 0 !important;
+    width: 40% !important;
+}
+
+#edu select {
+width:100%;
+}
+
+#skills {
+    width: 50% !important;
+}
+
+#tags {
+    width: 50% !important;
+}
+
+#uploadphoto, #uploadcoverphoto {
+    width: 40% !important;
+}
 
 
+#uploadphoto #profile_img {
+    width: 100%;
+}
+
+#uploadcoverphoto #cover_img {
+    width: 100%;
+}
+
+#loading_img_quote{display:none;}
+
+#loading_img_for_profile{display:none;}
 
 #response_subscription {background: none repeat scroll 0 0 #FFFFFF;font-size: 19px;text-align: center;width: 150px;}
 
@@ -2120,12 +2150,32 @@ cursor: default;font-family: Arial,sans-serif;font-size: 10px;font-weight: bold;
 
 /****************** modal album css ************/
 
- #portfolio-form {top: -5%;}
+ #portfolio-form {width:50% !important;top: -5%;}
+ 
+
+#portfolio-form #album_cover {
+    width: 100%;
+}
+
+
+
+#portfolio-form select {
+    width: 100%;
+}
 
 #album-form {
     left: 48%;
     top: -5%;
     width: 77% !important;
+}
+
+#video-form {
+    width: 40% !important;
+}
+
+
+#video-form #video_file_attachment {
+    width: 100%;
 }
 
 /************ login page css*************/
@@ -3894,7 +3944,7 @@ max-width:300px;
 }
 
 
-#affiliations .modal-header {margin: 0 !important;padding: 0 0 0 15px !important;  width: 735px;}
+#affiliations .modal-header {margin: -13px 0 0 !important;padding: 1px 11px 3px 14px !important;width: 735px;}
 
 #affiliations {top: -35px;}
 
@@ -4099,3 +4149,31 @@ width:100%;
 #loading_img_for_feedback{display:none;}
 
 #loading_img_for_feedback_form{display:none;}
+
+
+#new_feedback select {
+    width: 100%;
+}
+
+.modal-header .close {
+    color: #FFFFFF !important;
+    margin-top: 2px;
+    opacity: 0.94 !important;
+}
+
+
+.modal-header {
+    background: linear-gradient(#2E2E2E, #1A1A1A) repeat scroll 0 0 rgba(0, 0, 0, 0);
+    border-bottom: 1px solid rgba(187, 187, 187, 0.1);
+    border-radius: 4px 4px 0 0;
+    color: #FFFFFF;
+    padding: 9px 15px;
+}
+
+#address {
+    width: 42% !important;
+}
+
+#address select {
+    width: 100% !important;
+}
