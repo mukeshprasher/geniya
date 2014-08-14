@@ -1138,7 +1138,6 @@ bottom: -10px;color: #6D6D6C;font-family: Calibri;font-size: 21px;position: abso
     width:190px;
     height:190px;
     border: 5px solid #FFFFFF;
-    overflow:hidden;
 
 }
 .business_profile_picture {
@@ -4276,4 +4275,10 @@ select{width:100% !important;}
 
 #portfolio-form #new_album {
     margin: 0;
+}
+
+.user_description #new_comment {
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
+    box-shadow: none;
+    padding: 0;
 }
