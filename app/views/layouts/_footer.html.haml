@@ -1,4 +1,19 @@
 %footer
+  - if signed_in?
+    %a.conversation_available_popup_trigger.chatboxhead{href: "#", id: "chat_all_trigger"}
+      %i.fa.fa-comments
+      %h1 Chat
+    #chat_all_cont.chat_all_cont
+      #chat_box_head.chatboxhead
+        .chatboxtitle
+          %i.fa.fa-comments
+          %h1 Chat
+        .chatboxoptions
+          = link_to "<i class='fa fa-minus'></i> ".html_safe, "#", class: "toggleChatBox", id: "chat_all_toggle_icon"
+        %br{:clear => "all"}/
+      
+      #chat_all_body.chatboxcontent
+      
   .wrapper
     .wrapper-footer-content
       ©2000 - 2013 Geniya. All Rights Reserved.

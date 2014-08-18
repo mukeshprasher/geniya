@@ -361,6 +361,25 @@ $(function() {
       }, 1000);
     });
 
+    //Ajax Modal
+    //var $chat_all_modal = $('#chat_all_modal');
+     
+    $('#chat_all_trigger').on('click', function(){
+      $(this).hide();
+      $('#chat_all_cont').show();
+      $.get('/conversations', {}, function(data){
+        $('#chat_all_body').html(data);
+      });   
+    });
+
+    $('#chat_box_head').on('click', function(){
+      $('#chat_all_cont').hide();
+      $('#chat_all_trigger').show();
+      $.get('/conversations', {}, function(data){
+        $('#chat_all_body').html(data);
+      });   
+    });
+
 //    $('#header_wrapper li').on("keydown", function () {
 //      alert("hh")
 ////      if (event.keyCode == 13) { 
@@ -484,6 +503,7 @@ $(function() {
 //    }
 
   });
+
 
   function supports_input_placeholder() {
           var i = document.createElement('input');
