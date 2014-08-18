@@ -1,23 +1,22 @@
-%h1 Listing countries
+.row-fluid.spaced-top
+  .span2.spaced-left
+    .btn-group.btn-group-vertical.btn-block
+      = link_to 'My profile', current_user, class: 'btn'
+  .span10.min500
+    %h1 Listing countries
+    .feedback_listing
+      %table.table.table-bordered
+        %tr
+          %th Name
+          %th Operations
 
-%table
-  %tr
-    %th Name
-    %th Region
-    %th Timezone
-    %th
-    %th
-    %th
+        - @countries.each do |country|
+          %tr
+            %td= country.name
+            %td= link_to 'Show', country
+            %td= link_to 'Edit', edit_country_path(country)
+            %td= link_to 'Destroy', country, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
-  - @countries.each do |country|
-    %tr
-      %td= country.name
-      %td= country.region
-      %td= country.timezone
-      %td= link_to 'Show', country
-      %td= link_to 'Edit', edit_country_path(country)
-      %td= link_to 'Destroy', country, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        %br
 
-%br
 
-= link_to 'New Country', new_country_path

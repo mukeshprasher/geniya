@@ -1,5 +1,6 @@
 class StatesController < ApplicationController
   before_action :set_state, only: [:show, :edit, :update, :destroy]
+  before_action :only_admin, only: [:index, :show, :edit, :new]
   before_action :signed_in_user, only: [ :new, :edit, :create, :update, :destroy]
 
   # GET /states

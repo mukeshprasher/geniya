@@ -1,25 +1,29 @@
-%h1 Listing quotes
+.row-fluid.spaced-top
+  .span2.spaced-left
+    .btn-group.btn-group-vertical.btn-block
+      = link_to 'My profile', current_user, class: 'btn'
+  .span10.min500
+    %h1 Listing quotes
+    .feedback_listing
+      %table.table.table-bordered
+        %tr
+          %th Name
+          %th Email
+          %th Contact
+          %th Message
+          %th
+          %th
+          %th
 
-%table
-  %tr
-    %th Name
-    %th Email
-    %th Contact
-    %th Message
-    %th
-    %th
-    %th
+        - @quotes.each do |quote|
+          %tr
+            %td= quote.name
+            %td= quote.email
+            %td= quote.contact
+            %td= quote.message
+            %td= link_to 'Show', quote
+            %td= link_to 'Edit', edit_quote_path(quote)
+            %td= link_to 'Destroy', quote, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %br
+      = will_paginate
 
-  - @quotes.each do |quote|
-    %tr
-      %td= quote.name
-      %td= quote.email
-      %td= quote.contact
-      %td= quote.message
-      %td= link_to 'Show', quote
-      %td= link_to 'Edit', edit_quote_path(quote)
-      %td= link_to 'Destroy', quote, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
-%br
-
-= link_to 'New Quote', new_quote_path

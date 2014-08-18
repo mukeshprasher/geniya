@@ -1,20 +1,21 @@
-.wrapper
-  %h1 Listing tags
+.row-fluid.spaced-top
+  .span2.spaced-left
+    .btn-group.btn-group-vertical.btn-block
+      = link_to 'My profile', current_user, class: 'btn'
+  .span10.min500
+    %h1 Listing tags
+    .feedback_listing
+      %table.table.table-bordered
+        %tr
+          %th Tag name
+          %th Operations
 
-  %table
-    %tr
-      %th Tag name
-      %th
-      %th
-      %th
+        - @tags.each do |tag|
+          %tr
+            %td= tag.name
+            %td= link_to 'Show', tag
+            %td= link_to 'Edit', edit_tag_path(tag)
+            %td= link_to 'Destroy', tag, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %br
+      = will_paginate   
 
-    - @tags.each do |tag|
-      %tr
-        %td= tag.name
-        %td= link_to 'Show', tag
-        %td= link_to 'Edit', edit_tag_path(tag)
-        %td= link_to 'Destroy', tag, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
-  %br
-
-  = link_to 'New Tag', new_tag_path

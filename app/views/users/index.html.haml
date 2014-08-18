@@ -1,57 +1,13 @@
-%h1 Listing users
-
-= will_paginate
-
-%table
-  %tr
-    %th Email
-    %th Username
-    %th Password digest
-    %th Name
-    %th Gender
-    %th Summary
-    %th Height
-    %th Bust
-    %th Hips
-    %th Shoes
-    %th Hair
-    %th Eyes
-    %th Birthdate
-    %th Available
-    %th Plan
-    %th Plan end
-    %th Status
-    %th
-    %th
-    %th
-
-  - @users.each do |user|
-    %tr
-      %td= user.email
-      %td= user.username
-      %td= user.password_digest
-      %td= user.name
-      %td= user.gender
-      %td= user.summary
-      %td= user.height
-      %td= user.bust
-      %td= user.hips
-      %td= user.shoes
-      %td= user.hair
-      %td= user.eyes
-      %td= user.birthdate
-      %td= user.available
-      %td= user.plan
-      %td= user.plan_end
-      %td= user.status
-      %td= link_to 'Show', user
-      %td= link_to 'Edit', edit_user_path(user)
-      - if signed_in? && current_user.plan == 'admin' && !current_user?(user)
-        %td= link_to "delete", user, method: :delete, :data => { :confirm => 'Are you sure?' }
+.row-fluid.spaced-top
+  .span2.spaced-left
+    .btn-group.btn-group-vertical.btn-block
+      - if signed_in?
+        = link_to 'My Profile', current_user, class: 'btn'
+  .span7.spaced-right
+    %h1 Listing Users
+    - @users.each do |user|
+      - @user = user
+      = render 'users/orgzuser', user: user
+    = will_paginate @users 
 
 
-%br
-
-= will_paginate
-
-= link_to 'New User', new_user_path

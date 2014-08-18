@@ -1,10 +1,13 @@
 .wrapper
-  %p#notice= notice
-
-  %p
-    %b Name:
+  .news_feeds
+      
+.wrapper
+  .row-fluid.spaced-top
+    .span2.spaced-left
+      .btn-group.btn-group-vertical.btn-block
+        = link_to 'My Profile', current_user, class: 'btn'
+        = link_to 'Back', skills_path, class: 'btn'
+.detail_form_container
+  %h3
     = @skill.name
 
-  = link_to 'Edit', edit_skill_path(@skill)
-  \|
-  = link_to 'Back', skills_path

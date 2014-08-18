@@ -1,24 +1,31 @@
-%p#notice= notice
+.wrapper
+  .news_feeds
+      
+.wrapper
+  .row-fluid.spaced-top
+    .span2.spaced-left
+      .btn-group.btn-group-vertical.btn-block
+        = link_to 'My Profile', current_user, class: 'btn'
+        = link_to 'Back', affiliations_path, class: 'btn'
+.detail_form_container
+  %h1
+    Affiliation Detail
+    %p
+      %b User:
+      = @affiliation.user_id
+    %p
+      %b Organization:
+      = @affiliation.organization_id
+    %p
+      %b Sub category:
+      = @affiliation.sub_category_id
+    %p
+      %b Start date:
+      = @affiliation.start_date
+    %p
+      %b End date:
+      = @affiliation.end_date
+    %p
+      %b Status:
+      = @affiliation.status
 
-%p
-  %b User:
-  = @affiliation.user_id
-%p
-  %b Organization:
-  = @affiliation.organization_id
-%p
-  %b Sub category:
-  = @affiliation.sub_category_id
-%p
-  %b Start date:
-  = @affiliation.start_date
-%p
-  %b End date:
-  = @affiliation.end_date
-%p
-  %b Status:
-  = @affiliation.status
-
-= link_to 'Edit', edit_affiliation_path(@affiliation)
-\|
-= link_to 'Back', affiliations_path

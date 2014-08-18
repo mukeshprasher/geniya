@@ -11,7 +11,7 @@ class UsersController < ApplicationController
     if params[:q]
       @users = User.where("lower(name) like lower(?)", "%#{params[:q]}%")
     else  
-      @users = User.paginate(page: params[:page])
+      @users = User.paginate(page: params[:page], :per_page => 10)
     end
   end
 

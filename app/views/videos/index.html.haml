@@ -1,21 +1,27 @@
-.inneContaineralbum
-  #album-cont.wrapper
-    %h1 Listing videos
+.row-fluid.spaced-top
+  .span2.spaced-left
+    .btn-group.btn-group-vertical.btn-block
+      = link_to 'My profile', current_user, class: 'btn'
+  - if current_user.videos.any?
+    .span10.min500
+      %h1 My Videos
+      .feedback_listing
+        %table.table.table-bordered
+          %tr
+            %th Name
+            %th Operations
 
-    %table
-      %tr
-        %th Name
-        %th
-        %th
-        %th
+          - current_user.videos.each do |video|
+            %tr
+              %td= video.name
+              %td= link_to 'Show', video
+              %td= link_to 'Edit', edit_video_path(video)
 
-      - @videos.each do |video|
-        %tr
-          %td= video.name
-          %td= link_to 'Show', video
-          %td= link_to 'Edit', edit_video_path(video)
-          %td= link_to 'Destroy', video, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        %br
+      %br
+      = will_paginate        
+  - else  
+    .span10.min500
+      %h1 No video Added
 
-    %br
 
-    = link_to 'New Video', new_video_path

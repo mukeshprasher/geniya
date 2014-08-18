@@ -1,21 +1,23 @@
-%h1 Listing pins
+.row-fluid.spaced-top
+  .span2.spaced-left
+    .btn-group.btn-group-vertical.btn-block
+      = link_to 'My profile', current_user, class: 'btn'
+  .span10.min500
+    %h1 Listing pins
+    .feedback_listing
+      %table.table.table-bordered
+        %tr
+          %th Code
+          %th City
+          %th Operations
 
-%table
-  %tr
-    %th Code
-    %th City
-    %th
-    %th
-    %th
-
-  - @pins.each do |pin|
-    %tr
-      %td= pin.code
-      %td= pin.city_id
-      %td= link_to 'Show', pin
-      %td= link_to 'Edit', edit_pin_path(pin)
-      %td= link_to 'Destroy', pin, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
-%br
-
-= link_to 'New Pin', new_pin_path
+        - @pins.each do |pin|
+          %tr
+            %td= pin.code
+            %td= pin.city.name.capitalize
+            %td= link_to 'Show', pin
+            %td= link_to 'Edit', edit_pin_path(pin)
+            %td= link_to 'Destroy', pin, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        %br
+      %br
+      = will_paginate

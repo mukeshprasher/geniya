@@ -1,5 +1,6 @@
 class PinsController < ApplicationController
   before_action :set_pin, only: [:show, :edit, :update, :destroy]
+  before_action :only_admin, only: [:index, :show, :edit, :new]
   before_action :signed_in_user, only: [ :new, :edit, :create, :update, :destroy]
 
   # GET /pins
@@ -20,7 +21,7 @@ class PinsController < ApplicationController
       @pins = Pin.all
     end
 
-    @pins = Pin.all
+    @pins = Pin.all.paginate(page: params[:page], :per_page => 30)
   end
 
   # GET /pins/1

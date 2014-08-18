@@ -1,7 +1,7 @@
 class MultiuploadsController < ApplicationController
   skip_before_action :verify_authenticity_token
   before_action :set_multiupload, only: [:show, :edit, :update, :destroy]
-  before_action :signed_in_user, only: [ :new, :edit, :create, :update, :destroy]
+  before_action :signed_in_user, only: [ :new, :edit, :create, :update, :destroy, :index]
   before_action :can_edit, only: [:show]
   before_action only: [:edit, :update, :destroy] do
     redirect_with_notice_if_incorrect_user(@multiupload)

@@ -1,6 +1,6 @@
 class VideosController < ApplicationController
   before_action :set_video, only: [:show, :edit, :update, :destroy]
-  before_action :signed_in_user, only: [ :new, :edit, :create, :update, :destroy]
+  before_action :signed_in_user, only: [:index, :new, :edit, :create, :update, :destroy]
   before_action only: [:edit, :update, :destroy] do
     redirect_with_notice_if_incorrect_user(@video)
   end
@@ -8,7 +8,7 @@ class VideosController < ApplicationController
   # GET /videos
   # GET /videos.json
   def index
-    @videos = Video.all
+    @videos = Video.all.paginate(page: params[:page], :per_page => 30)
   end
 
   # GET /videos/1

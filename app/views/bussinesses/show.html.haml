@@ -1,36 +1,41 @@
-%p#notice= notice
+.wrapper
+  .row-fluid.spaced-top
+    .span2.spaced-left
+      .btn-group.btn-group-vertical.btn-block
+        = link_to 'My Profile', current_user, class: 'btn'
+.detail_form_container
+  %h2 
+    business Detail
+  %p#notice= notice
 
-%p
-  %b Summary:
-  = @bussiness.summary
-%p
-  %b Agenda:
-  = @bussiness.agenda
-%p
-  %b Services:
-  = @bussiness.services
-%p
-  %b About:
-  = @bussiness.about
-%p
-  %b Industry:
-  = @bussiness.industry
-%p
-  %b Website:
-  = @bussiness.website
-%p
-  %b Contact:
-  = @bussiness.contact
-%p
-  %b Headquarter:
-  = @bussiness.headquarter
-%p
-  %b Companysize:
-  = @bussiness.companysize
-%p
-  %b Founded:
-  = @bussiness.founded
+  %p
+    %b Summary:
+    = raw @bussiness.summary
+  %p
+    %b Agenda:
+    = raw @bussiness.agenda
+  %p
+    %b Services:
+    = raw @bussiness.services
+  %p
+    %b About:
+    = raw @bussiness.about
+  %p
+    %b Industry:
+    = raw @bussiness.industry
+  %p
+    %b Website:
+    = @bussiness.website
+  %p
+    %b Contact:
+    = raw @bussiness.contact
+  %p
+    %b Headquarter:
+    = raw @bussiness.headquarter
+  %p
+    %b Companysize:
+    = raw @bussiness.companysize
+  %p
+    %b Founded:
+    = raw @bussiness.founded
 
-= link_to 'Edit', edit_bussiness_path(@bussiness)
-\|
-= link_to 'Back', bussinesses_path

@@ -11,19 +11,19 @@ Geniya::Application.routes.draw do
 
   resources :bussinesses
 
-  resources :payments
+  resources :payments, except: [:index]
 
-  resources :payment_subscriptions
+  resources :payment_subscriptions, except: [:index]
 
   resources :events
 
   resources :chats
 
-  resources :shares
+  resources :shares, except: [:index]
 
   resources :featureimgs
 
-  resources :responses
+  resources :responses, except: [:index]
 
   resources :jobs
 
@@ -80,13 +80,14 @@ Geniya::Application.routes.draw do
   match "/users/recover_password", to: 'users#recover_password', via: 'post'
   match "/users/get_quote", to: 'users#get_quote', via: 'post'
   match "/business", to: 'users#bussiness', via: 'get'
+  match "/businesses", to: 'bussinesses#index', via: 'get'
   match "/business/:id/", to: 'users#show', via: 'get'
   match "/users/create_bussiness", to: 'users#create_bussiness', via: 'post'
   # Named route that can be invoked with change_password_url(id: user.id)
   get 'users/:id/change_password' => 'users#change_password', as: :change_password
   get 'businesses/:id/edit' => 'bussinesses#edit', via: 'get'
   get 'businesses/new/' => 'bussinesses#new', via: 'post'
-  resources :subscriptions
+  resources :subscriptions, except: [:index]
 
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
   mount RailsAdminImport::Engine => '/rails_admin_import', :as => 'rails_admin_import'
@@ -103,7 +104,7 @@ Geniya::Application.routes.draw do
   
   resources :albums
 
-  resources :uploads
+  resources :uploads, except: [:index]
   
   resources :sub_categories
 

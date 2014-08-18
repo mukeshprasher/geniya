@@ -1,10 +1,10 @@
 class MenuitemsController < ApplicationController
   before_action :set_menuitem, only: [:show, :edit, :update, :destroy]
-
+  before_action :signed_in_user, only: [ :new, :edit, :create, :update, :destroy, :index]
   # GET /menuitems
   # GET /menuitems.json
   def index
-    @menuitems = Menuitem.all
+    @menuitems = Menuitem.all.paginate(page: params[:page], :per_page => 20)
   end
 
   # GET /menuitems/1

@@ -1,23 +1,26 @@
-%h1 Listing feedback_replies
+.row-fluid.spaced-top
+  .span2.spaced-left
+    .btn-group.btn-group-vertical.btn-block
+      = link_to 'My profile', current_user, class: 'btn'
+  .span10
+    %h1 Listing feedback_replies
+    .min500
+      .feedback_listing
+        %table.table.table-bordered
+          %tr
+            %th Feedback Query
+            %th Message
+            %th
+            %th
+            %th
 
-%table
-  %tr
-    %th Parent
-    %th User
-    %th Message
-    %th
-    %th
-    %th
+          - @feedback_replies.each do |feedback_reply|
+            %tr
+              %td= feedback_reply.feedback.kind
+              %td= feedback_reply.message
+              %td= link_to 'Show', feedback_reply
+              %td= link_to 'Edit', edit_feedback_reply_path(feedback_reply)
+              %td= link_to 'Destroy', feedback_reply, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
-  - @feedback_replies.each do |feedback_reply|
-    %tr
-      %td= feedback_reply.parent_id
-      %td= feedback_reply.user_id
-      %td= feedback_reply.message
-      %td= link_to 'Show', feedback_reply
-      %td= link_to 'Edit', edit_feedback_reply_path(feedback_reply)
-      %td= link_to 'Destroy', feedback_reply, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
-%br
-
-= link_to 'New Feedback reply', new_feedback_reply_path
+        %br
+        = will_paginate
