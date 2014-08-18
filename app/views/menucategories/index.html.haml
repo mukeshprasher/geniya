@@ -1,19 +1,26 @@
-%h1 Listing menucategories
+.row-fluid.spaced-top
+  .span2.spaced-left
+    .btn-group.btn-group-vertical.btn-block
+      = link_to 'My profile', current_user, class: 'btn'
+  - if current_user.menuitems.any?
+    .span10.min500
+      %h1 Offering
+      .feedback_listing
+        %table.table.table-bordered
+          %tr
+            %th Name
+            %th Operations
+          - current_user.menucategories.each do |menucategory|
+            %tr
+              %td= menucategory.name
+              %td= link_to 'Show', menucategory
+              %td= link_to 'Edit', edit_menucategory_path(menucategory)
+              %td= link_to 'Destroy', menucategory, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
-%table
-  %tr
-    %th Name
-    %th
-    %th
-    %th
+        %br
+        = will_paginate
 
-  - @menucategories.each do |menucategory|
-    %tr
-      %td= menucategory.name
-      %td= link_to 'Show', menucategory
-      %td= link_to 'Edit', edit_menucategory_path(menucategory)
-      %td= link_to 'Destroy', menucategory, :method => :delete, :data => { :confirm => 'Are you sure?' }
+  - else  
+    .span10.min500
+      %h1 Please add Offers
 
-%br
-
-= link_to 'New Menucategory', new_menucategory_path

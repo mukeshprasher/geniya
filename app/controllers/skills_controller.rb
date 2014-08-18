@@ -1,5 +1,6 @@
 class SkillsController < ApplicationController
   before_action :set_skill, only: [:show, :edit, :update, :destroy]
+  before_action :only_admin, only: [:index]
   before_action :signed_in_user, only: [ :new, :create, :edit, :update, :destroy]
   before_action only: [:edit, :update, :destroy] do
     redirect_with_notice_if_incorrect_user(@skill)
@@ -8,7 +9,7 @@ class SkillsController < ApplicationController
   # GET /skills
   # GET /skills.json
   def index
-    @skills = Skill.all
+    @skills = Skill.all.paginate(page: params[:page], :per_page => 30)
   end
 
   # GET /skills/1

@@ -1,10 +1,10 @@
 class MenucategoriesController < ApplicationController
   before_action :set_menucategory, only: [:show, :edit, :update, :destroy]
-
+  before_action :signed_in_user, only: [ :new, :edit, :create, :update, :destroy, :index]
   # GET /menucategories
   # GET /menucategories.json
   def index
-    @menucategories = Menucategory.all
+    @menucategories = Menucategory.all.paginate(page: params[:page], :per_page => 20)
   end
 
   # GET /menucategories/1

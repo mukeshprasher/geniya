@@ -1,21 +1,25 @@
-%h1 Listing states
+.row-fluid.spaced-top
+  .span2.spaced-left
+    .btn-group.btn-group-vertical.btn-block
+      = link_to 'My profile', current_user, class: 'btn'
+  .span10.min500
+    %h1 Listing states
+    .feedback_listing
+      %table.table.table-bordered
+        %tr
+          %th Country
+          %th Name
+          %th Operations
+        - @states.each do |state|
+          %tr
+            %td= state.country.name.capitalize
+            %td= state.name.capitalize
+            %td= link_to 'Show', state
+            %td= link_to 'Edit', edit_state_path(state)
+            %td= link_to 'Destroy', state, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
-%table
-  %tr
-    %th Country
-    %th Name
-    %th
-    %th
-    %th
+        %br
 
-  - @states.each do |state|
-    %tr
-      %td= state.country_id
-      %td= state.name
-      %td= link_to 'Show', state
-      %td= link_to 'Edit', edit_state_path(state)
-      %td= link_to 'Destroy', state, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
-%br
 
-= link_to 'New State', new_state_path
+

@@ -1,15 +1,17 @@
 class BussinessesController < ApplicationController
   before_action :set_bussiness, only: [:show, :edit, :update, :destroy]
+  before_action :signed_in_user, only: [:new, :edit, :create, :update, :destroy]
 
   # GET /bussinesses
   # GET /bussinesses.json
   def index
-    @bussinesses = Bussiness.all
+    @bussinesses = Bussiness.paginate(page: params[:page], :per_page => 10)
   end
 
   # GET /bussinesses/1
   # GET /bussinesses/1.json
   def show
+    redirect_to @bussiness.user
   end
 
   # GET /bussinesses/new

@@ -1,10 +1,11 @@
 class FeedbackRepliesController < ApplicationController
   before_action :set_feedback_reply, only: [:show, :edit, :update, :destroy]
-
+    before_action :only_admin, only: [:index]
+    before_action :signed_in_user, only: [ :new, :edit, :create, :update, :destroy, :index]
   # GET /feedback_replies
   # GET /feedback_replies.json
   def index
-    @feedback_replies = FeedbackReply.all
+    @feedback_replies = FeedbackReply.all.paginate(page: params[:page], :per_page => 20)
   end
 
   # GET /feedback_replies/1

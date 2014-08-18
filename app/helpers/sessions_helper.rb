@@ -177,6 +177,18 @@ module SessionsHelper
     current_user.id == obj.user_id
   end
 
+  def only_admin
+    if !signed_in?
+      redirect_to(root_url)
+    else
+      if current_user.plan == "admin"
+      else
+        redirect_to(root_url)
+      end
+    end
+  end
+
+
   def interlocutor(conversation)
     current_user == conversation.recipient ? conversation.sender : conversation.recipient
   end

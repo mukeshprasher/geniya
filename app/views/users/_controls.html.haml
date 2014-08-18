@@ -50,6 +50,9 @@
 
         - if current_user.feedbacks.any?
           = link_to 'My feedbacks', feedbacks_path, class: 'btn'
+
+        - if current_user.affiliations.any?
+          = link_to 'My Affiliations', affiliations_path, class: 'btn'
       
     .clear
   .clear

@@ -5,7 +5,7 @@ class SubCategoriesController < ApplicationController
   # GET /sub_categories
   # GET /sub_categories.json
   def index
-    @sub_categories = SubCategory.all
+    @sub_categories = SubCategory.all.paginate(page: params[:page], :per_page => 30)
   end
 
   # GET /sub_categories/1

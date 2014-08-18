@@ -1139,7 +1139,7 @@ bottom: -10px;color: #6D6D6C;font-family: Calibri;font-size: 21px;position: abso
 .anisten .art_gallery ul li span {color: #D4D4D4;float: left;font-family: 'latoregular';font-size: 12px;padding: 0 8px 0 0;}
 
 
-.anisten .art_gallery ul li p {color: #FFFFFF;font-family: 'latoregular';font-size: 12px;margin:0;padding: 0 0 4px;}
+.anisten .art_gallery ul li p {color: #FFFFFF;font-family: 'latoregular';font-size: 12px;margin:0;padding: 0 0 2px;}
 
 
 .anisten .art_gallery ul h3 span {color: #FFFFFF;display: block;font-family: 'latoregular';font-size: 14px;}
@@ -2737,7 +2737,7 @@ textarea:focus, input[type="text"]:focus, input[type="password"]:focus, input[ty
 
 .aff_org_name a {
     color: #FFFFFF;
-    font-size: 17px;
+    font-size: 15px;
 }
 
 #affiliation_content a:hover {
@@ -4358,3 +4358,9 @@ select{width:100% !important;}
 .chat_all_user_img{
   padding: 3px;
 }
+
+.Quote_form .simple_form {padding: 0 !important;}
+
+.avatar_50{width: 50px;height: 50px;}
+
+.save_plan {font-size: 17px;text-decoration: line-through;}

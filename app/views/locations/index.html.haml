@@ -1,27 +1,26 @@
-%h1 Listing locations
+.row-fluid.spaced-top
+  .span2.spaced-left
+    .btn-group.btn-group-vertical.btn-block
+      = link_to 'My profile', current_user, class: 'btn'
+  .span10.min500
+    %h1 Listing locations
+    .feedback_listing
+      %table.table.table-bordered
+        %tr
+          %th City
+          %th Pin
+          %th Street address
+          %th Operations
 
-%table
-  %tr
-    %th City
-    %th Pin
-    %th Street address
-    %th Longitude
-    %th Latitude
-    %th
-    %th
-    %th
+        - @locations.each do |location|
+          %tr
+            %td= location.city.name.capitalize
+            %td= location.pin.code
+            %td= location.street_address.capitalize
+            %td= link_to 'Show', location
+            %td= link_to 'Edit', edit_location_path(location)
+            %td= link_to 'Destroy', location, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %br
+      = will_paginate
 
-  - @locations.each do |location|
-    %tr
-      %td= location.city_id
-      %td= location.pin_id
-      %td= location.street_address
-      %td= location.longitude
-      %td= location.latitude
-      %td= link_to 'Show', location
-      %td= link_to 'Edit', edit_location_path(location)
-      %td= link_to 'Destroy', location, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
-%br
-
-= link_to 'New Location', new_location_path

@@ -1,29 +1,38 @@
-%h1 Listing affiliations
+.row-fluid.spaced-top
+  .span2.spaced-left
+    .btn-group.btn-group-vertical.btn-block
+      = link_to 'My profile', current_user, class: 'btn'
+  - if current_user.affiliations.any?
+    .span10.min500
+      %h1 My Affiliations
+      .feedback_listing
+        %table.table.table-bordered
+          %tr
+            %th Organization
+            %th Role
+            %th Start date
+            %th End date
+            %th Status
 
-%table
-  %tr
-    %th User
-    %th Organization
-    %th Sub category
-    %th Start date
-    %th End date
-    %th Status
-    %th
-    %th
-    %th
+          - current_user.affiliations.each do |affiliation|
+            %tr
+              %td= affiliation.organization.name
+              %td= affiliation.sub_category.name
+              %td= affiliation.start_date
+              - if affiliation.end_date.nil?
+                %td
+                  Present Working
+              - else
+                %td= affiliation.end_date
+              - if affiliation.status == "no"
+                %td Previous
+              - else
+                %td Current
+              %td= link_to 'Show', affiliation.organization
 
-  - @affiliations.each do |affiliation|
-    %tr
-      %td= affiliation.user_id
-      %td= affiliation.organization_id
-      %td= affiliation.sub_category_id
-      %td= affiliation.start_date
-      %td= affiliation.end_date
-      %td= affiliation.status
-      %td= link_to 'Show', affiliation
-      %td= link_to 'Edit', edit_affiliation_path(affiliation)
-      %td= link_to 'Destroy', affiliation, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        %br
+  - else  
+    .span10.min500
+      %h1 Please add Affiliation    
 
-%br
 
-= link_to 'New Affiliation', new_affiliation_path

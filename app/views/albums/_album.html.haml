@@ -8,7 +8,7 @@
         %a{href: "/portfolios/"+"#{@album.category.slug}", title: "#{@album.category.name}"}
           = @album.category.name
 
-    = render 'shared/edit_delete_buttons', obj: @album
+    /= render 'shared/edit_delete_buttons', obj: @album
     %h2.album_detail_title
       = @album.title    
     - if signed_in? and current_user?(@user)

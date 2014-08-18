@@ -1,15 +1,21 @@
-%p#notice= notice
+.wrapper
+  .news_feeds
+      
+.wrapper
+  .row-fluid.spaced-top
+    .span2.spaced-left
+      .btn-group.btn-group-vertical.btn-block
+        = link_to 'My Profile', current_user, class: 'btn'
+        = link_to 'Back', feedback_replies_path, class: 'btn'
+.detail_form_container
+  %h2
+    = @feedback_reply.feedback.kind
+  %h5
+    - if @feedback_reply.user_id.nil?
+      Guest User
+    - else
+      = @feedback_reply.user.name
+  %h3
+    %br
+    = @feedback_reply.message
 
-%p
-  %b Parent:
-  = @feedback_reply.parent_id
-%p
-  %b User:
-  = @feedback_reply.user_id
-%p
-  %b Message:
-  = @feedback_reply.message
-
-= link_to 'Edit', edit_feedback_reply_path(@feedback_reply)
-\|
-= link_to 'Back', feedback_replies_path

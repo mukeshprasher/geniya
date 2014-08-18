@@ -1,15 +1,23 @@
-%p#notice= notice
+.wrapper
+  .news_feeds
+      
+.wrapper
+  .row-fluid.spaced-top
+    .span2.spaced-left
+      .btn-group.btn-group-vertical.btn-block
+        = link_to 'My Profile', current_user, class: 'btn'
+        = link_to 'Back', menuitems_path, class: 'btn'
+.detail_form_container
+  %h1
+    Offer Service Detail
 
-%p
-  %b Name:
-  = @menuitem.name
-%p
-  %b Price:
-  = @menuitem.price
-%p
-  %b Description:
-  = @menuitem.description
+  %h3
+    Name:
+    = @menuitem.name
+  %h4
+    Price:
+    = @menuitem.price
+  %h5
+    Description:
+    = @menuitem.description
 
-= link_to 'Edit', edit_menuitem_path(@menuitem)
-\|
-= link_to 'Back', menuitems_path

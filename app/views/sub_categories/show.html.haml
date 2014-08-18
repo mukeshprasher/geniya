@@ -1,12 +1,15 @@
-%p#notice= notice
+.wrapper
+  .news_feeds
+      
+.wrapper
+  .row-fluid.spaced-top
+    .span2.spaced-left
+      .btn-group.btn-group-vertical.btn-block
+        = link_to 'My Profile', current_user, class: 'btn'
+        = link_to 'Back', sub_categories_path, class: 'btn'
+.detail_form_container
+  %h3
+    = @sub_category.name.capitalize
+  %h4
+    = @sub_category.category.name.capitalize
 
-%p
-  %b Name:
-  = @sub_category.name
-%p
-  %b Category:
-  = @sub_category.category_id
-
-= link_to 'Edit', edit_sub_category_path(@sub_category)
-\|
-= link_to 'Back', sub_categories_path

@@ -1,18 +1,22 @@
-%p#notice= notice
-
-%p
-  %b Institute:
-  = @education.institute_name
-%p
-  %b Course:
-  = @education.course_name
-%p
-  %b Start:
-  = @education.start_date
-%p
-  %b End:
-  = @education.end_date
-
-= link_to 'Edit', edit_education_path(@education)
-\|
-= link_to 'Back', educations_path
+.wrapper
+  .news_feeds
+      
+.wrapper
+  .row-fluid.spaced-top
+    .span2.spaced-left
+      .btn-group.btn-group-vertical.btn-block
+        = link_to 'My Profile', current_user, class: 'btn'
+        = link_to 'Back', educations_path, class: 'btn'
+.detail_form_container
+  %h4
+    Institute:
+    = @education.institute_name
+  %h4
+    Course:
+    = @education.course_name
+  %h4
+    Start:
+    = @education.start_date
+  %h4
+    End:
+    = @education.end_date

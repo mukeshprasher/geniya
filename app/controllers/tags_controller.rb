@@ -1,5 +1,6 @@
 class TagsController < ApplicationController
   before_action :set_tag, only: [:show, :edit, :update, :destroy]
+  before_action :only_admin, only: [:index]
   before_action :signed_in_user, only: [:create, :update, :destroy]
 
   # GET /tags
@@ -10,6 +11,7 @@ class TagsController < ApplicationController
     else  
       @tags = Tag.paginate(page: params[:page])
     end
+    @tags = Tag.all.paginate(page: params[:page], :per_page => 30)
   end
 
   # GET /tags/1
