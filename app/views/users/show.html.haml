@@ -208,7 +208,7 @@
         %ul
           - if (current_user != @user) && signed_in?    
             %li
-              %button.send_message_button.btn.btn-primary.demo{"data-toggle" => "modal", "data"=> @user.id, "onclick"=>"javascript:open_chat_modal(#{@user.id})"} Send message
+              = render 'shared/send_message_button', user: @user
           %li
             = render 'shared/follow_form' if signed_in?
           %li

@@ -3024,7 +3024,7 @@ fieldset .field {
 #user_chat_msg {
     color: #808080;
     font-size: 12px;
-    margin: 5px 0 0;
+    margin: 5px 0 3px;
 }
 
 
@@ -4322,3 +4322,8 @@ select{width:100% !important;}
 #new_user select{width: 271px !important;}
 
 #loading_img_for_video{display:none;}
+
+.avatar_50{
+  width: 50px;
+  height: 50px;
+}

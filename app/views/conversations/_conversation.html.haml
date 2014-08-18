@@ -1,0 +1,11 @@
+- other_user = (conversation.sender == current_user) ? conversation.recipient : conversation.sender
+
+.full_width
+  = link_to other_user do
+    - if other_user.headshot
+      = image_tag other_user.headshot.file_attachment.url(:medium), width: "80px", height: "80px"
+    - else
+      = image_tag '/assets/missing.png', width: "80px", height: "80px"
+    = other_user.name
+  = link_to "Send Message", "#", class: "btn btn-xs start-coversation",
+"data-sid" => current_user.id, "data-rip" => other_user.id, "onclick"=>"javascript:open_conversation(event)"

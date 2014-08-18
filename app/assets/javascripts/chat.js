@@ -1,3 +1,15 @@
+function open_conversation(e){
+  e = e || window.event;
+
+  e.preventDefault();
+   
+  var sender_id = $(e.target).data('sid');
+  var recipient_id = $(e.target).data('rip');
+  $.post("/conversations", { sender_id: sender_id, recipient_id: recipient_id }, function (data) {
+    chatBox.chatWith(data.conversation_id);
+  });
+}
+
 var chatboxFocus = new Array();
 var chatBoxes = new Array();
  
@@ -87,7 +99,7 @@ var ready = function () {
        
       $("body").append('<div id="chatbox_' + conversation_id + '" class="chatbox"></div>')
        
-      $.get("conversations/" + conversation_id, function (data) {
+      $.get("/conversations/" + conversation_id, function (data) {
         $('#chatbox_' + conversation_id).html(data);
         $("#chatbox_" + conversation_id + " .chatboxcontent").scrollTop($("#chatbox_" + conversation_id + " .chatboxcontent")[0].scrollHeight);
       }, "html");
@@ -299,14 +311,7 @@ var ready = function () {
   */
    
   $('.start-conversation').click(function (e) {
-    e.preventDefault();
-     
-    var sender_id = $(this).data('sid');
-    var recipient_id = $(this).data('rip');
-     
-    $.post("/conversations", { sender_id: sender_id, recipient_id: recipient_id }, function (data) {
-      chatBox.chatWith(data.conversation_id);
-    });
+    open_conversation(e);
   });
    
   /**

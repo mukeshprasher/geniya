@@ -1,0 +1,11 @@
+%li{:class => self_or_other(message)}
+  .avatar.avatar_50
+    - if message.user.headshot
+      = image_tag message.user.headshot.file_attachment.url(:medium)
+    - else
+      = image_tag '/assets/missing.png'
+  .chatboxmessagecontent
+    %p= message.body
+    %time{:datetime => message.created_at, :title => message.created_at.strftime("%d %b %Y at %I:%M%p")}
+      = message_interlocutor(message).name
+      • #{time_ago_in_words message.created_at} ago

@@ -3,15 +3,14 @@ class MessagesController < ApplicationController
 
   def create
     @conversation = Conversation.find(params[:conversation_id])
+    recipient = interlocutor(@conversation)
     @message = @conversation.messages.build(message_params)
     @message.user_id = current_user.id
+    @message.recipient_id = recipient.id
     @message.save!
 
-    
     @path = user_path(current_user)
-
-    reciever = interlocutor(@conversation)
-    @path2 = user_path(reciever)
+    @path2 = user_path(recipient)
   end
 
   private
