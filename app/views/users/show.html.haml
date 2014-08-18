@@ -82,8 +82,10 @@
                       Add Affiliations                        
               - if @user.affiliations.where(status: 'yes').any?
                 %li#affiliation_content
+                  
                   %a.demo{"data-toggle" => "modal",href: "#affiliations"}
-                    %span Current:
+                    %span
+                      Current:
                     
                   #orgnz_detail
                     - if @user.affiliations.where(status: 'yes').any?
@@ -92,11 +94,13 @@
               - else
                 - if (current_user == @user) && signed_in?               
                   %li#affiliation_content
+                    
                     %a.demo{"data-toggle" => "modal",href: "#affiliations"}
-                      %span Current:
-                      #orgnz_detail                
-                        %span
-                          Add Detail
+                      %span 
+                        Current:
+                    #orgnz_detail                
+                      %span
+                        Add Detail
               
               
               - if @user.affiliations.where(status: 'no').any?
