@@ -1,6 +1,6 @@
 class ConversationsController < ApplicationController
   before_action :signed_in_user
-  layout false, except: :index
+  layout false
 
   def index
     @conversations = Conversation.involving(current_user)
