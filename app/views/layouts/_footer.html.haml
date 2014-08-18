@@ -16,7 +16,7 @@
       #feedback_modal.modal.fade{"data-width" => "", style: "display: none;margin-top: 0px !important;", tabindex: "-1"}
         .modal-header
           %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
-          %h4.modal-title Feedback or Support request
+          %h4.modal-title Feedback or Support Request
         .modal-body#profile_cover_upload_modal_body
           = simple_form_for Feedback.new do |f|
             - if signed_in?

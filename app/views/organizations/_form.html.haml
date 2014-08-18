@@ -1,21 +1,21 @@
 = simple_form_for(@organization) do |f|
-  = f.error_notification
-
+  /= f.error_notification
+  = render 'shared/error_messages', object: f.object
   .form-inputs
     #org_name
       %label
         %b
-          Organization Name
+          *Organization Name
     = f.input :name
     #org_name
       %label
         %b
-          Area Of Work
+          *Area Of Work
     = collection_select(:organization, :category_id, Category.all, :id, :name)
     #aff_start_date
       %label
         %b
-          Organization Establishment Date  
+          *Organization Start Date  
     .field.datepicker
       = text_field(:organization, :start_date)    
 

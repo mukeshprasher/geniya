@@ -21,6 +21,7 @@ class Advertisement < ActiveRecord::Base
   validates :title,  presence: true, length: { minimum: 10, maximum: 50 }
   validates :slogan, presence: true, length: { minimum: 10, maximum: 50 }
   validates :file_attachment,  presence: true
+  validates :link,  presence: true
   validates_presence_of :category_id, presence: true
 
   acts_as_likeable

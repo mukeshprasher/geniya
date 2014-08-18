@@ -44,7 +44,7 @@ class OrganizationsController < ApplicationController
 
     respond_to do |format|
       if @organization.save
-        format.html { redirect_to current_user, notice: 'Organization created, now add affiliation.' }
+        format.html { redirect_to @organization, notice: 'Organization created, now add affiliation.' }
         format.json { render action: 'show', status: :created, location: @organization }
       else
         format.html { render action: 'new' }

@@ -101,7 +101,7 @@ class User < ActiveRecord::Base
 
     def birthdate_custom_validate
       errors.add(:birthdate, 'must be a valid date') if ((DateTime.parse(birthdate.to_s) rescue ArgumentError) == ArgumentError) and birthdate.present?
-      errors.add(:birthdate, 'must be a from past') if birthdate.present? and birthdate > Date.today 
+      errors.add(:birthdate, 'must be from past') if birthdate.present? and birthdate > Date.today 
     end
 
     def User.new_remember_token
