@@ -176,4 +176,17 @@ module SessionsHelper
   def current_user_id_is_same_as_user_id?(obj)
     current_user.id == obj.user_id
   end
+
+  def only_admin
+    if !signed_in?
+      redirect_to(root_url)
+    else
+      if current_user.plan == "admin"
+      else
+        redirect_to(root_url)
+      end
+    end
+  end
+
+
 end

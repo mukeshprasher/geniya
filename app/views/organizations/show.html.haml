@@ -4,7 +4,7 @@
       - if signed_in? and current_user == @organization.user
         = link_to 'Edit', edit_organization_path(@organization), class: 'btn btn-success'
       = link_to 'View Organizations', organizations_url, class: 'btn'
-      = link_to 'Back', current_user, class: 'btn'
+      = link_to 'My Profile', current_user, class: 'btn'
   .span7.spaced-right
     %h1 Organization
     %p  

@@ -1,12 +1,13 @@
 class ActivitiesController < ApplicationController
   before_action :set_activity, only: [:show, :edit, :update, :destroy]
-  before_action :signed_in_user, only: [ :new, :edit, :create, :update, :destroy]
+  before_action :only_admin, only:[:new, :edit]
+  before_action :signed_in_user, only: [ :new, :edit, :create, :update, :destroy, :index]
 
   # GET /activities
   # GET /activities.json
-  def index
-    @activities = Activity.all
-  end
+#  def index
+#    @activities = Activity.all
+#  end
 
   # GET /activities/1
   # GET /activities/1.json
@@ -61,6 +62,18 @@ class ActivitiesController < ApplicationController
 #      format.json { head :no_content }
 #    end
   end
+
+  def only_admin
+    if !signed_in?
+      redirect_to(root_url)
+    else
+      if current_user.plan == "admin"
+      else
+        redirect_to(root_url)
+      end
+    end
+  end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

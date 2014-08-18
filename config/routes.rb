@@ -27,7 +27,8 @@ Geniya::Application.routes.draw do
 
   resources :jobs
 
-  resources :activities
+  resources :activities, except: [:index]
+
   resources :locations
 
   resources :pins
