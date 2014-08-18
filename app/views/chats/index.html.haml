@@ -26,8 +26,8 @@
                   - else
                     = image_tag '/assets/missing.png', width: "80px", height: "80px"
                   = other_user.name
-                = link_to "Send Message", "#", class: "btn btn-success btn-xs start-conversation",
-"data-sid" => current_user.id, "data-rip" => other_user.id          
+                = link_to "Send Message", "#", class: "btn btn-success btn-xs start-coversation",
+"data-sid" => current_user.id, "data-rip" => other_user.id, "onclick"=>"javascript:open_conversation(event)"   
               %td= (chat.user == current_user) ? "->" : "<-"
               %td.text_left= chat.message
               %td= chat.status

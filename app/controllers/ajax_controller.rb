@@ -46,7 +46,7 @@ class AjaxController < ApplicationController
   end
 
   def mark_message_notifications_as_seen
-    @chat_requests = Chat.where("reciever_id = ? AND status = ?", current_user.id, 'unread').order('created_at DESC').limit(100)
+    @chat_requests = Message.where("recipient_id = ? AND status = ?", current_user.id, 'unread').order('created_at DESC').limit(100)
     render 'mark_message_notifications_as_seen', layout: false
   end
 

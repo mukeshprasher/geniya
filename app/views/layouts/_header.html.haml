@@ -38,11 +38,10 @@
           = render 'shared/send_message_form'
           %a#message_response_notifications_trigger.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
             %img{alt: "notices", src: "/assets/massege.png", class:"notification_image"}/
-            - if (Chat.where(reciever_id: current_user.id, status: 'unread').count == 0)
-            - else
+            - count_of_unread_conversations = Message.where(recipient_id: current_user.id, status: 'unread').distinct.count(:conversation_id)
+            - unless count_of_unread_conversations == 0
               %span#notification_count
-                = Chat.where(reciever_id: current_user.id, status: 'unread').count
-            /%b.caret
+                = count_of_unread_conversations
           %ul.dropdown-menu#message_response_notifications
 
         /%li#fat-menu.dropdown

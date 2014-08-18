@@ -1,6 +1,10 @@
 class ConversationsController < ApplicationController
   before_action :signed_in_user
-  layout false
+  layout false, except: :index
+
+  def index
+    @conversations = Conversation.involving(current_user)
+  end
  
   def create
     if Conversation.between(params[:sender_id],params[:recipient_id]).present?
@@ -16,6 +20,11 @@ class ConversationsController < ApplicationController
     @conversation = Conversation.find(params[:id])
     @reciever = interlocutor(@conversation)
     @messages = @conversation.messages
+    @messages.where(status: 'unread', recipient_id: current_user.id).each do |msg|
+      msg.status = 'read'
+      msg.save
+    end
+    
     @message = Message.new
   end
    
