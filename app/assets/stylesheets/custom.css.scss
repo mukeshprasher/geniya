@@ -3496,11 +3496,13 @@ body {
   margin: 5px 2px 2px 5px;
 }
 #home_control_section .btn{
-  margin: 5px;
+  margin: 5px 0 0 40px;
+    width: 200px;
 }
 #controll_container .btn{
   margin: 5px 0;
   text-transform: capitalize;
+    width: 200px;
 }
 
 #bussiness_controll_container {margin: 0 0 0 31px;width: 90%;}
@@ -4097,6 +4099,7 @@ max-width:300px;
   text-transform:none;
   .chatboxcontent{
     height: auto;
+    max-height:450px;
   }
 }
 
@@ -4357,6 +4360,7 @@ select{width:100% !important;}
 }
 .chat_all_user_img{
   padding: 3px;
+  width:20%;
 }
 
 .Quote_form .simple_form {padding: 0 !important;}

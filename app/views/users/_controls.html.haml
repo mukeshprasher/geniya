@@ -14,6 +14,9 @@
       - if current_user.jobs.any?
         = link_to 'My posted jobs', jobs_path, class: 'btn'
 
+      - if current_user.plan == 'deluxe' or current_user.plan == 'admin' or current_user.plan == 'trial'
+        = link_to 'Create advertisement', new_advertisement_path, class: 'btn'
+
       - if @user.feature_img == 'true'
         #organization_controll_container    
           #addfeatureimg.modal.fade{"data-width" => "760", style: "display: none;", tabindex: "-1"}
@@ -43,7 +46,6 @@
       = link_to 'Edit profile', "/users/"+current_user.slug+"/profile_edit", class: 'btn'
 
       - if current_user.plan == 'deluxe' or current_user.plan == 'admin' or current_user.plan == 'trial'
-        = link_to 'Create advertisement', new_advertisement_path, class: 'btn'
 
         - if current_user.advertisements.any?
           = link_to 'My advertisements', advertisements_path, class: 'btn'

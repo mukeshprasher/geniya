@@ -1,2 +1,10 @@
+- displayed_users_chat = Array.new
 - @conversations.each do |conversation|
-  = render conversation
+  - other_user = (conversation.sender == current_user) ? conversation.recipient : conversation.sender
+  = render conversation, other_user: other_user
+  - displayed_users_chat << other_user.id
+
+
+- @connected_users.each do |user|
+  = render 'conversation', other_user: user unless displayed_users_chat.include? user.id
+  
