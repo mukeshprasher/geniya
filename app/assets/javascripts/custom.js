@@ -136,7 +136,7 @@ $(function() {
 //      return {'id':i, 'name':value};
 //    });    
 
-    $('textarea')
+    $('.smiley')
       .atwho({
         at: "@",
         tpl: "<li data-value='${atwho-at}${username}'><img src=\"${headshot}\"  width=\"50px\" />${name}</li>",

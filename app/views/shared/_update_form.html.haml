@@ -1,7 +1,7 @@
 = form_for(@update, remote: true , :authenticity_token => true ) do |f|
   = render 'shared/error_messages', object: f.object
   .field
-    = f.text_area :text, placeholder: "Share an update...", id: "feed-text"
+    = f.text_area :text, placeholder: "Share an update...", id: "feed-text", class: "smiley"
     = f.hidden_field :receiver_user_id, value: current_user.id
     = f.hidden_field :user_id, value: current_user.id
     = f.hidden_field :upload_type, value: current_user.status_pic_album.kind

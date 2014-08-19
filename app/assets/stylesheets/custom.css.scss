@@ -2727,11 +2727,12 @@ textarea:focus, input[type="text"]:focus, input[type="password"]:focus, input[ty
 }
 
 #connct-counts {
-    color: #86B031;
+   color: #86B031;
     float: left;
     font-size: 30px;
     margin: -7px 0 0;
-    width: 26px;
+    padding: 0 5px 0 0;
+    width:auto;
 }
 
 
