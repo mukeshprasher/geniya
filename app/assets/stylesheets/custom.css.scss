@@ -2383,9 +2383,12 @@ border:#698941;
 .albm-img img {
     cursor: pointer;
     width:300px;
-    max-height: 231px;
 }
 
+
+.isotope-item .albm-img img {
+    max-height: 231px;
+}
 
 .content-1 {
     margin: 0 0 50px;
