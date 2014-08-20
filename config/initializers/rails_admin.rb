@@ -8,7 +8,7 @@ RailsAdmin.config do |config|
   # end
   # config.current_user_method(&:current_user)
   config.current_user_method(&:admin_user)
-  config.excluded_models = ["Like", "Follow", "Mention", "Message", "Conversation"]
+  config.excluded_models = ["Like", "Follow", "Mention", "Message", "Conversation", "Activity", "DevelopmentLog", "Rate", "RatingCache", "Response", "Relationship", "Share", "PaymentSubscription", "Payment", "Chat", "FeedbackReply", "Connection", "Category"]
 
   ## == Cancan ==
   # config.authorize_with :cancan
