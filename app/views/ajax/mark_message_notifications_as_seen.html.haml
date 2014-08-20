@@ -15,7 +15,8 @@
       #activity_user_detail
         = "#{other_user.name}"
         %p#user_chat_msg
-          = "#{truncate(chat.body, length: 17)}"
+          /= "#{truncate(chat.body, length: 17)}"
+          = raw chat.body
         = link_to "Send Message", "#", class: "btn  btn-xs",
 "data-sid" => current_user.id, "data-rip" => other_user.id, "onclick"=>"javascript:open_conversation(event)"
 %li#user_no_msg
