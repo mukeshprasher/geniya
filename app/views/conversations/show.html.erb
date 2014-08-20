@@ -3,6 +3,26 @@
     <i class="fa fa-comments"></i>
  
     <h1><%= @reciever.name %> </h1>
+    <% if !@reciever.last_seen.nil? %>
+      <span>
+        <% if @reciever.login_status == 'logout' %>
+          <% colorname = "grey" %> 
+        
+        <% elsif @reciever.last_seen < 10.minutes.ago %>
+          <% colorname = "grey" %>
+        
+        <% elsif @reciever.last_seen > 2.minutes.ago %>
+          <% colorname = "green" %>
+        
+        <% elsif (@reciever.last_seen < 2.minutes.ago && @reciever.last_seen > 10.minutes.ago)  %>
+          <% colorname = "yellow" %>
+        <% end %>
+        <span class= "txt_chat_<%= colorname %>">
+          <%= time_ago_in_words(@reciever.last_seen, true) %> ago
+        
+    <% end %> 
+
+    
   </div><div class="chatboxoptions">
     <%= link_to "<i class='fa fa-minus'></i> ".html_safe, "#", class: "toggleChatBox", "data-cid" => @conversation.id %>
 &nbsp;&nbsp;

@@ -4089,7 +4089,14 @@ max-width:300px;
   .chatboxcontent{
     height: auto;
     max-height:450px;
+    min-width: 260px;
   }
+}
+
+
+
+.full_width:hover {
+    background: none repeat scroll 0 0 #E5E5E5;
 }
 
 #feedback_modal {
@@ -4361,9 +4368,10 @@ select{width:100% !important;}
 
 .left.chat_all_user_img a {
     color: #4C4C4C;
+    text-decoration: none;
 }
 
-.chat_send_btn{width:70%;}
+.chat_send_btn{width:70%; padding: 10px 0 0;}
 
 
 .txt_chat_grey {
@@ -4377,7 +4385,10 @@ select{width:100% !important;}
 }
 
 .txt_chat_yellow{
-    color: yellow;
+    color: #FAC100;
     font-family: latobold;
 }
-
+.txt_chat_red{
+    color: red;
+    font-family: latobold;
+}

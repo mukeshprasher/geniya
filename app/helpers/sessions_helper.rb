@@ -9,7 +9,7 @@ module SessionsHelper
       end
       
       user.update_attribute(:remember_token, User.encrypt(remember_token))
-      
+      user.update_attribute(:login_status, 'login')
       
       current_user = user
   end
