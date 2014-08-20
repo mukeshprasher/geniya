@@ -30,6 +30,9 @@ function open_chat_modal(user_id){
  }
 
 
+
+
+
 function open_event_modal(event_id){
   var $modal_event = $('#event_modal');
   //create the backdrop and wait for next modal to be triggered
@@ -135,6 +138,7 @@ $(function() {
 //    var tag_list = $.map(tag, function(value, i) {
 //      return {'id':i, 'name':value};
 //    });    
+
 
     $('.smiley')
       .atwho({
