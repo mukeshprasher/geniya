@@ -96,7 +96,6 @@ gem 'letsrate'
 gem "best_in_place", github: 'bernat/best_in_place', branch: "rails-4"
 
 #Automatic jquery validation
-gem 'html5_validators'
 
 gem "remotipart", "~> 1.0"
 

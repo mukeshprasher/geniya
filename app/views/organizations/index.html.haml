@@ -3,20 +3,17 @@
     .btn-group.btn-group-vertical.btn-block
       = link_to 'New Organization', new_organization_path, class: 'btn btn-success'
       = link_to 'My profile', current_user, class: 'btn'
-  .span10.min500
+  .span9.min500
     %h1 Listing organizations
 
     .organization_listing
-      %table
+      %table.table.table-bordered
         %tr
           %th Name
           %th Category
           %th Start date
           %th Created by
-          %th
-          %th
-          %th
-
+          %th Operations
         - @organizations.each do |organization|
           %tr
             %td
@@ -24,12 +21,14 @@
                 = organization.name
             %td= organization.category.name
             %td= organization.start_date
-            %td= organization.user.name
-            - if signed_in? and current_user?(organization.user)
-              %td= link_to 'Edit', edit_organization_path(organization)
-              %td
-                |
-              %td= link_to 'Destroy', organization, :method => :delete, :data => { :confirm => 'Are you sure?' }
+            %td= organization.user.name.capitalize
+            
+            %td
+              - if signed_in? and current_user?(organization.user)
+                = link_to 'Edit', edit_organization_path(organization)
+            %td
+              - if signed_in? and current_user?(organization.user)
+                = link_to 'Destroy', organization, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
       %br
       = will_paginate

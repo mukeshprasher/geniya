@@ -8,7 +8,6 @@ class Organization < ActiveRecord::Base
   has_many :locations
   has_many :jobs
 
-  include ActiveModel::Validations  
   validates :name,  presence: true, length: {maximum: 40 }
   validates :start_date,  presence: true, length: {maximum: 40 }
 end

@@ -9,7 +9,25 @@
         - else
           = image_tag '/assets/missing.png'
       = other_user.name
-  .right
+
+  .right.chat_send_btn
+    .chat_user_login_status
+      - if !other_user.last_seen.nil?
+        %span
+          - if other_user.login_status == 'logout'
+            - colorname = "grey"           
+          
+          - elsif other_user.last_seen < 10.minutes.ago 
+            - colorname = "grey"
+          
+          - elsif other_user.last_seen > 2.minutes.ago
+            - colorname = "green"
+          
+          - elsif (other_user.last_seen < 2.minutes.ago && other_user.last_seen > 10.minutes.ago)  
+            - colorname = "yellow"        
+          %span{class: "txt_chat_#{colorname}"}
+            #{time_ago_in_words(other_user.last_seen, true)} ago 
     = link_to "Send Message", "#", class: "btn btn-xs start-coversation",
 "data-sid" => current_user.id, "data-rip" => other_user.id, "onclick"=>"javascript:open_conversation(event)"
 .clear
+

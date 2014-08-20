@@ -26,7 +26,7 @@ class UsersController < ApplicationController
       @featureimg = Featureimg.new
       @new_chat = Chat.new
       @event = Event.new
-      #impressionist @user, '', unique: [:user_id] if current_user
+      impressionist @user, '', unique: [:user_id] if current_user
       @skill = current_user.skills.build
       @education = current_user.educations.build
       @advertisement = current_user.advertisements.build

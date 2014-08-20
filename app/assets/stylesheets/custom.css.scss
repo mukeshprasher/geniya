@@ -3353,6 +3353,7 @@ body {
 }
 .full_width{
   width: 100%;
+  float:left;
 }
 
 
@@ -4035,20 +4036,6 @@ max-width:300px;
 
 }
 
-.organization_listing table{
-    width: 1024px;
-}
-
-
-.organization_listing table tbody {
-    font-size: 16px;
-    text-transform: capitalize;
-    text-align:left;
-}
-
-.organization_listing table td {
-    padding: 8px 4px 0 0px;
-}
 
 
 /************* event form *************/
@@ -4369,3 +4356,27 @@ select{width:100% !important;}
 .avatar_50{width: 50px;height: 50px;}
 
 .save_plan {font-size: 17px;text-decoration: line-through;}
+
+
+.left.chat_all_user_img a {
+    color: #4C4C4C;
+}
+
+.chat_send_btn{width:70%;}
+
+
+.txt_chat_grey {
+    color: #808080;
+    font-family: latobold;
+}
+
+.txt_chat_green{
+    color: #82AC2E;
+    font-family: latobold;
+}
+
+.txt_chat_yellow{
+    color: yellow;
+    font-family: latobold;
+}
+

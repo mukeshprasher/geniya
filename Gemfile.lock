@@ -124,7 +124,6 @@ GEM
     heroku-deflater (0.5.3)
       rack (>= 1.4.5)
     hike (1.2.3)
-    html5_validators (1.1.2)
     http_parser.rb (0.6.0)
     httpclient (2.3.4.1)
     i18n (0.6.9)
@@ -299,7 +298,6 @@ DEPENDENCIES
   fullcalendar-rails
   haml-rails (= 0.5.3)
   heroku-deflater
-  html5_validators
   impressionist
   jbuilder (= 1.5.3)
   jquery-atwho-rails

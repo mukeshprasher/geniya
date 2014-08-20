@@ -8,7 +8,7 @@ RailsAdmin.config do |config|
   # end
   # config.current_user_method(&:current_user)
   config.current_user_method(&:admin_user)
-  config.excluded_models = ["Like", "Follow", "Mention"]
+  config.excluded_models = ["Like", "Follow", "Mention", "Message", "Conversation"]
 
   ## == Cancan ==
   # config.authorize_with :cancan
@@ -35,15 +35,15 @@ RailsAdmin.config do |config|
     # history_show
   end
 
-  RailsAdminImport.config do |config| 
-    config.model User do
-      excluded_fields do
-        #[:field1, :field2, :field3]
-      end
-      label :name
-      extra_fields do
-        #[:field3, :field4, :field5]
-      end
-    end
-  end
+#  RailsAdminImport.config do |config| 
+#    config.model 'User'.constantize do
+#      excluded_fields do
+#        #[:field1, :field2, :field3]
+#      end
+#      label :name
+#      extra_fields do
+#        #[:field3, :field4, :field5]
+#      end
+#    end
+#  end
 end

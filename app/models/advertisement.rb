@@ -1,5 +1,4 @@
 class Advertisement < ActiveRecord::Base
-  include ActiveModel::Validations  
   belongs_to :user
   belongs_to :category
   has_many :likes,foreign_key: 'likeable_id'

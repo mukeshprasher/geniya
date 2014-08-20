@@ -1,8 +1,8 @@
 class User < ActiveRecord::Base
 #    attr_accessible :email, :name
 #    include Mailboxer::Models::Messageable
-    extend Mailboxer::Models::Messageable::ActiveRecord
-    acts_as_messageable
+#    extend Mailboxer::Models::Messageable::ActiveRecord
+#    acts_as_messageable
     has_one :bussiness
     has_many :menuitems
     has_many :menucategories
@@ -92,9 +92,9 @@ class User < ActiveRecord::Base
 
     
     acts_as_liker 
-    #is_impressionable counter_cache: true
-    acts_as_mentionable
-    letsrate_rater
+    is_impressionable :unique => :user_id, counter_cache: true
+#    acts_as_mentionable
+#    letsrate_rater
      
     extend FriendlyId
     friendly_id :username, use: [:slugged, :finders]

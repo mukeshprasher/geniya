@@ -5,7 +5,9 @@ class ApplicationController < ActionController::Base
   include SessionsHelper
   include CategoriesHelper
   include ResponsesHelper
+  include ApplicationHelper
   
   before_action :set_categories
   before_action :clear_notifications, only: [:show]
+  before_action :update_user_last_seen 
 end

@@ -1,5 +1,4 @@
 class Skill < ActiveRecord::Base
-  include ActiveModel::Validations
   validates :name, presence: true 
   extend FriendlyId
   friendly_id :slug_skills, use: [:slugged, :finders]  
@@ -16,7 +15,6 @@ class Skill < ActiveRecord::Base
     ]
   end  
 
-  include ActiveModel::Validations  
   validates :name,  presence: true, length: { minimum:2 }
     
 end

@@ -6,7 +6,6 @@ class Location < ActiveRecord::Base
   belongs_to :user
   belongs_to :organization
   
-  include ActiveModel::Validations  
   validates :new_country, length: { maximum: 12 }
   validates :new_state, length: {maximum: 12 }
   validates :new_city, length: {maximum: 10 }
