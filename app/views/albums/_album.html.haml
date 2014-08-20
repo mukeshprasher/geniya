@@ -160,7 +160,10 @@
                 = link_to @album.user.name, @album.user
             - if signed_in? and !current_user?(@album.user)
               %br
-              %button.send_message_button.btn.btn-primary.demo{"data-toggle" => "modal", "data"=> @album.user.id, "onclick"=>"javascript:open_chat_modal(#{@album.user.id})"}Send Message
+              /%button.send_message_button.btn.btn-primary.demo{"data-toggle" => "modal", "data"=> @album.user.id, "onclick"=>"javascript:open_chat_modal(#{@album.user.id})"}Send Message
+              = link_to "Send Message", "#", class: "btn btn-primary btn-xs start-coversation",
+              "data-sid" => current_user.id, "data-rip" => @album.user.id, "onclick"=>"javascript:open_conversation(event)"              
+              
             #owner-location-container
               /%a.location-link.text-ellipsis.beicons-pre.beicons-pre-location Brooklyn, NY, USA
         #owner-buttons-container.clear
