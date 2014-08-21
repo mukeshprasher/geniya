@@ -16,8 +16,9 @@
             %td= city.state.name
             %td= city.name
             %td= link_to 'Show', city
-            %td= link_to 'Edit', edit_city_path(city)
-            %td= link_to 'Destroy', city, :method => :delete, :data => { :confirm => 'Are you sure?' }
+            - if current_user.plan== "admin"
+              %td= link_to 'Edit', edit_city_path(city)
+              %td= link_to 'Destroy', city, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
         %br
         

@@ -15,8 +15,9 @@
             %td= state.country.name.capitalize
             %td= state.name.capitalize
             %td= link_to 'Show', state
-            %td= link_to 'Edit', edit_state_path(state)
-            %td= link_to 'Destroy', state, :method => :delete, :data => { :confirm => 'Are you sure?' }
+            - if current_user.plan== "admin"
+              %td= link_to 'Edit', edit_state_path(state)
+              %td= link_to 'Destroy', state, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
         %br
 

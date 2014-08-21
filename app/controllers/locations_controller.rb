@@ -1,7 +1,6 @@
 class LocationsController < ApplicationController
   before_action :set_location, only: [:show, :edit, :update, :destroy]
-  before_action :only_admin, only: [:index]
-  before_action :signed_in_user, only: [ :new, :edit, :create, :update, :destroy]
+  before_action :signed_in_user, only: [ :new, :edit, :create, :update, :destroy, :index]
   before_action only: [:edit, :update, :destroy] do
     redirect_with_notice_if_incorrect_user(@location)
   end

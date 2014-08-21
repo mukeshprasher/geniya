@@ -14,8 +14,9 @@
           %tr
             %td= country.name
             %td= link_to 'Show', country
-            %td= link_to 'Edit', edit_country_path(country)
-            %td= link_to 'Destroy', country, :method => :delete, :data => { :confirm => 'Are you sure?' }
+            - if current_user.plan== "admin"
+              %td= link_to 'Edit', edit_country_path(country)
+              %td= link_to 'Destroy', country, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
         %br
 

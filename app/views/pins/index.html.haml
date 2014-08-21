@@ -16,8 +16,9 @@
             %td= pin.code
             %td= pin.city.name.capitalize
             %td= link_to 'Show', pin
-            %td= link_to 'Edit', edit_pin_path(pin)
-            %td= link_to 'Destroy', pin, :method => :delete, :data => { :confirm => 'Are you sure?' }
+            - if current_user.plan== "admin"
+              %td= link_to 'Edit', edit_pin_path(pin)
+              %td= link_to 'Destroy', pin, :method => :delete, :data => { :confirm => 'Are you sure?' }
         %br
       %br
       = will_paginate

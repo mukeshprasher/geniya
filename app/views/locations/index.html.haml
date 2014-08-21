@@ -18,8 +18,9 @@
             %td= location.pin.code
             %td= location.street_address.capitalize
             %td= link_to 'Show', location
-            %td= link_to 'Edit', edit_location_path(location)
-            %td= link_to 'Destroy', location, :method => :delete, :data => { :confirm => 'Are you sure?' }
+            - if current_user.plan== "admin"
+              %td= link_to 'Edit', edit_location_path(location)
+              %td= link_to 'Destroy', location, :method => :delete, :data => { :confirm => 'Are you sure?' }
       %br
       = will_paginate
 
