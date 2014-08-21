@@ -576,12 +576,18 @@ $(function() {
 
    
 
+    $("#new_tag").submit(function(){
+      $('#loading_img_for_tag').show();  
+    });
 
+    $("#new_skill").submit(function(){
+      $('#loading_img_for_userskill').show();  
+    });
 
-
-
-
-
+    $("#new_affiliation").submit(function(){
+      
+      //$('#loading_img_for_useraffiliation').show();  
+    });
 
 
 
@@ -616,6 +622,7 @@ $(function() {
     
     else
     {
+      $('#loading_img_for_usereducation').show();  
       //skillfield.val('');
       //alert('Eduction Successfully added');
       return true;
@@ -999,6 +1006,11 @@ $(function() {
             $('#loading_img_for_video').hide();
             $('#loading_img_for_feedback').hide();
             $('#loading_img_for_feedback_form').hide();
+            $('#loading_img_for_tag').hide();
+            $('#loading_img_for_userskill').hide();
+            $('#loading_img_for_usereducation').hide();
+            $('#loading_img_for_srhorgn').hide();
+            $('#loading_img_for_useraffiliation').hide();
             
         });
     }); 

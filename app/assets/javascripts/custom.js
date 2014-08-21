@@ -220,6 +220,7 @@ $(function() {
         })
 
 
+
         $("#srch_org")
         .atwho({
           at: "", 
@@ -231,10 +232,11 @@ $(function() {
              @param callback [Function] callback to render page.
             */
             remote_filter: function(query, callback) {
+              $('#loading_img_for_srhorgn').show(); 
               $.getJSON("/organizations.json", {q: query}, function(data) {
                 callback(data)
               $('.orgn-data').click(function(){
-              
+              $('#loading_img_for_srhorgn').show();  
               var org_data = $(this).attr( "data" )
               $.get("/organizations/"+ org_data+ ".js", {}, function(data) {
 //                callback(data)
@@ -243,6 +245,7 @@ $(function() {
               
               $('#srch_org').keydown(function(event) {
                if (event.keyCode == 13){
+                $('#loading_img_for_srhorgn').show(); 
                  var org_data = $('.orgn-data.cur').attr( "data" );
               $.get("/organizations/"+ org_data+ ".js", {}, function(data) {
 //                callback(data)

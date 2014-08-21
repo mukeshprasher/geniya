@@ -351,6 +351,8 @@
 
                   .form-actions-tags
                     = f.button :submit, value: "Add Tags", class: "btn btn-primary"
+                  #loading_img_for_tag
+                    %img{src: "/assets/loader.gif", alt: "loading"}/                     
             .modal-footer
               %button#add_tag_modal_close.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
           #add_tag_link
@@ -417,6 +419,8 @@
 
                         .form-actions-skills
                           = f.button :submit, value: "Add Skills", class: "btn btn-primary"
+                        #loading_img_for_userskill
+                          %img{src: "/assets/loader.gif", alt: "loading"}/                           
                     .modal-footer
                       %button#add_skill_modal_close_button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
                   %a.demo{"data-toggle" => "modal",href: "#skills"}

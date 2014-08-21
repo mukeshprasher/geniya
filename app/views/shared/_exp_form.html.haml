@@ -3,6 +3,8 @@ or
 %a.demo{"data-toggle" => "modal",href: "#orgn_form"}
   %span.btn.btn-primary
     Create New Organization
+#loading_img_for_srhorgn
+  %img{src: "/assets/loader.gif", alt: "loading"}/ 
 %p#orgn_detail
 #affilates_form_container
 %p#divider_for_org
@@ -16,3 +18,4 @@ or
       = render 'organizations/form'
     .modal-footer
       %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
+     

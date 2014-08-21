@@ -10,3 +10,5 @@
       = f.input :end_date, as: :select, collection: Date.current.year.downto(1940), include_blank: false
   .form-actions-edu
     = f.button :submit , value: "Add Education", class: "btn btn-primary"
+  #loading_img_for_usereducation
+    %img{src: "/assets/loader.gif", alt: "loading"}/    

@@ -42,7 +42,8 @@
 
   .aff_btn
     = f.button :submit, value:"Add affiliation to profile", class:"btn btn-large btn-primary"
-
+  #loading_img_for_useraffiliation
+    %img{src: "/assets/loader.gif", alt: "loading"}/ 
 :javascript
     $('.datepicker, .datetimepicker').append('<span class="add-on"><i data-time-icon="icon-time" data-date-icon="icon-calendar"></i></span>')
 
