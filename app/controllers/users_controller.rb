@@ -109,7 +109,7 @@ class UsersController < ApplicationController
   end
  
   def change_login
-    if @user.parent_id == current_user.id || @user.id == current_user.parent_id || @user.parent_id == current_user.parent_id
+    if @user.parent_id == current_user.id || @user.id == current_user.parent_id 
       sign_in @user
       redirect_to @user
     else
