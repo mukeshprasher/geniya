@@ -14,7 +14,7 @@ class OrganizationsController < ApplicationController
     if params[:q]
       @organizations = Organization.where("lower(name) like lower(?)", "%#{params[:q]}%")
     else  
-      @organizations = Organization.paginate(page: params[:page], :per_page => 50)
+      @organizations = Organization.paginate(page: params[:page], :per_page => 20)
     end
   end
 
@@ -24,7 +24,7 @@ class OrganizationsController < ApplicationController
     if signed_in?
       @affiliation = current_user.affiliations.build
     end
-    @users = @organization.users.paginate(page: params[:page])
+    @users = @organization.users.paginate(page: params[:page], :per_page => 15)
   end
 
   # GET /organizations/new

@@ -12,4 +12,8 @@
     = @sub_category.name.capitalize
   %h4
     = @sub_category.category.name.capitalize
-
+  .span7.spaced-right
+    - @users.each do |user|
+      - @user = user
+      = render 'users/orgzuser', user: user
+    = will_paginate @users 
