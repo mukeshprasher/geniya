@@ -91,7 +91,7 @@
             - if current_user.parent_id != 0
               - main_user = User.find(current_user.parent_id)
               %li   
-                = link_to ("/users/#{main_user.username}/change_login") do
+                = link_to ("/users/#{main_user.slug}/change_login") do
                   #bussines_control_user_img
                     - if main_user.headshot
                       = image_tag main_user.headshot.file_attachment.url(:medium)
