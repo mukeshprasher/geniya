@@ -36,41 +36,41 @@
             = link_to 'Browse Top Portfolios', '/portfolios', class: 'btn btn-large btn-primary'
 
       .inner_rightSection
-        #home_control_section.home_control_section
-          .bg_buttan_feed
-            Controls
-          %a.btn{href: "/users/"+current_user.slug+"/profile_edit"}
-            Edit Profile          
-          - if current_user.plan != 'visitor' && current_user.plan != 'trial'
-            = link_to 'Create organization', new_organization_path, class: 'btn'
-          - if current_user.plan == 'trial'
-            = link_to 'Create advertisement', new_advertisement_path, class: 'btn'
-            - if current_user.advertisements.any?
-              = link_to 'My advertisements', advertisements_path, class: 'btn'          
-          - if current_user.plan != 'visitor'
-            - if current_user.plan == 'deluxe' or current_user.plan == 'admin'
-              = link_to 'Post job', new_job_path, class: 'btn'
-              - if current_user.jobs.any?
-                = link_to 'My posted jobs', jobs_path, class: 'btn'
-              = link_to 'Create advertisement', new_advertisement_path, class: 'btn'
-              - if current_user.advertisements.any?
-                = link_to 'My advertisements', advertisements_path, class: 'btn'
+        /#home_control_section.home_control_section
+        /  .bg_buttan_feed
+        /    Controls
+        /  %a.btn{href: "/users/"+current_user.slug+"/profile_edit"}
+        /    Edit Profile          
+        /  - if current_user.plan != 'visitor' && current_user.plan != 'trial'
+        /    = link_to 'Create organization', new_organization_path, class: 'btn'
+        /  - if current_user.plan == 'trial'
+        /    = link_to 'Create advertisement', new_advertisement_path, class: 'btn'
+        /    - if current_user.advertisements.any?
+        /      = link_to 'My advertisements', advertisements_path, class: 'btn'          
+        /  - if current_user.plan != 'visitor'
+        /    - if current_user.plan == 'deluxe' or current_user.plan == 'admin'
+        /      = link_to 'Post job', new_job_path, class: 'btn'
+        /      - if current_user.jobs.any?
+        /        = link_to 'My posted jobs', jobs_path, class: 'btn'
+        /      = link_to 'Create advertisement', new_advertisement_path, class: 'btn'
+        /      - if current_user.advertisements.any?
+        /        = link_to 'My advertisements', advertisements_path, class: 'btn'
 
-        .add_sec
-          - if @jobs.any?
+        - if @jobs.any?
+          .add_sec
             .bg_buttan_job
               Jobs
-          .ads-box
-            - @jobs.each do |job|
-              = render job
+            .ads-box
+              - @jobs.each do |job|
+                = render job
 
-        .add_sec
-          - if @advertisements.any?
+        - if @advertisements.any?
+          .add_sec
             .bg_buttan_job
               Advertisements
-          .ads-box
-            - @advertisements.each do |advertisement|
-              = render advertisement
+            .ads-box
+              - @advertisements.each do |advertisement|
+                = render advertisement
             
         
 - else
