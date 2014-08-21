@@ -21,13 +21,93 @@
             Settings
             %b.caret
           %ul.dropdown-menu
-            %li= link_to "Profile", current_user
-            %li= link_to "View Album", "/albums/default-album-"+"#{current_user.slug}"
-            %li= link_to "Post a Job", '/advertisements/new'
-            %li= link_to "Create an Ad", '/advertisements/new'
+            
+            
+            %li= link_to 'Edit Profile', "/users/"+current_user.slug+"/profile_edit" 
+            /- if current_user.feature_img == 'true' and current_user.kind == "user"
+            /  %li
+            /    #addfeatureimg.modal.fade{"data-width" => "760", style: "display: none;", tabindex: "-1"}
+            /      .modal-header
+            /        %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
+            /        %h4.modal-title Add Feature Image
+            /      .modal-body#profile_cover_upload_modal_body
+            /        = form_for Featureimg.new,  :html => { :multipart => true, id: :feature_img_form} do |f|
+            /          = f.hidden_field :user_id, value: current_user.id    
+            /          .field
+            /            = f.file_field :feature_img, id: "user_feature_img"  
+            /          .actions
+            /            = f.submit 'Add Feature Image', id: "user_featureimg_btn", class: "btn"
+            /          %img{alt: "loading", src: "/assets/loader.gif", style: "visibility: hidden"}/
+            /          #loading_img_for_feature_img
+            /            %img{src: "/assets/loader.gif", alt: "loading"}/               
+            /      .modal-footer
+            /        %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
+            /    %a.demo{"data-toggle" => "modal",href: "#addfeatureimg", id: "#addfeatureimg"}
+            /      Add Feature Image   
+
+ 
+
+
+            - if current_user.plan == 'trial'
+              %li= link_to 'Upgrade', new_payment_subscription_path, class: 'btn'                       
+            
+            
+            - if current_user.plan != 'visitor' && current_user.plan != 'trial'
+              %li#divider= link_to 'Create Organization', new_organization_path 
+            - if current_user.plan == 'deluxe' or current_user.plan == 'admin'
+              %li= link_to 'Post Job', new_job_path
+            - if current_user.jobs.any?
+              %li= link_to 'My Posted Jobs', jobs_path
+
+            
+
+
+            - if current_user.plan == 'deluxe' or current_user.plan == 'admin' or current_user.plan == 'trial'
+              %li#divider= link_to 'Create Advertisement', new_advertisement_path          
+              - if current_user.advertisements.any?
+                %li= link_to 'My Advertisements', advertisements_path
+            
+            - if current_user.plan != 'visitor' && current_user.plan != 'trial'
+              %li#divider= link_to 'Create Business Page', "/business"
+
+            - user_bussiness_page = User.where(parent_id: current_user.id)
+            - if (user_bussiness_page==[])
+            - else
+              - user_bussiness_page.each do |user_buss_detail|
+                - if signed_in?
+                  %li
+                    = link_to ("/users/"+user_buss_detail.slug+"/change_login") do
+                      #bussines_control_user_img
+                        - if user_buss_detail.headshot
+                          = image_tag user_buss_detail.headshot.file_attachment.url(:medium)
+                        - else
+                          - if user_buss_detail.kind == 'user'
+                            = image_tag '/assets/missing.png', width: "50px", height: "50px"
+                          - else
+                            = image_tag '/assets/company_logo.png', width: "50px", height: "50px" 
+                      #bussines_control_user_detail
+                        = user_buss_detail.name             
+
+            - if current_user.parent_id != 0
+              - main_user = User.find(current_user.parent_id)
+              %li   
+                = link_to ("/users/#{main_user.username}/change_login") do
+                  #bussines_control_user_img
+                    - if main_user.headshot
+                      = image_tag main_user.headshot.file_attachment.url(:medium)
+                    - else
+                      = image_tag '/assets/missing.png', width: "50px", height: "50px"
+                  #bussines_control_user_detail
+                    = main_user.name
+
+            - if current_user.plan == 'deluxe' or current_user.plan == 'admin' or current_user.plan == 'trial'
+              - if current_user.feedbacks.any?
+                %li#divider= link_to 'My feedbacks', feedbacks_path
+
+
             - if (current_user.plan == 'admin')
-              %li= link_to "Dashboard", '/admin'
-  
+              %li#divider= link_to "Dashboard", '/admin'
+
           
         %li#network-notice-menu.dropdown
           %a#network_response_notifications_trigger.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}

@@ -148,7 +148,7 @@ width:100%;
 //border-right: 1px solid #E5E5E5; 
 line-height: 12px; padding: 4px 7px; }
 
-.login_nav li:last-child { border:none;  border-top: 1px solid #CCCCCC; }
+
 
 
 #header_response_notifications li:hover, #network_response_notifications li:hover, #message_response_notifications li:hover {
@@ -4394,4 +4394,38 @@ select{width:100% !important;}
 .txt_chat_red{
     color: red;
     font-family: latobold;
+}
+
+
+.dropdown hr {
+    clear: both;
+    margin: 0;
+    padding: 0;
+}
+
+
+.dropdown-menu #divider {
+    border-top: 1px solid #CCCCCC;
+}
+
+
+#bussines_control_user_img img {
+    height: 35px;
+    width: 35px;
+}
+
+
+#bussines_control_user_img {
+    float: left;
+    height: 40px;
+    overflow: hidden;
+    width: 40px;
+}
+
+#bussines_control_user_detail {
+    float: left;
+    padding: 5px 0 0 7px;
+    text-transform: capitalize;
+    width: 170px;
+       height: 30px;
 }
