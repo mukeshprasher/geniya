@@ -1,5 +1,6 @@
 class FeatureimgsController < ApplicationController
   before_action :set_featureimg, only: [:show, :edit, :update, :destroy]
+  before_action :admin_user, only: [:index]
   before_action :signed_in_user, only: [ :new, :edit, :create, :update, :destroy]
   before_action only: [:edit, :update, :destroy] do
     redirect_with_notice_if_incorrect_user(@featureimg)
@@ -14,6 +15,7 @@ class FeatureimgsController < ApplicationController
   # GET /featureimgs/1
   # GET /featureimgs/1.json
   def show
+    @featureimgs = Featureimg.all.paginate(page: params[:page], :per_page => 30)
   end
 
   # GET /featureimgs/new
