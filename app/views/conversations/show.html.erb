@@ -3,6 +3,7 @@
     <i class="fa fa-comments"></i>
  
     <h1><%= @reciever.name %> </h1>
+    <br>
     <% if !@reciever.last_seen.nil? %>
       <span>
         <% if @reciever.login_status == 'logout' %>
@@ -35,10 +36,12 @@
   <% end %>
 </div><div class="chatboxinput">
   <%= form_for([@conversation, @message], :remote => true, :html => {id: "conversation_form_#{@conversation.id}"}) do |f| %>
-    <%= f.text_area :body, class: "chatboxtextarea smiley", "data-cid" => @conversation.id, onkeyup: "javascript: open_smiley()" %>
+    <%= f.text_area :body, class: "chatboxtextarea smiley", "data-cid" => @conversation.id, id:  "conversation_send_#{@conversation.id}" %>
   <% end %>
 </div>
- 
+<script>
+ open_smiley("conversation_send_<%= @conversation.id %>")
+</script>
 <%= subscribe_to conversation_path(@conversation) %>
 
 

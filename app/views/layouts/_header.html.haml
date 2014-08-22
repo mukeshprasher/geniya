@@ -16,51 +16,42 @@
         %li= link_to 'Home', root_path
         %li
           |
+         
         %li.dropdown
           %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
             Settings
             %b.caret
           %ul.dropdown-menu
-            
+            - if current_user.feature_img == 'true' and current_user.kind == "user"
+              %li= link_to 'Add Feature Image', new_featureimg_path
+              /#addfeatureimg.modal.fade{"data-width" => "760", style: "display: none;", tabindex: "-1"}
+              /  .modal-header
+              /    %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
+              /    %h4.modal-title Add Feature Image
+              /  .modal-body#profile_cover_upload_modal_body
+              /    = form_for Featureimg.new,  :html => { :multipart => true, id: :feature_img_form} do |f|
+              /      = f.hidden_field :user_id, value: current_user.id    
+              /      .field
+              /        = f.file_field :feature_img, id: "user_feature_img"  
+              /      .actions
+              /        = f.submit 'Add Feature Image', id: "user_featureimg_btn", class: "btn"
+              /      %img{alt: "loading", src: "/assets/loader.gif", style: "visibility: hidden"}/
+              /      #loading_img_for_feature_img
+              /        %img{src: "/assets/loader.gif", alt: "loading"}/               
+              /  .modal-footer
+              /    %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
+              /%a.demo{"data-toggle" => "modal",href: "#addfeatureimg", id: "#addfeatureimg"}
+              /  Add Feature Image             
             
             %li= link_to 'Edit Profile', "/users/"+current_user.slug+"/profile_edit" 
-            /- if current_user.feature_img == 'true' and current_user.kind == "user"
-            /  %li
-            /    #addfeatureimg.modal.fade{"data-width" => "760", style: "display: none;", tabindex: "-1"}
-            /      .modal-header
-            /        %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
-            /        %h4.modal-title Add Feature Image
-            /      .modal-body#profile_cover_upload_modal_body
-            /        = form_for Featureimg.new,  :html => { :multipart => true, id: :feature_img_form} do |f|
-            /          = f.hidden_field :user_id, value: current_user.id    
-            /          .field
-            /            = f.file_field :feature_img, id: "user_feature_img"  
-            /          .actions
-            /            = f.submit 'Add Feature Image', id: "user_featureimg_btn", class: "btn"
-            /          %img{alt: "loading", src: "/assets/loader.gif", style: "visibility: hidden"}/
-            /          #loading_img_for_feature_img
-            /            %img{src: "/assets/loader.gif", alt: "loading"}/               
-            /      .modal-footer
-            /        %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
-            /    %a.demo{"data-toggle" => "modal",href: "#addfeatureimg", id: "#addfeatureimg"}
-            /      Add Feature Image   
-
- 
-
-
             - if current_user.plan == 'trial'
-              %li= link_to 'Upgrade', new_payment_subscription_path, class: 'btn'                       
-            
-            
+              %li= link_to 'Upgrade', new_payment_subscription_path                    
             - if current_user.plan != 'visitor' && current_user.plan != 'trial'
               %li#divider= link_to 'Create Organization', new_organization_path 
             - if current_user.plan == 'deluxe' or current_user.plan == 'admin'
               %li= link_to 'Post Job', new_job_path
             - if current_user.jobs.any?
               %li= link_to 'My Posted Jobs', jobs_path
-
-            
-
 
             - if current_user.plan == 'deluxe' or current_user.plan == 'admin' or current_user.plan == 'trial'
               %li#divider= link_to 'Create Advertisement', new_advertisement_path          
