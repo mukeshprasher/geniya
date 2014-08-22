@@ -929,7 +929,7 @@ form {margin: 0 0 5px;}
   margin-right: 20px;
   max-width: 24%;
   padding: 10px 62px 10px 5px; position:relative;
-  min-height: 935px;
+  min-height: 945px;
 }
 
 .free_plan {float: left;}
@@ -4443,3 +4443,25 @@ select{width:100% !important;}
 #new_featureimg{width:80%;}
 
 #loading_img_for_feature_img{display:none;}
+
+
+.limited_offer_plan {
+    background-color: #D3222A;
+    border-radius: 7px;
+    color: #FFFFFF;
+    float: left;
+    font-family: latobold;
+    font-size: 20px;
+    margin: 0 0 0 29px;
+    padding: 7px 0 7px 31px;
+    width: 90%;
+}
+
+
+
+.limited_time_offer_img {
+    bottom: 20.2%;
+    left: -4%;
+    position: absolute;
+    width: 85px;
+}
