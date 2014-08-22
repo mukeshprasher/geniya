@@ -929,14 +929,14 @@ form {margin: 0 0 5px;}
   margin-right: 20px;
   max-width: 24%;
   padding: 10px 62px 10px 5px; position:relative;
-  min-height: 1084px;
+  min-height: 935px;
 }
 
 .free_plan {float: left;}
 
 .free_plan h2 {font-family: Calibri;font-size: 40px;font-weight: bold;margin: 34px 0;}
 
-.free_plan ul {list-style: none outside none; margin: 0px 0px 10px 10px}
+.free_plan ul {list-style: none outside none; margin: 0px 0px 10px 10px; min-height: 500px;}
 
 .free_plan ul li {background: url("../assets/listing_star.png") no-repeat scroll 0 2px rgba(0, 0, 0, 0);display: block;font-family: 'latoregular';font-size: 20px;padding: 0 0 20px 20px;}
 
@@ -970,13 +970,13 @@ right: 0px;
 
 .sale_plan h2 em {color: #282828;display: block;font-family: 'latoregular';font-size: 26px;font-style: normal;}
 
-.sale_plan ul {list-style: none outside none;  margin: 0px 0px 10px 10px}
+.sale_plan ul {list-style: none outside none;  margin: 0px 0px 10px 10px; width: 287px;}
 
 .sale_plan ul li {background: url("/assets/listing_star.png") no-repeat scroll 0 2px rgba(0, 0, 0, 0);display: block;font-family: 'latoregular';font-size: 20px;padding: 0 0 20px 20px;}
 
 .sale_plan ul li a {color: #484848;display: block;}
 
-.price_sale {  float: left;margin: 55px 0 0;text-align: center;width: 100%;}
+.price_sale {  float: left;text-align: center;width: 100%;}
 
 .price_sale h2 {color: #7BA400;font-family: "Arial Black";font-size: 88px;position: relative;text-shadow: 5px 5px 5px #BBBABA;}
 
