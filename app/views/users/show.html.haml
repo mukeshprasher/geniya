@@ -482,6 +482,37 @@
               
             .clear
         - else
+          .switch_profile_background
+            .bg_buttan
+              Business Owner
+            .row
+            #business_owner_page_container
+              - if signed_in?
+                - if current_user.parent_id != 0
+                  - main_user = User.find(current_user.parent_id)
+                  #user_business_page_container  
+                    = link_to ("/users/#{main_user.slug}/change_login") do
+                      #user_bussines_control_user_img
+                        - if main_user.headshot
+                          = image_tag main_user.headshot.file_attachment.url(:medium)
+                        - else
+                          = image_tag '/assets/missing.png', width: "50px", height: "50px"
+                      #user_bussines_control_user_detail
+                        = main_user.name
+              - else
+                - if @user.parent_id != 0
+                  - main_user = User.find(@user.parent_id)
+                  #user_business_page_container  
+                    = link_to main_user do
+                      #user_bussines_control_user_img
+                        - if main_user.headshot
+                          = image_tag main_user.headshot.file_attachment.url(:medium)
+                        - else
+                          = image_tag '/assets/missing.png', width: "50px", height: "50px"
+                      #user_bussines_control_user_detail
+                        = main_user.name              
+            .clear
+          
           .bussiness_profile_background
             - if signed_in? and current_user?(@user)
               .bussiness_page_btn
@@ -489,8 +520,8 @@
                   = link_to 'Add Business Details', "/businesses/new/", class: 'btn btn btn-primary'
                 - else
                   = link_to 'Edit Business Details', "/businesses/#{@user.bussiness.id}/edit/", class: 'btn btn btn-primary'        
-                .switch_user
-                  = link_to 'Switch to Main Account', "/users/#{@user.parent_id}/change_login", class: 'btn btn btn-primary'             
+                /.switch_user
+                /  = link_to 'Switch to Main Account', "/users/#{@user.parent_id}/change_login", class: 'btn btn btn-primary'             
             .summary_tabs
               %ul
                 %li

@@ -3714,7 +3714,7 @@ h1, h2, h3, h4, h5, h6 {
 .Quote_form .compBtn { background: none repeat scroll 0 0 #87b009; border-radius: 4px; float: right; margin: 12px 1px;   padding: 5px 10px 5px 13px;color:#ffffff; }
 
 
-.bussiness_profile_background {background: none repeat scroll 0 0 #FFFFFF;overflow: hidden;padding: 0 10px 20px;position: relative;overflow:hidden; margin: 25px 0 0;}
+.bussiness_profile_background {background: none repeat scroll 0 0 #FFFFFF;overflow: hidden;padding: 0 10px 20px;position: relative;overflow:hidden;}
 
 .company_nav ul, .summary_tabs ul, .company_manu ul, .company_contact ul, .company_gallary ul{margin:0; width: 100%;float: left;}
 
@@ -4493,4 +4493,20 @@ select{width:100% !important;}
 #user_bussines_control_user_img img {
     height: 50px;
     width: 50px;
+}
+
+
+.switch_profile_background {
+    background: none repeat scroll 0 0 #FFFFFF;
+    clear: both;
+    margin: 31px 0 0;
+    padding: 0 10px;
+    position: relative;
+}
+
+
+#business_owner_page_container {
+    border-bottom: 1px solid #CCCCCC;
+    float: left;
+    width: 100%;
 }
