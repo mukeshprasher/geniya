@@ -366,7 +366,7 @@
         - if @user.kind == "user"
           /- if signed_in? and current_user?(@user)
           /  = render 'controls'
-          /= render 'bussiness', user:@user
+          = render 'bussiness', user:@user
           .profile_background
             .bg_buttan
               Background
@@ -489,8 +489,8 @@
                   = link_to 'Add Business Details', "/businesses/new/", class: 'btn btn btn-primary'
                 - else
                   = link_to 'Edit Business Details', "/businesses/#{@user.bussiness.id}/edit/", class: 'btn btn btn-primary'        
-                /.switch_user
-                /  = link_to 'Switch to Main Account', "/users/#{@user.parent_id}/change_login", class: 'btn btn btn-primary'             
+                .switch_user
+                  = link_to 'Switch to Main Account', "/users/#{@user.parent_id}/change_login", class: 'btn btn btn-primary'             
             .summary_tabs
               %ul
                 %li

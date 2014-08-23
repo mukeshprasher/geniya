@@ -2953,9 +2953,6 @@ color:#85AB48;
 
 
 #controll_left_container {
-    float: left;
-    width: 200px;
-      margin: 0 0 0 30px;
 }
 
 
@@ -4464,4 +4461,36 @@ select{width:100% !important;}
     left: -4%;
     position: absolute;
     width: 85px;
+}
+
+
+#user_business_page_container {
+    float: left;
+    width: 25%;
+    height: auto;
+}
+
+#user_bussines_control_user_img {
+    float: left;
+    height: 50px;
+    overflow: hidden;
+    width: 170px;
+}
+
+
+#user_bussines_control_user_detail {
+    color: #2B2F35;
+    float: left;
+    font-family: latobold;
+    font-size: 13px;
+    height: 30px;
+    padding: 5px 0 0;
+    text-transform: capitalize;
+    width: 170px;
+}
+
+
+#user_bussines_control_user_img img {
+    height: 50px;
+    width: 50px;
 }
