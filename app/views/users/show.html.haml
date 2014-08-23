@@ -488,17 +488,31 @@
             .row
             #business_owner_page_container
               - if signed_in?
-                - if current_user.parent_id != 0
-                  - main_user = User.find(current_user.parent_id)
-                  #user_business_page_container  
-                    = link_to ("/users/#{main_user.slug}/change_login") do
-                      #user_bussines_control_user_img
-                        - if main_user.headshot
-                          = image_tag main_user.headshot.file_attachment.url(:medium)
-                        - else
-                          = image_tag '/assets/missing.png', width: "50px", height: "50px"
-                      #user_bussines_control_user_detail
-                        = main_user.name
+                - if current_user?(@user)
+                  - if @user.parent_id != 0
+                    - main_user = User.find(@user.parent_id)
+                    #user_business_page_container  
+                      = link_to ("/users/#{main_user.slug}/change_login") do
+                        #user_bussines_control_user_img
+                          - if main_user.headshot
+                            = image_tag main_user.headshot.file_attachment.url(:medium)
+                          - else
+                            = image_tag '/assets/missing.png', width: "50px", height: "50px"
+                        #user_bussines_control_user_detail
+                          = main_user.name
+                - else
+                  - if @user.parent_id != 0
+                    - main_user = User.find(@user.parent_id)
+                    #user_business_page_container  
+                      = link_to main_user do
+                        #user_bussines_control_user_img
+                          - if main_user.headshot
+                            = image_tag main_user.headshot.file_attachment.url(:medium)
+                          - else
+                            = image_tag '/assets/missing.png', width: "50px", height: "50px"
+                        #user_bussines_control_user_detail
+                          = main_user.name                
+                    
               - else
                 - if @user.parent_id != 0
                   - main_user = User.find(@user.parent_id)

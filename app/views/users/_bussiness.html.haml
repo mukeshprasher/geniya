@@ -9,17 +9,31 @@
         - user_bussiness_page.each do |user_buss_detail|
           #user_business_page_container
             - if signed_in?
-              = link_to ("/users/"+user_buss_detail.slug+"/change_login") do
-                #user_bussines_control_user_img
-                  - if user_buss_detail.headshot
-                    = image_tag user_buss_detail.headshot.file_attachment.url(:medium)
-                  - else
-                    - if user_buss_detail.kind == 'user'
-                      = image_tag '/assets/missing.png', width: "50px", height: "50px"
+              - if current_user?(@user)
+                = link_to ("/users/"+user_buss_detail.slug+"/change_login") do
+                  #user_bussines_control_user_img
+                    - if user_buss_detail.headshot
+                      = image_tag user_buss_detail.headshot.file_attachment.url(:medium)
                     - else
-                      = image_tag '/assets/company_logo.png', width: "50px", height: "50px" 
-                #user_bussines_control_user_detail
-                  = user_buss_detail.name
+                      - if user_buss_detail.kind == 'user'
+                        = image_tag '/assets/missing.png', width: "50px", height: "50px"
+                      - else
+                        = image_tag '/assets/company_logo.png', width: "50px", height: "50px" 
+                  #user_bussines_control_user_detail
+                    = user_buss_detail.name
+              - else
+                = link_to user_buss_detail do
+                  #user_bussines_control_user_img
+                    - if user_buss_detail.headshot
+                      = image_tag user_buss_detail.headshot.file_attachment.url(:medium)
+                    - else
+                      - if user_buss_detail.kind == 'user'
+                        = image_tag '/assets/missing.png', width: "50px", height: "50px"
+                      - else
+                        = image_tag '/assets/company_logo.png', width: "50px", height: "50px" 
+                  #user_bussines_control_user_detail
+                    = user_buss_detail.name              
+              
             - else
               = link_to user_buss_detail do
                 #user_bussines_control_user_img
