@@ -9,6 +9,7 @@
       
 
 
-:javascript
-  open_smiley("comment_txt_#{comment.commentable_id}")
+- if signed_in?
+  :javascript
+    open_smiley("comment_txt_#{comment.commentable_id}")
 

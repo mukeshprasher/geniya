@@ -8,5 +8,6 @@
       /= f.button :submit, :class => "pubBtn", :disable_with => "Submitting…", :value =>"Comment", :id =>"child_comment_btn"
       
       
-:javascript
-  open_smiley("child_comment_reply_textarea_#{parent_id}")
+- if signed_in?
+  :javascript
+    open_smiley("child_comment_reply_textarea_#{parent_id}")
