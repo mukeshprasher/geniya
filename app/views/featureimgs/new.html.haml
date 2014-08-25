@@ -1,5 +1,13 @@
-%h1 New featureimg
+.innerBenner
+  .wrapper
+    .news_feeds
+      %h2 
+        Add feature image
+.wrapper
+  .row-fluid.spaced-top
+    .span2.spaced-left
+      .btn-group.btn-group-vertical.btn-block
+        = link_to 'My Profile', current_user, class: 'btn'
+.detail_form_container
+  = render 'form'
 
-= render 'form'
-
-= link_to 'Back', featureimgs_path

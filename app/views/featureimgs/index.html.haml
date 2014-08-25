@@ -1,19 +1,22 @@
-%h1 Listing featureimgs
+.row-fluid.spaced-top
+  .span2.spaced-left
+    .btn-group.btn-group-vertical.btn-block
+      = link_to 'My profile', current_user, class: 'btn'
+  .span10.min500
+    %h1 Listing featureimgs
+    .feedback_listing
+      %table.table.table-bordered
+        %tr
+          %th User
+          %th Name
+          %th Operation
 
-%table
-  %tr
-    %th Name
-    %th
-    %th
-    %th
-
-  - @featureimgs.each do |featureimg|
-    %tr
-      %td= featureimg.name
-      %td= link_to 'Show', featureimg
-      %td= link_to 'Edit', edit_featureimg_path(featureimg)
-      %td= link_to 'Destroy', featureimg, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
-%br
-
-= link_to 'New Featureimg', new_featureimg_path
+        - @featureimgs.each do |featureimg|
+          %tr
+            %td= featureimg.user.name
+            %td= featureimg.feature_img_file_name
+            %td= link_to 'Show', featureimg
+            %td= link_to 'Edit', edit_featureimg_path(featureimg)
+            %td= link_to 'Destroy', featureimg, :method => :delete, :data => { :confirm => 'Are you sure?' }
+            %br
+ 

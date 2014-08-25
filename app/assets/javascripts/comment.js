@@ -753,6 +753,16 @@ $(function() {
       alert('Please Enter Video Name');
       return false;
     }
+//     else
+//     if((this.files[0].size/1024/1024) > (1)){ // Max Photo Size 10MB
+//      return false;
+//     }
+    else
+    if (FileName == '')
+    {
+      alert('Please select video to upload');
+      return false;
+    }   
     else
     if(FileName.indexOf(".")==-1 || FileExtension != "mp4" && FileExtension != "3gp" && FileExtension != "ogg" && FileExtension != "mpeg" && FileExtension != "flv" && FileExtension != "mpg" && FileExtension != "webm" && FileExtension != "mp3" && FileExtension != "wma" && FileExtension != "ogg" && FileExtension != "ogv"){ // Curstom File Extension
       alert("unsupported format, please upload flv, mp4, 3gp, mp3, ogg...");
@@ -938,18 +948,18 @@ $(function() {
          else
          if((this.files[0].size/1024/1024) > (1)){ // Max Photo Size 1MB
           alert("You Photo is too big !");
-          $("#profile_img").val('');
+          $("#featureimg_feature_img").val('');
           return false;
-         }
+         }         
          
          else{
           var fr = new FileReader;
     fr.onload = function() {
         var img = new Image;
         img.onload = function() {
-          if (img.width<="50")
+          if (img.height<="400")
            {
-          alert("Please choose an image that's at least 300 pixels wide and at least 300 pixels tall.");
+          alert("Please choose an image that's at least 400 pixels tall.");
           $("#profile_img").val('');
           return false;
           }
@@ -967,6 +977,54 @@ $(function() {
          }    
     
     });  
+ 
+
+
+
+    $("#featureimg_feature_img").change(function (e) {
+     var target = $(e.target);
+     var OrgFile = (this.files[0].name),
+         FileName = OrgFile,
+         FileExtension = FileName.split('.').pop().toLowerCase();
+         
+         if(FileName.indexOf(".")==-1 || FileExtension != "jpg" && FileExtension != "jpeg" && FileExtension != "png" && FileExtension != "gif" ){ // Curstom File Extension
+          alert("This isn't a Photo !");
+          $("#featureimg_feature_img").val('');
+          return false;
+         }
+         else
+         if((this.files[0].size/1024/1024) > (1)){ // Max Photo Size 1MB
+          alert("You Photo is too big !");
+          $("#featureimg_feature_img").val('');
+          return false;
+         }
+         
+         else{
+          var fr = new FileReader;
+    fr.onload = function() {
+        var img = new Image;
+        img.onload = function() {
+          if (img.width<="50")
+           {
+          alert("Please choose an image that's at least 300 pixels wide and at least 300 pixels tall.");
+          $("#featureimg_feature_img").val('');
+          return false;
+          }
+        $('#loading_img_for_feature_img').show();
+        $('#new_featureimg').submit(); //better ways to do it ^^
+//        $('.modal-scrollable').hide('slow');
+//        $('.modal-backdrop.fade.in').hide();
+        };
+            img.src = fr.result;
+        
+        };
+        fr.readAsDataURL(this.files[0]);
+          
+        
+         }    
+    
+    });
+ 
     
       
  
@@ -1011,6 +1069,7 @@ $(function() {
             $('#loading_img_for_usereducation').hide();
             $('#loading_img_for_srhorgn').hide();
             $('#loading_img_for_useraffiliation').hide();
+            $("#loading_img_for_feature_img").hide();
             
         });
     }); 

@@ -93,8 +93,8 @@ class User < ActiveRecord::Base
     
     acts_as_liker 
     is_impressionable :unique => :user_id, counter_cache: true
-#    acts_as_mentionable
-#    letsrate_rater
+    acts_as_mentionable
+    letsrate_rater
      
     extend FriendlyId
     friendly_id :username, use: [:slugged, :finders]

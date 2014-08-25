@@ -61,7 +61,8 @@
               = @user.name
               - if @user.plan != 'visitor'
                 %span
-                  = @user.sub_category.name 
+                  = link_to @user.sub_category do  
+                    = @user.sub_category.name 
           .art_gallery
             %ul
               - if (current_user == @user) && signed_in?
@@ -366,7 +367,7 @@
         - if @user.kind == "user"
           /- if signed_in? and current_user?(@user)
           /  = render 'controls'
-          /= render 'bussiness', user:@user
+          = render 'bussiness', user:@user
           .profile_background
             .bg_buttan
               Background
@@ -482,6 +483,51 @@
               
             .clear
         - else
+          .switch_profile_background
+            .bg_buttan
+              Business Owner
+            .row
+            #business_owner_page_container
+              - if signed_in?
+                - if current_user?(@user)
+                  - if @user.parent_id != 0
+                    - main_user = User.find(@user.parent_id)
+                    #user_business_page_container  
+                      = link_to ("/users/#{main_user.slug}/change_login") do
+                        #user_bussines_control_user_img
+                          - if main_user.headshot
+                            = image_tag main_user.headshot.file_attachment.url(:medium)
+                          - else
+                            = image_tag '/assets/missing.png', width: "50px", height: "50px"
+                        #user_bussines_control_user_detail
+                          = main_user.name
+                - else
+                  - if @user.parent_id != 0
+                    - main_user = User.find(@user.parent_id)
+                    #user_business_page_container  
+                      = link_to main_user do
+                        #user_bussines_control_user_img
+                          - if main_user.headshot
+                            = image_tag main_user.headshot.file_attachment.url(:medium)
+                          - else
+                            = image_tag '/assets/missing.png', width: "50px", height: "50px"
+                        #user_bussines_control_user_detail
+                          = main_user.name                
+                    
+              - else
+                - if @user.parent_id != 0
+                  - main_user = User.find(@user.parent_id)
+                  #user_business_page_container  
+                    = link_to main_user do
+                      #user_bussines_control_user_img
+                        - if main_user.headshot
+                          = image_tag main_user.headshot.file_attachment.url(:medium)
+                        - else
+                          = image_tag '/assets/missing.png', width: "50px", height: "50px"
+                      #user_bussines_control_user_detail
+                        = main_user.name              
+            .clear
+          
           .bussiness_profile_background
             - if signed_in? and current_user?(@user)
               .bussiness_page_btn

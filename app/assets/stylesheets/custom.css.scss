@@ -929,7 +929,7 @@ form {margin: 0 0 5px;}
   margin-right: 20px;
   max-width: 24%;
   padding: 10px 62px 10px 5px; position:relative;
-  min-height: 935px;
+  min-height: 945px;
 }
 
 .free_plan {float: left;}
@@ -1730,7 +1730,7 @@ bottom: -10px;color: #6D6D6C;font-family: Calibri;font-size: 21px;position: abso
     width: 1018px;
 }
 
-.dropdown-menu > li:hover{ background:#e5e5e5;}
+header .dropdown-menu > li:hover{ background:#e5e5e5;}
 
 
 .content > img {
@@ -2953,9 +2953,6 @@ color:#85AB48;
 
 
 #controll_left_container {
-    float: left;
-    width: 200px;
-      margin: 0 0 0 30px;
 }
 
 
@@ -3717,7 +3714,7 @@ h1, h2, h3, h4, h5, h6 {
 .Quote_form .compBtn { background: none repeat scroll 0 0 #87b009; border-radius: 4px; float: right; margin: 12px 1px;   padding: 5px 10px 5px 13px;color:#ffffff; }
 
 
-.bussiness_profile_background {background: none repeat scroll 0 0 #FFFFFF;overflow: hidden;padding: 0 10px 20px;position: relative;overflow:hidden; margin: 25px 0 0;}
+.bussiness_profile_background {background: none repeat scroll 0 0 #FFFFFF;overflow: hidden;padding: 0 10px 20px;position: relative;overflow:hidden;}
 
 .company_nav ul, .summary_tabs ul, .company_manu ul, .company_contact ul, .company_gallary ul{margin:0; width: 100%;float: left;}
 
@@ -4437,3 +4434,81 @@ select{width:100% !important;}
 #loading_img_for_usereducation{display:none;}
 
 #loading_img_for_srhorgn{display:none;}
+
+#new_featureimg #featureimg_feature_img{width:100%}
+
+#new_featureimg{width:80%;}
+
+#loading_img_for_feature_img{display:none;}
+
+
+.limited_offer_plan {
+    background-color: #D3222A;
+    border-radius: 7px;
+    color: #FFFFFF;
+    float: left;
+    font-family: latobold;
+    font-size: 20px;
+    margin: 0 0 0 29px;
+    padding: 7px 0 7px 31px;
+    width: 90%;
+}
+
+
+
+.limited_time_offer_img {
+    bottom: 20.2%;
+    left: -4%;
+    position: absolute;
+    width: 85px;
+}
+
+
+#user_business_page_container {
+    float: left;
+    width: 25%;
+    height: auto;
+}
+
+#user_bussines_control_user_img {
+    float: left;
+    height: 50px;
+    overflow: hidden;
+    width: 170px;
+}
+
+
+#user_bussines_control_user_detail {
+    color: #2B2F35;
+    float: left;
+    font-family: latobold;
+    font-size: 13px;
+    height: 30px;
+    padding: 5px 0 0;
+    text-transform: capitalize;
+    width: 170px;
+}
+
+
+#user_bussines_control_user_img img {
+    height: 50px;
+    width: 50px;
+}
+
+
+.switch_profile_background {
+    background: none repeat scroll 0 0 #FFFFFF;
+    clear: both;
+    margin: 31px 0 0;
+    padding: 0 10px;
+    position: relative;
+}
+
+
+#business_owner_page_container {
+    border-bottom: 1px solid #CCCCCC;
+    float: left;
+    width: 100%;
+}
+
+header .dropdown-menu li a{background:none !important;}

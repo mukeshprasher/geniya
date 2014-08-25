@@ -1,3 +1,57 @@
+    var emojis = ["smile", "iphone", "girl", "smiley", "heart", "kiss", "copyright", "coffee", "a", "ab", "airplane", "alien", "ambulance", "angel", "anger", "angry", "arrow_forward", "arrow_left", "arrow_lower_left", "arrow_lower_right", "arrow_right", "arrow_up", "arrow_upper_left", "arrow_upper_right", "art", "astonished", "atm", "b", "baby", "baby_chick", "baby_symbol", "balloon", "bamboo", "bank", "barber", "baseball", "basketball", "bath", "bear", "beer", "beers", "beginner", "bell", "bento", "bike", "bikini", "bird", "birthday", "blue_car", "blue_heart", "blush", "boar", "boat", "bomb", "book", "boot", "bouquet", "bow", "bowtie", "boy", "bread", "briefcase", "broken_heart", "bug", "bulb", "person_with_blond_hair", "phone", "pig", "pill", "pisces", "point_down", "point_left", "point_right", "point_up", "point_up_2", "police_car", "poop", "post_office", "postbox", "pray", "princess", "punch", "purple_heart", "question", "rabbit", "racehorse", "radio", "up", "us", "v", "vhs", "vibration_mode", "virgo", "vs", "walking", "warning", "watermelon", "wave", "wc", "wedding", "whale", "wheelchair", "wind_chime", "wink", "wolf", "woman", "womans_hat", "womens", "x", "yellow_heart", "zap", "zzz", "+1", "-1", "mooning", "finger", "swear", "rock", "smoking", "drunk", "poolparty", "toivo", "bandit", "headbang", "dont_know", "not_listening", "cow", "puppy", "monkey", "chicken", "red_rose", "pumpkin", "bigsmile", "brokenheart", "cake", "call", "cash", "clapping", "cool", "crying", "dance", "devil", "doh", "drink", "dull", "emo", "envy", "evilgrin", "flower", "fubar", "giggle", "handshake", "happy", "heidy", "hi", "inlove", "itwasntme", "lipssealed", "mail", "makeup", "middlefinger", "mmm", "movie", "muscle", "music", "nerd", "ninja", "no", "nod", "party", "pizza", "puke", "rain", "rofl", "sadsmile", "shake", "skype", "sleepy", "smirk", "smoke", "speechless", "star", "sun", "sweating", "talking", "thinking", "time", "tmi", "tongueout", "wait", "whew", "wondering", "worried", "yawn", "yes"]
+    
+    var emojis_list = $.map(emojis, function(value, i) {
+      return {'id':i, 'name':value};
+    });
+
+function open_smiley(id){
+  
+  $('#'+ id )
+  .atwho({
+    at: ":", 
+    tpl: "<li data-value=':${name}:'><img src='/assets/smileys/${name}.png' height='20' width='20'/> ${name} </li>",
+    data: emojis_list
+  })
+  .atwho({
+    at: "@",
+    tpl: "<li data-value='${atwho-at}${username}'><img src=\"${headshot}\"  width=\"50px\" />${name}</li>",
+    callbacks: {
+      /*
+       It function is given, At.js will invoke it if local filter can not find any data
+       @param query [String] matched query
+       @param callback [Function] callback to render page.
+      */
+      remote_filter: function(query, callback) {
+        $.getJSON("/users.json", {q: query}, function(data) {
+          callback(data)
+        });
+      }
+    }
+  })
+  .atwho({
+    at: "#", 
+    tpl: "<li data-value='${atwho-at}${name}'>${name}</li>",
+    callbacks: {
+      /*
+       It function is given, At.js will invoke it if local filter can not find any data
+       @param query [String] matched query
+       @param callback [Function] callback to render page.
+      */
+      remote_filter: function(query, callback) {
+        $.getJSON("/tags.json", {q: query}, function(data) {
+          callback(data)
+        });
+      }
+    }
+  }); 
+
+  
+}
+
+
+
+
+
 function open_album_modal(album_id){
   var $modal3 = $('#ajax-portfolio-detail-homepage');
   // create the backdrop and wait for next modal to be triggered
@@ -128,16 +182,15 @@ $(function() {
      
     });
 
-    var emojis = ["smile", "iphone", "girl", "smiley", "heart", "kiss", "copyright", "coffee", "a", "ab", "airplane", "alien", "ambulance", "angel", "anger", "angry", "arrow_forward", "arrow_left", "arrow_lower_left", "arrow_lower_right", "arrow_right", "arrow_up", "arrow_upper_left", "arrow_upper_right", "art", "astonished", "atm", "b", "baby", "baby_chick", "baby_symbol", "balloon", "bamboo", "bank", "barber", "baseball", "basketball", "bath", "bear", "beer", "beers", "beginner", "bell", "bento", "bike", "bikini", "bird", "birthday", "blue_car", "blue_heart", "blush", "boar", "boat", "bomb", "book", "boot", "bouquet", "bow", "bowtie", "boy", "bread", "briefcase", "broken_heart", "bug", "bulb", "person_with_blond_hair", "phone", "pig", "pill", "pisces", "point_down", "point_left", "point_right", "point_up", "point_up_2", "police_car", "poop", "post_office", "postbox", "pray", "princess", "punch", "purple_heart", "question", "rabbit", "racehorse", "radio", "up", "us", "v", "vhs", "vibration_mode", "virgo", "vs", "walking", "warning", "watermelon", "wave", "wc", "wedding", "whale", "wheelchair", "wind_chime", "wink", "wolf", "woman", "womans_hat", "womens", "x", "yellow_heart", "zap", "zzz", "+1", "-1", "mooning", "finger", "swear", "rock", "smoking", "drunk", "poolparty", "toivo", "bandit", "headbang", "dont_know", "not_listening", "cow", "puppy", "monkey", "chicken", "red_rose", "pumpkin", "bigsmile", "brokenheart", "cake", "call", "cash", "clapping", "cool", "crying", "dance", "devil", "doh", "drink", "dull", "emo", "envy", "evilgrin", "flower", "fubar", "giggle", "handshake", "happy", "heidy", "hi", "inlove", "itwasntme", "lipssealed", "mail", "makeup", "middlefinger", "mmm", "movie", "muscle", "music", "nerd", "ninja", "no", "nod", "party", "pizza", "puke", "rain", "rofl", "sadsmile", "shake", "skype", "sleepy", "smirk", "smoke", "speechless", "star", "sun", "sweating", "talking", "thinking", "time", "tmi", "tongueout", "wait", "whew", "wondering", "worried", "yawn", "yes"]
-    
-    var emojis_list = $.map(emojis, function(value, i) {
-      return {'id':i, 'name':value};
-    });
+
 //    var tag= ["Bold","Beautiful","Awesome","Understanding","unique","Loving","Abstract","Nature","Complex","Socialate"]
 //    
 //    var tag_list = $.map(tag, function(value, i) {
 //      return {'id':i, 'name':value};
 //    });    
+
+
+
 
 
     $('.smiley')

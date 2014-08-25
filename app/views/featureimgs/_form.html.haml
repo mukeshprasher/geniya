@@ -2,8 +2,11 @@
   = f.error_notification
 
   .form-inputs
-    = f.input :name
+    /= f.input :name
     = f.file_field :feature_img
     = f.hidden_field :user_id, value: current_user.id    
-  .form-actions
+    #loading_img_for_feature_img
+      %img{src: "/assets/loader.gif", alt: "loading"}/    
+    %br
+    %br
     = f.button :submit

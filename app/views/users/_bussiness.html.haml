@@ -7,10 +7,49 @@
     #controll_container
       #controll_left_container
         - user_bussiness_page.each do |user_buss_detail|
-          #bussiness_btns
-            - if signed_in? and current_user?(@user)
-              = link_to user_buss_detail.name, "/users/"+user_buss_detail.slug+"/change_login", class: 'btn'
+          #user_business_page_container
+            - if signed_in?
+              - if current_user?(@user)
+                = link_to ("/users/"+user_buss_detail.slug+"/change_login") do
+                  #user_bussines_control_user_img
+                    - if user_buss_detail.headshot
+                      = image_tag user_buss_detail.headshot.file_attachment.url(:medium)
+                    - else
+                      - if user_buss_detail.kind == 'user'
+                        = image_tag '/assets/missing.png', width: "50px", height: "50px"
+                      - else
+                        = image_tag '/assets/company_logo.png', width: "50px", height: "50px" 
+                  #user_bussines_control_user_detail
+                    = user_buss_detail.name
+              - else
+                = link_to user_buss_detail do
+                  #user_bussines_control_user_img
+                    - if user_buss_detail.headshot
+                      = image_tag user_buss_detail.headshot.file_attachment.url(:medium)
+                    - else
+                      - if user_buss_detail.kind == 'user'
+                        = image_tag '/assets/missing.png', width: "50px", height: "50px"
+                      - else
+                        = image_tag '/assets/company_logo.png', width: "50px", height: "50px" 
+                  #user_bussines_control_user_detail
+                    = user_buss_detail.name              
+              
             - else
-              = link_to user_buss_detail.name, "/users/"+user_buss_detail.slug, class: 'btn'
+              = link_to user_buss_detail do
+                #user_bussines_control_user_img
+                  - if user_buss_detail.headshot
+                    = image_tag user_buss_detail.headshot.file_attachment.url(:medium)
+                  - else
+                    - if user_buss_detail.kind == 'user'
+                      = image_tag '/assets/missing.png', width: "50px", height: "50px"
+                    - else
+                      = image_tag '/assets/company_logo.png', width: "50px", height: "50px" 
+                #user_bussines_control_user_detail
+                  = user_buss_detail.name
+          
+          
+
       .clear
     .clear
+    
+
