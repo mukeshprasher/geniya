@@ -17,7 +17,7 @@ class Advertisement < ActiveRecord::Base
   :size => { :in => 0..1000.kilobytes },
   :file_name => { :matches => [/png\Z/, /jpe?g\Z/, /gif\Z/] }
 
-  validates :title,  presence: true, length: { minimum: 10, maximum: 50 }
+  validates :title,  presence: true, length: { minimum: 10, maximum: 70 }
   validates :slogan, presence: true, length: { minimum: 10, maximum: 50 }
   validates :file_attachment,  presence: true
   validates :link,  presence: true

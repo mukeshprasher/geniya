@@ -1,0 +1,64 @@
+
+@media screen and (max-width:1060px) {
+
+.wrapper_c, .wrapper, #content-container{width: 960px;}
+.inneContainer .innerLeft_section {width: 620px;}
+.inner_rightSection {width: 320px;}
+.user_updates_form {position: relative;width: 510px;}
+#updates-img {left: auto;right: 5px;}
+.user_description {width: 620px;}
+.user_description .firstCol .user .userBottom {width: 100%;}
+.midsection {margin-right: 105px;	}
+.inner_rightSection .make_comtact {bottom: 0;margin: 0;padding: 0 4%;width: 92%;}
+.slider_profile {height: 288px;}
+.anisten {min-height: 287px;}
+.span690 {width: 620px;}
+.content-profile {width: 100%;}
+.box_sec .box {width: 194px;}
+.content-profile img {height: 194px;max-height: 217px;width: auto;}
+
+#project-main{width: 620px;}
+#project-sidebar{width: 320px;}
+#comments-container {width: 592px;}
+.comments {margin: 0 0 0 4%;width: 96%;}
+#bussiness_page_name {left: 220px;}
+
+
+}
+
+@media screen and (max-width:980px) {
+
+.wrapper_c, .wrapper, #content-container{width: 760px;}
+.inneContainer .innerLeft_section {width: 500px;}
+.inner_rightSection {width: 240px;}
+.add_sec {width: 100%;}
+.ads-box {float: none;}
+.add_sec .makeUp {min-width: 100px;}
+.user_updates_form {width: 390px;}
+.user_description {width: 500px;}
+.user_description .firstCol .user {margin: 0 0 0 15px;width: 390px;}
+#man_nav li {padding: 0 5px;}
+#man_nav li a {font-size: 14px;}
+.midsection {margin-left: 0;margin-right: 120px;}
+.slider_profile {height: 227px;}
+.anisten {min-height: 227px;}
+.anisten .ani_top h2 {line-height: 28px;}
+.anisten li{ line-height: 16px;}
+.span690 {width: 500px;}
+.span315 {width: 240px;}
+.box_sec .box {width: 230px;}
+.content-profile img {height: 230px;max-height: 230px;}
+#srch_people_container {width: 40%;}
+.login_nav li {padding: 4px 2px;font-size: 11px;}
+.dropdown .caret {margin-top: 5px;}
+
+#project-main{width: 500px;}
+#project-sidebar{width: 240px;}
+#comments-container { margin: 0 0 0 10px;width: 490px;}
+.comments {margin: 0 0 0 4%;width: 96%;}
+#owner-info {width: 130px;}
+.discover_nav > li {line-height: 16px;padding: 0 10px 5px;}
+.business_profile_picture {height: 150px;width: 150px;}
+#bussiness_page_name {left: 180px;}
+
+}
