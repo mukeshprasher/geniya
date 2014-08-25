@@ -1,5 +1,5 @@
 class SubCategoriesController < ApplicationController
-  before_action :admin_user
+  before_action :admin_user, only: [:edit, :update, :create]
   before_action :set_sub_category, only: [:show, :edit, :update, :destroy]
 
   # GET /sub_categories

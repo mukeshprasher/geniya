@@ -753,6 +753,16 @@ $(function() {
       alert('Please Enter Video Name');
       return false;
     }
+//     else
+//     if((this.files[0].size/1024/1024) > (1)){ // Max Photo Size 10MB
+//      return false;
+//     }
+    else
+    if (FileName == '')
+    {
+      alert('Please select video to upload');
+      return false;
+    }   
     else
     if(FileName.indexOf(".")==-1 || FileExtension != "mp4" && FileExtension != "3gp" && FileExtension != "ogg" && FileExtension != "mpeg" && FileExtension != "flv" && FileExtension != "mpg" && FileExtension != "webm" && FileExtension != "mp3" && FileExtension != "wma" && FileExtension != "ogg" && FileExtension != "ogv"){ // Curstom File Extension
       alert("unsupported format, please upload flv, mp4, 3gp, mp3, ogg...");
@@ -935,7 +945,12 @@ $(function() {
           $("#profile_img").val('');
           return false;
          }
-
+         else
+         if((this.files[0].size/1024/1024) > (1)){ // Max Photo Size 1MB
+          alert("You Photo is too big !");
+          $("#featureimg_feature_img").val('');
+          return false;
+         }         
          
          else{
           var fr = new FileReader;

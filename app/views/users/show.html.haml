@@ -61,7 +61,8 @@
               = @user.name
               - if @user.plan != 'visitor'
                 %span
-                  = @user.sub_category.name 
+                  = link_to @user.sub_category do  
+                    = @user.sub_category.name 
           .art_gallery
             %ul
               - if (current_user == @user) && signed_in?
