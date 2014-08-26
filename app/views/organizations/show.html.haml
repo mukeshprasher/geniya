@@ -3,6 +3,8 @@
     .btn-group.btn-group-vertical.btn-block
       - if signed_in? and current_user == @organization.user
         = link_to 'Edit', edit_organization_path(@organization), class: 'btn btn-success'
+      - if signed_in? and current_user?(@organization.user)
+        = link_to 'Destroy', @organization, :method => :delete, :data => { :confirm => 'Are you sure to delete organization?' }, class: 'btn btn-success'      
       = link_to 'View Organizations', organizations_url, class: 'btn'
       = link_to 'My Profile', current_user, class: 'btn'
   .span7.spaced-right

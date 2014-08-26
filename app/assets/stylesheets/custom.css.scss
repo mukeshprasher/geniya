@@ -898,6 +898,10 @@ box-shadow:none;
     margin: 3px 0 0;
 }
  
+.current_album_like_form .like-img > img {
+    margin: 0 !important;
+}
+ 
 form {margin: 0 0 5px;}
 
 .current-liker-name {color: #82AB05;}
@@ -2190,7 +2194,7 @@ cursor: default;font-family: Arial,sans-serif;font-size: 10px;font-weight: bold;
 }
 
 #video-form {
-    width: 40% !important;
+    width: 50% !important;
 }
 
 
@@ -3359,12 +3363,15 @@ body {
 
 
 .current_album_like_form {
-    clear: both;
+   clear: both;
     float: left;
     font-size: 18px;
-    margin: 0 0 0 260px;
+    margin: 0 0 0 120px;
     text-align: center;
-    width: 27%;
+    width: 90%;
+}
+.current_album_like_form .edit_like,.current_album_like_form .new_like  {
+    margin: 4px 0 0;
 }
 .hidden{
   display: none;
@@ -3496,7 +3503,13 @@ body {
   color: #FFFFFF;
 }
 .detail_controls_cont{
-  margin: 5px 2px 2px 5px;
+ margin: 13px 2px 22px 30px;
+ font-family:latobold;
+}
+
+.span315 .detail_controls_cont{
+ margin: 0 !important;
+ font-family:latobold;
 }
 #home_control_section .btn{
   margin: 5px 0 0 40px;
@@ -4512,3 +4525,36 @@ select{width:100% !important;}
 }
 
 header .dropdown-menu li a{background:none !important;}
+
+
+#project-comments #ad-detail-cover-container {
+    float: left;
+    margin: 0 0 0 30px;
+    padding: 0;
+    width: 94%;
+}
+
+
+#project-comments #ad-detail-cover-container img {
+    border: 3px solid #CCCCCC;
+}
+
+
+.field.datepicker #organization_start_date {
+    width: 95%;
+}
+
+#loading_img_for_organization{display:none;}
+
+#orng_ajax_title{font-family:latobold;}
+
+
+#new_affiliation #affiliation_start_date,#new_affiliation #affiliation_end_date {
+    width: 90%;
+}
+
+#new_event #event_start, #new_event #event_end {
+    width: 95% !important;
+}
+
+#loading_img_for_event{display:none;}

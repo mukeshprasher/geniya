@@ -37,10 +37,10 @@
             - if signed_in?
               = f.hidden_field :email, value: current_user.email
             - else
-              = f.input :email
+              = f.input :email, :input_html => { :maxlength => 50 }
             = f.label :kind
             = f.select(:kind, options_for_select([['Appreciation', 'appreciation'], ['Bug report', 'bug report'], ['Question', 'question']], :selected=> 'bug report'))
-            = f.input :subject
+            = f.input :subject, :input_html => { :maxlength => 70 }
             = f.input :description
             = f.hidden_field :status, value: 'unanswered'
             = f.label :priority
