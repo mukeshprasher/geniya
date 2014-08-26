@@ -42,7 +42,7 @@
               /    %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
               /%a.demo{"data-toggle" => "modal",href: "#addfeatureimg", id: "#addfeatureimg"}
               /  Add Feature Image             
-            
+            %li= link_to 'Invite Contacts', "/invites/:provider/" 
             %li= link_to 'Edit Profile', "/users/"+current_user.slug+"/profile_edit" 
             - if current_user.plan == 'trial'
               %li= link_to 'Upgrade', new_payment_subscription_path                    
