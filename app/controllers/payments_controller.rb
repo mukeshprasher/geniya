@@ -45,7 +45,7 @@ class PaymentsController < ApplicationController
           @payment_subscription = PaymentSubscription.where(:subscr_id => subscription_id).first
           @payment_subscription = PaymentSubscription.new(raw_post_data) if @payment_subscription.blank?
           @payment_subscription.status = 'active'          
-          if ((params[:mc_gross] == "149.00" or params[:mc_gross] == "19.99" or params[:mc_gross] == "1.01") and params[:receiver_email] == "neeraj.singh-facilitator@60degree.com")
+          if ((params[:mc_gross] == "149.00" or params[:mc_gross] == "19.99" or params[:mc_gross] == "1.01") and params[:receiver_email] == "cvette05@hotmail.com")
             if @payment_subscription.save
               raw_post_data[:payment_subscription_id] = @payment_subscription.id
               @payment = Payment.new(raw_post_data)
@@ -59,7 +59,7 @@ class PaymentsController < ApplicationController
           end
         end
       when "subscr_signup"
-        if ((params[:mc_amount3] == "149.00" and params[:period3] == "1 Y") or (params[:mc_amount3] == "19.99" and params[:period3] == "1 M") or (params[:mc_amount3] == "1.01" and params[:period3] == "1 D")  and params[:receiver_email] == "neeraj.singh-facilitator@60degree.com")
+        if ((params[:mc_amount3] == "149.00" and params[:period3] == "1 Y") or (params[:mc_amount3] == "19.99" and params[:period3] == "1 M") or (params[:mc_amount3] == "1.01" and params[:period3] == "1 D")  and params[:receiver_email] == "cvette05@hotmail.com")
           @payment_subscription = PaymentSubscription.where(:subscr_id => subscription_id).first
           if @payment_subscription.blank?
             @payment_subscription = PaymentSubscription.new(raw_post_data)
@@ -83,7 +83,7 @@ class PaymentsController < ApplicationController
             @user.save validate: false
           end
         when "subscr_failed"
-          ActionMailer::Base.mail(:from => "payments@geniya.com", :to => "neeraj.singh@60degree.com", :subject => "paypal subscr_failed", :body => "#{params}").deliver            
+          ActionMailer::Base.mail(:from => "payments@geniya.com", :to => "geniya.network@gmail.com", :subject => "paypal subscr_failed", :body => "#{params}").deliver            
         when "subscr_eot"
           @payment_subscription.status = 'eot'
           if @payment_subscription.save
@@ -92,18 +92,18 @@ class PaymentsController < ApplicationController
             @user.save validate: false           
           end
         else
-          ActionMailer::Base.mail(:from => "payments@geniya.com", :to => "neeraj.singh@60degree.com", :subject => "paypal notify", :body => "#{params}").deliver        
+          ActionMailer::Base.mail(:from => "payments@geniya.com", :to => "geniya.network@gmail.com", :subject => "paypal notify", :body => "#{params}").deliver        
         end      
       end
     when "INVALID"
       # log for investigation
-      ActionMailer::Base.mail(:from => "payments@geniya.com", :to => "neeraj.singh@60degree.com", :subject => "paypal INVALID #{response}", :body => "#{raw_post_data}").deliver
+      ActionMailer::Base.mail(:from => "payments@geniya.com", :to => "geniya.network@gmail.com", :subject => "paypal INVALID #{response}", :body => "#{raw_post_data}").deliver
     else
       # error
-      ActionMailer::Base.mail(:from => "payments@geniya.com", :to => "neeraj.singh@60degree.com", :subject => "paypal error #{response}", :body => "#{raw_post_data}").deliver
+      ActionMailer::Base.mail(:from => "payments@geniya.com", :to => "geniya.network@gmail.com", :subject => "paypal error #{response}", :body => "#{raw_post_data}").deliver
     end
 
-    ActionMailer::Base.mail(:from => "all_payments@geniya.com", :to => "neeraj.singh@60degree.com", :subject => "all pay req", :body => "#{raw_post_data}").deliver
+    ActionMailer::Base.mail(:from => "all_payments@geniya.com", :to => "geniya.network@gmail.com", :subject => "all pay req", :body => "#{raw_post_data}").deliver
 
     render :nothing => true
   end
