@@ -148,7 +148,13 @@ jQuery(document).ready(function(){
       $('#bnss_agenda_link').css("background","#fff")
       $('#bnss_agenda_link').css("color","#69873F")         
     });
-
+    
+	    /*$(".mobile_menu_btn").click(function(){
+	      $("#man_nav").toggleClass("mobile_menu");
+	    });*/
+            $(".mobile_menu_btn").click(function(){
+	      $("#man_nav").slideToggle();
+	    });
 
     
     jQuery('#affiliation_status').live('click', function(event) {
