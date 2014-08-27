@@ -1785,7 +1785,7 @@ display:none;
     display: block;
     height: 30px;
     position: absolute;
-    right: 75px;
+    right: 110px;
     text-align: center;
     width: 115px;
 }
@@ -1868,14 +1868,22 @@ display:none;
 
 .feed-text {color: #4C4C4C;font-family: latoregular;font-size: 14px;font-weight: normal;}
 
-.comment-user-pic {float: left;height: 30px;width: 30px;}
+.comment-user-pic {    border: 1px solid #CCCCCC;
+    float: left;
+    height: 50px;
+    width: 50px;}
 
-.comment-user-pic img{height: 30px;width: 30px;}
+.comment-user-pic img{   height: 50px;
+    width: 50px;}
 
 
-.comment-user-name {float: left;margin: 0 0 0 8px;width: 90%;}
+.comment-user-name {    float: left;
+    margin: 0 0 0 8px;
+    width: 87%;}
 
-.child-comment-wrap {float: left;margin: 0;width: 100%;}
+.child-comment-wrap {    float: left;
+    margin: 15px 0;
+    width: 97%;}
 
 #update_privacy {border: 1px solid #CCCCCC;border-radius: 0;color: #4C4C4C;font-family: latolight;padding: 4px;width: 452px;}
 
@@ -2053,7 +2061,11 @@ cursor: pointer;
 .right {float: right;}
 #project-sidebar {box-sizing: border-box;width: 26.8687%;    border-left: 1px solid #ECECEC; background:#fff; border-radius:0px 4px 4px 0px}
 .sidebar-block {border-bottom: 1px solid #DFDFDF;border-top: 0 none;padding: 40px 24px 20px 22px;position: relative;}
-.primary-project-content {   background-color: #FFFFFF;float: left;margin: 0 2px 0 50px;padding-top: 50px;width: auto;}
+.primary-project-content {     background-color: #FFFFFF;
+    left: 25%;
+    padding-bottom: 40px;
+    position: relative;
+    width: auto;}
 #project-modules li {padding-bottom: 10px; text-align: center;}
 #project-comments.big-comments {background: none repeat scroll 0 0 #FCFCFC;border-bottom-left-radius: 4px;padding: 58px 0; overflow:hidden;}
 
@@ -2471,7 +2483,7 @@ textarea:focus, input[type="text"]:focus, input[type="password"]:focus, input[ty
 
 #feed_text {
     font-family: latoregular;
-    font-size: 14px;
+    font-size: 17px;
 }
 
 
@@ -3530,7 +3542,7 @@ body {
   margin-left: 3px;
 }
 .album_detail_title{
-  margin-left: 10px;
+  text-align:center;
 }
 .price_other{
   color: #2A83C4;
@@ -4596,4 +4608,21 @@ header .dropdown-menu li a{background:none !important;}
     font-family: 'latobold';
     font-size: 14px;
     text-decoration: none;
+}
+
+
+.share_with_socials {
+    font-size: 17px;
+    margin: 11px 0 0;
+    text-align: center;
+}
+
+
+#child_feed_text {
+    font-size: 15px;
+}
+
+
+hr {
+    border: 1px solid #CFCFCF;
 }

@@ -6,7 +6,7 @@
 .inneContaineralbum
   .wrapper
     #bussiness_quote
-
+  
 
     - if @user.kind == "bussiness"
       .business_profile_picture
@@ -154,6 +154,12 @@
                   %span Available:
                   %p 
                     =@user.available
+              %li
+                %span
+                  %img{alt: "", src: "/assets/artgallery_img1.png"}/                
+                %span Plan:
+                %p
+                  =@user.plan.capitalize
               - if @user.email.nil? && signed_in?
               - else
                 %li
@@ -246,6 +252,8 @@
             = render 'shared/follow_form' if signed_in?
           %li
             = render 'shared/connect_form' if signed_in?
+          %li 
+            .addthis_sharing_toolbox
       .clear
     
     - if @user.kind=="bussiness"

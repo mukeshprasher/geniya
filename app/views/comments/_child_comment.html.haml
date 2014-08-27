@@ -1,15 +1,18 @@
 %div.child-comment-wrap{ :id => "child-comment-#{child.id}" }
-  -if (current_user == child.user)
-    = link_to "×", comment_path(child), :method => :delete, :remote => true, :disable_with => "×", :class => 'child-comment-delete', :id => "child-comment-delete-#{child.id}"
-  %span.comment-user-pic  
-    - if child.user.headshot
-      = image_tag child.user.headshot.file_attachment.url(:thumb)
-    -else
-      =image_tag '/assets/missing.png'   
-  %span.comment-user-name
-    %a{href: "/users/"+"#{child.user.slug}"}
-      = child.user.name  
-    %small= simple_format raw child.body
-    %p= child.updated_at
-    #child-comment-likes  
-      = render 'shared/like_form', object: child, user: child.user
+  %hr
+    -if (current_user == child.user)
+      = link_to "×", comment_path(child), :method => :delete, :remote => true, :disable_with => "×", :class => 'child-comment-delete', :id => "child-comment-delete-#{child.id}"
+    %span.comment-user-pic  
+      - if child.user.headshot
+        = image_tag child.user.headshot.file_attachment.url(:thumb)
+      -else
+        =image_tag '/assets/missing.png'   
+    %span.comment-user-name
+      %a{href: "/users/"+"#{child.user.slug}"}
+        = child.user.name  
+      #child_feed_text
+        = simple_format raw child.body
+      %p#child_comment_post_time
+        #{time_ago_in_words(child.updated_at)} ago.
+      #child-comment-likes  
+        = render 'shared/like_form', object: child, user: child.user
