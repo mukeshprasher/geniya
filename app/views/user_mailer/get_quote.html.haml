@@ -88,9 +88,19 @@
                                     Hello
                                     = @quote.user.name
                                     ,
+                                    - if @quote.page_id == 0
+                                      %br
+                                        = @quote.name
+                                        wants information about you with following Details:                                    
+                                    - else  
+                                      %br
+                                        = @quote.name
+                                        Request Quotes for your Business Page
+                                        = @page_name.name
+                                        with following Details:
                                     %br
-                                      = @quote.name
-                                      Request for the Quotes With following Details:
+                                      Name:
+                                      = @quote.name                                   
                                     %br
                                       Email Address:
                                       = @quote.email
@@ -98,7 +108,7 @@
                                       Contact Information:
                                       = @quote.contact
                                     %br
-                                      Message
+                                      Message: 
                                       = @quote.message
                                     %br
                                     %br

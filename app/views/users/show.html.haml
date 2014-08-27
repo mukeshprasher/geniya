@@ -5,8 +5,7 @@
   - provide(:title, "#{@user.name} | #{@user.sub_category.name}")
 .inneContaineralbum
   .wrapper
-    - if @user.kind=="bussiness"
-      #bussiness_quote
+    #bussiness_quote
 
 
     - if @user.kind == "bussiness"
@@ -50,6 +49,35 @@
 
             
     .slider_profile
+      - if @user.kind == "user"
+        .user_reach_out
+          - if signed_in? and current_user?(@user) 
+          - else        
+            - if @user.plan == "deluxe" || @user.plan == "admin"
+              .get_quote
+                %a{id: "get_quote_form"} Reach Out
+              .Quote_form
+                = simple_form_for(@quote, remote: true) do |f|
+                  = f.error_notification
+
+                  .form-inputs
+                    = f.hidden_field :user_id, value: @user.id 
+                    = f.hidden_field :page_id, value: @user.parent_id
+                    - if signed_in?
+                      = f.input :name, :input_html => { :value => current_user.name, :maxlength => 30  }
+                    - else
+                      = f.input :name, placeholder: "Name", :input_html => { :maxlength => 30 }
+                    - if signed_in?
+                      = f.input :email, :input_html => { :value => current_user.email,  :maxlength => 50  }
+                    - else
+                      = f.input :email, placeholder: "Email", :input_html => { :maxlength => 50 }
+                    = f.input :contact, placeholder: "Contact", :input_html => { :maxlength => 20 }
+                    = f.input :message, placeholder: "Message"
+                    = f.button :submit, class: "compBtn", value: "Submit"
+                  #loading_img_quote
+                    %img{src: "/assets/loader.gif", alt: "loading"}/         
+      
+      
       .cover-photo
         .cover-pic
           - if @user.covershot
@@ -282,9 +310,15 @@
                 .form-inputs
                   = f.hidden_field :user_id, value: @user.parent_id
                   = f.hidden_field :page_id, value: @user.id
-                  = f.input :name, placeholder: "Name"
-                  = f.input :email, placeholder: "Email"
-                  = f.input :contact, placeholder: "Contact"
+                  - if signed_in?
+                    = f.input :name, :input_html => { :value => current_user.name, :maxlength => 30  }
+                  - else
+                    = f.input :name, placeholder: "Name", :input_html => { :maxlength => 30 }
+                  - if signed_in?
+                    = f.input :email, :input_html => { :value => current_user.email,  :maxlength => 50  }
+                  - else
+                    = f.input :email, placeholder: "Email", :input_html => { :maxlength => 50 }
+                  = f.input :contact, placeholder: "Contact", :input_html => { :maxlength => 20 }
                   = f.input :message, placeholder: "Message"
                   = f.button :submit, class: "compBtn", value: "Submit"
                 #loading_img_quote

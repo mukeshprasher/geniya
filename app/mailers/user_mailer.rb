@@ -14,7 +14,12 @@ class UserMailer < ActionMailer::Base
 
   def get_quote(quote)
     @quote = quote
-    mail(to: @quote.user.email, subject: 'Get Quote Request')
+    @page_name = User.find_by(id: @quote.page_id)
+    if @quote.page_id == 0
+      mail(to: @quote.user.email, subject: 'Reach Out Request')
+    else
+      mail(to: @quote.user.email, subject: 'Get Quote Request')
+    end
   end
 
   def feedback_request(feedback)

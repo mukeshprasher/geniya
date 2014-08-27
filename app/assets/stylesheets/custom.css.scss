@@ -4558,3 +4558,42 @@ header .dropdown-menu li a{background:none !important;}
 }
 
 #loading_img_for_event{display:none;}
+
+
+.simple_form.new_quote {
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
+}
+
+
+.user_reach_out {
+    position: absolute;
+    right: 1%;
+    top: 5%;
+    z-index: 999;
+}
+
+
+.user_reach_out .get_quote:before {
+    border-color: #E2E2E2 rgba(0, 0, 0, 0);
+    border-width: 0 6px 8px;
+    content: "";
+    display: block;
+    left: 50%;
+    margin-left: -5px;
+    position: absolute;
+    top: 35px;
+}
+.user_reach_out .get_quote {
+    background: none repeat scroll 0 0 #87B009;
+    float: right;
+    font-weight: bold;
+    padding: 10px 6px;
+    position: relative;
+}
+
+.user_reach_out .get_quote a {
+    color: #F7F7F7;
+    font-family: 'latobold';
+    font-size: 14px;
+    text-decoration: none;
+}
