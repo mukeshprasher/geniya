@@ -743,6 +743,22 @@ $(function() {
     });
   
  
+  $("#video_file_attachment").change(function (e) {
+    var target = $(e.target);
+    var OrgFile = (this.files[0].name),
+    FileName = OrgFile,
+    FileExtension = FileName.split('.').pop().toLowerCase();
+     if((this.files[0].size/1024/1024) > (10)){ // Max Photo Size 1MB
+      alert("Please Upload video below 10 MB");
+      $("#video_file_attachment").val('');
+      return false;
+     } 
+    else
+    {
+      return true;
+    }
+  }); 
+ 
 
     $("#new_video").submit(function(){
     var name = $("#video_name").val();
@@ -805,6 +821,111 @@ $(function() {
       return true;
     }
     });      
+
+
+
+
+
+//  for organization for
+
+
+  $("#new_organization").submit(function(){
+    var name = $("#organization_name").val();
+    var start_date = $("#organization_start_date").val();
+    var d = new Date();
+    var month = d.getMonth()+1;
+    var day = d.getDate();
+
+    var output = d.getFullYear() + '-' +
+        (month<10 ? '0' : '') + month + '-' +
+        (day<10 ? '0' : '') + day;    
+    if (name == '')
+    {
+      alert("Please enter the organization name");
+      return false;
+    }
+
+    else 
+    if(start_date == '')
+    {
+      alert("Please Select the Organization start date")
+      return false;
+    }
+    else
+    if(start_date > output)
+    {
+      alert("Provided date is not valid, please select from current or previous date")
+      return false;
+    }
+    else
+    {
+      $('#loading_img_for_organization').show();
+      return true;
+    }
+    });  
+
+
+
+
+/// for event form
+
+
+  $("#new_event").submit(function(){
+    var title = $("#event_title").val();
+    var start_date = $("#event_start").val();
+    var end_date = $("#event_end").val();
+    var descr = $("#event_description").val();
+    
+    var d = new Date();
+    var month = d.getMonth()+1;
+    var day = d.getDate();
+
+    var output = d.getFullYear() + '-' +
+        (month<10 ? '0' : '') + month + '-' +
+        (day<10 ? '0' : '') + day;    
+    if (title == '')
+    {
+      alert("Please enter title of event");
+      return false;
+    }
+    else 
+    if(descr == '')
+    {
+      alert("Please enter description of event")
+      return false;
+    }
+    else 
+    if(start_date == '')
+    {
+      alert("Please Select the event start date")
+      return false;
+    }
+    else
+    if(start_date > output)
+    {
+      alert("Provided date is not valid, please select from current or previous date")
+      return false;
+    }
+    else 
+    if(end_date == '')
+    {
+      alert("Please Select the event end date")
+      return false;
+    }
+    else 
+    if(start_date > end_date)
+    {
+      alert("Event end date is not previous from event start date")
+      return false;
+    }        
+    else
+    {
+      $('#loading_img_for_event').show();
+      return true;
+    }
+    }); 
+
+
 
 
 
@@ -1070,6 +1191,9 @@ $(function() {
             $('#loading_img_for_srhorgn').hide();
             $('#loading_img_for_useraffiliation').hide();
             $("#loading_img_for_feature_img").hide();
+            $('#loading_img_for_organization').hide();
+            $('#loading_img_for_event').hide();
+            
             
         });
     }); 

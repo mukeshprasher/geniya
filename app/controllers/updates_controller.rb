@@ -26,6 +26,11 @@ class UpdatesController < ApplicationController
         params[:update][:name] = sanitize_and_linkify_text(params[:update][:text])
         @update_video = current_user.videos.build(video_params)
         @update_video.save 
+        @connected_user_ids = current_user.confirmed_connected_users
+        @listning_to_user_ids = @connected_user_ids + current_user.followed_user_ids
+        
+        @listning_to_user_ids << current_user.id        
+        
         @activity = create_activity(@update.class.name, @update.id, 'create')
       end  
 

@@ -1,8 +1,8 @@
 class Event < ActiveRecord::Base
   belongs_to :user
   
-  validates :title,  presence: true, length: { minimum: 2,  maximum: 30 }
-  validates :description,  presence: true, length: { minimum: 2,  maximum: 200 }
+  validates :title,  presence: true, length: { minimum: 1,  maximum: 30 }
+  validates :description,  presence: true, length: { minimum: 1,  maximum: 200 }
   validates :start, presence: true
   validates :end, presence: true
   validate :start_is_valid_datetime

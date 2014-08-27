@@ -13,8 +13,8 @@
       %span#feed_text
         = raw simple_format comment.body
       %p
-        %small 
-          = comment.updated_at
+        %comment_post_time 
+          #{time_ago_in_words(comment.updated_at)} ago.
       #comment-like
         = render 'shared/like_form', object: comment, user: comment.user
     -if signed_in? 
@@ -24,3 +24,5 @@
         - comment.children.each do|child| 
           = render :partial => 'comments/child_comment', :locals => { child: child}
     = render :partial => 'comments/child_form', :locals => { comment: @new_comment, parent_id: comment.id}          
+    
+

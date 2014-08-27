@@ -93,7 +93,7 @@ gem "jquery-atwho-rails"
 gem 'letsrate'
 
 # In place editing
-gem "best_in_place", github: 'bernat/best_in_place'
+gem "best_in_place"
 
 #Automatic jquery validation
 
