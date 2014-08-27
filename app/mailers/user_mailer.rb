@@ -35,6 +35,16 @@ class UserMailer < ActionMailer::Base
       mail(to: @feedback_reply.feedback.user.email, subject: ' Geniya Response on your Feedback')
     end
   end
+  
+  def invite_contacts(contacts, logged_user)
+    @contacts = contacts
+    @user = logged_user
+    email = Array.new
+    @contacts.each do |c|
+      email<< c[:email]
+    end
+    mail(bcc: email.join(","), subject: 'Invitation to join #{@user.name.capitalize} on Geniya') 
+  end
 
 
 
