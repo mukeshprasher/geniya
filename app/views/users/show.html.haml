@@ -154,12 +154,6 @@
                   %span Available:
                   %p 
                     =@user.available
-              %li
-                %span
-                  %img{alt: "", src: "/assets/artgallery_img1.png"}/                
-                %span Plan:
-                %p
-                  =@user.plan.capitalize
               - if @user.email.nil? && signed_in?
               - else
                 %li
