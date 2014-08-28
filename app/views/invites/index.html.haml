@@ -11,11 +11,15 @@
 .detail_form_container
   %a{href: "/contacts/gmail", class: "btn btn-success"}
     Invite Gmail Contact
+  %br
+  %br
+  %br
+  %a{href: "/contacts/facebook", class: "btn btn-success"}
+    Invite Facebook Contact    
   - if !@contacts.nil?
     - @contacts.each do |c|
       %ul
         %p
           Contact List
         %li
-          = c[:name]
           = c[:email]      
