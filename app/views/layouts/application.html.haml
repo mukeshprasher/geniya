@@ -1,5 +1,5 @@
 !!!
-%html
+%html{"xmlns:fb" => "http://ogp.me/ns/fb#"}
   %head
     %title= yield(:title)
     %meta{name: 'description', content: yield(:description)}
@@ -7,6 +7,8 @@
     - meta_user_id = signed_in? ? current_user.id : ""
     %meta{content: "#{meta_user_id}", name: 'user-id'}
     %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}/
+    - if params[:controller] == 'users' and params[:action] == 'show' and @user.headshot
+      %meta{ "property" => "og:image", content: @user.headshot.file_attachment.url(:medium)}
     = stylesheet_link_tag    "application", media: "all"
     = stylesheet_link_tag '//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css'
     = javascript_include_tag "application"
