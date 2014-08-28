@@ -3,12 +3,12 @@
 
 @media screen and (max-width:1060px) {
 .wrapper_c, .wrapper, #content-container, .wrapper_c_not_required{width: 960px; margin:0 auto;}
-.inneContainer .innerLeft_section {width: 620px;}
+.inneContainer .innerLeft_section {width: 620px;margin-top: 15px;}
 .inner_rightSection {width: 320px;}
 .user_updates_form {position: relative;width: 510px;}
 #updates-img {left: auto;right: 5px;}
 .user_description {width: 620px;}
-.user_description .firstCol .user .userBottom {width: 100%;}
+.user_description .firstCol .user .userBottom { padding: 0 1%;width: 96%;}
 .midsection {margin-right: 105px;	}
 .inner_rightSection .make_comtact {bottom: 0;margin: 0;padding: 0 4%;width: 92%;}
 .slider_profile {height: 288px;}
@@ -44,9 +44,9 @@
 .sale_plan h2, .free_plan h2 {font-size: 36px;margin: 30px 0; line-height: normal;}
 .sale_plan h2 em, .free_plan h2 em{font-size: 22px;}
 .free_plan ul li, .sale_plan ul li {font-size: 18px;padding: 0 0 20px 20px;background-position: 0 6px;}
-
 .row {margin-left: 0;}
 .offset3 {float: none;margin: 0 auto;}
+.user_description .firstCol .user .userTop {width: 100%;}
 
 
 }
@@ -70,6 +70,7 @@
 .aff_org_name a {font-size: 13px;}
 .span690 {width: 500px;}
 .span315 {width: 240px;}
+.discover{-webkit-box-sizing: border-box; -moz-box-sizing: border-box;  box-sizing: border-box;}
 .box_sec .box {width: 230px;}
 .content-profile img {height: 230px;max-height: 230px;}
 #srch_people_container {width: 40%;}
@@ -78,7 +79,7 @@
 #project-main{width: 500px;}
 #project-sidebar{width: 240px;}
 #comments-container { margin: 0 0 0 10px;width: 490px;}
-.comments {margin: 0 0 0 4%;width: 96%;}
+.comments {margin: 0 1%;width: 98%;}
 #owner-info {width: 130px;}
 .discover_nav > li {line-height: 16px;padding: 0 10px 5px;}
 .business_profile_picture {height: 150px;width: 150px;}
@@ -91,7 +92,6 @@
 #editorsPicks .isotopeSummary h4 {font-size: 14px;}
 #twitter_follower, #facbook_count, #subscribe_youtube {margin: -22px 0 0 65px;}
 .social_count {margin: -22px 0 0 100px;}
-
 .get_started {margin: -22px 0 0;width: 45px;}
 .basic_plan {min-height: 810px;padding: 10px 34px 10px 5px;width: 190px;}
 .sale_plan h2, .free_plan h2 {font-size: 26px;margin: 15px 0;}
@@ -100,6 +100,8 @@
 .sale_plan ul, .free_plan ul {width: 200px;}
 .limited_offer_plan {font-size: 18px;margin: 0;padding: 5px 4%;text-align: center;width: 90%;position: relative;}
 .limited_time_offer_img {bottom: auto;left: -25px;top: -3px;width: 60px;}
+.inner_rightSection .make_comtact a {font-size: 13px;margin: 0;padding: 8px 11px;}
+.inner_rightSection .make_comtact p {font-size: 14px;margin: 0;}
 
 
 }
@@ -118,7 +120,7 @@
 .slider_profile {height: auto;}
 .cover-photo {height: auto;}
 #ProfileCoverPhotoSelector {right: 10px;}
-.profile_picture {border: 3px solid #FFFFFF;height: 120px;top: 43%;margin-left: -63px;width: 120px;}
+.profile_picture {border: 3px solid #FFFFFF;height: 120px;top: 37%;margin-left: -63px;width: 120px;}
 .ProfilePicSelector {bottom: 0;height: 20px;padding: 0 2px;width: 116px;}
 .ProfilePicSelector > img {margin: 3px 2px 0 0;width: 13px;}
 .ProfilePicSelector .txt {float: none;font-size: 10px;padding: 2px 0;}
@@ -149,13 +151,26 @@
 #editorsPicks li.isotope-item {min-width: 100px;}
 #twitter_follower, #facbook_count, #subscribe_youtube {margin: -26px 0 0 65px;}
 .social_count {margin: -26px 0 0 100px;}
-
 .pricing_page {padding: 0 0 40px;}
 .innerBenner {margin: 10px 0 0;}
 .basic_plan {display: table;float: none;margin: 20px auto;min-height: 500px;padding: 10px 35px 10px 5px;width: 360px;}
 .free_plan, .sale_plan {width: 100%;}
 .sale_plan ul, .free_plan ul {min-height: 100px;width: 100%;}
 .limited_time_offer_img {top: -16px;}
+#feedback_trigger{display:none;}
+
+.inneContainer .innerLeft_section {width: 100%;}
+.feed_headshot img {height: auto;margin: 0;width: auto;}
+.user_info {margin-top: 0;}
+.user_data {margin: 0 4% 0 0;width: 20%;}
+.user_updates_form {width: 76%;}
+.user_description {float: right;width: 72%;padding: 0 2%;}
+.user_description .firstCol .user {width: 100%; margin: 0;}
+.user_description .firstCol .user .userBottom {width: 98%;}
+.user_description .firstCol {width: 100%;}
+.inneContainer {display: block;}
+
+
 
 
 
@@ -171,12 +186,16 @@
 .section_heading .right_section {font-size: 18px;line-height: normal;}
 .span315 {width: 270px;}
 #editorsPicks li.isotope-item {width: 49%;}
-
 .innerBenner {height: auto;}
 .innerBenner .news_feeds {padding: 40px 0;}
 .news_feeds .text h2 {font-size: 32px;}
 .news_feeds .text h2 span {font-size: 32px;}
 .news_feeds .text p {font-size: 18px;}
+.login_container{background-size: 94% auto; margin: 40px auto;width: 360px;}
+.login_container .form-item input {width: 256px;}
+.portfolio_box_container {width: 50%;}
+.education_photography .education {background: none;margin: 0 0 10px;width: 100%;}
+.education_photography .key_skills {width: 100%;}
 
 
 }
@@ -187,17 +206,37 @@
 #new_user {padding: 10px;}
 #new_user .field label, #new_advertisement .field label {padding-right: 0;text-align: left;width: 100%;}
 #new_user .field input, #new_advertisement .field input {width: 100%;}
-
 .login_nav li.login{background-size: 60px auto;padding: 2px 3px 15px;}
 .login_nav li.login a {font-size: 11px;}
 .login_nav li {margin-bottom: 5px;}
 #header_wrapper .dropdown-menu {left: auto;min-width: 100px;right: 0;width: 160px !important;}
+.user_reach_out .get_quote {font-weight: normal;padding: 5px;}
+.user_reach_out .get_quote a {font-size: 12px;}
+.profile_picture {height: 90px;margin-left: -45px;top: 37%;width: 90px;}
+.profile_nav ul li {font-size: 20px;padding: 5px 5px 0;}
+.art_social {width: 95px;}
+.art_social ul li {padding: 0;}
 
 }
 @media screen and (max-width:420px) {
 
 #editorsPicks li.isotope-item {display: table;float: none;margin: 10px auto;width: 270px;}
 #editorsPicks .albm-img img {height: auto;max-height: 500px;width: 100%;}
+.login_container {background-size: 100% auto;padding: 0 10px;width: 260px;}
+.login_container .form-item input {width: 198px;}
+.login_container form {padding: 10px;}
+.login_container .left {width: 100%;}
+.login_container .form-item.password {margin-bottom: 10px;}
+.box_sec {width: 100%;}
+.portfolio_box_container {display: table;float: none;margin: 10px auto;width: 270px;}
+.profile_picture {height: 70px;margin-left: -35px;top: 30%;width: 70px;}
+#profile_tags_left {margin-top: 25px;width: 100%;}
+#profile_tags_right {margin-top: 0;width: 100%;}
+
+.user_data {margin: 0 0 10px;width: 120px;}
+.user_updates_form {width: 100%;}
+.user_description {width: 96%;}
+
 
 
 }
