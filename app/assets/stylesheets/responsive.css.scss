@@ -1,5 +1,10 @@
 
 .mobile_menu_btn{display:none;}
+.profile_form_editable {clear: both;display: block;float: none;margin: 0 auto;padding: 40px 0;width: 500px;}
+fieldset .field {margin: 6px 10px 12px;width: auto;}
+.detail_form_container .span6 {margin: 0;width: 100%;}
+.search .go {padding: 0 !important;}
+.summery {word-wrap: break-word;}
 
 @media screen and (max-width:1060px) {
 .wrapper_c, .wrapper, #content-container, .wrapper_c_not_required{width: 960px; margin:0 auto;}
@@ -35,7 +40,7 @@
 .tab_content .txtcol {width: 60%;}
 .pull_inside2 {padding: 10px;}
 .simple_form {padding: 10px 10px 40px;}
-.simple_form [type="submit"] {font-size: 14px;padding: 5px;width: auto;}
+.simple_form [type="submit"] {font-size: 14px !important;padding: 5px !important;width: auto;}
 #editorsPicks li.isotope-item {margin: 0 0 1%;min-height: 150px;min-width: 180px;width: 32%;}
 .facebook_div {position: relative;}
 #twitter_follower, #facbook_count, #subscribe_youtube {float: left; left:0;margin: -27px 0 0 65px;position: relative;z-index: 100;}
@@ -47,6 +52,20 @@
 .row {margin-left: 0;}
 .offset3 {float: none;margin: 0 auto;}
 .user_description .firstCol .user .userTop {width: 100%;}
+
+
+.user_description .firstCol {width: 100%;}
+.user_description .feed_headshot {width: 20%;}
+.user_description .feed_headshot img {height: auto;width: auto;}
+.user_description .firstCol .user {margin: 0 0 0 2%;width: 78%;}
+.comment {position: relative;}
+.comment > a {float: right;position: absolute;right: 0;top: 40px;}
+.comment-user-pic {height: auto;width: 10%;}
+.comment-user-pic img {height: auto;width: auto;}
+.comment-user-name {margin: 0 0 0 3%;width: 85%;}
+
+.child-comment-wrap {position: relative;width: 100%;}
+.child-comment-delete {position: absolute;right: 5px;top: 25px;}
 
 
 }
@@ -70,7 +89,7 @@
 .aff_org_name a {font-size: 13px;}
 .span690 {width: 500px;}
 .span315 {width: 240px;}
-.discover{-webkit-box-sizing: border-box; -moz-box-sizing: border-box;  box-sizing: border-box;}
+.discover{-webkit-box-sizing: border-box; -moz-box-sizing: border-box;  box-sizing: border-box;width: 100%;}
 .box_sec .box {width: 230px;}
 .content-profile img {height: 230px;max-height: 230px;}
 #srch_people_container {width: 40%;}
@@ -103,6 +122,8 @@
 .inner_rightSection .make_comtact a {font-size: 13px;margin: 0;padding: 8px 11px;}
 .inner_rightSection .make_comtact p {font-size: 14px;margin: 0;}
 
+.user_description .firstCol .user {margin: 0 0 0 2%;width: 78%;}
+
 
 }
 @media screen and (max-width:767px) {
@@ -111,7 +132,7 @@
 #srch_people_container {width: 33%;}
 .login_nav {text-align: right;width: 66%;}
 #header_wrapper .dropdown-menu {text-align: left;}
-.login_nav li {display: inline-block !important;float: none;vertical-align: middle;}
+.login_nav li {display: inline-block !important;float: none;vertical-align: top;}
 .logo {clear: both;display: table;float: none;margin: 0 auto;position: static;}
 .midsection {margin-right: 0;}
 .inneContaineralbum {display: block;}
@@ -158,17 +179,27 @@
 .sale_plan ul, .free_plan ul {min-height: 100px;width: 100%;}
 .limited_time_offer_img {top: -16px;}
 #feedback_trigger{display:none;}
-
 .inneContainer .innerLeft_section {width: 100%;}
 .feed_headshot img {height: auto;margin: 0;width: auto;}
 .user_info {margin-top: 0;}
 .user_data {margin: 0 4% 0 0;width: 20%;}
 .user_updates_form {width: 76%;}
-.user_description {float: right;width: 72%;padding: 0 2%;}
-.user_description .firstCol .user {width: 100%; margin: 0;}
+.user_description {float: right;width: 100%;padding: 0 0;}
+.user_description .firstCol .user {
+    margin: 0 0 0 2%;
+    width: 78%;
+}
 .user_description .firstCol .user .userBottom {width: 98%;}
 .user_description .firstCol {width: 100%;}
 .inneContainer {display: block;}
+.inner_rightSection{display:none;}
+.chatboxhead {padding: 5px;}
+.chatboxhead h1 {font-size: 12px;font-weight: normal;line-height: normal;margin: 0;}
+
+.wrapper h1 {font-size: 28px;}
+.profile_form_editable, .detail_form_container {padding: 40px 0;width: 360px;}
+.btn-group-vertical > .btn {min-width: 100px;}
+.art_social {display: none;}
 
 
 
@@ -216,6 +247,12 @@
 .profile_nav ul li {font-size: 20px;padding: 5px 5px 0;}
 .art_social {width: 95px;}
 .art_social ul li {padding: 0;}
+.user_description .feed_headshot {width: 120px;}
+.user_description .firstCol .user {margin: 0 0 0;width: 100%;}
+
+#ProfileCoverPhotoSelector {height: 25px;right: 4px;width: 88px;}
+#ProfileCoverPhotoSelector i {left: 0;top: 4px;}
+.uiButtonText {font-size: 10px;padding-left: 0;top: 4px;}
 
 }
 @media screen and (max-width:420px) {
@@ -230,13 +267,21 @@
 .box_sec {width: 100%;}
 .portfolio_box_container {display: table;float: none;margin: 10px auto;width: 270px;}
 .profile_picture {height: 70px;margin-left: -35px;top: 30%;width: 70px;}
-#profile_tags_left {margin-top: 25px;width: 100%;}
+#profile_tags_left {margin-top: 10px;width: 100%;}
 #profile_tags_right {margin-top: 0;width: 100%;}
 
 .user_data {margin: 0 0 10px;width: 120px;}
 .user_updates_form {width: 100%;}
 .user_description {width: 96%;}
+.wrapper h1 {font-size: 24px;}
+.profile_form_editable, .detail_form_container {width: 280px;}
+legend {font-size: 16px;}
 
+.anisten {padding: 0 5px;width: 100px;}
+.anisten .ani_top {border-bottom: 0 none;}
+.anisten .ani_top h2 {font-size: 16px;line-height: 24px;}
+.anisten .ani_top h2 span {font-size: 12px;}
+.profile_nav ul li, .profile_nav ul li span {font-size: 12px;}
 
 
 }
