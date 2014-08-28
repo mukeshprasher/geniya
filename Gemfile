@@ -5,7 +5,7 @@ ruby '2.1.0'
 gem 'rails', '4.0.2'
 
 # Use SCSS for stylesheets
-gem 'sass-rails', '4.0.1'
+gem 'sass-rails', '~> 4.0.2'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '2.4.0'
@@ -93,7 +93,7 @@ gem "jquery-atwho-rails"
 gem 'letsrate'
 
 # In place editing
-gem "best_in_place"
+gem "best_in_place", github: 'bernat/best_in_place'
 
 #Automatic jquery validation
 

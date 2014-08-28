@@ -22,7 +22,6 @@
 //= require mediaelement_rails
 //= require jquery.atwho
 //= require best_in_place
-//= require best_in_place.purr
 //= require tinymce
 //= require cocoon
 //= require fullcalendar
