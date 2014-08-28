@@ -382,7 +382,7 @@ $(function() {
 
       $.getJSON("http://query.yahooapis.com/v1/public/yql?q=SELECT%20*%20from%20html%20where%20url=%22http://twitter.com/GeniyaNetwork%22%20AND%20xpath=%22//span[@class=%27ProfileNav-value%27]%22&format=json", function(data) { 
         var count = data['query']['results']['span']
-        var new_count = count[1]
+        var new_count = count[3]
         var followers_count = new_count['content']
         $('#twitter_follower').html(followers_count);
       }); 
