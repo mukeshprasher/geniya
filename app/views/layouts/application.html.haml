@@ -6,6 +6,7 @@
     %meta{name: 'keywords', content: yield(:keywords)}
     - meta_user_id = signed_in? ? current_user.id : ""
     %meta{content: "#{meta_user_id}", name: 'user-id'}
+    %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}/
     = stylesheet_link_tag    "application", media: "all"
     = stylesheet_link_tag '//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css'
     = javascript_include_tag "application"
