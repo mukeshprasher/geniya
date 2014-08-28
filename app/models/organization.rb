@@ -2,7 +2,7 @@ class Organization < ActiveRecord::Base
   has_many :affiliations, dependent: :destroy
   has_many :users, through: :affiliations
   belongs_to :user
-  has_many :addresses
+  #has_many :addresses
   belongs_to :category
   belongs_to :sub_category 
   has_many :locations
