@@ -4625,4 +4625,20 @@ header .dropdown-menu li a{background:none !important;}
 
 hr {
     border: 1px solid #CFCFCF;
+    }
+    
+.invite_frnd_list li, .invite_frnd_list p {
+    font-family: latobold;
+    font-size: 18px;
+}
+
+#header_wrapper .dropdown-menu {
+    left: -50px;
+    max-height: 375px;
+    overflow-x: hidden;
+}
+
+
+#fileupload .table.table-striped .start {
+    display: none;
 }

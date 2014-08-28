@@ -122,6 +122,8 @@ gem 'private_pub'
 gem 'thin'
 #gem 'devise'
 
+gem "omnicontacts"
+
 # Use unicorn as the app server
 # gem 'unicorn'
 

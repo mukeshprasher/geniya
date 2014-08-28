@@ -1,0 +1,21 @@
+.innerBenner
+  .wrapper
+    .news_feeds
+      %h2 
+        Invites Contact
+.wrapper
+  .row-fluid.spaced-top
+    .span2.spaced-left
+      .btn-group.btn-group-vertical.btn-block
+        = link_to 'My Profile', current_user, class: 'btn'
+.detail_form_container
+  %a{href: "/contacts/gmail", class: "btn btn-success"}
+    Invite Gmail Contact
+  - if !@contacts.nil?
+    - @contacts.each do |c|
+      %ul
+        %p
+          Contact List
+        %li
+          = c[:name]
+          = c[:email]      

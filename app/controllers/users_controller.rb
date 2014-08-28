@@ -133,7 +133,7 @@ class UsersController < ApplicationController
     
 #    @user.plan = 'trial' if @user.plan == 'deluxe'
     
-    @user.plan_end = Date.today + 1.month
+    @user.plan_end = Date.today + 1.year
     @user.status = ('a'..'z').to_a.shuffle[0..19].join
     respond_to do |format|
       if @user.save
@@ -171,13 +171,14 @@ class UsersController < ApplicationController
     params[:user][:category_id] = current_user.category_id
     params[:user][:sub_category_id] = current_user.sub_category_id
     params[:user][:chosen_plan] = current_user.plan
-    params[:user][:password]  = "password"
-    params[:user][:password_confirmation] = "password"
+    business_password = ('a'..'z').to_a.shuffle[0..10].join
+    params[:user][:password]  = business_password
+    params[:user][:password_confirmation] = business_password
     params[:user][:kind] = "bussiness"
     params[:user][:parent_id] = current_user.id
     @user = User.new(user_params)
-    @user.plan = current_user.plan
-    @user.plan_end = Date.today + 1.month
+    @user.plan = (current_user.plan == "admin") ? "deluxe": current_user.plan 
+    @user.plan_end = Date.today + 1.year
     @user.email = @user.username+"@geniya.com"
     @user.status = "active"
     respond_to do |format|
