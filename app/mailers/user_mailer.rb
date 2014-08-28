@@ -43,7 +43,7 @@ class UserMailer < ActionMailer::Base
     @contacts.each do |c|
       email<< c[:email]
     end
-    mail(bcc: email.join(","), subject: 'Invitation to join #{@user.name.capitalize} on Geniya') 
+    mail(bcc: email.join(","), subject: "Invitation to join #{@user.name.capitalize} on Geniya") 
   end
 
 

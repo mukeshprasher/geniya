@@ -86,18 +86,24 @@
                                 %td{style: "border-collapse: collapse;", valign: "top"}
                                   %div{align: "left", style: "color: #505050; font-family: Arial; font-size: 14px; line-height: 150%; text-align: left;"}
                                     Hi,
-                                    You are invited to Join 
-                                    = @user.name
-                                    on Geniya
                                     %br
-                                    Check 
+                                    You are invited to join 
                                     = @user.name.capitalize
-                                    profile on Geniya
+                                    on Geniya.
+                                    %br
+                                    Please 
+                                    %a{href: "#{root_url}users/#{@user.slug}", target: "_blank"}
+                                      click 
+                                    here to check
+                                    = @user.name.capitalize
+                                    profile on Geniya.
                                     %br
                                     %br
-                                    %a{href: "", style: "color: #336699; font-weight: normal; text-decoration: underline;", target: "_blank"} 
-                                                                        
-                                    
+                                    Or copy following url and paste it in your browser address bar
+                                    %br
+                                    = root_url + "users/" + @user.slug                                    
+                                    %br
+                                    %br
                                     Regards,
                                     %br
                                     Geniya team

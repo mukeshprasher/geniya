@@ -1,8 +1,11 @@
 .innerBenner
   .wrapper
     .news_feeds
-      %h2 
-        Message Sent to Gmail Contacts
+      %h2
+        - if !@contacts.nil? 
+          Invitation message has been sent.
+        - else
+          You have not contact
 .wrapper
   .row-fluid.spaced-top
     .span2.spaced-left
@@ -11,6 +14,6 @@
 .detail_form_container
   - if !@contacts.nil?
     - @contacts.each do |c|
-      %ul
+      %ul.invite_frnd_list
         %li
           = c[:email]   
