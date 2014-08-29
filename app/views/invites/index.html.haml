@@ -13,9 +13,14 @@
     Invite Gmail Contact
   %br
   %br
+  %a{href: "/contacts/yahoo", class: "btn btn-success"}
+    Invite Yahoo Contact  
   %br
-  %a{href: "/contacts/facebook", class: "btn btn-success"}
-    Invite Facebook Contact    
+  %br  
+  %a{href: "/contacts/hotmail", class: "btn btn-success"}
+    Invite Hotmail Contact  
+  
+    
   - if !@contacts.nil?
     - @contacts.each do |c|
       %ul

@@ -93,7 +93,20 @@ $(function() {
      });  
 
 
+// remove notifications from header
 
+    $('#message-notice-menu').click(function(){
+      $("#message-notice-menu #notification_count").hide();
+    });
+
+    $('#fat-menu').click(function(){
+      $("#fat-menu #notification_count").hide();
+    });
+
+    $('#network-notice-menu').click(function(){
+      $("#network-notice-menu #notification_count").hide();
+
+    });
 
 // delete the business page categories
 

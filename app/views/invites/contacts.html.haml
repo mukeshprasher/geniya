@@ -12,8 +12,11 @@
       .btn-group.btn-group-vertical.btn-block
         = link_to 'My Profile', current_user, class: 'btn'
 .detail_form_container
+  = @contacts
+  
   - if !@contacts.nil?
     - @contacts.each do |c|
       %ul.invite_frnd_list
         %li
           = c[:email]   
+          = c[:name]

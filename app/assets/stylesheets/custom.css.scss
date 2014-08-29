@@ -152,9 +152,20 @@ line-height: 12px; padding: 4px 7px; }
 
 
 #header_response_notifications li:hover, #network_response_notifications li:hover, #message_response_notifications li:hover {
-    background: none repeat scroll 0 0 #D0DAE8;
+    background: none repeat scroll 0 0 #D3D4CE;
 }
 
+
+.dropdown-menu li {
+    width: 95% !important;
+}
+
+
+
+#notification_txt {
+    float: left;
+    width: 100%;
+}
 
 #message_response_notifications #activity_user_img img {
     margin: 0 0 0 6px;
@@ -4536,7 +4547,7 @@ select{width:100% !important;}
     width: 100%;
 }
 
-header .dropdown-menu li a{background:none !important;}
+header .dropdown-menu li a{color:#FFFFFF !important;}
 
 
 #project-comments #ad-detail-cover-container {

@@ -17,7 +17,8 @@
         %p#user_chat_msg
           /= "#{truncate(chat.body, length: 17)}"
           = raw chat.body
-        = link_to "Send Message", "#", class: "btn  btn-xs",
+        #activity_connect_form
+          = link_to "Send Message", "#", class: "btn  btn-xs btn-primary",
 "data-sid" => current_user.id, "data-rip" => other_user.id, "onclick"=>"javascript:open_conversation(event)"
 %li#user_no_msg
   - unless @chat_requests.any?
