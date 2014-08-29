@@ -1,7 +1,7 @@
 .row-fluid.spaced-top
   .span2.spaced-left
     .btn-group.btn-group-vertical.btn-block
-      = link_to 'My profile', current_user, class: 'btn'
+      = link_to 'All Categories', categories_path, class: 'btn'
   .span10.min500
     %h1 Listing Sub Categories
     .feedback_listing
@@ -16,8 +16,10 @@
             %td= sub_category.name
             %td= sub_category.category.name
             %td= link_to 'Show', sub_category
-            %td= link_to 'Edit', edit_sub_category_path(sub_category)
-            %td= link_to 'Destroy', sub_category, :method => :delete, :data => { :confirm => 'Are you sure?' }
+            - if signed_in?
+              - if current_user.plan == "admin"
+                %td= link_to 'Edit', edit_sub_category_path(sub_category)
+                %td= link_to 'Destroy', sub_category, :method => :delete, :data => { :confirm => 'Are you sure?' }
       %br
       = will_paginate    
 
