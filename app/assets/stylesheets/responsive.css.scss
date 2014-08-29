@@ -1,12 +1,13 @@
-
 .mobile_menu_btn{display:none;}
 .profile_form_editable {clear: both;display: block;float: none;margin: 0 auto;padding: 40px 0;width: 500px;}
 fieldset .field {margin: 6px 10px 12px;width: auto;}
 .detail_form_container .span6 {margin: 0;width: 100%;}
 .search .go {padding: 0 !important;}
 .summery {word-wrap: break-word;}
+#user_bussines_control_user_detail {font-size: 11px;width: 100%;}
 
 @media screen and (max-width:1060px) {
+
 .wrapper_c, .wrapper, #content-container, .wrapper_c_not_required{width: 960px; margin:0 auto;}
 .inneContainer .innerLeft_section {width: 620px;margin-top: 15px;}
 .inner_rightSection {width: 320px;}
@@ -22,7 +23,7 @@ fieldset .field {margin: 6px 10px 12px;width: auto;}
 .content-profile {width: 100%;}
 .box_sec .box {width: 194px;}
 .content-profile img {height: 194px;max-height: 217px;width: auto;}
-#project-main{width: 620px;}
+#project-main{width: 639px;}
 #project-sidebar{width: 320px;}
 #comments-container {width: 592px;}
 .comments {margin: 0 0 0 4%;width: 96%;}
@@ -52,8 +53,6 @@ fieldset .field {margin: 6px 10px 12px;width: auto;}
 .row {margin-left: 0;}
 .offset3 {float: none;margin: 0 auto;}
 .user_description .firstCol .user .userTop {width: 100%;}
-
-
 .user_description .firstCol {width: 100%;}
 .user_description .feed_headshot {width: 20%;}
 .user_description .feed_headshot img {height: auto;width: auto;}
@@ -63,13 +62,16 @@ fieldset .field {margin: 6px 10px 12px;width: auto;}
 .comment-user-pic {height: auto;width: 10%;}
 .comment-user-pic img {height: auto;width: auto;}
 .comment-user-name {margin: 0 0 0 3%;width: 85%;}
-
 .child-comment-wrap {position: relative;width: 100%;}
 .child-comment-delete {position: absolute;right: 5px;top: 25px;}
+.primary-project-content {display: table;left: 0;margin: 0 auto;padding-bottom: 20px;width: auto;}
+#album-form {left: 10% !important;margin: 0 !important;top: 0 !important;width: 80% !important; position: absolute;}
+#album-form .modal-body .container{width: 100%;}
 
 
 }
 @media screen and (max-width:980px) {
+
 .wrapper_c, .wrapper, #content-container, .wrapper_c_not_required{width: 760px;}
 .inneContainer .innerLeft_section {width: 500px;}
 .inner_rightSection {width: 240px;}
@@ -95,7 +97,7 @@ fieldset .field {margin: 6px 10px 12px;width: auto;}
 #srch_people_container {width: 40%;}
 .login_nav li {padding: 4px 2px;font-size: 11px;}
 .dropdown .caret {margin-top: 5px;}
-#project-main{width: 500px;}
+#project-main{width: 519px;}
 #project-sidebar{width: 240px;}
 #comments-container { margin: 0 0 0 10px;width: 490px;}
 .comments {margin: 0 1%;width: 98%;}
@@ -121,8 +123,8 @@ fieldset .field {margin: 6px 10px 12px;width: auto;}
 .limited_time_offer_img {bottom: auto;left: -25px;top: -3px;width: 60px;}
 .inner_rightSection .make_comtact a {font-size: 13px;margin: 0;padding: 8px 11px;}
 .inner_rightSection .make_comtact p {font-size: 14px;margin: 0;}
-
 .user_description .firstCol .user {margin: 0 0 0 2%;width: 78%;}
+#album-form .modal-body .container .table th, #album-form .modal-body .container .table td {padding: 5px 2px;}
 
 
 }
@@ -185,28 +187,33 @@ fieldset .field {margin: 6px 10px 12px;width: auto;}
 .user_data {margin: 0 4% 0 0;width: 20%;}
 .user_updates_form {width: 76%;}
 .user_description {float: right;width: 100%;padding: 0 0;}
-.user_description .firstCol .user {
-    margin: 0 0 0 2%;
-    width: 78%;
-}
+.user_description .firstCol .user {margin: 0 0 0 2%;width: 78%;}
 .user_description .firstCol .user .userBottom {width: 98%;}
 .user_description .firstCol {width: 100%;}
 .inneContainer {display: block;}
 .inner_rightSection{display:none;}
 .chatboxhead {padding: 5px;}
 .chatboxhead h1 {font-size: 12px;font-weight: normal;line-height: normal;margin: 0;}
-
 .wrapper h1 {font-size: 28px;}
 .profile_form_editable, .detail_form_container {padding: 40px 0;width: 360px;}
 .btn-group-vertical > .btn {min-width: 100px;}
 .art_social {display: none;}
-
+#ajax-portfolio-detail-homepage #content-container{width:100%;}
+#project-main {width: 66%;}
+#project-sidebar {border: 0 none;width: 34%;}
+#comments-container {margin: 0 2%;width: 96%;}
+.object-stats {width: 100%;}
+.modal-header {padding: 9px 5px;}
+#album-form {left: 5% !important;width: 90% !important; }
+.modal-body {padding: 8px 0;}
+#album-form .modal-body .span7, #album-form .modal-body .span5 {width: auto;}
 
 
 
 
 }
 @media screen and (max-width:600px) {
+
 .login_nav {width: 100%;}
 #srch_people_container {width: 100%;}
 .choose .text {font-size: 32px;}
@@ -227,10 +234,16 @@ fieldset .field {margin: 6px 10px 12px;width: auto;}
 .portfolio_box_container {width: 50%;}
 .education_photography .education {background: none;margin: 0 0 10px;width: 100%;}
 .education_photography .key_skills {width: 100%;}
+#project-main {width: 100%;}
+#project-sidebar {width: 100%;}
+#project-modules {margin-left: 0;width: 100%;}
+#project-modules .gallery{margin-left: 0;}
+.block-title .bold {margin: 0;}
 
 
 }
 @media screen and (max-width:500px) {
+
 .get_started {margin: -20px 0 0;width: 40px;}
 .basic_plan {min-height: 400px;padding: 10px 28px 10px 5px;width: 250px;}
 .offset3 {width: 280px;}
@@ -249,10 +262,10 @@ fieldset .field {margin: 6px 10px 12px;width: auto;}
 .art_social ul li {padding: 0;}
 .user_description .feed_headshot {width: 120px;}
 .user_description .firstCol .user {margin: 0 0 0;width: 100%;}
-
 #ProfileCoverPhotoSelector {height: 25px;right: 4px;width: 88px;}
 #ProfileCoverPhotoSelector i {left: 0;top: 4px;}
 .uiButtonText {font-size: 10px;padding-left: 0;top: 4px;}
+
 
 }
 @media screen and (max-width:420px) {
@@ -269,14 +282,12 @@ fieldset .field {margin: 6px 10px 12px;width: auto;}
 .profile_picture {height: 70px;margin-left: -35px;top: 30%;width: 70px;}
 #profile_tags_left {margin-top: 10px;width: 100%;}
 #profile_tags_right {margin-top: 0;width: 100%;}
-
 .user_data {margin: 0 0 10px;width: 120px;}
 .user_updates_form {width: 100%;}
 .user_description {width: 96%;}
 .wrapper h1 {font-size: 24px;}
 .profile_form_editable, .detail_form_container {width: 280px;}
 legend {font-size: 16px;}
-
 .anisten {padding: 0 5px;width: 100px;}
 .anisten .ani_top {border-bottom: 0 none;}
 .anisten .ani_top h2 {font-size: 16px;line-height: 24px;}
