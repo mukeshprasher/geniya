@@ -5,6 +5,8 @@ fieldset .field {margin: 6px 10px 12px;width: auto;}
 .search .go {padding: 0 !important;}
 .summery {word-wrap: break-word;}
 #user_bussines_control_user_detail {font-size: 11px;width: 100%;}
+.profile_picture {z-index: 11;}
+.profile_nav {position: relative;}
 
 @media screen and (max-width:1060px) {
 
@@ -67,6 +69,7 @@ fieldset .field {margin: 6px 10px 12px;width: auto;}
 .primary-project-content {display: table;left: 0;margin: 0 auto;padding-bottom: 20px;width: auto;}
 #album-form {left: 10% !important;margin: 0 !important;top: 0 !important;width: 80% !important; position: absolute;}
 #album-form .modal-body .container{width: 100%;}
+#crop_img_area {width: 100%;}
 
 
 }
@@ -124,175 +127,4 @@ fieldset .field {margin: 6px 10px 12px;width: auto;}
 .inner_rightSection .make_comtact a {font-size: 13px;margin: 0;padding: 8px 11px;}
 .inner_rightSection .make_comtact p {font-size: 14px;margin: 0;}
 .user_description .firstCol .user {margin: 0 0 0 2%;width: 78%;}
-#album-form .modal-body .container .table th, #album-form .modal-body .container .table td {padding: 5px 2px;}
-
-
-}
-@media screen and (max-width:767px) {
-
-.wrapper_c, .wrapper, #content-container, .wrapper_c_not_required{width: 94%;}
-#srch_people_container {width: 33%;}
-.login_nav {text-align: right;width: 66%;}
-#header_wrapper .dropdown-menu {text-align: left;}
-.login_nav li {display: inline-block !important;float: none;vertical-align: top;}
-.logo {clear: both;display: table;float: none;margin: 0 auto;position: static;}
-.midsection {margin-right: 0;}
-.inneContaineralbum {display: block;}
-.anisten .art_gallery{display: none;}
-.anisten {height: 100%;min-height: 50px;width: 150px;}
-.slider_profile {height: auto;}
-.cover-photo {height: auto;}
-#ProfileCoverPhotoSelector {right: 10px;}
-.profile_picture {border: 3px solid #FFFFFF;height: 120px;top: 37%;margin-left: -63px;width: 120px;}
-.ProfilePicSelector {bottom: 0;height: 20px;padding: 0 2px;width: 116px;}
-.ProfilePicSelector > img {margin: 3px 2px 0 0;width: 13px;}
-.ProfilePicSelector .txt {float: none;font-size: 10px;padding: 2px 0;}
-#profile_tags_left {margin-top: 40px;width: 50%;}
-#profile_tags_right {margin-top: 55px;width: 50%;}
-#profile_tags_middle {display: none;}
-.main_container {background: none repeat scroll 0 0 #F3F1F1; float: left;}
-.span690 {width: 100%;}
-.bg_buttan{left: -10px;}
-.summery p {text-align: justify;}
-.education_photography .education p {font-size: 15px;}
-.portfolio_box_container {float: left;margin: 0 0 20px;width: 33.3%;}
-.box_sec .box {width: 99%;-webkit-box-sizing: border-box; -moz-box-sizing: border-box;  box-sizing: border-box; }
-.content-profile img {height: auto;width: 100%;}
-.span315 {display: block;float: none;margin: 20px auto;width: 300px;}
-.wrapper-footer-content {text-align: center;}
-.footer_social {display: table;float: none;margin: 10px auto 0;width: auto;}
-.mobile_menu_btn{background: none repeat scroll 0 0 #8FBA37;border-radius: 5px;color: #FFFFFF !important;display: block;float: left;font-size: 14px;font-weight: bold;margin: 10px 0 0;padding: 7px 10px;text-decoration: none !important;width: 100%;-webkit-box-sizing: border-box; -moz-box-sizing: border-box;  box-sizing: border-box;}
-.mobile_menu_btn img{float: right;margin: -5px 0;width: 30px;}
-#man_nav{display:none;background: none repeat scroll 0 0 #8FBA37;margin: 2px 0 0; padding:0;}
-#man_nav li {float: none;line-height: normal;padding: 0;}
-#man_nav li a{border-bottom: 1px solid #000000;display: block;font-size: 16px;padding: 5px 10px;}
-#man_nav li a:hover{color:#fff;text-decoration: none;border-bottom: 1px solid #fff;display: block;font-size: 16px;padding: 5px 10px;}
-.index_user_slider {margin-top: 10px;}
-.slogan h1 {font-size: 24px;}
-.section_heading .left_section {margin: 0 0 10px;text-align: center;width: 100%;}
-.section_heading .right_section {text-align: center;width: 100%;}
-#editorsPicks li.isotope-item {min-width: 100px;}
-#twitter_follower, #facbook_count, #subscribe_youtube {margin: -26px 0 0 65px;}
-.social_count {margin: -26px 0 0 100px;}
-.pricing_page {padding: 0 0 40px;}
-.innerBenner {margin: 10px 0 0;}
-.basic_plan {display: table;float: none;margin: 20px auto;min-height: 500px;padding: 10px 35px 10px 5px;width: 360px;}
-.free_plan, .sale_plan {width: 100%;}
-.sale_plan ul, .free_plan ul {min-height: 100px;width: 100%;}
-.limited_time_offer_img {top: -16px;}
-#feedback_trigger{display:none;}
-.inneContainer .innerLeft_section {width: 100%;}
-.feed_headshot img {height: auto;margin: 0;width: auto;}
-.user_info {margin-top: 0;}
-.user_data {margin: 0 4% 0 0;width: 20%;}
-.user_updates_form {width: 76%;}
-.user_description {float: right;width: 100%;padding: 0 0;}
-.user_description .firstCol .user {margin: 0 0 0 2%;width: 78%;}
-.user_description .firstCol .user .userBottom {width: 98%;}
-.user_description .firstCol {width: 100%;}
-.inneContainer {display: block;}
-.inner_rightSection{display:none;}
-.chatboxhead {padding: 5px;}
-.chatboxhead h1 {font-size: 12px;font-weight: normal;line-height: normal;margin: 0;}
-.wrapper h1 {font-size: 28px;}
-.profile_form_editable, .detail_form_container {padding: 40px 0;width: 360px;}
-.btn-group-vertical > .btn {min-width: 100px;}
-.art_social {display: none;}
-#ajax-portfolio-detail-homepage #content-container{width:100%;}
-#project-main {width: 66%;}
-#project-sidebar {border: 0 none;width: 34%;}
-#comments-container {margin: 0 2%;width: 96%;}
-.object-stats {width: 100%;}
-.modal-header {padding: 9px 5px;}
-#album-form {left: 5% !important;width: 90% !important; }
-.modal-body {padding: 8px 0;}
-#album-form .modal-body .span7, #album-form .modal-body .span5 {width: auto;}
-
-
-
-
-}
-@media screen and (max-width:600px) {
-
-.login_nav {width: 100%;}
-#srch_people_container {width: 100%;}
-.choose .text {font-size: 32px;}
-.choose .text span {font-size: 20px;}
-.slogan h1 {font-size: 18px;}
-.section_heading .left_section {font-size: 18px;}
-.section_heading .left_section a {font-size: 22px;}
-.section_heading .right_section {font-size: 18px;line-height: normal;}
-.span315 {width: 270px;}
-#editorsPicks li.isotope-item {width: 49%;}
-.innerBenner {height: auto;}
-.innerBenner .news_feeds {padding: 40px 0;}
-.news_feeds .text h2 {font-size: 32px;}
-.news_feeds .text h2 span {font-size: 32px;}
-.news_feeds .text p {font-size: 18px;}
-.login_container{background-size: 94% auto; margin: 40px auto;width: 360px;}
-.login_container .form-item input {width: 256px;}
-.portfolio_box_container {width: 50%;}
-.education_photography .education {background: none;margin: 0 0 10px;width: 100%;}
-.education_photography .key_skills {width: 100%;}
-#project-main {width: 100%;}
-#project-sidebar {width: 100%;}
-#project-modules {margin-left: 0;width: 100%;}
-#project-modules .gallery{margin-left: 0;}
-.block-title .bold {margin: 0;}
-
-
-}
-@media screen and (max-width:500px) {
-
-.get_started {margin: -20px 0 0;width: 40px;}
-.basic_plan {min-height: 400px;padding: 10px 28px 10px 5px;width: 250px;}
-.offset3 {width: 280px;}
-#new_user {padding: 10px;}
-#new_user .field label, #new_advertisement .field label {padding-right: 0;text-align: left;width: 100%;}
-#new_user .field input, #new_advertisement .field input {width: 100%;}
-.login_nav li.login{background-size: 60px auto;padding: 2px 3px 15px;}
-.login_nav li.login a {font-size: 11px;}
-.login_nav li {margin-bottom: 5px;}
-#header_wrapper .dropdown-menu {left: auto;min-width: 100px;right: 0;width: 160px !important;}
-.user_reach_out .get_quote {font-weight: normal;padding: 5px;}
-.user_reach_out .get_quote a {font-size: 12px;}
-.profile_picture {height: 90px;margin-left: -45px;top: 37%;width: 90px;}
-.profile_nav ul li {font-size: 20px;padding: 5px 5px 0;}
-.art_social {width: 95px;}
-.art_social ul li {padding: 0;}
-.user_description .feed_headshot {width: 120px;}
-.user_description .firstCol .user {margin: 0 0 0;width: 100%;}
-#ProfileCoverPhotoSelector {height: 25px;right: 4px;width: 88px;}
-#ProfileCoverPhotoSelector i {left: 0;top: 4px;}
-.uiButtonText {font-size: 10px;padding-left: 0;top: 4px;}
-
-
-}
-@media screen and (max-width:420px) {
-
-#editorsPicks li.isotope-item {display: table;float: none;margin: 10px auto;width: 270px;}
-#editorsPicks .albm-img img {height: auto;max-height: 500px;width: 100%;}
-.login_container {background-size: 100% auto;padding: 0 10px;width: 260px;}
-.login_container .form-item input {width: 198px;}
-.login_container form {padding: 10px;}
-.login_container .left {width: 100%;}
-.login_container .form-item.password {margin-bottom: 10px;}
-.box_sec {width: 100%;}
-.portfolio_box_container {display: table;float: none;margin: 10px auto;width: 270px;}
-.profile_picture {height: 70px;margin-left: -35px;top: 30%;width: 70px;}
-#profile_tags_left {margin-top: 10px;width: 100%;}
-#profile_tags_right {margin-top: 0;width: 100%;}
-.user_data {margin: 0 0 10px;width: 120px;}
-.user_updates_form {width: 100%;}
-.user_description {width: 96%;}
-.wrapper h1 {font-size: 24px;}
-.profile_form_editable, .detail_form_container {width: 280px;}
-legend {font-size: 16px;}
-.anisten {padding: 0 5px;width: 100px;}
-.anisten .ani_top {border-bottom: 0 none;}
-.anisten .ani_top h2 {font-size: 16px;line-height: 24px;}
-.anisten .ani_top h2 span {font-size: 12px;}
-.profile_nav ul li, .profile_nav ul li span {font-size: 12px;}
-
-
-}
+#album-form .modal-body .container .table th, #album-form .modal-body .c
