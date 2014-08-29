@@ -58,8 +58,7 @@ Geniya::Application.routes.draw do
   match "ajax/new_chats", to: 'ajax#new_chats', via: 'post'
   
 	get "/invites/:provider/" => "invites#index"
-	get "/invites/:provider/contact_callback" => "invites#contacts"
-	get "/contacts/:importer/callback" => "invites#contacts"
+	get "/invites/:provider/contact_callback" => "invites#contacts"	
   get "/contacts/failure" => "invites#failure"  
   resources :videos
 
