@@ -8,4 +8,3 @@ Rails.application.middleware.use OmniContacts::Builder do
 end
 
 
-
