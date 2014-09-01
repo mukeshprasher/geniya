@@ -1,6 +1,7 @@
 = tinymce_assets
 = simple_form_for(@bussiness) do |f|
-  = f.error_notification
+  = render 'shared/error_messages', object: f.object
+  /= f.error_notification
 
   .form-inputs
     %label
@@ -32,7 +33,7 @@
     %br
     %label
       Please Give Complete Website link 
-    = f.input :website, placeholder: "for example https://www.geniya.net/", id: "company_website_link"
+    = f.input :website, placeholder: "for example https://www.geniya.net/", id: "company_website_link", :input_html => { :maxlength => 70 }
     %br
     %br
     %label

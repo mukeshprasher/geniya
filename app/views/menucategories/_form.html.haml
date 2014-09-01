@@ -2,6 +2,6 @@
   = f.error_notification
 
   .form-inputs
-    = f.input :name
+    = f.input :name, :input_html => { :maxlength => 30 }
 
     = f.button :submit, value: "Submit", class: "btn btn btn-large btn-primary"

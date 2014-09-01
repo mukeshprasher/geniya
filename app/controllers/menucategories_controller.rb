@@ -27,8 +27,17 @@ class MenucategoriesController < ApplicationController
     searched_menucat = Menucategory.find_by(name: params[:menucategory][:name])
     menucategory = (searched_menucat) ? searched_menucat : Menucategory.new(menucategory_params)
     menucategory.users << current_user unless menucategory.users.include? current_user
-    menucategory.save
-    redirect_to current_user
+#    menucategory.save
+#    redirect_to current_user
+    respond_to do |format|
+      if menucategory.save
+        format.html { redirect_to current_user, notice: 'Menu Category was successfully created.' }
+        format.json { render action: 'show', status: :created, location: menucategory }
+      else
+        format.html { render action: 'new' }
+        format.json { render json: @menucategory.errors, status: :unprocessable_entity }
+      end
+    end    
   end
 
   # PATCH/PUT /menucategories/1
@@ -36,7 +45,7 @@ class MenucategoriesController < ApplicationController
   def update
     respond_to do |format|
       if @menucategory.update(menucategory_params)
-        format.html { redirect_to current_user, notice: 'Menucategory was successfully updated.' }
+        format.html { redirect_to current_user, notice: 'Menu category was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

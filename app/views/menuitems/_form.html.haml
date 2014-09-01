@@ -3,10 +3,12 @@
 
   .form-inputs
     %label
+      %span
+      *
       Select Category
     = collection_select(:menuitem, :menucategory_id , current_user.menucategories.all, :id, :name)
-    = f.input :name
-    = f.input :price
-    = f.input :description
+    = f.input :name, :input_html => { :maxlength => 50 }
+    = f.input :price,  :input_html => { :maxlength => 5 }
+    = f.input :description,  :input_html => { :maxlength => 70 }
 
     = f.button :submit, value: "Submit", class:"btn btn btn-large btn-primary"

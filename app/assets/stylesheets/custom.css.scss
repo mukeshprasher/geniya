@@ -3702,7 +3702,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .company_manu ul { }
 
-.company_manu ul li { float: left; width: 45%; margin: 0 5% 0 0; }
+.company_manu ul li { float: left; width: 45%; margin: 0 5% 0 0;   word-wrap: break-word; }
 
 .company_manu ul li .left_part { float: left; width: 70%; }
 
@@ -3714,7 +3714,9 @@ h1, h2, h3, h4, h5, h6 {
 
 .company_contact { }
 
-.company_contact ul li { float: left; margin: 0 0 20px; width: 33%; }
+.company_contact ul li { float: left; margin: 0 0 20px; width: 33%;    float: left;
+    margin: 0 0 20px 8px;
+    width: 32%; }
 
 .company_contact ul li p, .company_contact ul li p a { color: #4a4a4a; font-family: 'latobold'; font-size: 12px; line-height: 17px; }
 

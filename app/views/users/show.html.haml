@@ -271,7 +271,8 @@
               = raw (@user.bussiness.tagline)
         .follow_us
           - if @user.bussiness
-            %p Follow Us:
+            - if !@user.bussiness.facebook_link.empty? or !@user.bussiness.youtube_link.empty? or !@user.bussiness.google_link.empty? or !@user.bussiness.twitter_link.empty?
+              %p Follow Us:
           %ul
             %li
               - if @user.bussiness

@@ -7,6 +7,12 @@ class Bussiness < ActiveRecord::Base
                                           :secret_access_key => '/UKLFVVEzr0zD5vbYuQiQtPgOVRsw3NdiI4ula9t'},
                       :s3_protocol    => "http"                                             ,
                       :bucket => "geniyanet"
+  validates :tagline, length: {maximum: 120 }  
+  validates :website, length: {maximum: 70 }, :format => { :with => URI::regexp(%w(http https)), :message => "Valid URL required"}, :allow_blank => true
+  validates :facebook_link, length: {maximum: 140 }, :format => { :with => URI::regexp(%w(http https)), :message => "Valid URL required"}, :allow_blank => true
+  validates :youtube_link, length: {maximum: 140 }, :format => { :with => URI::regexp(%w(http https)), :message => "Valid URL required"}, :allow_blank => true
+  validates :google_link, length: {maximum: 140 }, :format => { :with => URI::regexp(%w(http https)), :message => "Valid URL required"}, :allow_blank => true
+  validates :twitter_link, length: {maximum: 140 }, :format => { :with => URI::regexp(%w(http https)), :message => "Valid URL required"}, :allow_blank => true        
 #  crop_attached_file :file_attachment , :aspect => "600:600"
 #  validates_attachment :file_attachment,
 #  presence: true, 
