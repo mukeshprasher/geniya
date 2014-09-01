@@ -7,10 +7,13 @@ fieldset .field {margin: 6px 10px 12px;width: auto;}
 #user_bussines_control_user_detail {font-size: 11px;width: 100%;}
 .profile_picture {z-index: 11;}
 .profile_nav {position: relative;}
+.row-fluid.spaced-top {margin: 0 auto;width: 1024px;}
+.job_index_box {margin: 0 1% 15px 0;width: 32%;}
+#ads_makeup_box {margin: 0 1% 15px 0;width: 32%;}
 
 @media screen and (max-width:1060px) {
 
-.wrapper_c, .wrapper, #content-container, .wrapper_c_not_required{width: 960px; margin:0 auto;}
+.wrapper_c, .wrapper, #content-container, .wrapper_c_not_required, .row-fluid.spaced-top{width: 960px; margin:0 auto;}
 .inneContainer .innerLeft_section {width: 620px;margin-top: 15px;}
 .inner_rightSection {width: 320px;}
 .user_updates_form {position: relative;width: 510px;}
@@ -70,12 +73,20 @@ fieldset .field {margin: 6px 10px 12px;width: auto;}
 #album-form {left: 10% !important;margin: 0 !important;top: 0 !important;width: 80% !important; position: absolute;}
 #album-form .modal-body .container{width: 100%;}
 #crop_img_area {width: 100%;}
+#ajax-portfolio-detail-homepage {left: 50%;margin-left: -480px;width: 960px;}
+#contact-us-container {margin: 0 3% 21px;width: 94%;}
+#project-comments #ad-detail-cover-container {margin: 0 3%;width: 94%;}
+#project-comments #ad-detail-cover-container img {-webkit-box-sizing: border-box; -moz-box-sizing: border-box;  box-sizing: border-box;}
+.detail_controls_cont {margin: 13px 3% 22px;}
+.row-fluid.spaced-top .span2{padding: 0;width: 140px;}
+.row-fluid.spaced-top .span9, .row-fluid.spaced-top .span7, .row-fluid.spaced-top .span10{margin-left: 30px;width: 790px;}
+
 
 
 }
 @media screen and (max-width:980px) {
 
-.wrapper_c, .wrapper, #content-container, .wrapper_c_not_required{width: 760px;}
+.wrapper_c, .wrapper, #content-container, .wrapper_c_not_required, .row-fluid.spaced-top{width: 760px;}
 .inneContainer .innerLeft_section {width: 500px;}
 .inner_rightSection {width: 240px;}
 .add_sec {width: 100%;}
@@ -128,19 +139,25 @@ fieldset .field {margin: 6px 10px 12px;width: auto;}
 .inner_rightSection .make_comtact p {font-size: 14px;margin: 0;}
 .user_description .firstCol .user {margin: 0 0 0 2%;width: 78%;}
 #album-form .modal-body .container .table th, #album-form .modal-body .container .table td {padding: 5px 2px;}
-
 #tags {left: 25%;margin-left: 0 !important;width: 50% !important;}
-#uploadphoto, #uploadcoverphoto, #address, #skills, #edu  {left: 20%;margin-left: 0 !important;width: 60% !important;}
+#uploadphoto, #uploadcoverphoto, #address, #skills, #edu, #portfolio-form  {left: 20%;margin-left: 0 !important;width: 60% !important;}
 #edu {position:absolute;}
+#portfolio-form{position:absolute; top:0;}
 #affiliations {left: 10%;margin-left: 0 !important;top: 35px !important;width: 80% !important;}
 #affiliations .modal-header {width: auto;}
-#ajax-portfolio-detail-homepage{left: 5%;margin-left: 0 !important;width: 90% !important;position:absolute;}
+#ajax-portfolio-detail-homepage{ left: 50%;margin-left: -383px !important;position: absolute;width: 767px !important;}
+.row-fluid.spaced-top .span9, .row-fluid.spaced-top .span7, .row-fluid.spaced-top .span10{margin-left: 20px;width: 600px;}
+.job_title_cont {font-size: 16px;}
+.job_organization_name_cont {font-size: 12px;}
+
+.make_comtact a {font-size: 12px;margin: 0 4px !important;padding: 6px 14px 6px 0;}
+
 
 
 }
 @media screen and (max-width:767px) {
 
-.wrapper_c, .wrapper, #content-container, .wrapper_c_not_required{width: 94%;}
+.wrapper_c, .wrapper, #content-container, .wrapper_c_not_required, .row-fluid.spaced-top{width: 94%;}
 #srch_people_container {width: 33%;}
 .login_nav {text-align: right;width: 66%;}
 #header_wrapper .dropdown-menu {text-align: left;}
@@ -217,12 +234,10 @@ fieldset .field {margin: 6px 10px 12px;width: auto;}
 #album-form {left: 5% !important;width: 90% !important; }
 .modal-body {padding: 8px 0;}
 #album-form .modal-body .span7, #album-form .modal-body .span5 {width: auto;}
-
 .spaced-right { float: none !important;margin: 40px auto !important;padding: 0;width: 400px !important; clear:both;}
 .tags_user {display: table;float: none;margin: 4px auto;width: 390px;}
 .tag_user_img {margin: 0 10px 5px 0;}
 .tag_user_details {float: none;height: auto;margin: 0;width: auto;}
-
 #uploadphoto .modal-body, #uploadcoverphoto .modal-body, #affiliations .modal-body, #address .modal-body, #skills .modal-body, #edu .modal-body{padding: 8px 5px;}
 .uiMenucover {left: auto;right: 0;width: 150px;}
 .btn-large {font-size: 14px;padding: 8px 10px;}
@@ -230,7 +245,10 @@ h1 {font-size: 28.5px;}
 h2 {font-size: 24.5px;}
 h3 {font-size: 20.5px;}
 .row-fluid .span9 {margin: 0 3%;width: 94%;}
-
+#ajax-portfolio-detail-homepage{ left: 5%;margin-left: 0 !important;width: 90% !important;}
+.current_album_like_form {font-size: 14px;margin: 0;width: 100%;}
+#comments-header h4 {font-size: 14px;}
+.row-fluid.spaced-top .span9, .row-fluid.spaced-top .span10{margin: 0;width: 100%;}
 
 
 
@@ -262,13 +280,15 @@ h3 {font-size: 20.5px;}
 #project-modules {margin-left: 0;width: 100%;}
 #project-modules .gallery{margin-left: 0;}
 .block-title .bold {margin: 0;}
-
+.work-header {border-radius: 4px 4px 0 0;}
 #tags {left: 10%;width: 80% !important;}
-#uploadphoto, #uploadcoverphoto, #address, #skills, #edu {left: 10%;width: 80% !important;}
+#uploadphoto, #uploadcoverphoto, #address, #skills, #edu, #portfolio-form {left: 10%;width: 80% !important;}
 .detail_form_container .spaced-right {width: 360px !important;}
 .detail_form_container .tags_user {width: 350px;}
 #tag_user_name {width: auto;}
 #affiliations {left: 5%;width: 90% !important;}
+.job_index_box {margin: 0 1% 15px;width: 48%;}
+#ads_makeup_box {margin: 0 1% 15px;width: 48%;}
 
 
 
@@ -299,9 +319,9 @@ h3 {font-size: 20.5px;}
 .spaced-right {width: 300px !important;}
 .tags_user {padding-right: 10px;width: 280px;}
 #tag_user_name {width: auto;}
-
 .detail_form_container .spaced-right {width: 280px !important;}
 .detail_form_container .tags_user {width: 260px;}
+.row-fluid.spaced-top .span9 .table th, .row-fluid.spaced-top .span9 .table td {font-size: 12px;line-height: 16px;padding: 3px;}
 
 
 }
@@ -316,6 +336,8 @@ h3 {font-size: 20.5px;}
 .login_container .form-item.password {margin-bottom: 10px;}
 .box_sec {width: 100%;}
 .portfolio_box_container {display: table;float: none;margin: 10px auto;width: 270px;}
+.box_sec .portfolio_box_container .box {margin: 2px 1%;width: 98%;}
+.box_sec .portfolio_box_container .profile_edit_delete_portfolio_cont{margin-right: 1%;}
 .profile_picture {height: 70px;margin-left: -35px;top: 30%;width: 70px;}
 #profile_tags_left {margin-top: 10px;width: 100%;}
 #profile_tags_right {margin-top: 0;width: 100%;}
@@ -330,6 +352,9 @@ legend {font-size: 16px;}
 .anisten .ani_top h2 {font-size: 16px;line-height: 24px;}
 .anisten .ani_top h2 span {font-size: 12px;}
 .profile_nav ul li, .profile_nav ul li span {font-size: 12px;}
+.job_index_box {float: none;margin: 0 auto 15px;width: 270px;}
+#activity_user_img img{width:100% !important; height:auto !important;}
+#ads_makeup_box {float: none;margin: 0 auto 15px;width: 270px;}
 
 
 }
