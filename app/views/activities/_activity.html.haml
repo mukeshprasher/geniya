@@ -42,10 +42,10 @@
               - acted_upon_obj.videos.each do |video|
                 %a{href:"/videos/"+"#{video.slug}"}
                   %p
-                    - if ["video/mpeg", "video/x-msvideo", "video/3gpp"].include? video.file_attachment.content_type
+                    - if ["video/mpeg", "video/x-msvideo", "video/3gpp", "audio/mpeg"].include? video.file_attachment.content_type
                       %object{ data: "#{video.file_attachment.url}", width: "303", height: "230", autoplay: "false"}
                         %embed{ src: "#{video.file_attachment.url}", width: "303", height: "230"}
-                    - elsif ["video/mp4", "video/ogg", "video/webm", "video/x-flv"].include? video.file_attachment.content_type
+                    - elsif ["video/mp4", "video/ogg", "video/webm", "video/x-flv", "audio/ogg"].include? video.file_attachment.content_type
                       %video{ width: "303", height:"230", poster:"", controls:"controls", preload:"none" }
                         %source{type:"#{video.file_attachment.content_type}", src:"#{video.file_attachment.url}"}
                         %object{width:"303", height:"230", type:"application/x-shockwave-flash", data:"#{video.file_attachment.url}"}
