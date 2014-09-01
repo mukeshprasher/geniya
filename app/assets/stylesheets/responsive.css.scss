@@ -5,6 +5,8 @@ fieldset .field {margin: 6px 10px 12px;width: auto;}
 .search .go {padding: 0 !important;}
 .summery {word-wrap: break-word;}
 #user_bussines_control_user_detail {font-size: 11px;width: 100%;}
+.profile_picture {z-index: 11;}
+.profile_nav {position: relative;}
 
 @media screen and (max-width:1060px) {
 
@@ -67,6 +69,7 @@ fieldset .field {margin: 6px 10px 12px;width: auto;}
 .primary-project-content {display: table;left: 0;margin: 0 auto;padding-bottom: 20px;width: auto;}
 #album-form {left: 10% !important;margin: 0 !important;top: 0 !important;width: 80% !important; position: absolute;}
 #album-form .modal-body .container{width: 100%;}
+#crop_img_area {width: 100%;}
 
 
 }
@@ -125,6 +128,13 @@ fieldset .field {margin: 6px 10px 12px;width: auto;}
 .inner_rightSection .make_comtact p {font-size: 14px;margin: 0;}
 .user_description .firstCol .user {margin: 0 0 0 2%;width: 78%;}
 #album-form .modal-body .container .table th, #album-form .modal-body .container .table td {padding: 5px 2px;}
+
+#tags {left: 25%;margin-left: 0 !important;width: 50% !important;}
+#uploadphoto, #uploadcoverphoto, #address, #skills, #edu  {left: 20%;margin-left: 0 !important;width: 60% !important;}
+#edu {position:absolute;}
+#affiliations {left: 10%;margin-left: 0 !important;top: 35px !important;width: 80% !important;}
+#affiliations .modal-header {width: auto;}
+#ajax-portfolio-detail-homepage{left: 5%;margin-left: 0 !important;width: 90% !important;position:absolute;}
 
 
 }
@@ -196,7 +206,7 @@ fieldset .field {margin: 6px 10px 12px;width: auto;}
 .chatboxhead h1 {font-size: 12px;font-weight: normal;line-height: normal;margin: 0;}
 .wrapper h1 {font-size: 28px;}
 .profile_form_editable, .detail_form_container {padding: 40px 0;width: 360px;}
-.btn-group-vertical > .btn {min-width: 100px;}
+.btn-group-vertical > .btn {min-width: 120px;}
 .art_social {display: none;}
 #ajax-portfolio-detail-homepage #content-container{width:100%;}
 #project-main {width: 66%;}
@@ -207,6 +217,19 @@ fieldset .field {margin: 6px 10px 12px;width: auto;}
 #album-form {left: 5% !important;width: 90% !important; }
 .modal-body {padding: 8px 0;}
 #album-form .modal-body .span7, #album-form .modal-body .span5 {width: auto;}
+
+.spaced-right { float: none !important;margin: 40px auto !important;padding: 0;width: 400px !important; clear:both;}
+.tags_user {display: table;float: none;margin: 4px auto;width: 390px;}
+.tag_user_img {margin: 0 10px 5px 0;}
+.tag_user_details {float: none;height: auto;margin: 0;width: auto;}
+
+#uploadphoto .modal-body, #uploadcoverphoto .modal-body, #affiliations .modal-body, #address .modal-body, #skills .modal-body, #edu .modal-body{padding: 8px 5px;}
+.uiMenucover {left: auto;right: 0;width: 150px;}
+.btn-large {font-size: 14px;padding: 8px 10px;}
+h1 {font-size: 28.5px;}
+h2 {font-size: 24.5px;}
+h3 {font-size: 20.5px;}
+.row-fluid .span9 {margin: 0 3%;width: 94%;}
 
 
 
@@ -240,6 +263,14 @@ fieldset .field {margin: 6px 10px 12px;width: auto;}
 #project-modules .gallery{margin-left: 0;}
 .block-title .bold {margin: 0;}
 
+#tags {left: 10%;width: 80% !important;}
+#uploadphoto, #uploadcoverphoto, #address, #skills, #edu {left: 10%;width: 80% !important;}
+.detail_form_container .spaced-right {width: 360px !important;}
+.detail_form_container .tags_user {width: 350px;}
+#tag_user_name {width: auto;}
+#affiliations {left: 5%;width: 90% !important;}
+
+
 
 }
 @media screen and (max-width:500px) {
@@ -265,6 +296,12 @@ fieldset .field {margin: 6px 10px 12px;width: auto;}
 #ProfileCoverPhotoSelector {height: 25px;right: 4px;width: 88px;}
 #ProfileCoverPhotoSelector i {left: 0;top: 4px;}
 .uiButtonText {font-size: 10px;padding-left: 0;top: 4px;}
+.spaced-right {width: 300px !important;}
+.tags_user {padding-right: 10px;width: 280px;}
+#tag_user_name {width: auto;}
+
+.detail_form_container .spaced-right {width: 280px !important;}
+.detail_form_container .tags_user {width: 260px;}
 
 
 }
