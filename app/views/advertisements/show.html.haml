@@ -39,7 +39,9 @@
                     = link_to @advertisement.user.name, @advertisement.user 
                   - if (current_user != @advertisement.user) && signed_in?    
                     %br
-                    %button.send_message_button.btn.btn-primary.demo{"data-toggle" => "modal", "data"=> @advertisement.user.id, "onclick"=>"javascript:open_chat_modal(#{@advertisement.user.id})"} Send message
+                    /%button.send_message_button.btn.btn-primary.demo{"data-toggle" => "modal", "data"=> @advertisement.user.id, "onclick"=>"javascript:open_chat_modal(#{@advertisement.user.id})"} Send message
+                    = link_to "Send Message", "#", class: "btn btn-primary btn-xs start-coversation",
+              "data-sid" => current_user.id, "data-rip" => @advertisement.user.id, "onclick"=>"javascript:open_conversation(event)"                    
             #owner-buttons-container.clear
               .follow-btn
                 - if signed_in? 

@@ -15,10 +15,16 @@
         = f.label "Your reference code"
         = f.input :reference_code, label: false
       .field
-        = f.label "Job title"
+        %label
+          %sapn
+            * Job title        
+        /= f.label "Job title"
         = f.input :title, label: false
       .field
-        = f.label "Job description"
+        %label
+          %sapn
+            * Job description    
+        /= f.label "Job description"
         = f.input :description, label: false
       .field
         = f.label "Skills required"
