@@ -81,6 +81,9 @@ fieldset .field {margin: 6px 10px 12px;width: auto;}
 .row-fluid.spaced-top .span2{padding: 0;width: 140px;}
 .row-fluid.spaced-top .span9, .row-fluid.spaced-top .span7, .row-fluid.spaced-top .span10{margin-left: 30px;width: 790px;}
 
+#no_recent_event {left: 0;text-align: center;top: 0;width: auto;}
+.company_contact ul li {word-wrap: break-word;}
+
 
 
 }
@@ -118,7 +121,10 @@ fieldset .field {margin: 6px 10px 12px;width: auto;}
 #owner-info {width: 130px;}
 .discover_nav > li {line-height: 16px;padding: 0 10px 5px;}
 .business_profile_picture {height: 150px;width: 150px;}
-#bussiness_page_name {left: 180px;}
+#bussiness_page_name {left: 180px;width: 380px;}
+.follow_us {left: auto;right: 0;}
+#business_title_page {font-size: 28px;width: auto;}
+.business_tagline {font-size: 14px;width: auto;}
 #profile_tags_left {width: 280px;}
 #profile_tags_right {width: 280px;}
 .slogan h1 {font-size: 28px;}
@@ -151,6 +157,7 @@ fieldset .field {margin: 6px 10px 12px;width: auto;}
 .job_organization_name_cont {font-size: 12px;}
 
 .make_comtact a {font-size: 12px;margin: 0 4px !important;padding: 6px 14px 6px 0;}
+.fc-header-title h2 {font-size: 16px;margin-top: 7px !important;}
 
 
 
@@ -250,6 +257,14 @@ h3 {font-size: 20.5px;}
 #comments-header h4 {font-size: 14px;}
 .row-fluid.spaced-top .span9, .row-fluid.spaced-top .span10{margin: 0;width: 100%;}
 
+#bussiness_page_name, .follow_us {margin: 0 0 0 180px;position: static;width: auto;}
+#business_title_page {font-size: 22px;}
+.business_tagline {font-size: 12px;}
+.company_banner .get_quote {padding: 6px 3px;}
+.company_banner .get_quote a {font-size: 11px;}
+.bussiness_timeline {float: left;width: 100%;}
+.bussiness_timeline .user_description {float: right;margin: 0;width: 100%;}
+
 
 
 }
@@ -323,6 +338,12 @@ h3 {font-size: 20.5px;}
 .detail_form_container .tags_user {width: 260px;}
 .row-fluid.spaced-top .span9 .table th, .row-fluid.spaced-top .span9 .table td {font-size: 12px;line-height: 16px;padding: 3px;}
 
+#business_page_url_text {width: 100% !important;}
+.business_profile_picture {height: 100px;width: 100px;}
+#bussiness_page_name, .follow_us {margin: 0 0 0 120px;}
+.summary_tabs ul li a {font-size: 13px;padding: 5px 3px;}
+.company_manu ul li {margin: 0 0 10px;width: 100%;}
+.company_contact ul li {margin: 0 0 10px;width: 100%;}
 
 }
 @media screen and (max-width:420px) {
@@ -335,7 +356,7 @@ h3 {font-size: 20.5px;}
 .login_container .left {width: 100%;}
 .login_container .form-item.password {margin-bottom: 10px;}
 .box_sec {width: 100%;}
-.portfolio_box_container {display: table;float: none;margin: 10px auto;width: 270px;}
+.portfolio_box_container {display: block;float: none;margin: 10px auto;width: 270px;}
 .box_sec .portfolio_box_container .box {margin: 2px 1%;width: 98%;}
 .box_sec .portfolio_box_container .profile_edit_delete_portfolio_cont{margin-right: 1%;}
 .profile_picture {height: 70px;margin-left: -35px;top: 30%;width: 70px;}
@@ -355,6 +376,11 @@ legend {font-size: 16px;}
 .job_index_box {float: none;margin: 0 auto 15px;width: 270px;}
 #activity_user_img img{width:100% !important; height:auto !important;}
 #ads_makeup_box {float: none;margin: 0 auto 15px;width: 270px;}
+
+.business_profile_picture {height: 80px;top: 33%;width: 80px;}
+#bussiness_page_name, .follow_us {margin: 0 0 0 100px;}
+.company_banner {float: right;margin: 5px;position: static;}
+#bussines_control_user_detail {float: none;height: auto;width: auto;}
 
 
 }
