@@ -565,21 +565,26 @@ $(function() {
   });
 
 
-  function supports_input_placeholder() {
-          var i = document.createElement('input');
-          return 'placeholder' in i;
-      }
-
-  if (!supports_input_placeholder()) {
-      var fields = document.getElementsByTagName('INPUT');
-      for (var i = 0; i < fields.length; i++) {
-          if (fields[i].hasAttribute('placeholder')) {
-              fields[i].defaultValue = fields[i].getAttribute('placeholder');
-              fields[i].onfocus = function () { if (this.value == this.defaultValue) this.value = ''; }
-              fields[i].onblur = function () { if (this.value == '') this.value = this.defaultValue; }
-          }
-      }
-  }  
+    $('[placeholder]').focus(function() {
+    var input = $(this);
+    if (input.val() == input.attr('placeholder')) {
+    input.val('');
+    input.removeClass('placeholder');
+    }
+    }).blur(function() {
+    var input = $(this);
+    if (input.val() == '' || input.val() == input.attr('placeholder')) {
+    input.addClass('placeholder');
+    input.val(input.attr('placeholder'));
+    }
+    }).blur().parents('form').submit(function() {
+    $(this).find('[placeholder]').each(function() {
+    var input = $(this);
+    if (input.val() == input.attr('placeholder')) {
+    input.val('');
+    }
+    })
+    });
   
 
   $(document).ready(toDoOnload);
