@@ -53,25 +53,26 @@
       .field
         = f.label :available
         = f.select(:available, options_for_select([['Yes', 'yes'], ['No', 'no'], ['Probably', 'probably'], ['Busy', 'busy']]))         
-      -if @user.sub_category.name == 'Modelling'
-        .field
-          = f.label :height
-          = f.number_field :height
-        .field
-          = f.label :bust
-          = f.number_field :bust
-        .field
-          = f.label :hips
-          = f.number_field :hips
-        .field
-          = f.label :shoes
-          = f.number_field :shoes
-        .field
-          = f.label :hair
-          = f.text_field :hair
-        .field
-          = f.label :eyes
-          = f.text_field :eyes
+      /- if @user.category.name == "Photography Modelling" 
+      /  - @user.category.sub_category_groups.each do |group|
+      /    - if group.name == 'Modelling' or group.name == "Interns"
+      /      .field
+      /        = f.input :height_stats
+      /      .field
+      /        = f.label :bust
+      /        = f.number_field :bust
+      /      .field
+      /        = f.label :hips
+      /        = f.number_field :hips
+      /      .field
+      /        = f.label :shoes
+      /        = f.number_field :shoes
+      /      .field
+      /        = f.label :hair
+      /        = f.text_field :hair
+      /      .field
+      /        = f.label :eyes
+      /        = f.text_field :eyes
 
 
       .actions

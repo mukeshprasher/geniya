@@ -1235,6 +1235,7 @@ bottom: -10px;color: #6D6D6C;font-family: Calibri;font-size: 21px;position: abso
   background: url("/assets/devison.png") no-repeat scroll right top rgba(0, 0, 0, 0);
   float: left;
   width: 47%;
+   min-height: 200px;
 }
 
 
@@ -1249,7 +1250,7 @@ bottom: -10px;color: #6D6D6C;font-family: Calibri;font-size: 21px;position: abso
 
 .education_photography .education p em {color: #B4B4B4;font-size: 14px;font-style: normal;}
 
-.education_photography .key_skills {float: right;padding: 0;width: 50%;}
+.education_photography .key_skills {float: right;padding: 0;width: 50%;margin-bottom: 15px;}
 
 .education_photography .key_skills h2 {background: url("/assets/key_skill.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);color: #6E8F26;font-family: 'latoregular';font-size: 16px;padding: 0 25px; line-height: normal; margin: 0 auto;}
 
@@ -4658,4 +4659,30 @@ hr {
 }
 
 
+#user_stats_value {
+    float: left;
+    font-size: 14px;
+    width: 70%;
+}
 
+
+#user_stats_fields {
+   float: left;
+    font-family: latobold;
+    font-size: 14px;
+    width: 18%;
+}
+
+
+.user_status_information {
+    float: left;
+    margin: 10px 0 0 26px;
+    width: 100%;
+}
+
+
+.user_stats_container {
+    float: left;
+    padding: 0 0 10px;
+    width: 100%;
+}

@@ -462,7 +462,89 @@
                     .modal-footer
                       %button#add_skill_modal_close_button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
                   %a.demo{"data-toggle" => "modal",href: "#skills"}
-                    Add Skills              
+                    Add Skills 
+
+              - if @user.sub_category.name == 'Modelling'
+                .key_skills
+                  %h2 Measurements/Stats
+                  .user_status_information
+                    .user_stats_container
+                      #user_stats_fields
+                        - if signed_in? and current_user?(@user)
+                          Height:
+                        - else
+                          - if @user.height_stats.nil?
+                          - else
+                            Height:
+                      #user_stats_value
+                        = best_in_place_if @can_edit, @user, :height_stats, :nil => "Height stats"
+
+                    .user_stats_container
+                      #user_stats_fields
+                        - if signed_in? and current_user?(@user)
+                          Bust:
+                        - else
+                          - if @user.bust_stats.nil?
+                          - else
+                            Bust:                      
+                      #user_stats_value
+                        = best_in_place_if @can_edit, @user, :bust_stats, :nil => "Bust stats"
+                        
+                    .user_stats_container
+                      #user_stats_fields
+                        - if signed_in? and current_user?(@user)
+                          Waist:
+                        - else
+                          - if @user.waist_stats.nil?
+                          - else
+                            waist:                        
+                      #user_stats_value
+                        = best_in_place_if @can_edit, @user, :waist_stats, :nil => "Waist stats"
+                        
+                    .user_stats_container
+                      #user_stats_fields
+                        - if signed_in? and current_user?(@user)
+                          Hips:
+                        - else
+                          - if @user.hips_stats.nil?
+                          - else
+                            Hips:                        
+                      #user_stats_value
+                        = best_in_place_if @can_edit, @user, :hips_stats, :nil => "Hips stats"
+                        
+                    .user_stats_container
+                      #user_stats_fields
+                        - if signed_in? and current_user?(@user)
+                          Shoe:
+                        - else
+                          - if @user.shoe_stats.nil?
+                          - else
+                            Shoe:
+                      #user_stats_value
+                        = best_in_place_if @can_edit, @user, :shoe_stats, :nil => "Shoe stats"
+                    
+                    .user_stats_container
+                      #user_stats_fields
+                        - if signed_in? and current_user?(@user)
+                          Hair:
+                        - else
+                          - if @user.hair.nil?
+                          - else
+                            Hair:
+                      #user_stats_value
+                        = best_in_place_if @can_edit, @user, :hair, :nil => "Hair color"
+                                                                    
+                    .user_stats_container
+                      #user_stats_fields
+                        - if signed_in? and current_user?(@user)
+                          Eyes:
+                        - else
+                          - if @user.eyes.nil?
+                          - else
+                            Eyes:
+                      #user_stats_value
+                        = best_in_place_if @can_edit, @user, :eyes, :nil => "Eyes color"
+                                 
               .clear
             .clear
           .profile_background

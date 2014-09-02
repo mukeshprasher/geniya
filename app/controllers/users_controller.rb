@@ -261,7 +261,7 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:category_id, :sub_category_id, :chosen_plan, :email, :username, :tag, :password, :password_confirmation, :name, :gender, :summary, :height, :bust, :hips, :shoes, :hair, :eyes, :birthdate, :available, :feature_img, :kind, :parent_id)
+      params.require(:user).permit(:category_id, :sub_category_id, :chosen_plan, :email, :username, :tag, :password, :password_confirmation, :name, :gender, :summary, :height, :bust, :hips, :shoes, :hair, :eyes, :birthdate, :available, :feature_img, :kind, :parent_id, :height_stats, :waist_stats, :bust_stats, :shoe_stats, :hips_stats)
     end
 
     # Before filters
