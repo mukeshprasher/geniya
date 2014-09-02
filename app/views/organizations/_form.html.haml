@@ -10,7 +10,7 @@
     #org_name
       %label
         %b
-          *Area Of Work
+          *Area of Work
     = collection_select(:organization, :category_id, Category.all, :id, :name)
     #aff_start_date
       %label
@@ -20,7 +20,7 @@
       = text_field(:organization, :start_date)    
 
   .orgn_btn
-    = f.button :submit, value:"Save Organization",  class: "btn btn-large btn-primary"
+    = f.button :submit,  class: "btn btn-large btn-primary"
   #loading_img_for_organization
     %img{src: "/assets/loader.gif", alt: "loading"}/   
 

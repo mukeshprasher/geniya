@@ -59,7 +59,15 @@ class AlbumsController < ApplicationController
           add_location_to_user_albums(@album.user.locations.where(status: 'current').first) if @album.user.locations.where(status: 'current').any?
         end
         create_activity(@album.class.name, @album.id, 'create')
-        format.html { render action: 'crop' }
+        format.html {           
+          if album_params.has_key?(:cover)
+            render 'crop'  
+          else        
+            redirect_to @album, notice: 'Portfolio was successfully created.' 
+          end 
+        }
+        format.json { render action: 'show', status: :created, location: @album }        
+      
       else
         format.html { render action: 'new' }
         format.json { render json: @album.errors, status: :unprocessable_entity }
@@ -87,7 +95,7 @@ class AlbumsController < ApplicationController
           if album_params.has_key?(:cover)
             render 'crop'  
           else        
-            redirect_to @album, notice: 'Album was successfully posted.' 
+            redirect_to @album, notice: 'Portfolio was successfully updated.' 
           end 
         }
         format.json { head :no_content }

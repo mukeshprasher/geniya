@@ -42,7 +42,14 @@ class AdvertisementsController < ApplicationController
 #    @advertisement.save
     respond_to do |format|
       if @advertisement.save
-        format.html { render action: 'crop' }
+        format.html { 
+          if advertisement_params.has_key?(:file_attachment)
+            render 'crop'  
+          else
+            redirect_to @advertisement, notice: 'Advertisement was successfully created.'
+          end    
+        } 
+        format.json { render action: 'show', status: :created, location: @advertisement }       
       else
         format.html { render action: 'new' }
         format.json { render json: @advertisement.errors, status: :unprocessable_entity }
@@ -66,7 +73,13 @@ class AdvertisementsController < ApplicationController
 
     respond_to do |format|
       if @advertisement.update(advertisement_params)
-        format.html { redirect_to @advertisement, notice: 'Advertisement was successfully posted.' }
+        format.html { 
+          if advertisement_params.has_key?(:file_attachment)
+            render 'crop'  
+          else        
+            redirect_to @advertisement, notice: 'Advertisement was successfully updated.' 
+          end
+        }         
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
