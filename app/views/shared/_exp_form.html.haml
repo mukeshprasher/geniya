@@ -1,8 +1,10 @@
 = text_field_tag 'search', nil, placeholder: 'Enter Organization here...', id:"srch_org", style: 'width: 50%'
-or
-%a.demo{"data-toggle" => "modal",href: "#orgn_form"}
-  %span.btn.btn-primary
-    Create New Organization
+- if signed_in?
+  - if current_user.plan != "visitor"
+    or
+    %a.demo{"data-toggle" => "modal",href: "#orgn_form"}
+      %span.btn.btn-primary
+        Create New Organization
 #loading_img_for_srhorgn
   %img{src: "/assets/loader.gif", alt: "loading"}/ 
 %p#orgn_detail

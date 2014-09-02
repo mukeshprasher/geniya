@@ -9,13 +9,16 @@
         %tr
           %th Name
           %th Category
-          %th Operations
+          - if signed_in?
+            - if current_user.plan == "admin"          
+              %th Operations
 
         - @sub_categories.each do |sub_category|
           %tr
-            %td= sub_category.name
+            %td
+              = link_to sub_category do
+                = sub_category.name
             %td= sub_category.category.name
-            %td= link_to 'Show', sub_category
             - if signed_in?
               - if current_user.plan == "admin"
                 %td= link_to 'Edit', edit_sub_category_path(sub_category)

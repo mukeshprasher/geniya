@@ -5,8 +5,9 @@
   .row-fluid.spaced-top
     .span2.spaced-left
       .btn-group.btn-group-vertical.btn-block
+        = link_to 'All professions', sub_categories_path, class: 'btn'
         - if signed_in?
-          = link_to 'All professions', sub_categories_path, class: 'btn'
+          = link_to 'My profile', current_user, class: 'btn'
 .detail_form_container
   %h3
     = @sub_category.name.capitalize
