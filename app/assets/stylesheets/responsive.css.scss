@@ -13,6 +13,9 @@ fieldset .field {margin: 6px 10px 12px;width: auto;}
 .box_section ul li {display: inline-block;float: none;margin: 20px 9px 0;vertical-align: top;width: 320px;}
 .quality {height: 90px;}
 
+.no_results {margin: 30px 5%;width: 90%;}
+
+
 @media screen and (max-width:1060px) {
 
 .wrapper_c, .wrapper, #content-container, .wrapper_c_not_required, .row-fluid.spaced-top{width: 960px; margin:0 auto;}
@@ -169,7 +172,7 @@ fieldset .field {margin: 6px 10px 12px;width: auto;}
 .fc-header-title h2 {font-size: 16px;margin-top: 7px !important;}
 .dropNav {float: left;margin-top: 10px;}
 .box_section ul li {margin: 20px 5px 0;width: 241px;}
-.dropdown .key_word {position: relative;}
+.dropdown .key_word {position: relative; height:30px;}
 #alb-srch-btn {left: auto;right: 0;}
 #feedback_modal {width: 60% !important;}
 .user_img {margin: 3px 10px 3px 3px;}
@@ -178,6 +181,8 @@ fieldset .field {margin: 6px 10px 12px;width: auto;}
 #filter_album {width: 100%;}
 .feature_search {margin: 12px 2% 12px 0;width: 48%;}
 .footer_social {display: table;float: none;margin: 15px auto 0;}
+.company_contact ul li {margin: 0 0 20px;width: 100%;}
+#event_calendar_cont {padding: 0 2%;width: 96%;}
 
 
 }
