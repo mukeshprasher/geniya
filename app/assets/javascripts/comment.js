@@ -914,7 +914,7 @@ $(function() {
       return false;
     }
     else
-    if(start_date > output)
+    if(start_date < output)
     {
       alert("Provided date is not valid, please select from current or previous date")
       return false;
