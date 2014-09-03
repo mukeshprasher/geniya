@@ -10,6 +10,8 @@ fieldset .field {margin: 6px 10px 12px;width: auto;}
 .row-fluid.spaced-top {margin: 0 auto;width: 1024px;}
 .job_index_box {margin: 0 1% 15px 0;width: 32%;}
 #ads_makeup_box {margin: 0 1% 15px 0;width: 32%;}
+.box_section ul li {margin: 20px 10px 0;width: 320px;}
+.quality {height: 90px;}
 
 @media screen and (max-width:1060px) {
 
@@ -80,9 +82,17 @@ fieldset .field {margin: 6px 10px 12px;width: auto;}
 .detail_controls_cont {margin: 13px 3% 22px;}
 .row-fluid.spaced-top .span2{padding: 0;width: 140px;}
 .row-fluid.spaced-top .span9, .row-fluid.spaced-top .span7, .row-fluid.spaced-top .span10{margin-left: 30px;width: 790px;}
-
 #no_recent_event {left: 0;text-align: center;top: 0;width: auto;}
 .company_contact ul li {word-wrap: break-word;}
+.box_section ul li {margin: 20px 8px 0;width: 304px;}
+#portfolio_album_img {min-height: 100px;min-width: 100px;}
+#portfolios .albm-img img {height: auto;width: 100%;}
+.dropNav ul{margin-left:0;}
+.dropNav ul li a {padding: 0 7px;}
+#feedback_modal {left: 20%;margin: 0 !important;position: absolute;top: 0;width: 60%;}
+.quality {background-size: 100% auto;}
+
+.box_section ul#portfolios {width: 100%;}
 
 
 
@@ -155,10 +165,19 @@ fieldset .field {margin: 6px 10px 12px;width: auto;}
 .row-fluid.spaced-top .span9, .row-fluid.spaced-top .span7, .row-fluid.spaced-top .span10{margin-left: 20px;width: 600px;}
 .job_title_cont {font-size: 16px;}
 .job_organization_name_cont {font-size: 12px;}
-
 .make_comtact a {font-size: 12px;margin: 0 4px !important;padding: 6px 14px 6px 0;}
 .fc-header-title h2 {font-size: 16px;margin-top: 7px !important;}
-
+.dropNav {float: left;margin-top: 10px;}
+.box_section ul li {margin: 20px 5px 0;width: 243px;}
+.dropdown .key_word {position: relative;}
+#alb-srch-btn {left: auto;right: 0;}
+#feedback_modal {width: 60% !important;}
+.user_img {margin: 3px 10px 3px 3px;}
+.portfolio-users-name {float: none;padding: 0;width: auto;}
+.portf_like_cat {float: none;padding: 0;width: auto;}
+#filter_album {width: 100%;}
+.feature_search {margin: 12px 2% 12px 0;width: 48%;}
+.footer_social {display: table;float: none;margin: 15px auto 0;}
 
 
 }
@@ -256,7 +275,6 @@ h3 {font-size: 20.5px;}
 .current_album_like_form {font-size: 14px;margin: 0;width: 100%;}
 #comments-header h4 {font-size: 14px;}
 .row-fluid.spaced-top .span9, .row-fluid.spaced-top .span10{margin: 0;width: 100%;}
-
 #bussiness_page_name, .follow_us {margin: 0 0 0 180px;position: static;width: auto;}
 #business_title_page {font-size: 22px;}
 .business_tagline {font-size: 12px;}
@@ -264,7 +282,19 @@ h3 {font-size: 20.5px;}
 .company_banner .get_quote a {font-size: 11px;}
 .bussiness_timeline {float: left;width: 100%;}
 .bussiness_timeline .user_description {float: right;margin: 0;width: 100%;}
+.dropNav {display: none;}
+.dropdown .key_word {margin-bottom: 10px;}
+.box_section ul li.ajax-portfolio-detail-homepage-modal-trigger {margin: 20px 1% 0;width: 31%;}
+.box_section ul li ul, .box_section ul li ul li {width: 100%;}
+.box_section .album-name{font-size: 14px;}
+.portf_like_cat {font-size: 11px;}
 
+.innerBenner .wrapper{display: table;}
+.portfolio .our_base {margin: 25px 0;}
+.portfolio .our_base h2 {font-size: 40px;}
+.portfolio .our_base strong {font-size: 18px;}
+#portfolio_sub_cat_box {padding: 0 3% 20px;width: 94%;}
+.inneContainer-links {padding: 20px 0 10px;}
 
 
 }
@@ -304,6 +334,11 @@ h3 {font-size: 20.5px;}
 #affiliations {left: 5%;width: 90% !important;}
 .job_index_box {margin: 0 1% 15px;width: 48%;}
 #ads_makeup_box {margin: 0 1% 15px;width: 48%;}
+
+.box_section ul li.ajax-portfolio-detail-homepage-modal-trigger {margin: 20px 1% 0;width: 48%;}
+#filter_album {font-size: 20px;}
+.advance_src_tilte {font-size: 20px;}
+.sub_category_chekbox_container {width: 50%;}
 
 
 
@@ -345,6 +380,8 @@ h3 {font-size: 20.5px;}
 .company_manu ul li {margin: 0 0 10px;width: 100%;}
 .company_contact ul li {margin: 0 0 10px;width: 100%;}
 
+
+
 }
 @media screen and (max-width:420px) {
 
@@ -376,11 +413,16 @@ legend {font-size: 16px;}
 .job_index_box {float: none;margin: 0 auto 15px;width: 270px;}
 #activity_user_img img{width:100% !important; height:auto !important;}
 #ads_makeup_box {float: none;margin: 0 auto 15px;width: 270px;}
-
 .business_profile_picture {height: 80px;top: 33%;width: 80px;}
 #bussiness_page_name, .follow_us {margin: 0 0 0 100px;}
 .company_banner {float: right;margin: 5px;position: static;}
 #bussines_control_user_detail {float: none;height: auto;width: auto;}
+.box_section ul#portfolios {width: 100%;}
+.box_section ul li.ajax-portfolio-detail-homepage-modal-trigger {display: table;float: none;margin: 15px auto;width: 270px;}
+.feature_search {margin: 5px 0; width: 100%;}
+.sub_category_chekbox_container {margin: 0 0 4px;width: 100%;}
+.portfolio .our_base h2 {font-size: 28px;}
+.portfolio .our_base strong {font-size: 16px;font-weight: normal;}
 
 
 }
