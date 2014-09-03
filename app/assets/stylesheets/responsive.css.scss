@@ -10,7 +10,7 @@ fieldset .field {margin: 6px 10px 12px;width: auto;}
 .row-fluid.spaced-top {margin: 0 auto;width: 1024px;}
 .job_index_box {margin: 0 1% 15px 0;width: 32%;}
 #ads_makeup_box {margin: 0 1% 15px 0;width: 32%;}
-.box_section ul li {margin: 20px 10px 0;width: 320px;}
+.box_section ul li {display: inline-block;float: none;margin: 20px 9px 0;vertical-align: top;width: 320px;}
 .quality {height: 90px;}
 
 @media screen and (max-width:1060px) {
@@ -41,7 +41,7 @@ fieldset .field {margin: 6px 10px 12px;width: auto;}
 #profile_tags_right {width: 380px;}
 .slogan h1 {font-size: 32px;line-height: normal;}
 .widget .block {width: 100%;}
-.widget .block .mejs-container{width: 100% !important;}
+.widget .block .mejs-container, .widget .block .mejs-container .me-cannotplay{width: 100% !important;}
 .mejs-layers .mejs-overlay {width: 100% !important;}
 .mejs-inner video {width: 100% !important;}
 .tab_nav > li a {font-size: 12px;padding: 6px 5%;}
@@ -84,15 +84,15 @@ fieldset .field {margin: 6px 10px 12px;width: auto;}
 .row-fluid.spaced-top .span9, .row-fluid.spaced-top .span7, .row-fluid.spaced-top .span10{margin-left: 30px;width: 790px;}
 #no_recent_event {left: 0;text-align: center;top: 0;width: auto;}
 .company_contact ul li {word-wrap: break-word;}
-.box_section ul li {margin: 20px 8px 0;width: 304px;}
+.box_section ul li {margin: 20px 8px 0;width: 302px;}
 #portfolio_album_img {min-height: 100px;min-width: 100px;}
 #portfolios .albm-img img {height: auto;width: 100%;}
 .dropNav ul{margin-left:0;}
 .dropNav ul li a {padding: 0 7px;}
 #feedback_modal {left: 20%;margin: 0 !important;position: absolute;top: 0;width: 60%;}
 .quality {background-size: 100% auto;}
-
 .box_section ul#portfolios {width: 100%;}
+.inneContaineralbum #ajax-portfolio-detail-homepage {margin-left: 0 !important;position: static; width: 100% !important;}
 
 
 
@@ -168,7 +168,7 @@ fieldset .field {margin: 6px 10px 12px;width: auto;}
 .make_comtact a {font-size: 12px;margin: 0 4px !important;padding: 6px 14px 6px 0;}
 .fc-header-title h2 {font-size: 16px;margin-top: 7px !important;}
 .dropNav {float: left;margin-top: 10px;}
-.box_section ul li {margin: 20px 5px 0;width: 243px;}
+.box_section ul li {margin: 20px 5px 0;width: 241px;}
 .dropdown .key_word {position: relative;}
 #alb-srch-btn {left: auto;right: 0;}
 #feedback_modal {width: 60% !important;}
@@ -284,7 +284,7 @@ h3 {font-size: 20.5px;}
 .bussiness_timeline .user_description {float: right;margin: 0;width: 100%;}
 .dropNav {display: none;}
 .dropdown .key_word {margin-bottom: 10px;}
-.box_section ul li.ajax-portfolio-detail-homepage-modal-trigger {margin: 20px 1% 0;width: 31%;}
+.box_section ul li.ajax-portfolio-detail-homepage-modal-trigger {margin: 20px 1% 0;width: 30%;}
 .box_section ul li ul, .box_section ul li ul li {width: 100%;}
 .box_section .album-name{font-size: 14px;}
 .portf_like_cat {font-size: 11px;}
@@ -335,7 +335,7 @@ h3 {font-size: 20.5px;}
 .job_index_box {margin: 0 1% 15px;width: 48%;}
 #ads_makeup_box {margin: 0 1% 15px;width: 48%;}
 
-.box_section ul li.ajax-portfolio-detail-homepage-modal-trigger {margin: 20px 1% 0;width: 48%;}
+.box_section ul li.ajax-portfolio-detail-homepage-modal-trigger {margin: 20px 1% 0;width: 47%;}
 #filter_album {font-size: 20px;}
 .advance_src_tilte {font-size: 20px;}
 .sub_category_chekbox_container {width: 50%;}
@@ -401,7 +401,7 @@ h3 {font-size: 20.5px;}
 #profile_tags_right {margin-top: 0;width: 100%;}
 .user_data {margin: 0 0 10px;width: 120px;}
 .user_updates_form {width: 100%;}
-.user_description {width: 96%;}
+.user_description {width: 100%;}
 .wrapper h1 {font-size: 24px;}
 .profile_form_editable, .detail_form_container {width: 280px;}
 legend {font-size: 16px;}
@@ -423,6 +423,9 @@ legend {font-size: 16px;}
 .sub_category_chekbox_container {margin: 0 0 4px;width: 100%;}
 .portfolio .our_base h2 {font-size: 28px;}
 .portfolio .our_base strong {font-size: 16px;font-weight: normal;}
+.user_description .firstCol .mejs-container, .user_description .firstCol .mejs-container .me-cannotplay{width: 100% !important;}
+.user_description .firstCol object {width: 100%;}
+
 
 
 }
