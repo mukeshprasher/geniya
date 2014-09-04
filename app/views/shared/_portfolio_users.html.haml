@@ -1,8 +1,9 @@
-.user_img
-  - if user.headshot
-    =image_tag user.headshot.file_attachment.url(:thumb)
-  - else
-    =image_tag '/assets/missing.png', width: "50px", height: "50px"
+= link_to user do
+  .user_img
+    - if user.headshot
+      =image_tag user.headshot.file_attachment.url(:thumb)
+    - else
+      =image_tag '/assets/missing.png', width: "50px", height: "50px"
 .portfolio-users-name
   %span.album-user-name
     = link_to user.name, user

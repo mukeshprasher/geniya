@@ -1891,10 +1891,9 @@ display:none;
 
 .comment-user-name {    float: left;
     margin: 0 0 0 8px;
-    width: 87%;}
+    width: 85%;}
 
 .child-comment-wrap {    float: left;
-    margin: 15px 0;
     width: 97%;}
 
 #update_privacy {border: 1px solid #CCCCCC;border-radius: 0;color: #4C4C4C;font-family: latolight;padding: 4px;width: 452px;}
@@ -4645,6 +4644,7 @@ header .dropdown-menu li a{}
 
 hr {
     border: 1px solid #CFCFCF;
+    margin:10px 0;
     }
     
 .invite_frnd_list li, .invite_frnd_list p {
@@ -4714,4 +4714,10 @@ hr {
 #upgrade_plan {
     background: none repeat scroll 0 0 #89B333;
     color: #FFFFFF !important;
+}
+
+
+.full_feed {
+    font-family: latobold;
+      margin: 0 0 0 8px;
 }

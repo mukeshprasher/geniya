@@ -98,7 +98,13 @@
                   %button.btn.btn-default#share_form_area_close{"data-dismiss" => "modal", type: "button"} Close
           .show_users
             - comments = acted_upon_obj.comment_threads.where('parent_id IS NULL').order('created_at desc').limit(2)
+
             - @new_comment = Comment.build_from(acted_upon_obj, current_user.id, "")
             .comments
               = render :partial => 'comments/form', :locals => { comment: @new_comment, parent_id: nil , feed_id: acted_upon_obj.id}
               = render :partial => 'comments/comment', :collection => comments, :as => :comment
+            - comment_count = acted_upon_obj.comment_threads.where('parent_id IS NULL').order('created_at desc').count            
+          .full_feed
+            - if (comment_count > 2)
+              %a{href:"#{activity.acted_upon_type.downcase}"+"s/"+"#{activity.acted_upon_id}"}
+                See all comments

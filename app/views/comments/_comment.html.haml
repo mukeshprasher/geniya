@@ -2,11 +2,12 @@
   %hr
     -if (current_user == comment.user) && signed_in?
       = link_to '×', comment, :method => :delete, :remote => true, :data => { :confirm => 'Are you sure?' }
-    %span.comment-user-pic  
-      - if comment.user.headshot
-        = image_tag comment.user.headshot.file_attachment.url(:thumb)
-      -else
-        =image_tag '/assets/missing.png'   
+    = link_to comment.user do
+      %span.comment-user-pic  
+        - if comment.user.headshot
+          = image_tag comment.user.headshot.file_attachment.url(:thumb)
+        - else
+          =image_tag '/assets/missing.png'   
     %span.comment-user-name
       %a{href: "/users/"+"#{comment.user.slug}"}
         = comment.user.name

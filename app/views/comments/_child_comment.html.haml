@@ -2,11 +2,13 @@
   %hr
     -if (current_user == child.user)
       = link_to "×", comment_path(child), :method => :delete, :remote => true, :disable_with => "×", :class => 'child-comment-delete', :id => "child-comment-delete-#{child.id}"
-    %span.comment-user-pic  
-      - if child.user.headshot
-        = image_tag child.user.headshot.file_attachment.url(:thumb)
-      -else
-        =image_tag '/assets/missing.png'   
+    
+    %span.comment-user-pic 
+      = link_to child.user do 
+        - if child.user.headshot
+          = image_tag child.user.headshot.file_attachment.url(:thumb)
+        -else
+          =image_tag '/assets/missing.png'   
     %span.comment-user-name
       %a{href: "/users/"+"#{child.user.slug}"}
         = child.user.name  
