@@ -4,7 +4,7 @@ class EducationsController < ApplicationController
   before_action only: [:edit, :update, :destroy] do
     redirect_with_notice_if_incorrect_user(@education)
   end
-
+  before_action :can_edit, only: [:show, :create]
   # GET /educations
   # GET /educations.json
   def index
@@ -76,4 +76,9 @@ class EducationsController < ApplicationController
     def education_params
       params.require(:education).permit(:institute_name, :course_name, :start_date, :end_date)
     end
+
+    def can_edit
+      @can_edit = (current_user)
+    end         
+    
 end

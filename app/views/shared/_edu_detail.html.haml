@@ -1,9 +1,13 @@
 %p.education-detail{id: "edu_detail_#{edu_detail.id}"}
-  = edu_detail.institute_name
+  /= edu_detail.institute_name
+  = best_in_place_if @can_edit, edu_detail, :institute_name, :nil => "Enter institute name", id:"user_institue_name"  
   - if (current_user == edu_detail.user) && signed_in?
     = link_to 'x', edu_detail, :method => :delete, :data => { :confirm => 'Really want to remove this education detail?' }, remote: true, class: 'tag_delete'
+  %br
   %span
-    = edu_detail.course_name
+    /= edu_detail.course_name
+    = best_in_place_if @can_edit, edu_detail, :course_name, :nil => "Enter course name", id:"user_course_name"
+  %br
   %em
     = edu_detail.start_date
   %em
