@@ -50,7 +50,9 @@
                 = link_to @job.user.name, @job.user
             - if signed_in? and !current_user?(@job.user)
               %br
-              %button.send_message_button.btn.btn-primary.demo{"data-toggle" => "modal", "data"=> @job.user.id, "onclick"=>"javascript:open_chat_modal(#{@job.user.id})"}Send Message
+              /%button.send_message_button.btn.btn-primary.demo{"data-toggle" => "modal", "data"=> @job.user.id, "onclick"=>"javascript:open_chat_modal(#{@job.user.id})"}Send Message
+              = link_to "Send Message", "#", class: "btn btn-primary btn-xs start-coversation",
+              "data-sid" => current_user.id, "data-rip" => @job.user.id, "onclick"=>"javascript:open_conversation(event)"              
             #owner-location-container
               /%a.location-link.text-ellipsis.beicons-pre.beicons-pre-location Brooklyn, NY, USA
         #owner-buttons-container.clear

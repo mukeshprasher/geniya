@@ -39,8 +39,8 @@ class UsersController < ApplicationController
       @activities = Activity.where(user_id: @user.id).paginate(page: params[:page], per_page: 15).order(created_at: :desc)
     end
 
-    @advertisements =@user.advertisements.limit(1).offset rand @user.advertisements.count
-    @jobs =@user.jobs.limit(1).offset rand @user.jobs.count
+    @advertisements =@user.advertisements.limit(5).offset rand @user.advertisements.count
+    @jobs =@user.jobs.limit(5).offset rand @user.jobs.count
 
     @quote = @user.quotes.build
 #    @jobs = Array.new
