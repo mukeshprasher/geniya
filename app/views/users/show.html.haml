@@ -265,7 +265,7 @@
         /    = image_tag @user.bussiness.file_attachment.url(:medium)
         #bussiness_page_name
           #business_title_page
-            = @user.name
+            = best_in_place_if @can_edit, @user, :name, :nil => "Business name"
           - if @user.bussiness
             .business_tagline
               = raw (@user.bussiness.tagline)
