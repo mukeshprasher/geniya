@@ -3580,12 +3580,18 @@ body {
 }
 
 #event_calendar_cont{
-    background: none repeat scroll 0 0 #E1E1E1;
     margin: 10px 0;
-    padding: 0 15px;
-    width: 274px;
   
 }
+
+#event_calendar{
+    background: none repeat scroll 0 0 #E1E1E1;
+    padding: 10px 15px;
+    width: 274px;
+    margin: 10px 0;
+  
+}
+
 .fc-header-title h2{
   //font-size: 10px;
   color: #000;
@@ -4336,7 +4342,6 @@ select{width:100% !important;}
 .detail_form_container {
     margin: auto;
     max-width: 600px;
-    padding: 35px 0;
 }
 .btn{text-shadow:none;}
 
@@ -4706,3 +4711,7 @@ hr {
 }
 
 
+#upgrade_plan {
+    background: none repeat scroll 0 0 #89B333;
+    color: #FFFFFF !important;
+}

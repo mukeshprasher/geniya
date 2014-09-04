@@ -23,6 +23,8 @@
               Settings
               %b.caret
             %ul.dropdown-menu
+              - if current_user.plan == 'trial'
+                %li#upgrade_plan= link_to 'Upgrade', new_payment_subscription_path                 
               - if current_user.feature_img == 'true' and current_user.kind == "user"
                 %li= link_to 'Add Feature Image', new_featureimg_path
                 /#addfeatureimg.modal.fade{"data-width" => "760", style: "display: none;", tabindex: "-1"}
@@ -45,8 +47,7 @@
                 /  Add Feature Image             
               %li= link_to 'Invite Email Contacts', "/contacts/gmail" 
               %li= link_to 'Edit Profile', "/users/"+current_user.slug+"/profile_edit" 
-              - if current_user.plan == 'trial'
-                %li= link_to 'Upgrade', new_payment_subscription_path                    
+                 
               - if current_user.plan != 'visitor'
                 %li#divider= link_to 'Create Organization', new_organization_path 
               - if current_user.plan == 'deluxe' or current_user.plan == 'admin'
