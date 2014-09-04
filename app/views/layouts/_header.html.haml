@@ -10,7 +10,7 @@
               - else
                 =image_tag '/assets/missing.png', width: "50px", height: "50px"
             %span 
-              = current_user.name
+              = current_user.username.capitalize
         %li
           |
         %li= link_to 'Home', root_path

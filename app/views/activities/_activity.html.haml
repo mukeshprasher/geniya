@@ -6,11 +6,12 @@
       .delete-update
         - if current_user?(activity.user)
           = link_to "x", activity, method: :delete, data: { confirm: "Are you sure you want to delete this activity?" }, remote: true
-      .feed_headshot
-        - if activity.user.headshot
-          =image_tag activity.user.headshot.file_attachment.url(:thumb)
-        - else
-          =image_tag '/assets/missing.png', width: "50px", height: "50px"
+      = link_to activity.user do
+        .feed_headshot
+          - if activity.user.headshot
+            =image_tag activity.user.headshot.file_attachment.url(:thumb)
+          - else
+            =image_tag '/assets/missing.png', width: "50px", height: "50px"
       .user
         .userTop
           .user_name

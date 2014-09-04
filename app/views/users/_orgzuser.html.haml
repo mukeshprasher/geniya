@@ -18,7 +18,7 @@
     - if user.affiliations.any?
       #tag_user_company
         %span
-          = user.affiliations.first.organization.name
+          = @organization.name
     - if user.locations.any?
       #tag_user_address
         %span
