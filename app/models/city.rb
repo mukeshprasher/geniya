@@ -4,5 +4,5 @@ class City < ActiveRecord::Base
   has_many :pins, dependent: :destroy
   has_many :locations, dependent: :destroy
 
-  validates :name, length: { minimum: 2,  maximum: 12 }
+  validates :name, length: { minimum: 2,  maximum: 50 }
 end
