@@ -15,10 +15,10 @@
       - else
         = user.followers.count
         followers
-    - if user.affiliations.any?
-      #tag_user_company
-        %span
-          = @organization.name
+    /- if user.affiliations.any?
+    /  #tag_user_company
+    /    %span
+    /      = @organization.name
     /- if user.locations.any?
     /  #tag_user_address
     /    %span
