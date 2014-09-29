@@ -19,16 +19,16 @@
       #tag_user_company
         %span
           = @organization.name
-    - if user.locations.any?
-      #tag_user_address
-        %span
-          = user.locations.last.city.name
-          ,
-        %span
-          = user.locations.last.state.name
-          ,
-        %span
-          = user.locations.last.country.name                    
+    /- if user.locations.any?
+    /  #tag_user_address
+    /    %span
+    /      = user.locations.last.city.name
+    /      ,
+    /    %span
+    /      = user.locations.last.state.name
+    /      ,
+    /    %span
+    /      = user.locations.last.country.name                    
     #tag_user_connections
       %ul
         %li
