@@ -20,7 +20,7 @@ class ConversationsController < ApplicationController
   def show
     @conversation = Conversation.find(params[:id])
     @reciever = interlocutor(@conversation)
-    @messages = @conversation.messages
+    @messages = @conversation.messages.order(created_at: :asc)
     @messages.where(status: 'unread', recipient_id: current_user.id).each do |msg|
       msg.status = 'read'
       msg.save
