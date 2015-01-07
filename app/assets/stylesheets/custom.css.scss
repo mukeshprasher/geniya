@@ -209,7 +209,7 @@ nav { display: block; float: left; margin-top: 4px; padding-bottom: 28px; positi
 
 .slogan { background: url("/assets/green_brush.png") no-repeat scroll center center #4B6515; color: #FFFFFF; font-size: 38px; font-weight: normal; margin: 0; padding: 5px 0; text-align: center; width: 100%;text-transform: uppercase;clear: both;  }
 
-.slogan span { font-family: 'latoblack'; font-weight:normal }
+.slogan span { font-family: 'Lato', sans-serif; font-weight:900; }
 
 /***********************/
 .choose { background:url(/assets/brush_left.png) no-repeat left center, url(/assets/brush_middle.png)no-repeat center center, url(/assets/brush_right.png)no-repeat right center #fff; width:100%; display:block; padding:0px }
@@ -218,9 +218,9 @@ nav { display: block; float: left; margin-top: 4px; padding-bottom: 28px; positi
 
 .choose .post_portfolio { text-align:center; position:relative; display:inline-block; width:50%; vertical-align:top; }
 
-.choose img { text-decoration: none; display: table; margin: 0 auto; opacity: 1; -webkit-transform: scale(1, 1); -webkit-transition-timing-function: ease-out; -webkit-transition-duration: 250ms; -moz-transform: scale(1, 1); -moz-transition-timing-function: ease-out; -moz-transition-duration: 250ms; position:relative; }
+.choose img { text-decoration: none; display: table; margin: 0 auto; opacity: 0.6; -webkit-transform: scale(1, 1); -webkit-transition-timing-function: ease-out; -webkit-transition-duration: 250ms; -moz-transform: scale(1, 1); -moz-transition-timing-function: ease-out; -moz-transition-duration: 250ms; position:relative; }
 
-.choose .post_portfolio:hover img, .choose .view_portfolio:hover img { opacity: 0.7; -webkit-transform: scale(1.05, 1.07); -webkit-transition-timing-function: ease-out; -webkit-transition-duration: 250ms; -moz-transform: scale(1.05, 1.07); -moz-transition-timing-function: ease-out; -moz-transition-duration: 250ms; ; z-index: 99; }
+.choose .post_portfolio:hover img, .choose .view_portfolio:hover img { opacity: 1; -webkit-transform: scale(1.05, 1.07); -webkit-transition-timing-function: ease-out; -webkit-transition-duration: 250ms; -moz-transform: scale(1.05, 1.07); -moz-transition-timing-function: ease-out; -moz-transition-duration: 250ms; ; z-index: 99; }
 
 .choose .text { color: #4B6515; cursor: pointer; font-family: latoblack; font-size:70px; left: 0; position: absolute; top: 17%; z-index: 101; width:100% }
 
@@ -3118,6 +3118,7 @@ fieldset .field {
 
 .index_user_slide_item img {
     width: 215px;
+    height:424px;
 }
 
 
@@ -4723,7 +4724,7 @@ hr {
 }
 
 .wrapper_c_not_required h1 {
-  font-family: sans-serif;
+ font-family: 'Lato', sans-serif; font-weight:300;
   font-size: 35px;
   padding: 10px 0;
 }
