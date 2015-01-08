@@ -212,17 +212,17 @@ nav { display: block; float: left; margin-top: 4px; padding-bottom: 28px; positi
 .slogan span { font-family: 'Lato', sans-serif; font-weight:700; }
 
 /***********************/
-.choose { background:url(/assets/brush_left.png) no-repeat left center, url(/assets/brush_middle.png)no-repeat center center, url(/assets/brush_right.png)no-repeat right center #fff; width:100%; display:block; padding:0px }
+.choose { background:url(/assets/brush_left.png) no-repeat left center, url(/assets/brush_middle.png)no-repeat center center, url(/assets/brush_right.png)no-repeat right center #fff; width:100%; display:block; padding:0px;overflow: hidden; }
 
 .choose .view_portfolio { text-align:center; position:relative; display:inline-block; width:49%; vertical-align:top; padding:0px 0px }
 
 .choose .post_portfolio { text-align:center; position:relative; display:inline-block; width:50%; vertical-align:top; }
 
-.choose img { text-decoration: none; display: table; margin: 0 auto; opacity: 0.4; -webkit-transform: scale(1, 1); -webkit-transition-timing-function: ease-out; -webkit-transition-duration: 250ms; -moz-transform: scale(1, 1); -moz-transition-timing-function: ease-out; -moz-transition-duration: 250ms; position:relative;padding:10px 0; }
+.choose img { text-decoration: none; display: table; margin: 0 auto; opacity: 0.4; -webkit-transform: scale(1, 1); -webkit-transition-timing-function: ease-out; -webkit-transition-duration: 250ms; -moz-transform: scale(1, 1); -moz-transition-timing-function: ease-out; -moz-transition-duration: 250ms; position:relative;padding:0px 0; }
 
 .choose .post_portfolio:hover img, .choose .view_portfolio:hover img { opacity: 1; -webkit-transform: scale(1.05, 1.07); -webkit-transition-timing-function: ease-out; -webkit-transition-duration: 250ms; -moz-transform: scale(1.05, 1.07); -moz-transition-timing-function: ease-out; -moz-transition-duration: 250ms; ; z-index: 99; }
 
-.choose .text { color: #777; cursor: pointer; font-family: latoblack; font-size:70px; left: 0; position: absolute; top: 17%; z-index: 101; width:100% }
+.choose .text { color: #444; cursor: pointer; font-family: latoblack; font-size:70px; left: 0; position: absolute; top: 25%; z-index: 101; width:100% }
 
 .choose .text { text-decoration: none; opacity: 1; -webkit-transform: scale(1, 1); -webkit-transition-timing-function: ease-out; -webkit-transition-duration: 250ms; -moz-transform: scale(1, 1); -moz-transition-timing-function: ease-out; -moz-transition-duration: 250ms; }
 
@@ -230,7 +230,7 @@ nav { display: block; float: left; margin-top: 4px; padding-bottom: 28px; positi
 
 .choose .text span { color: #000000; display: block; font-family: latolight; font-size: 32px; text-transform: uppercase; }
 
-.choose .text i { font-size:14px; font-family: 'latoregular'; color:#8e8e8e; font-style:normal; margin-top: 0;   display: block; }
+.choose .text i { font-size:14px; font-family: 'latoregular'; color:#4B6515; font-style:normal; margin-top: 0;   display: block; }
 
 
 .post_portfolio .text {
@@ -4122,6 +4122,7 @@ max-width:300px;
 #  padding: 12px;
   position: fixed;
   z-index: 1;
+  border: 1px solid #777;
 }
 .modal-open.page-overflow #feedback_trigger {display:none;}
 
