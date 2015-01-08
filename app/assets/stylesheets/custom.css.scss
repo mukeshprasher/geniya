@@ -222,7 +222,7 @@ nav { display: block; float: left; margin-top: 4px; padding-bottom: 28px; positi
 
 .choose .post_portfolio:hover img, .choose .view_portfolio:hover img { opacity: 1; -webkit-transform: scale(1.05, 1.07); -webkit-transition-timing-function: ease-out; -webkit-transition-duration: 250ms; -moz-transform: scale(1.05, 1.07); -moz-transition-timing-function: ease-out; -moz-transition-duration: 250ms; ; z-index: 99; }
 
-.choose .text { color: #4B6515; cursor: pointer; font-family: latoblack; font-size:70px; left: 0; position: absolute; top: 17%; z-index: 101; width:100% }
+.choose .text { color: #777; cursor: pointer; font-family: latoblack; font-size:70px; left: 0; position: absolute; top: 17%; z-index: 101; width:100% }
 
 .choose .text { text-decoration: none; opacity: 1; -webkit-transform: scale(1, 1); -webkit-transition-timing-function: ease-out; -webkit-transition-duration: 250ms; -moz-transform: scale(1, 1); -moz-transition-timing-function: ease-out; -moz-transition-duration: 250ms; }
 
@@ -3312,12 +3312,12 @@ body {
     font-weight: bold;
     margin-top: 13px;
     position: absolute;
-    right: 23%;
+    right: 22%;
 }
 
 .social_count {
     color: #FFFFFF;
-    left: 78%;
+    left: 80%;
     margin: 12px 0 0;
     position: absolute;
 }
@@ -3341,7 +3341,7 @@ body {
     color: #FFFFFF;
     margin: 12px 0 0;
     position: absolute;
-    right: 23%;
+    right: 22%;
 }
 
 .widget.social a {
@@ -3840,7 +3840,7 @@ width: 100%;
 #feed_text p {margin: 0;}
 
 
-#srch_people_container {float: left;width: 41.5%;}
+#srch_people_container {float: left;width: 41.5%;margin-top:5px;}
 
 #atwho-ground-srch_profile .atwho-view
 {width:33%; left:10.2% !important;}
@@ -4097,20 +4097,21 @@ max-width:300px;
 
 #link_for_edu_modal {margin: 20px 0 0;}
 #feedback_trigger {
-  background-color: #4C4C4C;
+  background: url("/assets/pattern_bg.png") repeat;
   border-radius: 15px 15px 0 0;
-  bottom: 130px;
+  bottom: 50%;
   padding: 12px;
   position: fixed;
-  color:white;
+  color:#777;
   right: -73px;
   transform:rotate(270deg);
   -ms-transform:rotate(270deg); /* IE 9 */
   -webkit-transform:rotate(270deg); /* Opera, Chrome, and Safari */  
   
   z-index: 1;
-  cursor: pointer;
+  cursor: pointer;text-decoration:none;
 }
+#feedback_trigger:hover { text-decoration:none; }
 .conversation_available_popup_trigger {
 #  background-color: #CCCCCC;
 #  border-radius: 5px 5px 0 0;
@@ -4122,6 +4123,8 @@ max-width:300px;
   position: fixed;
   z-index: 1;
 }
+.modal-open.page-overflow #feedback_trigger {display:none;}
+
 
 .chat_all_cont{
   background-color: #CCCCCC;
@@ -4729,3 +4732,4 @@ hr {
   font-size: 35px;
   padding: 10px 0;
 }
+.wrapper-footer-content{color:#fff;}
