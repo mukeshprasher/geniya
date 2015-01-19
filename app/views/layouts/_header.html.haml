@@ -139,7 +139,9 @@
         %li 
           |
         %li= link_to "Register", signup_path
-        %li.login
+        %li 
+          |
+        %li
           = link_to "Login", signin_path
     #srch_people_container
       %input{name: 'q', placeholder: "Search People, Business Here", type: "text", id: "srch_profile",autocomplete: "off", onkeypress: ""}

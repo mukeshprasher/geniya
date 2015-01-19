@@ -196,17 +196,76 @@ fieldset .field {margin: 6px 10px 12px;width: auto;}
 .logo {clear: both;display: table;float: none;margin: 0 auto;position: static;}
 .midsection {margin-right: 0;}
 .inneContaineralbum {display: block;}
-.anisten .art_gallery{display: none;}
-.anisten {height: 100%;min-height: 50px;width: 150px;}
+.anisten {
+  height: auto;
+  min-height: 50px;
+  padding: 40px 2% 0;
+  position: static;
+  width: 96%;
+}
+.anisten .ani_top {
+  border-bottom: 0 none;
+  left: 125px;
+  position: absolute;
+  top: 30%;
+}
 .slider_profile {height: auto;}
 .cover-photo {height: auto;}
-#ProfileCoverPhotoSelector {right: 10px;}
-.profile_picture {border: 3px solid #FFFFFF;height: 120px;top: 37%;margin-left: -63px;width: 120px;}
-.ProfilePicSelector {bottom: 0;height: 20px;padding: 0 2px;width: 116px;}
-.ProfilePicSelector > img {margin: 3px 2px 0 0;width: 13px;}
-.ProfilePicSelector .txt {float: none;font-size: 10px;padding: 2px 0;}
-#profile_tags_left {margin-top: 40px;width: 50%;}
-#profile_tags_right {margin-top: 55px;width: 50%;}
+#ProfileCoverPhotoSelector {
+  border-radius: 0;
+  right: 0;
+  top: 0;
+  width: 32px;
+}
+#ProfileCoverPhotoSelector i {
+  left: 0;
+  top: 5px;
+}
+#ProfileCoverPhotoSelector .uiButtonText {
+  color: #FFFFFF;
+  display: block;
+  font-size: 0;
+  height: 30px;
+  padding-left: 0;
+  position: relative;
+  top: -15px;
+  width: 32px;
+}
+.profile_picture {
+  border: 3px solid #FFFFFF;
+  height: 100px;
+  left: 10px;
+  margin-left: 0;
+  top: 22%;
+  width: 100px;
+}
+#connct-counts {
+  display: inline-block;
+  float: none;
+  font-size: 20px;
+  margin: 0;
+  vertical-align: middle;
+}
+
+.ProfilePicSelector .txt {
+  font-size: 0;
+  height: 20px;
+  padding: 0;
+  width: 20px;
+}
+.ProfilePicSelector {
+  bottom: 0;
+  height: 20px;
+  padding: 0;
+  width: 20px;
+}
+.ProfilePicSelector > img {
+  margin: 0;
+  padding: 2px;
+  width: 16px;
+}
+#profile_tags_left {margin-top: 0;width: 50%;}
+#profile_tags_right {margin-top: 0;width: 50%;}
 #profile_tags_middle {display: none;}
 .main_container {background: none repeat scroll 0 0 #F3F1F1; float: left;}
 .span690 {width: 100%;}
@@ -345,6 +404,13 @@ h3 {font-size: 20.5px;}
 .advance_src_tilte {font-size: 20px;}
 .sub_category_chekbox_container {width: 50%;}
 
+.anisten .ani_top h2 {line-height: 20px;} 
+
+.profile_picture {
+  height: 90px;
+  top: 20%;
+  width: 90px;
+}
 
 
 }
@@ -362,14 +428,12 @@ h3 {font-size: 20.5px;}
 #header_wrapper .dropdown-menu {left: auto;min-width: 100px;right: 0;width: 160px !important;}
 .user_reach_out .get_quote {font-weight: normal;padding: 5px;}
 .user_reach_out .get_quote a {font-size: 12px;}
-.profile_picture {height: 90px;margin-left: -45px;top: 37%;width: 90px;}
+
 .profile_nav ul li {font-size: 20px;padding: 5px 5px 0;}
 .art_social {width: 95px;}
 .art_social ul li {padding: 0;}
 .user_description .feed_headshot {width: 120px;}
 .user_description .firstCol .user {margin: 0 0 0;width: 100%;}
-#ProfileCoverPhotoSelector {height: 25px;right: 4px;width: 88px;}
-#ProfileCoverPhotoSelector i {left: 0;top: 4px;}
 .uiButtonText {font-size: 10px;padding-left: 0;top: 4px;}
 .spaced-right {width: 300px !important;}
 .tags_user {padding-right: 10px;width: 280px;}
@@ -384,6 +448,14 @@ h3 {font-size: 20.5px;}
 .summary_tabs ul li a {font-size: 13px;padding: 5px 3px;}
 .company_manu ul li {margin: 0 0 10px;width: 100%;}
 .company_contact ul li {margin: 0 0 10px;width: 100%;}
+
+.anisten .ani_top {left: 100px;top: 25%;}
+
+.profile_picture {
+  border: 2px solid #FFFFFF;
+  height: 80px;
+  width: 80px;
+}
 
 
 
@@ -401,7 +473,20 @@ h3 {font-size: 20.5px;}
 .portfolio_box_container {display: block;float: none;margin: 10px auto;width: 270px;}
 .box_sec .portfolio_box_container .box {margin: 2px 1%;width: 98%;}
 .box_sec .portfolio_box_container .profile_edit_delete_portfolio_cont{margin-right: 1%;}
-.profile_picture {height: 70px;margin-left: -35px;top: 30%;width: 70px;}
+.profile_picture {
+  border: 1px solid #FFFFFF;
+  height: 60px;
+  left: 5px;
+  top: 13%;
+  width: 60px;
+}
+.anisten {
+  padding: 30px 2% 0;
+}
+.anisten .ani_top {
+  left: 80px;
+  top: 14%;
+}
 #profile_tags_left {margin-top: 10px;width: 100%;}
 #profile_tags_right {margin-top: 0;width: 100%;}
 .user_data {margin: 0 0 10px;width: 120px;}
@@ -410,9 +495,8 @@ h3 {font-size: 20.5px;}
 .wrapper h1 {font-size: 24px;}
 .profile_form_editable, .detail_form_container {width: 280px;}
 legend {font-size: 16px;}
-.anisten {padding: 0 5px;width: 100px;}
-.anisten .ani_top {border-bottom: 0 none;}
-.anisten .ani_top h2 {font-size: 16px;line-height: 24px;}
+
+.anisten .ani_top h2 {font-size: 16px;}
 .anisten .ani_top h2 span {font-size: 12px;}
 .profile_nav ul li, .profile_nav ul li span {font-size: 12px;}
 .job_index_box {float: none;margin: 0 auto 15px;width: 270px;}

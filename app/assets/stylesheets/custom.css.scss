@@ -196,7 +196,7 @@ nav { display: block; float: left; margin-top: 4px; padding-bottom: 28px; positi
 
 #man_nav li:last-child, .midsection { border:none }
 
-#man_nav li { float:left; list-style:none; padding:0px 12px; border-right:1px solid #e3e3e3; line-height:12px; }
+#man_nav li { float:left; list-style:none; padding:0px 12px;  line-height:12px; }
 
 #man_nav li:hover a { border-bottom:3px solid #99c43a; color:#99c43a; transition:0.3s; padding-bottom:3px; text-decoration:none; }
 
@@ -4097,19 +4097,21 @@ max-width:300px;
 
 #link_for_edu_modal {margin: 20px 0 0;}
 #feedback_trigger {
-  background: url("/assets/pattern_bg.png") repeat;
-  border-radius: 15px 15px 0 0;
+  background: url("/assets/feedback.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+  border: 0 none;
+  border-radius: 0;
   bottom: 50%;
-  padding: 12px;
+  color: #777777;
+  cursor: pointer;
+  font-size: 0;
+  height: 224px;
+  margin-bottom: -112px;
+  padding: 0;
   position: fixed;
-  color:#777;
-  right: -73px;
-  transform:rotate(270deg);
-  -ms-transform:rotate(270deg); /* IE 9 */
-  -webkit-transform:rotate(270deg); /* Opera, Chrome, and Safari */  
-  
+  right: 0;
+  text-decoration: none;
+  width: 45px;
   z-index: 1;
-  cursor: pointer;text-decoration:none;
 }
 #feedback_trigger:hover { text-decoration:none; }
 .conversation_available_popup_trigger {

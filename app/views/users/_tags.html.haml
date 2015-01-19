@@ -1,5 +1,5 @@
 #profile_tags_left
-  &nbsp;
+  
   %ul#tags-field
     - @i = 0
     - @user.tags.each_with_index do |tag, index|
@@ -18,7 +18,7 @@
               = link_to "x", '/user_tags/' + UserTag.find_by(user_id: current_user.id, tag_id: tag.id).id.to_s, method: :delete, :data => { :confirm => 'Are you sure?' }, class: 'tag_delete', remote: true
           - @i += 1
 #profile_tags_middle
-  &nbsp;
+  
 #profile_tags_right
   %ul#tags-field
     - @j = 0
