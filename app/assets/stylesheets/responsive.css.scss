@@ -251,7 +251,7 @@ fieldset .field {margin: 6px 10px 12px;width: auto;}
   font-size: 0;
   height: 20px;
   padding: 0;
-  width: 20px;
+  width: 20px;margin-top:-20px;
 }
 .ProfilePicSelector {
   bottom: 0;
@@ -359,6 +359,11 @@ h3 {font-size: 20.5px;}
 .portfolio .our_base strong {font-size: 18px;}
 #portfolio_sub_cat_box {padding: 0 3% 20px;width: 94%;}
 .inneContainer-links {padding: 20px 0 10px;}
+
+#event_calendar {
+  padding: 10px 2%;
+  width: 96%;
+}
 
 
 }
