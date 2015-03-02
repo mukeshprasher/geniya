@@ -142,7 +142,12 @@
         %li 
           |
         %li
-          = link_to "Login", signin_path
+          #login.modal.fade{"data-width" => "530", style: "display: none;", tabindex: "-1"}
+            .modal-body
+              = render 'shared/login_form' 
+          %a.demo{"data-toggle" => "modal",href: "#login"}
+            Login
+          /= link_to "Login", signin_path
     #srch_people_container
       %input{name: 'q', placeholder: "Search People, Business Here", type: "text", id: "srch_profile",autocomplete: "off", onkeypress: ""}
     %a.logo{href: "/"}

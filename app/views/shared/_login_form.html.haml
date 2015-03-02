@@ -1,0 +1,20 @@
+.login_popup_container
+  .login_form
+    = form_for(:session, url: sessions_path) do |f|
+      .form-item.user_name
+        = f.label :email1
+        = f.text_field :email, placeholder: "Email"  
+      .form-item.password
+        = f.label :password
+        = f.password_field :password, placeholder: "Password"
+      .left.other_options
+        .form-item
+          %input{type: "checkbox", value: "yes", name:"keep_signed_in"}/
+          Keep me signed in
+      .left.other_options
+        = link_to 'Forgot Password?', forgot_password_path
+        %br/
+        %a{href: "/signup"} Create New Account
+      .form-submit.right
+        = f.submit "Login"
+        
