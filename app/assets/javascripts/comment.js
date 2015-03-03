@@ -323,8 +323,8 @@ $(function() {
           return false;
          }
          else
-         if((this.files[0].size/1024/1024) > (1)){ // Max Photo Size 1MB
-          alert("Picture is too big ! Maximum 1MB");
+         if((this.files[0].size/2048/2048) > (1)){ // Max Photo Size 1MB
+          alert("Picture is too big ! Maximum 2MB");
           $("#cover_img").val('');
           return false;
          }

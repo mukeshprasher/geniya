@@ -4760,3 +4760,11 @@ hr {
 .wrapper-footer-content{color:#fff;}
 
 .index_user_slide_item img {  height: auto;}
+
+.album_model_close {
+  cursor: pointer;
+  display: none;
+  position: absolute;
+  right: 0;
+  z-index: 9999;
+}

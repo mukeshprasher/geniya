@@ -53,13 +53,17 @@ function open_smiley(id){
 
 
 function open_album_modal(album_id){
+
   var $modal3 = $('#ajax-portfolio-detail-homepage');
   // create the backdrop and wait for next modal to be triggered
+
   $('body').modalmanager('loading');
    
   setTimeout(function(){
     $modal3.load('/ajax/portfolio_detail/'+ album_id, '', function(){
       $modal3.modal();
+      //$modal3.append("<span type='button' data-dismiss='modal' class='album_model_close'>Close</span>");
+      $('.album_model_close').show();
     });
   }, 1000);
 }
