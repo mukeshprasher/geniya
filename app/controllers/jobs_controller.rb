@@ -1,6 +1,6 @@
 class JobsController < ApplicationController
   before_action :set_job, only: [:show, :edit, :update, :destroy]
-  before_action :signed_in_user, only: [:index, :new, :create, :edit, :update, :destroy]
+  before_action :signed_in_user, only: [:new, :create, :edit, :update, :destroy]
   before_action only: [:edit, :update, :destroy] do
     redirect_with_notice_if_incorrect_user(@job)
   end
@@ -10,6 +10,11 @@ class JobsController < ApplicationController
   def index
     @my_jobs = Job.all
     @jobs = Job.all
+    if params[:q]
+      @jobs = Job.where("lower(title) like lower(?)", "%#{params[:q]}%")
+    else  
+      @jobs = Job.paginate(page: params[:page], :per_page => 20)
+    end     
   end
 
   # GET /jobs/1
@@ -21,6 +26,9 @@ class JobsController < ApplicationController
       @new_comment = Comment.build_from(@job, current_user.id, "")
     end
   end
+
+
+  
 
   # GET /jobs/new
   def new

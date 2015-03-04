@@ -150,6 +150,11 @@
           /= link_to "Login", signin_path
     #srch_people_container
       %input{name: 'q', placeholder: "Search People, Business Here", type: "text", id: "srch_profile",autocomplete: "off", onkeypress: ""}
+      %input{name: 'q', placeholder: "Search Jobs, Advertisements Here", type: "text", id: "srch_job",autocomplete: "off", onkeypress: ""}  
+      #atwho-ground-srch_job    
+        %ul.atwho-view-ul
+      %button#job-srch-button.btn.btn-primary
+        Jobs/Advertisements
     %a.logo{href: "/"}
       %img{alt: "Logo", src: "/assets/logo.png", id: "geniya_logo"}/
     %a.mobile_menu_btn

@@ -3865,7 +3865,7 @@ width: 100%;
 #srch_people_container {float: left;width: 41.5%;margin-top:5px;}
 
 #atwho-ground-srch_profile .atwho-view
-{width:33%; left:10.2% !important;}
+{width:19%; left:10.2% !important;}
 
 #atwho-ground-srch_profile .atwho-view ul li{
 height:55px;
@@ -4767,4 +4767,47 @@ hr {
   position: absolute;
   right: 0;
   z-index: 9999;
+}
+
+#atwho-ground-srch_job {
+  background: none repeat scroll 0 0 #FFFFFF;
+  position: absolute;
+  width: 25%;
+  z-index: 999;
+}
+#srch_job {
+      display: none;
+  margin: 0 !important;
+    width: 60%;
+}
+
+#atwho-ground-srch_job ul li {
+  border-bottom: 1px solid #CCCCCC;
+  min-height: 65px;
+  width: 100%;
+ color:black; 
+}
+
+
+#atwho-ground-srch_job ul li:hover {
+cursor:pointer;
+background: #3366FF;
+  color: #FFFFFF !important;
+}
+
+.jb_img_container {
+  float: left;
+  padding: 5px 0 0 7px;
+  width: 14%;
+}
+
+.jb_detail_container {
+  float: left;
+  padding: 5px 0 0 10px;
+  width: 74%;
+}
+
+#srch_profile {
+  width: 60%;
+margin: 0 !important;
 }

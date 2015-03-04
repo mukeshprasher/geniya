@@ -1,6 +1,6 @@
 class AdvertisementsController < ApplicationController
   before_action :set_advertisement, only: [:show, :edit, :update, :destroy]
-  before_action :signed_in_user, only: [ :index, :new, :edit, :create, :update, :destroy]
+  before_action :signed_in_user, only: [:new, :edit, :create, :update, :destroy]
   before_action only: [:edit, :update, :destroy] do
     redirect_with_notice_if_incorrect_user(@advertisement)
   end
@@ -9,6 +9,11 @@ class AdvertisementsController < ApplicationController
   # GET /advertisements.json
   def index
     @advertisements = Advertisement.all
+    if params[:q]
+      @advertisements = Advertisement.where("lower(title) like lower(?)", "%#{params[:q]}%")
+    else  
+      @advertisements = Advertisement.paginate(page: params[:page], :per_page => 20)
+    end     
   end
 
   # GET /advertisements/1

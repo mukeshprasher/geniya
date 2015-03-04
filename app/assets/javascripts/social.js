@@ -50,6 +50,14 @@ jQuery(document).ready(function(){
    
     });
  
+    jQuery('#job-srch-button').live('click', function(event) {        
+         $('#atwho-ground-srch_job ul').hide('slow');
+         jQuery('#srch_profile').toggle('hide'); 
+         jQuery('#srch_job').toggle('show');
+         jQuery('#srch_job').val('');
+         return false;
+    });  
+   
 
 
     jQuery('#popular_portfolio_link').live('click', function(event) {

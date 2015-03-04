@@ -375,6 +375,78 @@ $(function() {
           }
         }); 
 
+
+        $("#srch_job").keyup(function(){
+              var srch_val =  $(this).val();
+              if(srch_val!='')
+              {
+
+               $.getJSON("/jobs.json", {q: $("#srch_job").val()}, function(data) {
+                //alert(data[0].title);
+                //$('#srch_container').show('slow');    
+                //$('#srch_container').html('<ul><li >dsdf</li></ul>')
+                var html = "";
+
+                for (var i = 0; i < data.length; i++) {
+                    $('#srch_container').show('slow');
+                    html += "<a href="+"/jobs/"+data[i].id+">";
+                    html += "<li>";
+                    html += "<div class='jb_img_container'>";
+                    html += "<img src="+data[i].cover+" width='50px' />";
+                    html += "</div>";
+                    html += "<div class='jb_detail_container'><span class='profile_username'>"+data[i].title+"</span><p>Job</p></div>";                    
+                    html += "</li>";
+                    html += "</a>";
+                    //alert(data[i].title);
+                } 
+              $('#atwho-ground-srch_job ul').show('slow');    
+                $('#atwho-ground-srch_job ul').html(html);
+
+              });
+               $.getJSON("/advertisements.json", {q: $("#srch_job").val()}, function(data) {
+                //alert(data[0].title);
+                //$('#srch_container').show('slow');    
+                //$('#srch_container').html('<ul><li >dsdf</li></ul>')
+                var html = "";
+
+                for (var i = 0; i < data.length; i++) {
+                    $('#srch_container').show('slow');
+                    html += "<a href="+"/advertisements/"+data[i].id+">";
+                    html += "<li>";
+                    html += "<div class='jb_img_container'>";
+                    html += "<img src="+data[i].file_attachment+" width='50px' />";
+                    html += "</div>";
+                    html += "<div class='jb_detail_container'><span class='profile_username'>"+data[i].title+"</span><p>Advertisement</p></div>";                    
+                    html += "</li>";
+                    html += "</a>";
+                    //alert(data[i].title);
+                } 
+              $('#atwho-ground-srch_job ul').show('slow');    
+                $('#atwho-ground-srch_job ul').append(html);
+
+              });              
+              }
+              else
+              {
+
+                $('#srch_container').hide('slow');           
+              }
+          
+
+ 
+        }); 
+
+        $(function() {
+            $(document).on('click', function(e) {
+
+             $('#atwho-ground-srch_job ul').hide('slow');
+
+
+            })
+        });
+
+        
+
       $.getJSON("https://graph.facebook.com/GeniyaNetwork?callback=?", function(data) { 
         $('#facbook_count').html(data.likes) 
       });
