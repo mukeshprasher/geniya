@@ -392,7 +392,7 @@ $(function() {
                     html += "<a href="+"/jobs/"+data[i].id+">";
                     html += "<li>";
                     html += "<div class='jb_img_container'>";
-                    html += "<img src="+data[i].cover+" width='50px' />";
+                    html += "<img src="+data[i].image_url+" width='50px' />";
                     html += "</div>";
                     html += "<div class='jb_detail_container'><span class='profile_username'>"+data[i].title+"</span><p>"+data[i].category+"</p><p>Job</p></div>";                    
                     html += "</li>";
@@ -414,7 +414,7 @@ $(function() {
                     html += "<a href="+"/advertisements/"+data[i].id+">";
                     html += "<li>";
                     html += "<div class='jb_img_container'>";
-                    html += "<img src="+data[i].file_attachment+" width='50px' />";
+                    html += "<img src="+data[i].image_url+" width='50px' />";
                     html += "</div>";
                     html += "<div class='jb_detail_container'><span class='profile_username'>"+data[i].title+"</span><p>"+data[i].category+"</p><p>Advertisement</p></div>";                    
                     html += "</li>";
