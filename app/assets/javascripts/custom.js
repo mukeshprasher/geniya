@@ -394,7 +394,7 @@ $(function() {
                     html += "<div class='jb_img_container'>";
                     html += "<img src="+data[i].cover+" width='50px' />";
                     html += "</div>";
-                    html += "<div class='jb_detail_container'><span class='profile_username'>"+data[i].title+"</span><p>Job</p></div>";                    
+                    html += "<div class='jb_detail_container'><span class='profile_username'>"+data[i].title+"</span><p>"+data[i].category+"</p><p>Job</p></div>";                    
                     html += "</li>";
                     html += "</a>";
                     //alert(data[i].title);
@@ -416,7 +416,7 @@ $(function() {
                     html += "<div class='jb_img_container'>";
                     html += "<img src="+data[i].file_attachment+" width='50px' />";
                     html += "</div>";
-                    html += "<div class='jb_detail_container'><span class='profile_username'>"+data[i].title+"</span><p>Advertisement</p></div>";                    
+                    html += "<div class='jb_detail_container'><span class='profile_username'>"+data[i].title+"</span><p>"+data[i].category+"</p><p>Advertisement</p></div>";                    
                     html += "</li>";
                     html += "</a>";
                     //alert(data[i].title);
@@ -438,10 +438,7 @@ $(function() {
 
         $(function() {
             $(document).on('click', function(e) {
-
              $('#atwho-ground-srch_job ul').hide('slow');
-
-
             })
         });
 

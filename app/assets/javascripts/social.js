@@ -51,6 +51,15 @@ jQuery(document).ready(function(){
     });
  
     jQuery('#job-srch-button').live('click', function(event) {        
+          var btn_text = $(this).val();
+          if (btn_text == 'Jobs/Advertisements')
+          {
+            $(this).val('People/Business');
+          }
+          else
+          {
+            $(this).val('Jobs/Advertisements');
+          }
          $('#atwho-ground-srch_job ul').hide('slow');
          jQuery('#srch_profile').toggle('hide'); 
          jQuery('#srch_job').toggle('show');

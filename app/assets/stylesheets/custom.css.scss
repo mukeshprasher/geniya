@@ -3862,7 +3862,7 @@ width: 100%;
 #feed_text p {margin: 0;}
 
 
-#srch_people_container {float: left;width: 41.5%;margin-top:5px;}
+#srch_people_container {float: left;width: 41.5%;margin-top:5px; margin-bottom: 5px;}
 
 #atwho-ground-srch_profile .atwho-view
 {width:19%; left:10.2% !important;}
@@ -4778,7 +4778,7 @@ hr {
 #srch_job {
       display: none;
   margin: 0 !important;
-    width: 60%;
+    width: 55%;
 }
 
 #atwho-ground-srch_job ul li {
@@ -4797,7 +4797,7 @@ background: #3366FF;
 
 .jb_img_container {
   float: left;
-  padding: 5px 0 0 7px;
+  padding: 15px 0 0 7px;
   width: 14%;
 }
 
@@ -4808,6 +4808,14 @@ background: #3366FF;
 }
 
 #srch_profile {
-  width: 60%;
+  width: 55%;
 margin: 0 !important;
+}
+
+.jb_detail_container p {
+  padding: 0 0 0 0 !important;
+  margin: 0 !important;
+}
+#srch_divider {
+  padding: 0 4px;
 }
