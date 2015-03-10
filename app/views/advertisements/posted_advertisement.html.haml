@@ -1,0 +1,32 @@
+- cat_ads = @posted_advertisement
+.row-fluid.spaced-top
+  .span2.spaced-left
+    .btn-group.btn-group-vertical.btn-block
+      = link_to 'My profile', current_user, class: 'btn'
+  .span10.min500
+    %h1 
+      Advertisements from all categories
+    - if cat_ads.any?
+      .advertisement_container_box
+        #advertise_container
+          - cat_ads.each do |add_detail| 
+            #ads_makeup_box
+              .makeup_sec
+                .makeUp
+                  = image_tag add_detail.file_attachment.url(:medium)
+                .make_comtact
+                  %p 
+                    = add_detail.title
+                  - if (add_detail.link == '')
+                    %span
+                      %em
+                        please add Contact Details
+                  - else
+                    %a{href: "#{add_detail.link}", target: "_blank"}
+                      Contact Now
+                  %span#view_detail_link
+                    = link_to "View Details", '/advertisements/'+ add_detail.slug        
+      .clear
+    - else
+      %h3 No posted any advertisement yet
+

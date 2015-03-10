@@ -89,7 +89,10 @@ Geniya::Application.routes.draw do
   match "/users/create_bussiness", to: 'users#create_bussiness', via: 'post'
   # Named route that can be invoked with change_password_url(id: user.id)
   get 'users/:id/change_password' => 'users#change_password', as: :change_password
-
+  match "/jobs/category/:id/", to: 'jobs#category_job', via: 'get'
+  match "/jobs/cat/all/", to: 'jobs#posted_job', via: 'get'
+  match "/advertisements/category/:id/", to: 'advertisements#category_advertisement', via: 'get'
+  match "/advertisements/cat/all/", to: 'advertisements#posted_advertisement', via: 'get'  
   get '/users/:id', to: redirect('/%{id}$')
   match "/:id$/", to: 'users#show', via: 'get'
   get 'businesses/:id/edit' => 'bussinesses#edit', via: 'get'

@@ -75,6 +75,18 @@
               %input{name: 'pin', placeholder: "Enter ZIP/PIN code", type: "text", autocomplete: 'off', id: 'search_pin', value: "#{params[:pin]}"}
               %br
               = submit_tag 'Go', class: 'btn'
+      %ul.job_filter
+        - page_name = params[:id]
+        - if page_name.nil?
+          %li
+            = link_to 'Jobs from all Categories','/jobs/cat/all'
+          %li
+            = link_to 'Advertisements from all Categories','/advertisements/cat/all'            
+        - else         
+          %li
+            = link_to 'Jobs from '+page_name.capitalize ,'/jobs/category/'+params[:id]
+          %li
+            = link_to 'Advertisements from '+page_name.capitalize ,'/advertisements/category/'+params[:id]            
 
   .inneContainer-links
     .wrapper

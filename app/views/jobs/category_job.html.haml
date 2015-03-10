@@ -1,0 +1,29 @@
+- cat_job = @category_job.jobs
+.row-fluid.spaced-top
+  .span2.spaced-left
+    .btn-group.btn-group-vertical.btn-block
+      = link_to 'My profile', current_user, class: 'btn'
+  .span10
+    %h1
+      = @category_job.name.capitalize
+      jobs 
+    .min500
+      - if cat_job.any?
+        - cat_job.each do |job|
+          .left.job_index_box
+            .makeup_sec.makeUp
+              - if !job.cover_file_name.nil?
+                = image_tag job.cover.url(:medium)
+              - else
+                = image_tag '/assets/job_default.jpg'
+              .make_comtact
+                .job_title_cont
+                  = job.title
+                .job_organization_name_cont
+                  = job.organization.name
+                .job_contact_link_cont
+                  = link_to "Contact now", job
+      - else
+        %h3
+          No job posted yet 
+

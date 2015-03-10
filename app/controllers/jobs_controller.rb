@@ -27,9 +27,15 @@ class JobsController < ApplicationController
     end
   end
 
-
+  # GET /jobs/Category
+  def category_job
+    @category_job = Category.find(params[:id])
+  end
   
-
+  # Get All Jobs
+  def posted_job
+    @posted_jobs = Job.all
+  end
   # GET /jobs/new
   def new
     if current_user.plan == "trial" or current_user.plan == "visitor"

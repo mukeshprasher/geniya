@@ -16,6 +16,16 @@ class AdvertisementsController < ApplicationController
     end     
   end
 
+  # GET /jobs/Category
+  def category_advertisement
+    @category_advertisement = Category.find(params[:id])
+  end
+
+  # Get All Jobs
+  def posted_advertisement
+    @posted_advertisement = Advertisement.all
+  end
+
   # GET /advertisements/1
   # GET /advertisements/1.json
   def show
