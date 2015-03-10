@@ -1306,6 +1306,29 @@ $(function() {
 //         $("#feed-text").val('');
 //          $("#update_file_attachment").val('');
           });
+
+    //Hover Effect on View Portfolio Banner Hover
+       $(".view_portfolio").mouseover(function() {
+         $(".view_portfolio").css("display","none");
+         $(".view_portfolio_on_hover").css("display","inline-block");
+        });
+
+       $(".view_portfolio_on_hover").mouseleave(function() {
+         $(".view_portfolio").css("display","inline-block");
+         $(".view_portfolio_on_hover").css("display","none");
+        });          
+
+    //Hover Effect on Promote Portfolio Banner Hover
+       $(".post_portfolio").mouseover(function() {
+         $(".post_portfolio").css("display","none");
+         $(".post_portfolio_on_hover").css("display","inline-block");
+        });
+
+       $(".post_portfolio_on_hover").mouseleave(function() {
+         $(".post_portfolio").css("display","inline-block");
+         $(".post_portfolio_on_hover").css("display","none");
+        });              
+          
   }
   $(document).ready(toDoOnloadComment);
   $(document).on('page:load', toDoOnloadComment);

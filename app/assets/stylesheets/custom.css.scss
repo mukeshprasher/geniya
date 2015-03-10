@@ -216,7 +216,15 @@ nav { display: block; float: left; margin-top: 4px; padding-bottom: 28px; positi
 
 .choose .view_portfolio { text-align:center; position:relative; display:inline-block; width:49%; vertical-align:top; padding:0px 0px }
 
+.choose .view_portfolio_on_hover { text-align:center; position:relative; display:inline-block; width:49%; vertical-align:top; padding:0px 0px; display:none; }
+
+.view_portfolio_on_hover p {  font-size: 45px;}
+
 .choose .post_portfolio { text-align:center; position:relative; display:inline-block; width:50%; vertical-align:top; }
+
+.choose .post_portfolio_on_hover { text-align:center; position:relative; display:inline-block; width:50%; vertical-align:top; display:none; }
+
+.post_portfolio_on_hover p {  font-size: 45px;    margin: 0 0 0 7px;}
 
 .choose img { text-decoration: none; display: table; margin: 0 auto; opacity: 0.4; -webkit-transform: scale(1, 1); -webkit-transition-timing-function: ease-out; -webkit-transition-duration: 250ms; -moz-transform: scale(1, 1); -moz-transition-timing-function: ease-out; -moz-transition-duration: 250ms; position:relative;padding:0px 0; }
 
@@ -1474,6 +1482,8 @@ bottom: -10px;color: #6D6D6C;font-family: Calibri;font-size: 21px;position: abso
     width: 165px;}
 
 .dropdown .key_word img {float: left;padding: 7px 5px;}
+
+.dropdown .caret {  margin-top: 5px !important;}
 
 .dropNav {float: right;}
 
@@ -4819,3 +4829,5 @@ margin: 0 !important;
 #srch_divider {
   padding: 0 4px;
 }
+
+
