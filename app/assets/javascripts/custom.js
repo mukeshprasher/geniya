@@ -441,6 +441,81 @@ $(function() {
              $('#atwho-ground-srch_job ul').hide('slow');
             })
         });
+        
+/////////// Validation For Email existance in database    
+        $('#user_email').blur(function(){
+          $('#user_form_email_error').css('display','none');
+          var srch_email =  $(this).val();
+          var re = /[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,4}/igm;
+          $.getJSON("/members/get_user.json", {q: srch_email}, function(data) {
+            if(data == null)
+            {
+              if(srch_email=="")
+              {
+                $('#user_email').css('border','1px solid #CCCCCC');
+                $('#user_form_email_img').css('display','none');
+                $('#user_form_email_error').css('display','none');
+              }
+              else if(!re.test(srch_email))
+              {
+                $('#user_email').css('border','1px solid red');
+                $('#user_form_email_img').css('display','none');
+                $('#user_form_email_error').css('display','none');              
+              }
+              else
+              {
+                $('#user_email').css('border','1px solid #CCCCCC');
+                $('#user_form_email_img').css('display','block');
+                $('#user_form_email_error').css('display','none');              
+              
+              }
+            }
+            else
+            {
+              $('#user_email').css('border','1px solid #CCCCCC');
+              $('#user_form_email_img').css('display','none');
+              $('#user_form_email_error').css('display','block');
+            }
+          });
+        });
+      $('#user_email').click(function(){
+        $('#user_email').css('border','none');
+        $('#user_form_email_img').css('display','none');
+        $('#user_form_email_error').css('display','none');      
+      });
+
+/////////// Validation For Username existance in database    
+
+        $('#user_username').blur(function(){
+          $('#user_form_username_error').css('display','none');
+          var srch_email =  $(this).val();
+          
+          $.getJSON("/members/get_username.json", {q: srch_email}, function(data) {
+            if(data == null)
+            {
+              if(srch_email=="")
+              {
+                $('#user_form_username_img').css('display','none');
+                $('#user_form_username_error').css('display','none');
+              }
+              else
+              {
+                $('#user_form_username_img').css('display','block');
+                $('#user_form_username_error').css('display','none');              
+              
+              }
+            }
+            else
+            {
+              $('#user_form_username_img').css('display','none');
+              $('#user_form_username_error').css('display','block');
+            }
+          });
+        });
+      $('#user_username').click(function(){
+        $('#user_form_username_img').css('display','none');
+        $('#user_form_username_error').css('display','none');      
+      });
 
         
 

@@ -26,13 +26,21 @@
         .field
           = f.label :name
           = f.text_field :name
-        .field
+        .field#reg_email_container
           = f.label :email
           = f.text_field :email
-        .field
+          %span#user_form_email_img
+            = image_tag '/assets/green-tick.gif'
+          %span#user_form_email_error
+            * Email name has already taken
+        .field#reg_username_container
           = f.label :username
           = request.host + '/'
           = f.text_field :username
+          %span#user_form_username_img
+            = image_tag '/assets/green-tick.gif'
+          %span#user_form_username_error
+            * Username has already taken          
         .field
           = f.label :password
           = f.password_field :password

@@ -15,6 +15,22 @@ class UsersController < ApplicationController
     end
   end
 
+  def get_user
+    @get_user = User.find_by(email: params[:q])
+    respond_to do |format|
+      format.html
+      format.json{ render :json => @get_user }
+    end
+  end
+
+  def get_username
+    @get_username = User.find_by(username: params[:q])
+    respond_to do |format|
+      format.html
+      format.json{ render :json => @get_username }
+    end
+  end
+
   def show
     if signed_in?
       if params[:auth].present?

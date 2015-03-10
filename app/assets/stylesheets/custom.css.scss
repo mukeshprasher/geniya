@@ -4829,5 +4829,44 @@ margin: 0 !important;
 #srch_divider {
   padding: 0 4px;
 }
+#user_form_email_error {
+  color: #FF0000;
+  left: 36%;
+  position: relative;
+     bottom: 5%;
+     display:none;
+}
+#user_form_username_error {
+  color: #FF0000;
+  left: 36%;
+  position: relative;
+     bottom: 5%;
+     display:none;
+}
 
+#user_form_email_img {
+  position: absolute;
+  top: 0%;
+   right: -11%;
+  display:none;
+}
+#user_form_email_img img {
+  width: 60%;
+}
 
+#user_form_username_img {
+  position: absolute;
+  top: 25%;
+  right: -11%;
+  display:none;
+
+}
+#user_form_username_img img {
+  width: 60%;
+}
+#reg_username_container {
+  position: relative;
+}
+#reg_email_container{
+  position: relative;
+}
