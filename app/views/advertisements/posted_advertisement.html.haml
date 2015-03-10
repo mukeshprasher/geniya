@@ -1,8 +1,9 @@
 - cat_ads = @posted_advertisement
 .row-fluid.spaced-top
   .span2.spaced-left
-    .btn-group.btn-group-vertical.btn-block
-      = link_to 'My profile', current_user, class: 'btn'
+    - if signed_in?
+      .btn-group.btn-group-vertical.btn-block
+        = link_to 'My profile', current_user, class: 'btn'
   .span10.min500
     %h1 
       Advertisements from all categories
