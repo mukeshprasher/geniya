@@ -97,7 +97,9 @@ fieldset .field {margin: 6px 10px 12px;width: auto;}
 .box_section ul#portfolios {width: 100%;}
 .inneContaineralbum #ajax-portfolio-detail-homepage {margin-left: 0 !important;position: static; width: 100% !important;}
 
-
+#job-srch-button {width: 50%;}
+#srch_profile {margin: 0 !important;    width: 40%;}
+#srch_job{ width: 40%;}
 
 }
 @media screen and (max-width:980px) {
@@ -183,7 +185,7 @@ fieldset .field {margin: 6px 10px 12px;width: auto;}
 .footer_social {display: table;float: none;margin: 15px auto 0;}
 .company_contact ul li {margin: 0 0 20px;width: 100%;}
 #event_calendar_cont {padding: 0 2%;width: 96%;}
-
+#login{left: 0;}
 
 }
 @media screen and (max-width:767px) {
@@ -416,6 +418,9 @@ h3 {font-size: 20.5px;}
   top: 20%;
   width: 90px;
 }
+.login_popup_container{ left: 0;padding-left: 8px; width: 300px;}
+.login_popup_container .form-item input{width: 198px;}
+.login_popup_container .form-item{font-size: 12px;}
 
 
 }
