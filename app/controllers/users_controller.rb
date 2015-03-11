@@ -143,7 +143,15 @@ class UsersController < ApplicationController
     else
       @user.plan = 'trial'
     end
-
+    if (!['1', '2', '3', '4', '5', '6', '7'].include?(params[:user][:category_id]))
+      @last_category_id = Category.last
+      @last_order_id = @last_category_id.order + 1
+      @category =  Category.create(name: params[:user][:category_id], order: @last_order_id)
+      @sub_category_group = SubCategoryGroup.create(name: params[:user][:category_id], category_id: @category.id)
+      @sub_category = SubCategory.create(name: params[:user][:sub_category_id], category_id: @category.id, sub_category_group_id: @sub_category_group.id)
+      @user.category_id = @category.id
+      @user.sub_category_id = @sub_category.id
+    end  
     @user.chosen_plan = @user.plan
     @plan = @user.plan
     

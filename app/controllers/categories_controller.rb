@@ -1,5 +1,5 @@
 class CategoriesController < ApplicationController
-  before_action :admin_user, except: [:show, :index]
+  before_action :admin_user, except: [:show, :index, :get_cat]
   before_action :set_category, only: [:show, :edit, :update, :destroy]
 
   # GET /categories
@@ -8,6 +8,15 @@ class CategoriesController < ApplicationController
     @categories = Category.all
   end
   
+
+  # GET /categories_details
+  def get_cat
+    @get_cat = Category.where("lower(name) like lower(?)", "#{params[:q]}")
+    respond_to do |format|
+      format.html
+      format.json{ render :json => @get_cat }
+    end
+  end
 
   # GET /categories/1
   # GET /categories/1.json

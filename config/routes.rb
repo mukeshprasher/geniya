@@ -96,7 +96,8 @@ Geniya::Application.routes.draw do
   get '/users/:id', to: redirect('/%{id}$')
   match "/:id$/", to: 'users#show', via: 'get'
   match "/members/get_user/", to: 'users#get_user', via: 'get'  
-  match "/members/get_username/", to: 'users#get_username', via: 'get'   
+  match "/members/get_username/", to: 'users#get_username', via: 'get'  
+  match "/members/get_cat/", to: 'categories#get_cat', via: 'get'    
   get 'businesses/:id/edit' => 'bussinesses#edit', via: 'get'
   get 'businesses/new/' => 'bussinesses#new', via: 'post'
   resources :subscriptions, except: [:index]

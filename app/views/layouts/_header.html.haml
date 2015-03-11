@@ -165,7 +165,8 @@
     %nav#man_nav
       - page_id = params[:id]
       %ul
-        - @categories.each_with_index do |category, i|
+        - @cat = @categories.limit(7).order(order: :asc)
+        - @cat.each_with_index do |category, i|
           - if (page_id == category.slug)
             - midsection_class = (i == 2) ? 'midsection' : ''
             %li.active= link_to category.name.sub(' ', '/'), '/portfolios/' + category.slug, class: midsection_class

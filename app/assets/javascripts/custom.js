@@ -442,6 +442,7 @@ $(function() {
             })
         });
         
+
 /////////// Validation For Email existance in database    
         $('#user_email').blur(function(){
           $('#user_form_email_error').css('display','none');
@@ -517,7 +518,71 @@ $(function() {
         $('#user_form_username_error').css('display','none');      
       });
 
-        
+
+/////////// Validation For Category existance in database    
+        $('#work_cat #user_category_id').blur(function(){
+          $('#user_form_work_area_error').css('display','none');
+          var srch_category =  $(this).val();
+          $.getJSON("/members/get_cat.json", {q: srch_category}, function(data) {
+
+            if(data.length == 0)
+            {
+              if(srch_category=="")
+              {
+                $('#work_cat #user_category_id').css('border','1px solid #CCCCCC');
+                $('#user_form_work_area_img').css('display','none');
+                $('#user_form_work_area_error').css('display','none');
+              }
+              else
+              {
+                $('#work_cat #user_category_id').css('border','1px solid #CCCCCC');
+                 $('#user_form_work_area_img').css('display','block');
+                $('#user_form_work_area_error').css('display','none');              
+              
+              }
+            }
+            else
+            {
+              $('#work_cat #user_category_id').css('border','1px solid #CCCCCC');
+              $('#user_form_work_area_img').css('display','none');
+              $('#user_form_work_area_error').css('display','block');
+            }
+          });
+        });
+      $('#work_cat #user_category_id').click(function(){
+       $('#work_cat #user_category_id').css('border','none');
+        $('#user_form_work_area_img').css('display','none');
+        $('#user_form_work_area_error').css('display','none');      
+      });
+
+//// append a option value in work area
+
+      $("#user_category_id").append('<option value="no">Others</option>'); 
+      
+      $("#user_category_id").on('change', function() {
+        var dropdown_value = this.value;
+          $('#user_form_work_area_img').css('display','none');
+          $('#user_form_work_area_error').css('display','none');
+        if(dropdown_value == 'no')
+        {
+          $('#work_cat').show();
+          $('#select_proff').css('display','none');
+          $('#text_proff').css('display','block');
+          $('#work_cat #user_category_id').val(''); 
+          $('#text_proff #user_sub_category_id').val('');           
+        }
+        else
+        {
+          var ss = $("#user_category_id option:selected").val();
+          var dd = $("#user_sub_category_id option:selected").val();
+          $('#work_cat').css('display','none');
+          $('#select_proff').css('display','block');
+          $('#text_proff').css('display','none');        
+          $('#work_cat #user_category_id').val(ss); 
+          $('#text_proff #user_sub_category_id').val(dd); 
+        }
+      });               
+
 
       $.getJSON("https://graph.facebook.com/GeniyaNetwork?callback=?", function(data) { 
         $('#facbook_count').html(data.likes) 

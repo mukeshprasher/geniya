@@ -19,10 +19,19 @@
           .field
             = f.label "Area of work"
             = f.association :category, collection: Category.order('name ASC'), include_blank: false, label: false
-          .field
+          #work_cat.reg_work_area_container
+            = f.label "Area of work"
+            = f.text_field :category_id
+            %span#user_form_work_area_img
+              = image_tag '/assets/green-tick.gif'    
+            %span#user_form_work_area_error
+              * Category already existed in the database                      
+          #select_proff
             = f.label "Profession"
             = render 'shared/sub_category_select', c: (params[:user].present? and params[:user][:category_id].present?) ? Category.find(params[:user][:category_id].to_i) : Category.order('name ASC').first
-
+          #text_proff
+            = f.label "Profession"
+            = f.text_field :sub_category_id
         .field
           = f.label :name
           = f.text_field :name
@@ -50,6 +59,6 @@
         .field
           = f.hidden_field :plan, value: @plan
         .actions
-          = f.submit 'Create my account', class: "btn btn-large btn-primary"
+          = f.submit 'Create my account', class: "btn btn-large btn-primary", id: "register_user"
         .clear
   /= link_to 'Back', users_path
