@@ -473,6 +473,7 @@ $(function() {
             }
             else
             {
+              $('#user_email').val('');
               $('#user_email').css('border','1px solid #CCCCCC');
               $('#user_form_email_img').css('display','none');
               $('#user_form_email_error').css('display','block');
@@ -508,6 +509,7 @@ $(function() {
             }
             else
             {
+              $('#user_username').val('');
               $('#user_form_username_img').css('display','none');
               $('#user_form_username_error').css('display','block');
             }
@@ -536,6 +538,7 @@ $(function() {
               else
               {
                 $('#work_cat #user_category_id').css('border','1px solid #CCCCCC');
+                
                  $('#user_form_work_area_img').css('display','block');
                 $('#user_form_work_area_error').css('display','none');              
               
@@ -544,6 +547,7 @@ $(function() {
             else
             {
               $('#work_cat #user_category_id').css('border','1px solid #CCCCCC');
+              $('#work_cat #user_category_id').val('');
               $('#user_form_work_area_img').css('display','none');
               $('#user_form_work_area_error').css('display','block');
             }
@@ -574,14 +578,96 @@ $(function() {
         else
         {
           var ss = $("#user_category_id option:selected").val();
-          var dd = $("#user_sub_category_id option:selected").val();
+          var dd = $("#select_proff #user_sub_category_id option:selected").val();
           $('#work_cat').css('display','none');
           $('#select_proff').css('display','block');
           $('#text_proff').css('display','none');        
           $('#work_cat #user_category_id').val(ss); 
-          $('#text_proff #user_sub_category_id').val(dd); 
+
         }
       });               
+
+    $("#user_category_id").blur(function(){
+      var dd = $("#select_proff #user_sub_category_id option:selected").val();
+          $('#text_proff #user_sub_category_id').val(dd); 
+    });
+
+    $("#user_sub_category_id").blur(function(){
+      var dd = $("#select_proff #user_sub_category_id option:selected").val();
+          $('#text_proff #user_sub_category_id').val(dd); 
+    });
+
+
+//////////// function for the registration for submission
+
+      $("#new_user").submit(function(){
+      var work_field = $("#work_cat #user_category_id").val();
+      var prf_field = $("#text_proff #user_sub_category_id").val();
+      var email_field = $("#reg_email_container #user_email").val();   
+      var username_field = $("#reg_username_container #user_username").val();   
+      var pass_field = $("#user_password").val();  
+      var confirm_pass_field = $("#user_password_confirmation").val(); 
+      var re = /[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,4}/igm;
+      if( work_field == "")
+      {
+        alert('Enter New Work Category');
+        return false;
+      }    
+      else if( prf_field == "")
+      {
+        alert('Enter New Profession');
+        return false;
+      }
+      else if( email_field == "")
+      {
+        alert('Enter complete email address');
+        return false;
+      } 
+      else if(!re.test(email_field))
+      {
+        alert('Enter valid email address');
+        return false;
+      }       
+      else if( username_field == "")
+      {
+        alert('Enter your username');
+        return false;
+      } 
+      else if( pass_field == "")
+      {
+        alert('Enter your password');
+        return false;
+      } 
+      else if( confirm_pass_field == "")
+      {
+        alert('Enter your confirm password');
+        return false;
+      } 
+      else if( pass_field != confirm_pass_field)
+      {
+        alert('Password is not match with confirm password');
+        return false;
+      }                                     
+      else
+      {
+        return true;
+      
+      }
+                
+      });
+
+
+///////// function for categories dropdown_value
+
+        $(function() {
+            $(document).ready(function(e) {
+              var ss = $("#user_category_id option:selected").val();
+              var dd = $("#select_proff #user_sub_category_id option:selected").val();
+                  $("#work_cat #user_category_id").val(ss);
+                  $("#text_proff #user_sub_category_id").val(dd);              
+            })
+        });
+
 
 
       $.getJSON("https://graph.facebook.com/GeniyaNetwork?callback=?", function(data) { 
