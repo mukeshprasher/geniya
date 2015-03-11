@@ -560,6 +560,18 @@ $(function() {
       });
 
 //// append a option value in work area
+    $("#user_category_id").blur(function(){
+      var dropdown_value = this.value;
+        if(dropdown_value == 'no')
+        { 
+          $('#text_proff #user_sub_category_id').val(''); 
+        }
+        else
+        {     
+          var dd = $("#select_proff #user_sub_category_id option:selected").val();
+          $('#text_proff #user_sub_category_id').val(dd); 
+        }
+    });
 
       $("#user_category_id").append('<option value="no">Others</option>'); 
       
@@ -578,7 +590,7 @@ $(function() {
         else
         {
           var ss = $("#user_category_id option:selected").val();
-          var dd = $("#select_proff #user_sub_category_id option:selected").val();
+         $('#text_proff #user_sub_category_id').val(''); 
           $('#work_cat').css('display','none');
           $('#select_proff').css('display','block');
           $('#text_proff').css('display','none');        
@@ -587,10 +599,7 @@ $(function() {
         }
       });               
 
-    $("#user_category_id").blur(function(){
-      var dd = $("#select_proff #user_sub_category_id option:selected").val();
-          $('#text_proff #user_sub_category_id').val(dd); 
-    });
+
 
     $("#user_sub_category_id").blur(function(){
       var dd = $("#select_proff #user_sub_category_id option:selected").val();
