@@ -147,7 +147,8 @@
           %ul.discover_nav
             %li
               %a{href: "/portfolios"} All
-            - @categories.each do |category|
+            - @cat = @categories.limit(7).order(order: :asc)
+            - @cat.each do |category|
               %li
                 = link_to category.name.sub(' ', '/'), '/portfolios/'+ category.slug
           .clear
