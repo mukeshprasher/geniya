@@ -74,224 +74,334 @@
             
         
 - else
+  .slogan
+    .left_section GET GOING WITH GENIYA -
+    .right_section "Be Successful"
   .index_user_slider
-    .wrapper_banner
+    .slider1
       - i = 0
       - @top_users.each do |user|
         - if !user.featureimg.nil?
           - i +=1
-          %a{href:"/users/"+"#{user.slug}"}
-            .index_user_slide_item
+          .slide
+            %a{href:"/users/"+"#{user.slug}"}
               = image_tag user.featureimg.feature_img.url(:large)
         - break if i>=6
-      /%img{alt: "slider", src: "/assets/slide1.jpg"}/
-      .clear
-  .slogan
-    .wrapper_c_not_required
-      %h1 
-        Get Going With Geniya -
-        %span "Be Successful"
-  .choose
-    .wrapper_c
-      .view_portfolio
-        %img{alt: "", src: "/assets/view_portfolio.png"}/
-        %a.text{href: '/portfolios'}
-          SEEK
-          %span Portfolios
-          %i View
-      .view_portfolio_on_hover
-        %img{alt: "", src: "/assets/view_portfolio.png"}/
-        %a.text{href: '/portfolios'}
-          %p
-            SEEK AND HIRE 
-          %span Portfolios
-          %i View          
-      .post_portfolio
-        %img{alt: "", src: "/assets/post_portfolio.png"}/
-        %a.text{href: '/signup'}
-          PROMOTE
-          %span Portfolios
-          %i Post
-      .post_portfolio_on_hover
-        %img{alt: "", src: "/assets/post_portfolio.png"}/
-        %a.text{href: '/signup'}
-          %p
-            PROMOTE YOURSELF
-          %span Portfolios
-          %i Post         
-      .clear
-  .section_heading
-    .wrapper_c
-      .left_section
-        Hot in Trend from
-        %a{href:"/portfolios"}
-          All Categories
-      .right_section Be Bold Be Seen Be Successful
-      .clear
-  %section.main_container
-    .wrapper_c
-      .span690.inline_block
-        %ul#editorsPicks
-          - rendered_albums = Array.new
-          - until rendered_albums.count >= @per_page or rendered_albums.count >= @albums.count  do
-            - @categories.each do |cat|
-              - break if rendered_albums.count >= @per_page
-              - @albums.each do |album|
-                - if album.category_id == cat.id and !rendered_albums.include? album
-                  = render 'album_home_thumb', album: album
-                  - rendered_albums << album
-                  - break
-      .span315.offset1.inline_block
-        .discover
-          Discover Geniya
-          %ul.discover_nav
-            %li
-              %a{href: "/portfolios"} All
-            - @cat = @categories.limit(7).order(order: :asc)
-            - @cat.each do |category|
-              %li
-                = link_to category.name.sub(' ', '/'), '/portfolios/'+ category.slug
-          .clear
-          .search
-            = form_tag(portfolios_path, method: :get) do
-              %input{name: 'q', placeholder: "Enter keyword", type: "text", class: "srch-portf"}
-              = submit_tag 'Go', class: 'go'
-          /.ageFilter
-          /  #ageRange
-          /    .currentRange{style: "left: 4.5px; right: 0px;"}
-          /    .leftGrip.grip{"data-value" => "19", style: "left: 4.5px;"}
-          /      %span 19
-          /    .rightGrip.grip{"data-value" => "51", style: "left: 260px;"}
-          /      %span 50+
-        .widget.video
-          .title Top Viewed
-          .block
-            -if Video.any?
-              - if ["video/mpeg", "video/x-msvideo", "video/3gpp"].include? @video.file_attachment.content_type
-                %object{ data: "#{@video.file_attachment.url}", width: "303", height: "230", autoplay: "false", autoStart: "0"}
-                  %embed{ src: "#{@video.file_attachment.url}", width: "303", height: "230", autoplay: "false", autoStart: "0"}
-              - elsif ["video/mp4", "video/ogg", "video/webm", "video/x-flv"].include? @video.file_attachment.content_type
-                %video{ width: "303", height:"230", poster:"", controls:"controls", preload:"none" }
-                  %source{type:"#{@video.file_attachment.content_type}", src:"#{@video.file_attachment.url}"}
-                  %object{width:"303", height:"230", type:"application/x-shockwave-flash", data:"#{@video.file_attachment.url}", autoplay: "false", autoStart: "0"}
-                    %embed{ src: "#{@video.file_attachment.url}", width: "303", height: "230", autoplay: "false", autoStart: "0"}              
-              .pull_inside1
-                %span.vid_name
-                  %a{href: "/videos/"+"#{@video.slug}"}
-                    = @video.name 
-              %span.view 
-                = @video.impressions_count
-                views        
-            - else
-              = video_tag("/assets/big_buck_bunny.webm", height: '230', width: '303')
-              .pull_inside1
-                %span.vid_name
-                  %a{href:"/geniyavideo"}
-                    Geniya Video 
-              %span.view 
-                0 views  
-        .widget.tab
-          .block
-            %ul.tab_nav
-              %li.active
-                %a#recent_portfolio_link  Recent
-              %li
-                %a#popular_portfolio_link Popular
-              %li.last_most_dissucss
-                %a#comment_portfolio_link Most Discussed
-              .clear
-            %ul.tab_content#recent_portfolio
-              - fetch_recent_albums = Album.where(kind: 'portfolio').limit(2).order(created_at: :desc)
-              - if fetch_recent_albums.any?
-                - fetch_recent_albums.each do |recent_album_detail|
-                  %li
-                    %a{href:"/users/"+"#{recent_album_detail.user.slug}"}
-                      .imagecol
-                        - if recent_album_detail.user.headshot
-                          = image_tag recent_album_detail.user.headshot.file_attachment.url(:thumb)
-                        -else
-                          =image_tag '/assets/missing.png'    
-                    .txtcol
-                      %a{href:"/albums/"+"#{recent_album_detail.slug}"}
-                        %span.heading
-                          = recent_album_detail.name
-                      .time
-                        = recent_album_detail.created_at
-            %ul.tab_content#popular_portfolio
-              - fetch_recent_albums = Album.where(kind: 'portfolio').limit(2).order(impressions_count: :desc)
-              - if fetch_recent_albums.any?
-                - fetch_recent_albums.each do |recent_album_detail|
-                  %li
-                    %a{href:"/users/"+"#{recent_album_detail.user.slug}"}
-                      .imagecol
-                        - if recent_album_detail.user.headshot
-                          = image_tag recent_album_detail.user.headshot.file_attachment.url(:thumb)
-                        -else
-                          =image_tag '/assets/missing.png'    
-                    .txtcol
-                      %a{href:"/albums/"+"#{recent_album_detail.slug}"}
-                        %span.heading
-                          = recent_album_detail.name
-                      .time
-                        = recent_album_detail.created_at
-            %ul.tab_content#commented_portfolio
-              - fetch_recent_albums = Album.where(kind: 'portfolio').limit(2).order(comment_count: :desc)
-              - if fetch_recent_albums.any?
-                - fetch_recent_albums.each do |recent_album_detail|
-                  %li
-                    %a{href:"/users/"+"#{recent_album_detail.user.slug}"}
-                      .imagecol
-                        - if recent_album_detail.user.headshot
-                          = image_tag recent_album_detail.user.headshot.file_attachment.url(:thumb)
-                        -else
-                          =image_tag '/assets/missing.png'    
-                    .txtcol
-                      %a{href:"/albums/"+"#{recent_album_detail.slug}"}
-                        %span.heading
-                          = recent_album_detail.name
-                      .time
-                        = recent_album_detail.created_at
-
-          .clear
+    .slider_text_section
+      EDITOR'S PICK
 
 
-        .widget.social
-          /%iframe{allowtransparency: "true", frameborder: "0", scrolling: "no", src: "//www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2FGeniyaNetwork&width&layout=box_count&action=like&show_faces=true&share=false&height=65", style: "border:none; overflow:hidden; height:65px;"}   
+  /.index_user_slider
+  /  .wrapper_banner
+  /    - i = 0
+  /    - @top_users.each do |user|
+  /      - if !user.featureimg.nil?
+  /        - i +=1
+  /        %a{href:"/users/"+"#{user.slug}"}
+  /          .index_user_slide_item
+  /            = image_tag user.featureimg.feature_img.url(:large)
+  /      - break if i>=6
+  /    %img{alt: "slider", src: "/assets/slide1.jpg"}/
+  /    .clear
+
+  %section#portfolio
+    .parallax
+      #portfolio_bg
+        .wrapper
+          .column
+            %a{href: '/portfolios'}
+              .inner
+                %span.title Seek & Hire
+                .view
+                  View Portfolios
+          .column
+            %a{href: '/signup'}
+              .inner
+                %span.title Promote Yourself
+                .view
+                  Post Portfolio
+        .clear
+
+
+  %section#main_container
+    .tabbs
+      %ul.ui-tabs-nav
+        %li
+          %a.active#recent_portfolio_link  Recent
+        %li
+          %a#popular_portfolio_link Popular
+        %li
+          %a#comment_portfolio_link Most Discussed
+ 
+ 
+ 
+      .content
+
+        %ul.tab_content#recent_portfolio
+          - fetch_recent_albums = Album.where(kind: 'portfolio').limit(9).order(created_at: :desc)
+          - if fetch_recent_albums.any?
+            - fetch_recent_albums.each do |recent_album_detail|
+              %a{href:"/albums/"+"#{recent_album_detail.slug}"}
+                %li
+                  .inner
+                    %figure.imgcol
+                      - if (recent_album_detail.cover_file_name != '')
+                        = image_tag recent_album_detail.cover.url(:large)
+                      - else
+                        = image_tag '/assets/gall2.jpg' 
+                    .textcol
+                      .post_title
+                        %a{href:"/albums/"+"#{recent_album_detail.slug}"}
+                          = recent_album_detail.title
+                      .category
+                        %label 
+                          Posted in:
+                        %a{href:"/portfolios/"+"#{recent_album_detail.category.slug}"}
+                          = recent_album_detail.category.name
         
-          %a{href: "https://twitter.com/GeniyaNetwork", target: "_blank"}
-            .facebook_div
-              %img{alt: "", src: "assets/twitter_folloe.jpg"}/
-              %span#twitter_follower
-              %span.social_count
-                Followers               
-          %a{href: "https://www.facebook.com/GeniyaNetwork", target: "_blank"}
-            .facebook_div
-              %img{alt: "", src: "assets/facebook.jpg"}/
-              %span#facbook_count
-              %span.social_count
-                Fans
-          %a{href: "https://www.youtube.com/channel/UCaAogg8feczTPSpvcd-T6dg", target: "_blank"}
-            .facebook_div
-              %img{alt: "", src: "assets/utube.jpg"}/        
-              %span#subscribe_youtube
-              %span.social_count
-                Subscribers        
-        .widget.newsletter
-          .title Subscribe to our newsletter
-          .block
-            .pull_inside2
-              /%input{placeholder: "Your Email", type: "text"}/
-              /%input.subscribe{type: "button", value: "Subscribe"}/
-              = simple_form_for(@subscription, remote: true, url: '/subscriptions.json') do |f|
-                = f.error_notification
+        %ul.tab_content#popular_portfolio
+          - fetch_recent_albums = Album.where(kind: 'portfolio').limit(9).order(impressions_count: :desc)
+          - if fetch_recent_albums.any?
+            - fetch_recent_albums.each do |recent_album_detail|
+              %li
+                .inner
+                  %figure.imgcol
+                    - if (recent_album_detail.cover_file_name != '')
+                      = image_tag recent_album_detail.cover.url(:large)
+                    - else
+                      = image_tag '/assets/gall2.jpg' 
+                  .textcol
+                    .post_title
+                      %a{href:"/albums/"+"#{recent_album_detail.slug}"}
+                        = recent_album_detail.title
+                    .category
+                      %label Posted in:
+                      %a{href:"/portfolios/"+"#{recent_album_detail.category.slug}"}
+                        = recent_album_detail.category.name
+        %ul.tab_content#commented_portfolio
+          - fetch_recent_albums = Album.where(kind: 'portfolio').limit(9).order(comment_count: :desc)
+          - if fetch_recent_albums.any?
+            - fetch_recent_albums.each do |recent_album_detail|
+              %li
+                .inner
+                  %figure.imgcol
+                    - if (recent_album_detail.cover_file_name != '')
+                      = image_tag recent_album_detail.cover.url(:large)
+                    - else
+                      = image_tag '/assets/gall2.jpg' 
+                  %span.textcol
+                    .post_title
+                      %a{href:"/albums/"+"#{recent_album_detail.slug}"}
+                        = recent_album_detail.title
+                    .category
+                      %label Posted in:
+                      %a{href:"/portfolios/"+"#{recent_album_detail.category.slug}"}
+                        = recent_album_detail.category.name
 
-                .form-inputs
-                  = f.hidden_field :name, value: 'newsletter'
-                  = f.hidden_field :status, value: 'subscribed'
-                  = f.input :email, placeholder: 'Your email'
 
-                .form-actions-subscribe
-                  = f.button :submit, value: 'Subscribe'
-                  #response_subscription
-              .clear
+
+
+  /.choose
+  /  .wrapper_c
+  /    .view_portfolio
+  /      %img{alt: "", src: "/assets/view_portfolio.png"}/
+  /      %a.text{href: '/portfolios'}
+  /        SEEK
+  /        %span Portfolios
+  /        %i View
+  /    .view_portfolio_on_hover
+  /      %img{alt: "", src: "/assets/view_portfolio.png"}/
+  /      %a.text{href: '/portfolios'}
+  /        %p
+  /          SEEK AND HIRE 
+  /        %span Portfolios
+  /        %i View          
+  /    .post_portfolio
+  /      %img{alt: "", src: "/assets/post_portfolio.png"}/
+  /      %a.text{href: '/signup'}
+  /        PROMOTE
+  /        %span Portfolios
+  /        %i Post
+  /    .post_portfolio_on_hover
+  /      %img{alt: "", src: "/assets/post_portfolio.png"}/
+  /      %a.text{href: '/signup'}
+  /        %p
+  /          PROMOTE YOURSELF
+  /        %span Portfolios
+  /        %i Post         
+  /    .clear
+  /.section_heading
+  /  .wrapper_c
+  /    .left_section
+  /      Hot in Trend from
+  /      %a{href:"/portfolios"}
+  /        All Categories
+  /    .right_section Be Bold Be Seen Be Successful
+  /    .clear
+  /%section.main_container
+  /  .wrapper_c
+  /    .span690.inline_block
+  /      %ul#editorsPicks
+  /        - rendered_albums = Array.new
+  /        - until rendered_albums.count >= @per_page or rendered_albums.count >= @albums.count  do
+  /          - @categories.each do |cat|
+  /            - break if rendered_albums.count >= @per_page
+  /            - @albums.each do |album|
+  /              - if album.category_id == cat.id and !rendered_albums.include? album
+  /                = render 'album_home_thumb', album: album
+  /                - rendered_albums << album
+  /                - break
+  /    .span315.offset1.inline_block
+  /      .discover
+  /        Discover Geniya
+  /        %ul.discover_nav
+  /          %li
+  /            %a{href: "/portfolios"} All
+  /          - @cat = @categories.limit(7).order(order: :asc)
+  /          - @cat.each do |category|
+  /            %li
+  /              = link_to category.name.sub(' ', '/'), '/portfolios/'+ category.slug
+  /        .clear
+  /        .search
+  /          = form_tag(portfolios_path, method: :get) do
+  /            %input{name: 'q', placeholder: "Enter keyword", type: "text", class: "srch-portf"}
+  /            = submit_tag 'Go', class: 'go'
+  /        .ageFilter
+  /          #ageRange
+  /            .currentRange{style: "left: 4.5px; right: 0px;"}
+  /            .leftGrip.grip{"data-value" => "19", style: "left: 4.5px;"}
+  /              %span 19
+  /            .rightGrip.grip{"data-value" => "51", style: "left: 260px;"}
+  /              %span 50+
+  /      .widget.video
+  /        .title Top Viewed
+  /        .block
+  /          -if Video.any?
+  /            - if ["video/mpeg", "video/x-msvideo", "video/3gpp"].include? @video.file_attachment.content_type
+  /              %object{ data: "#{@video.file_attachment.url}", width: "303", height: "230", autoplay: "false", autoStart: "0"}
+  /                %embed{ src: "#{@video.file_attachment.url}", width: "303", height: "230", autoplay: "false", autoStart: "0"}
+  /            - elsif ["video/mp4", "video/ogg", "video/webm", "video/x-flv"].include? @video.file_attachment.content_type
+  /              %video{ width: "303", height:"230", poster:"", controls:"controls", preload:"none" }
+  /                %source{type:"#{@video.file_attachment.content_type}", src:"#{@video.file_attachment.url}"}
+  /                %object{width:"303", height:"230", type:"application/x-shockwave-flash", data:"#{@video.file_attachment.url}", autoplay: "false", autoStart: "0"}
+  /                  %embed{ src: "#{@video.file_attachment.url}", width: "303", height: "230", autoplay: "false", autoStart: "0"}              
+  /            .pull_inside1
+  /              %span.vid_name
+  /                %a{href: "/videos/"+"#{@video.slug}"}
+  /                  = @video.name 
+  /            %span.view 
+  /              = @video.impressions_count
+  /              views        
+  /          - else
+  /            = video_tag("/assets/big_buck_bunny.webm", height: '230', width: '303')
+  /            .pull_inside1
+  /              %span.vid_name
+  /                %a{href:"/geniyavideo"}
+  /                  Geniya Video 
+  /            %span.view 
+  /              0 views  
+  /      .widget.tab
+  /        .block
+  /          %ul.tab_nav
+  /            %li.active
+  /              %a#recent_portfolio_link  Recent
+  /            %li
+  /              %a#popular_portfolio_link Popular
+  /            %li.last_most_dissucss
+  /              %a#comment_portfolio_link Most Discussed
+  /            .clear
+  /          %ul.tab_content#recent_portfolio
+  /            - fetch_recent_albums = Album.where(kind: 'portfolio').limit(2).order(created_at: :desc)
+  /            - if fetch_recent_albums.any?
+  /              - fetch_recent_albums.each do |recent_album_detail|
+  /                %li
+  /                  %a{href:"/users/"+"#{recent_album_detail.user.slug}"}
+  /                    .imagecol
+  /                      - if recent_album_detail.user.headshot
+  /                        = image_tag recent_album_detail.user.headshot.file_attachment.url(:thumb)
+  /                      -else
+  /                        =image_tag '/assets/missing.png'    
+  /                  .txtcol
+  /                    %a{href:"/albums/"+"#{recent_album_detail.slug}"}
+  /                      %span.heading
+  /                        = recent_album_detail.name
+  /                    .time
+  /                      = recent_album_detail.created_at
+  /          %ul.tab_content#popular_portfolio
+  /            - fetch_recent_albums = Album.where(kind: 'portfolio').limit(2).order(impressions_count: :desc)
+  /            - if fetch_recent_albums.any?
+  /              - fetch_recent_albums.each do |recent_album_detail|
+  /                %li
+  /                  %a{href:"/users/"+"#{recent_album_detail.user.slug}"}
+  /                    .imagecol
+  /                      - if recent_album_detail.user.headshot
+  /                        = image_tag recent_album_detail.user.headshot.file_attachment.url(:thumb)
+  /                      -else
+  /                        =image_tag '/assets/missing.png'    
+  /                  .txtcol
+  /                    %a{href:"/albums/"+"#{recent_album_detail.slug}"}
+  /                      %span.heading
+  /                        = recent_album_detail.name
+  /                    .time
+  /                      = recent_album_detail.created_at
+  /          %ul.tab_content#commented_portfolio
+  /            - fetch_recent_albums = Album.where(kind: 'portfolio').limit(2).order(comment_count: :desc)
+  /            - if fetch_recent_albums.any?
+  /              - fetch_recent_albums.each do |recent_album_detail|
+  /                %li
+  /                  %a{href:"/users/"+"#{recent_album_detail.user.slug}"}
+  /                    .imagecol
+  /                      - if recent_album_detail.user.headshot
+  /                        = image_tag recent_album_detail.user.headshot.file_attachment.url(:thumb)
+  /                      -else
+  /                        =image_tag '/assets/missing.png'    
+  /                  .txtcol
+  /                    %a{href:"/albums/"+"#{recent_album_detail.slug}"}
+  /                      %span.heading
+  /                        = recent_album_detail.name
+  /                    .time
+  /                      = recent_album_detail.created_at
+
+  /        .clear
+
+
+  /     .widget.social
+  /       %iframe{allowtransparency: "true", frameborder: "0", scrolling: "no", src: "//www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2FGeniyaNetwork&width&layout=box_count&action=like&show_faces=true&share=false&height=65", style: "border:none; overflow:hidden; height:65px;"}   
+      
+  /       %a{href: "https://twitter.com/GeniyaNetwork", target: "_blank"}
+  /         .facebook_div
+  /           %img{alt: "", src: "assets/twitter_folloe.jpg"}/
+  /           %span#twitter_follower
+  /           %span.social_count
+  /             Followers               
+  /       %a{href: "https://www.facebook.com/GeniyaNetwork", target: "_blank"}
+  /         .facebook_div
+  /           %img{alt: "", src: "assets/facebook.jpg"}/
+  /           %span#facbook_count
+  /           %span.social_count
+  /             Fans
+  /       %a{href: "https://www.youtube.com/channel/UCaAogg8feczTPSpvcd-T6dg", target: "_blank"}
+  /         .facebook_div
+  /           %img{alt: "", src: "assets/utube.jpg"}/        
+  /           %span#subscribe_youtube
+  /           %span.social_count
+  /             Subscribers        
+  /     .widget.newsletter
+  /       .title Subscribe to our newsletter
+  /       .block
+  /         .pull_inside2
+  /           /%input{placeholder: "Your Email", type: "text"}/
+  /           /%input.subscribe{type: "button", value: "Subscribe"}/
+  /           = simple_form_for(@subscription, remote: true, url: '/subscriptions.json') do |f|
+  /             = f.error_notification
+
+  /             .form-inputs
+  /               = f.hidden_field :name, value: 'newsletter'
+  /               = f.hidden_field :status, value: 'subscribed'
+  /               = f.input :email, placeholder: 'Your email'
+
+  /             .form-actions-subscribe
+  /               = f.button :submit, value: 'Subscribe'
+  /               #response_subscription
+  /           .clear
 #ajax-portfolio-detail-homepage.modal.fade.modal-scrollable{style: "display: none;", tabindex: "-1"}

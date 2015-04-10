@@ -50,59 +50,87 @@ jQuery(document).ready(function(){
    
     });
  
-    jQuery('#job-srch-button').live('click', function(event) {        
-          var btn_text = $(this).val();
-          if (btn_text == 'Jobs/Advertisements')
+    jQuery('#job_ads_srch').live('click', function(event) {        
+          var btn_text = $(this).html();
+          //alert(btn_text);
+          //event.stopPropagation();
+          if(btn_text == 'Search People, Business Here')
           {
-            $(this).val('People/Business');
+             $(this).html('Search Jobs, Advertisements Here');
+             $('#srch_profile').show('50');
+             $('#srch_job').hide('50');
+            $('#srch_profile').val('');
+             $('#srch_job').val('');             
+             //alert('kk');
+          
+          }
+          else if (btn_text == 'Search Jobs, Advertisements Here')
+          {
+             $('#srch_profile').hide('50');
+             $('#srch_job').show('50');
+            $('#srch_profile').val('');
+             $('#srch_job').val('');                
+            $(this).html('Search People, Business Here');
+            return false;
           }
           else
           {
-            $(this).val('Jobs/Advertisements');
+             $('#srch_profile').hide('50');
+             $('#srch_job').show('50');
+            $('#srch_profile').val('');
+             $('#srch_job').val('');                
+            $(this).html('Search People, Business Here');
+            return false;
           }
-         $('#atwho-ground-srch_job ul').hide('slow');
-         jQuery('#srch_profile').toggle('hide'); 
-         jQuery('#srch_job').toggle('show');
-         jQuery('#srch_job').val('');
-         return false;
+
+
     });  
    
 
 
     jQuery('#popular_portfolio_link').live('click', function(event) {
+      $('#recent_portfolio_link').removeClass('active');
+      $('#comment_portfolio_link').removeClass('active');
+      $(this).addClass('active');
       $('#popular_portfolio').show('slow');
       $('#recent_portfolio').hide('slow');
       $('#commented_portfolio').hide('slow');
       $('#popular_portfolio_link').css("background","#FFFFFF")
-      $('#recent_portfolio_link').css("background","#2B2E37")
-      $('#comment_portfolio_link').css("background","#2B2E37")
-      $('#popular_portfolio_link').css("color","#97B84A")
-      $('#recent_portfolio_link').css("color","#FFFFFF")
-      $('#comment_portfolio_link').css("color","#FFFFFF")      
+      $('#recent_portfolio_link').css("background","#E6E6E6")
+      $('#comment_portfolio_link').css("background","#E6E6E6")
+      $('#popular_portfolio_link').css("color","#43474D")
+      $('#recent_portfolio_link').css("color","#43474D")
+      $('#comment_portfolio_link').css("color","#43474D")      
     }); 
     
     jQuery('#recent_portfolio_link').live('click', function(event) {
+      $('#popular_portfolio_link').removeClass('active');
+      $('#comment_portfolio_link').removeClass('active');
+        $(this).addClass('active');    
       $('#popular_portfolio').hide('slow');
       $('#recent_portfolio').show('slow');
       $('#commented_portfolio').hide('slow');
-      $('#popular_portfolio_link').css("background","#2B2E37")
+      $('#popular_portfolio_link').css("background","#E6E6E6")
       $('#recent_portfolio_link').css("background","#FFFFFF")
-      $('#comment_portfolio_link').css("background","#2B2E37") 
-      $('#popular_portfolio_link').css("color","#FFFFFF")
-      $('#recent_portfolio_link').css("color","#97B84A")
-      $('#comment_portfolio_link').css("color","#FFFFFF")            
+      $('#comment_portfolio_link').css("background","#E6E6E6") 
+      $('#popular_portfolio_link').css("color","#43474D")
+      $('#recent_portfolio_link').css("color","#43474D")
+      $('#comment_portfolio_link').css("color","#43474D")            
     });     
     
     jQuery('#comment_portfolio_link').live('click', function(event) {
+      $('#popular_portfolio_link').removeClass('active');
+      $('#recent_portfolio_link').removeClass('active');
+        $(this).addClass('active');    
       $('#popular_portfolio').hide('slow');
       $('#recent_portfolio').hide('slow');
       $('#commented_portfolio').show('slow');
-      $('#popular_portfolio_link').css("background","#2B2E37")
-      $('#recent_portfolio_link').css("background","#2B2E37")
+      $('#popular_portfolio_link').css("background","#E6E6E6")
+      $('#recent_portfolio_link').css("background","#E6E6E6")
       $('#comment_portfolio_link').css("background","#FFFFFF")  
-      $('#popular_portfolio_link').css("color","#FFFFFF")
-      $('#recent_portfolio_link').css("color","#FFFFFF")
-      $('#comment_portfolio_link').css("color","#97B84A")   
+      $('#popular_portfolio_link').css("color","#43474D")
+      $('#recent_portfolio_link').css("color","#43474D")
+      $('#comment_portfolio_link').css("color","#43474D")   
     });      
     
 

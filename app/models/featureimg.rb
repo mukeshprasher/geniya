@@ -7,7 +7,7 @@ class Featureimg < ActiveRecord::Base
 #                                          :secret_access_key => '/UKLFVVEzr0zD5vbYuQiQtPgOVRsw3NdiI4ula9t'},
 #                      :s3_protocol    => "http"                                             ,
 #                      :bucket => "geniyanet"
-  crop_attached_file :feature_img , :aspect => "215:400"
+  crop_attached_file :feature_img , :aspect => "800:800"
   validates_attachment :feature_img, 
   :content_type => { :content_type => ["image/jpg", "image/jpeg", "image/gif", "image/png"] },
   :size => { :in => 0..1000.kilobytes },

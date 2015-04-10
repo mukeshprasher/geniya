@@ -1,7 +1,7 @@
 %header
-  #header_wrapper.wrapper_c
-    %ul.login_nav
-      - if signed_in?
+  - if signed_in?
+    #header_wrapper.wrapper_c
+      %ul.login_nav
         %a{href:"/users/"+"#{current_user.slug}"}
           %li.spacial 
             %span
@@ -134,45 +134,81 @@
 
         %li.login
           = link_to "Logout", signout_path, method: "delete"
-      - else
-        %li= link_to 'Home', root_path
-        %li 
-          |
-        %li= link_to "Register", signup_path
-        %li 
-          |
-        %li
-          #login.modal.fade{"data-width" => "530", style: "display: none;", tabindex: "-1"}
-            .modal-body
-              = render 'shared/login_form' 
-          %a.demo{"data-toggle" => "modal",href: "#login"}
-            Login
-          /= link_to "Login", signin_path
-    #srch_people_container
-      %input{name: 'q', placeholder: "Search People, Business Here", type: "text", id: "srch_profile",autocomplete: "off", onkeypress: ""}
-      %input{name: 'q', placeholder: "Search Jobs, Advertisements Here", type: "text", id: "srch_job",autocomplete: "off", onkeypress: ""}  
-      #atwho-ground-srch_job    
-        %ul.atwho-view-ul
-      %span#srch_divider
-        or
-      %input{type: "button", id: "job-srch-button", class: "btn btn-primary", value:"Jobs/Advertisements"}        
+  - else
+    .wrapper
+      %a.logo{:href => ""}
+        %img{:alt => "", :src => "/assets/new_logo.png"}/
+      .search
+        %span.glass
+        /%input{:placeholder => "Search", :type => "text"}/
+        %input{name: 'q', placeholder: "Search People, Business Here", type: "text", id: "srch_profile",autocomplete: "off", onkeypress: ""}
+        %input{name: 'q', placeholder: "Search Jobs, Advertisements Here", type: "text", id: "srch_job",autocomplete: "off", onkeypress: ""}                  
+        %a.dropdownbutton{:type => "button", :href => "javascript:void(0)"}
+        %ul.search_option
+          %li#job_ads_srch{:value => "Search Jobs, Advertisements Here"}
+            Search Jobs, Advertisements Here
+        .clear
+        
+      / BEGIN HEADER RIGHT
+      .heder_right
+        #navigation.dropdown_menu
+          %a.menu_btn{:href => "javascript:void(0)"}
+          %ul.main_menu
+            - @cat = @categories.limit(7).order(order: :asc)
+            - @cat.each do |category|            
+              %li.active= link_to category.name.sub(' ', '/'), '/portfolios/' + category.slug
 
-    %a.logo{href: "/"}
-      %img{alt: "Logo", src: "/assets/logo.png", id: "geniya_logo"}/
-    %a.mobile_menu_btn
-      Navigation
-      %img{src: "/assets/menu_btn.png"}/
-    %nav#man_nav
-      - page_id = params[:id]
-      %ul
-        - @cat = @categories.limit(7).order(order: :asc)
-        - @cat.each_with_index do |category, i|
-          - if (page_id == category.slug)
-            - midsection_class = (i == 2) ? 'midsection' : ''
-            %li.active= link_to category.name.sub(' ', '/'), '/portfolios/' + category.slug, class: midsection_class
-          - else
-            - midsection_class = (i == 2) ? 'midsection' : ''
-            %li= link_to category.name.sub(' ', '/'), '/portfolios/' + category.slug, class: midsection_class           
-      .clear
-  .clear
+        %navs
+          %ul
+            %li= link_to 'Home', root_path
+            %li= link_to "Register", signup_path
+            %li
+              #login.modal.fade{"data-width" => "530", style: "display: none;", tabindex: "-1"}
+                .modal-body
+                  = render 'shared/login_form' 
+              %a.demo{"data-toggle" => "modal",href: "#login"}
+                Login
+      / END HEADER RIGHT
+      .clear      
+  
+    /%li= link_to 'Home', root_path
+    /%li 
+    /  |
+    /%li= link_to "Register", signup_path
+    /%li 
+    /  |
+    /%li
+    /  #login.modal.fade{"data-width" => "530", style: "display: none;", tabindex: "-1"}
+    /    .modal-body
+    /      = render 'shared/login_form' 
+    /  %a.demo{"data-toggle" => "modal",href: "#login"}
+    /    Login
+    /  = link_to "Login", signin_path
+/#srch_people_container
+/  %input{name: 'q', placeholder: "Search People, Business Here", type: "text", id: "srch_profile",autocomplete: "off", onkeypress: ""}
+/  %input{name: 'q', placeholder: "Search Jobs, Advertisements Here", type: "text", id: "srch_job",autocomplete: "off", onkeypress: ""}  
+/  #atwho-ground-srch_job    
+/    %ul.atwho-view-ul
+/  %span#srch_divider
+/    or
+/  %input{type: "button", id: "job-srch-button", class: "btn btn-primary", value:"Jobs/Advertisements"}        
+
+/%a.logo{href: "/"}
+/  %img{alt: "Logo", src: "/assets/logo.png", id: "geniya_logo"}/
+/%a.mobile_menu_btn
+/  Navigation
+/  %img{src: "/assets/menu_btn.png"}/
+/%nav#man_nav
+/  - page_id = params[:id]
+/  %ul
+/    - @cat = @categories.limit(7).order(order: :asc)
+/    - @cat.each_with_index do |category, i|
+/      - if (page_id == category.slug)
+/        - midsection_class = (i == 2) ? 'midsection' : ''
+/        %li.active= link_to category.name.sub(' ', '/'), '/portfolios/' + category.slug, class: midsection_class
+/      - else
+/        - midsection_class = (i == 2) ? 'midsection' : ''
+/        %li= link_to category.name.sub(' ', '/'), '/portfolios/' + category.slug, class: midsection_class           
+/  .clear
+
   

@@ -7,6 +7,9 @@ function show_reply_box(comment_id){
   $(this).attr('disabled','disabled');
 }
 
+
+
+
 $(function() {
   var toDoOnloadComment;
   toDoOnloadComment = function() {
@@ -50,6 +53,32 @@ $(function() {
 //       {$("#comment-"+delete_comment_id).show();
 //       return false;}
 //     });
+
+      $(".menu_btn").click(function(e) {
+          e.stopPropagation();
+          $(".main_menu").slideToggle("50");
+          $(".search_option").slideUp("50");
+      });   
+
+		  $('.slider1').bxSlider({
+			slideWidth: 200,
+			minSlides: 2,
+			maxSlides: 6,
+			auto: true
+		  });
+
+      $(".dropdownbutton").click(function(e) {
+        e.stopPropagation();
+          $(".search_option").slideToggle("50");
+           $(".main_menu").slideUp("50");
+      });   
+
+  $('html').on('click', function(e) {
+
+  $('#atwho-ground-srch_job ul').hide('slow');
+   $('.main_menu').slideUp('50');
+   $('.search_option').slideUp('50');
+  })
  
     $(".ads_box-delete").click(function(){
      var delcomment = confirm("Do you want to delete this Advertisement ?");

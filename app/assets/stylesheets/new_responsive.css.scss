@@ -1,0 +1,69 @@
+@media only screen and (max-width :1199px) {
+
+* { box-sizing:border-box }
+
+.wrapper { width:100%; padding:0px 1% }
+
+.search { margin: 16px auto 0 -150px; width: 300px; }
+
+.search input[type="text"] { width: 225px; }
+}
+ @media only screen and (max-width :1024px) {
+
+.search { float: left; left: 14%; margin: 17px 0 0; position: relative; width: 300px; }
+
+.slogan { background-size:33px 44px; }
+
+.left_section { width:48.5% }
+
+.right_section { width:48% }
+
+#portfolio .column .title{ font-size:30px;}
+
+#portfolio .view{ width:50%}
+}
+ @media only screen and (max-width :800px) {
+
+.left_section { width:48.3% }
+
+.tabbs .content ul li {width: 33.05%;}
+}
+ @media only screen and (max-width :667px) {
+ 
+.search{ left:0px}
+
+.left_section {width: 47.3%;}
+
+#portfolio .column {padding: 0 2%;width: 46%;}
+
+#portfolio .column .inner{padding: 30px 5%;}
+
+#portfolio .column .title {font-size: 16px;font-weight: 900;line-height: 20px;padding-bottom: 25px;}
+
+.parallax {height: auto;position: relative;text-align: center;width: 100%;}
+
+.parallax #portfolio_bg{height: auto;position: relative;}
+
+.tabbs .content ul li {width: 49.5%;}
+}
+ @media only screen and (max-width :568px) {
+  
+.tabbs .content ul li { width: 99.5%;}
+ 
+.search {float: none;left: 0;margin: 17px auto;position: relative;width: 300px;}
+
+.heder_right {float: right;padding: 0;}
+
+#portfolio .column {float: left;padding: 0 5%;width: 90%;}
+
+#portfolio .column .inner {margin-bottom: 10px;padding: 25px 5%;}
+
+.slogan{ display:none;}
+
+.ui-tabs-nav li a {font-size: 10px;letter-spacing: 2px;line-height: 40px;padding: 15px 14px;}
+
+.heder_right {display: table;float: none;margin: 0 auto;padding: 0;}
+}
+ @media only screen and (max-width :375px) {
+
+}
