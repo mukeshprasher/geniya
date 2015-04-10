@@ -15,7 +15,7 @@ $grayLighter: #eaeaea;
   box-sizing: border-box;
 }
 
-
+*{ box-sizing: border-box; margin:0px; padding:0px;}
 html{     
   height: 100%;
 }
@@ -211,7 +211,16 @@ nav { display: block; float: left; margin-top: 4px; padding-bottom: 28px; positi
 
 .slogan { background: url("/assets/partioning.jpg") no-repeat center top #e3711f; color:#fff; font-size: 30px; max-height: 58px; width: 100%; z-index: 999999; float:left; text-shadow:1px 1px 1px #5a5a5a }
 
-.left_section {  background: none repeat scroll 0 0 hsl(265, 51%, 32%);  float: left;  font-size: 18px;  font-weight: 400;  height: 40px;  padding: 10px 0 8px 1px;  text-align: right;  width: 49%;}
+.left_section {
+  background: none repeat scroll 0 0 hsl(265, 51%, 32%);
+  float: left;
+  font-size: 18px;
+  font-weight: 400;
+  height: 40px;
+  padding: 11px 0 9px 1px;
+  text-align: right;
+  width: 49%;
+}
 
 .right_section { background:#e3711f; float: right; height: 40px; padding:0px; width: 49%; font-size:32px; font-weight:700; line-height:38px; }
 
@@ -219,13 +228,26 @@ nav { display: block; float: left; margin-top: 4px; padding-bottom: 28px; positi
 
 /**************************************/
 
-#portfolio { color: hsl(0, 0%, 100%); margin: 0 auto; max-width: 100%; text-align: center; width: 1600px; clear:both }
+#portfolio {
+  clear: both;
+  color: hsl(0, 0%, 100%);
+  margin: 0 auto;
+  max-width: 100%;
+  text-align: center;
+  width: 1600px;
+}
 
-.parallax { background-color: hsl(0, 0%, 100%); height: 350px; position: relative; text-align: center; width: 100%; }
+.parallax {
+  background-color: hsl(0, 0%, 100%);
+  height: 350px;
+  position: relative;
+  text-align: center;
+  width: 100%;
+}
 
-.parallax #portfolio_bg { background-attachment: fixed; background-image: url("/assets/parallax.jpg"); background-position: center center; background-repeat: no-repeat; background-size:cover; height: 255px; margin: 0 auto; padding: 60px 0; position: absolute; width: 100%; }
+.parallax #portfolio_bg { background-attachment: fixed; background-image: url("/assets/parallax.jpg"); background-position: center center; background-repeat: no-repeat; background-size:cover; height: 350px; margin: 0 auto; padding: 60px 0; position: absolute; width: 100%; }
 
-#portfolio .column { float:left; width:40%; padding:0px 5% }
+#portfolio .column { float:left; width:50%; padding:0px 5% }
 
 #portfolio .column .inner { background:rgba(192,192,192,0.13); padding:60px 5% }
 
@@ -1420,7 +1442,7 @@ navs ul li a:hover { color:#c5218c;}
 #navigation ul li a { display: inline-block; vertical-align: middle; color:#fff; text-decoration: none; color:#C5218C}
 
 
-section#main_container {margin-top: 30px;}
+
 
 /**************************************/
 
