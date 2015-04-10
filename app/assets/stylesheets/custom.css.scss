@@ -211,7 +211,7 @@ nav { display: block; float: left; margin-top: 4px; padding-bottom: 28px; positi
 
 .slogan { background: url("/assets/partioning.jpg") no-repeat center top #e3711f; color:#fff; font-size: 30px; max-height: 58px; width: 100%; z-index: 999999; float:left; text-shadow:1px 1px 1px #5a5a5a }
 
-.left_section { background:#4b287c; float: left; height: 24px; padding: 8px 0 8px 1px; text-align: right; width: 49%; font-size:18px; font-weight:400 }
+.left_section {  background: none repeat scroll 0 0 hsl(265, 51%, 32%);  float: left;  font-size: 18px;  font-weight: 400;  height: 40px;  padding: 10px 0 8px 1px;  text-align: right;  width: 49%;}
 
 .right_section { background:#e3711f; float: right; height: 40px; padding:0px; width: 49%; font-size:32px; font-weight:700; line-height:38px; }
 
