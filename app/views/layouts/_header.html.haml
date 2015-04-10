@@ -136,7 +136,7 @@
           = link_to "Logout", signout_path, method: "delete"
   - else
     .wrapper
-      %a.logo{:href => ""}
+      %a.logo{href: "/"}
         %img{:alt => "", :src => "/assets/new_logo.png"}/
       .search
         %span.glass
@@ -147,6 +147,8 @@
         %ul.search_option
           %li#job_ads_srch{:value => "Search Jobs, Advertisements Here"}
             Search Jobs, Advertisements Here
+
+   
         
       / BEGIN HEADER RIGHT
       .heder_right
@@ -156,7 +158,6 @@
             - @cat = @categories.limit(7).order(order: :asc)
             - @cat.each do |category|            
               %li.active= link_to category.name.sub(' ', '/'), '/portfolios/' + category.slug
-
         %navs
           %ul
             %li= link_to 'Home', root_path

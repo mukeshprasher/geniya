@@ -56,8 +56,8 @@ $(function() {
 
       $(".menu_btn").click(function(e) {
           e.stopPropagation();
-          $(".main_menu").slideToggle("50");
-          $(".search_option").slideUp("50");
+          $(".main_menu").toggle();
+          $(".search_option").css('display','none');
       });   
 
 		  $('.slider1').bxSlider({
@@ -69,15 +69,15 @@ $(function() {
 
       $(".dropdownbutton").click(function(e) {
         e.stopPropagation();
-          $(".search_option").slideToggle("50");
-           $(".main_menu").slideUp("50");
+          $(".search_option").toggle();
+           $(".main_menu").css('display','none');
       });   
 
   $('html').on('click', function(e) {
 
   $('#atwho-ground-srch_job ul').hide('slow');
-   $('.main_menu').slideUp('50');
-   $('.search_option').slideUp('50');
+   $('.main_menu').css('display','none');
+   $('.search_option').css('display','none');
   })
  
     $(".ads_box-delete").click(function(){
