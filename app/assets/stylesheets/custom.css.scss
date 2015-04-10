@@ -2367,7 +2367,7 @@ cursor: default;font-family: Arial,sans-serif;font-size: 10px;font-weight: bold;
 
 /************* login popup css***********/
 
-.login_popup_container {background: url("/assets/login_box_shadow.png") no-repeat scroll center center rgba(0, 0, 0, 0);display: table;margin: 0px auto;padding: 0 24px;width: 466px;}
+.login_popup_container {display: table;margin: 0px auto;padding: 0 24px;width: 466px;}
 .login_popup_container form {background: none repeat scroll 0 0 #EEF1F3;float: left;padding: 40px 30px 20px;}
 .login_popup_container .form-item {float: left;margin: 0 0 20px;width: 100%;}
 .login_popup_container .form-item.password {margin-bottom: 30px;}
