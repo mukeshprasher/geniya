@@ -1,5 +1,35 @@
 %header
   - if signed_in?
+    .wrapper
+      %a.logo{href: "/"}
+        %img{:alt => "", :src => "/assets/new_logo.png"}/
+      .search
+        %span.glass
+        /%input{:placeholder => "Search", :type => "text"}/
+        %input{name: 'q', placeholder: "Search People, Business Here", type: "text", id: "srch_profile",autocomplete: "off", onkeypress: ""}
+        %input{name: 'q', placeholder: "Search Jobs, Advertisements Here", type: "text", id: "srch_job",autocomplete: "off", onkeypress: ""}                  
+        %a.dropdownbutton{:type => "button", :href => "javascript:void(0)"}
+        %ul.search_option
+          %li#job_ads_srch{:value => "Search Jobs, Advertisements Here"}
+            Search Jobs, Advertisements Here
+
+   
+        
+      / BEGIN HEADER RIGHT
+      .heder_right
+        #navigation.dropdown_menu
+          %a.menu_btn{:href => "javascript:void(0)"}
+          %ul.main_menu
+            - @cat = @categories.limit(7).order(order: :asc)
+            - @cat.each do |category|            
+              %li.active= link_to category.name.sub(' ', '/'), '/portfolios/' + category.slug
+        %navs
+          %ul
+            %li= link_to 'Home', root_path
+            %li
+              = link_to "Logout", signout_path, method: "delete"
+      / END HEADER RIGHT
+      .clear       
     #header_wrapper.wrapper_c
       %ul.login_nav
         %a{href:"/users/"+"#{current_user.slug}"}
@@ -13,9 +43,9 @@
               = current_user.username.capitalize
         %li
           |
-        %li= link_to 'Home', root_path
-        %li
-          |
+        /%li= link_to 'Home', root_path
+        /%li
+        /  |
          
         - if current_user.kind == 'user'
           %li.dropdown
@@ -132,8 +162,8 @@
           %ul.dropdown-menu#message_response_notifications
 
 
-        %li.login
-          = link_to "Logout", signout_path, method: "delete"
+        /%li.login
+        /  = link_to "Logout", signout_path, method: "delete"
   - else
     .wrapper
       %a.logo{href: "/"}

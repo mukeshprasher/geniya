@@ -120,14 +120,15 @@
   %ul.discover_nav
     %li
       %a{href: "/portfolios"} All
-    - @categories.each do |category|
+    - @cat = @categories.limit(7).order(order: :asc)
+    - @cat.each do |category|
       %li
         = link_to category.name.sub(' ', '/'), '/portfolios/'+ category.slug
   .clear
-  .search
+  .search_discover_bar
     = form_tag(portfolios_path, method: :get) do
       %input{name: 'q', placeholder: "Enter keyword", type: "text", class: "srch-portf"}
-      = submit_tag 'Go', class: 'go'      
+      = submit_tag 'Go', class: 'go_btn'      
   /.ageFilter
   /  #ageRange
   /    .currentRange{style: "left: 4.5px; right: 0px;"}

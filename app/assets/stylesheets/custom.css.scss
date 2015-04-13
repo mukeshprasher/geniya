@@ -855,7 +855,7 @@ _user
   color: #4A4A4A;
   cursor: cell;
 }
-.innerBenner {background: url("/assets/inner_banner.jpg") repeat scroll 0 0 rgba(0, 0, 0, 0);height: 231px;margin: 0;padding: 0;position: relative;width: 100%;}
+.innerBenner {background: url("/assets/inner_banner.jpg") repeat scroll 0 0 rgba(0, 0, 0, 0);height: 231px;margin: 0;padding: 0;width: 100%;float:left;}
 
 .innerBenner .news_feeds {clear: both;padding-top: 75px;text-align: center;}
 
@@ -895,7 +895,7 @@ _user
 
 .user_info{margin-top:-7%;}
 
-.user_updates_form {float: left;width: 568px;}
+.user_updates_form {float: left;width: 583px;}
 
 .user_updates_ajax{display:none; background: none repeat scroll 0 0 #000000; float: left;  height: 100%;  left: 0;  opacity: 0.7;  position: fixed;  top: 0;  width: 100%;  z-index: 999;}
 
@@ -1472,7 +1472,10 @@ navs ul li a:hover { color:#c5218c;}
 .dropdown-menu > li > a:hover{background:none;}
 
 .login_nav li.spacial:hover{ background:#ccc;}
-.search .go {background: none repeat scroll 0 0 #567882;border-radius: 0 3px 3px 0;color: #FFFFFF;font-family: latoregular;text-align: center;width: 14%;}
+
+
+
+.search_discover_bar .go_btn {background: none repeat scroll 0 0 #567882;border-radius: 0 3px 3px 0;color: #FFFFFF;font-family: latoregular;text-align: center;width: 14%;padding:4px;}
 
 .ageFilter {padding: 20px 0;position: relative;width: 90%;}
 
@@ -2044,7 +2047,7 @@ display:none;
 #updates-img {
   background: url("/assets/share.jpg") no-repeat scroll left top rgba(0, 0, 0, 0);
   height: 30px;
-  left: 61%;
+  left: 92%;
   position: absolute;
   top: 3px;
   width: 30px;
@@ -5062,4 +5065,17 @@ background: #3366FF;
   padding: 0 0 0 7px;
   text-align: right;
   width: 32%;
+}
+
+.user_updates_form .field {
+  position: relative;
+}
+.inneContaineralbum .wrapper {
+  margin: 0 auto;
+  width: 1024px;
+}
+
+.inneContainer .wrapper {
+  margin: 0 auto;
+  width: 1024px;
 }
