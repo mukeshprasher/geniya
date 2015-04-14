@@ -102,7 +102,7 @@ class LocationsController < ApplicationController
       end
     elsif params[:location][:city_id] == '0'
       if params[:location][:new_pin] == ''
-        
+        @state = State.find(params[:location][:state_id])
         searched_city = City.find_by(name: params[:location][:new_city].downcase, state_id: @state.id)
         @city = (searched_city) ? searched_city : City.create!(state_id: @state.id, name: params[:location][:new_city].downcase)   
         
@@ -111,6 +111,7 @@ class LocationsController < ApplicationController
         @location.city_id = @city.id
         @location.save
       else
+        @state = State.find(params[:location][:state_id])
         searched_city = City.find_by(name: params[:location][:new_city].downcase, state_id: @state.id)
         @city = (searched_city) ? searched_city : City.create!(state_id: @state.id, name: params[:location][:new_city].downcase) 
           
@@ -129,7 +130,7 @@ class LocationsController < ApplicationController
         @location = Location.new(location_params)
         @location.save
       else
-        
+        @city = City.find(params[:location][:city_id])
         searched_pin = Pin.find_by(code: params[:location][:new_pin].downcase, city_id: @city.id)
         @pin = (searched_pin) ? searched_pin : Pin.create!(city_id: @city.id, code: params[:location][:new_pin].downcase)
         

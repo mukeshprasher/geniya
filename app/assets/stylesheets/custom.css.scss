@@ -2098,12 +2098,12 @@ cursor: pointer;
     background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
     bottom: 4px;
     color: #FFFFFF;
-    height: 20px;
+    height: 30px;
     left: 0px;
     padding: 9px 13px;
     position: absolute;
     transition: all 0.5s ease 0s;
-    width: 163px;
+    width: 100%;
     z-index:99;
 }
 
@@ -2114,10 +2114,11 @@ cursor: pointer;
 
 
 .txt {
-    float: left;
+    
     opacity: 0;
     padding: 5px 8px;
     transition: all 0.5s ease 0s;
+    margin-left: 10px;
 }
 
 
