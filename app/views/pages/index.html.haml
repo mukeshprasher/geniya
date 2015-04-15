@@ -163,40 +163,42 @@
           - fetch_recent_albums = Album.where(kind: 'portfolio').limit(9).order(impressions_count: :desc)
           - if fetch_recent_albums.any?
             - fetch_recent_albums.each do |recent_album_detail|
-              %li
-                .inner
-                  %figure.imgcol
-                    - if (recent_album_detail.cover_file_name != '')
-                      = image_tag recent_album_detail.cover.url(:large)
-                    - else
-                      = image_tag '/assets/gall2.jpg' 
-                  .textcol
-                    .post_title
-                      %a{href:"/albums/"+"#{recent_album_detail.slug}"}
-                        = recent_album_detail.title
-                    .category
-                      %label Posted in:
-                      %a{href:"/portfolios/"+"#{recent_album_detail.category.slug}"}
-                        = recent_album_detail.category.name
+              %a{href:"/albums/"+"#{recent_album_detail.slug}"}
+                %li
+                  .inner
+                    %figure.imgcol
+                      - if (recent_album_detail.cover_file_name != '')
+                        = image_tag recent_album_detail.cover.url(:large)
+                      - else
+                        = image_tag '/assets/gall2.jpg' 
+                    .textcol
+                      .post_title
+                        %a{href:"/albums/"+"#{recent_album_detail.slug}"}
+                          = recent_album_detail.title
+                      .category
+                        %label Posted in:
+                        %a{href:"/portfolios/"+"#{recent_album_detail.category.slug}"}
+                          = recent_album_detail.category.name
         %ul.tab_content#commented_portfolio
           - fetch_recent_albums = Album.where(kind: 'portfolio').limit(9).order(comment_count: :desc)
           - if fetch_recent_albums.any?
             - fetch_recent_albums.each do |recent_album_detail|
-              %li
-                .inner
-                  %figure.imgcol
-                    - if (recent_album_detail.cover_file_name != '')
-                      = image_tag recent_album_detail.cover.url(:large)
-                    - else
-                      = image_tag '/assets/gall2.jpg' 
-                  %span.textcol
-                    .post_title
-                      %a{href:"/albums/"+"#{recent_album_detail.slug}"}
-                        = recent_album_detail.title
-                    .category
-                      %label Posted in:
-                      %a{href:"/portfolios/"+"#{recent_album_detail.category.slug}"}
-                        = recent_album_detail.category.name
+              %a{href:"/albums/"+"#{recent_album_detail.slug}"}
+                %li
+                  .inner
+                    %figure.imgcol
+                      - if (recent_album_detail.cover_file_name != '')
+                        = image_tag recent_album_detail.cover.url(:large)
+                      - else
+                        = image_tag '/assets/gall2.jpg' 
+                    %span.textcol
+                      .post_title
+                        %a{href:"/albums/"+"#{recent_album_detail.slug}"}
+                          = recent_album_detail.title
+                      .category
+                        %label Posted in:
+                        %a{href:"/portfolios/"+"#{recent_album_detail.category.slug}"}
+                          = recent_album_detail.category.name
 
 
 
