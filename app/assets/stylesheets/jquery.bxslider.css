@@ -208,6 +208,7 @@ div.bx-pager.bx-default-pager{display:none;}
 }
 div.bx-viewport {
 height: 300px !important;
+margin-top: 40px !important;
 }
 
 .bx-prev {
