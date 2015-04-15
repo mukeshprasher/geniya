@@ -23,6 +23,7 @@
 
 .bx-wrapper {
     max-width: 1188px !important;
+    margin:0 auto;
 }
 .bx-wrapper img {
 	max-width: 100%;
