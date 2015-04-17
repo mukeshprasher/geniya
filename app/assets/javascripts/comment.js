@@ -54,6 +54,22 @@ $(function() {
 //       return false;}
 //     });
 
+$(function(){
+    $('.bx-prev').click(function(){      
+      $(".ytplayer")[0].pause();
+
+ 
+   
+    });
+});
+$(function(){
+    $('.bx-next').click(function(){      
+  $(".ytplayer").stopVideo();
+  //$(".slide")[0].pause();
+
+    });
+});
+
       $(".menu_btn").click(function(e) {
           e.stopPropagation();
           $(".main_menu").toggle();
@@ -61,10 +77,10 @@ $(function() {
       });   
 
 		  $('.slider1').bxSlider({
-			slideWidth: 200,
-			minSlides: 2,
-			maxSlides: 6,
-			auto: true
+			slideWidth: 950,
+			//auto: true,
+      autoHover: true,
+      autoControls: true			
 		  });
 
       $(".dropdownbutton").click(function(e) {

@@ -74,21 +74,66 @@
             
         
 - else
-  .slogan
-    .left_section GET GOING WITH GENIYA -
-    .right_section "Be Successful"
+  /.slogan
+  /  .left_section GET GOING WITH GENIYA -
+  /  .right_section "Be Successful"
   .index_user_slider
     .slider1
-      - i = 0
-      - @top_users.each do |user|
-        - if !user.featureimg.nil?
-          - i +=1
-          .slide
-            %a{href:"/users/"+"#{user.slug}"}
-              = image_tag user.featureimg.feature_img.url(:large)
-        - break if i>=6
+      .slide
+        .slide_video
+          %iframe{:allowfullscreen => "", :frameborder => "0", :height => "315", :src => "https://www.youtube.com/embed/NdTX_PxKGMw", :width => "560"}
+        .slide_content
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+      
+      .slide
+        .slide_video
+          %iframe{:class => "ytplayer", :allowfullscreen => "", :frameborder => "0", :height => "315", :src => "https://www.youtube.com/embed/aScQADHOQ2k", :width => "560"}
+        .slide_content
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+
+      .slide
+        .slide_video
+          %iframe{:class => "ytplayer", :allowfullscreen => "", :frameborder => "0", :height => "315", :src => "https://www.youtube.com/embed/LLceza7SmXk", :width => "560"}
+        .slide_content
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+
+      .slide
+        .slide_video
+          %iframe{:class => "ytplayer", :allowfullscreen => "", :frameborder => "0", :height => "315", :src => "https://www.youtube.com/embed/6SnIZgESm4c", :width => "560"}
+        .slide_content
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+
+      .slide
+        .slide_video
+          %iframe{:class => "ytplayer", :allowfullscreen => "", :frameborder => "0", :height => "315", :src => "https://www.youtube.com/embed/-Oim4ShEWDI", :width => "560"}
+        .slide_content
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+          
+      .slide
+        .slide_video
+          %iframe{:class => "ytplayer", :allowfullscreen => "", :frameborder => "0", :height => "315", :src => "https://www.youtube.com/embed/bBL4Rr92ROA", :width => "560"}
+        .slide_content
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.   
+          
+
+      .slide
+        .slide_video
+          %iframe{:class => "ytplayer", :allowfullscreen => "", :frameborder => "0", :height => "315", :src => "https://www.youtube.com/embed/-Oim4ShEWDI", :width => "560"}
+        .slide_content
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.                 
+        /%embed{ src: "/assets/big_buck_bunny.webm", width: "303", height: "230", autoplay: "false", autoStart: "0"}
+        /%source{ src:"/assets/big_buck_bunny.webm"}
+             
+      /- i = 0
+      /- @top_users.each do |user|
+      /  - if !user.featureimg.nil?
+      /    - i +=1
+      /    .slide
+      /      %a{href:"/users/"+"#{user.slug}"}
+      /        = image_tag user.featureimg.feature_img.url(:large)
+      /  - break if i>=6
     .slider_text_section
-      EDITOR'S PICK
+      EDITOR'S WORK
 
 
   /.index_user_slider

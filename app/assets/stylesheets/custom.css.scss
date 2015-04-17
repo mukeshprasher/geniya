@@ -90,7 +90,7 @@ button { cursor:pointer }
 ul, ol{margin:0; padding:0;}
 /***********************/
 
-header { width:100%; display:block; padding:6px 0px; }
+header { width:100%; display:block; padding: 0px 0px 20px 0; background-color: #292622;}
 
 #cancel-upload, #cancel-album, #cancel, #cancel-ads  {box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2) inset, 0 1px 2px rgba(0, 0, 0, 0.05);display: inline-block;font-size: 13px;margin-left: 14px;line-height: 20px;margin-bottom: 0;padding: 3px 14px;text-align: center;text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);vertical-align: middle;}
 
@@ -245,13 +245,13 @@ nav { display: block; float: left; margin-top: 4px; padding-bottom: 28px; positi
   width: 100%;
 }
 
-.parallax #portfolio_bg { background-attachment: fixed; background-image: url("/assets/parallax.jpg"); background-position: center center; background-repeat: no-repeat; background-size:cover; height: 350px; margin: 0 auto; padding: 60px 0; position: absolute; width: 100%; }
+.parallax #portfolio_bg { background-attachment: fixed; background-image: url("/assets/rock-guitar.jpg"); background-position: center center; background-repeat: no-repeat; background-size:cover; height: 350px; margin: 0 auto; padding: 60px 0; position: absolute; width: 100%; }
 
 #portfolio .column { float:left; width:50%; padding:0px 5% }
 
 #portfolio .column .inner { background:rgba(192,192,192,0.13); padding:60px 5% }
 
-#portfolio .column .title { color:#ff8532; font-size:38px; display:block; text-align:center; font-weight:700; text-transform:uppercase; padding-bottom:45px; line-height:35px; }
+#portfolio .column .title { color:#ffffff; font-size:38px; display:block; text-align:center; font-weight:700; text-transform:uppercase; padding-bottom:45px; line-height:35px; }
 
 #portfolio .view { background: rgba(255,255,255,0.3); border-radius: 25px; font-size: 16px; padding: 8px 25px; cursor:pointer; transition: all 0.5s ease 0s; color: #FFFFFF;  width:160px;   margin: 0 auto;}
 
@@ -2814,13 +2814,7 @@ textarea:focus, input[type="text"]:focus, input[type="password"]:focus, input[ty
   float:left;
   width: 100%;
 background: #ffffff;
-background: -moz-linear-gradient(top,  #ffffff 0%, #efefef 22%, #cdcdcd 51%, #b9b9b9 63%, #8d8d8d 86%, #808080 95%, #7b7b7b 100%); 
-background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(22%,#efefef), color-stop(51%,#cdcdcd), color-stop(63%,#b9b9b9), color-stop(86%,#8d8d8d), color-stop(95%,#808080), color-stop(100%,#7b7b7b));
-background: -webkit-linear-gradient(top,  #ffffff 0%,#efefef 22%,#cdcdcd 51%,#b9b9b9 63%,#8d8d8d 86%,#808080 95%,#7b7b7b 100%);
-background: -o-linear-gradient(top,  #ffffff 0%,#efefef 22%,#cdcdcd 51%,#b9b9b9 63%,#8d8d8d 86%,#808080 95%,#7b7b7b 100%);
-background: -ms-linear-gradient(top,  #ffffff 0%,#efefef 22%,#cdcdcd 51%,#b9b9b9 63%,#8d8d8d 86%,#808080 95%,#7b7b7b 100%);
-background: linear-gradient(to bottom,  #ffffff 0%,#efefef 22%,#cdcdcd 51%,#b9b9b9 63%,#8d8d8d 86%,#808080 95%,#7b7b7b 100%); 
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#7b7b7b',GradientType=0 ); 
+
 }
 .index_user_slide_item{
  float: left;
